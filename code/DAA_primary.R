@@ -59,36 +59,42 @@ run_ancombc_for_variable <- function(tse,comparison,variable,taxa) {
                                                       prevalence=10/100)
   # Subset the TSE to include only samples for the specified groups in the comparison                                                   
   tse_subset <- tse[, colData(tse)$group %in% comparison]
+  print(paste("Subset groups:", paste(comparison, collapse = ", ")))
+  q_col <- paste0("q_", variable, comparison[2]) #q_groupdiet_1_visit_2
+  print(q_col)
   tse_preval <- altExp(tse_subset, "Prevalent")
   #selected assay (prevalent)
   out_taxa <- ancombc2(
-    data = tse_preval, 
-    assay_name = "counts", 
-    tax_level = "taxa", 
-    p_adj_method = "fdr", 
-    prv_cut = 0, 
-    lib_cut = 0, 
-    group = variable, 
-    struc_zero = TRUE, 
-    neg_lb = TRUE, 
-    alpha = 0.05, 
+    data = tse_preval,
+    assay_name = "counts",
+    tax_level = taxa,
+    p_adj_method = "fdr",
+    prv_cut = 0,
+    lib_cut = 0,
+    group = variable,
+    fix_formula = variable,
+    struc_zero = TRUE,
+    neg_lb = TRUE,
+    alpha = 0.05,
     global = FALSE,
-    n_cl = 1, 
+    n_cl = 1,
     verbose = TRUE
   )
-  #q_col <- paste0("q_", variable, "2")
+
   res_taxa <- out_taxa$res
-  # Select columns that contain the variable name
+  # # Select columns that contain the variable name
   df_taxa <- res_taxa %>%
-    dplyr::select(taxon, contains(variable))
-  # Generate appropriate filenames
-  comparison_name <- paste(comparison, collapse = "_vs_")
-  
-  # Save results
-  write.csv(df_taxa, file = paste0(outdir, "ancombc_", taxa, "_results_", comparison_name, ".csv"), row.names = FALSE)
-  saveRDS(res_taxa, file = paste0(outdir, "ancombc_", taxa, "_results_", comparison_name, ".rds"))
+        dplyr::select(taxon, contains(variable))%>%
+        dplyr::arrange(!!sym(q_col))
+  df_taxa_sig <- df_taxa %>% filter(!!sym(q_col) < 0.05)
+  # # Generate appropriate filenames
+   comparison_name <- paste(comparison, collapse = "_vs_")
+  # 
+  # # Save results
+   write.csv(df_taxa, file = paste0(outdir, "ancombc_", taxa, "_results_", comparison_name, ".csv"), row.names = FALSE)
+   write.csv(df_taxa_sig, file = paste0(outdir, "significant_ancombc_", taxa, "_results_", comparison_name, ".csv"), row.names = FALSE)
+   saveRDS(res_taxa, file = paste0(outdir, "ancombc_", taxa, "_results_", comparison_name, ".rds"))
 }
-set.seed(123)
 
 # List of comparisons
 comparisons <- list(
@@ -109,9 +115,8 @@ for (index in indices) {
   lapply(comparisons, function(comp) create_diversity_plot(tse, comp, index,outdir))
 }
 
-
-
-# Loop through each comparison and taxa using lapply
+#ancombc
+set.seed(123)
 results <- lapply(taxa, function(taxa_level) {
   lapply(comparisons, function(comp) {
     run_ancombc_for_variable(tse, comp, variable, taxa_level)
