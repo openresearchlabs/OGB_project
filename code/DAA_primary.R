@@ -23,6 +23,67 @@ library(ANCOMBC)
 tse <- readRDS("../output/tse.Rds")
 
 #alpha diversity
+#calculate stats diversity
+# Function to perform significance testing and plot
+perform_significance_test <- function(tse, comparison, variable, measure) {
+  # Subset the TSE to include only samples for the specified groups in the comparison
+  tse_subset <- tse[, colData(tse)$group %in% comparison]
+  # Ensure there are no NA values in the variable column
+  valid_indices <- complete.cases(colData(tse_subset)[[variable]])
+  tse_sub <- tse_subset[, valid_indices]
+  # Convert colData to a data frame for easier manipulation
+  df <- as.data.frame(colData(tse_sub))
+  # Convert the variable to a factor
+  df[[variable]] <- factor(df[[variable]])
+  # Extract group data for the Wilcoxon test
+  group1 <- df[df[[variable]] == levels(df[[variable]])[1], measure]
+  group2 <- df[df[[variable]] == levels(df[[variable]])[2], measure]
+  # Initialize result container for current comparison
+  result <- data.frame(variable = variable, measure = measure, comparison = paste(comparison, collapse = " vs "), p_value = NA, log2_fold_change = NA, stringsAsFactors = FALSE)
+  # Perform Wilcoxon test only if both groups have enough samples
+  if (length(group1) > 1 & length(group2) > 1) {
+    wilcox_test <- wilcox.test(group1, group2)
+    result$p_value <- wilcox_test$p.value
+    # Calculate means and log2 fold change
+    mean_group1 <- mean(group1, na.rm = TRUE)
+    mean_group2 <- mean(group2, na.rm = TRUE)
+    result$mean_Group1 <- mean_group1
+    result$mean_Group2 <- mean_group2
+    result$log2_fold_change <- log2(mean_group2 / mean_group1)
+
+    comparison_name <- paste(comparison, collapse = "_vs_")
+    result$comparison <- comparison_name
+  }
+  return(result)
+}
+
+# Function to apply the test over all comparisons and measures
+run_diversity_tests <- function(tse, comparisons, variable, indices, outdir) {
+  # Initialize an empty list to store the results
+  all_results <- list()
+  # Loop through each diversity index (e.g., shannon, observed)
+  for (measure in indices) {
+    # Loop through each comparison
+    comparison_results <- lapply(comparisons, function(comp) {
+      # Perform the significance test for the current comparison
+      result <- perform_significance_test(tse, comp, variable, measure)
+      return(result)
+    })
+    # Combine results for this measure across all comparisons
+    comparison_results_df <- do.call(rbind, comparison_results)
+    # Add the current index's result to the overall list
+    all_results[[measure]] <- comparison_results_df
+  }
+  # Combine all the results into one data frame
+  final_results <- do.call(rbind, all_results)
+  # Adjust p-values for multiple testing
+  final_results$p_adjusted <- p.adjust(final_results$p_value, method = "holm")
+  # Save the final merged table to a CSV file
+  write.csv(final_results, file = paste0(outdir, "merged_diversity_results.csv"), row.names = FALSE)
+  return(final_results)
+}
+
+
 # Function to create and save richness plots for specified comparisons and indices
 create_diversity_plot <- function(tse, comparison, index,outdir) {
   # Subset the TSE to include only samples for the specified groups in the comparison
@@ -111,6 +172,10 @@ variable <- "group"
 
 #alpha diversity
 # Loop through indices and comparisons to create and save plots
+final_results <- run_diversity_tests(tse, comparisons, variable, indices, outdir)
+# View the final merged results
+print(final_results)
+
 for (index in indices) {
   lapply(comparisons, function(comp) create_diversity_plot(tse, comp, index,outdir))
 }
