@@ -7,6 +7,9 @@ and subsequently the [differential abundance analysis(DAA)](https://github.com/o
 For the diversity measure we used the observed species (observed) and shannon alpha diversity index (shannon).
 To compare the diversity between 2 group of interest we used wilcoxon.
 
+PCoA plot was also generated based on bray-curtis distance.
+And pairwise comparison was performed using PERMANOVA test. 
+
 The species and genus level data was then subsequently analyzed with ANCOM-BC.
 
 All results can be found in the output directory.
