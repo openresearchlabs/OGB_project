@@ -1,7 +1,7 @@
 # OGB_project
 
 Project collaboration with Prof. Kaisa Linderborg and Enni Mannila.
-In this repository you can find the code to [generate tree Summarized Experiment object](https://github.com/openresearchlabs/OGB_project/blob/main/code/TreeSE.R) 
+In this repository you can find the code to [generate TreeSummarizedExperiment object](https://github.com/openresearchlabs/OGB_project/blob/main/code/TreeSE.R) 
 and subsequently the [differential abundance analysis(DAA)](https://github.com/openresearchlabs/OGB_project/blob/main/code/DAA_primary.R).
 
 For the diversity measure we used the observed species (observed) and shannon alpha diversity index (shannon).
