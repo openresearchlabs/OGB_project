@@ -157,6 +157,38 @@ run_ancombc_for_variable <- function(tse,comparison,variable,taxa) {
    saveRDS(res_taxa, file = paste0(outdir, "ancombc_", taxa, "_results_", comparison_name, ".rds"))
 }
 
+
+#PCOA
+# Perform PCoA
+PCoA_plot <- function(tse, comparison, variable, outdir) {
+  # Subset the TSE to include only samples for the specified groups in the comparison                                                   
+tse_subset <- tse[, colData(tse)$group %in% comparison]
+tse_subset <- runMDS(
+  tse_subset,
+  FUN = getDissimilarity,
+  method = "bray",
+  assay.type = "counts",
+  name = "MDS_bray"
+)
+
+# Create ggplot object
+p <- plotReducedDim(tse_subset, "MDS_bray", colour_by = variable)
+
+# Calculate explained variance
+e <- attr(reducedDim(tse_subset, "MDS_bray"), "eig")
+rel_eig <- e / sum(e[e > 0])
+
+# Add explained variance for each axis
+p1 <- p + labs(
+  x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%", ")", sep = ""),
+  y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%", ")", sep = "")
+)
+p1
+p_ellipse <- p1 + stat_ellipse(aes(color = colour_by), level = 0.95)
+#Save the plot as PDF
+plot_name <- paste0(outdir,"PCoA", "_", comparison[1], "_vs_", comparison[2], ".pdf")
+ggsave(filename = plot_name, plot = p_ellipse, width = 8, height = 6, units = "in")
+}
 # List of comparisons
 comparisons <- list(
   c("diet_1_visit_1", "diet_1_visit_2"),
@@ -179,6 +211,10 @@ print(final_results)
 for (index in indices) {
   lapply(comparisons, function(comp) create_diversity_plot(tse, comp, index,outdir))
 }
+
+#PCoA
+lapply(comparisons, function(comp) PCoA_plot(tse, comp,variable, outdir))
+
 
 #ancombc
 set.seed(123)
