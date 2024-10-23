@@ -52,10 +52,8 @@ tse <- addAlpha(tse, index = c("observed", "shannon"))
 
 #make primary comparison into tse
 # Create a new column for group in colData of the TreeSummarizedExperiment object
-tse$group <- NA  # Initialize the group column with NA values
-
-# Convert colData to a dataframe for easier manipulation
-sample_data <- as.data.frame(colData(tse))
+# Initialize the group column with NA values directly in tse
+tse$group <- NA  
 
 # Define the comparison groups
 comparisons <- list(
@@ -71,21 +69,19 @@ extract_diet_visit <- function(comparison) {
   list(diet = condition[2], visit = condition[4])
 }
 
-# Create a vectorized group assignment
-sample_data$group <- NA
-
+# Assign group labels directly within tse
 for (comp in comparisons) {
   # Extract diet and visit information from the comparisons
   group1_info <- extract_diet_visit(comp[1])
   group2_info <- extract_diet_visit(comp[2])
   
-  # Assign group labels directly based on diet and visit
-  sample_data$group[sample_data$diet == group1_info$diet & sample_data$visit == group1_info$visit] <- comp[1]
-  sample_data$group[sample_data$diet == group2_info$diet & sample_data$visit == group2_info$visit] <- comp[2]
+  # Assign group labels directly in tse object based on diet and visit
+  tse$group[colData(tse)$diet == group1_info$diet & colData(tse)$visit == group1_info$visit] <- comp[1]
+  tse$group[colData(tse)$diet == group2_info$diet & colData(tse)$visit == group2_info$visit] <- comp[2]
 }
 
-# Assign back to tse object
-colData(tse)$group <- sample_data$group
+# Print the group assignments
+print(table(tse$group))
 
 # Save TreeSE object for later use
 saveRDS(tse, file="../output/tse.Rds")
