@@ -84,5 +84,5 @@ for (comp in comparisons) {
 print(table(tse$group))
 
 # Save TreeSE object for later use
-saveRDS(tse, file="../output/tse.Rds")
+saveRDS(tse, file="../data/tse.Rds")
 
