@@ -11,14 +11,21 @@ To run analysis:
 
 2. Clone the repository
 
-```git clone https://github.com/openresearchlabs/OGB_project.git```
+```bash
+git clone https://github.com/openresearchlabs/OGB_project.git
+```
 
 3. Go to the repository
 
-```cd OGB_project```
+```bash
+cd OGB_project
+```
 
 2. Run the code
-```Rscript ./main.R```
+
+```bash
+Rscript ./main.R
+```
 
 
 ### Notes on the analysis:
