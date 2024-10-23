@@ -53,8 +53,11 @@ tse <- addAlpha(tse, index = c("observed", "shannon"))
 #make primary comparison into tse
 # Create a new column for group in colData of the TreeSummarizedExperiment object
 tse$group <- NA  # Initialize the group column with NA values
+
+# Convert colData to a dataframe for easier manipulation
 sample_data <- as.data.frame(colData(tse))
-# Loop through each comparison 
+
+# Define the comparison groups
 comparisons <- list(
   c("diet_1_visit_1", "diet_1_visit_2"),
   c("diet_2_visit_1", "diet_2_visit_2"),
@@ -62,47 +65,27 @@ comparisons <- list(
   c("diet_1_visit_2", "diet_2_visit_2")
 )
 
-# Loop through each comparison to create plots
-for (comp in comparisons) {
-  # Parse comparison conditions
-  condition_1 <- unlist(strsplit(comp[1], "_"))
-  condition_2 <- unlist(strsplit(comp[2], "_"))
-  
-  # Define group labels
-  group1_label <- paste(condition_1, collapse = "_")
-  group2_label <- paste(condition_2, collapse = "_")
-  
-  # Subset sample data for each condition
-  group1_samples <- sample_data %>%
-    filter(diet == condition_1[2] & visit == condition_1[4]) %>%
-    pull(sample)
-  
-  group2_samples <- sample_data %>%
-    filter(diet == condition_2[2] & visit == condition_2[4]) %>%
-    pull(sample)
-  
-  # Print debug information
-  cat("Group 1 Samples:", group1_samples, "\n")
-  cat("Group 2 Samples:", group2_samples, "\n")
-  
-  # Check if group1_samples and group2_samples are empty
-  if (length(group1_samples) == 0) {
-    cat("Warning: No samples found for group1:", group1_label, "\n")
-  }
-  if (length(group2_samples) == 0) {
-    cat("Warning: No samples found for group2:", group2_label, "\n")
-  }
-  
-  # Assign group labels to the corresponding samples in colData
-  if (length(group1_samples) > 0) {
-    tse$group[colData(tse)$sample %in% group1_samples] <- group1_label
-  }
-  if (length(group2_samples) > 0) {
-    tse$group[colData(tse)$sample %in% group2_samples] <- group2_label
-  }
+# Define function to extract diet and visit info
+extract_diet_visit <- function(comparison) {
+  condition <- unlist(strsplit(comparison, "_"))
+  list(diet = condition[2], visit = condition[4])
 }
 
+# Create a vectorized group assignment
+sample_data$group <- NA
 
+for (comp in comparisons) {
+  # Extract diet and visit information from the comparisons
+  group1_info <- extract_diet_visit(comp[1])
+  group2_info <- extract_diet_visit(comp[2])
+  
+  # Assign group labels directly based on diet and visit
+  sample_data$group[sample_data$diet == group1_info$diet & sample_data$visit == group1_info$visit] <- comp[1]
+  sample_data$group[sample_data$diet == group2_info$diet & sample_data$visit == group2_info$visit] <- comp[2]
+}
+
+# Assign back to tse object
+colData(tse)$group <- sample_data$group
 
 # Save TreeSE object for later use
 saveRDS(tse, file="../output/tse.Rds")
