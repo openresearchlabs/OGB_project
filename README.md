@@ -21,7 +21,7 @@ git clone https://github.com/openresearchlabs/OGB_project.git
 cd OGB_project
 ```
 
-2. Run the code
+4. Run the code
 
 ```bash
 Rscript ./main.R
