@@ -22,7 +22,49 @@ library(vegan)
 
 
 #load tse
-tse <- readRDS("../output/tse.Rds")
+#tse_ori <- readRDS("../output/tse.Rds")
+
+#there are some duplicates Id in diet group which prevent the code from performing paired test:
+#to remove, and keep first occurence
+# Function to remove duplicates within specific group categories
+remove_duplicates <- function(tse) {
+  # Extract colData as a data frame for easier manipulation
+  df <- as.data.frame(colData(tse))
+  # Identify groups (assuming 'group' is the column name for group categorization)
+  unique_groups <- unique(df$group)
+  # Initialize a list to store indices of unique samples
+  unique_indices <- c()
+  # Loop through each group to handle duplicates
+  for (group in unique_groups) {
+    # Subset data for the current group
+    group_data <- df[df$group == group, ]
+    # Identify duplicates within the current group
+    duplicates <- group_data[duplicated(group_data$id) | duplicated(group_data$id, fromLast = TRUE), ]
+    if (nrow(duplicates) > 0) {
+      # Print duplicates found in the current group
+      print(paste("Duplicate subjects found in group:", group))
+      print(duplicates)
+      # Select only the first occurrence of each duplicate within the current group
+      unique_subset <- group_data[!duplicated(group_data$id), ]
+      # Alternatively, if you want to select randomly:
+      # unique_subset <- group_data %>% slice_sample(n = 1)
+      # Store the row indices of unique samples
+      unique_indices <- c(unique_indices, rownames(unique_subset))
+    } else {
+      # If no duplicates, keep all samples from the group
+      unique_indices <- c(unique_indices, rownames(group_data))
+    }
+  }
+  
+  # Subset the original TSE object to keep only unique samples
+  tse_unique <- tse[, unique_indices]
+  return(tse_unique)
+}
+
+# Use the function to remove duplicates within specific groups
+tse_filtered <- remove_duplicates_within_groups(tse)
+
+
 
 #FUNCTIONS
 #STEP1 : richness and alpha diversity
@@ -36,26 +78,65 @@ perform_significance_test <- function(tse, comparison, variable, measure) {
   tse_sub <- tse_subset[, valid_indices]
   # Convert colData to a data frame for easier manipulation
   df <- as.data.frame(colData(tse_sub))
+  # Extract diet information for paired/independent comparison decision
+  diet_1 <- strsplit(comparison[1], "_")[[1]][2]
+  diet_2 <- strsplit(comparison[2], "_")[[1]][2]
+  # Determine if test should be paired or independent based on diet
+  paired_test <- diet_1 == diet_2 # Check if diet numbers are the same
   # Convert the variable to a factor
   df[[variable]] <- factor(df[[variable]])
   # Extract group data for the Wilcoxon test
-  group1 <- df[df[[variable]] == levels(df[[variable]])[1], measure]
-  group2 <- df[df[[variable]] == levels(df[[variable]])[2], measure]
+  group1 <- df[df[[variable]] == levels(df[[variable]])[1], ]
+  group2 <- df[df[[variable]] == levels(df[[variable]])[2], ]
+  print(colnames(group1))
   # Initialize result container for current comparison
   result <- data.frame(variable = variable, measure = measure, comparison = paste(comparison, collapse = " vs "), p_value = NA, log2_fold_change = NA, stringsAsFactors = FALSE)
   # Perform Wilcoxon test only if both groups have enough samples
-  if (length(group1) > 1 & length(group2) > 1) {
-    wilcox_test <- wilcox.test(group1, group2)
-    result$p_value <- wilcox_test$p.value
-    # Calculate means and log2 fold change
-    mean_group1 <- mean(group1, na.rm = TRUE)
-    mean_group2 <- mean(group2, na.rm = TRUE)
-    result$mean_Group1 <- mean_group1
-    result$mean_Group2 <- mean_group2
-    result$log2_fold_change <- log2(mean_group2 / mean_group1)
-    comparison_name <- paste(comparison, collapse = "_vs_")
-    result$comparison <- comparison_name
+  if (paired_test) {
+    # For paired tests, find common subjects
+    common_subjects <- intersect(group1$id, group2$id)
+    print(common_subjects)
+    # Filter the groups to include only common subjects
+    # Filter the groups to include only common subjects
+    group1_paired <- group1[group1$id %in% common_subjects, ]
+    group2_paired <- group2[group2$id %in% common_subjects, ]
+    # Check if there are enough paired samples
+    if (nrow(group1_paired) > 0 & nrow(group2_paired) > 0) {
+      # Perform paired Wilcoxon test
+      wilcox_test <- wilcox.test(group1_paired[[measure]], group2_paired[[measure]], paired = TRUE)
+      result$p_value <- wilcox_test$p.value
+      # Calculate means and log2 fold change
+      mean_group1 <- mean(group1_paired[[measure]], na.rm = TRUE)
+      mean_group2 <- mean(group2_paired[[measure]], na.rm = TRUE)
+      result$mean_Group1 <- mean_group1
+      result$mean_Group2 <- mean_group2
+      result$log2_fold_change <- log2(mean_group2 / mean_group1)
+      comparison_name <- paste(comparison, collapse = "_vs_")
+      result$comparison <- comparison_name
+    } else {
+      # If no paired samples are found, print a message
+      message("No paired samples found for comparison: ", paste(comparison, collapse = " vs "))
+    }
+  } else {
+    # For independent tests, check if both groups have enough samples
+    if (nrow(group1) > 0 & nrow(group2) > 0) {
+      # Perform independent Wilcoxon test
+      wilcox_test <- wilcox.test(group1[[measure]], group2[[measure]], paired = FALSE)
+      result$p_value <- wilcox_test$p.value
+      # Calculate means and log2 fold change
+      mean_group1 <- mean(group1[[measure]], na.rm = TRUE)
+      mean_group2 <- mean(group2[[measure]], na.rm = TRUE)
+      result$mean_Group1 <- mean_group1
+      result$mean_Group2 <- mean_group2
+      result$log2_fold_change <- log2(mean_group2 / mean_group1)
+      comparison_name <- paste(comparison, collapse = "_vs_")
+      result$comparison <- comparison_name
+    } else {
+      # If no samples are found, print a message
+      message("No samples found for independent comparison: ", paste(comparison, collapse = " vs "))
+    }
   }
+  
   return(result)
 }
 
@@ -204,6 +285,9 @@ run_ancombc_for_variable <- function(tse,comparison,variable,taxa) {
   q_col <- paste0("q_", variable, comparison[2]) #q_groupdiet_1_visit_2
   print(q_col)
   tse_preval <- altExp(tse_subset, "Prevalent")
+  # Check if this is a repeated-measures comparison (same diet, different visits)
+  same_diet <- strsplit(comparison[1], "_")[[1]][2] == strsplit(comparison[2], "_")[[1]][2]
+  rand_formula <- if (same_diet) "(1|id)" else NULL
   #selected assay (prevalent)
   out_taxa <- ancombc2(
     data = tse_preval,
@@ -213,7 +297,8 @@ run_ancombc_for_variable <- function(tse,comparison,variable,taxa) {
     prv_cut = 0,
     lib_cut = 0,
     group = variable,
-    fix_formula = variable,
+    fix_formula = paste0(variable),
+    rand_formula = rand_formula,
     struc_zero = TRUE,
     neg_lb = TRUE,
     alpha = 0.05,
