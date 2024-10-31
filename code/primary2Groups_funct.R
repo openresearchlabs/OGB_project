@@ -61,11 +61,6 @@ remove_duplicates <- function(tse) {
   return(tse_unique)
 }
 
-# Use the function to remove duplicates within specific groups
-tse_filtered <- remove_duplicates_within_groups(tse)
-
-
-
 #FUNCTIONS
 #STEP1 : richness and alpha diversity
 #calculate stats diversity
