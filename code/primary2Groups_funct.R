@@ -298,6 +298,7 @@ run_ancombc_for_variable <- function(tse,comparison,variable,taxa) {
     neg_lb = TRUE,
     alpha = 0.05,
     global = FALSE,
+    lme_control = lme4::lmerControl(),
     n_cl = 1,
     verbose = TRUE
   )
