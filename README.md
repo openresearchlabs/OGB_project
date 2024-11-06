@@ -5,7 +5,7 @@ In this repository you can find the code to [generate TreeSummarizedExperiment o
 
 The code to run whole analysis can be found in [main.R)](https://github.com/openresearchlabs/OGB_project/blob/main/code/main.R).
 
-To run analysis:ggg
+To run analysis:
 
 1. Make sure you have a directory called "data" which have the information on taxonomic table, and metadata. We will also save our tse object in that directory. Ideally this will point to the Seafile folder where we put the confidential information.
 
