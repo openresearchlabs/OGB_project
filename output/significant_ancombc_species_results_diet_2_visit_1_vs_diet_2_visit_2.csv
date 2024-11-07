@@ -1,2 +1,3 @@
 "taxon","lfc_groupdiet_2_visit_2","se_groupdiet_2_visit_2","W_groupdiet_2_visit_2","p_groupdiet_2_visit_2","q_groupdiet_2_visit_2","diff_groupdiet_2_visit_2","passed_ss_groupdiet_2_visit_2"
-"Granulicatella_SGB8255",1.67629879673142,0.152463502211174,10.9947546292726,2.84376575653539e-07,0.000163516531000785,TRUE,FALSE
+"Granulicatella_SGB8255",1.68068243035559,0.143619564311206,11.7023223013945,1.50533554437761e-07,8.41482569307084e-05,TRUE,FALSE
+"Candidatus_Cibionibacter_quicibialis",-1.16268959563859,0.247416503001983,-4.69932111048095,5.22203109694803e-05,0.0145955769159697,TRUE,TRUE

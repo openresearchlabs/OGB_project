@@ -18,7 +18,7 @@ git clone https://github.com/openresearchlabs/OGB_project.git
 3. Go to the repository
 
 ```bash
-cd OGB_project
+cd OGB_project/code
 ```
 
 4. Run the code
