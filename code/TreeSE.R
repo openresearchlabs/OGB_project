@@ -5,7 +5,7 @@ library(readxl)
 library(dplyr)
 
 # Import metaphlan abundance table as TreeSE object
-metaphlan.file <- "/Users/nb/Documents/GitHub/OGB_project/data/modified_metaphlan_db_meta4_combined_reports.txt" 
+metaphlan.file <- "../data/modified_metaphlan_db_meta4_combined_reports.txt" 
 # Specify file path
 # Import the file as TreeSE
 tse <- importMetaPhlAn(metaphlan.file,
@@ -15,7 +15,7 @@ tse <- importMetaPhlAn(metaphlan.file,
 colnames(tse) <- gsub("(_.*|\\..*)", "", colnames(tse))
 
 # Import sample metadata
-samdf <-  read_excel("/Users/nb/Documents/GitHub/OGB_project/data/metadata.xlsx", sheet = 1, col_names = TRUE)
+samdf <-  read_excel("../data/metadata.xlsx", sheet = 1, col_names = TRUE)
 
 # Convert to a data frame if necessary
 samdf <- as.data.frame(samdf)
@@ -86,4 +86,4 @@ for (comp in comparisons) {
 print(table(tse$group))
 
 # Save TreeSE object for later use
-saveRDS(tse, file="/Users/nb/Documents/GitHub/OGB_project/data/tse.Rds")
+saveRDS(tse, file="../data/tse.Rds")

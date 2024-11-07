@@ -10,13 +10,13 @@
 #Was there a difference in microbiota between the diet groups after the treatment?
 
 #load the functions needed
-source("/Users/nb/Documents/GitHub/OGB_project/code/primary2Groups_funct.R")
+source("./code/primary2Groups_funct.R")
 
 #load or generate tse
-if (file.exists("/Users/nb/Documents/GitHub/OGB_project/data/tse.Rds")) {
-  tse_ori <- readRDS("/Users/nb/Documents/GitHub/OGB_project/data/tse.Rds")
+if (file.exists("../data/tse.Rds")) {
+  tse_ori <- readRDS("../data/tse.Rds")
 } else {
-  source("/Users/nb/Documents/GitHub/OGB_project/code/TreeSE.R")
+  source("./code/TreeSE.R")
 }
 
 # Use the function to remove duplicates across both diet groups
@@ -34,7 +34,7 @@ comparisons <- list(
 # Indices to loop through for alpha diversity plot
 indices <- c("shannon", "observed")
 taxa <- c("genus","species")
-outdir ="/Users/nb/Documents/GitHub/OGB_project/output/"
+outdir ="./output/"
 variable <- "group"
 
 #STEP1: alpha diversity
