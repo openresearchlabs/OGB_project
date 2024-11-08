@@ -11,6 +11,7 @@
 
 #load the functions needed
 source("./code/primary2Groups_funct.R")
+source("./code/mix_model_funct.R")
 
 #load or generate tse
 if (file.exists("../data/tse.Rds")) {
@@ -55,5 +56,28 @@ set.seed(123)
 results <- lapply(taxa, function(taxa_level) {
   lapply(comparisons, function(comp) {
     run_ancombc_for_variable(tse, comp, variable, taxa_level)
+  })
+})
+
+#STEP 4: ancombc mix model 
+#not possible: https://github.com/qiime2/q2-composition/issues/133
+results <- lapply(taxa, function(taxa_level) {
+    run_ancombc_mix(tse,taxa_level)
+  })
+
+
+# STEP 5: Wilcox on taxa
+results <- lapply(taxa, function(taxa_level) {
+  # Loop over comparisons for the current taxa_level
+  lapply(comparisons, function(comp) {
+    # Run the Wilcox test
+    test_result <- wilcox_test_taxa(tse, comp, variable, taxa_level)
+    # Create a file name based on the comparison group
+    comp_name <- paste(comp, collapse = "_vs_")
+    file_name <- paste0("./output/", "wilcox_test_", taxa_level, "_", comp_name, "_results.csv")
+    # Save the result to a CSV file
+    write.csv(test_result, file = file_name, row.names = FALSE)
+    # Return the file name or test result if needed (optional)
+    return(file_name)  # or return(test_result) if you want the result instead
   })
 })
