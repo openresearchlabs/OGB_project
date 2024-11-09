@@ -18,13 +18,13 @@ git clone https://github.com/openresearchlabs/OGB_project.git
 3. Go to the repository
 
 ```bash
-cd OGB_project/code
+cd OGB_project
 ```
 
 4. Run the code
 
 ```bash
-Rscript ./main.R
+Rscript ./code/main.R
 ```
 
 
