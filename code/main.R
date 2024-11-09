@@ -14,8 +14,8 @@ source("./code/primary2Groups_funct.R")
 source("./code/mix_model_funct.R")
 
 #load or generate tse
-if (file.exists("../data/tse.Rds")) {
-  tse_ori <- readRDS("../data/tse.Rds")
+if (file.exists("./data/tse.Rds")) {
+  tse_ori <- readRDS("./data/tse.Rds")
 } else {
   source("./code/TreeSE.R")
 }
