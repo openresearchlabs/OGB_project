@@ -5,24 +5,24 @@ library(readxl)
 library(dplyr)
 
 # Import metaphlan abundance table as TreeSE object
-metaphlan.file <- "../data/metaphlan_db_meta4_combined_reports.txt" # Specify file path
+metaphlan.file <- "../data/modified_metaphlan_db_meta4_combined_reports.txt" 
+# Specify file path
 # Import the file as TreeSE
 tse <- importMetaPhlAn(metaphlan.file,
                        removeTaxaPrefixes=TRUE
-                       ) 
-
+) 
 # Simplify the tse colnames and bring them to same format as in sample metadata
 colnames(tse) <- gsub("(_.*|\\..*)", "", colnames(tse))
 
 # Import sample metadata
-samdf <-  read_excel('../data/metadata.xlsx', sheet = 1, col_names = TRUE)
+samdf <-  read_excel("../data/metadata.xlsx", sheet = 1, col_names = TRUE)
 
 # Convert to a data frame if necessary
 samdf <- as.data.frame(samdf)
 rownames(samdf) <- samdf$sample
 # Group works better as factor
-#samdf$diet <- factor(samdf$diet)
-#samdf$visit <- factor(samdf$visit)
+samdf$diet <- factor(samdf$diet)
+samdf$visit <- factor(samdf$visit)
 samdf$meal_group <- factor(samdf$meal_group)
 samdf$gender <- factor(samdf$gender)
 # Check that the sample data and assay data match by sample names
@@ -33,21 +33,23 @@ colData(tse) <- DataFrame(samdf[colnames(tse),])
 
 #the metaphlan results is essentially relative abundance, so "counts"="relabundance"
 #check with colSums(assay(tse, "counts"))
+colSums(assay(tse, "counts"))
 # removing plasmids
 tse <- tse[grep("plasmid", rowData(tse)[,"kingdom"],
-                                      ignore.case = TRUE, invert = TRUE),]
+                ignore.case = TRUE, invert = TRUE),]
 # Gets a subset of object that includes prevalent taxa, genus level (10% prevalence above 0.1% detection level)
 altExp(tse, "PrevalentGenus") <- agglomerateByPrevalence(tse, rank="genus",
-                                                             other_label="Other",
-                                                             assay.type="counts",
-                                                             detection=0.1/100,
-                                                             prevalence=10/100)
-
-altExp(tse, "PrevalentSpecies") <- agglomerateByPrevalence(tse, rank="species",
                                                          other_label="Other",
                                                          assay.type="counts",
                                                          detection=0.1/100,
-                                                         prevalence=10/100)
+                                                         prevalence=10/100,)
+
+altExp(tse, "PrevalentSpecies") <- agglomerateByPrevalence(tse, rank="species",
+                                                           other_label="Other",
+                                                           assay.type="counts",
+                                                           detection=0.1/100,
+                                                           prevalence=10/100)
+
 tse <- addAlpha(tse, index = c("observed", "shannon"))
 
 #make primary comparison into tse
@@ -85,4 +87,3 @@ print(table(tse$group))
 
 # Save TreeSE object for later use
 saveRDS(tse, file="../data/tse.Rds")
-
