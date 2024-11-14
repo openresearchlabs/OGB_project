@@ -26,7 +26,13 @@ cd OGB_project
 ```bash
 Rscript ./code/main.R
 ```
+5. Run the Quarto document for alpha diversity in RStudio
 
+```bash
+setwd("code")
+library(quarto)
+quarto::quarto_render("Community_composition_and_Alpha_Diversity_Analysis.qmd")
+```
 
 ### Notes on the analysis:
 
