@@ -1,0 +1,99 @@
+---
+title: "Community composition (OGB microbiota project)"
+author: "Nitin Bayal"
+format: html
+editor: visual
+execute:
+  echo: true
+---
+
+## Introduction
+
+This document reports on the OGB microbiota project results of community composition across different diets and visits.
+
+## Setup
+
+```{r data-load, message=FALSE, warning=FALSE}
+# Load necessary libraries
+library(tidyverse)     # Includes ggplot2, dplyr, and readr
+library(TreeSummarizedExperiment)  # For microbiome data analysis
+library(mia)           # Microbiome analysis functions built on TSE
+library(ggpubr)        # For ggplot2-based visualizations
+library(quarto)        # For rendering Quarto documents
+
+tse <- readRDS("../data/tse.Rds")
+tse <- addAlpha(x = tse,assay.type = 'counts',index = c('observed', 'shannon', 'simpson'), niter = 100) # Number of iterations for diversity estimation
+```
+
+## Data Summary
+
+```{r data-summary, message=FALSE, warning=FALSE}
+tse
+```
+
+## Community composition at the phyla level
+
+```{r community-composition-phyla, message=FALSE, warning=FALSE, fig.height= 9, fig.width= 20}
+# Load required libraries
+library(miaViz)
+
+# Computing relative abundance
+tse <- transformAssay(tse, assay.type = "counts", method = "relabundance", group = "phylum")
+
+# Getting top taxa on a Phylum level
+tse <- agglomerateByRank(tse, rank = "phylum")
+top_phyla <- getTop(tse, top = 4, assay.type = "relabundance")
+
+# Renaming the "Phylum" rank to keep only top taxa and the rest to "Other"
+phylum_renamed <- lapply(rowData(tse)$phylum, function(x) {
+    if (x %in% top_phyla) { x } else { "Other" }
+})
+rowData(tse)$phylum_sub <- as.character(phylum_renamed)
+
+# Agglomerate the data based on specified phyla
+tse_phylum <- agglomerateByVariable(tse, by = "rows", f = "phylum_sub")
+
+# Visualization - composition bar plot
+plotAbundance(
+  tse_phylum,
+  assay.type = "relabundance",
+  color_by = "phylum_sub", group = "phylum", order.row.by = "abund"
+) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+## Community composition at the genus level
+
+```{r community-composition-genus, message=FALSE, warning=FALSE, fig.height= 9, fig.width= 20}
+# Load required libraries
+library(mia)
+library(miaViz)
+
+# Load TreeSummarizedExperiment object
+tse <- readRDS("../data/tse.Rds")
+
+# Computing relative abundance
+tse <- transformAssay(tse, assay.type = "counts", method = "relabundance")
+
+# Getting top taxa on a Genus level
+tse <- agglomerateByRank(tse, rank = "genus")
+top_genera <- getTop(tse, top = 10, assay.type = "relabundance")
+
+# Renaming the "Genus" rank to keep only top taxa and the rest to "Other"
+genus_renamed <- lapply(rowData(tse)$genus, function(x) {
+    if (x %in% top_genera) { x } else { "Other" }
+})
+rowData(tse)$genus_sub <- as.character(genus_renamed)
+
+# Agglomerate the data based on specified taxa
+tse_genus <- agglomerateByVariable(tse, by = "rows", f = "genus_sub")
+
+# Visualization - composition bar plot
+plotAbundance(
+  tse_genus,
+  assay.type = "relabundance",
+  color_by = "genus_sub", group = "genus", order.row.by = "abund") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+## 
