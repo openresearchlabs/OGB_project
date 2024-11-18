@@ -66,7 +66,6 @@ plotAbundance(
 
 ```{r community-composition-genus, message=FALSE, warning=FALSE, fig.height= 9, fig.width= 20}
 # Load required libraries
-library(mia)
 library(miaViz)
 
 # Load TreeSummarizedExperiment object
