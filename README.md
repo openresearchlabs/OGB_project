@@ -31,7 +31,8 @@ Rscript ./code/main.R
 ```bash
 setwd("code")
 library(quarto)
-quarto::quarto_render("Community_composition_and_Alpha_Diversity_Analysis.qmd")
+quarto::quarto_render("Community_composition_OGB")
+quarto::quarto_render("Alpha_Diversity_OGB")
 ```
 
 ### Notes on the analysis:
