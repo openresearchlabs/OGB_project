@@ -1,15 +1,3 @@
-#The code contain the list of functions that were needed to conduct the 2 groups comparison
-#based on primary group of interest
-
-#OGB COMPARISONS (PRIMARY)
-#•	diet 1, visit 1	vs. 	diet 1, visit 2
-#•	diet 2, visit 1	vs. 	diet 2, visit 2
-#Did the diet change the microbiota?
-#  •	diet 1, visit 1	vs.	diet 2, visit 1
-#Was the microbiota equal between the diet groups before treatment?
-#  •	diet 1, visit 2	vs.	diet 2, visit 2
-#Was there a difference in microbiota between the diet groups after the treatment?
-
 library(mia)
 library(dplyr)
 library(scater)
@@ -20,17 +8,99 @@ library(multtest)
 library(ANCOMBC)
 library(vegan)
 
+run_ancombc_mix <- function(tse,taxa) {
+  #extract prevalent
+  # Gets a subset of object that includes prevalent taxa, genus level 
+  # (10% prevalence above 0.1% detection level)
+  altExp(tse, "Prevalent") <- agglomerateByPrevalence(tse, rank=taxa,
+                                                      other_label="Other",
+                                                      assay.type="counts",
+                                                      detection=0.1/100,
+                                                      prevalence=10/100)
+  # Subset the TSE to include only samples for the specified groups in the 
+  # comparison                                                   
+  #q_col <- paste0("q_", variable, comparison[2]) #q_groupdiet_1_visit_2
+  #print(q_col)
+  tse_preval <- altExp(tse, "Prevalent")
+  # Ensure diet and visit columns are in character or factor form in 
+  # colData(tse_preval)
+  #colData(tse_preval)$diet <- as.factor(as.character(colData(tse_preval)$diet))
+  #colData(tse_preval)$visit <- as.factor(as.character(colData(tse_preval)$visit))
+  #colData(tse_preval)$id <- as.factor(as.character(colData(tse_preval)$id))
+  #print(colnames(colData(tse_preval)))
+  #the interactions diet *visit cannot be achive with tse object, so try to split
+  # Extract the abundance data
+  abundance_data <- assay(tse_preval, "counts")
+  # Extract the metadata
+  metadata <- as.data.frame(colData(tse_preval))
+  # Ensure diet, visit, and id columns exist and are factors
+  metadata$diet <- as.factor(as.character(metadata$diet))
+  metadata$visit <- as.factor(as.character(metadata$visit))
+  metadata$id <- as.factor(as.character(metadata$id))
+  #selected assay (prevalent)
+  out_taxa <- ancombc2(
+    data = abundance_data,
+    meta_data=metadata,
+    #assay_name = "counts",
+    #tax_level = taxa,
+    p_adj_method = "fdr",
+    prv_cut = 0,
+    lib_cut = 0,
+    group = "diet",
+    fix_formula ="diet * visit",#paste0("diet ", "*" ," visit"),
+    rand_formula = "(1 | id)",
+    lme_control = lme4::lmerControl(),
+    struc_zero = TRUE,
+    neg_lb = TRUE,
+    alpha = 0.05,
+    global = FALSE,
+    n_cl = 1,
+    verbose = TRUE
+  )
+  res_taxa <- out_taxa$res
+  # # Select columns that contain the variable name
+  df_taxa <- res_taxa %>%
+    dplyr::select(taxon, contains("diet"))%>%
+    dplyr::arrange(names(res_taxa)[ncol(res_taxa) - 1])
+  df_taxa_sig <- df_taxa %>% filter(names(df_taxa)[ncol(df_taxa) - 1] < 0.05)
+  # 
+  # # Save results
+  write.csv(df_taxa, file = paste0(outdir, "mix_ancombc_", taxa, "_results_", 
+                                   ".csv"), row.names = FALSE)
+  write.csv(df_taxa_sig, file = paste0(outdir, "mix_significant_ancombc_", 
+                                       taxa, "_results_", ".csv"), 
+            row.names = FALSE)
+  saveRDS(res_taxa, file = paste0(outdir, "mix_ancombc_", taxa, "_results_", 
+                                  ".rds"))
+}
+
+# The following code contain the list of functions that were needed to conduct 
+# the 2 groups comparison
+# based on primary group of interest
+
+# OGB COMPARISONS (PRIMARY)
+#  •	diet 1, visit 1	vs. 	diet 1, visit 2
+#  •	diet 2, visit 1	vs. 	diet 2, visit 2
+# Did the diet change the microbiota?
+#  •	diet 1, visit 1	vs.	diet 2, visit 1
+# Was the microbiota equal between the diet groups before treatment?
+#  •	diet 1, visit 2	vs.	diet 2, visit 2
+# Was there a difference in microbiota between the diet groups after the 
+# treatment?
+
 
 #load tse
 #tse_ori <- readRDS("../output/tse.Rds")
 
-#there are some duplicates Id in diet group which prevent the code from performing paired test:
-#to remove, and keep first occurence
+# There are some duplicates Id in diet group which prevent the code from 
+# performing paired test:
+# to remove, and keep first occurence
 # Function to remove duplicates within specific group categories
 remove_duplicates <- function(tse) {
   # Extract colData as a data frame for easier manipulation
   df <- as.data.frame(colData(tse))
-  # Identify groups (assuming 'group' is the column name for group categorization)
+  # Identify groups (assuming 'group' is the column name for 
+  # group categorization)
   unique_groups <- unique(df$group)
   # Initialize a list to store indices of unique samples
   unique_indices <- c()
@@ -39,12 +109,14 @@ remove_duplicates <- function(tse) {
     # Subset data for the current group
     group_data <- df[df$group == group, ]
     # Identify duplicates within the current group
-    duplicates <- group_data[duplicated(group_data$id) | duplicated(group_data$id, fromLast = TRUE), ]
+    duplicates <- group_data[duplicated(group_data$id) | duplicated(group_data$id, 
+                                                                    fromLast = TRUE), ]
     if (nrow(duplicates) > 0) {
       # Print duplicates found in the current group
       print(paste("Duplicate subjects found in group:", group))
       print(duplicates)
-      # Select only the first occurrence of each duplicate within the current group
+      # Select only the first occurrence of each duplicate within the current 
+      # group
       unique_subset <- group_data[!duplicated(group_data$id), ]
       # Alternatively, if you want to select randomly:
       # unique_subset <- group_data %>% slice_sample(n = 1)
@@ -66,7 +138,8 @@ remove_duplicates <- function(tse) {
 #calculate stats diversity
 # Function to perform significance testing and plot
 perform_significance_test <- function(tse, comparison, variable, measure) {
-  # Subset the TSE to include only samples for the specified groups in the comparison
+  # Subset the TSE to include only samples for the specified groups in the 
+  # comparison
   tse_subset <- tse[, colData(tse)$group %in% comparison]
   # Ensure there are no NA values in the variable column
   valid_indices <- complete.cases(colData(tse_subset)[[variable]])
@@ -85,7 +158,10 @@ perform_significance_test <- function(tse, comparison, variable, measure) {
   group2 <- df[df[[variable]] == levels(df[[variable]])[2], ]
   print(colnames(group1))
   # Initialize result container for current comparison
-  result <- data.frame(variable = variable, measure = measure, comparison = paste(comparison, collapse = " vs "), p_value = NA, log2_fold_change = NA, stringsAsFactors = FALSE)
+  result <- data.frame(variable = variable, measure = measure, 
+                       comparison = paste(comparison, collapse = " vs "), 
+                       p_value = NA, log2_fold_change = NA, 
+                       stringsAsFactors = FALSE)
   # Perform Wilcoxon test only if both groups have enough samples
   if (paired_test) {
     # For paired tests, find common subjects
@@ -98,7 +174,8 @@ perform_significance_test <- function(tse, comparison, variable, measure) {
     # Check if there are enough paired samples
     if (nrow(group1_paired) > 0 & nrow(group2_paired) > 0) {
       # Perform paired Wilcoxon test
-      wilcox_test <- wilcox.test(group1_paired[[measure]], group2_paired[[measure]], paired = TRUE)
+      wilcox_test <- wilcox.test(group1_paired[[measure]], 
+                                 group2_paired[[measure]], paired = TRUE)
       result$p_value <- wilcox_test$p.value
       # Calculate means and log2 fold change
       mean_group1 <- mean(group1_paired[[measure]], na.rm = TRUE)
@@ -110,13 +187,15 @@ perform_significance_test <- function(tse, comparison, variable, measure) {
       result$comparison <- comparison_name
     } else {
       # If no paired samples are found, print a message
-      message("No paired samples found for comparison: ", paste(comparison, collapse = " vs "))
+      message("No paired samples found for comparison: ", 
+              paste(comparison, collapse = " vs "))
     }
   } else {
     # For independent tests, check if both groups have enough samples
     if (nrow(group1) > 0 & nrow(group2) > 0) {
       # Perform independent Wilcoxon test
-      wilcox_test <- wilcox.test(group1[[measure]], group2[[measure]], paired = FALSE)
+      wilcox_test <- wilcox.test(group1[[measure]], group2[[measure]], 
+                                 paired = FALSE)
       result$p_value <- wilcox_test$p.value
       # Calculate means and log2 fold change
       mean_group1 <- mean(group1[[measure]], na.rm = TRUE)
@@ -128,7 +207,8 @@ perform_significance_test <- function(tse, comparison, variable, measure) {
       result$comparison <- comparison_name
     } else {
       # If no samples are found, print a message
-      message("No samples found for independent comparison: ", paste(comparison, collapse = " vs "))
+      message("No samples found for independent comparison: ", 
+              paste(comparison, collapse = " vs "))
     }
   }
   
@@ -155,18 +235,24 @@ run_diversity_tests <- function(tse, comparisons, variable, indices, outdir) {
   # Combine all the results into one data frame
   final_results <- do.call(rbind, all_results)
   # Adjust p-values for multiple testing
-  final_results$p_adjusted <- p.adjust(final_results$p_value, method = "holm")
+  final_results$p_adjusted <- p.adjust(final_results$p_value, 
+                                       method = "holm")
   # Save the final merged table to a CSV file
-  write.csv(final_results, file = paste0(outdir, "merged_diversity_results.csv"), row.names = FALSE)
+  write.csv(final_results, file = paste0(outdir, 
+                                         "merged_diversity_results.csv"), 
+            row.names = FALSE)
   return(final_results)
 }
 
-# Function to create and save richness plots for specified comparisons and indices
+# Function to create and save richness plots for specified comparisons and 
+# indices
 create_diversity_plot <- function(tse, comparison, index,outdir) {
-  # Subset the TSE to include only samples for the specified groups in the comparison
+  # Subset the TSE to include only samples for the specified groups in the 
+  # omparison
   tse_subset <- tse[, colData(tse)$group %in% comparison]
   # Create a name for the plot based on the index and comparison
-  plot_name <- paste0(outdir,index, "_", comparison[1], "_vs_", comparison[2], ".pdf")
+  plot_name <- paste0(outdir,index, "_", comparison[1], "_vs_", 
+                      comparison[2], ".pdf")
   # Create the richness plot
   diversity_plot <- plotColData(
     tse_subset, 
@@ -177,15 +263,18 @@ create_diversity_plot <- function(tse, comparison, index,outdir) {
     geom_signif(comparisons = list(comparison), map_signif_level = FALSE) + 
     theme_bw() + 
     theme(text = element_text(size = 8)) +
-    labs(title = paste(index, "Diversity: ", comparison[1], " vs ", comparison[2]))  
+    labs(title = paste(index, "Diversity: ", comparison[1], " vs ", 
+                       comparison[2]))  
   # Save the plot as PDF
-  ggsave(filename = plot_name, plot = diversity_plot, width = 8, height = 6, units = "in")
+  ggsave(filename = plot_name, plot = diversity_plot, 
+         width = 8, height = 6, units = "in")
 }
 
 #STEP2:PCOA
 # Perform PCoA
 PCoA_plot <- function(tse, comparison, variable, outdir) {
-  # Subset the TSE to include only samples for the specified groups in the comparison                                                   
+  # Subset the TSE to include only samples for the specified groups in the 
+  # comparison                                                   
   tse_subset <- tse[, colData(tse)$group %in% comparison]
   tse_subset <- runMDS(
     tse_subset,
@@ -207,13 +296,16 @@ PCoA_plot <- function(tse, comparison, variable, outdir) {
   p1
   p_ellipse <- p1 + stat_ellipse(aes(color = colour_by), level = 0.95)
   #Save the plot as PDF
-  plot_name <- paste0(outdir,"PCoA", "_", comparison[1], "_vs_", comparison[2], ".pdf")
-  ggsave(filename = plot_name, plot = p_ellipse, width = 8, height = 6, units = "in")
+  plot_name <- paste0(outdir,"PCoA", "_", comparison[1], "_vs_", 
+                      comparison[2], ".pdf")
+  ggsave(filename = plot_name, plot = p_ellipse, 
+         width = 8, height = 6, units = "in")
 }
 
 # Function to perform dbRDA and permanova analysis
 perform_dbrda_permanova <- function(tse, variable,comparison) {
-  # Subset the TSE to include only samples for the specified groups in the comparison                                                   
+  # Subset the TSE to include only samples for the specified groups in the 
+  # comparison                                                   
   tse_subset <- tse[, colData(tse)$group %in% comparison]
   # Find indices of rows with complete data in the specified metadata columns
   valid_indices <- complete.cases(colData(tse_subset)[, variable])
@@ -231,15 +323,18 @@ perform_dbrda_permanova <- function(tse, variable,comparison) {
   }
   
 # Run dbRDA
-  dbrda_result_whole <- dbrda(response_matrix ~ ., data = predictor_matrix, distance = "bray", na.action = na.omit)
+  dbrda_result_whole <- dbrda(response_matrix ~ ., data = predictor_matrix, 
+                              distance = "bray", na.action = na.omit)
   # Perform permutational analysis
-  permanova_whole <- anova.cca(dbrda_result_whole, by = "margin", permutations = 999)
+  permanova_whole <- anova.cca(dbrda_result_whole, by = "margin", 
+                               permutations = 999)
   print(variable)
   print(permanova_whole)
   # Convert the result to a data frame
   permanovaW_df <- as.data.frame(permanova_whole)
   comparison_name <- paste(comparison, collapse = "_vs_")
-  rownames(permanovaW_df) <- c(comparison_name,paste0("Residual",comparison_name))
+  rownames(permanovaW_df) <- c(comparison_name,paste0("Residual",
+                                                      comparison_name))
   permanovaW_df <-t(permanovaW_df)
   return(permanovaW_df)
 }
@@ -254,12 +349,15 @@ run_rdba_tests <- function(tse, comparisons, variable, outdir) {
   for (comp in comparisons) {
     # Perform the significance test for the current comparison
     result <- perform_dbrda_permanova(tse, variable, comp)
-    all_results[[paste(comp, collapse = "_vs_")]] <- result  # Store result with a meaningful name
+    # Store result with a meaningful name
+    all_results[[paste(comp, collapse = "_vs_")]] <- result  
   }
   # Combine results for all comparisons into one data frame
   final_results <- do.call(cbind, all_results)
   # Save the final merged table to a CSV file
-  write.csv(final_results, file = paste0(outdir, "merge_PCoA.csv"), row.names = TRUE)  # Change to TRUE to keep row names
+  write.csv(final_results, file = paste0(outdir, "merge_PCoA.csv"),
+            # Change to TRUE to keep row names
+            row.names = TRUE)  
   return(final_results)
 }
 
@@ -267,14 +365,16 @@ run_rdba_tests <- function(tse, comparisons, variable, outdir) {
 #STEP3 : DAA with ANCOM-BC
 #ancombc
 run_ancombc_for_variable <- function(tse,comparison,variable,taxa) {
-#extract prevalent
-# Gets a subset of object that includes prevalent taxa, genus level (10% prevalence above 0.1% detection level)
+  #extract prevalent
+  # Gets a subset of object that includes prevalent taxa, genus level 
+  # (10% prevalence above 0.1% detection level)
   altExp(tse, "Prevalent") <- agglomerateByPrevalence(tse, rank=taxa,
                                                       other_label="Other",
                                                       assay.type="counts",
                                                       detection=0.1/100,
                                                       prevalence=10/100)
-  # Subset the TSE to include only samples for the specified groups in the comparison                                                   
+  # Subset the TSE to include only samples for the specified groups in the 
+  # comparison                                                   
   tse_subset <- tse[, colData(tse)$group %in% comparison]
   print(paste("Subset groups:", paste(comparison, collapse = ", ")))
   q_col <- paste0("q_", variable, comparison[2]) #q_groupdiet_1_visit_2
@@ -312,9 +412,14 @@ run_ancombc_for_variable <- function(tse,comparison,variable,taxa) {
    comparison_name <- paste(comparison, collapse = "_vs_")
   # 
   # # Save results
-   write.csv(df_taxa, file = paste0(outdir, "ancombc_", taxa, "_results_", comparison_name, ".csv"), row.names = FALSE)
-   write.csv(df_taxa_sig, file = paste0(outdir, "significant_ancombc_", taxa, "_results_", comparison_name, ".csv"), row.names = FALSE)
-   saveRDS(res_taxa, file = paste0(outdir, "ancombc_", taxa, "_results_", comparison_name, ".rds"))
+   write.csv(df_taxa, file = paste0(outdir, "ancombc_", taxa, "_results_", 
+                                    comparison_name, ".csv"), row.names = FALSE)
+   write.csv(df_taxa_sig, file = paste0(outdir, "significant_ancombc_", 
+                                        taxa, "_results_", 
+                                        comparison_name, ".csv"), 
+                                        row.names = FALSE)
+   saveRDS(res_taxa, file = paste0(outdir, "ancombc_", taxa, "_results_", 
+                                   comparison_name, ".rds"))
 }
 
 
@@ -325,7 +430,8 @@ wilcox_test_taxa <- function(tse, comparison, variable, taxa) {
                                                       assay.type="counts",
                                                       detection=0.1/100,
                                                       prevalence=10/100)
-  # Subset the TSE to include only samples for the specified groups in the comparison                                                   
+  # Subset the TSE to include only samples for the specified groups in the 
+  # comparison                                                   
   tse_subset <- tse[, colData(tse)$group %in% comparison]
   # Ensure there are no NA values in the variable column
   valid_indices <- complete.cases(colData(tse_subset)[[variable]])
