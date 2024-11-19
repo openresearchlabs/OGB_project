@@ -10,7 +10,7 @@
 #Was there a difference in microbiota between the diet groups after the treatment?
 
 #load the functions needed
-source("funcs.R")
+source("funct.R")
 
 #load or generate tse
 source("TreeSE.R")
