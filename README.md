@@ -18,15 +18,20 @@ git clone https://github.com/openresearchlabs/OGB_project.git
 3. Go to the repository
 
 ```bash
-cd OGB_project
+cd OGB_project/
 ```
-
-4. Run the code
+4. Navigate to the directory
 
 ```bash
-Rscript ./code/main.R
+cd code/
 ```
-5. Run the Quarto document for alpha diversity in RStudio
+
+5. Run the code
+
+```bash
+Rscript "main.R"
+```
+6. Run the Quarto document for alpha diversity in RStudio
 
 ```bash
 setwd("code")
