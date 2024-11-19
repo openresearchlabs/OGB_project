@@ -9,6 +9,9 @@
 #  •	diet 1, visit 2	vs.	diet 2, visit 2
 #Was there a difference in microbiota between the diet groups after the treatment?
 
+#load the required libraries
+library(quarto)
+
 #load the functions needed
 source("funct.R")
 
@@ -72,3 +75,7 @@ results <- lapply(taxa, function(taxa_level) {
     return(file_name)  # or return(test_result) if you want the result instead
   })
 })
+
+# Render the quarto documents
+quarto::quarto_render("Community_composition_OGB")
+quarto::quarto_render("Alpha_Diversity_OGB")
