@@ -10,19 +10,10 @@
 #Was there a difference in microbiota between the diet groups after the treatment?
 
 #load the functions needed
-source("./code/primary2Groups_funct.R")
-source("./code/mix_model_funct.R")
+source("funcs.R")
 
 #load or generate tse
-if (file.exists("./data/tse.Rds")) {
-  tse_ori <- readRDS("./data/tse.Rds")
-} else {
-  source("./code/TreeSE.R")
-}
-
-# Use the function to remove duplicates across both diet groups
-tse <- remove_duplicates(tse_ori)
-
+source("TreeSE.R")
 
 #RUNNING THE FUNCTIONS
 # List of comparisons
