@@ -60,9 +60,9 @@ run_ancombc_mix <- function(tse,taxa) {
   res_taxa <- out_taxa$res
   # # Select columns that contain the variable name
   df_taxa <- res_taxa %>%
-    dplyr::select(taxon, contains(diet))%>%
-    dplyr::arrange(!!as.name(names(res_taxa)[ncol(res_taxa) - 1]))
-  df_taxa_sig <- df_taxa %>% filter(!!as.name(names(df_taxa)[ncol(df_taxa) - 1]) < 0.05)
+    dplyr::select(taxon, contains("diet"))%>%
+    dplyr::arrange(names(res_taxa)[ncol(res_taxa) - 1])
+  df_taxa_sig <- df_taxa %>% filter(names(df_taxa)[ncol(df_taxa) - 1] < 0.05)
   # 
   # # Save results
   write.csv(df_taxa, file = paste0(outdir, "mix_ancombc_", taxa, "_results_", 
