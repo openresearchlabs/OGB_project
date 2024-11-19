@@ -82,8 +82,11 @@ for (comp in comparisons) {
   tse$group[colData(tse)$diet == group2_info$diet & colData(tse)$visit == group2_info$visit] <- comp[2]
 }
 
+# Use the function to remove duplicates across both diet groups
+tse <- remove_duplicates(tse_ori)
+
 # Print the group assignments
 print(table(tse$group))
 
 # Save TreeSE object for later use
-saveRDS(tse, file="../data/tse.Rds")
+# saveRDS(tse, file="../data/tse.Rds")

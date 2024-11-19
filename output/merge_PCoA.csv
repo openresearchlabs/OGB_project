@@ -1,5 +1,0 @@
-"","diet_1_visit_1_vs_diet_1_visit_2","Residualdiet_1_visit_1_vs_diet_1_visit_2","diet_2_visit_1_vs_diet_2_visit_2","Residualdiet_2_visit_1_vs_diet_2_visit_2","diet_1_visit_1_vs_diet_2_visit_1","Residualdiet_1_visit_1_vs_diet_2_visit_1","diet_1_visit_2_vs_diet_2_visit_2","Residualdiet_1_visit_2_vs_diet_2_visit_2"
-"Df",1,67,1,69,1,69,1,67
-"SumOfSqs",0.105362702198363,17.3957710130417,0.196966696164008,17.9816785656428,0.344016972414614,17.745872026988,0.364524482475577,17.6315775516965
-"F",0.405805585851752,NA,0.755808307088974,NA,1.33761649247266,NA,1.38519314305564,NA
-"Pr(>F)",1,NA,0.87,NA,0.065,NA,0.046,NA
