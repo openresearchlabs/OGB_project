@@ -38,4 +38,5 @@ setwd("code")
 library(quarto)
 quarto::quarto_render("Community_composition_OGB")
 quarto::quarto_render("Alpha_Diversity_OGB")
+quarto::quarto_render("Beta_Diversity_OGB")
 ```
