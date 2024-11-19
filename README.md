@@ -18,15 +18,20 @@ git clone https://github.com/openresearchlabs/OGB_project.git
 3. Go to the repository
 
 ```bash
-cd OGB_project
+cd OGB_project/
 ```
-
-4. Run the code
+4. Navigate to the directory
 
 ```bash
-Rscript ./code/main.R
+cd code/
 ```
-5. Run the Quarto document for alpha diversity in RStudio
+
+5. Run the code
+
+```bash
+Rscript "main.R"
+```
+6. Run the Quarto document for alpha diversity in RStudio
 
 ```bash
 setwd("code")
@@ -35,15 +40,3 @@ quarto::quarto_render("Community_composition_OGB")
 quarto::quarto_render("Alpha_Diversity_OGB")
 quarto::quarto_render("Beta_Diversity_OGB")
 ```
-
-### Notes on the analysis:
-
-For the diversity measure we used the observed species (observed) and shannon alpha diversity index (shannon).
-To compare the diversity between 2 group of interest we used wilcoxon.
-
-PCoA plot was also generated based on bray-curtis distance.
-And pairwise comparison was performed using PERMANOVA test. 
-
-The species and genus level data was then subsequently analyzed with ANCOM-BC.
-
-All results can be found in the output directory.
