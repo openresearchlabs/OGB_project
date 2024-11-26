@@ -1,6 +1,6 @@
 #the code to run all analysis
 
-#OGB COMPARISONS (PRIMARY)
+# COMPARISONS (PRIMARY)
 #•	diet 1, visit 1	vs. 	diet 1, visit 2
 #•	diet 2, visit 1	vs. 	diet 2, visit 2
 #Did the diet change the microbiota?
