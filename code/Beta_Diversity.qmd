@@ -26,7 +26,6 @@ Data Preprocessing
 ```{r}
 # Load and preprocess data
 # tse <- readRDS("../data/tse.Rds")
-source("funct.R")
 source("TreeSE.R")
 tse <- agglomerateByRanks(tse)
 tse <- transformAssay(tse, method = "relabundance")

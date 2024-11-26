@@ -10,6 +10,7 @@
 #Was there a difference in microbiota between the diet groups after the treatment?
 
 #load the functions needed
+source("funct.R")
 
 # setwd("code")
 library(quarto)

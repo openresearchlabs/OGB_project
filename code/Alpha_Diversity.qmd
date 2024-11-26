@@ -23,7 +23,6 @@ library(ggpubr)        # For ggplot2-based visualizations
 library(quarto)        # For rendering Quarto documents
 
 # tse <- readRDS("../data/tse.Rds")
-source("funct.R")
 source("TreeSE.R")
 tse <- addAlpha(x = tse,assay.type = 'counts',index = c('observed', 'shannon', 'simpson'), niter = 100) # Number of iterations for diversity estimation
 ```
