@@ -37,5 +37,7 @@ Generate plots
 
 ```{r}
 # Generate plots
-lapply(comparisons, function(comp) PCoA_plot(tse, comp, variable))
+beta_pcoa <- lapply(comparisons, function(comp) PCoA_plot(tse, comp, variable))
+combined_plot <- wrap_plots(beta_pcoa, nrow = 2)
+combined_plot
 ```

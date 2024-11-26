@@ -7,6 +7,7 @@ library(tidyr)
 library(multtest)
 library(ANCOMBC)
 library(vegan)
+library(patchwork)
 
 # Indices to loop through for alpha diversity plot
 indices <- c("shannon", "observed")
