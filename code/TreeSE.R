@@ -83,7 +83,7 @@ for (comp in comparisons) {
 }
 
 # Use the function to remove duplicates across both diet groups
-tse <- remove_duplicates(tse_ori)
+tse <- remove_duplicates(tse)
 
 # Print the group assignments
 print(table(tse$group))

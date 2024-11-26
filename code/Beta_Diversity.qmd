@@ -1,0 +1,41 @@
+---
+title: "Unsupervised analysis"
+format: html
+editor: visual
+output-dir: ../output
+execute:
+  echo: true
+---
+
+## Community dissimilarity
+
+This document presents the results of the OGB microbiota project, focusing on beta diversity analysis. Specifically, we employed Principal Coordinates Analysis (PCoA) using the Bray-Curtis dissimilarity index to assess community dissimilarity among microbiota samples.
+
+```{r data-load, message=FALSE, warning=FALSE}
+# Load libraries
+library(tidyverse)     
+library(TreeSummarizedExperiment)  
+library(mia)
+library(miaViz)
+library(ggpubr)        
+library(scater)        
+```
+
+Data Preprocessing
+
+```{r}
+# Load and preprocess data
+# tse <- readRDS("../data/tse.Rds")
+source("funct.R")
+source("TreeSE.R")
+tse <- agglomerateByRanks(tse)
+tse <- transformAssay(tse, method = "relabundance")
+tse <- altExp(tse, "species")
+```
+
+Generate plots
+
+```{r}
+# Generate plots
+lapply(comparisons, function(comp) PCoA_plot(tse, comp, variable))
+```

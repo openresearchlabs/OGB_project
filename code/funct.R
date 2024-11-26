@@ -8,6 +8,12 @@ library(multtest)
 library(ANCOMBC)
 library(vegan)
 
+# Indices to loop through for alpha diversity plot
+indices <- c("shannon", "observed")
+taxa <- c("genus","species")
+outdir ="./output/"
+variable <- "group"
+
 run_ancombc_mix <- function(tse,taxa) {
   #extract prevalent
   # Gets a subset of object that includes prevalent taxa, genus level 
@@ -272,7 +278,7 @@ create_diversity_plot <- function(tse, comparison, index,outdir) {
 
 #STEP2:PCOA
 # Perform PCoA
-PCoA_plot <- function(tse, comparison, variable, outdir) {
+PCoA_plot <- function(tse, comparison, variable) {
   # Subset the TSE to include only samples for the specified groups in the 
   # comparison                                                   
   tse_subset <- tse[, colData(tse)$group %in% comparison]
@@ -281,12 +287,12 @@ PCoA_plot <- function(tse, comparison, variable, outdir) {
     FUN = getDissimilarity,
     method = "bray",
     assay.type = "counts",
-    name = "MDS_bray"
+    name = "PCoA_BC"
   )
   # Create ggplot object
-  p <- plotReducedDim(tse_subset, "MDS_bray", colour_by = variable)
+  p <- plotReducedDim(tse_subset, "PCoA_BC", colour_by = variable)
   # Calculate explained variance
-  e <- attr(reducedDim(tse_subset, "MDS_bray"), "eig")
+  e <- attr(reducedDim(tse_subset, "PCoA_BC"), "eig")
   rel_eig <- e / sum(e[e > 0])
   # Add explained variance for each axis
   p1 <- p + labs(
@@ -295,11 +301,12 @@ PCoA_plot <- function(tse, comparison, variable, outdir) {
   )
   p1
   p_ellipse <- p1 + stat_ellipse(aes(color = colour_by), level = 0.95)
+  p_ellipse
   #Save the plot as PDF
-  plot_name <- paste0(outdir,"PCoA", "_", comparison[1], "_vs_", 
-                      comparison[2], ".pdf")
-  ggsave(filename = plot_name, plot = p_ellipse, 
-         width = 8, height = 6, units = "in")
+  # plot_name <- paste0(outdir,"PCoA", "_", comparison[1], "_vs_", 
+  #                     comparison[2], ".pdf")
+  # ggsave(filename = plot_name, plot = p_ellipse, 
+  #        width = 8, height = 6, units = "in")
 }
 
 # Function to perform dbRDA and permanova analysis

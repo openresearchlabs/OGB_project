@@ -1,1 +1,20 @@
-import pandas as pd# Path to the filefile_path = '../data/metaphlan_db_meta4_combined_reports.txt'# Load the data and handle line endingswith open(file_path, 'r', newline='') as f:    data = pd.read_csv(f, sep='\t', engine='python')# Columns to removecolumns_to_remove = ['AK1304', 'PP2368', 'HK2340']# Remove specified columns if they exist in the DataFramedata = data.drop(columns=[col for col in columns_to_remove if col in data.columns])# Save the modified data to the same directoryoutput_path = '../data/modified_metaphlan_db_meta4_combined_reports.txt'data.to_csv(output_path, sep='\t', index=False, line_terminator='\n')print("Columns removed and modified file saved to", output_path)
+import pandas as pd
+
+# Path to the file
+file_path = '../data/metaphlan_db_meta4_combined_reports.txt'
+
+# Load the data and handle line endings
+with open(file_path, 'r', newline='') as f:
+    data = pd.read_csv(f, sep='\t', engine='python')
+
+# Columns to remove
+columns_to_remove = ['AK1304', 'PP2368', 'HK2340']
+
+# Remove specified columns if they exist in the DataFrame
+data = data.drop(columns=[col for col in columns_to_remove if col in data.columns])
+
+# Save the modified data to the same directory
+output_path = '../data/modified_metaphlan_db_meta4_combined_reports.txt'
+data.to_csv(output_path, sep='\t', index=False, line_terminator='\n')
+
+print("Columns removed and modified file saved to", output_path)

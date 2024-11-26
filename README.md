@@ -31,12 +31,3 @@ cd code/
 ```bash
 Rscript "main.R"
 ```
-6. Run the Quarto document for alpha diversity in RStudio
-
-```bash
-setwd("code")
-library(quarto)
-quarto::quarto_render("Community_composition_OGB")
-quarto::quarto_render("Alpha_Diversity_OGB")
-quarto::quarto_render("Beta_Diversity_OGB")
-```
