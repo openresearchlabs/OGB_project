@@ -1,0 +1,103 @@
+---
+title: "Beta diversity"
+format: html
+editor: visual
+output-dir: ../output
+execute:
+  echo: true
+---
+## Unsupervised analysis
+
+### Community dissimilarity
+
+This document presents the results of a microbiota project, focusing on beta 
+diversity analysis. Specifically, in this section,  we employed Principal 
+Coordinates Analysis (PCoA) using the Bray-Curtis dissimilarity index to assess c
+ommunity dissimilarity among microbiota samples.
+
+Groups
+
+```{r message=FALSE, warning = FALSE, echo=FALSE}
+# Load and preprocess data
+# tse <- readRDS("../data/tse.Rds")
+source("funct.R")
+source("data.R")
+tse <- agglomerateByRanks(tse)
+tse <- transformAssay(tse, method = "relabundance")
+tse <- altExp(tse, "species")
+```
+
+PCoA plots
+
+```{r message=FALSE, warning = FALSE, echo=FALSE}
+# Generate plots
+beta_pcoa <- lapply(comparisons, function(comp) PCoA_plot(tse, comp, variable))
+combined_plot <- wrap_plots(beta_pcoa, nrow = 2)
+combined_plot
+```
+
+## Supervised analysis
+
+### dbRDA and permanova analysis
+
+```{r message=FALSE, echo=FALSE}
+library(DT)
+
+final_results_permanova <- run_rdba_tests(tse, comparisons, variable)
+
+datatable(final_results_permanova, options = list(pageLength = 10), caption = "PERMANOVA Results for Different Comparisons")
+```
+
+### Comparison of the microbial community composition between groups
+
+```{r echo=FALSE, warning = FALSE, message=FALSE}
+library(ggpubr)
+library(tidyverse)
+
+
+index <- "shannon"
+group_var <- "group"
+
+# Changes old levels with new levels
+tse$group <- factor(tse$group)
+
+# Calculate p values
+pvals <- pairwise.wilcox.test(
+    tse[[index]], tse[[group_var]], p.adjust.method = "fdr")
+# Put them to data.frame format
+pvals <- pvals[["p.value"]] |>
+    as.data.frame()
+varname <- "group1"
+pvals[[varname]] <- rownames(pvals)
+# To long format
+pvals <- reshape(
+    pvals,
+    direction = "long",
+    varying = colnames(pvals)[ !colnames(pvals) %in% varname ],
+    times = colnames(pvals)[ !colnames(pvals) %in% varname ],
+    v.names = "p",
+    timevar = "group2",
+    idvar = "group1"
+    ) |>
+    na.omit()
+# Add y-axis position
+pvals[["y.position"]] <- apply(pvals, 1, function(x){
+    temp1 <- tse[[index]][ tse[[group_var]] == x[["group1"]] ]
+    temp2 <- tse[[index]][ tse[[group_var]] == x[["group2"]] ]
+    temp <- max( c(temp1, temp2) )
+    return(temp)
+})
+pvals[["y.position"]] <- max(pvals[["y.position"]]) +
+    order(pvals[["y.position"]]) * 0.2
+# Round values
+pvals[["p"]] <- round(pvals[["p"]], 3)
+
+# Create a boxplot
+p <- plotColData(
+    tse, x = group_var, y = index,
+    show_boxplot = TRUE, show_violin = FALSE) +
+    theme(text = element_text(size = 10)) +
+    stat_pvalue_manual(pvals)
+p
+```
+
