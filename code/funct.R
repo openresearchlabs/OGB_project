@@ -285,77 +285,78 @@ create_diversity_plot <- function(tse, comparison, index,outdir) {
 #STEP2:PCOA
 # Perform PCoA
 PCoA_plot <- function(tse, comparison, variable) {
-  # Subset the TSE to include only samples for the specified groups in the 
-  # comparison                                                   
-  tse_subset <- tse[, colData(tse)$group %in% comparison]
-  tse_subset <- runMDS(
-    tse_subset,
-    FUN = getDissimilarity,
-    method = "bray",
-    assay.type = "counts",
-    name = "PCoA_BC"
-  )
-  # Create ggplot object
-  p <- plotReducedDim(tse_subset, "PCoA_BC", colour_by = variable)
-  # Calculate explained variance
-  e <- attr(reducedDim(tse_subset, "PCoA_BC"), "eig")
-  rel_eig <- e / sum(e[e > 0])
-  # Add explained variance for each axis
-  p1 <- p + labs(
-    x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%", ")", sep = ""),
-    y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%", ")", sep = "")
-  )
-  p1
-  p_ellipse <- p1 + stat_ellipse(aes(color = colour_by), level = 0.95)
-  p_ellipse
-  #Save the plot as PDF
-  # plot_name <- paste0(outdir,"PCoA", "_", comparison[1], "_vs_", 
-  #                     comparison[2], ".pdf")
-  # ggsave(filename = plot_name, plot = p_ellipse, 
-  #        width = 8, height = 6, units = "in")
+    # Subset the TSE to include only samples for the specified groups in the 
+    # comparison                                                   
+    tse_subset <- tse[, colData(tse)$group %in% comparison]
+    tse_subset <- runMDS(
+        tse_subset,
+        FUN = getDissimilarity,
+        method = "bray",
+        assay.type = "counts",
+        name = "PCoA_BC"
+    )
+    # Create ggplot object
+    p <- plotReducedDim(tse_subset, "PCoA_BC", colour_by = variable)
+    # Calculate explained variance
+    e <- attr(reducedDim(tse_subset, "PCoA_BC"), "eig")
+    rel_eig <- e / sum(e[e > 0])
+    # Add explained variance for each axis
+    p1 <- p + labs(
+        x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%", ")", sep = ""),
+        y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%", ")", sep = "")
+    )
+    p1
+    p_ellipse <- p1 + stat_ellipse(aes(color = colour_by), level = 0.95)
+    p_ellipse
+    #Save the plot as PDF
+    # plot_name <- paste0(outdir,"PCoA", "_", comparison[1], "_vs_", 
+    #                     comparison[2], ".pdf")
+    # ggsave(filename = plot_name, plot = p_ellipse, 
+    #        width = 8, height = 6, units = "in")
 }
 
 # Function to perform dbRDA and permanova analysis
-perform_dbrda_permanova <- function(tse, variable,comparison) {
-  # Subset the TSE to include only samples for the specified groups in the 
-  # comparison                                                   
-  tse_subset <- tse[, colData(tse)$group %in% comparison]
-  # Find indices of rows with complete data in the specified metadata columns
-  valid_indices <- complete.cases(colData(tse_subset)[, variable])
-  # Subset the tse_transform object to only include rows with complete metadata
-  tse_rda <- tse_subset[, valid_indices]
-  # Extract the data for dbRDA
-  response_matrix <- t(assay(tse_rda, "counts"))
-  # Ensure categorical metadata variables are factors
-  predictor_matrix <- colData(tse_rda)[, variable, drop = FALSE]
-  predictor_matrix[variable] <- lapply(predictor_matrix[variable], as.factor)
-  
-  # Ensure the number of rows match
-  if (nrow(response_matrix) != nrow(predictor_matrix)) {
-    stop("Number of rows in the response matrix and predictor matrix must match.")
-  }
-  
-# Run dbRDA
-  dbrda_result_whole <- dbrda(response_matrix ~ ., data = predictor_matrix, 
-                              distance = "bray", na.action = na.omit)
-  # Perform permutational analysis
-  permanova_whole <- anova.cca(dbrda_result_whole, by = "margin", 
-                               permutations = 999)
-  print(variable)
-  print(permanova_whole)
-  # Convert the result to a data frame
-  permanovaW_df <- as.data.frame(permanova_whole)
-  comparison_name <- paste(comparison, collapse = "_vs_")
-  rownames(permanovaW_df) <- c(comparison_name,paste0("Residual",
-                                                      comparison_name))
-  permanovaW_df <-t(permanovaW_df)
-  return(permanovaW_df)
+perform_dbrda_permanova <- function(tse, variable, comparison) {
+    # Subset the TSE to include only samples for the specified groups in the 
+    # comparison                                                   
+    tse_subset <- tse[, colData(tse)$group %in% comparison]
+    # Find indices of rows with complete data in the specified metadata columns
+    valid_indices <- complete.cases(colData(tse_subset)[, variable])
+    # Subset the tse_transform object to only include rows with complete metadata
+    tse_rda <- tse_subset[, valid_indices]
+    # Extract the data for dbRDA
+    response_matrix <- t(assay(tse_rda, "counts"))
+    # Ensure categorical metadata variables are factors
+    predictor_matrix <- colData(tse_rda)[, variable, drop = FALSE]
+    predictor_matrix[variable] <- lapply(predictor_matrix[variable], as.factor)
+    
+    # Ensure the number of rows match
+    if (nrow(response_matrix) != nrow(predictor_matrix)) {
+        stop("Number of rows in the response matrix and predictor matrix 
+             must match.")
+    }
+    
+    # Run dbRDA
+    dbrda_result_whole <- dbrda(response_matrix ~ ., data = predictor_matrix, 
+                                distance = "bray", na.action = na.omit)
+    # Perform permutational analysis
+    permanova_whole <- anova.cca(dbrda_result_whole, by = "margin", 
+                                 permutations = 999)
+    # print(variable)
+    # print(permanova_whole)
+    # Convert the result to a data frame
+    permanovaW_df <- as.data.frame(permanova_whole)
+    comparison_name <- paste(comparison, collapse = "_vs_")
+    rownames(permanovaW_df) <- c(comparison_name,paste0("Residual_",
+                                                        comparison_name))
+    permanovaW_df <-t(permanovaW_df)
+    return(permanovaW_df)
 }
 
 
 # Function to apply the test over all comparisons and measures
 # Function to apply the test over all comparisons and measures
-run_rdba_tests <- function(tse, comparisons, variable, outdir) {
+run_rdba_tests <- function(tse, comparisons, variable) {
   # Initialize an empty list to store the results
   all_results <- list()
   # Loop through each comparison
@@ -368,10 +369,10 @@ run_rdba_tests <- function(tse, comparisons, variable, outdir) {
   # Combine results for all comparisons into one data frame
   final_results <- do.call(cbind, all_results)
   # Save the final merged table to a CSV file
-  write.csv(final_results, file = paste0(outdir, "merge_PCoA.csv"),
-            # Change to TRUE to keep row names
-            row.names = TRUE)  
-  return(final_results)
+  # write.csv(final_results, file = paste0(outdir, "merge_PCoA.csv"),
+  #           # Change to TRUE to keep row names
+  #           row.names = TRUE)  
+  # return(final_results)
 }
 
 
