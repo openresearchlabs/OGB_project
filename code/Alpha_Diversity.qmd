@@ -2,7 +2,6 @@
 title: "Alpha Diversity"
 author: "Nitin Bayal"
 format: html
-output-dir: ../output
 editor: visual
 execute:
   echo: true
@@ -12,24 +11,36 @@ execute:
 
 This document reports on a microbiota project results of alpha diversity across different diets and visits.
 
-## Setup
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+ #STEP1: alpha diversity
+# # Loop through indices and comparisons to create and save plots
+# final_results <- run_diversity_tests(tse, comparisons, variable, indices, outdir)
+# # View the final merged results
+# print(final_results)
+# for (index in indices) {
+#   lapply(comparisons, function(comp) create_diversity_plot(tse, comp, index,outdir))
+# }
 
-```{r data-load, message=FALSE, warning=FALSE}
+# Define variables
+variable <- "group"  
+```
+
+**Group variable: `r variable`**
+
+```{r data-load, message=FALSE, warning=FALSE, echo=FALSE}
 # tse <- readRDS("../data/tse.Rds")
-source("funct.R")
 source("data.R")
-tse <- addAlpha(x = tse,assay.type = 'counts',index = c('observed', 'shannon', 'simpson'), niter = 100) # Number of iterations for diversity estimation
 ```
 
 ## Data Summary
 
-```{r data-summary, message=FALSE, warning=FALSE}
+```{r data-summary, message=FALSE, warning=FALSE, echo=FALSE}
 tse
 ```
 
 ## Observed Species
 
-```{r observed-species, message=FALSE, warning=FALSE, fig.height= 5, fig.width= 8}
+```{r observed-species, message=FALSE, warning=FALSE, fig.height= 5, fig.width= 8, echo=FALSE}
 
 # Estimate (observed species) richness
 tse <- addAlpha(x = tse, assay.type = "counts", index = c("observed"))
@@ -51,25 +62,24 @@ p <- ggplot(df, aes(x = group, y = observed)) +
     text = element_text(size = 12)
   )
 
-print(p)
+p
 
 ```
 
 ## Group-wise comparisons using Shannon index
 
-```{r group-wise-comparisons-shannon, message=FALSE, warning=FALSE, fig.height= 5, fig.width= 8}
+```{r group-wise-comparisons-shannon, message=FALSE, warning=FALSE, fig.height= 5, fig.width= 8, echo=FALSE}
 
 # Define index and grouping variable
 index <- "shannon"
-group_var <- "group"
 
 # Ensure the grouping variable is a factor
-colData(tse)[[group_var]] <- factor(colData(tse)[[group_var]])
+colData(tse)[[variable]] <- factor(colData(tse)[[variable]])
 
 # Calculate p-values
 pvals <- pairwise.wilcox.test(
   x = colData(tse)[[index]],
-  g = colData(tse)[[group_var]],
+  g = colData(tse)[[variable]],
   p.adjust.method = "fdr"
 )
 
@@ -84,8 +94,8 @@ pvals_long <- pvals_long %>%
   mutate(
     y.position = sapply(1:nrow(.), function(i) {
       max(c(
-        colData(tse)[[index]][colData(tse)[[group_var]] == .$group1[i]],
-        colData(tse)[[index]][colData(tse)[[group_var]] == .$group2[i]]
+        colData(tse)[[index]][colData(tse)[[variable]] == .$group1[i]],
+        colData(tse)[[index]][colData(tse)[[variable]] == .$group2[i]]
       ))
     })
   )
@@ -99,7 +109,7 @@ pvals_long <- pvals_long %>% filter(p < 0.05)
 library(ggplot2)
 df <- as.data.frame(colData(tse))  # Convert colData to a data frame for ggplot2
 
-p <- ggplot(df, aes(x = .data[[group_var]], y = .data[[index]])) +
+p <- ggplot(df, aes(x = .data[[variable]], y = .data[[index]])) +
   geom_boxplot(outlier.shape = NA, alpha = 0.7) +  # Add boxplot
   geom_jitter(width = 0.2, size = 1.5, alpha = 0.8) +  # Add jittered points
   stat_pvalue_manual(pvals_long, label = "p") +  # Add significant p-value annotations
@@ -113,5 +123,54 @@ p <- ggplot(df, aes(x = .data[[group_var]], y = .data[[index]])) +
     text = element_text(size = 12)
   )
 
-print(p)
+p
+```
+
+### Comparison of the microbial community composition between groups
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+library(ggpubr)
+library(tidyverse)
+
+
+index <- "shannon"
+
+# Calculate p values
+pvals <- pairwise.wilcox.test(
+    tse[[index]], tse[[variable]], p.adjust.method = "fdr")
+# Put them to data.frame format
+pvals <- pvals[["p.value"]] |>
+    as.data.frame()
+varname <- "group1"
+pvals[[varname]] <- rownames(pvals)
+# To long format
+pvals <- reshape(
+    pvals,
+    direction = "long",
+    varying = colnames(pvals)[ !colnames(pvals) %in% varname ],
+    times = colnames(pvals)[ !colnames(pvals) %in% varname ],
+    v.names = "p",
+    timevar = "group2",
+    idvar = "group1"
+    ) |>
+    na.omit()
+# Add y-axis position
+pvals[["y.position"]] <- apply(pvals, 1, function(x){
+    temp1 <- tse[[index]][ tse[[variable]] == x[["group1"]] ]
+    temp2 <- tse[[index]][ tse[[variable]] == x[["group2"]] ]
+    temp <- max( c(temp1, temp2) )
+    return(temp)
+})
+pvals[["y.position"]] <- max(pvals[["y.position"]]) +
+    order(pvals[["y.position"]]) * 0.2
+# Round values
+pvals[["p"]] <- round(pvals[["p"]], 3)
+
+# Create a boxplot
+p <- plotColData(
+    tse, x = variable, y = index,
+    show_boxplot = TRUE, show_violin = FALSE) +
+    theme(text = element_text(size = 10)) +
+    stat_pvalue_manual(pvals)
+p
 ```

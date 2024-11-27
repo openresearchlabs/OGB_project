@@ -14,12 +14,6 @@ library(TreeSummarizedExperiment)
 library(tidyverse)
 library(vegan)
 
-# Indices to loop through for alpha diversity plot
-indices <- c("shannon", "observed")
-taxa <- c("genus","species")
-outdir ="./output/"
-variable <- "group"
-
 run_ancombc_mix <- function(tse,taxa) {
   #extract prevalent
   # Gets a subset of object that includes prevalent taxa, genus level 
@@ -106,7 +100,7 @@ run_ancombc_mix <- function(tse,taxa) {
 
 # There are some duplicates Id in diet group which prevent the code from 
 # performing paired test:
-# to remove, and keep first occurence
+# to remove, and keep first occurrence
 # Function to remove duplicates within specific group categories
 remove_duplicates <- function(tse) {
   # Extract colData as a data frame for easier manipulation
@@ -249,10 +243,6 @@ run_diversity_tests <- function(tse, comparisons, variable, indices, outdir) {
   # Adjust p-values for multiple testing
   final_results$p_adjusted <- p.adjust(final_results$p_value, 
                                        method = "holm")
-  # Save the final merged table to a CSV file
-  write.csv(final_results, file = paste0(outdir, 
-                                         "merged_diversity_results.csv"), 
-            row.names = FALSE)
   return(final_results)
 }
 
@@ -277,9 +267,6 @@ create_diversity_plot <- function(tse, comparison, index,outdir) {
     theme(text = element_text(size = 8)) +
     labs(title = paste(index, "Diversity: ", comparison[1], " vs ", 
                        comparison[2]))  
-  # Save the plot as PDF
-  ggsave(filename = plot_name, plot = diversity_plot, 
-         width = 8, height = 6, units = "in")
 }
 
 #STEP2:PCOA
@@ -308,11 +295,6 @@ PCoA_plot <- function(tse, comparison, variable) {
     p1
     p_ellipse <- p1 + stat_ellipse(aes(color = colour_by), level = 0.95)
     p_ellipse
-    #Save the plot as PDF
-    # plot_name <- paste0(outdir,"PCoA", "_", comparison[1], "_vs_", 
-    #                     comparison[2], ".pdf")
-    # ggsave(filename = plot_name, plot = p_ellipse, 
-    #        width = 8, height = 6, units = "in")
 }
 
 # Function to perform dbRDA and permanova analysis
@@ -324,37 +306,43 @@ perform_dbrda_permanova <- function(tse, variable, comparison) {
     valid_indices <- complete.cases(colData(tse_subset)[, variable])
     # Subset the tse_transform object to only include rows with complete metadata
     tse_rda <- tse_subset[, valid_indices]
+    
+    # using mia::getPERMANOVA
+    
+    perm_res <- getPERMANOVA(tse_rda, assay.type = "relabundance", 
+                          formula = X ~ group, 
+                          permutations = 999)
     # Extract the data for dbRDA
-    response_matrix <- t(assay(tse_rda, "counts"))
-    # Ensure categorical metadata variables are factors
-    predictor_matrix <- colData(tse_rda)[, variable, drop = FALSE]
-    predictor_matrix[variable] <- lapply(predictor_matrix[variable], as.factor)
-    
-    # Ensure the number of rows match
-    if (nrow(response_matrix) != nrow(predictor_matrix)) {
-        stop("Number of rows in the response matrix and predictor matrix 
-             must match.")
-    }
-    
-    # Run dbRDA
-    dbrda_result_whole <- dbrda(response_matrix ~ ., data = predictor_matrix, 
-                                distance = "bray", na.action = na.omit)
-    # Perform permutational analysis
-    permanova_whole <- anova.cca(dbrda_result_whole, by = "margin", 
-                                 permutations = 999)
-    # print(variable)
-    # print(permanova_whole)
-    # Convert the result to a data frame
-    permanovaW_df <- as.data.frame(permanova_whole)
-    comparison_name <- paste(comparison, collapse = "_vs_")
-    rownames(permanovaW_df) <- c(comparison_name,paste0("Residual_",
-                                                        comparison_name))
-    permanovaW_df <-t(permanovaW_df)
-    return(permanovaW_df)
+    # response_matrix <- t(assay(tse_rda, "counts"))
+    # # Ensure categorical metadata variables are factors
+    # predictor_matrix <- colData(tse_rda)[, variable, drop = FALSE]
+    # predictor_matrix[variable] <- lapply(predictor_matrix[variable], as.factor)
+    # 
+    # # Ensure the number of rows match
+    # if (nrow(response_matrix) != nrow(predictor_matrix)) {
+    #     stop("Number of rows in the response matrix and predictor matrix 
+    #          must match.")
+    # }
+    # 
+    # # Run dbRDA
+    # dbrda_result_whole <- dbrda(response_matrix ~ ., data = predictor_matrix, 
+    #                             distance = "bray", na.action = na.omit)
+    # # Perform permutational analysis
+    # permanova_whole <- anova.cca(dbrda_result_whole, by = "margin", 
+    #                              permutations = 999)
+    # # print(variable)
+    # # print(permanova_whole)
+    # # Convert the result to a data frame
+    # permanovaW_df <- as.data.frame(permanova_whole)
+    # comparison_name <- paste(comparison, collapse = "_vs_")
+    # rownames(permanovaW_df) <- c(comparison_name,paste0("Residual_",
+    #                                                     comparison_name))
+    # permanovaW_df <-t(permanovaW_df)
+    # return(permanovaW_df)
+    perm_df <- as.data.frame(perm_res)
+    return(perm_df)
 }
 
-
-# Function to apply the test over all comparisons and measures
 # Function to apply the test over all comparisons and measures
 run_rdba_tests <- function(tse, comparisons, variable) {
   # Initialize an empty list to store the results
@@ -367,12 +355,9 @@ run_rdba_tests <- function(tse, comparisons, variable) {
     all_results[[paste(comp, collapse = "_vs_")]] <- result  
   }
   # Combine results for all comparisons into one data frame
-  final_results <- do.call(cbind, all_results)
-  # Save the final merged table to a CSV file
-  # write.csv(final_results, file = paste0(outdir, "merge_PCoA.csv"),
-  #           # Change to TRUE to keep row names
-  #           row.names = TRUE)  
+  # final_results <- do.call(cbind, all_results)
   # return(final_results)
+  return(all_results)
 }
 
 
@@ -474,7 +459,6 @@ wilcox_test_taxa <- function(tse, comparison, variable, taxa) {
     # For paired tests, find common subjects
     common_subjects <- intersect(group1$id, group2$id)
     print(common_subjects)
-    # Filter the groups to include only common subjects
     # Filter the groups to include only common subjects
     group1_paired <- group1[group1$id %in% common_subjects, ]
     group2_paired <- group2[group2$id %in% common_subjects, ]
