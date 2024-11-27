@@ -11,23 +11,13 @@ execute:
 
 This document presents the results of a microbiota project, focusing on beta diversity analysis. Specifically, we employed Principal Coordinates Analysis (PCoA) using the Bray-Curtis dissimilarity index to assess community dissimilarity among microbiota samples.
 
-```{r data-load, message=FALSE, warning=FALSE}
-# Load libraries
-library(tidyverse)     
-library(TreeSummarizedExperiment)  
-library(mia)
-library(miaViz)
-library(ggpubr)        
-library(scater)        
-```
-
 Data Preprocessing
 
 ```{r}
 # Load and preprocess data
 # tse <- readRDS("../data/tse.Rds")
 source("funct.R")
-source("TreeSE.R")
+source("data.R")
 tse <- agglomerateByRanks(tse)
 tse <- transformAssay(tse, method = "relabundance")
 tse <- altExp(tse, "species")

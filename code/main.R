@@ -14,9 +14,15 @@ source("funct.R")
 
 # setwd("code")
 library(quarto)
-quarto::quarto_render("Community_composition.qmd")
-quarto::quarto_render("Alpha_Diversity.qmd")
-quarto::quarto_render("Beta_Diversity.qmd")
+quarto_bin <- quarto::quarto_path()
+# quarto::quarto_render("Community_composition.qmd")
+# quarto::quarto_render("Alpha_Diversity.qmd")
+# quarto::quarto_render("Beta_Diversity.qmd")
+
+# Render the Quarto documents using the CLI path
+system(paste(shQuote(quarto_bin), "render Community_composition.qmd"))
+system(paste(shQuote(quarto_bin), "render Alpha_Diversity.qmd"))
+system(paste(shQuote(quarto_bin), "render Beta_Diversity.qmd"))
 
 # #RUNNING THE FUNCTIONS
 # # List of comparisons

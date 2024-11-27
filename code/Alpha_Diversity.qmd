@@ -15,16 +15,9 @@ This document reports on a microbiota project results of alpha diversity across 
 ## Setup
 
 ```{r data-load, message=FALSE, warning=FALSE}
-# Load necessary libraries
-library(tidyverse)     # Includes ggplot2, dplyr, and readr
-library(TreeSummarizedExperiment)  # For microbiome data analysis
-library(mia)           # Microbiome analysis functions built on TSE
-library(ggpubr)        # For ggplot2-based visualizations
-library(quarto)        # For rendering Quarto documents
-
 # tse <- readRDS("../data/tse.Rds")
 source("funct.R")
-source("TreeSE.R")
+source("data.R")
 tse <- addAlpha(x = tse,assay.type = 'counts',index = c('observed', 'shannon', 'simpson'), niter = 100) # Number of iterations for diversity estimation
 ```
 
