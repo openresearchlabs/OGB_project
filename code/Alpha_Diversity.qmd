@@ -13,14 +13,6 @@ This document reports on a microbiota project results of alpha diversity across 
 
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
  #STEP1: alpha diversity
-# # Loop through indices and comparisons to create and save plots
-# final_results <- run_diversity_tests(tse, comparisons, variable, indices, outdir)
-# # View the final merged results
-# print(final_results)
-# for (index in indices) {
-#   lapply(comparisons, function(comp) create_diversity_plot(tse, comp, index,outdir))
-# }
-
 # Define variables
 variable <- "group"  
 ```
@@ -38,101 +30,23 @@ source("data.R")
 tse
 ```
 
-## Observed Species
+## Richness: Observed species index
 
-```{r observed-species, message=FALSE, warning=FALSE, fig.height= 5, fig.width= 8, echo=FALSE}
+```{r observed-species, message=FALSE, warning=FALSE, echo=FALSE}
 
-# Estimate (observed species) richness
-tse <- addAlpha(x = tse, assay.type = "counts", index = c("observed"))
-
-# Convert colData to a data frame for ggplot2
-df <- as.data.frame(colData(tse))
-
-# Visualization - boxplot with jittered points
-p <- ggplot(df, aes(x = group, y = observed)) +
-  geom_boxplot(outlier.shape = NA, alpha = 0.7) +  # Add boxplot
-  geom_jitter(width = 0.2, size = 1.5, alpha = 0.8) +  # Add jittered points
-  labs(
-    x = "Groups",
-    y = expression(Richness[Observed])
-  ) +
-  theme_minimal() +
-  theme(
-    axis.text.x = element_text(angle = 30, hjust = 1),  # Rotate x-axis labels
-    text = element_text(size = 12)
-  )
-
-p
-
-```
-
-## Group-wise comparisons using Shannon index
-
-```{r group-wise-comparisons-shannon, message=FALSE, warning=FALSE, fig.height= 5, fig.width= 8, echo=FALSE}
-
-# Define index and grouping variable
-index <- "shannon"
-
-# Ensure the grouping variable is a factor
-colData(tse)[[variable]] <- factor(colData(tse)[[variable]])
-
-# Calculate p-values
-pvals <- pairwise.wilcox.test(
-  x = colData(tse)[[index]],
-  g = colData(tse)[[variable]],
-  p.adjust.method = "fdr"
-)
-
-# Convert p-values to a data frame for ggpubr
-pvals_df <- as.data.frame(pvals$p.value)
-pvals_df$group1 <- rownames(pvals_df)
-pvals_long <- pivot_longer(pvals_df, -group1, names_to = "group2", values_to = "p") %>%
-  na.omit()
-
-# Add y-axis position
-pvals_long <- pvals_long %>%
-  mutate(
-    y.position = sapply(1:nrow(.), function(i) {
-      max(c(
-        colData(tse)[[index]][colData(tse)[[variable]] == .$group1[i]],
-        colData(tse)[[index]][colData(tse)[[variable]] == .$group2[i]]
-      ))
-    })
-  )
-pvals_long$y.position <- max(pvals_long$y.position) + seq_len(nrow(pvals_long)) * 0.4
-pvals_long$p <- round(pvals_long$p, 3)
-
-# Filter for significant p-values (p < 0.05)
-pvals_long <- pvals_long %>% filter(p < 0.05)
-
-# Visualization using ggplot2 - boxplot with jitter plot (no color)
-library(ggplot2)
-df <- as.data.frame(colData(tse))  # Convert colData to a data frame for ggplot2
-
-p <- ggplot(df, aes(x = .data[[variable]], y = .data[[index]])) +
-  geom_boxplot(outlier.shape = NA, alpha = 0.7) +  # Add boxplot
-  geom_jitter(width = 0.2, size = 1.5, alpha = 0.8) +  # Add jittered points
-  stat_pvalue_manual(pvals_long, label = "p") +  # Add significant p-value annotations
-  labs(
-    x = "Groups",
-    y = "Shannon Index"
-  ) +
-  theme_minimal() +
-  theme(
-    axis.text.x = element_text(angle = 45, hjust = 1),  # Rotate X-axis labels
-    text = element_text(size = 12)
-  )
-
+p <- plotColData(
+    tse,
+    "observed",
+    variable,
+    colour_by = variable, show_boxplot = TRUE, show_violin = FALSE) +
+    theme(text = element_text(size = 10)) +
+    labs(x = "Groups", y = expression(Richness [Observed]))
 p
 ```
 
-### Comparison of the microbial community composition between groups
+## Group-wise comparisons: Shannon index
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-library(ggpubr)
-library(tidyverse)
-
-
 index <- "shannon"
 
 # Calculate p values
@@ -169,8 +83,17 @@ pvals[["p"]] <- round(pvals[["p"]], 3)
 # Create a boxplot
 p <- plotColData(
     tse, x = variable, y = index,
-    show_boxplot = TRUE, show_violin = FALSE) +
+    show_boxplot = TRUE, show_violin = FALSE, colour_by = variable) +
     theme(text = element_text(size = 10)) +
     stat_pvalue_manual(pvals)
 p
+```
+
+## Table of the top findings
+
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+final_results <- run_diversity_tests(tse, comparisons, variable, indices)
+datatable(final_results, 
+        options = list(pageLength = 10), 
+        caption = paste("Table of the top findings"))
 ```

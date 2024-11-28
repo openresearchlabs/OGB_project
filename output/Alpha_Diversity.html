@@ -34,6 +34,16 @@ ul.task-list li input[type="checkbox"] {
 <script src="Alpha_Diversity_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="Alpha_Diversity_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="Alpha_Diversity_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="Alpha_Diversity_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="Alpha_Diversity_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="Alpha_Diversity_files/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="Alpha_Diversity_files/libs/datatables-binding-0.33/datatables.js"></script>
+<script src="Alpha_Diversity_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="Alpha_Diversity_files/libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="Alpha_Diversity_files/libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="Alpha_Diversity_files/libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="Alpha_Diversity_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="Alpha_Diversity_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 
 
 </head>
@@ -103,31 +113,20 @@ colTree: NULL</code></pre>
 </div>
 </div>
 </section>
-<section id="observed-species" class="level2">
-<h2 class="anchored" data-anchor-id="observed-species">Observed Species</h2>
+<section id="richness-observed-species-index" class="level2">
+<h2 class="anchored" data-anchor-id="richness-observed-species-index">Richness: Observed species index</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Alpha_Diversity_files/figure-html/observed-species-1.png" class="img-fluid figure-img" width="768"></p>
+<p><img src="Alpha_Diversity_files/figure-html/observed-species-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="group-wise-comparisons-using-shannon-index" class="level2">
-<h2 class="anchored" data-anchor-id="group-wise-comparisons-using-shannon-index">Group-wise comparisons using Shannon index</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Alpha_Diversity_files/figure-html/group-wise-comparisons-shannon-1.png" class="img-fluid figure-img" width="768"></p>
-</figure>
-</div>
-</div>
-</div>
-<section id="comparison-of-the-microbial-community-composition-between-groups" class="level3">
-<h3 class="anchored" data-anchor-id="comparison-of-the-microbial-community-composition-between-groups">Comparison of the microbial community composition between groups</h3>
+<section id="group-wise-comparisons-shannon-index" class="level2">
+<h2 class="anchored" data-anchor-id="group-wise-comparisons-shannon-index">Group-wise comparisons: Shannon index</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -138,6 +137,14 @@ colTree: NULL</code></pre>
 </div>
 </div>
 </section>
+<section id="table-of-the-top-findings" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-the-top-findings">Table of the top findings</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-c360729062c7211a8c38" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-c360729062c7211a8c38">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of the top findings<\/caption>","data":[["shannon.1","shannon.2","shannon.3","shannon.4","observed.1","observed.2","observed.3","observed.4"],["group","group","group","group","group","group","group","group"],["shannon","shannon","shannon","shannon","observed","observed","observed","observed"],["diet_1_visit_1_vs_diet_1_visit_2","diet_2_visit_1_vs_diet_2_visit_2","diet_1_visit_1_vs_diet_2_visit_1","diet_1_visit_2_vs_diet_2_visit_2","diet_1_visit_1_vs_diet_1_visit_2","diet_2_visit_1_vs_diet_2_visit_2","diet_1_visit_1_vs_diet_2_visit_1","diet_1_visit_2_vs_diet_2_visit_2"],[0.1383226671023295,0.06997089827200416,0.375011653614183,0.04788306277380355,0.1207438497804105,0.3592080399394039,0.1379008972676964,0.05217309354509959],[-0.02310805321370148,0.02390307648291639,0.01825363901314371,0.05895906661380886,-0.03549544950721826,0.01738669650544904,0.1331917684955535,0.1717237061409872],[3.977519839220914,4.010597159718873,3.973277969415678,3.914318292267001,212.1347058823529,230.3491428571429,211.0345714285714,206.9791176470588],[3.914318292267001,4.077599665205093,4.023869079759073,4.077599665205093,206.9791176470588,233.142,231.4452777777778,233.142],[0.6037192489020528,0.419825389632025,0.7184160798788078,0.3830645021904284,0.6037192489020528,0.7184160798788078,0.6037192489020528,0.3830645021904284]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>variable<\/th>\n      <th>measure<\/th>\n      <th>comparison<\/th>\n      <th>p_value<\/th>\n      <th>log2_fold_change<\/th>\n      <th>mean_Group1<\/th>\n      <th>mean_Group2<\/th>\n      <th>p_adjusted<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[4,5,6,7,8]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"variable","targets":1},{"name":"measure","targets":2},{"name":"comparison","targets":3},{"name":"p_value","targets":4},{"name":"log2_fold_change","targets":5},{"name":"mean_Group1","targets":6},{"name":"mean_Group2","targets":7},{"name":"p_adjusted","targets":8}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
 </section>
 
 </main>

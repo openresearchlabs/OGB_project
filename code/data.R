@@ -9,21 +9,6 @@ variable <- "group"
 
 source("funct.R")
 
-# #STEP3: ancombc
-# set.seed(123)
-# results <- lapply(taxa, function(taxa_level) {
-#   lapply(comparisons, function(comp) {
-#     run_ancombc_for_variable(tse, comp, variable, taxa_level)
-#   })
-# })
-# 
-# #STEP 4: ancombc mix model 
-# #not possible: https://github.com/qiime2/q2-composition/issues/133
-# results <- lapply(taxa, function(taxa_level) {
-#     run_ancombc_mix(tse,taxa_level)
-#   })
-# 
-# 
 # # STEP 5: Wilcox on taxa
 # results <- lapply(taxa, function(taxa_level) {
 #   # Loop over comparisons for the current taxa_level
@@ -132,6 +117,34 @@ tse <- addAlpha(x = tse,assay.type = 'counts',
                 niter = 100) 
 # Changes old levels with new levels
 tse$group <- factor(tse$group)
+
+# Getting top taxa on a Phylum level
+top_phyla <- getTop(altExp(tse, "phylum"), top = 4, assay.type = "relabundance")
+
+# Renaming the "Phylum" rank to keep only top taxa and the rest to "Other"
+phylum_renamed <- lapply(rowData(altExp(tse, "phylum"))$phylum, function(x) {
+  if (x %in% top_phyla) { x } else { "Other" }
+})
+rowData(altExp(tse, "phylum"))$phylum_sub <- as.character(phylum_renamed)
+
+# Agglomerate the data based on specified phyla
+tse_phylum <- agglomerateByVariable(altExp(tse, "phylum"), 
+                                    by = "rows", 
+                                    f = "phylum_sub")
+
+# Getting top taxa on a Genus level
+top_genera <- getTop(altExp(tse, "genus"), top = 10, assay.type = "relabundance")
+
+# Renaming the "Genus" rank to keep only top taxa and the rest to "Other"
+genus_renamed <- lapply(rowData(altExp(tse, "genus"))$genus, function(x) {
+  if (x %in% top_genera) { x } else { "Other" }
+})
+rowData(altExp(tse, "genus"))$genus_sub <- as.character(genus_renamed)
+
+# Agglomerate the data based on specified taxa
+tse_genus <- agglomerateByVariable(altExp(tse, "genus"), 
+                                   by = "rows", 
+                                   f = "genus_sub")
 
 # Print the group assignments
 print(table(tse$group))

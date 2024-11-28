@@ -1,5 +1,6 @@
 library(ANCOMBC)
 library(dplyr)
+library(DT)
 library(ggplot2)
 library(ggpubr)
 library(ggsignif)
@@ -20,7 +21,7 @@ run_ancombc_mix <- function(tse,taxa) {
   # (10% prevalence above 0.1% detection level)
   altExp(tse, "Prevalent") <- agglomerateByPrevalence(tse, rank=taxa,
                                                       other_label="Other",
-                                                      assay.type="counts",
+                                                      assay.type="relabundance",
                                                       detection=0.1/100,
                                                       prevalence=10/100)
   # Subset the TSE to include only samples for the specified groups in the 
@@ -36,7 +37,7 @@ run_ancombc_mix <- function(tse,taxa) {
   #print(colnames(colData(tse_preval)))
   #the interactions diet *visit cannot be achive with tse object, so try to split
   # Extract the abundance data
-  abundance_data <- assay(tse_preval, "counts")
+  abundance_data <- assay(tse_preval, "relabundance")
   # Extract the metadata
   metadata <- as.data.frame(colData(tse_preval))
   # Ensure diet, visit, and id columns exist and are factors
@@ -61,23 +62,15 @@ run_ancombc_mix <- function(tse,taxa) {
     alpha = 0.05,
     global = FALSE,
     n_cl = 1,
-    verbose = TRUE
+    verbose = FALSE
   )
   res_taxa <- out_taxa$res
   # # Select columns that contain the variable name
   df_taxa <- res_taxa %>%
     dplyr::select(taxon, contains("diet"))%>%
-    dplyr::arrange(names(res_taxa)[ncol(res_taxa) - 1])
-  df_taxa_sig <- df_taxa %>% filter(names(df_taxa)[ncol(df_taxa) - 1] < 0.05)
-  # 
-  # # Save results
-  write.csv(df_taxa, file = paste0(outdir, "mix_ancombc_", taxa, "_results_", 
-                                   ".csv"), row.names = FALSE)
-  write.csv(df_taxa_sig, file = paste0(outdir, "mix_significant_ancombc_", 
-                                       taxa, "_results_", ".csv"), 
-            row.names = FALSE)
-  saveRDS(res_taxa, file = paste0(outdir, "mix_ancombc_", taxa, "_results_", 
-                                  ".rds"))
+    dplyr::arrange(names(res_taxa)[ncol(res_taxa) - 4])
+  df_taxa_sig <- df_taxa %>% filter(names(df_taxa)[ncol(df_taxa) - 4] < 0.05)
+  return(df_taxa_sig)
 }
 
 # The following code contain the list of functions that were needed to conduct 
@@ -162,7 +155,7 @@ perform_significance_test <- function(tse, comparison, variable, measure) {
   # Extract group data for the Wilcoxon test
   group1 <- df[df[[variable]] == levels(df[[variable]])[1], ]
   group2 <- df[df[[variable]] == levels(df[[variable]])[2], ]
-  print(colnames(group1))
+  # print(colnames(group1))
   # Initialize result container for current comparison
   result <- data.frame(variable = variable, measure = measure, 
                        comparison = paste(comparison, collapse = " vs "), 
@@ -172,7 +165,7 @@ perform_significance_test <- function(tse, comparison, variable, measure) {
   if (paired_test) {
     # For paired tests, find common subjects
     common_subjects <- intersect(group1$id, group2$id)
-    print(common_subjects)
+    # print(common_subjects)
     # Filter the groups to include only common subjects
     # Filter the groups to include only common subjects
     group1_paired <- group1[group1$id %in% common_subjects, ]
@@ -222,7 +215,7 @@ perform_significance_test <- function(tse, comparison, variable, measure) {
 }
 
 # Function to apply the test over all comparisons and measures
-run_diversity_tests <- function(tse, comparisons, variable, indices, outdir) {
+run_diversity_tests <- function(tse, comparisons, variable, indices) {
   # Initialize an empty list to store the results
   all_results <- list()
   # Loop through each diversity index (e.g., shannon, observed)
@@ -248,16 +241,14 @@ run_diversity_tests <- function(tse, comparisons, variable, indices, outdir) {
 
 # Function to create and save richness plots for specified comparisons and 
 # indices
-create_diversity_plot <- function(tse, comparison, index,outdir) {
+create_diversity_plot <- function(tse, comparison, index) {
   # Subset the TSE to include only samples for the specified groups in the 
-  # omparison
-  tse_subset <- tse[, colData(tse)$group %in% comparison]
+  # comparison
+  # tse_subset <- tse[, colData(tse)$group %in% comparison]
   # Create a name for the plot based on the index and comparison
-  plot_name <- paste0(outdir,index, "_", comparison[1], "_vs_", 
-                      comparison[2], ".pdf")
   # Create the richness plot
   diversity_plot <- plotColData(
-    tse_subset, 
+    tse, 
     y = index, 
     x = "group",
     colour_by = "group",show_boxplot = TRUE, show_violin = FALSE
@@ -266,7 +257,8 @@ create_diversity_plot <- function(tse, comparison, index,outdir) {
     theme_bw() + 
     theme(text = element_text(size = 8)) +
     labs(title = paste(index, "Diversity: ", comparison[1], " vs ", 
-                       comparison[2]))  
+                       comparison[2])) 
+  return(diversity_plot)
 }
 
 #STEP2:PCOA
@@ -274,27 +266,36 @@ create_diversity_plot <- function(tse, comparison, index,outdir) {
 PCoA_plot <- function(tse, comparison, variable) {
     # Subset the TSE to include only samples for the specified groups in the 
     # comparison                                                   
-    tse_subset <- tse[, colData(tse)$group %in% comparison]
-    tse_subset <- runMDS(
-        tse_subset,
+    #tse_subset <- tse[, colData(tse)$group %in% comparison]
+  
+    tse <- runMDS(
+        tse,
         FUN = getDissimilarity,
         method = "bray",
         assay.type = "counts",
         name = "PCoA_BC"
     )
-    # Create ggplot object
-    p <- plotReducedDim(tse_subset, "PCoA_BC", colour_by = variable)
     # Calculate explained variance
-    e <- attr(reducedDim(tse_subset, "PCoA_BC"), "eig")
+    e <- attr(reducedDim(tse, "PCoA_BC"), "eig")
     rel_eig <- e / sum(e[e > 0])
-    # Add explained variance for each axis
-    p1 <- p + labs(
-        x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%", ")", sep = ""),
-        y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%", ")", sep = "")
-    )
-    p1
-    p_ellipse <- p1 + stat_ellipse(aes(color = colour_by), level = 0.95)
-    p_ellipse
+
+    # Loop over each comparison
+    for (comp in comparisons) {
+      # Subset the TSE for the specified groups in the comparison
+      tse_subset <- tse[, tse$group %in% comp]
+      
+      # Create the PCoA plot
+      p <- plotReducedDim(tse_subset, "PCoA_BC", colour_by = variable)
+      
+      # Add explained variance for axes
+      p1 <- p + labs(
+        x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
+        y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
+      )
+      # Add ellipses for groups
+      p_ellipse <- p1 + stat_ellipse(aes(color = tse_subset$group), level = 0.95)
+      print(p_ellipse)
+    }
 }
 
 # Function to perform dbRDA and permanova analysis
@@ -312,33 +313,6 @@ perform_dbrda_permanova <- function(tse, variable, comparison) {
     perm_res <- getPERMANOVA(tse_rda, assay.type = "relabundance", 
                           formula = X ~ group, 
                           permutations = 999)
-    # Extract the data for dbRDA
-    # response_matrix <- t(assay(tse_rda, "counts"))
-    # # Ensure categorical metadata variables are factors
-    # predictor_matrix <- colData(tse_rda)[, variable, drop = FALSE]
-    # predictor_matrix[variable] <- lapply(predictor_matrix[variable], as.factor)
-    # 
-    # # Ensure the number of rows match
-    # if (nrow(response_matrix) != nrow(predictor_matrix)) {
-    #     stop("Number of rows in the response matrix and predictor matrix 
-    #          must match.")
-    # }
-    # 
-    # # Run dbRDA
-    # dbrda_result_whole <- dbrda(response_matrix ~ ., data = predictor_matrix, 
-    #                             distance = "bray", na.action = na.omit)
-    # # Perform permutational analysis
-    # permanova_whole <- anova.cca(dbrda_result_whole, by = "margin", 
-    #                              permutations = 999)
-    # # print(variable)
-    # # print(permanova_whole)
-    # # Convert the result to a data frame
-    # permanovaW_df <- as.data.frame(permanova_whole)
-    # comparison_name <- paste(comparison, collapse = "_vs_")
-    # rownames(permanovaW_df) <- c(comparison_name,paste0("Residual_",
-    #                                                     comparison_name))
-    # permanovaW_df <-t(permanovaW_df)
-    # return(permanovaW_df)
     perm_df <- as.data.frame(perm_res)
     return(perm_df)
 }
@@ -354,9 +328,6 @@ run_rdba_tests <- function(tse, comparisons, variable) {
     # Store result with a meaningful name
     all_results[[paste(comp, collapse = "_vs_")]] <- result  
   }
-  # Combine results for all comparisons into one data frame
-  # final_results <- do.call(cbind, all_results)
-  # return(final_results)
   return(all_results)
 }
 
@@ -369,15 +340,15 @@ run_ancombc_for_variable <- function(tse,comparison,variable,taxa) {
   # (10% prevalence above 0.1% detection level)
   altExp(tse, "Prevalent") <- agglomerateByPrevalence(tse, rank=taxa,
                                                       other_label="Other",
-                                                      assay.type="counts",
+                                                      assay.type="relabundance",
                                                       detection=0.1/100,
                                                       prevalence=10/100)
   # Subset the TSE to include only samples for the specified groups in the 
   # comparison                                                   
   tse_subset <- tse[, colData(tse)$group %in% comparison]
-  print(paste("Subset groups:", paste(comparison, collapse = ", ")))
+  # print(paste("Subset groups:", paste(comparison, collapse = ", ")))
   q_col <- paste0("q_", variable, comparison[2]) #q_groupdiet_1_visit_2
-  print(q_col)
+  # print(q_col)
   tse_preval <- altExp(tse_subset, "Prevalent")
   # Check if this is a repeated-measures comparison (same diet, different visits)
   same_diet <- strsplit(comparison[1], "_")[[1]][2] == strsplit(comparison[2], "_")[[1]][2]
@@ -385,7 +356,7 @@ run_ancombc_for_variable <- function(tse,comparison,variable,taxa) {
   #selected assay (prevalent)
   out_taxa <- ancombc2(
     data = tse_preval,
-    assay_name = "counts",
+    assay_name = "relabundance",
     tax_level = taxa,
     p_adj_method = "fdr",
     prv_cut = 0,
@@ -399,7 +370,7 @@ run_ancombc_for_variable <- function(tse,comparison,variable,taxa) {
     global = FALSE,
     lme_control = lme4::lmerControl(),
     n_cl = 1,
-    verbose = TRUE
+    verbose = FALSE
   )
   res_taxa <- out_taxa$res
   # # Select columns that contain the variable name
@@ -409,16 +380,7 @@ run_ancombc_for_variable <- function(tse,comparison,variable,taxa) {
   df_taxa_sig <- df_taxa %>% filter(!!sym(q_col) < 0.05)
   # # Generate appropriate filenames
    comparison_name <- paste(comparison, collapse = "_vs_")
-  # 
-  # # Save results
-   write.csv(df_taxa, file = paste0(outdir, "ancombc_", taxa, "_results_", 
-                                    comparison_name, ".csv"), row.names = FALSE)
-   write.csv(df_taxa_sig, file = paste0(outdir, "significant_ancombc_", 
-                                        taxa, "_results_", 
-                                        comparison_name, ".csv"), 
-                                        row.names = FALSE)
-   saveRDS(res_taxa, file = paste0(outdir, "ancombc_", taxa, "_results_", 
-                                   comparison_name, ".rds"))
+  return(df_taxa_sig)
 }
 
 
