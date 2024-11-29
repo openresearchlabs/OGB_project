@@ -17,7 +17,7 @@ quarto_bin <- quarto::quarto_path()
 # quarto::quarto_render("Beta_Diversity.qmd")
 
 # Render the qmd using quarto cli
-system(paste(shQuote(quarto_bin), "render Alpha_Diversity.qmd --output-dir ../output"))
-system(paste(shQuote(quarto_bin), "render Beta_Diversity.qmd --output-dir ../output"))
-system(paste(shQuote(quarto_bin), "render DAA.qmd --output-dir ../output"))
+system(paste(shQuote(quarto_bin), "render alpha.qmd --output-dir ../output"))
+system(paste(shQuote(quarto_bin), "render beta.qmd --output-dir ../output"))
+system(paste(shQuote(quarto_bin), "render daa.qmd --output-dir ../output"))
 
