@@ -4,35 +4,33 @@ author: "Nitin Bayal"
 format: html
 editor: visual
 execute:
-  echo: true
+  echo: false
+  warning: false
+  message: false
 ---
 
 ## Introduction
 
 This document reports on a microbiota project results of alpha diversity across different diets and visits.
-
-```{r message=FALSE, warning=FALSE, echo=FALSE}
+```{r variable}
  #STEP1: alpha diversity
 # Define variables
 variable <- "group"  
 ```
 
 **Group variable: `r variable`**
-
-```{r data-load, message=FALSE, warning=FALSE, echo=FALSE}
+```{r data-load}
 # tse <- readRDS("../data/tse.Rds")
 source("data.R")
 ```
 
 ## Data Summary
-
-```{r data-summary, message=FALSE, warning=FALSE, echo=FALSE}
+```{r data-summary}
 tse
 ```
 
 ## Richness: Observed species index
-
-```{r observed-species, message=FALSE, warning=FALSE, echo=FALSE}
+```{r observed-species}
 
 p <- plotColData(
     tse,
@@ -45,11 +43,10 @@ p
 ```
 
 ## Group-wise comparisons: Shannon index
-
-```{r echo=FALSE, warning=FALSE, message=FALSE}
+```{r shannon-index}
 index <- "shannon"
 
-# Calculate p values
+# Calculate p-values
 pvals <- pairwise.wilcox.test(
     tse[[index]], tse[[variable]], p.adjust.method = "fdr")
 # Put them to data.frame format
@@ -90,8 +87,7 @@ p
 ```
 
 ## Table of the top findings
-
-```{r echo=FALSE, warning=FALSE, message=FALSE}
+```{r table-of-findings}
 final_results <- run_diversity_tests(tse, comparisons, variable, indices)
 datatable(final_results, 
         options = list(pageLength = 10), 

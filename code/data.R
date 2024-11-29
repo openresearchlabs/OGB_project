@@ -128,7 +128,7 @@ phylum_renamed <- lapply(rowData(altExp(tse, "phylum"))$phylum, function(x) {
 rowData(altExp(tse, "phylum"))$phylum_sub <- as.character(phylum_renamed)
 
 # Agglomerate the data based on specified phyla
-tse_phylum <- agglomerateByVariable(altExp(tse, "phylum"), 
+altExp(tse, "phylum") <- agglomerateByVariable(altExp(tse, "phylum"), 
                                     by = "rows", 
                                     f = "phylum_sub")
 
@@ -142,7 +142,7 @@ genus_renamed <- lapply(rowData(altExp(tse, "genus"))$genus, function(x) {
 rowData(altExp(tse, "genus"))$genus_sub <- as.character(genus_renamed)
 
 # Agglomerate the data based on specified taxa
-tse_genus <- agglomerateByVariable(altExp(tse, "genus"), 
+altExp(tse, "genus") <- agglomerateByVariable(altExp(tse, "genus"), 
                                    by = "rows", 
                                    f = "genus_sub")
 

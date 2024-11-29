@@ -10,7 +10,9 @@ format:
       nrow: 2
 editor: visual
 execute:
-  echo: true
+  echo: false
+  warning: false
+  message: false
 ---
 
 ## Community composition
@@ -19,39 +21,38 @@ This section reports on a microbiota project results of community composition ac
 
 **Groups**
 
-```{r data-load, message=FALSE, warning=FALSE, echo=FALSE}
-# tse <- readRDS("../data/tse.Rds")
+```{r data-load}
 source("data.R")
 ```
 
-## Data Summary
+### Data Summary
 
-```{r data-summary, message=FALSE, warning=FALSE}
+```{r data-summary}
 tse
 ```
 
-## Community composition at the phyla level
+### Community composition at the phyla level
 
-```{r community-composition-phyla, message=FALSE, warning=FALSE, fig.height= 9, fig.width= 20, echo=FALSE}
+```{r community-composition-phyla, fig.height= 9, fig.width= 20, echo=FALSE}
 
 # Visualization - composition bar plot
 plotAbundance(
-  tse_phylum,
+  altExp(tse, "phylum"),
   assay.type = "relabundance",
-  color_by = "phylum_sub", group = "phylum", order.row.by = "abund"
+  color.by = "phylum_sub", group = "phylum", order.row.by = "abund"
 ) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
-## Community composition at the genus level
+### Community composition at the genus level
 
-```{r community-composition-genus, message=FALSE, warning=FALSE, fig.height= 9, fig.width= 20, echo=FALSE}
+```{r community-composition-genus, fig.height= 9, fig.width= 20, echo=FALSE}
 
 # Visualization - composition bar plot
 plotAbundance(
-  tse_genus,
+  altExp(tse, "genus"),
   assay.type = "relabundance",
-  color_by = "genus_sub", group = "genus", order.row.by = "abund") +
+  color.by = "genus_sub", group = "genus", order.row.by = "abund") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
@@ -65,7 +66,7 @@ This document presents the results of a microbiota project, focusing on beta div
 # #STEP2: PCoA
 # Define variables
 tax.level <- "species"
-dissimilarity.index <- "Bray-Curtis"
+dissimilarity.index <- "bray"
 variable <- "group"  
 ```
 
@@ -77,7 +78,7 @@ variable <- "group"
 
 PCoA plots
 
-```{r, fig.show="hold", message=FALSE, warning=FALSE, echo=FALSE}
+```{r pcoa-plots, fig.show="hold"}
 # Generate plots
 beta_pcoa <- PCoA_plot(altExp(tse, tax.level), comparisons, variable)
  #combined_plot <- wrap_plots(beta_pcoa, nrow = 2)
@@ -87,9 +88,9 @@ beta_pcoa
 
 ## Supervised analysis
 
-### dbRDA and permanova analysis
+### Permanova analysis
 
-```{r message=FALSE, echo=FALSE}
+```{r permanova}
 
 final_results_permanova <- run_rdba_tests(tse, comparisons, variable)
 l <- names(final_results_permanova)

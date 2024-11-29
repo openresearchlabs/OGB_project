@@ -9,15 +9,6 @@
 #  •	diet 1, visit 2	vs.	diet 2, visit 2
 #Was there a difference in microbiota between the diet groups after the treatment?
 
-# #RUNNING THE FUNCTIONS
-# # List of comparisons
-# comparisons <- list(
-#   c("diet_1_visit_1", "diet_1_visit_2"),
-#   c("diet_2_visit_1", "diet_2_visit_2"),
-#   c("diet_1_visit_1", "diet_2_visit_1"),
-#   c("diet_1_visit_2", "diet_2_visit_2")
-# )
-
 # setwd("code")
 library(quarto)
 quarto_bin <- quarto::quarto_path()
