@@ -72,12 +72,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="unsupervised-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="unsupervised-analysis">Unsupervised analysis</h2>
-<section id="community-dissimilarity" class="level3">
-<h3 class="anchored" data-anchor-id="community-dissimilarity">Community dissimilarity</h3>
-<p>This document presents the results of a microbiota project, focusing on beta diversity analysis. Specifically, in this section, we employed Principal Coordinates Analysis (PCoA) using the Bray-Curtis dissimilarity index to assess c ommunity dissimilarity among microbiota samples.</p>
-<p>Groups</p>
+<section id="community-composition" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="community-composition"><span class="header-section-number">1</span> Community composition</h2>
+<p>This section reports on a microbiota project results of community composition across different diets and visits.</p>
+<p><strong>Groups</strong></p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -85,38 +83,117 @@ diet_1_visit_1 diet_1_visit_2 diet_2_visit_1 diet_2_visit_2
             35             34             36             35 </code></pre>
 </div>
 </div>
+<section id="data-summary" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="data-summary"><span class="header-section-number">1.1</span> Data Summary</h3>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>class: TreeSummarizedExperiment 
+dim: 1700 140 
+metadata(0):
+assays(2): counts relabundance
+rownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921
+rowData names(9): kingdom phylum ... strain clade_name
+colnames(140): AE1332 AK1371 ... TS2358 VK2336
+colData names(11): sample id ... shannon simpson
+reducedDimNames(0):
+mainExpName: NULL
+altExpNames(10): PrevalentGenus PrevalentSpecies ... species strain
+rowLinks: NULL
+rowTree: NULL
+colLinks: NULL
+colTree: NULL</code></pre>
+</div>
+</div>
+</section>
+<section id="community-composition-at-the-phyla-level" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="community-composition-at-the-phyla-level"><span class="header-section-number">1.2</span> Community composition at the phyla level</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Beta_Diversity_files/figure-html/community-composition-phyla-1.png" class="img-fluid figure-img" width="1920"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="community-composition-at-the-genus-level" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="community-composition-at-the-genus-level"><span class="header-section-number">1.3</span> Community composition at the genus level</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Beta_Diversity_files/figure-html/community-composition-genus-1.png" class="img-fluid figure-img" width="1920"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="unsupervised-analysis" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="unsupervised-analysis"><span class="header-section-number">2</span> Unsupervised analysis</h2>
+<section id="community-dissimilarity" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="community-dissimilarity"><span class="header-section-number">2.1</span> Community dissimilarity</h3>
+<p>This document presents the results of a microbiota project, focusing on beta diversity analysis. Specifically, in this section, we employed Principal Coordinates Analysis (PCoA) to assess community dissimilarity among microbiota samples.</p>
+<p><strong>Taxonomic level: species</strong></p>
+<p><strong>Dissimilarity index: bray</strong></p>
+<p><strong>Group variable: group</strong></p>
 <p>PCoA plots</p>
 <div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Beta_Diversity_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Beta_Diversity_files/figure-html/pcoa-plots-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Beta_Diversity_files/figure-html/pcoa-plots-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Beta_Diversity_files/figure-html/pcoa-plots-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Beta_Diversity_files/figure-html/pcoa-plots-4.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="supervised-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="supervised-analysis">Supervised analysis</h2>
-<section id="dbrda-and-permanova-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="dbrda-and-permanova-analysis">dbRDA and permanova analysis</h3>
+<section id="supervised-analysis" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="supervised-analysis"><span class="header-section-number">3</span> Supervised analysis</h2>
+<section id="permanova-analysis" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="permanova-analysis"><span class="header-section-number">3.1</span> Permanova analysis</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-63849a9820d2a79ad705" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-63849a9820d2a79ad705">{"x":{"filter":"none","vertical":false,"caption":"<caption>PERMANOVA Results for Different Comparisons<\/caption>","data":[["Df","SumOfSqs","F","Pr(&gt;F)"],[1,0.1005394677390061,0.4246750389610059,0.999],[67,15.86187960326985,null,null],[1,0.1804761468806184,0.7545871854659935,0.846],[69,16.50286987987007,null,null],[1,0.3448842687430194,1.469340414389779,0.038],[69,16.19571224626752,null,null],[1,0.3231561549951465,1.339069362478807,0.068],[67,16.1690372368724,null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>diet_1_visit_1_vs_diet_1_visit_2<\/th>\n      <th>Residual_diet_1_visit_1_vs_diet_1_visit_2<\/th>\n      <th>diet_2_visit_1_vs_diet_2_visit_2<\/th>\n      <th>Residual_diet_2_visit_1_vs_diet_2_visit_2<\/th>\n      <th>diet_1_visit_1_vs_diet_2_visit_1<\/th>\n      <th>Residual_diet_1_visit_1_vs_diet_2_visit_1<\/th>\n      <th>diet_1_visit_2_vs_diet_2_visit_2<\/th>\n      <th>Residual_diet_1_visit_2_vs_diet_2_visit_2<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"diet_1_visit_1_vs_diet_1_visit_2","targets":1},{"name":"Residual_diet_1_visit_1_vs_diet_1_visit_2","targets":2},{"name":"diet_2_visit_1_vs_diet_2_visit_2","targets":3},{"name":"Residual_diet_2_visit_1_vs_diet_2_visit_2","targets":4},{"name":"diet_1_visit_1_vs_diet_2_visit_1","targets":5},{"name":"Residual_diet_1_visit_1_vs_diet_2_visit_1","targets":6},{"name":"diet_1_visit_2_vs_diet_2_visit_2","targets":7},{"name":"Residual_diet_1_visit_2_vs_diet_2_visit_2","targets":8}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-bdfbbaa4159cfeee6a48" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-bdfbbaa4159cfeee6a48">{"x":{"filter":"none","vertical":false,"caption":"<caption>Results for Group: diet_1_visit_1_vs_diet_1_visit_2<\/caption>","data":[["group","Residual","Total"],[1,67,68],[0.1053627016457277,17.39577125387153,17.50113395551726],[0.006020335705876473,0.9939796642941235,1],[0.4058055781052345,null,null],[1,null,null],[1,1,1],[0.0009973530379337851,0.0009973530379337851,0.0009973530379337851],[0.0009973530379337851,0.0009973530379337851,0.0009973530379337851],[0.2413760297024398,0.2413760297024398,0.2413760297024398],[999,999,999],[0.645,0.645,0.645],[0.2778378231705328,0.2778378231705328,0.2778378231705328],[0.003589694975840724,0.003589694975840724,0.003589694975840724]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>permanova.Df<\/th>\n      <th>permanova.SumOfSqs<\/th>\n      <th>permanova.R2<\/th>\n      <th>permanova.F<\/th>\n      <th>permanova.Pr..F.<\/th>\n      <th>homogeneity.Df<\/th>\n      <th>homogeneity.Sum.Sq<\/th>\n      <th>homogeneity.Mean.Sq<\/th>\n      <th>homogeneity.F<\/th>\n      <th>homogeneity.N.Perm<\/th>\n      <th>homogeneity.Pr..F.<\/th>\n      <th>homogeneity.Total.variance<\/th>\n      <th>homogeneity.Explained.variance<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"permanova.Df","targets":1},{"name":"permanova.SumOfSqs","targets":2},{"name":"permanova.R2","targets":3},{"name":"permanova.F","targets":4},{"name":"permanova.Pr..F.","targets":5},{"name":"homogeneity.Df","targets":6},{"name":"homogeneity.Sum.Sq","targets":7},{"name":"homogeneity.Mean.Sq","targets":8},{"name":"homogeneity.F","targets":9},{"name":"homogeneity.N.Perm","targets":10},{"name":"homogeneity.Pr..F.","targets":11},{"name":"homogeneity.Total.variance","targets":12},{"name":"homogeneity.Explained.variance","targets":13}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
-</div>
-</section>
-<section id="comparison-of-the-microbial-community-composition-between-groups" class="level3">
-<h3 class="anchored" data-anchor-id="comparison-of-the-microbial-community-composition-between-groups">Comparison of the microbial community composition between groups</h3>
-<div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Beta_Diversity_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-f80198a9328da0e58c6b" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f80198a9328da0e58c6b">{"x":{"filter":"none","vertical":false,"caption":"<caption>Results for Group: diet_2_visit_1_vs_diet_2_visit_2<\/caption>","data":[["group","Residual","Total"],[1,69,70],[0.1969667330411866,17.98167886196674,18.17864559500793],[0.01083506095169576,0.9891649390483043,1],[0.7558084361403947,null,null],[0.859,null,null],[1,1,1],[0.0002476041499701154,0.0002476041499701154,0.0002476041499701154],[0.0002476041499701154,0.0002476041499701154,0.0002476041499701154],[0.05202234668413103,0.05202234668413103,0.05202234668413103],[999,999,999],[0.836,0.836,0.836],[0.3286581322576823,0.3286581322576823,0.3286581322576823],[0.0007533790454817743,0.0007533790454817743,0.0007533790454817743]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>permanova.Df<\/th>\n      <th>permanova.SumOfSqs<\/th>\n      <th>permanova.R2<\/th>\n      <th>permanova.F<\/th>\n      <th>permanova.Pr..F.<\/th>\n      <th>homogeneity.Df<\/th>\n      <th>homogeneity.Sum.Sq<\/th>\n      <th>homogeneity.Mean.Sq<\/th>\n      <th>homogeneity.F<\/th>\n      <th>homogeneity.N.Perm<\/th>\n      <th>homogeneity.Pr..F.<\/th>\n      <th>homogeneity.Total.variance<\/th>\n      <th>homogeneity.Explained.variance<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"permanova.Df","targets":1},{"name":"permanova.SumOfSqs","targets":2},{"name":"permanova.R2","targets":3},{"name":"permanova.F","targets":4},{"name":"permanova.Pr..F.","targets":5},{"name":"homogeneity.Df","targets":6},{"name":"homogeneity.Sum.Sq","targets":7},{"name":"homogeneity.Mean.Sq","targets":8},{"name":"homogeneity.F","targets":9},{"name":"homogeneity.N.Perm","targets":10},{"name":"homogeneity.Pr..F.","targets":11},{"name":"homogeneity.Total.variance","targets":12},{"name":"homogeneity.Explained.variance","targets":13}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-d7292a97a813af23933b" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d7292a97a813af23933b">{"x":{"filter":"none","vertical":false,"caption":"<caption>Results for Group: diet_1_visit_1_vs_diet_2_visit_1<\/caption>","data":[["group","Residual","Total"],[1,69,70],[0.3440170100300186,17.74587228891362,18.08988929894365],[0.01901708763082963,0.98098291236917,1],[1.337616618986974,null,null],[0.065,null,null],[1,1,1],[0.0001087986377390271,0.0001087986377390271,0.0001087986377390271],[0.0001087986377390271,0.0001087986377390271,0.0001087986377390271],[0.02436442650501059,0.02436442650501059,0.02436442650501059],[999,999,999],[0.869,0.869,0.869],[0.3082262912636795,0.3082262912636795,0.3082262912636795],[0.0003529829895203608,0.0003529829895203608,0.0003529829895203608]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>permanova.Df<\/th>\n      <th>permanova.SumOfSqs<\/th>\n      <th>permanova.R2<\/th>\n      <th>permanova.F<\/th>\n      <th>permanova.Pr..F.<\/th>\n      <th>homogeneity.Df<\/th>\n      <th>homogeneity.Sum.Sq<\/th>\n      <th>homogeneity.Mean.Sq<\/th>\n      <th>homogeneity.F<\/th>\n      <th>homogeneity.N.Perm<\/th>\n      <th>homogeneity.Pr..F.<\/th>\n      <th>homogeneity.Total.variance<\/th>\n      <th>homogeneity.Explained.variance<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"permanova.Df","targets":1},{"name":"permanova.SumOfSqs","targets":2},{"name":"permanova.R2","targets":3},{"name":"permanova.F","targets":4},{"name":"permanova.Pr..F.","targets":5},{"name":"homogeneity.Df","targets":6},{"name":"homogeneity.Sum.Sq","targets":7},{"name":"homogeneity.Mean.Sq","targets":8},{"name":"homogeneity.F","targets":9},{"name":"homogeneity.N.Perm","targets":10},{"name":"homogeneity.Pr..F.","targets":11},{"name":"homogeneity.Total.variance","targets":12},{"name":"homogeneity.Explained.variance","targets":13}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-66b0b42b89444b12d67c" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-66b0b42b89444b12d67c">{"x":{"filter":"none","vertical":false,"caption":"<caption>Results for Group: diet_1_visit_2_vs_diet_2_visit_2<\/caption>","data":[["group","Residual","Total"],[1,67,68],[0.364524471708858,17.63157782692465,17.99610229863351],[0.02025574569758571,0.9797442543024141,1],[1.385193080519297,null,null],[0.054,null,null],[1,1,1],[3.342141606080456e-05,3.342141606080456e-05,3.342141606080456e-05],[3.342141606080456e-05,3.342141606080456e-05,3.342141606080456e-05],[0.007516395456425753,0.007516395456425753,0.007516395456425753],[999,999,999],[0.929,0.929,0.929],[0.2979468147513712,0.2979468147513712,0.2979468147513712],[0.0001121724227483145,0.0001121724227483145,0.0001121724227483145]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>permanova.Df<\/th>\n      <th>permanova.SumOfSqs<\/th>\n      <th>permanova.R2<\/th>\n      <th>permanova.F<\/th>\n      <th>permanova.Pr..F.<\/th>\n      <th>homogeneity.Df<\/th>\n      <th>homogeneity.Sum.Sq<\/th>\n      <th>homogeneity.Mean.Sq<\/th>\n      <th>homogeneity.F<\/th>\n      <th>homogeneity.N.Perm<\/th>\n      <th>homogeneity.Pr..F.<\/th>\n      <th>homogeneity.Total.variance<\/th>\n      <th>homogeneity.Explained.variance<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"permanova.Df","targets":1},{"name":"permanova.SumOfSqs","targets":2},{"name":"permanova.R2","targets":3},{"name":"permanova.F","targets":4},{"name":"permanova.Pr..F.","targets":5},{"name":"homogeneity.Df","targets":6},{"name":"homogeneity.Sum.Sq","targets":7},{"name":"homogeneity.Mean.Sq","targets":8},{"name":"homogeneity.F","targets":9},{"name":"homogeneity.N.Perm","targets":10},{"name":"homogeneity.Pr..F.","targets":11},{"name":"homogeneity.Total.variance","targets":12},{"name":"homogeneity.Explained.variance","targets":13}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>

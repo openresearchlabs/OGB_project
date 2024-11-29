@@ -1,8 +1,30 @@
-library(mia)
-library(TreeSummarizedExperiment)
 library(stringr)
 library(readxl)
-library(dplyr)
+
+# Indices to loop through for alpha diversity plot
+indices <- c("shannon", "observed")
+taxa <- c("genus","species")
+outdir ="./output/"
+variable <- "group"
+
+source("funct.R")
+
+# # STEP 5: Wilcox on taxa
+# results <- lapply(taxa, function(taxa_level) {
+#   # Loop over comparisons for the current taxa_level
+#   lapply(comparisons, function(comp) {
+#     # Run the Wilcox test
+#     test_result <- wilcox_test_taxa(tse, comp, variable, taxa_level)
+#     # Create a file name based on the comparison group
+#     comp_name <- paste(comp, collapse = "_vs_")
+#     file_name <- paste0("./output/", "wilcox_test_", taxa_level, "_", comp_name, "_results.csv")
+#     # Save the result to a CSV file
+#     write.csv(test_result, file = file_name, row.names = FALSE)
+#     # Return the file name or test result if needed (optional)
+#     return(file_name)  # or return(test_result) if you want the result instead
+#   })
+# })
+
 
 # Import metaphlan abundance table as TreeSE object
 metaphlan.file <- "../data/modified_metaphlan_db_meta4_combined_reports.txt" 
@@ -82,8 +104,47 @@ for (comp in comparisons) {
   tse$group[colData(tse)$diet == group2_info$diet & colData(tse)$visit == group2_info$visit] <- comp[2]
 }
 
+# There are some duplicates Id in diet group which prevent the code from 
+# performing paired test:
+# to remove, and keep first occurrence
+# Function to remove duplicates within specific group categories
 # Use the function to remove duplicates across both diet groups
 tse <- remove_duplicates(tse)
+tse <- transformAssay(tse, method = "relabundance")
+tse <- agglomerateByRanks(tse)
+tse <- addAlpha(x = tse,assay.type = 'counts',
+                index = c('observed', 'shannon', 'simpson'), 
+                niter = 100) 
+# Changes old levels with new levels
+tse$group <- factor(tse$group)
+
+# Getting top taxa on a Phylum level
+top_phyla <- getTop(altExp(tse, "phylum"), top = 4, assay.type = "relabundance")
+
+# Renaming the "Phylum" rank to keep only top taxa and the rest to "Other"
+phylum_renamed <- lapply(rowData(altExp(tse, "phylum"))$phylum, function(x) {
+  if (x %in% top_phyla) { x } else { "Other" }
+})
+rowData(altExp(tse, "phylum"))$phylum_sub <- as.character(phylum_renamed)
+
+# Agglomerate the data based on specified phyla
+altExp(tse, "phylum") <- agglomerateByVariable(altExp(tse, "phylum"), 
+                                    by = "rows", 
+                                    f = "phylum_sub")
+
+# Getting top taxa on a Genus level
+top_genera <- getTop(altExp(tse, "genus"), top = 10, assay.type = "relabundance")
+
+# Renaming the "Genus" rank to keep only top taxa and the rest to "Other"
+genus_renamed <- lapply(rowData(altExp(tse, "genus"))$genus, function(x) {
+  if (x %in% top_genera) { x } else { "Other" }
+})
+rowData(altExp(tse, "genus"))$genus_sub <- as.character(genus_renamed)
+
+# Agglomerate the data based on specified taxa
+altExp(tse, "genus") <- agglomerateByVariable(altExp(tse, "genus"), 
+                                   by = "rows", 
+                                   f = "genus_sub")
 
 # Print the group assignments
 print(table(tse$group))
