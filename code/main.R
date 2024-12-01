@@ -11,6 +11,8 @@
 
 # setwd("code")
 library(quarto)
+#load the functions needed
+source("funct.R")
 quarto_bin <- quarto::quarto_path()
 # quarto::quarto_render("Community_composition.qmd")
 # quarto::quarto_render("Alpha_Diversity.qmd")
@@ -21,3 +23,20 @@ system(paste(shQuote(quarto_bin), "render alpha.qmd --output-dir ../output"))
 system(paste(shQuote(quarto_bin), "render beta.qmd --output-dir ../output"))
 system(paste(shQuote(quarto_bin), "render daa.qmd --output-dir ../output"))
 
+#RUNNING THE FUNCTIONS
+# List of comparisons
+comparisons <- list(
+  c("diet_1_visit_1", "diet_1_visit_2"),
+  c("diet_2_visit_1", "diet_2_visit_2"),
+  c("diet_1_visit_1", "diet_2_visit_1"),
+  c("diet_1_visit_2", "diet_2_visit_2")
+)
+# Indices to loop through for alpha diversity plot
+indices <- c("shannon", "observed")
+taxa <- c("genus","species")
+outdir ="./output/"
+variable <- "group"
+
+# Render the quarto documents
+quarto::quarto_render("Community_composition_OGB")
+quarto::quarto_render("Alpha_Diversity_OGB")
