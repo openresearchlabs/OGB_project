@@ -1,0 +1,95 @@
+---
+title: "Alpha Diversity"
+author: "Nitin Bayal"
+format: html
+editor: visual
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Introduction
+
+This document reports on a microbiota project results of alpha diversity across different diets and visits.
+```{r variable}
+ #STEP1: alpha diversity
+# Define variables
+variable <- "group"  
+```
+
+**Group variable: `r variable`**
+```{r data-load}
+# tse <- readRDS("../data/tse.Rds")
+source("data.R")
+```
+
+## Data Summary
+```{r data-summary}
+tse
+```
+
+## Richness: Observed species index
+```{r observed-species}
+
+p <- plotColData(
+    tse,
+    "observed",
+    variable,
+    colour_by = variable, show_boxplot = TRUE, show_violin = FALSE) +
+    theme(text = element_text(size = 10)) +
+    labs(x = "Groups", y = expression(Richness [Observed]))
+p
+```
+
+## Group-wise comparisons: Shannon index
+```{r shannon-index}
+index <- "shannon"
+
+# Calculate p-values
+pvals <- pairwise.wilcox.test(
+    tse[[index]], tse[[variable]], p.adjust.method = "fdr")
+# Put them to data.frame format
+pvals <- pvals[["p.value"]] |>
+    as.data.frame()
+varname <- "group1"
+pvals[[varname]] <- rownames(pvals)
+# To long format
+pvals <- reshape(
+    pvals,
+    direction = "long",
+    varying = colnames(pvals)[ !colnames(pvals) %in% varname ],
+    times = colnames(pvals)[ !colnames(pvals) %in% varname ],
+    v.names = "p",
+    timevar = "group2",
+    idvar = "group1"
+    ) |>
+    na.omit()
+# Add y-axis position
+pvals[["y.position"]] <- apply(pvals, 1, function(x){
+    temp1 <- tse[[index]][ tse[[variable]] == x[["group1"]] ]
+    temp2 <- tse[[index]][ tse[[variable]] == x[["group2"]] ]
+    temp <- max( c(temp1, temp2) )
+    return(temp)
+})
+pvals[["y.position"]] <- max(pvals[["y.position"]]) +
+    order(pvals[["y.position"]]) * 0.2
+# Round values
+pvals[["p"]] <- round(pvals[["p"]], 3)
+
+# Create a boxplot
+p <- plotColData(
+    tse, x = variable, y = index,
+    show_boxplot = TRUE, show_violin = FALSE, colour_by = variable) +
+    theme(text = element_text(size = 10)) +
+    stat_pvalue_manual(pvals)
+p
+```
+
+## Table of the top findings
+```{r table-of-findings}
+final_results <- run_diversity_tests(tse, comparisons, variable, indices)
+datatable(final_results, 
+        options = list(pageLength = 10), 
+        caption = paste("Table of the top findings"))
+```

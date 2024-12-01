@@ -1,0 +1,113 @@
+---
+title: "Beta diversity"
+format:
+  html:
+    code-fold: true
+    number-sections: true
+    figures:
+      layout: "grid"
+      ncol: 2
+      nrow: 2
+editor: visual
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Community composition
+
+This section reports on a microbiota project results of community composition across different diets and visits.
+
+**Groups**
+
+```{r data-load}
+source("data.R")
+```
+
+### Data Summary
+
+```{r data-summary}
+tse
+```
+
+### Community composition at the phyla level
+
+```{r community-composition-phyla, fig.height= 9, fig.width= 20, echo=FALSE}
+
+# Visualization - composition bar plot
+plotAbundance(
+  altExp(tse, "phylum"),
+  assay.type = "relabundance",
+  color.by = "phylum_sub", group = "phylum", order.row.by = "abund"
+) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+### Community composition at the genus level
+
+```{r community-composition-genus, fig.height= 9, fig.width= 20, echo=FALSE}
+
+# Visualization - composition bar plot
+plotAbundance(
+  altExp(tse, "genus"),
+  assay.type = "relabundance",
+  color.by = "genus_sub", group = "genus", order.row.by = "abund") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+## Unsupervised analysis
+
+### Community dissimilarity
+
+This document presents the results of a microbiota project, focusing on beta diversity analysis. Specifically, in this section, we employed Principal Coordinates Analysis (PCoA) to assess community dissimilarity among microbiota samples.
+
+```{r setup, include=FALSE}
+# #STEP2: PCoA
+# Define variables
+tax.level <- "species"
+dissimilarity.index <- "bray"
+variable <- "group"  
+```
+
+**Taxonomic level: `r tax.level`**
+
+**Dissimilarity index: `r dissimilarity.index`**
+
+**Group variable: `r variable`**
+
+PCoA plots
+
+```{r pcoa-plots, fig.show="hold"}
+# Generate plots
+beta_pcoa <- PCoA_plot(altExp(tse, tax.level), comparisons, variable)
+ #combined_plot <- wrap_plots(beta_pcoa, nrow = 2)
+ #combined_plot
+beta_pcoa
+```
+
+## Supervised analysis
+
+### Permanova analysis
+
+```{r permanova}
+
+final_results_permanova <- run_rdba_tests(tse, comparisons, variable)
+l <- names(final_results_permanova)
+datatable(final_results_permanova[[l[[1]]]], 
+        options = list(pageLength = 10), 
+        caption = paste("Results for Group:", l[[1]]))
+
+datatable(final_results_permanova[[l[[2]]]], 
+        options = list(pageLength = 10), 
+        caption = paste("Results for Group:", l[[2]]))
+
+datatable(final_results_permanova[[l[[3]]]], 
+        options = list(pageLength = 10), 
+        caption = paste("Results for Group:", l[[3]]))
+
+datatable(final_results_permanova[[l[[4]]]], 
+        options = list(pageLength = 10), 
+        caption = paste("Results for Group:", l[[4]]))
+
+```
