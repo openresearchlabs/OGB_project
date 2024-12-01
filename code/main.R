@@ -12,24 +12,9 @@
 # Load libraries
 library(quarto)
 
-#load the functions needed
-source("funct.R")
-
-# Define output directory
-outdir   <- "../output/"
-
-# Define the kist of comparisons
-comparisons <- list(
-  c("diet_1_visit_1", "diet_1_visit_2"),
-  c("diet_2_visit_1", "diet_2_visit_2"),
-  c("diet_1_visit_1", "diet_2_visit_1"),
-  c("diet_1_visit_2", "diet_2_visit_2")
-)
-
-# Indices to loop through for alpha diversity plot
-indices  <- c("shannon", "observed")
-taxa     <- c("genus","species")
-variable <- "group"
+# Create the data
+# OK to run just once
+source("data.R")
 
 # Render the qmd in R
 quarto::quarto_render("alpha.qmd")

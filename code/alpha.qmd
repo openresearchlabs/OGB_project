@@ -12,49 +12,39 @@ execute:
 ## Introduction
 
 This document reports on a microbiota project results of alpha diversity across different diets and visits.
-```{r variable}
- #STEP1: alpha diversity
+
+
+```{r variables}
+# Alpha diversity
 # Define variables
 variable <- "group"  
-```
-
-**Group variable: `r variable`**
-```{r data-load}
-# tse <- readRDS("../data/tse.Rds")
-source("data.R")
-```
-
-## Data Summary
-```{r data-summary}
-tse
-```
-
-## Richness: Observed species index
-```{r observed-species}
-
-p <- plotColData(
-    tse,
-    "observed",
-    variable,
-    colour_by = variable, show_boxplot = TRUE, show_violin = FALSE) +
-    theme(text = element_text(size = 10)) +
-    labs(x = "Groups", y = expression(Richness [Observed]))
-p
-```
-
-## Group-wise comparisons: Shannon index
-```{r shannon-index}
 index <- "shannon"
+```
 
+```{r data}
+source("funct.R")
+tse <- readRDS("../data/tse.Rds")
+```
+
+## Group-wise comparisons
+
+- **Index:** `r index`
+- **Group variable:** `r variable`
+
+
+```{r pvalues}
 # Calculate p-values
 pvals <- pairwise.wilcox.test(
-    tse[[index]], tse[[variable]], p.adjust.method = "fdr")
-# Put them to data.frame format
-pvals <- pvals[["p.value"]] |>
-    as.data.frame()
+    colData(tse)[[index]],
+    colData(tse)[[variable]],
+    p.adjust.method = "fdr")
+
+# convert to data.frame 
+pvals <- pvals[["p.value"]] |> as.data.frame()
 varname <- "group1"
 pvals[[varname]] <- rownames(pvals)
-# To long format
+
+# convert to long format
 pvals <- reshape(
     pvals,
     direction = "long",
@@ -65,7 +55,8 @@ pvals <- reshape(
     idvar = "group1"
     ) |>
     na.omit()
-# Add y-axis position
+
+# Add y-axis position for the p-value info
 pvals[["y.position"]] <- apply(pvals, 1, function(x){
     temp1 <- tse[[index]][ tse[[variable]] == x[["group1"]] ]
     temp2 <- tse[[index]][ tse[[variable]] == x[["group2"]] ]
@@ -74,22 +65,74 @@ pvals[["y.position"]] <- apply(pvals, 1, function(x){
 })
 pvals[["y.position"]] <- max(pvals[["y.position"]]) +
     order(pvals[["y.position"]]) * 0.2
-# Round values
-pvals[["p"]] <- round(pvals[["p"]], 3)
 
+# Round the p-values
+pvals[["p"]] <- round(pvals[["p"]], 3)
+```
+
+
+## Visualization
+
+```{r boxplot}
 # Create a boxplot
+library(scater)
 p <- plotColData(
     tse, x = variable, y = index,
-    show_boxplot = TRUE, show_violin = FALSE, colour_by = variable) +
-    theme(text = element_text(size = 10)) +
-    stat_pvalue_manual(pvals)
-p
+    show_boxplot = TRUE,
+    show_violin = FALSE) +
+    theme(text = element_text(size = 10)) #+
+    # This uses different p-value calculation than the table,
+    # so let's remove temporarily and fix later
+    # ggpubr::stat_pvalue_manual(pvals)
+print(p)
 ```
 
 ## Table of the top findings
+
 ```{r table-of-findings}
-final_results <- run_diversity_tests(tse, comparisons, variable, indices)
+# Function to apply the test over all comparisons and measures
+run_diversity_tests <- function(tse, comparisons, variable, indices) {
+  # Initialize an empty list to store the results
+  all_results <- list()
+  # Loop through each diversity index (e.g., shannon, observed)
+  for (measure in indices) {
+    # Loop through each comparison
+    comparison_results <- lapply(comparisons, function(comp) {
+      # Perform the significance test for the current comparison
+      result <- perform_significance_test(tse, comp, variable, measure)
+      return(result)
+    })
+    # Combine results for this measure across all comparisons
+    comparison_results_df <- do.call(rbind, comparison_results)
+    # Add the current index's result to the overall list
+    all_results[[measure]] <- comparison_results_df
+  }
+  # Combine all the results into one data frame
+  final_results <- do.call(rbind, all_results)
+  # Adjust p-values for multiple testing
+  final_results$p_adjusted <- p.adjust(final_results$p_value, 
+                                       method = "fdr")
+				       
+  rownames(final_results) <- NULL 
+  return(final_results)
+}
+
+final_results <- run_diversity_tests(tse, comparisons, variable, index)
 datatable(final_results, 
         options = list(pageLength = 10), 
         caption = paste("Table of the top findings"))
+```
+
+
+## Data Summary
+
+```{r data-summary}
+tse
+```
+
+## Version info
+
+
+```{r sessioninfo}
+sessionInfo()
 ```

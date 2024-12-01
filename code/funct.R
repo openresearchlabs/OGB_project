@@ -15,6 +15,25 @@ library(TreeSummarizedExperiment)
 library(tidyverse)
 library(vegan)
 
+
+# Define the kist of comparisons
+comparisons <- list(
+  c("diet_1_visit_1", "diet_1_visit_2"),
+  c("diet_2_visit_1", "diet_2_visit_2"),
+  c("diet_1_visit_1", "diet_2_visit_1"),
+  c("diet_1_visit_2", "diet_2_visit_2")
+)
+
+
+
+# Define function to extract diet and visit info
+extract_diet_visit <- function(comparison) {
+  condition <- unlist(strsplit(comparison, "_"))
+  list(diet = condition[2], visit = condition[4])
+}
+
+
+
 run_ancombc_mix <- function(tse,taxa) {
   #extract prevalent
   # Gets a subset of object that includes prevalent taxa, genus level 
@@ -214,30 +233,7 @@ perform_significance_test <- function(tse, comparison, variable, measure) {
   return(result)
 }
 
-# Function to apply the test over all comparisons and measures
-run_diversity_tests <- function(tse, comparisons, variable, indices) {
-  # Initialize an empty list to store the results
-  all_results <- list()
-  # Loop through each diversity index (e.g., shannon, observed)
-  for (measure in indices) {
-    # Loop through each comparison
-    comparison_results <- lapply(comparisons, function(comp) {
-      # Perform the significance test for the current comparison
-      result <- perform_significance_test(tse, comp, variable, measure)
-      return(result)
-    })
-    # Combine results for this measure across all comparisons
-    comparison_results_df <- do.call(rbind, comparison_results)
-    # Add the current index's result to the overall list
-    all_results[[measure]] <- comparison_results_df
-  }
-  # Combine all the results into one data frame
-  final_results <- do.call(rbind, all_results)
-  # Adjust p-values for multiple testing
-  final_results$p_adjusted <- p.adjust(final_results$p_value, 
-                                       method = "holm")
-  return(final_results)
-}
+
 
 # Function to create and save richness plots for specified comparisons and 
 # indices
