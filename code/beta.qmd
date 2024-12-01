@@ -21,27 +21,25 @@ This section reports on a microbiota project results of community composition ac
 
 **Groups**
 
-```{r data-load}
-source("data.R")
+
+```{r data}
+source("funct.R")
+tse <- readRDS("../data/tse.Rds")
 ```
 
-### Data Summary
 
-```{r data-summary}
-tse
-```
 
 ### Community composition at the phyla level
 
 ```{r community-composition-phyla, fig.height= 9, fig.width= 20, echo=FALSE}
-
 # Visualization - composition bar plot
 plotAbundance(
   altExp(tse, "phylum"),
   assay.type = "relabundance",
-  color.by = "phylum_sub", group = "phylum", order.row.by = "abund"
-) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  color.by = "phylum_sub",
+  group = "phylum",
+  order.row.by = "abund") +
+theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
 ### Community composition at the genus level
@@ -111,3 +109,18 @@ datatable(final_results_permanova[[l[[4]]]],
         caption = paste("Results for Group:", l[[4]]))
 
 ```
+
+
+
+### Data Summary
+
+```{r data-summary}
+tse
+```
+
+## Version info
+
+```{r sessioninfo}
+sessionInfo()
+```
+
