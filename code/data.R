@@ -4,11 +4,6 @@ library(readxl)
 #load the functions needed
 source("funct.R")
 
-# Define variables
-taxa     <- c("genus","species")
-variable <- "group"
-outdir ="./output/"
-
 # Import metaphlan abundance table as TreeSE object
 metaphlan.file <- "../data/modified_metaphlan_db_meta4_combined_reports.txt" 
 # Specify file path

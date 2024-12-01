@@ -10,20 +10,65 @@ execute:
 
 ## ANCOM-BCII
 
-```{r setup, include=FALSE}
-# Define variables
-variable <- "group"  
+```{r data}
+source("funct.R")
+tse <- readRDS("../data/tse.Rds")
+#source("data.R")
 ```
 
 **Group variable: `r variable`**
 
-```{r data-load}
-# tse <- readRDS("../data/tse.Rds")
-source("data.R")
-```
-
 ```{r ancombc}
-#STEP3: ancombc
+run_ancombc_for_variable <- function(tse,comparison,variable,taxa) {
+  #extract prevalent
+  # Gets a subset of object that includes prevalent taxa, genus level 
+  # (10% prevalence above 0.1% detection level)
+  altExp(tse, "Prevalent") <- agglomerateByPrevalence(tse, rank=taxa,
+                                                      other_label="Other",
+                                                      assay.type="relabundance",
+                                                      detection=0.1/100,
+                                                      prevalence=10/100)
+  # Subset the TSE to include only samples for the specified groups in the 
+  # comparison                                                   
+  tse_subset <- tse[, colData(tse)$group %in% comparison]
+  # print(paste("Subset groups:", paste(comparison, collapse = ", ")))
+  q_col <- paste0("q_", variable, comparison[2]) #q_groupdiet_1_visit_2
+  # print(q_col)
+  tse_preval <- altExp(tse_subset, "Prevalent")
+  # Check if this is a repeated-measures comparison (same diet, different visits)
+  same_diet <- strsplit(comparison[1], "_")[[1]][2] == strsplit(comparison[2], "_")[[1]][2]
+  rand_formula <- if (same_diet) "(1|id)" else NULL
+  #selected assay (prevalent)
+  out_taxa <- ancombc2(
+    data = tse_preval,
+    assay_name = "relabundance",
+    tax_level = taxa,
+    p_adj_method = "fdr",
+    prv_cut = 0,
+    lib_cut = 0,
+    group = variable,
+    fix_formula = paste0(variable),
+    rand_formula = rand_formula,
+    struc_zero = TRUE,
+    neg_lb = TRUE,
+    alpha = 0.05,
+    global = FALSE,
+    lme_control = lme4::lmerControl(),
+    n_cl = 1,
+    verbose = FALSE
+  )
+  res_taxa <- out_taxa$res
+  # # Select columns that contain the variable name
+  df_taxa <- res_taxa %>%
+        dplyr::select(taxon, contains(variable))%>%
+        dplyr::arrange(!!sym(q_col))
+  df_taxa_sig <- df_taxa %>% filter(!!sym(q_col) < 0.05)
+  # # Generate appropriate filenames
+   comparison_name <- paste(comparison, collapse = "_vs_")
+  return(df_taxa_sig)
+}
+
+
 set.seed(123)
 results <- lapply(taxa, function(taxa_level) {
   lapply(comparisons, function(comp) {

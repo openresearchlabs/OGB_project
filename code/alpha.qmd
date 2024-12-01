@@ -13,11 +13,8 @@ execute:
 
 This document reports on a microbiota project results of alpha diversity across different diets and visits.
 
-
 ```{r variables}
 # Alpha diversity
-# Define variables
-variable <- "group"  
 index <- "shannon"
 ```
 
