@@ -1,7 +1,9 @@
 ---
 title: "Alpha Diversity"
 author: "Nitin Bayal"
-format: html
+format: 
+  html:
+    output-dir: "../output"
 editor: visual
 params: 
   index: default
