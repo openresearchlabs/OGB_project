@@ -6,9 +6,13 @@ library(quarto)
 # source("data.R") # Creates tse.rds
 
 # Alpha diversity analysis
-quarto::quarto_render("alpha.qmd") # ../output/alpha.html
-
-# TODO
-quarto::quarto_render("beta.qmd")
-quarto::quarto_render("daa.qmd")
+params_alpha <- list( index = "shannon", 
+                     adjust.method = "fdr")
+quarto_render(input = "alpha.qmd", 
+              execute_params = params_alpha
+)
+# 
+# # TODO
+# quarto::quarto_render("beta.qmd")
+# quarto::quarto_render("daa.qmd")
 
