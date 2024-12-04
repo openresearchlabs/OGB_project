@@ -156,7 +156,61 @@ remove_duplicates <- function(tse) {
   return(tse_unique)
 }
 
-
+# Calculate p-values
+run_diversity_tests <- function(tse, comparisons, 
+                                variable, index, 
+                                adjust.method = "fdr") {
+  # Get all values and groups
+  values <- colData(tse)[[index]]
+  groups <- colData(tse)[[variable]]
+  
+  # Create an empty results dataframe
+  results <- data.frame(
+    group1 = character(),
+    group2 = character(),
+    mean1 = numeric(),
+    mean2 = numeric(),
+    logFC = numeric(),
+    p.value = numeric(),
+    stringsAsFactors = FALSE
+  )
+  
+  # Loop through requested comparisons
+  for (comp in comparisons) {
+    group1 <- comp[1]
+    group2 <- comp[2]
+    
+    # Subset data for just these two groups
+    subset_values <- values[groups %in% c(group1, group2)]
+    subset_groups <- groups[groups %in% c(group1, group2)]
+    
+    # Perform Wilcoxon test for this pair
+    test_result <- wilcox.test(
+      subset_values ~ subset_groups,
+      exact = FALSE
+    )
+    
+    # Calculate means
+    mean1 <- mean(values[groups == group1])
+    mean2 <- mean(values[groups == group2])
+    
+    # Add results
+    results <- rbind(results, data.frame(
+      group1 = group1,
+      group2 = group2,
+      mean1 = mean1,
+      mean2 = mean2,
+      logFC = log2(mean2/mean1),
+      p.value = test_result$p.value,
+      stringsAsFactors = FALSE
+    ))
+  }
+  
+  # Add adjusted p-values using specified method
+  results$p.adj <- p.adjust(results$p.value, method = adjust.method)
+  
+  return(results)
+}
 
 
 # Function to create and save richness plots for specified comparisons and 
