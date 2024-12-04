@@ -7,7 +7,7 @@ format:
 editor: visual
 params: 
   index: default
-  adjust.method: default
+  adjust.method: "fdr"
 execute:
   echo: false
   warning: false

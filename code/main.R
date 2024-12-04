@@ -5,39 +5,30 @@ library(fs)
 # Create the data
 # OK to run just once
 # source("data.R") # Creates tse.rds
+# Call quarto cli
+quarto_bin <- quarto::quarto_path()
 
 # Alpha diversity analysis
 # Define indices for analysis
 indices <- c("shannon", "observed")
-
 # Loop through each index
 for (index in indices) {
-    # Create temporary qmd with unique name
-    temp_qmd <- paste0("alpha_", index, ".qmd")
-    file.copy("alpha.qmd", temp_qmd)
-    
-    # Set parameters for this run
-    params_alpha <- list(
-        index = index,
-        adjust.method = "fdr"
+    output_dir <- paste0("../output/alpha_", index)
+    # Construct the Quarto render command
+    render_command <- paste(
+        shQuote(quarto_bin), 
+        "render alpha.qmd",
+        "-P", paste0("index=", index),
+        "--output", 
+        shQuote(paste0("alpha_", index, ".html")),
+        "--output-dir", 
+        shQuote(output_dir)
     )
     
-    # Render from the temporary file
-    quarto_render(
-        input = temp_qmd,
-        execute_params = params_alpha
-    )
-    
-    # Clean up temporary qmd
-    file.remove(temp_qmd)
+    # Execute quarto cli
+    system(render_command)
 }
 
-# params_alpha <- list( index = "shannon", 
-#                      adjust.method = "fdr")
-# quarto_render(input = "alpha.qmd", 
-#               execute_params = params_alpha
-# )
-# 
 # # TODO
 # quarto::quarto_render("beta.qmd")
 # quarto::quarto_render("daa.qmd")

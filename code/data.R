@@ -51,7 +51,9 @@ altExp(tse, "PrevalentSpecies") <- agglomerateByPrevalence(tse, rank="species",
                                                            prevalence=10/100)
 
 # Add alpha diversity
-tse <- addAlpha(tse, index = c("observed", "shannon"))
+tse <- addAlpha(x = tse,assay.type = 'counts',
+                index = c('observed', 'shannon'), 
+                niter = 100) 
 
 # make primary comparison into tse
 # Create a new column for group in colData of the TreeSummarizedExperiment object
@@ -77,9 +79,7 @@ for (comp in comparisons) {
 tse <- remove_duplicates(tse)
 tse <- transformAssay(tse, method = "relabundance")
 tse <- agglomerateByRanks(tse)
-tse <- addAlpha(x = tse,assay.type = 'counts',
-                index = c('observed', 'shannon', 'simpson'), 
-                niter = 100) 
+
 # Changes old levels with new levels
 tse$group <- factor(tse$group)
 
