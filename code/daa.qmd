@@ -1,59 +1,128 @@
 ---
-title: "Differential Abundance Analysis"
+title: "ANCOMBC-II Differential Abundance Analysis"
+author: "Nitin Bayal"
 format: html
 editor: visual
 execute:
-  echo: false
+  echo: true
   warning: false
   message: false
 ---
 
-## ANCOM-BCII
+## Differential Abundance Analysis
 
-```{r setup, include=FALSE}
-# Define variables
-variable <- "group"  
+This document presents the results of Differential Abundance Analysis (DAA) using the ANCOM-BC II method. The analysis identifies significant features between groups and visualizes the top findings.
+
+### Data
+
+```{r data}
+# Load functions
+source("funct.R")
+
+# Load TreeSummarizedExperiment object
+tse <- readRDS("../data/tse.Rds")
+
+# Preprocess data
+# Agglomerate at genus level and filter by prevalence
+tse <- agglomerateByPrevalence(
+  tse, rank = "genus",
+  prevalence = 0.1,
+  detection = 10/100,
+  assay.type = "counts"
+)
+
+# Transform count assay to relative abundances
+tse <- transformAssay(
+  tse, assay.type = "counts",
+  method = "relabundance"
+)
+
+# Define the variable of interest
+group_var <- "diet"
 ```
 
-**Group variable: `r variable`**
+### **ANCOM-BC II**
 
-```{r data-load}
-# tse <- readRDS("../data/tse.Rds")
-source("data.R")
+```{r analysis}
+# Perform ANCOMBC-II
+daa_results <- ancombc2(
+  data = assay(tse, "relabundance"),
+  meta_data = colData(tse),
+  group = group_var,
+  fix_formula = "diet",
+  p_adj_method = "fdr",
+  prv_cut = 0.05,
+  lib_cut = 0,
+  struc_zero = TRUE,
+  neg_lb = TRUE,
+  alpha = 0.05,
+  global = TRUE
+)
+
+# Extract significant features
+significant_results <- daa_results$res %>%
+  filter(q_diet2 < 0.05) %>%  # Filter based on adjusted p-values
+  arrange(q_diet2)  # Sort by adjusted p-value
 ```
 
-```{r ancombc}
-#STEP3: ancombc
-set.seed(123)
-results <- lapply(taxa, function(taxa_level) {
-  lapply(comparisons, function(comp) {
-    run_ancombc_for_variable(tse, comp, variable, taxa_level)
-  })
-})
+### Results table
+
+```{r table}
+# Display results in a table
+kable(
+  significant_results,
+  caption = "Differential Abundance Features",
+  col.names = c(
+    "Taxon", "Intercept Effect Size", "Diet2 Effect Size", 
+    "Intercept SE", "Diet2 SE", "Intercept W", "Diet2 W",
+    "Intercept P-value", "Diet2 P-value", "Intercept Adjusted P-value",
+    "Diet2 Adjusted P-value", "Intercept Significant", "Diet2 Significant",
+    "Intercept Passed SS", "Diet2 Passed SS"
+  )
+)
+
+filtered_results <- significant_results %>%
+  select(taxon, lfc_diet2, q_diet2)
+
+# Display results in a table
+kable(
+  filtered_results,
+  caption = "Differential Abundance Features for Diet2",
+  col.names = c("Taxon", "Log Fold Change (Diet2)", "Adjusted P-value (Diet2)"))
 ```
 
-```{r ancombc-res}
-datatable(results[[1]][[2]], 
-        options = list(pageLength = 10))
-datatable(results[[1]][[3]], 
-        options = list(pageLength = 10))
-datatable(results[[1]][[4]], 
-        options = list(pageLength = 10))
-datatable(results[[2]][[2]], 
-        options = list(pageLength = 10))
-datatable(results[[2]][[3]], 
-        options = list(pageLength = 10))
-datatable(results[[2]][[4]], 
-        options = list(pageLength = 10))
+### **Visualization**
+
+#### Volcano plot
+
+```{r volcano_plot}
+# Volcano plot
+ggplot(filtered_results, aes(x = lfc_diet2, y = -log10(q_diet2), color = taxon)) +
+  geom_point(size = 3, alpha = 0.7) +  # Transparency for better visibility of overlapping points
+  geom_hline(yintercept = -log10(0.05), linetype = "dashed", color = "red") +  # Significance threshold
+  geom_vline(xintercept = 0, linetype = "dashed", color = "black") +  # Zero log2 fold change line
+  theme_minimal() +
+  labs(
+    x = "Log2 fold-difference (Diet2)",
+    y = "-log10 (Adjusted P-value)"
+  ) +
+  theme(
+    legend.position = "none",
+    panel.grid.major = element_line(color = "gray90"),
+    panel.grid.minor = element_blank(),
+    panel.border = element_rect(color = "black", fill = NA, linewidth = 1)  # Add black boundary
+  ) +
+  # Add labels for significant taxa (those with significant p-values and notable fold change)
+  geom_text_repel(
+    data = filtered_results %>% filter(q_diet2 < 0.05 & abs(lfc_diet2) > 0.5), # Customize thresholds
+    aes(label = taxon),  # Replace `taxon` with the correct column for taxa names
+    size = 3,  # Font size for labels
+    max.overlaps = 15,
+    box.padding = 0.3,
+    point.padding = 0.2,
+    direction = "both",
+    nudge_y = 0.1
+  )
 ```
 
-```{r ancombc-mix}
-# #STEP 4: ancombc mix model 
-results_mix <- lapply(taxa, function(taxa_level) {
-    run_ancombc_mix(tse,taxa_level)
-  })
-```
-
-```{r ancombc-mix-res}
-results_mix
-```
+#### 

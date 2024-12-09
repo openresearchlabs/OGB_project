@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Nitin Bayal">
 
-<title>Differential Abundance Analysis</title>
+<title>ANCOMBC-II Differential Abundance Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -33,16 +68,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="daa_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="daa_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="daa_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="daa_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-<script src="daa_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<link href="daa_files/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="daa_files/libs/datatables-binding-0.33/datatables.js"></script>
-<script src="daa_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<link href="daa_files/libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="daa_files/libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="daa_files/libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
-<link href="daa_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
-<script src="daa_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 
 
 </head>
@@ -55,13 +80,19 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Differential Abundance Analysis</h1>
+<h1 class="title">ANCOMBC-II Differential Abundance Analysis</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nitin Bayal </p>
+          </div>
+  </div>
     
   
     
@@ -72,61 +103,1007 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="ancom-bcii" class="level2">
-<h2 class="anchored" data-anchor-id="ancom-bcii">ANCOM-BCII</h2>
-<p><strong>Group variable: group</strong></p>
+<section id="differential-abundance-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="differential-abundance-analysis">Differential Abundance Analysis</h2>
+<p>This document presents the results of Differential Abundance Analysis (DAA) using the ANCOM-BC II method. The analysis identifies significant features between groups and visualizes the top findings.</p>
+<section id="data" class="level3">
+<h3 class="anchored" data-anchor-id="data">Data</h3>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-diet_1_visit_1 diet_1_visit_2 diet_2_visit_1 diet_2_visit_2 
-            35             34             36             35 </code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load functions</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"funct.R"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load TreeSummarizedExperiment object</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>tse <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"../data/tse.Rds"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Preprocess data</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Agglomerate at genus level and filter by prevalence</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>tse <span class="ot">&lt;-</span> <span class="fu">agglomerateByPrevalence</span>(</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  tse, <span class="at">rank =</span> <span class="st">"genus"</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">prevalence =</span> <span class="fl">0.1</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">detection =</span> <span class="dv">10</span><span class="sc">/</span><span class="dv">100</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">assay.type =</span> <span class="st">"counts"</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform count assay to relative abundances</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>tse <span class="ot">&lt;-</span> <span class="fu">transformAssay</span>(</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  tse, <span class="at">assay.type =</span> <span class="st">"counts"</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"relabundance"</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the variable of interest</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>group_var <span class="ot">&lt;-</span> <span class="st">"diet"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
+</section>
+<section id="ancom-bc-ii" class="level3">
+<h3 class="anchored" data-anchor-id="ancom-bc-ii"><strong>ANCOM-BC II</strong></h3>
 <div class="cell">
-<div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-2c27f26023b73143271b" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-2c27f26023b73143271b">{"x":{"filter":"none","vertical":false,"data":[["1"],["Candidatus_Cibionibacter"],[-1.252497174537338],[0.2602067058863929],[-4.813470007510808],[3.79033648319474e-05],[0.005192760981976794],[true],[true]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>taxon<\/th>\n      <th>lfc_groupdiet_2_visit_2<\/th>\n      <th>se_groupdiet_2_visit_2<\/th>\n      <th>W_groupdiet_2_visit_2<\/th>\n      <th>p_groupdiet_2_visit_2<\/th>\n      <th>q_groupdiet_2_visit_2<\/th>\n      <th>diff_groupdiet_2_visit_2<\/th>\n      <th>passed_ss_groupdiet_2_visit_2<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"taxon","targets":1},{"name":"lfc_groupdiet_2_visit_2","targets":2},{"name":"se_groupdiet_2_visit_2","targets":3},{"name":"W_groupdiet_2_visit_2","targets":4},{"name":"p_groupdiet_2_visit_2","targets":5},{"name":"q_groupdiet_2_visit_2","targets":6},{"name":"diff_groupdiet_2_visit_2","targets":7},{"name":"passed_ss_groupdiet_2_visit_2","targets":8}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform ANCOMBC-II</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>daa_results <span class="ot">&lt;-</span> <span class="fu">ancombc2</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">assay</span>(tse, <span class="st">"relabundance"</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">meta_data =</span> <span class="fu">colData</span>(tse),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> group_var,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">fix_formula =</span> <span class="st">"diet"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">p_adj_method =</span> <span class="st">"fdr"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">prv_cut =</span> <span class="fl">0.05</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">lib_cut =</span> <span class="dv">0</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">struc_zero =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">neg_lb =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">alpha =</span> <span class="fl">0.05</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">global =</span> <span class="cn">TRUE</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract significant features</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>significant_results <span class="ot">&lt;-</span> daa_results<span class="sc">$</span>res <span class="sc">%&gt;%</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(q_diet2 <span class="sc">&lt;</span> <span class="fl">0.05</span>) <span class="sc">%&gt;%</span>  <span class="co"># Filter based on adjusted p-values</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(q_diet2)  <span class="co"># Sort by adjusted p-value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-b754353678d6a3d12d9b" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-b754353678d6a3d12d9b">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12"],["GGB79973","GGB34797","GGB9635","GGB9758","GGB9345","GGB3746","GGB9767","Methanobrevibacter","GGB3619","Holdemanella","GGB9602","Monoglobus"],[-1.764881848870819,-0.9979076168008139,1.12470270291372,-1.329206706261299,1.365912679672051,-1.187248498975522,1.155081368399826,-1.018673292556409,-1.237322454353257,-0.7964767677582574,-1.169601096113272,-0.6989788338077549],[0.3594753834316823,0.2314303393546471,0.2566771682873447,0.3286135703556446,0.3377266811577509,0.3148267503499055,0.2905045023034159,0.2731449542077461,0.3503599478187731,0.1968426779006673,0.3611652277135216,0.2068601684593959],[-4.909604190480631,-4.31191355283633,4.381779300504982,-4.044892926432571,4.044432246186786,-3.771116964031765,3.976122088439811,-3.72942379811137,-3.531575061751275,-4.046260578512265,-3.238410030549804,-3.378991900729095],[3.883130278898823e-05,0.000131320917203434,0.000149865949597742,0.000255428089716497,0.0003545466869146325,0.0006019812257847558,0.0007439157691655487,0.001164149793511254,0.00170381916711051,0.00233758015305001,0.002740023046200945,0.002834377688759145],[0.005203394573724423,0.006694012415365811,0.006694012415365811,0.008556841005502648,0.00950185120931215,0.01344424737585955,0.01424067329545479,0.01949950904131351,0.02536797426586759,0.03132357405087014,0.03165055085781045,0.03165055085781045],[true,true,true,true,true,true,true,true,true,true,true,true],[false,true,false,false,false,false,false,true,false,false,false,false]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>taxon<\/th>\n      <th>lfc_groupdiet_2_visit_1<\/th>\n      <th>se_groupdiet_2_visit_1<\/th>\n      <th>W_groupdiet_2_visit_1<\/th>\n      <th>p_groupdiet_2_visit_1<\/th>\n      <th>q_groupdiet_2_visit_1<\/th>\n      <th>diff_groupdiet_2_visit_1<\/th>\n      <th>passed_ss_groupdiet_2_visit_1<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"taxon","targets":1},{"name":"lfc_groupdiet_2_visit_1","targets":2},{"name":"se_groupdiet_2_visit_1","targets":3},{"name":"W_groupdiet_2_visit_1","targets":4},{"name":"p_groupdiet_2_visit_1","targets":5},{"name":"q_groupdiet_2_visit_1","targets":6},{"name":"diff_groupdiet_2_visit_1","targets":7},{"name":"passed_ss_groupdiet_2_visit_1","targets":8}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-5e0b0ad71d8afdd71096" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-5e0b0ad71d8afdd71096">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17"],["GGB9635","GGB2982","Lactococcus","Citrobacter","GGB4684","GGB80011","Paraprevotella","Staphylococcus","Turicibacter","Evtepia","GGB9524","Firmicutes_unclassified","Waltera","Ruminococcus","GGB14025","GGB3277","Prevotella"],[2.145705384810238,1.252182325631798,-2.042454134769502,1.683409230663353,1.311658976118229,-1.160504250269524,0.8504200481001992,-0.9305077675127145,-1.267713346839063,0.5914038103060671,0.8827399139546592,1.215466660954816,1.555301881695296,1.403570247288389,0.9732697643589647,0.7421426221719662,1.293017462767898],[0.331735050939166,0.2532555341031592,0.4488642866734912,0.2751515072793068,0.2176185873295837,0.252751682600347,0.1972956707814732,0.2376863151569128,0.383650099881932,0.1850027772605792,0.2730125496218272,0.4033790612669955,0.5139539733913382,0.476685886400439,0.334650540205837,0.2266850360038455,0.4092948319241299],[6.468129848611387,4.944343388451856,-4.550270973674513,6.118117423047665,6.027329706592202,-4.591479820549887,4.310383723736814,-3.91485629662113,-3.304347756534406,3.196729363003378,3.233330904302447,3.013212081799907,3.026150126698307,2.944434243453398,2.908316728729395,3.273893307008481,3.159134594222244],[3.797603613148125e-07,1.341317183241667e-05,4.901523344665622e-05,0.0001129620673576326,0.0001273872763942664,0.0001580685630698493,0.00101315294818549,0.001115170970871969,0.001982798637739485,0.00312315455603393,0.003047133772068232,0.003804746380251956,0.003789335135657214,0.004597420896108574,0.005904567725019834,0.006043824098325963,0.005729468775843784],[5.126764877749969e-05,0.000905389098688125,0.00220568550509953,0.003439456462645192,0.003439456462645192,0.003556542669071609,0.01881851013346448,0.01881851013346448,0.02974197956609227,0.03832962409678005,0.03832962409678005,0.03951082779492416,0.03951082779492416,0.04433227292676125,0.0479950737220003,0.0479950737220003,0.0479950737220003],[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],[false,false,false,false,false,false,false,false,false,false,false,true,false,true,false,false,false]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>taxon<\/th>\n      <th>lfc_groupdiet_2_visit_2<\/th>\n      <th>se_groupdiet_2_visit_2<\/th>\n      <th>W_groupdiet_2_visit_2<\/th>\n      <th>p_groupdiet_2_visit_2<\/th>\n      <th>q_groupdiet_2_visit_2<\/th>\n      <th>diff_groupdiet_2_visit_2<\/th>\n      <th>passed_ss_groupdiet_2_visit_2<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"taxon","targets":1},{"name":"lfc_groupdiet_2_visit_2","targets":2},{"name":"se_groupdiet_2_visit_2","targets":3},{"name":"W_groupdiet_2_visit_2","targets":4},{"name":"p_groupdiet_2_visit_2","targets":5},{"name":"q_groupdiet_2_visit_2","targets":6},{"name":"diff_groupdiet_2_visit_2","targets":7},{"name":"passed_ss_groupdiet_2_visit_2","targets":8}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-e149358345c9d2fb65fa" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-e149358345c9d2fb65fa">{"x":{"filter":"none","vertical":false,"data":[["1"],["Candidatus_Cibionibacter_quicibialis"],[-1.256708326297652],[0.2641036686706584],[-4.758390266304055],[4.438015304322807e-05],[0.009408592445164352],[true],[true]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>taxon<\/th>\n      <th>lfc_groupdiet_2_visit_2<\/th>\n      <th>se_groupdiet_2_visit_2<\/th>\n      <th>W_groupdiet_2_visit_2<\/th>\n      <th>p_groupdiet_2_visit_2<\/th>\n      <th>q_groupdiet_2_visit_2<\/th>\n      <th>diff_groupdiet_2_visit_2<\/th>\n      <th>passed_ss_groupdiet_2_visit_2<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"taxon","targets":1},{"name":"lfc_groupdiet_2_visit_2","targets":2},{"name":"se_groupdiet_2_visit_2","targets":3},{"name":"W_groupdiet_2_visit_2","targets":4},{"name":"p_groupdiet_2_visit_2","targets":5},{"name":"q_groupdiet_2_visit_2","targets":6},{"name":"diff_groupdiet_2_visit_2","targets":7},{"name":"passed_ss_groupdiet_2_visit_2","targets":8}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-a85b7b772fec48fe06b2" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-a85b7b772fec48fe06b2">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"],["Bifidobacterium_pseudocatenulatum","Lachnospiraceae_bacterium_BX3","Enterocloster_SGB14313","GGB79973_SGB14341","GGB9635_SGB15106","Oscillospiraceae_bacterium","Phocaeicola_SGB6473","GGB9345_SGB14311","Clostridium_sp_1001270H_150608_G6","GGB3256_SGB4303","GGB9758_SGB15368","GGB34797_SGB14322","Lactococcus_lactis","Bacteroides_intestinalis","Bacteroides_eggerthii","GGB3746_SGB5089"],[1.946145511495677,-1.716637911533088,1.812542191510493,-1.64695051964432,1.232015523807825,-1.336127994632755,1.267310728308113,1.536039271309954,-1.315500245889811,0.7718453542218591,-1.183618675474697,-0.7964028449105394,-1.33972398988328,1.048251088793617,-0.7905614043587834,-0.9869305986739796],[0.249392530776413,0.2181681038645341,0.3415965450982779,0.3536721896844333,0.2646907711958127,0.247169219188918,0.2177444120132796,0.3497103222019303,0.2623675211838235,0.184843271786319,0.3421482974058189,0.2418489542606955,0.4020575149719522,0.3057932425354085,0.2222502627818445,0.3172792459637527],[7.80354369650488,-7.868418348628039,5.306090525561438,-4.656714798847555,4.654546579927433,-5.405721630780881,5.820175666463595,4.392318938824492,-5.013959959503248,4.175674595903721,-3.459373273077604,-3.292976177403998,-3.332170000545171,3.427973359065442,-3.557077478620484,-3.110605598157311],[3.485638559278469e-07,2.680123035707151e-06,7.097464890663456e-05,8.31852333016375e-05,7.707065982052112e-05,9.265194395547416e-05,8.210619454363893e-05,0.0001366732319921938,0.0001541448306266174,0.001286375924679994,0.00137967290980519,0.002319514856172481,0.002184557934310644,0.002526461130519993,0.003508536056286684,0.003702371488631043],[7.110702660928076e-05,0.0002733725496421294,0.00270014236670239,0.00270014236670239,0.00270014236670239,0.00270014236670239,0.00270014236670239,0.003485167415800941,0.003493949494203329,0.02558666123638716,0.02558666123638716,0.03639854081993739,0.03639854081993739,0.03681414790186276,0.0472052364800458,0.0472052364800458],[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],[false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>taxon<\/th>\n      <th>lfc_groupdiet_2_visit_1<\/th>\n      <th>se_groupdiet_2_visit_1<\/th>\n      <th>W_groupdiet_2_visit_1<\/th>\n      <th>p_groupdiet_2_visit_1<\/th>\n      <th>q_groupdiet_2_visit_1<\/th>\n      <th>diff_groupdiet_2_visit_1<\/th>\n      <th>passed_ss_groupdiet_2_visit_1<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"taxon","targets":1},{"name":"lfc_groupdiet_2_visit_1","targets":2},{"name":"se_groupdiet_2_visit_1","targets":3},{"name":"W_groupdiet_2_visit_1","targets":4},{"name":"p_groupdiet_2_visit_1","targets":5},{"name":"q_groupdiet_2_visit_1","targets":6},{"name":"diff_groupdiet_2_visit_1","targets":7},{"name":"passed_ss_groupdiet_2_visit_1","targets":8}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-97e95157f747bf3b0f7b" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-97e95157f747bf3b0f7b">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"],["GGB9635_SGB15106","Bifidobacterium_pseudocatenulatum","GGB2982_SGB3964","GGB80011_SGB15265","Turicibacter_bilis","GGB4684_SGB6478","Lactococcus_lactis","Clostridium_SGB6179","Eubacterium_sp_AF34_35BH","GGB9602_SGB15031","Oscillospiraceae_bacterium","Vescimonas_coprocola","Bacteroides_salyersiae","Evtepia_gabavorous","GGB9634_SGB15093","Lacrimispora_celerecrescens"],[1.918392731838754,1.718756017522742,1.276039174020964,-1.256049802297484,-1.574109531927695,1.266951087171037,-1.766288522666464,1.288547906492817,0.8631412467364997,-1.061169347253201,-0.8783309242637446,-0.9971332474691824,0.8976984195878508,0.6056497849555693,1.101924240251872,0.9295852532822515],[0.3389233279070498,0.2754835226897552,0.2597015684024666,0.2514785297190581,0.3591545762537455,0.2197157590914652,0.4218096683192939,0.2805643424937901,0.2116382684339561,0.3032552221027339,0.2254748052436451,0.3100492287168115,0.234635075362146,0.1905032167176565,0.3263483274087551,0.3066575943341253],[5.660255797927477,6.2390519793751,4.913482740479456,-4.994660195050025,-4.382819086831221,5.766318685605158,-4.187406442588818,4.592700180784155,4.078379837084388,-3.499261578729576,-3.895472593111376,-3.216048146921631,3.825934456740127,3.179210279967077,3.37652792340406,3.031345939110845],[4.583186062403401e-06,1.18347610242351e-05,1.480942486243303e-05,0.0001322849510272784,0.0001067383262400222,0.0001810840314299335,0.0002062808404901081,0.0003002427450142309,0.0007053508856446845,0.001636593100129232,0.0016160923955269,0.002353473835549447,0.003340986398557841,0.003269598170853038,0.003168211210461171,0.003789931528903608],[0.0009303867706678905,0.001002104415691302,0.001002104415691302,0.005370769011707502,0.005370769011707502,0.005982144374213136,0.005982144374213136,0.007618659654736109,0.015909581087319,0.03020258175693037,0.03020258175693037,0.03981293238471149,0.04521468259381611,0.04521468259381611,0.04521468259381611,0.04808475627296453],[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>taxon<\/th>\n      <th>lfc_groupdiet_2_visit_2<\/th>\n      <th>se_groupdiet_2_visit_2<\/th>\n      <th>W_groupdiet_2_visit_2<\/th>\n      <th>p_groupdiet_2_visit_2<\/th>\n      <th>q_groupdiet_2_visit_2<\/th>\n      <th>diff_groupdiet_2_visit_2<\/th>\n      <th>passed_ss_groupdiet_2_visit_2<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"taxon","targets":1},{"name":"lfc_groupdiet_2_visit_2","targets":2},{"name":"se_groupdiet_2_visit_2","targets":3},{"name":"W_groupdiet_2_visit_2","targets":4},{"name":"p_groupdiet_2_visit_2","targets":5},{"name":"q_groupdiet_2_visit_2","targets":6},{"name":"diff_groupdiet_2_visit_2","targets":7},{"name":"passed_ss_groupdiet_2_visit_2","targets":8}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
+</section>
+<section id="results-table" class="level3">
+<h3 class="anchored" data-anchor-id="results-table">Results table</h3>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1]]
- [1] taxon                  lfc_diet2              lfc_diet2:visit2      
- [4] se_diet2               se_diet2:visit2        W_diet2               
- [7] W_diet2:visit2         p_diet2                p_diet2:visit2        
-[10] q_diet2                q_diet2:visit2         diff_diet2            
-[13] diff_diet2:visit2      passed_ss_diet2        passed_ss_diet2:visit2
-&lt;0 rows&gt; (or 0-length row.names)
-
-[[2]]
- [1] taxon                  lfc_diet2              lfc_diet2:visit2      
- [4] se_diet2               se_diet2:visit2        W_diet2               
- [7] W_diet2:visit2         p_diet2                p_diet2:visit2        
-[10] q_diet2                q_diet2:visit2         diff_diet2            
-[13] diff_diet2:visit2      passed_ss_diet2        passed_ss_diet2:visit2
-&lt;0 rows&gt; (or 0-length row.names)</code></pre>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display results in a table</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  significant_results,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Differential Abundance Features"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Taxon"</span>, <span class="st">"Intercept Effect Size"</span>, <span class="st">"Diet2 Effect Size"</span>, </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Intercept SE"</span>, <span class="st">"Diet2 SE"</span>, <span class="st">"Intercept W"</span>, <span class="st">"Diet2 W"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Intercept P-value"</span>, <span class="st">"Diet2 P-value"</span>, <span class="st">"Intercept Adjusted P-value"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Diet2 Adjusted P-value"</span>, <span class="st">"Intercept Significant"</span>, <span class="st">"Diet2 Significant"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Intercept Passed SS"</span>, <span class="st">"Diet2 Passed SS"</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Differential Abundance Features</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 9%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Taxon</th>
+<th style="text-align: right;">Intercept Effect Size</th>
+<th style="text-align: right;">Diet2 Effect Size</th>
+<th style="text-align: right;">Intercept SE</th>
+<th style="text-align: right;">Diet2 SE</th>
+<th style="text-align: right;">Intercept W</th>
+<th style="text-align: right;">Diet2 W</th>
+<th style="text-align: right;">Intercept P-value</th>
+<th style="text-align: right;">Diet2 P-value</th>
+<th style="text-align: right;">Intercept Adjusted P-value</th>
+<th style="text-align: right;">Diet2 Adjusted P-value</th>
+<th style="text-align: left;">Intercept Significant</th>
+<th style="text-align: left;">Diet2 Significant</th>
+<th style="text-align: left;">Intercept Passed SS</th>
+<th style="text-align: left;">Diet2 Passed SS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">GGB80011</td>
+<td style="text-align: right;">0.5260559</td>
+<td style="text-align: right;">-1.2002787</td>
+<td style="text-align: right;">0.0899480</td>
+<td style="text-align: right;">0.1803238</td>
+<td style="text-align: right;">5.8484434</td>
+<td style="text-align: right;">-6.656243</td>
+<td style="text-align: right;">0.0000006</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000352</td>
+<td style="text-align: right;">0.0000028</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9635</td>
+<td style="text-align: right;">-0.9061670</td>
+<td style="text-align: right;">1.4081249</td>
+<td style="text-align: right;">0.1634073</td>
+<td style="text-align: right;">0.2208847</td>
+<td style="text-align: right;">-5.5454483</td>
+<td style="text-align: right;">6.374931</td>
+<td style="text-align: right;">0.0000007</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000352</td>
+<td style="text-align: right;">0.0000028</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB79973</td>
+<td style="text-align: right;">0.6956190</td>
+<td style="text-align: right;">-1.4382679</td>
+<td style="text-align: right;">0.1448405</td>
+<td style="text-align: right;">0.2461487</td>
+<td style="text-align: right;">4.8026563</td>
+<td style="text-align: right;">-5.843085</td>
+<td style="text-align: right;">0.0000125</td>
+<td style="text-align: right;">0.0000003</td>
+<td style="text-align: right;">0.0004327</td>
+<td style="text-align: right;">0.0000113</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lactococcus</td>
+<td style="text-align: right;">0.7579763</td>
+<td style="text-align: right;">-1.8125735</td>
+<td style="text-align: right;">0.2058970</td>
+<td style="text-align: right;">0.3275331</td>
+<td style="text-align: right;">3.6813367</td>
+<td style="text-align: right;">-5.534017</td>
+<td style="text-align: right;">0.0004018</td>
+<td style="text-align: right;">0.0000003</td>
+<td style="text-align: right;">0.0079794</td>
+<td style="text-align: right;">0.0000113</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB3619</td>
+<td style="text-align: right;">0.5313421</td>
+<td style="text-align: right;">-1.2086401</td>
+<td style="text-align: right;">0.1430526</td>
+<td style="text-align: right;">0.2326357</td>
+<td style="text-align: right;">3.7143137</td>
+<td style="text-align: right;">-5.195419</td>
+<td style="text-align: right;">0.0005499</td>
+<td style="text-align: right;">0.0000045</td>
+<td style="text-align: right;">0.0095553</td>
+<td style="text-align: right;">0.0001106</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vescimonas</td>
+<td style="text-align: right;">0.5036420</td>
+<td style="text-align: right;">-1.2359601</td>
+<td style="text-align: right;">0.1530688</td>
+<td style="text-align: right;">0.2559065</td>
+<td style="text-align: right;">3.2902979</td>
+<td style="text-align: right;">-4.829734</td>
+<td style="text-align: right;">0.0013708</td>
+<td style="text-align: right;">0.0000048</td>
+<td style="text-align: right;">0.0190544</td>
+<td style="text-align: right;">0.0001106</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Turicibacter</td>
+<td style="text-align: right;">0.5656383</td>
+<td style="text-align: right;">-1.3814172</td>
+<td style="text-align: right;">0.1949244</td>
+<td style="text-align: right;">0.2843638</td>
+<td style="text-align: right;">2.9018339</td>
+<td style="text-align: right;">-4.857923</td>
+<td style="text-align: right;">0.0047906</td>
+<td style="text-align: right;">0.0000058</td>
+<td style="text-align: right;">0.0391702</td>
+<td style="text-align: right;">0.0001151</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9602</td>
+<td style="text-align: right;">0.5898064</td>
+<td style="text-align: right;">-1.2128203</td>
+<td style="text-align: right;">0.1462013</td>
+<td style="text-align: right;">0.2500166</td>
+<td style="text-align: right;">4.0342078</td>
+<td style="text-align: right;">-4.850958</td>
+<td style="text-align: right;">0.0001447</td>
+<td style="text-align: right;">0.0000078</td>
+<td style="text-align: right;">0.0040240</td>
+<td style="text-align: right;">0.0001361</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9758</td>
+<td style="text-align: right;">0.5251344</td>
+<td style="text-align: right;">-1.1303219</td>
+<td style="text-align: right;">0.1611322</td>
+<td style="text-align: right;">0.2495249</td>
+<td style="text-align: right;">3.2590294</td>
+<td style="text-align: right;">-4.529895</td>
+<td style="text-align: right;">0.0016902</td>
+<td style="text-align: right;">0.0000222</td>
+<td style="text-align: right;">0.0204213</td>
+<td style="text-align: right;">0.0003427</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3363</td>
+<td style="text-align: right;">0.4923664</td>
+<td style="text-align: right;">-1.0121597</td>
+<td style="text-align: right;">0.1135687</td>
+<td style="text-align: right;">0.2027383</td>
+<td style="text-align: right;">4.3354057</td>
+<td style="text-align: right;">-4.992443</td>
+<td style="text-align: right;">0.0002086</td>
+<td style="text-align: right;">0.0000380</td>
+<td style="text-align: right;">0.0048323</td>
+<td style="text-align: right;">0.0004950</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sanguibacter</td>
+<td style="text-align: right;">0.1397986</td>
+<td style="text-align: right;">-0.6269197</td>
+<td style="text-align: right;">0.0744961</td>
+<td style="text-align: right;">0.1386855</td>
+<td style="text-align: right;">1.8765878</td>
+<td style="text-align: right;">-4.520440</td>
+<td style="text-align: right;">0.0665363</td>
+<td style="text-align: right;">0.0000392</td>
+<td style="text-align: right;">0.2540157</td>
+<td style="text-align: right;">0.0004950</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Methanobrevibacter</td>
+<td style="text-align: right;">0.4226017</td>
+<td style="text-align: right;">-0.8772999</td>
+<td style="text-align: right;">0.0738784</td>
+<td style="text-align: right;">0.1940227</td>
+<td style="text-align: right;">5.7202298</td>
+<td style="text-align: right;">-4.521636</td>
+<td style="text-align: right;">0.0000008</td>
+<td style="text-align: right;">0.0000429</td>
+<td style="text-align: right;">0.0000352</td>
+<td style="text-align: right;">0.0004969</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lachnospiraceae_unclassified</td>
+<td style="text-align: right;">0.3676657</td>
+<td style="text-align: right;">-1.0034745</td>
+<td style="text-align: right;">0.1638434</td>
+<td style="text-align: right;">0.2431964</td>
+<td style="text-align: right;">2.2440066</td>
+<td style="text-align: right;">-4.126190</td>
+<td style="text-align: right;">0.0264600</td>
+<td style="text-align: right;">0.0000642</td>
+<td style="text-align: right;">0.1225982</td>
+<td style="text-align: right;">0.0006860</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Holdemanella</td>
+<td style="text-align: right;">0.1697963</td>
+<td style="text-align: right;">-0.6792998</td>
+<td style="text-align: right;">0.0700713</td>
+<td style="text-align: right;">0.1413727</td>
+<td style="text-align: right;">2.4231929</td>
+<td style="text-align: right;">-4.805027</td>
+<td style="text-align: right;">0.0240632</td>
+<td style="text-align: right;">0.0000846</td>
+<td style="text-align: right;">0.1194568</td>
+<td style="text-align: right;">0.0008396</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB3746</td>
+<td style="text-align: right;">0.3144249</td>
+<td style="text-align: right;">-0.9439942</td>
+<td style="text-align: right;">0.1693414</td>
+<td style="text-align: right;">0.2398667</td>
+<td style="text-align: right;">1.8567511</td>
+<td style="text-align: right;">-3.935495</td>
+<td style="text-align: right;">0.0676157</td>
+<td style="text-align: right;">0.0001955</td>
+<td style="text-align: right;">0.2540157</td>
+<td style="text-align: right;">0.0018118</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Staphylococcus</td>
+<td style="text-align: right;">0.3570523</td>
+<td style="text-align: right;">-0.9125833</td>
+<td style="text-align: right;">0.1614276</td>
+<td style="text-align: right;">0.2228559</td>
+<td style="text-align: right;">2.2118411</td>
+<td style="text-align: right;">-4.094948</td>
+<td style="text-align: right;">0.0332330</td>
+<td style="text-align: right;">0.0002203</td>
+<td style="text-align: right;">0.1490124</td>
+<td style="text-align: right;">0.0019136</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB51647</td>
+<td style="text-align: right;">0.3277505</td>
+<td style="text-align: right;">-0.8620608</td>
+<td style="text-align: right;">0.1154404</td>
+<td style="text-align: right;">0.1838781</td>
+<td style="text-align: right;">2.8391314</td>
+<td style="text-align: right;">-4.688218</td>
+<td style="text-align: right;">0.0118443</td>
+<td style="text-align: right;">0.0002467</td>
+<td style="text-align: right;">0.0735919</td>
+<td style="text-align: right;">0.0020174</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Enterococcus</td>
+<td style="text-align: right;">0.4149654</td>
+<td style="text-align: right;">-1.0900992</td>
+<td style="text-align: right;">0.2069985</td>
+<td style="text-align: right;">0.2916438</td>
+<td style="text-align: right;">2.0046789</td>
+<td style="text-align: right;">-3.737776</td>
+<td style="text-align: right;">0.0495932</td>
+<td style="text-align: right;">0.0004214</td>
+<td style="text-align: right;">0.2154205</td>
+<td style="text-align: right;">0.0032539</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gemmiger</td>
+<td style="text-align: right;">0.3421926</td>
+<td style="text-align: right;">-0.8447112</td>
+<td style="text-align: right;">0.1458925</td>
+<td style="text-align: right;">0.2381724</td>
+<td style="text-align: right;">2.3455117</td>
+<td style="text-align: right;">-3.546637</td>
+<td style="text-align: right;">0.0206283</td>
+<td style="text-align: right;">0.0005560</td>
+<td style="text-align: right;">0.1061977</td>
+<td style="text-align: right;">0.0040673</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Butyricicoccus</td>
+<td style="text-align: right;">0.3038165</td>
+<td style="text-align: right;">-0.6393615</td>
+<td style="text-align: right;">0.0900605</td>
+<td style="text-align: right;">0.1691632</td>
+<td style="text-align: right;">3.3734723</td>
+<td style="text-align: right;">-3.779555</td>
+<td style="text-align: right;">0.0019099</td>
+<td style="text-align: right;">0.0006262</td>
+<td style="text-align: right;">0.0204213</td>
+<td style="text-align: right;">0.0043518</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Citrobacter</td>
+<td style="text-align: right;">-0.4237117</td>
+<td style="text-align: right;">0.7285878</td>
+<td style="text-align: right;">0.1096200</td>
+<td style="text-align: right;">0.1802022</td>
+<td style="text-align: right;">-3.8652765</td>
+<td style="text-align: right;">4.043168</td>
+<td style="text-align: right;">0.0010423</td>
+<td style="text-align: right;">0.0006942</td>
+<td style="text-align: right;">0.0160973</td>
+<td style="text-align: right;">0.0043864</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Monoglobus</td>
+<td style="text-align: right;">0.2069076</td>
+<td style="text-align: right;">-0.6375355</td>
+<td style="text-align: right;">0.1150891</td>
+<td style="text-align: right;">0.1733807</td>
+<td style="text-align: right;">1.7978045</td>
+<td style="text-align: right;">-3.677085</td>
+<td style="text-align: right;">0.0795749</td>
+<td style="text-align: right;">0.0006785</td>
+<td style="text-align: right;">0.2697784</td>
+<td style="text-align: right;">0.0043864</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mediterraneibacter</td>
+<td style="text-align: right;">0.2430855</td>
+<td style="text-align: right;">-0.7716228</td>
+<td style="text-align: right;">0.1374512</td>
+<td style="text-align: right;">0.2261050</td>
+<td style="text-align: right;">1.7685225</td>
+<td style="text-align: right;">-3.412675</td>
+<td style="text-align: right;">0.0791830</td>
+<td style="text-align: right;">0.0008445</td>
+<td style="text-align: right;">0.2697784</td>
+<td style="text-align: right;">0.0051038</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3730</td>
+<td style="text-align: right;">0.0905165</td>
+<td style="text-align: right;">-0.4906724</td>
+<td style="text-align: right;">0.0635130</td>
+<td style="text-align: right;">0.1281803</td>
+<td style="text-align: right;">1.4251660</td>
+<td style="text-align: right;">-3.827985</td>
+<td style="text-align: right;">0.1695292</td>
+<td style="text-align: right;">0.0010516</td>
+<td style="text-align: right;">0.4531645</td>
+<td style="text-align: right;">0.0060902</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Slackia</td>
+<td style="text-align: right;">0.1822807</td>
+<td style="text-align: right;">-0.5980238</td>
+<td style="text-align: right;">0.1262925</td>
+<td style="text-align: right;">0.1740060</td>
+<td style="text-align: right;">1.4433219</td>
+<td style="text-align: right;">-3.436800</td>
+<td style="text-align: right;">0.1580809</td>
+<td style="text-align: right;">0.0015707</td>
+<td style="text-align: right;">0.4308480</td>
+<td style="text-align: right;">0.0087333</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pseudoruminococcus</td>
+<td style="text-align: right;">0.1829387</td>
+<td style="text-align: right;">-0.5984411</td>
+<td style="text-align: right;">0.1074106</td>
+<td style="text-align: right;">0.1728021</td>
+<td style="text-align: right;">1.7031722</td>
+<td style="text-align: right;">-3.463159</td>
+<td style="text-align: right;">0.1026236</td>
+<td style="text-align: right;">0.0022110</td>
+<td style="text-align: right;">0.3241974</td>
+<td style="text-align: right;">0.0118201</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB34797</td>
+<td style="text-align: right;">0.2194011</td>
+<td style="text-align: right;">-0.5560961</td>
+<td style="text-align: right;">0.0880085</td>
+<td style="text-align: right;">0.1757392</td>
+<td style="text-align: right;">2.4929532</td>
+<td style="text-align: right;">-3.164326</td>
+<td style="text-align: right;">0.0150721</td>
+<td style="text-align: right;">0.0023127</td>
+<td style="text-align: right;">0.0872923</td>
+<td style="text-align: right;">0.0119063</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dorea</td>
+<td style="text-align: right;">0.1164403</td>
+<td style="text-align: right;">-0.5199913</td>
+<td style="text-align: right;">0.1118850</td>
+<td style="text-align: right;">0.1795914</td>
+<td style="text-align: right;">1.0407143</td>
+<td style="text-align: right;">-2.895413</td>
+<td style="text-align: right;">0.2998413</td>
+<td style="text-align: right;">0.0044084</td>
+<td style="text-align: right;">0.5953991</td>
+<td style="text-align: right;">0.0218847</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Prevotella</td>
+<td style="text-align: right;">-0.6719831</td>
+<td style="text-align: right;">0.9591828</td>
+<td style="text-align: right;">0.2365881</td>
+<td style="text-align: right;">0.3204145</td>
+<td style="text-align: right;">-2.8403079</td>
+<td style="text-align: right;">2.993569</td>
+<td style="text-align: right;">0.0073699</td>
+<td style="text-align: right;">0.0049599</td>
+<td style="text-align: right;">0.0512210</td>
+<td style="text-align: right;">0.0235985</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Waltera</td>
+<td style="text-align: right;">-0.6950580</td>
+<td style="text-align: right;">1.0120202</td>
+<td style="text-align: right;">0.2175660</td>
+<td style="text-align: right;">0.3543586</td>
+<td style="text-align: right;">-3.1946993</td>
+<td style="text-align: right;">2.855921</td>
+<td style="text-align: right;">0.0018067</td>
+<td style="text-align: right;">0.0050932</td>
+<td style="text-align: right;">0.0204213</td>
+<td style="text-align: right;">0.0235985</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Erysipelatoclostridium</td>
+<td style="text-align: right;">0.1602152</td>
+<td style="text-align: right;">-0.6807938</td>
+<td style="text-align: right;">0.1519172</td>
+<td style="text-align: right;">0.2373461</td>
+<td style="text-align: right;">1.0546222</td>
+<td style="text-align: right;">-2.868358</td>
+<td style="text-align: right;">0.2949838</td>
+<td style="text-align: right;">0.0053555</td>
+<td style="text-align: right;">0.5942427</td>
+<td style="text-align: right;">0.0240135</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB79734</td>
+<td style="text-align: right;">0.2322289</td>
+<td style="text-align: right;">-0.5690491</td>
+<td style="text-align: right;">0.1233450</td>
+<td style="text-align: right;">0.2026894</td>
+<td style="text-align: right;">1.8827595</td>
+<td style="text-align: right;">-2.807494</td>
+<td style="text-align: right;">0.0632364</td>
+<td style="text-align: right;">0.0062215</td>
+<td style="text-align: right;">0.2511389</td>
+<td style="text-align: right;">0.0270245</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Parasutterella</td>
+<td style="text-align: right;">0.3371647</td>
+<td style="text-align: right;">-0.8588193</td>
+<td style="text-align: right;">0.2190507</td>
+<td style="text-align: right;">0.3081444</td>
+<td style="text-align: right;">1.5392083</td>
+<td style="text-align: right;">-2.787068</td>
+<td style="text-align: right;">0.1276996</td>
+<td style="text-align: right;">0.0066411</td>
+<td style="text-align: right;">0.3776649</td>
+<td style="text-align: right;">0.0279730</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB27106</td>
+<td style="text-align: right;">0.2533003</td>
+<td style="text-align: right;">-0.7486168</td>
+<td style="text-align: right;">0.1684554</td>
+<td style="text-align: right;">0.2577978</td>
+<td style="text-align: right;">1.5036640</td>
+<td style="text-align: right;">-2.903891</td>
+<td style="text-align: right;">0.1431234</td>
+<td style="text-align: right;">0.0068534</td>
+<td style="text-align: right;">0.4144615</td>
+<td style="text-align: right;">0.0280183</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Blautia</td>
+<td style="text-align: right;">0.0788492</td>
+<td style="text-align: right;">-0.4477765</td>
+<td style="text-align: right;">0.1092939</td>
+<td style="text-align: right;">0.1644963</td>
+<td style="text-align: right;">0.7214421</td>
+<td style="text-align: right;">-2.722107</td>
+<td style="text-align: right;">0.4718581</td>
+<td style="text-align: right;">0.0073238</td>
+<td style="text-align: right;">0.7509430</td>
+<td style="text-align: right;">0.0290860</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bacteroides</td>
+<td style="text-align: right;">0.1298119</td>
+<td style="text-align: right;">-0.5319107</td>
+<td style="text-align: right;">0.1338494</td>
+<td style="text-align: right;">0.1969374</td>
+<td style="text-align: right;">0.9698353</td>
+<td style="text-align: right;">-2.700913</td>
+<td style="text-align: right;">0.3338759</td>
+<td style="text-align: right;">0.0078082</td>
+<td style="text-align: right;">0.6470326</td>
+<td style="text-align: right;">0.0301483</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Anaerobutyricum</td>
+<td style="text-align: right;">0.0791872</td>
+<td style="text-align: right;">-0.3973101</td>
+<td style="text-align: right;">0.0954996</td>
+<td style="text-align: right;">0.1576882</td>
+<td style="text-align: right;">0.8291895</td>
+<td style="text-align: right;">-2.519593</td>
+<td style="text-align: right;">0.4085171</td>
+<td style="text-align: right;">0.0129603</td>
+<td style="text-align: right;">0.7097985</td>
+<td style="text-align: right;">0.0486889</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>filtered_results <span class="ot">&lt;-</span> significant_results <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(taxon, lfc_diet2, q_diet2)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display results in a table</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  filtered_results,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Differential Abundance Features for Diet2"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Taxon"</span>, <span class="st">"Log Fold Change (Diet2)"</span>, <span class="st">"Adjusted P-value (Diet2)"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Differential Abundance Features for Diet2</caption>
+<colgroup>
+<col style="width: 37%">
+<col style="width: 30%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Taxon</th>
+<th style="text-align: right;">Log Fold Change (Diet2)</th>
+<th style="text-align: right;">Adjusted P-value (Diet2)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">GGB80011</td>
+<td style="text-align: right;">-1.2002787</td>
+<td style="text-align: right;">0.0000028</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9635</td>
+<td style="text-align: right;">1.4081249</td>
+<td style="text-align: right;">0.0000028</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB79973</td>
+<td style="text-align: right;">-1.4382679</td>
+<td style="text-align: right;">0.0000113</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lactococcus</td>
+<td style="text-align: right;">-1.8125735</td>
+<td style="text-align: right;">0.0000113</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB3619</td>
+<td style="text-align: right;">-1.2086401</td>
+<td style="text-align: right;">0.0001106</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vescimonas</td>
+<td style="text-align: right;">-1.2359601</td>
+<td style="text-align: right;">0.0001106</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Turicibacter</td>
+<td style="text-align: right;">-1.3814172</td>
+<td style="text-align: right;">0.0001151</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9602</td>
+<td style="text-align: right;">-1.2128203</td>
+<td style="text-align: right;">0.0001361</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9758</td>
+<td style="text-align: right;">-1.1303219</td>
+<td style="text-align: right;">0.0003427</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3363</td>
+<td style="text-align: right;">-1.0121597</td>
+<td style="text-align: right;">0.0004950</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sanguibacter</td>
+<td style="text-align: right;">-0.6269197</td>
+<td style="text-align: right;">0.0004950</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Methanobrevibacter</td>
+<td style="text-align: right;">-0.8772999</td>
+<td style="text-align: right;">0.0004969</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lachnospiraceae_unclassified</td>
+<td style="text-align: right;">-1.0034745</td>
+<td style="text-align: right;">0.0006860</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Holdemanella</td>
+<td style="text-align: right;">-0.6792998</td>
+<td style="text-align: right;">0.0008396</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB3746</td>
+<td style="text-align: right;">-0.9439942</td>
+<td style="text-align: right;">0.0018118</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Staphylococcus</td>
+<td style="text-align: right;">-0.9125833</td>
+<td style="text-align: right;">0.0019136</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB51647</td>
+<td style="text-align: right;">-0.8620608</td>
+<td style="text-align: right;">0.0020174</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Enterococcus</td>
+<td style="text-align: right;">-1.0900992</td>
+<td style="text-align: right;">0.0032539</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gemmiger</td>
+<td style="text-align: right;">-0.8447112</td>
+<td style="text-align: right;">0.0040673</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Butyricicoccus</td>
+<td style="text-align: right;">-0.6393615</td>
+<td style="text-align: right;">0.0043518</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Citrobacter</td>
+<td style="text-align: right;">0.7285878</td>
+<td style="text-align: right;">0.0043864</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Monoglobus</td>
+<td style="text-align: right;">-0.6375355</td>
+<td style="text-align: right;">0.0043864</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mediterraneibacter</td>
+<td style="text-align: right;">-0.7716228</td>
+<td style="text-align: right;">0.0051038</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3730</td>
+<td style="text-align: right;">-0.4906724</td>
+<td style="text-align: right;">0.0060902</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Slackia</td>
+<td style="text-align: right;">-0.5980238</td>
+<td style="text-align: right;">0.0087333</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pseudoruminococcus</td>
+<td style="text-align: right;">-0.5984411</td>
+<td style="text-align: right;">0.0118201</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB34797</td>
+<td style="text-align: right;">-0.5560961</td>
+<td style="text-align: right;">0.0119063</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dorea</td>
+<td style="text-align: right;">-0.5199913</td>
+<td style="text-align: right;">0.0218847</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Prevotella</td>
+<td style="text-align: right;">0.9591828</td>
+<td style="text-align: right;">0.0235985</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Waltera</td>
+<td style="text-align: right;">1.0120202</td>
+<td style="text-align: right;">0.0235985</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Erysipelatoclostridium</td>
+<td style="text-align: right;">-0.6807938</td>
+<td style="text-align: right;">0.0240135</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB79734</td>
+<td style="text-align: right;">-0.5690491</td>
+<td style="text-align: right;">0.0270245</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Parasutterella</td>
+<td style="text-align: right;">-0.8588193</td>
+<td style="text-align: right;">0.0279730</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB27106</td>
+<td style="text-align: right;">-0.7486168</td>
+<td style="text-align: right;">0.0280183</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Blautia</td>
+<td style="text-align: right;">-0.4477765</td>
+<td style="text-align: right;">0.0290860</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bacteroides</td>
+<td style="text-align: right;">-0.5319107</td>
+<td style="text-align: right;">0.0301483</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Anaerobutyricum</td>
+<td style="text-align: right;">-0.3973101</td>
+<td style="text-align: right;">0.0486889</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
+</section>
+<section id="visualization" class="level3">
+<h3 class="anchored" data-anchor-id="visualization"><strong>Visualization</strong></h3>
+<section id="volcano-plot" class="level4">
+<h4 class="anchored" data-anchor-id="volcano-plot">Volcano plot</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Volcano plot</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(filtered_results, <span class="fu">aes</span>(<span class="at">x =</span> lfc_diet2, <span class="at">y =</span> <span class="sc">-</span><span class="fu">log10</span>(q_diet2), <span class="at">color =</span> taxon)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span>  <span class="co"># Transparency for better visibility of overlapping points</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="sc">-</span><span class="fu">log10</span>(<span class="fl">0.05</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span>  <span class="co"># Significance threshold</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  <span class="co"># Zero log2 fold change line</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Log2 fold-difference (Diet2)"</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"-log10 (Adjusted P-value)"</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"gray90"</span>),</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">linewidth =</span> <span class="dv">1</span>)  <span class="co"># Add black boundary</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add labels for significant taxa (those with significant p-values and notable fold change)</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> filtered_results <span class="sc">%&gt;%</span> <span class="fu">filter</span>(q_diet2 <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> <span class="fu">abs</span>(lfc_diet2) <span class="sc">&gt;</span> <span class="fl">0.5</span>), <span class="co"># Customize thresholds</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> taxon),  <span class="co"># Replace `taxon` with the correct column for taxa names</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">3</span>,  <span class="co"># Font size for labels</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">max.overlaps =</span> <span class="dv">15</span>,</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">box.padding =</span> <span class="fl">0.3</span>,</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">point.padding =</span> <span class="fl">0.2</span>,</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">direction =</span> <span class="st">"both"</span>,</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">nudge_y =</span> <span class="fl">0.1</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="daa_files/figure-html/volcano_plot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="section" class="level4">
+<h4 class="anchored" data-anchor-id="section"></h4>
+</section>
+</section>
 </section>
 
 </main>
