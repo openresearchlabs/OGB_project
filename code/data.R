@@ -1,30 +1,8 @@
 library(stringr)
 library(readxl)
 
-# Indices to loop through for alpha diversity plot
-indices <- c("shannon", "observed")
-taxa <- c("genus","species")
-outdir ="./output/"
-variable <- "group"
-
+#load the functions needed
 source("funct.R")
-
-# # STEP 5: Wilcox on taxa
-# results <- lapply(taxa, function(taxa_level) {
-#   # Loop over comparisons for the current taxa_level
-#   lapply(comparisons, function(comp) {
-#     # Run the Wilcox test
-#     test_result <- wilcox_test_taxa(tse, comp, variable, taxa_level)
-#     # Create a file name based on the comparison group
-#     comp_name <- paste(comp, collapse = "_vs_")
-#     file_name <- paste0("./output/", "wilcox_test_", taxa_level, "_", comp_name, "_results.csv")
-#     # Save the result to a CSV file
-#     write.csv(test_result, file = file_name, row.names = FALSE)
-#     # Return the file name or test result if needed (optional)
-#     return(file_name)  # or return(test_result) if you want the result instead
-#   })
-# })
-
 
 # Import metaphlan abundance table as TreeSE object
 metaphlan.file <- "../data/modified_metaphlan_db_meta4_combined_reports.txt" 
@@ -72,26 +50,15 @@ altExp(tse, "PrevalentSpecies") <- agglomerateByPrevalence(tse, rank="species",
                                                            detection=0.1/100,
                                                            prevalence=10/100)
 
-tse <- addAlpha(tse, index = c("observed", "shannon"))
+# Add alpha diversity
+tse <- addAlpha(x = tse,assay.type = 'counts',
+                index = c('observed', 'shannon'), 
+                niter = 100) 
 
-#make primary comparison into tse
+# make primary comparison into tse
 # Create a new column for group in colData of the TreeSummarizedExperiment object
 # Initialize the group column with NA values directly in tse
 tse$group <- NA  
-
-# Define the comparison groups
-comparisons <- list(
-  c("diet_1_visit_1", "diet_1_visit_2"),
-  c("diet_2_visit_1", "diet_2_visit_2"),
-  c("diet_1_visit_1", "diet_2_visit_1"),
-  c("diet_1_visit_2", "diet_2_visit_2")
-)
-
-# Define function to extract diet and visit info
-extract_diet_visit <- function(comparison) {
-  condition <- unlist(strsplit(comparison, "_"))
-  list(diet = condition[2], visit = condition[4])
-}
 
 # Assign group labels directly within tse
 for (comp in comparisons) {
@@ -112,9 +79,7 @@ for (comp in comparisons) {
 tse <- remove_duplicates(tse)
 tse <- transformAssay(tse, method = "relabundance")
 tse <- agglomerateByRanks(tse)
-tse <- addAlpha(x = tse,assay.type = 'counts',
-                index = c('observed', 'shannon', 'simpson'), 
-                niter = 100) 
+
 # Changes old levels with new levels
 tse$group <- factor(tse$group)
 
@@ -150,4 +115,4 @@ altExp(tse, "genus") <- agglomerateByVariable(altExp(tse, "genus"),
 print(table(tse$group))
 
 # Save TreeSE object for later use
-# saveRDS(tse, file="../data/tse.Rds")
+saveRDS(tse, file="../data/tse.Rds")

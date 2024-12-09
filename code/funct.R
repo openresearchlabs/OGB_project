@@ -15,6 +15,30 @@ library(TreeSummarizedExperiment)
 library(tidyverse)
 library(vegan)
 
+# Define variables
+taxa     <- c("genus","species")
+variable <- "group"
+outdir ="./output/"
+
+
+# Define the kist of comparisons
+comparisons <- list(
+  c("diet_1_visit_1", "diet_1_visit_2"),
+  c("diet_2_visit_1", "diet_2_visit_2"),
+  c("diet_1_visit_1", "diet_2_visit_1"),
+  c("diet_1_visit_2", "diet_2_visit_2")
+)
+
+
+
+# Define function to extract diet and visit info
+extract_diet_visit <- function(comparison) {
+  condition <- unlist(strsplit(comparison, "_"))
+  list(diet = condition[2], visit = condition[4])
+}
+
+
+
 run_ancombc_mix <- function(tse,taxa) {
   #extract prevalent
   # Gets a subset of object that includes prevalent taxa, genus level 
@@ -132,112 +156,62 @@ remove_duplicates <- function(tse) {
   return(tse_unique)
 }
 
-#FUNCTIONS
-#STEP1 : richness and alpha diversity
-#calculate stats diversity
-# Function to perform significance testing and plot
-perform_significance_test <- function(tse, comparison, variable, measure) {
-  # Subset the TSE to include only samples for the specified groups in the 
-  # comparison
-  tse_subset <- tse[, colData(tse)$group %in% comparison]
-  # Ensure there are no NA values in the variable column
-  valid_indices <- complete.cases(colData(tse_subset)[[variable]])
-  tse_sub <- tse_subset[, valid_indices]
-  # Convert colData to a data frame for easier manipulation
-  df <- as.data.frame(colData(tse_sub))
-  # Extract diet information for paired/independent comparison decision
-  diet_1 <- strsplit(comparison[1], "_")[[1]][2]
-  diet_2 <- strsplit(comparison[2], "_")[[1]][2]
-  # Determine if test should be paired or independent based on diet
-  paired_test <- diet_1 == diet_2 # Check if diet numbers are the same
-  # Convert the variable to a factor
-  df[[variable]] <- factor(df[[variable]])
-  # Extract group data for the Wilcoxon test
-  group1 <- df[df[[variable]] == levels(df[[variable]])[1], ]
-  group2 <- df[df[[variable]] == levels(df[[variable]])[2], ]
-  # print(colnames(group1))
-  # Initialize result container for current comparison
-  result <- data.frame(variable = variable, measure = measure, 
-                       comparison = paste(comparison, collapse = " vs "), 
-                       p_value = NA, log2_fold_change = NA, 
-                       stringsAsFactors = FALSE)
-  # Perform Wilcoxon test only if both groups have enough samples
-  if (paired_test) {
-    # For paired tests, find common subjects
-    common_subjects <- intersect(group1$id, group2$id)
-    # print(common_subjects)
-    # Filter the groups to include only common subjects
-    # Filter the groups to include only common subjects
-    group1_paired <- group1[group1$id %in% common_subjects, ]
-    group2_paired <- group2[group2$id %in% common_subjects, ]
-    # Check if there are enough paired samples
-    if (nrow(group1_paired) > 0 & nrow(group2_paired) > 0) {
-      # Perform paired Wilcoxon test
-      wilcox_test <- wilcox.test(group1_paired[[measure]], 
-                                 group2_paired[[measure]], paired = TRUE)
-      result$p_value <- wilcox_test$p.value
-      # Calculate means and log2 fold change
-      mean_group1 <- mean(group1_paired[[measure]], na.rm = TRUE)
-      mean_group2 <- mean(group2_paired[[measure]], na.rm = TRUE)
-      result$mean_Group1 <- mean_group1
-      result$mean_Group2 <- mean_group2
-      result$log2_fold_change <- log2(mean_group2 / mean_group1)
-      comparison_name <- paste(comparison, collapse = "_vs_")
-      result$comparison <- comparison_name
-    } else {
-      # If no paired samples are found, print a message
-      message("No paired samples found for comparison: ", 
-              paste(comparison, collapse = " vs "))
-    }
-  } else {
-    # For independent tests, check if both groups have enough samples
-    if (nrow(group1) > 0 & nrow(group2) > 0) {
-      # Perform independent Wilcoxon test
-      wilcox_test <- wilcox.test(group1[[measure]], group2[[measure]], 
-                                 paired = FALSE)
-      result$p_value <- wilcox_test$p.value
-      # Calculate means and log2 fold change
-      mean_group1 <- mean(group1[[measure]], na.rm = TRUE)
-      mean_group2 <- mean(group2[[measure]], na.rm = TRUE)
-      result$mean_Group1 <- mean_group1
-      result$mean_Group2 <- mean_group2
-      result$log2_fold_change <- log2(mean_group2 / mean_group1)
-      comparison_name <- paste(comparison, collapse = "_vs_")
-      result$comparison <- comparison_name
-    } else {
-      # If no samples are found, print a message
-      message("No samples found for independent comparison: ", 
-              paste(comparison, collapse = " vs "))
-    }
+# Calculate p-values
+run_diversity_tests <- function(tse, comparisons, 
+                                variable, index, 
+                                adjust.method = "fdr") {
+  # Get all values and groups
+  values <- colData(tse)[[index]]
+  groups <- colData(tse)[[variable]]
+  
+  # Create an empty results dataframe
+  results <- data.frame(
+    group1 = character(),
+    group2 = character(),
+    mean1 = numeric(),
+    mean2 = numeric(),
+    logFC = numeric(),
+    p.value = numeric(),
+    stringsAsFactors = FALSE
+  )
+  
+  # Loop through requested comparisons
+  for (comp in comparisons) {
+    group1 <- comp[1]
+    group2 <- comp[2]
+    
+    # Subset data for just these two groups
+    subset_values <- values[groups %in% c(group1, group2)]
+    subset_groups <- groups[groups %in% c(group1, group2)]
+    
+    # Perform Wilcoxon test for this pair
+    test_result <- wilcox.test(
+      subset_values ~ subset_groups,
+      exact = FALSE
+    )
+    
+    # Calculate means
+    mean1 <- mean(values[groups == group1])
+    mean2 <- mean(values[groups == group2])
+    
+    # Add results
+    results <- rbind(results, data.frame(
+      group1 = group1,
+      group2 = group2,
+      mean1 = mean1,
+      mean2 = mean2,
+      logFC = log2(mean2/mean1),
+      p.value = test_result$p.value,
+      stringsAsFactors = FALSE
+    ))
   }
   
-  return(result)
+  # Add adjusted p-values using specified method
+  results$p.adj <- p.adjust(results$p.value, method = adjust.method)
+  
+  return(results)
 }
 
-# Function to apply the test over all comparisons and measures
-run_diversity_tests <- function(tse, comparisons, variable, indices) {
-  # Initialize an empty list to store the results
-  all_results <- list()
-  # Loop through each diversity index (e.g., shannon, observed)
-  for (measure in indices) {
-    # Loop through each comparison
-    comparison_results <- lapply(comparisons, function(comp) {
-      # Perform the significance test for the current comparison
-      result <- perform_significance_test(tse, comp, variable, measure)
-      return(result)
-    })
-    # Combine results for this measure across all comparisons
-    comparison_results_df <- do.call(rbind, comparison_results)
-    # Add the current index's result to the overall list
-    all_results[[measure]] <- comparison_results_df
-  }
-  # Combine all the results into one data frame
-  final_results <- do.call(rbind, all_results)
-  # Adjust p-values for multiple testing
-  final_results$p_adjusted <- p.adjust(final_results$p_value, 
-                                       method = "holm")
-  return(final_results)
-}
 
 # Function to create and save richness plots for specified comparisons and 
 # indices
@@ -332,56 +306,9 @@ run_rdba_tests <- function(tse, comparisons, variable) {
 }
 
 
-#STEP3 : DAA with ANCOM-BC
-#ancombc
-run_ancombc_for_variable <- function(tse,comparison,variable,taxa) {
-  #extract prevalent
-  # Gets a subset of object that includes prevalent taxa, genus level 
-  # (10% prevalence above 0.1% detection level)
-  altExp(tse, "Prevalent") <- agglomerateByPrevalence(tse, rank=taxa,
-                                                      other_label="Other",
-                                                      assay.type="relabundance",
-                                                      detection=0.1/100,
-                                                      prevalence=10/100)
-  # Subset the TSE to include only samples for the specified groups in the 
-  # comparison                                                   
-  tse_subset <- tse[, colData(tse)$group %in% comparison]
-  # print(paste("Subset groups:", paste(comparison, collapse = ", ")))
-  q_col <- paste0("q_", variable, comparison[2]) #q_groupdiet_1_visit_2
-  # print(q_col)
-  tse_preval <- altExp(tse_subset, "Prevalent")
-  # Check if this is a repeated-measures comparison (same diet, different visits)
-  same_diet <- strsplit(comparison[1], "_")[[1]][2] == strsplit(comparison[2], "_")[[1]][2]
-  rand_formula <- if (same_diet) "(1|id)" else NULL
-  #selected assay (prevalent)
-  out_taxa <- ancombc2(
-    data = tse_preval,
-    assay_name = "relabundance",
-    tax_level = taxa,
-    p_adj_method = "fdr",
-    prv_cut = 0,
-    lib_cut = 0,
-    group = variable,
-    fix_formula = paste0(variable),
-    rand_formula = rand_formula,
-    struc_zero = TRUE,
-    neg_lb = TRUE,
-    alpha = 0.05,
-    global = FALSE,
-    lme_control = lme4::lmerControl(),
-    n_cl = 1,
-    verbose = FALSE
-  )
-  res_taxa <- out_taxa$res
-  # # Select columns that contain the variable name
-  df_taxa <- res_taxa %>%
-        dplyr::select(taxon, contains(variable))%>%
-        dplyr::arrange(!!sym(q_col))
-  df_taxa_sig <- df_taxa %>% filter(!!sym(q_col) < 0.05)
-  # # Generate appropriate filenames
-   comparison_name <- paste(comparison, collapse = "_vs_")
-  return(df_taxa_sig)
-}
+
+
+
 
 
 #wilcox test taxa
