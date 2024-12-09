@@ -11,7 +11,7 @@ execute:
 
 ## Differential Abundance Analysis
 
-This document presents the results of Differential Abundance Analysis (DAA) using the ANCOM-BC II method. The analysis identifies significant features between groups and visualizes the top findings.
+This document presents the Differential Abundance Analysis (DAA) using the ANCOMBC-II method. The analysis identifies significant features between diet groups and visualizes the top findings.
 
 ### Data
 
@@ -27,7 +27,6 @@ tse <- readRDS("../data/tse.Rds")
 tse <- agglomerateByPrevalence(
   tse, rank = "genus",
   prevalence = 0.1,
-  detection = 10/100,
   assay.type = "counts"
 )
 
@@ -71,7 +70,7 @@ significant_results <- daa_results$res %>%
 # Display results in a table
 kable(
   significant_results,
-  caption = "Differential Abundance Features",
+  caption = "Differentially abundant features",
   col.names = c(
     "Taxon", "Intercept Effect Size", "Diet2 Effect Size", 
     "Intercept SE", "Diet2 SE", "Intercept W", "Diet2 W",
@@ -87,7 +86,7 @@ filtered_results <- significant_results %>%
 # Display results in a table
 kable(
   filtered_results,
-  caption = "Differential Abundance Features for Diet2",
+  caption = "Differentially abundant features for Diet2",
   col.names = c("Taxon", "Log Fold Change (Diet2)", "Adjusted P-value (Diet2)"))
 ```
 
@@ -103,7 +102,7 @@ ggplot(filtered_results, aes(x = lfc_diet2, y = -log10(q_diet2), color = taxon))
   geom_vline(xintercept = 0, linetype = "dashed", color = "black") +  # Zero log2 fold change line
   theme_minimal() +
   labs(
-    x = "Log2 fold-difference (Diet2)",
+    x = "fold-change (Diet2)",
     y = "-log10 (Adjusted P-value)"
   ) +
   theme(
@@ -117,7 +116,7 @@ ggplot(filtered_results, aes(x = lfc_diet2, y = -log10(q_diet2), color = taxon))
     data = filtered_results %>% filter(q_diet2 < 0.05 & abs(lfc_diet2) > 0.5), # Customize thresholds
     aes(label = taxon),  # Replace `taxon` with the correct column for taxa names
     size = 3,  # Font size for labels
-    max.overlaps = 15,
+    max.overlaps = 10,
     box.padding = 0.3,
     point.padding = 0.2,
     direction = "both",

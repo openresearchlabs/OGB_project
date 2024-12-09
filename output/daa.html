@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="differential-abundance-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="differential-abundance-analysis">Differential Abundance Analysis</h2>
-<p>This document presents the results of Differential Abundance Analysis (DAA) using the ANCOM-BC II method. The analysis identifies significant features between groups and visualizes the top findings.</p>
+<p>This document presents the Differential Abundance Analysis (DAA) using the ANCOMBC-II method. The analysis identifies significant features between diet groups and visualizes the top findings.</p>
 <section id="data" class="level3">
 <h3 class="anchored" data-anchor-id="data">Data</h3>
 <div class="cell">
@@ -120,18 +120,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>tse <span class="ot">&lt;-</span> <span class="fu">agglomerateByPrevalence</span>(</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  tse, <span class="at">rank =</span> <span class="st">"genus"</span>,</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">prevalence =</span> <span class="fl">0.1</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">detection =</span> <span class="dv">10</span><span class="sc">/</span><span class="dv">100</span>,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">assay.type =</span> <span class="st">"counts"</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform count assay to relative abundances</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>tse <span class="ot">&lt;-</span> <span class="fu">transformAssay</span>(</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  tse, <span class="at">assay.type =</span> <span class="st">"counts"</span>,</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"relabundance"</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the variable of interest</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>group_var <span class="ot">&lt;-</span> <span class="st">"diet"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">assay.type =</span> <span class="st">"counts"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform count assay to relative abundances</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>tse <span class="ot">&lt;-</span> <span class="fu">transformAssay</span>(</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  tse, <span class="at">assay.type =</span> <span class="st">"counts"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"relabundance"</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the variable of interest</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>group_var <span class="ot">&lt;-</span> <span class="st">"diet"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="ancom-bc-ii" class="level3">
@@ -164,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display results in a table</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  significant_results,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Differential Abundance Features"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Differentially abundant features"</span>,</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Taxon"</span>, <span class="st">"Intercept Effect Size"</span>, <span class="st">"Diet2 Effect Size"</span>, </span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Intercept SE"</span>, <span class="st">"Diet2 SE"</span>, <span class="st">"Intercept W"</span>, <span class="st">"Diet2 W"</span>,</span>
@@ -175,22 +174,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<caption>Differential Abundance Features</caption>
+<caption>Differentially abundant features</caption>
 <colgroup>
-<col style="width: 10%">
-<col style="width: 8%">
-<col style="width: 6%">
-<col style="width: 4%">
-<col style="width: 3%">
-<col style="width: 4%">
-<col style="width: 3%">
-<col style="width: 6%">
-<col style="width: 5%">
-<col style="width: 9%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 6%">
+<col style="width: 15%">
 <col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 9%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 6%">
 <col style="width: 5%">
 </colgroup>
 <thead>
@@ -214,51 +213,629 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">GGB80011</td>
-<td style="text-align: right;">0.5260559</td>
-<td style="text-align: right;">-1.2002787</td>
-<td style="text-align: right;">0.0899480</td>
-<td style="text-align: right;">0.1803238</td>
-<td style="text-align: right;">5.8484434</td>
-<td style="text-align: right;">-6.656243</td>
-<td style="text-align: right;">0.0000006</td>
+<td style="text-align: left;">GGB9616</td>
+<td style="text-align: right;">1.7107474</td>
+<td style="text-align: right;">-2.6018413</td>
+<td style="text-align: right;">0.0816851</td>
+<td style="text-align: right;">0.1729194</td>
+<td style="text-align: right;">20.9432124</td>
+<td style="text-align: right;">-15.046553</td>
 <td style="text-align: right;">0.0000000</td>
-<td style="text-align: right;">0.0000352</td>
-<td style="text-align: right;">0.0000028</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">GGB9635</td>
-<td style="text-align: right;">-0.9061670</td>
-<td style="text-align: right;">1.4081249</td>
-<td style="text-align: right;">0.1634073</td>
-<td style="text-align: right;">0.2208847</td>
-<td style="text-align: right;">-5.5454483</td>
-<td style="text-align: right;">6.374931</td>
-<td style="text-align: right;">0.0000007</td>
+<td style="text-align: left;">GGB9350</td>
+<td style="text-align: right;">-1.6178129</td>
+<td style="text-align: right;">2.7181255</td>
+<td style="text-align: right;">0.1033479</td>
+<td style="text-align: right;">0.1804319</td>
+<td style="text-align: right;">-15.6540434</td>
+<td style="text-align: right;">15.064550</td>
 <td style="text-align: right;">0.0000000</td>
-<td style="text-align: right;">0.0000352</td>
-<td style="text-align: right;">0.0000028</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">GGB79973</td>
-<td style="text-align: right;">0.6956190</td>
-<td style="text-align: right;">-1.4382679</td>
-<td style="text-align: right;">0.1448405</td>
-<td style="text-align: right;">0.2461487</td>
-<td style="text-align: right;">4.8026563</td>
-<td style="text-align: right;">-5.843085</td>
-<td style="text-align: right;">0.0000125</td>
+<td style="text-align: left;">GGB6608</td>
+<td style="text-align: right;">1.0945824</td>
+<td style="text-align: right;">-2.3790119</td>
+<td style="text-align: right;">0.0796500</td>
+<td style="text-align: right;">0.1484139</td>
+<td style="text-align: right;">13.7424096</td>
+<td style="text-align: right;">-16.029579</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB4599</td>
+<td style="text-align: right;">1.3853395</td>
+<td style="text-align: right;">-2.4421485</td>
+<td style="text-align: right;">0.0683916</td>
+<td style="text-align: right;">0.1566864</td>
+<td style="text-align: right;">20.2559986</td>
+<td style="text-align: right;">-15.586219</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9832</td>
+<td style="text-align: right;">1.3605338</td>
+<td style="text-align: right;">-3.0004962</td>
+<td style="text-align: right;">0.1336870</td>
+<td style="text-align: right;">0.1960377</td>
+<td style="text-align: right;">10.1770072</td>
+<td style="text-align: right;">-15.305709</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000006</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB2659</td>
+<td style="text-align: right;">-1.3996797</td>
+<td style="text-align: right;">2.1559902</td>
+<td style="text-align: right;">0.0557964</td>
+<td style="text-align: right;">0.1373267</td>
+<td style="text-align: right;">-25.0854750</td>
+<td style="text-align: right;">15.699717</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000001</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9635</td>
+<td style="text-align: right;">-0.8261378</td>
+<td style="text-align: right;">1.5657695</td>
+<td style="text-align: right;">0.1505796</td>
+<td style="text-align: right;">0.2184302</td>
+<td style="text-align: right;">-5.4863865</td>
+<td style="text-align: right;">7.168284</td>
+<td style="text-align: right;">0.0000009</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000085</td>
+<td style="text-align: right;">0.0000001</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3614</td>
+<td style="text-align: right;">1.3426727</td>
+<td style="text-align: right;">-2.2599203</td>
+<td style="text-align: right;">0.0796341</td>
+<td style="text-align: right;">0.2038820</td>
+<td style="text-align: right;">16.8605285</td>
+<td style="text-align: right;">-11.084453</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000001</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9299</td>
+<td style="text-align: right;">0.8079064</td>
+<td style="text-align: right;">-1.4779365</td>
+<td style="text-align: right;">0.0782090</td>
+<td style="text-align: right;">0.1844673</td>
+<td style="text-align: right;">10.3300910</td>
+<td style="text-align: right;">-8.011915</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000001</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Propionibacterium</td>
+<td style="text-align: right;">1.0271447</td>
+<td style="text-align: right;">-1.8495630</td>
+<td style="text-align: right;">0.1209019</td>
+<td style="text-align: right;">0.1944732</td>
+<td style="text-align: right;">8.4956842</td>
+<td style="text-align: right;">-9.510634</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000004</td>
+<td style="text-align: right;">0.0000001</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Catenibacterium</td>
+<td style="text-align: right;">1.0395695</td>
+<td style="text-align: right;">-1.9910313</td>
+<td style="text-align: right;">0.0902650</td>
+<td style="text-align: right;">0.1839030</td>
+<td style="text-align: right;">11.5168605</td>
+<td style="text-align: right;">-10.826527</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000002</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Longicatena</td>
+<td style="text-align: right;">0.3895628</td>
+<td style="text-align: right;">-2.0364809</td>
+<td style="text-align: right;">0.0958131</td>
+<td style="text-align: right;">0.1553989</td>
+<td style="text-align: right;">4.0658603</td>
+<td style="text-align: right;">-13.104858</td>
+<td style="text-align: right;">0.0013360</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0052371</td>
+<td style="text-align: right;">0.0000002</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dielma</td>
+<td style="text-align: right;">0.3370182</td>
+<td style="text-align: right;">-1.2243079</td>
+<td style="text-align: right;">0.1070978</td>
+<td style="text-align: right;">0.1720506</td>
+<td style="text-align: right;">3.1468279</td>
+<td style="text-align: right;">-7.115977</td>
+<td style="text-align: right;">0.0033634</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0110796</td>
+<td style="text-align: right;">0.0000008</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB79634</td>
+<td style="text-align: right;">-0.8387889</td>
+<td style="text-align: right;">2.1097383</td>
+<td style="text-align: right;">0.1972460</td>
+<td style="text-align: right;">0.2474923</td>
+<td style="text-align: right;">-4.2525008</td>
+<td style="text-align: right;">8.524461</td>
+<td style="text-align: right;">0.0003552</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0015473</td>
+<td style="text-align: right;">0.0000008</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9184</td>
+<td style="text-align: right;">1.5056451</td>
+<td style="text-align: right;">-2.1528099</td>
+<td style="text-align: right;">0.0777606</td>
+<td style="text-align: right;">0.2168571</td>
+<td style="text-align: right;">19.3625627</td>
+<td style="text-align: right;">-9.927321</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000001</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000014</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB42639</td>
+<td style="text-align: right;">0.6585704</td>
+<td style="text-align: right;">-1.2503456</td>
+<td style="text-align: right;">0.0806266</td>
+<td style="text-align: right;">0.1750480</td>
+<td style="text-align: right;">8.1681503</td>
+<td style="text-align: right;">-7.142874</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000001</td>
+<td style="text-align: right;">0.0000001</td>
+<td style="text-align: right;">0.0000022</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB79630</td>
+<td style="text-align: right;">-0.8333304</td>
+<td style="text-align: right;">1.2737816</td>
+<td style="text-align: right;">0.0949811</td>
+<td style="text-align: right;">0.1879486</td>
+<td style="text-align: right;">-8.7736401</td>
+<td style="text-align: right;">6.777287</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000001</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000025</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9512</td>
+<td style="text-align: right;">0.7316296</td>
+<td style="text-align: right;">-1.1793956</td>
+<td style="text-align: right;">0.0532935</td>
+<td style="text-align: right;">0.1357178</td>
+<td style="text-align: right;">13.7283145</td>
+<td style="text-align: right;">-8.690055</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000001</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000025</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB80011</td>
+<td style="text-align: right;">0.6353643</td>
+<td style="text-align: right;">-1.0903741</td>
+<td style="text-align: right;">0.0757601</td>
+<td style="text-align: right;">0.1799413</td>
+<td style="text-align: right;">8.3865258</td>
+<td style="text-align: right;">-6.059609</td>
+<td style="text-align: right;">0.0000000</td>
 <td style="text-align: right;">0.0000003</td>
-<td style="text-align: right;">0.0004327</td>
-<td style="text-align: right;">0.0000113</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000062</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3032</td>
+<td style="text-align: right;">-0.6405218</td>
+<td style="text-align: right;">1.4699797</td>
+<td style="text-align: right;">0.1024895</td>
+<td style="text-align: right;">0.1877856</td>
+<td style="text-align: right;">-6.2496308</td>
+<td style="text-align: right;">7.827968</td>
+<td style="text-align: right;">0.0000068</td>
+<td style="text-align: right;">0.0000003</td>
+<td style="text-align: right;">0.0000524</td>
+<td style="text-align: right;">0.0000064</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB4588</td>
+<td style="text-align: right;">1.1181341</td>
+<td style="text-align: right;">-1.3583353</td>
+<td style="text-align: right;">0.0479901</td>
+<td style="text-align: right;">0.1510254</td>
+<td style="text-align: right;">23.2992753</td>
+<td style="text-align: right;">-8.994088</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000003</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000064</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9611</td>
+<td style="text-align: right;">0.8015084</td>
+<td style="text-align: right;">-1.1655402</td>
+<td style="text-align: right;">0.0530496</td>
+<td style="text-align: right;">0.1545185</td>
+<td style="text-align: right;">15.1086691</td>
+<td style="text-align: right;">-7.543045</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000004</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000071</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pseudoglutamicibacter</td>
+<td style="text-align: right;">0.9137772</td>
+<td style="text-align: right;">-1.4341660</td>
+<td style="text-align: right;">0.0550478</td>
+<td style="text-align: right;">0.1722389</td>
+<td style="text-align: right;">16.5997035</td>
+<td style="text-align: right;">-8.326607</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000005</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000089</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lactonifactor</td>
+<td style="text-align: right;">0.1848385</td>
+<td style="text-align: right;">-1.2053741</td>
+<td style="text-align: right;">0.0874338</td>
+<td style="text-align: right;">0.1563846</td>
+<td style="text-align: right;">2.1140407</td>
+<td style="text-align: right;">-7.707754</td>
+<td style="text-align: right;">0.0495919</td>
+<td style="text-align: right;">0.0000006</td>
+<td style="text-align: right;">0.1093986</td>
+<td style="text-align: right;">0.0000099</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Parvimonas</td>
+<td style="text-align: right;">0.3121290</td>
+<td style="text-align: right;">-1.5724328</td>
+<td style="text-align: right;">0.1145212</td>
+<td style="text-align: right;">0.1754609</td>
+<td style="text-align: right;">2.7255123</td>
+<td style="text-align: right;">-8.961730</td>
+<td style="text-align: right;">0.0173296</td>
+<td style="text-align: right;">0.0000006</td>
+<td style="text-align: right;">0.0449882</td>
+<td style="text-align: right;">0.0000099</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Candidatus_Borkfalkia</td>
+<td style="text-align: right;">0.6512991</td>
+<td style="text-align: right;">-1.1998402</td>
+<td style="text-align: right;">0.0834813</td>
+<td style="text-align: right;">0.1731021</td>
+<td style="text-align: right;">7.8017392</td>
+<td style="text-align: right;">-6.931401</td>
+<td style="text-align: right;">0.0000001</td>
+<td style="text-align: right;">0.0000008</td>
+<td style="text-align: right;">0.0000015</td>
+<td style="text-align: right;">0.0000112</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Coprobacillus</td>
+<td style="text-align: right;">0.6495365</td>
+<td style="text-align: right;">-1.4747060</td>
+<td style="text-align: right;">0.1925955</td>
+<td style="text-align: right;">0.2573265</td>
+<td style="text-align: right;">3.3725428</td>
+<td style="text-align: right;">-5.730875</td>
+<td style="text-align: right;">0.0015396</td>
+<td style="text-align: right;">0.0000008</td>
+<td style="text-align: right;">0.0058030</td>
+<td style="text-align: right;">0.0000112</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB6544</td>
+<td style="text-align: right;">-0.8181996</td>
+<td style="text-align: right;">1.3901088</td>
+<td style="text-align: right;">0.0814316</td>
+<td style="text-align: right;">0.1659232</td>
+<td style="text-align: right;">-10.0476860</td>
+<td style="text-align: right;">8.378023</td>
+<td style="text-align: right;">0.0000001</td>
+<td style="text-align: right;">0.0000008</td>
+<td style="text-align: right;">0.0000012</td>
+<td style="text-align: right;">0.0000112</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Latilactobacillus</td>
+<td style="text-align: right;">-0.5631539</td>
+<td style="text-align: right;">1.2008641</td>
+<td style="text-align: right;">0.1135554</td>
+<td style="text-align: right;">0.1745466</td>
+<td style="text-align: right;">-4.9592886</td>
+<td style="text-align: right;">6.879904</td>
+<td style="text-align: right;">0.0000660</td>
+<td style="text-align: right;">0.0000008</td>
+<td style="text-align: right;">0.0003749</td>
+<td style="text-align: right;">0.0000114</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9788</td>
+<td style="text-align: right;">0.7320252</td>
+<td style="text-align: right;">-1.0660466</td>
+<td style="text-align: right;">0.0780989</td>
+<td style="text-align: right;">0.1896703</td>
+<td style="text-align: right;">9.3730578</td>
+<td style="text-align: right;">-5.620524</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000011</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000149</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB3678</td>
+<td style="text-align: right;">0.5010176</td>
+<td style="text-align: right;">-1.0919191</td>
+<td style="text-align: right;">0.0831000</td>
+<td style="text-align: right;">0.1759995</td>
+<td style="text-align: right;">6.0290889</td>
+<td style="text-align: right;">-6.204104</td>
+<td style="text-align: right;">0.0000020</td>
+<td style="text-align: right;">0.0000012</td>
+<td style="text-align: right;">0.0000167</td>
+<td style="text-align: right;">0.0000157</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB42994</td>
+<td style="text-align: right;">0.3369958</td>
+<td style="text-align: right;">-1.0172433</td>
+<td style="text-align: right;">0.0667523</td>
+<td style="text-align: right;">0.1481020</td>
+<td style="text-align: right;">5.0484534</td>
+<td style="text-align: right;">-6.868531</td>
+<td style="text-align: right;">0.0000714</td>
+<td style="text-align: right;">0.0000015</td>
+<td style="text-align: right;">0.0003940</td>
+<td style="text-align: right;">0.0000183</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB4713</td>
+<td style="text-align: right;">0.7140866</td>
+<td style="text-align: right;">-1.2431017</td>
+<td style="text-align: right;">0.0649177</td>
+<td style="text-align: right;">0.1556100</td>
+<td style="text-align: right;">10.9998783</td>
+<td style="text-align: right;">-7.988574</td>
+<td style="text-align: right;">0.0000001</td>
+<td style="text-align: right;">0.0000023</td>
+<td style="text-align: right;">0.0000009</td>
+<td style="text-align: right;">0.0000270</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9444</td>
+<td style="text-align: right;">0.5678390</td>
+<td style="text-align: right;">-1.1739386</td>
+<td style="text-align: right;">0.0855841</td>
+<td style="text-align: right;">0.1613722</td>
+<td style="text-align: right;">6.6348692</td>
+<td style="text-align: right;">-7.274726</td>
+<td style="text-align: right;">0.0000079</td>
+<td style="text-align: right;">0.0000027</td>
+<td style="text-align: right;">0.0000588</td>
+<td style="text-align: right;">0.0000314</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Intestinibacillus</td>
+<td style="text-align: right;">-0.5577708</td>
+<td style="text-align: right;">1.0301502</td>
+<td style="text-align: right;">0.0653101</td>
+<td style="text-align: right;">0.1565001</td>
+<td style="text-align: right;">-8.5403426</td>
+<td style="text-align: right;">6.582427</td>
+<td style="text-align: right;">0.0000001</td>
+<td style="text-align: right;">0.0000035</td>
+<td style="text-align: right;">0.0000012</td>
+<td style="text-align: right;">0.0000392</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Merdimonas</td>
+<td style="text-align: right;">0.5081109</td>
+<td style="text-align: right;">-0.9788458</td>
+<td style="text-align: right;">0.0945661</td>
+<td style="text-align: right;">0.1873293</td>
+<td style="text-align: right;">5.3730758</td>
+<td style="text-align: right;">-5.225268</td>
+<td style="text-align: right;">0.0000024</td>
+<td style="text-align: right;">0.0000039</td>
+<td style="text-align: right;">0.0000197</td>
+<td style="text-align: right;">0.0000426</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB4596</td>
+<td style="text-align: right;">0.9218075</td>
+<td style="text-align: right;">-1.2705143</td>
+<td style="text-align: right;">0.0925465</td>
+<td style="text-align: right;">0.1975622</td>
+<td style="text-align: right;">9.9604792</td>
+<td style="text-align: right;">-6.430959</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000047</td>
+<td style="text-align: right;">0.0000002</td>
+<td style="text-align: right;">0.0000500</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
@@ -266,67 +843,237 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td style="text-align: left;">Lactococcus</td>
-<td style="text-align: right;">0.7579763</td>
-<td style="text-align: right;">-1.8125735</td>
-<td style="text-align: right;">0.2058970</td>
-<td style="text-align: right;">0.3275331</td>
-<td style="text-align: right;">3.6813367</td>
-<td style="text-align: right;">-5.534017</td>
-<td style="text-align: right;">0.0004018</td>
-<td style="text-align: right;">0.0000003</td>
-<td style="text-align: right;">0.0079794</td>
-<td style="text-align: right;">0.0000113</td>
+<td style="text-align: right;">0.7678382</td>
+<td style="text-align: right;">-1.5795420</td>
+<td style="text-align: right;">0.1962249</td>
+<td style="text-align: right;">0.3267450</td>
+<td style="text-align: right;">3.9130510</td>
+<td style="text-align: right;">-4.834174</td>
+<td style="text-align: right;">0.0001804</td>
+<td style="text-align: right;">0.0000057</td>
+<td style="text-align: right;">0.0008732</td>
+<td style="text-align: right;">0.0000589</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">GGB3619</td>
-<td style="text-align: right;">0.5313421</td>
-<td style="text-align: right;">-1.2086401</td>
-<td style="text-align: right;">0.1430526</td>
-<td style="text-align: right;">0.2326357</td>
-<td style="text-align: right;">3.7143137</td>
-<td style="text-align: right;">-5.195419</td>
-<td style="text-align: right;">0.0005499</td>
-<td style="text-align: right;">0.0000045</td>
-<td style="text-align: right;">0.0095553</td>
-<td style="text-align: right;">0.0001106</td>
+<td style="text-align: left;">GGB79973</td>
+<td style="text-align: right;">0.7316058</td>
+<td style="text-align: right;">-1.2096368</td>
+<td style="text-align: right;">0.1332699</td>
+<td style="text-align: right;">0.2445161</td>
+<td style="text-align: right;">5.4896546</td>
+<td style="text-align: right;">-4.947064</td>
+<td style="text-align: right;">0.0000011</td>
+<td style="text-align: right;">0.0000075</td>
+<td style="text-align: right;">0.0000101</td>
+<td style="text-align: right;">0.0000733</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Vescimonas</td>
-<td style="text-align: right;">0.5036420</td>
-<td style="text-align: right;">-1.2359601</td>
-<td style="text-align: right;">0.1530688</td>
-<td style="text-align: right;">0.2559065</td>
-<td style="text-align: right;">3.2902979</td>
-<td style="text-align: right;">-4.829734</td>
-<td style="text-align: right;">0.0013708</td>
-<td style="text-align: right;">0.0000048</td>
-<td style="text-align: right;">0.0190544</td>
-<td style="text-align: right;">0.0001106</td>
+<td style="text-align: left;">Limosilactobacillus</td>
+<td style="text-align: right;">0.3930046</td>
+<td style="text-align: right;">-1.1519993</td>
+<td style="text-align: right;">0.0973468</td>
+<td style="text-align: right;">0.1608669</td>
+<td style="text-align: right;">4.0371588</td>
+<td style="text-align: right;">-7.161195</td>
+<td style="text-align: right;">0.0014100</td>
+<td style="text-align: right;">0.0000074</td>
+<td style="text-align: right;">0.0054214</td>
+<td style="text-align: right;">0.0000733</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Turicibacter</td>
-<td style="text-align: right;">0.5656383</td>
-<td style="text-align: right;">-1.3814172</td>
-<td style="text-align: right;">0.1949244</td>
-<td style="text-align: right;">0.2843638</td>
-<td style="text-align: right;">2.9018339</td>
-<td style="text-align: right;">-4.857923</td>
-<td style="text-align: right;">0.0047906</td>
-<td style="text-align: right;">0.0000058</td>
-<td style="text-align: right;">0.0391702</td>
-<td style="text-align: right;">0.0001151</td>
+<td style="text-align: left;">GGB58233</td>
+<td style="text-align: right;">0.3133496</td>
+<td style="text-align: right;">-0.8717506</td>
+<td style="text-align: right;">0.0772683</td>
+<td style="text-align: right;">0.1721479</td>
+<td style="text-align: right;">4.0553424</td>
+<td style="text-align: right;">-5.063962</td>
+<td style="text-align: right;">0.0002067</td>
+<td style="text-align: right;">0.0000082</td>
+<td style="text-align: right;">0.0009760</td>
+<td style="text-align: right;">0.0000785</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB16040</td>
+<td style="text-align: right;">0.3600022</td>
+<td style="text-align: right;">-1.0412654</td>
+<td style="text-align: right;">0.1258240</td>
+<td style="text-align: right;">0.1842554</td>
+<td style="text-align: right;">2.8611568</td>
+<td style="text-align: right;">-5.651206</td>
+<td style="text-align: right;">0.0088325</td>
+<td style="text-align: right;">0.0000094</td>
+<td style="text-align: right;">0.0245556</td>
+<td style="text-align: right;">0.0000879</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9063</td>
+<td style="text-align: right;">0.4617675</td>
+<td style="text-align: right;">-0.9030877</td>
+<td style="text-align: right;">0.0930625</td>
+<td style="text-align: right;">0.1595249</td>
+<td style="text-align: right;">4.9619070</td>
+<td style="text-align: right;">-5.661110</td>
+<td style="text-align: right;">0.0000578</td>
+<td style="text-align: right;">0.0000108</td>
+<td style="text-align: right;">0.0003432</td>
+<td style="text-align: right;">0.0000985</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB6601</td>
+<td style="text-align: right;">-0.2721558</td>
+<td style="text-align: right;">0.9384493</td>
+<td style="text-align: right;">0.1019929</td>
+<td style="text-align: right;">0.1646518</td>
+<td style="text-align: right;">-2.6683782</td>
+<td style="text-align: right;">5.699599</td>
+<td style="text-align: right;">0.0143819</td>
+<td style="text-align: right;">0.0000117</td>
+<td style="text-align: right;">0.0388491</td>
+<td style="text-align: right;">0.0001045</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB77437</td>
+<td style="text-align: right;">0.6062624</td>
+<td style="text-align: right;">-0.8667329</td>
+<td style="text-align: right;">0.0545053</td>
+<td style="text-align: right;">0.1477002</td>
+<td style="text-align: right;">11.1230032</td>
+<td style="text-align: right;">-5.868192</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0000148</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0001287</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Negativibacillus</td>
+<td style="text-align: right;">-0.5031063</td>
+<td style="text-align: right;">0.9249839</td>
+<td style="text-align: right;">0.0940554</td>
+<td style="text-align: right;">0.1548874</td>
+<td style="text-align: right;">-5.3490427</td>
+<td style="text-align: right;">5.971978</td>
+<td style="text-align: right;">0.0000652</td>
+<td style="text-align: right;">0.0000195</td>
+<td style="text-align: right;">0.0003749</td>
+<td style="text-align: right;">0.0001664</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9210</td>
+<td style="text-align: right;">-0.7482698</td>
+<td style="text-align: right;">0.9200872</td>
+<td style="text-align: right;">0.0860106</td>
+<td style="text-align: right;">0.1611120</td>
+<td style="text-align: right;">-8.6997404</td>
+<td style="text-align: right;">5.710854</td>
+<td style="text-align: right;">0.0000001</td>
+<td style="text-align: right;">0.0000205</td>
+<td style="text-align: right;">0.0000010</td>
+<td style="text-align: right;">0.0001708</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3619</td>
+<td style="text-align: right;">0.6394713</td>
+<td style="text-align: right;">-1.0814052</td>
+<td style="text-align: right;">0.1289123</td>
+<td style="text-align: right;">0.2287321</td>
+<td style="text-align: right;">4.9605134</td>
+<td style="text-align: right;">-4.727824</td>
+<td style="text-align: right;">0.0000100</td>
+<td style="text-align: right;">0.0000218</td>
+<td style="text-align: right;">0.0000728</td>
+<td style="text-align: right;">0.0001779</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dakarella</td>
+<td style="text-align: right;">0.5575190</td>
+<td style="text-align: right;">-0.9713383</td>
+<td style="text-align: right;">0.1081035</td>
+<td style="text-align: right;">0.1955150</td>
+<td style="text-align: right;">5.1572715</td>
+<td style="text-align: right;">-4.968101</td>
+<td style="text-align: right;">0.0000149</td>
+<td style="text-align: right;">0.0000255</td>
+<td style="text-align: right;">0.0001010</td>
+<td style="text-align: right;">0.0002039</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gemella</td>
+<td style="text-align: right;">-0.5959579</td>
+<td style="text-align: right;">0.8623997</td>
+<td style="text-align: right;">0.0848156</td>
+<td style="text-align: right;">0.1581010</td>
+<td style="text-align: right;">-7.0265112</td>
+<td style="text-align: right;">5.454741</td>
+<td style="text-align: right;">0.0000015</td>
+<td style="text-align: right;">0.0000351</td>
+<td style="text-align: right;">0.0000132</td>
+<td style="text-align: right;">0.0002670</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB4559</td>
+<td style="text-align: right;">0.7130527</td>
+<td style="text-align: right;">-0.9801813</td>
+<td style="text-align: right;">0.0856858</td>
+<td style="text-align: right;">0.1686086</td>
+<td style="text-align: right;">8.3217112</td>
+<td style="text-align: right;">-5.813352</td>
+<td style="text-align: right;">0.0000005</td>
+<td style="text-align: right;">0.0000342</td>
+<td style="text-align: right;">0.0000055</td>
+<td style="text-align: right;">0.0002670</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
@@ -334,220 +1081,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td style="text-align: left;">GGB9602</td>
-<td style="text-align: right;">0.5898064</td>
-<td style="text-align: right;">-1.2128203</td>
-<td style="text-align: right;">0.1462013</td>
-<td style="text-align: right;">0.2500166</td>
-<td style="text-align: right;">4.0342078</td>
-<td style="text-align: right;">-4.850958</td>
-<td style="text-align: right;">0.0001447</td>
-<td style="text-align: right;">0.0000078</td>
-<td style="text-align: right;">0.0040240</td>
-<td style="text-align: right;">0.0001361</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">GGB9758</td>
-<td style="text-align: right;">0.5251344</td>
-<td style="text-align: right;">-1.1303219</td>
-<td style="text-align: right;">0.1611322</td>
-<td style="text-align: right;">0.2495249</td>
-<td style="text-align: right;">3.2590294</td>
-<td style="text-align: right;">-4.529895</td>
-<td style="text-align: right;">0.0016902</td>
-<td style="text-align: right;">0.0000222</td>
-<td style="text-align: right;">0.0204213</td>
-<td style="text-align: right;">0.0003427</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">GGB3363</td>
-<td style="text-align: right;">0.4923664</td>
-<td style="text-align: right;">-1.0121597</td>
-<td style="text-align: right;">0.1135687</td>
-<td style="text-align: right;">0.2027383</td>
-<td style="text-align: right;">4.3354057</td>
-<td style="text-align: right;">-4.992443</td>
-<td style="text-align: right;">0.0002086</td>
-<td style="text-align: right;">0.0000380</td>
-<td style="text-align: right;">0.0048323</td>
-<td style="text-align: right;">0.0004950</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Sanguibacter</td>
-<td style="text-align: right;">0.1397986</td>
-<td style="text-align: right;">-0.6269197</td>
-<td style="text-align: right;">0.0744961</td>
-<td style="text-align: right;">0.1386855</td>
-<td style="text-align: right;">1.8765878</td>
-<td style="text-align: right;">-4.520440</td>
-<td style="text-align: right;">0.0665363</td>
-<td style="text-align: right;">0.0000392</td>
-<td style="text-align: right;">0.2540157</td>
-<td style="text-align: right;">0.0004950</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Methanobrevibacter</td>
-<td style="text-align: right;">0.4226017</td>
-<td style="text-align: right;">-0.8772999</td>
-<td style="text-align: right;">0.0738784</td>
-<td style="text-align: right;">0.1940227</td>
-<td style="text-align: right;">5.7202298</td>
-<td style="text-align: right;">-4.521636</td>
-<td style="text-align: right;">0.0000008</td>
-<td style="text-align: right;">0.0000429</td>
-<td style="text-align: right;">0.0000352</td>
-<td style="text-align: right;">0.0004969</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Lachnospiraceae_unclassified</td>
-<td style="text-align: right;">0.3676657</td>
-<td style="text-align: right;">-1.0034745</td>
-<td style="text-align: right;">0.1638434</td>
-<td style="text-align: right;">0.2431964</td>
-<td style="text-align: right;">2.2440066</td>
-<td style="text-align: right;">-4.126190</td>
-<td style="text-align: right;">0.0264600</td>
-<td style="text-align: right;">0.0000642</td>
-<td style="text-align: right;">0.1225982</td>
-<td style="text-align: right;">0.0006860</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Holdemanella</td>
-<td style="text-align: right;">0.1697963</td>
-<td style="text-align: right;">-0.6792998</td>
-<td style="text-align: right;">0.0700713</td>
-<td style="text-align: right;">0.1413727</td>
-<td style="text-align: right;">2.4231929</td>
-<td style="text-align: right;">-4.805027</td>
-<td style="text-align: right;">0.0240632</td>
-<td style="text-align: right;">0.0000846</td>
-<td style="text-align: right;">0.1194568</td>
-<td style="text-align: right;">0.0008396</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">GGB3746</td>
-<td style="text-align: right;">0.3144249</td>
-<td style="text-align: right;">-0.9439942</td>
-<td style="text-align: right;">0.1693414</td>
-<td style="text-align: right;">0.2398667</td>
-<td style="text-align: right;">1.8567511</td>
-<td style="text-align: right;">-3.935495</td>
-<td style="text-align: right;">0.0676157</td>
-<td style="text-align: right;">0.0001955</td>
-<td style="text-align: right;">0.2540157</td>
-<td style="text-align: right;">0.0018118</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Staphylococcus</td>
-<td style="text-align: right;">0.3570523</td>
-<td style="text-align: right;">-0.9125833</td>
-<td style="text-align: right;">0.1614276</td>
-<td style="text-align: right;">0.2228559</td>
-<td style="text-align: right;">2.2118411</td>
-<td style="text-align: right;">-4.094948</td>
-<td style="text-align: right;">0.0332330</td>
-<td style="text-align: right;">0.0002203</td>
-<td style="text-align: right;">0.1490124</td>
-<td style="text-align: right;">0.0019136</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">GGB51647</td>
-<td style="text-align: right;">0.3277505</td>
-<td style="text-align: right;">-0.8620608</td>
-<td style="text-align: right;">0.1154404</td>
-<td style="text-align: right;">0.1838781</td>
-<td style="text-align: right;">2.8391314</td>
-<td style="text-align: right;">-4.688218</td>
-<td style="text-align: right;">0.0118443</td>
-<td style="text-align: right;">0.0002467</td>
-<td style="text-align: right;">0.0735919</td>
-<td style="text-align: right;">0.0020174</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Enterococcus</td>
-<td style="text-align: right;">0.4149654</td>
-<td style="text-align: right;">-1.0900992</td>
-<td style="text-align: right;">0.2069985</td>
-<td style="text-align: right;">0.2916438</td>
-<td style="text-align: right;">2.0046789</td>
-<td style="text-align: right;">-3.737776</td>
-<td style="text-align: right;">0.0495932</td>
-<td style="text-align: right;">0.0004214</td>
-<td style="text-align: right;">0.2154205</td>
-<td style="text-align: right;">0.0032539</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Gemmiger</td>
-<td style="text-align: right;">0.3421926</td>
-<td style="text-align: right;">-0.8447112</td>
-<td style="text-align: right;">0.1458925</td>
-<td style="text-align: right;">0.2381724</td>
-<td style="text-align: right;">2.3455117</td>
-<td style="text-align: right;">-3.546637</td>
-<td style="text-align: right;">0.0206283</td>
-<td style="text-align: right;">0.0005560</td>
-<td style="text-align: right;">0.1061977</td>
-<td style="text-align: right;">0.0040673</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Butyricicoccus</td>
-<td style="text-align: right;">0.3038165</td>
-<td style="text-align: right;">-0.6393615</td>
-<td style="text-align: right;">0.0900605</td>
-<td style="text-align: right;">0.1691632</td>
-<td style="text-align: right;">3.3734723</td>
-<td style="text-align: right;">-3.779555</td>
-<td style="text-align: right;">0.0019099</td>
-<td style="text-align: right;">0.0006262</td>
-<td style="text-align: right;">0.0204213</td>
-<td style="text-align: right;">0.0043518</td>
+<td style="text-align: right;">0.7185211</td>
+<td style="text-align: right;">-1.0989935</td>
+<td style="text-align: right;">0.1352608</td>
+<td style="text-align: right;">0.2476868</td>
+<td style="text-align: right;">5.3121147</td>
+<td style="text-align: right;">-4.437030</td>
+<td style="text-align: right;">0.0000014</td>
+<td style="text-align: right;">0.0000354</td>
+<td style="text-align: right;">0.0000125</td>
+<td style="text-align: right;">0.0002670</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
@@ -555,292 +1098,1703 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Citrobacter</td>
-<td style="text-align: right;">-0.4237117</td>
-<td style="text-align: right;">0.7285878</td>
-<td style="text-align: right;">0.1096200</td>
-<td style="text-align: right;">0.1802022</td>
-<td style="text-align: right;">-3.8652765</td>
-<td style="text-align: right;">4.043168</td>
-<td style="text-align: right;">0.0010423</td>
-<td style="text-align: right;">0.0006942</td>
-<td style="text-align: right;">0.0160973</td>
-<td style="text-align: right;">0.0043864</td>
+<td style="text-align: right;">-0.3669213</td>
+<td style="text-align: right;">0.9390321</td>
+<td style="text-align: right;">0.0955133</td>
+<td style="text-align: right;">0.1801444</td>
+<td style="text-align: right;">-3.8415731</td>
+<td style="text-align: right;">5.212664</td>
+<td style="text-align: right;">0.0011002</td>
+<td style="text-align: right;">0.0000496</td>
+<td style="text-align: right;">0.0044010</td>
+<td style="text-align: right;">0.0003665</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Monoglobus</td>
-<td style="text-align: right;">0.2069076</td>
-<td style="text-align: right;">-0.6375355</td>
-<td style="text-align: right;">0.1150891</td>
-<td style="text-align: right;">0.1733807</td>
-<td style="text-align: right;">1.7978045</td>
-<td style="text-align: right;">-3.677085</td>
-<td style="text-align: right;">0.0795749</td>
-<td style="text-align: right;">0.0006785</td>
-<td style="text-align: right;">0.2697784</td>
-<td style="text-align: right;">0.0043864</td>
+<td style="text-align: left;">Erysipelotrichaceae_unclassified</td>
+<td style="text-align: right;">-0.6029646</td>
+<td style="text-align: right;">0.9641324</td>
+<td style="text-align: right;">0.1039678</td>
+<td style="text-align: right;">0.2083396</td>
+<td style="text-align: right;">-5.7995336</td>
+<td style="text-align: right;">4.627697</td>
+<td style="text-align: right;">0.0000016</td>
+<td style="text-align: right;">0.0000519</td>
+<td style="text-align: right;">0.0000137</td>
+<td style="text-align: right;">0.0003769</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mediterraneibacter</td>
-<td style="text-align: right;">0.2430855</td>
-<td style="text-align: right;">-0.7716228</td>
-<td style="text-align: right;">0.1374512</td>
-<td style="text-align: right;">0.2261050</td>
-<td style="text-align: right;">1.7685225</td>
-<td style="text-align: right;">-3.412675</td>
-<td style="text-align: right;">0.0791830</td>
-<td style="text-align: right;">0.0008445</td>
-<td style="text-align: right;">0.2697784</td>
-<td style="text-align: right;">0.0051038</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">GGB3730</td>
-<td style="text-align: right;">0.0905165</td>
-<td style="text-align: right;">-0.4906724</td>
-<td style="text-align: right;">0.0635130</td>
-<td style="text-align: right;">0.1281803</td>
-<td style="text-align: right;">1.4251660</td>
-<td style="text-align: right;">-3.827985</td>
-<td style="text-align: right;">0.1695292</td>
-<td style="text-align: right;">0.0010516</td>
-<td style="text-align: right;">0.4531645</td>
-<td style="text-align: right;">0.0060902</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Slackia</td>
-<td style="text-align: right;">0.1822807</td>
-<td style="text-align: right;">-0.5980238</td>
-<td style="text-align: right;">0.1262925</td>
-<td style="text-align: right;">0.1740060</td>
-<td style="text-align: right;">1.4433219</td>
-<td style="text-align: right;">-3.436800</td>
-<td style="text-align: right;">0.1580809</td>
-<td style="text-align: right;">0.0015707</td>
-<td style="text-align: right;">0.4308480</td>
-<td style="text-align: right;">0.0087333</td>
+<td style="text-align: left;">GGB4768</td>
+<td style="text-align: right;">-0.4822411</td>
+<td style="text-align: right;">0.8821017</td>
+<td style="text-align: right;">0.0469340</td>
+<td style="text-align: right;">0.1564214</td>
+<td style="text-align: right;">-10.2748790</td>
+<td style="text-align: right;">5.639265</td>
+<td style="text-align: right;">0.0000001</td>
+<td style="text-align: right;">0.0000611</td>
+<td style="text-align: right;">0.0000010</td>
+<td style="text-align: right;">0.0004352</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Pseudoruminococcus</td>
-<td style="text-align: right;">0.1829387</td>
-<td style="text-align: right;">-0.5984411</td>
-<td style="text-align: right;">0.1074106</td>
-<td style="text-align: right;">0.1728021</td>
-<td style="text-align: right;">1.7031722</td>
-<td style="text-align: right;">-3.463159</td>
-<td style="text-align: right;">0.1026236</td>
-<td style="text-align: right;">0.0022110</td>
-<td style="text-align: right;">0.3241974</td>
-<td style="text-align: right;">0.0118201</td>
+<td style="text-align: left;">Turicibacter</td>
+<td style="text-align: right;">0.6028347</td>
+<td style="text-align: right;">-1.1944265</td>
+<td style="text-align: right;">0.1873155</td>
+<td style="text-align: right;">0.2827690</td>
+<td style="text-align: right;">3.2182850</td>
+<td style="text-align: right;">-4.224036</td>
+<td style="text-align: right;">0.0018633</td>
+<td style="text-align: right;">0.0000631</td>
+<td style="text-align: right;">0.0068905</td>
+<td style="text-align: right;">0.0004415</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">GGB34797</td>
-<td style="text-align: right;">0.2194011</td>
-<td style="text-align: right;">-0.5560961</td>
-<td style="text-align: right;">0.0880085</td>
-<td style="text-align: right;">0.1757392</td>
-<td style="text-align: right;">2.4929532</td>
-<td style="text-align: right;">-3.164326</td>
-<td style="text-align: right;">0.0150721</td>
-<td style="text-align: right;">0.0023127</td>
-<td style="text-align: right;">0.0872923</td>
-<td style="text-align: right;">0.0119063</td>
+<td style="text-align: left;">GGB3486</td>
+<td style="text-align: right;">-0.6167216</td>
+<td style="text-align: right;">0.8499546</td>
+<td style="text-align: right;">0.0878199</td>
+<td style="text-align: right;">0.1750526</td>
+<td style="text-align: right;">-7.0225743</td>
+<td style="text-align: right;">4.855425</td>
+<td style="text-align: right;">0.0000004</td>
+<td style="text-align: right;">0.0000668</td>
+<td style="text-align: right;">0.0000040</td>
+<td style="text-align: right;">0.0004593</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Haemophilus</td>
+<td style="text-align: right;">0.6081745</td>
+<td style="text-align: right;">-0.9962855</td>
+<td style="text-align: right;">0.1223898</td>
+<td style="text-align: right;">0.2318685</td>
+<td style="text-align: right;">4.9691619</td>
+<td style="text-align: right;">-4.296770</td>
+<td style="text-align: right;">0.0000065</td>
+<td style="text-align: right;">0.0000683</td>
+<td style="text-align: right;">0.0000518</td>
+<td style="text-align: right;">0.0004618</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9618</td>
+<td style="text-align: right;">-0.4009625</td>
+<td style="text-align: right;">0.8541068</td>
+<td style="text-align: right;">0.1130321</td>
+<td style="text-align: right;">0.1845284</td>
+<td style="text-align: right;">-3.5473319</td>
+<td style="text-align: right;">4.628592</td>
+<td style="text-align: right;">0.0014460</td>
+<td style="text-align: right;">0.0000826</td>
+<td style="text-align: right;">0.0055032</td>
+<td style="text-align: right;">0.0005490</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Leuconostoc</td>
+<td style="text-align: right;">0.3371588</td>
+<td style="text-align: right;">-0.8335619</td>
+<td style="text-align: right;">0.1101067</td>
+<td style="text-align: right;">0.1895334</td>
+<td style="text-align: right;">3.0621102</td>
+<td style="text-align: right;">-4.397968</td>
+<td style="text-align: right;">0.0041421</td>
+<td style="text-align: right;">0.0000930</td>
+<td style="text-align: right;">0.0132009</td>
+<td style="text-align: right;">0.0006073</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB4605</td>
+<td style="text-align: right;">0.5062827</td>
+<td style="text-align: right;">-0.8125118</td>
+<td style="text-align: right;">0.0867421</td>
+<td style="text-align: right;">0.1695403</td>
+<td style="text-align: right;">5.8366422</td>
+<td style="text-align: right;">-4.792439</td>
+<td style="text-align: right;">0.0000104</td>
+<td style="text-align: right;">0.0001109</td>
+<td style="text-align: right;">0.0000740</td>
+<td style="text-align: right;">0.0007129</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9707</td>
+<td style="text-align: right;">-0.4208289</td>
+<td style="text-align: right;">0.8348687</td>
+<td style="text-align: right;">0.1341316</td>
+<td style="text-align: right;">0.2079957</td>
+<td style="text-align: right;">-3.1374337</td>
+<td style="text-align: right;">4.013875</td>
+<td style="text-align: right;">0.0023859</td>
+<td style="text-align: right;">0.0001337</td>
+<td style="text-align: right;">0.0083505</td>
+<td style="text-align: right;">0.0008456</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Candidatus_Allobutyricicoccus</td>
+<td style="text-align: right;">-0.6753110</td>
+<td style="text-align: right;">0.7805861</td>
+<td style="text-align: right;">0.0625260</td>
+<td style="text-align: right;">0.1723953</td>
+<td style="text-align: right;">-10.8004780</td>
+<td style="text-align: right;">4.527884</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0001380</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0008585</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vescimonas</td>
+<td style="text-align: right;">0.5425898</td>
+<td style="text-align: right;">-0.9952900</td>
+<td style="text-align: right;">0.1355357</td>
+<td style="text-align: right;">0.2521699</td>
+<td style="text-align: right;">4.0032982</td>
+<td style="text-align: right;">-3.946902</td>
+<td style="text-align: right;">0.0001180</td>
+<td style="text-align: right;">0.0001449</td>
+<td style="text-align: right;">0.0006008</td>
+<td style="text-align: right;">0.0008875</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9240</td>
+<td style="text-align: right;">0.4833852</td>
+<td style="text-align: right;">-0.8335862</td>
+<td style="text-align: right;">0.0781123</td>
+<td style="text-align: right;">0.2027418</td>
+<td style="text-align: right;">6.1883398</td>
+<td style="text-align: right;">-4.111566</td>
+<td style="text-align: right;">0.0000002</td>
+<td style="text-align: right;">0.0001690</td>
+<td style="text-align: right;">0.0000021</td>
+<td style="text-align: right;">0.0010189</td>
+<td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Dorea</td>
-<td style="text-align: right;">0.1164403</td>
-<td style="text-align: right;">-0.5199913</td>
-<td style="text-align: right;">0.1118850</td>
-<td style="text-align: right;">0.1795914</td>
-<td style="text-align: right;">1.0407143</td>
-<td style="text-align: right;">-2.895413</td>
-<td style="text-align: right;">0.2998413</td>
-<td style="text-align: right;">0.0044084</td>
-<td style="text-align: right;">0.5953991</td>
-<td style="text-align: right;">0.0218847</td>
+<td style="text-align: left;">GGB31234</td>
+<td style="text-align: right;">0.3946132</td>
+<td style="text-align: right;">-0.8024541</td>
+<td style="text-align: right;">0.0779527</td>
+<td style="text-align: right;">0.1692663</td>
+<td style="text-align: right;">5.0622160</td>
+<td style="text-align: right;">-4.740779</td>
+<td style="text-align: right;">0.0000962</td>
+<td style="text-align: right;">0.0001891</td>
+<td style="text-align: right;">0.0004963</td>
+<td style="text-align: right;">0.0011233</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Methanobrevibacter</td>
+<td style="text-align: right;">0.5433124</td>
+<td style="text-align: right;">-0.7622290</td>
+<td style="text-align: right;">0.0597241</td>
+<td style="text-align: right;">0.1897524</td>
+<td style="text-align: right;">9.0970335</td>
+<td style="text-align: right;">-4.016967</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0002161</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0012643</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
 <td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9758</td>
+<td style="text-align: right;">0.6326272</td>
+<td style="text-align: right;">-0.9690926</td>
+<td style="text-align: right;">0.1510026</td>
+<td style="text-align: right;">0.2521516</td>
+<td style="text-align: right;">4.1895117</td>
+<td style="text-align: right;">-3.843294</td>
+<td style="text-align: right;">0.0000764</td>
+<td style="text-align: right;">0.0002546</td>
+<td style="text-align: right;">0.0004158</td>
+<td style="text-align: right;">0.0014675</td>
 <td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Prevotella</td>
-<td style="text-align: right;">-0.6719831</td>
-<td style="text-align: right;">0.9591828</td>
-<td style="text-align: right;">0.2365881</td>
-<td style="text-align: right;">0.3204145</td>
-<td style="text-align: right;">-2.8403079</td>
-<td style="text-align: right;">2.993569</td>
-<td style="text-align: right;">0.0073699</td>
-<td style="text-align: right;">0.0049599</td>
-<td style="text-align: right;">0.0512210</td>
-<td style="text-align: right;">0.0235985</td>
+<td style="text-align: left;">GGB51647</td>
+<td style="text-align: right;">0.4678694</td>
+<td style="text-align: right;">-0.8385768</td>
+<td style="text-align: right;">0.1030890</td>
+<td style="text-align: right;">0.1811242</td>
+<td style="text-align: right;">4.5384990</td>
+<td style="text-align: right;">-4.629843</td>
+<td style="text-align: right;">0.0003357</td>
+<td style="text-align: right;">0.0002782</td>
+<td style="text-align: right;">0.0014788</td>
+<td style="text-align: right;">0.0015802</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Candidatus_Pseudoruminococcus</td>
+<td style="text-align: right;">-0.5165047</td>
+<td style="text-align: right;">0.7067936</td>
+<td style="text-align: right;">0.0819310</td>
+<td style="text-align: right;">0.1820621</td>
+<td style="text-align: right;">-6.3041461</td>
+<td style="text-align: right;">3.882157</td>
+<td style="text-align: right;">0.0000001</td>
+<td style="text-align: right;">0.0003288</td>
+<td style="text-align: right;">0.0000012</td>
+<td style="text-align: right;">0.0018413</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Faecalicoccus</td>
+<td style="text-align: right;">-0.3648761</td>
+<td style="text-align: right;">0.7264108</td>
+<td style="text-align: right;">0.0844781</td>
+<td style="text-align: right;">0.1604013</td>
+<td style="text-align: right;">-4.3191792</td>
+<td style="text-align: right;">4.528709</td>
+<td style="text-align: right;">0.0005291</td>
+<td style="text-align: right;">0.0003426</td>
+<td style="text-align: right;">0.0022064</td>
+<td style="text-align: right;">0.0018915</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Candidatus_Avispirillum</td>
+<td style="text-align: right;">0.4237399</td>
+<td style="text-align: right;">-0.8007423</td>
+<td style="text-align: right;">0.1253051</td>
+<td style="text-align: right;">0.1945339</td>
+<td style="text-align: right;">3.3816644</td>
+<td style="text-align: right;">-4.116209</td>
+<td style="text-align: right;">0.0023727</td>
+<td style="text-align: right;">0.0003674</td>
+<td style="text-align: right;">0.0083505</td>
+<td style="text-align: right;">0.0020004</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB3819</td>
+<td style="text-align: right;">0.1135526</td>
+<td style="text-align: right;">-0.6012148</td>
+<td style="text-align: right;">0.0713403</td>
+<td style="text-align: right;">0.1501203</td>
+<td style="text-align: right;">1.5917029</td>
+<td style="text-align: right;">-4.004888</td>
+<td style="text-align: right;">0.1222948</td>
+<td style="text-align: right;">0.0003948</td>
+<td style="text-align: right;">0.2429053</td>
+<td style="text-align: right;">0.0021200</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9536</td>
+<td style="text-align: right;">0.4724614</td>
+<td style="text-align: right;">-0.6845037</td>
+<td style="text-align: right;">0.0556303</td>
+<td style="text-align: right;">0.1498120</td>
+<td style="text-align: right;">8.4928771</td>
+<td style="text-align: right;">-4.569086</td>
+<td style="text-align: right;">0.0000012</td>
+<td style="text-align: right;">0.0005265</td>
+<td style="text-align: right;">0.0000108</td>
+<td style="text-align: right;">0.0027890</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9778</td>
+<td style="text-align: right;">-0.4203180</td>
+<td style="text-align: right;">0.6486550</td>
+<td style="text-align: right;">0.0608335</td>
+<td style="text-align: right;">0.1546225</td>
+<td style="text-align: right;">-6.9093225</td>
+<td style="text-align: right;">4.195087</td>
+<td style="text-align: right;">0.0000025</td>
+<td style="text-align: right;">0.0006080</td>
+<td style="text-align: right;">0.0000206</td>
+<td style="text-align: right;">0.0031362</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9790</td>
+<td style="text-align: right;">0.4450592</td>
+<td style="text-align: right;">-0.5843078</td>
+<td style="text-align: right;">0.0586271</td>
+<td style="text-align: right;">0.1540337</td>
+<td style="text-align: right;">7.5913556</td>
+<td style="text-align: right;">-3.793376</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0006024</td>
+<td style="text-align: right;">0.0000002</td>
+<td style="text-align: right;">0.0031362</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB2982</td>
+<td style="text-align: right;">-0.3871271</td>
+<td style="text-align: right;">0.6245379</td>
+<td style="text-align: right;">0.0989173</td>
+<td style="text-align: right;">0.1761915</td>
+<td style="text-align: right;">-3.9136438</td>
+<td style="text-align: right;">3.544654</td>
+<td style="text-align: right;">0.0001827</td>
+<td style="text-align: right;">0.0006419</td>
+<td style="text-align: right;">0.0008733</td>
+<td style="text-align: right;">0.0032455</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3363</td>
+<td style="text-align: right;">0.5343034</td>
+<td style="text-align: right;">-0.8007635</td>
+<td style="text-align: right;">0.0994919</td>
+<td style="text-align: right;">0.2055015</td>
+<td style="text-align: right;">5.3703188</td>
+<td style="text-align: right;">-3.896632</td>
+<td style="text-align: right;">0.0000143</td>
+<td style="text-align: right;">0.0006458</td>
+<td style="text-align: right;">0.0000986</td>
+<td style="text-align: right;">0.0032455</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Candidatus_Metalachnospira</td>
+<td style="text-align: right;">0.2141446</td>
+<td style="text-align: right;">-0.6340934</td>
+<td style="text-align: right;">0.0597224</td>
+<td style="text-align: right;">0.1544063</td>
+<td style="text-align: right;">3.5856669</td>
+<td style="text-align: right;">-4.106654</td>
+<td style="text-align: right;">0.0022787</td>
+<td style="text-align: right;">0.0007361</td>
+<td style="text-align: right;">0.0081949</td>
+<td style="text-align: right;">0.0036523</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3463</td>
+<td style="text-align: right;">0.2920611</td>
+<td style="text-align: right;">-0.6957038</td>
+<td style="text-align: right;">0.1032033</td>
+<td style="text-align: right;">0.1889024</td>
+<td style="text-align: right;">2.8299584</td>
+<td style="text-align: right;">-3.682875</td>
+<td style="text-align: right;">0.0083658</td>
+<td style="text-align: right;">0.0009394</td>
+<td style="text-align: right;">0.0234242</td>
+<td style="text-align: right;">0.0046031</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9189</td>
+<td style="text-align: right;">-0.2674708</td>
+<td style="text-align: right;">0.5580845</td>
+<td style="text-align: right;">0.0621908</td>
+<td style="text-align: right;">0.1499114</td>
+<td style="text-align: right;">-4.3008104</td>
+<td style="text-align: right;">3.722762</td>
+<td style="text-align: right;">0.0002458</td>
+<td style="text-align: right;">0.0010583</td>
+<td style="text-align: right;">0.0011204</td>
+<td style="text-align: right;">0.0050592</td>
+<td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Waltera</td>
-<td style="text-align: right;">-0.6950580</td>
-<td style="text-align: right;">1.0120202</td>
-<td style="text-align: right;">0.2175660</td>
-<td style="text-align: right;">0.3543586</td>
-<td style="text-align: right;">-3.1946993</td>
-<td style="text-align: right;">2.855921</td>
-<td style="text-align: right;">0.0018067</td>
-<td style="text-align: right;">0.0050932</td>
-<td style="text-align: right;">0.0204213</td>
-<td style="text-align: right;">0.0235985</td>
+<td style="text-align: right;">-0.6404722</td>
+<td style="text-align: right;">1.1760971</td>
+<td style="text-align: right;">0.2064536</td>
+<td style="text-align: right;">0.3497906</td>
+<td style="text-align: right;">-3.1022573</td>
+<td style="text-align: right;">3.362289</td>
+<td style="text-align: right;">0.0024167</td>
+<td style="text-align: right;">0.0010502</td>
+<td style="text-align: right;">0.0083836</td>
+<td style="text-align: right;">0.0050592</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Erysipelatoclostridium</td>
-<td style="text-align: right;">0.1602152</td>
-<td style="text-align: right;">-0.6807938</td>
-<td style="text-align: right;">0.1519172</td>
-<td style="text-align: right;">0.2373461</td>
-<td style="text-align: right;">1.0546222</td>
-<td style="text-align: right;">-2.868358</td>
-<td style="text-align: right;">0.2949838</td>
-<td style="text-align: right;">0.0053555</td>
-<td style="text-align: right;">0.5942427</td>
-<td style="text-align: right;">0.0240135</td>
+<td style="text-align: left;">GGB35068</td>
+<td style="text-align: right;">-0.2951547</td>
+<td style="text-align: right;">0.5625014</td>
+<td style="text-align: right;">0.0481948</td>
+<td style="text-align: right;">0.1502665</td>
+<td style="text-align: right;">-6.1242056</td>
+<td style="text-align: right;">3.743359</td>
+<td style="text-align: right;">0.0000069</td>
+<td style="text-align: right;">0.0013767</td>
+<td style="text-align: right;">0.0000524</td>
+<td style="text-align: right;">0.0065019</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9237</td>
+<td style="text-align: right;">-0.2598369</td>
+<td style="text-align: right;">0.6403544</td>
+<td style="text-align: right;">0.1200259</td>
+<td style="text-align: right;">0.1877085</td>
+<td style="text-align: right;">-2.1648396</td>
+<td style="text-align: right;">3.411430</td>
+<td style="text-align: right;">0.0358658</td>
+<td style="text-align: right;">0.0013958</td>
+<td style="text-align: right;">0.0841880</td>
+<td style="text-align: right;">0.0065139</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Candidatus_Neoclostridium</td>
+<td style="text-align: right;">0.3932724</td>
+<td style="text-align: right;">-0.5899662</td>
+<td style="text-align: right;">0.0818140</td>
+<td style="text-align: right;">0.1661002</td>
+<td style="text-align: right;">4.8069103</td>
+<td style="text-align: right;">-3.551870</td>
+<td style="text-align: right;">0.0000559</td>
+<td style="text-align: right;">0.0014865</td>
+<td style="text-align: right;">0.0003374</td>
+<td style="text-align: right;">0.0068552</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB2958</td>
+<td style="text-align: right;">-0.3087898</td>
+<td style="text-align: right;">0.5753761</td>
+<td style="text-align: right;">0.0772659</td>
+<td style="text-align: right;">0.1598185</td>
+<td style="text-align: right;">-3.9964561</td>
+<td style="text-align: right;">3.600185</td>
+<td style="text-align: right;">0.0006552</td>
+<td style="text-align: right;">0.0016828</td>
+<td style="text-align: right;">0.0027037</td>
+<td style="text-align: right;">0.0075824</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Prevotella</td>
+<td style="text-align: right;">-0.6886873</td>
+<td style="text-align: right;">1.1139729</td>
+<td style="text-align: right;">0.2299234</td>
+<td style="text-align: right;">0.3277668</td>
+<td style="text-align: right;">-2.9952897</td>
+<td style="text-align: right;">3.398675</td>
+<td style="text-align: right;">0.0049376</td>
+<td style="text-align: right;">0.0016679</td>
+<td style="text-align: right;">0.0151214</td>
+<td style="text-align: right;">0.0075824</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Butyricicoccus</td>
+<td style="text-align: right;">0.4713450</td>
+<td style="text-align: right;">-0.5758198</td>
+<td style="text-align: right;">0.0760298</td>
+<td style="text-align: right;">0.1689346</td>
+<td style="text-align: right;">6.1994805</td>
+<td style="text-align: right;">-3.408537</td>
+<td style="text-align: right;">0.0000005</td>
+<td style="text-align: right;">0.0017375</td>
+<td style="text-align: right;">0.0000055</td>
+<td style="text-align: right;">0.0076530</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lachnospiraceae_unclassified</td>
+<td style="text-align: right;">0.3874544</td>
+<td style="text-align: right;">-0.7971428</td>
+<td style="text-align: right;">0.1585299</td>
+<td style="text-align: right;">0.2493396</td>
+<td style="text-align: right;">2.4440462</td>
+<td style="text-align: right;">-3.197016</td>
+<td style="text-align: right;">0.0158139</td>
+<td style="text-align: right;">0.0017297</td>
+<td style="text-align: right;">0.0416043</td>
+<td style="text-align: right;">0.0076530</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Candidatus_Neoanaerotignum</td>
+<td style="text-align: right;">-0.4356139</td>
+<td style="text-align: right;">0.6336034</td>
+<td style="text-align: right;">0.0903602</td>
+<td style="text-align: right;">0.1670006</td>
+<td style="text-align: right;">-4.8208633</td>
+<td style="text-align: right;">3.794019</td>
+<td style="text-align: right;">0.0002245</td>
+<td style="text-align: right;">0.0017647</td>
+<td style="text-align: right;">0.0010477</td>
+<td style="text-align: right;">0.0076861</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Enterococcus</td>
+<td style="text-align: right;">0.4913555</td>
+<td style="text-align: right;">-0.9600628</td>
+<td style="text-align: right;">0.2009636</td>
+<td style="text-align: right;">0.2953109</td>
+<td style="text-align: right;">2.4449968</td>
+<td style="text-align: right;">-3.251024</td>
+<td style="text-align: right;">0.0174901</td>
+<td style="text-align: right;">0.0019025</td>
+<td style="text-align: right;">0.0450256</td>
+<td style="text-align: right;">0.0077684</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3730</td>
+<td style="text-align: right;">0.2449867</td>
+<td style="text-align: right;">-0.4621185</td>
+<td style="text-align: right;">0.0486005</td>
+<td style="text-align: right;">0.1289365</td>
+<td style="text-align: right;">5.0408215</td>
+<td style="text-align: right;">-3.584080</td>
+<td style="text-align: right;">0.0000626</td>
+<td style="text-align: right;">0.0018557</td>
+<td style="text-align: right;">0.0003661</td>
+<td style="text-align: right;">0.0077684</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB79652</td>
+<td style="text-align: right;">0.4851690</td>
+<td style="text-align: right;">-0.7430495</td>
+<td style="text-align: right;">0.0933173</td>
+<td style="text-align: right;">0.2149656</td>
+<td style="text-align: right;">5.1991328</td>
+<td style="text-align: right;">-3.456598</td>
+<td style="text-align: right;">0.0000199</td>
+<td style="text-align: right;">0.0018936</td>
+<td style="text-align: right;">0.0001299</td>
+<td style="text-align: right;">0.0077684</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9766</td>
+<td style="text-align: right;">0.2931411</td>
+<td style="text-align: right;">-0.5114516</td>
+<td style="text-align: right;">0.0706180</td>
+<td style="text-align: right;">0.1459774</td>
+<td style="text-align: right;">4.1510828</td>
+<td style="text-align: right;">-3.503636</td>
+<td style="text-align: right;">0.0003595</td>
+<td style="text-align: right;">0.0018259</td>
+<td style="text-align: right;">0.0015484</td>
+<td style="text-align: right;">0.0077684</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lacticaseibacillus</td>
+<td style="text-align: right;">0.3439252</td>
+<td style="text-align: right;">-0.6639079</td>
+<td style="text-align: right;">0.1339045</td>
+<td style="text-align: right;">0.2027602</td>
+<td style="text-align: right;">2.5684356</td>
+<td style="text-align: right;">-3.274350</td>
+<td style="text-align: right;">0.0129610</td>
+<td style="text-align: right;">0.0018350</td>
+<td style="text-align: right;">0.0352826</td>
+<td style="text-align: right;">0.0077684</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Staphylococcus</td>
+<td style="text-align: right;">0.4477038</td>
+<td style="text-align: right;">-0.7428039</td>
+<td style="text-align: right;">0.1486314</td>
+<td style="text-align: right;">0.2217085</td>
+<td style="text-align: right;">3.0121749</td>
+<td style="text-align: right;">-3.350363</td>
+<td style="text-align: right;">0.0046579</td>
+<td style="text-align: right;">0.0018681</td>
+<td style="text-align: right;">0.0144555</td>
+<td style="text-align: right;">0.0077684</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB4769</td>
+<td style="text-align: right;">0.4299084</td>
+<td style="text-align: right;">-0.6529086</td>
+<td style="text-align: right;">0.0819167</td>
+<td style="text-align: right;">0.1768657</td>
+<td style="text-align: right;">5.2481157</td>
+<td style="text-align: right;">-3.691550</td>
+<td style="text-align: right;">0.0000796</td>
+<td style="text-align: right;">0.0019773</td>
+<td style="text-align: right;">0.0004276</td>
+<td style="text-align: right;">0.0078295</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Holdemanella</td>
+<td style="text-align: right;">0.1796569</td>
+<td style="text-align: right;">-0.4975623</td>
+<td style="text-align: right;">0.0543667</td>
+<td style="text-align: right;">0.1415749</td>
+<td style="text-align: right;">3.3045380</td>
+<td style="text-align: right;">-3.514481</td>
+<td style="text-align: right;">0.0032271</td>
+<td style="text-align: right;">0.0019550</td>
+<td style="text-align: right;">0.0107207</td>
+<td style="text-align: right;">0.0078295</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Victivallis</td>
+<td style="text-align: right;">-0.3597307</td>
+<td style="text-align: right;">0.6651570</td>
+<td style="text-align: right;">0.0709298</td>
+<td style="text-align: right;">0.1853855</td>
+<td style="text-align: right;">-5.0716449</td>
+<td style="text-align: right;">3.587967</td>
+<td style="text-align: right;">0.0000678</td>
+<td style="text-align: right;">0.0019614</td>
+<td style="text-align: right;">0.0003795</td>
+<td style="text-align: right;">0.0078295</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Candidatus_Gastranaerophilales_unclassified</td>
+<td style="text-align: right;">0.2575965</td>
+<td style="text-align: right;">-0.6383445</td>
+<td style="text-align: right;">0.1176429</td>
+<td style="text-align: right;">0.1941285</td>
+<td style="text-align: right;">2.1896474</td>
+<td style="text-align: right;">-3.288258</td>
+<td style="text-align: right;">0.0342963</td>
+<td style="text-align: right;">0.0020744</td>
+<td style="text-align: right;">0.0819765</td>
+<td style="text-align: right;">0.0081316</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB3278</td>
+<td style="text-align: right;">-0.0897321</td>
+<td style="text-align: right;">0.5224494</td>
+<td style="text-align: right;">0.0841231</td>
+<td style="text-align: right;">0.1487461</td>
+<td style="text-align: right;">-1.0666752</td>
+<td style="text-align: right;">3.512356</td>
+<td style="text-align: right;">0.2988262</td>
+<td style="text-align: right;">0.0021915</td>
+<td style="text-align: right;">0.4612487</td>
+<td style="text-align: right;">0.0084223</td>
 <td style="text-align: left;">FALSE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">GGB79734</td>
-<td style="text-align: right;">0.2322289</td>
-<td style="text-align: right;">-0.5690491</td>
-<td style="text-align: right;">0.1233450</td>
-<td style="text-align: right;">0.2026894</td>
-<td style="text-align: right;">1.8827595</td>
-<td style="text-align: right;">-2.807494</td>
-<td style="text-align: right;">0.0632364</td>
-<td style="text-align: right;">0.0062215</td>
-<td style="text-align: right;">0.2511389</td>
-<td style="text-align: right;">0.0270245</td>
+<td style="text-align: left;">GGB3746</td>
+<td style="text-align: right;">0.3291860</td>
+<td style="text-align: right;">-0.7746918</td>
+<td style="text-align: right;">0.1600916</td>
+<td style="text-align: right;">0.2433385</td>
+<td style="text-align: right;">2.0562351</td>
+<td style="text-align: right;">-3.183597</td>
+<td style="text-align: right;">0.0435444</td>
+<td style="text-align: right;">0.0021828</td>
+<td style="text-align: right;">0.0992408</td>
+<td style="text-align: right;">0.0084223</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9253</td>
+<td style="text-align: right;">0.3651427</td>
+<td style="text-align: right;">-0.6872955</td>
+<td style="text-align: right;">0.0892014</td>
+<td style="text-align: right;">0.1852774</td>
+<td style="text-align: right;">4.0934617</td>
+<td style="text-align: right;">-3.709548</td>
+<td style="text-align: right;">0.0012686</td>
+<td style="text-align: right;">0.0026219</td>
+<td style="text-align: right;">0.0050231</td>
+<td style="text-align: right;">0.0098825</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9770</td>
+<td style="text-align: right;">-0.4200243</td>
+<td style="text-align: right;">0.7641105</td>
+<td style="text-align: right;">0.1721917</td>
+<td style="text-align: right;">0.2453785</td>
+<td style="text-align: right;">-2.4392831</td>
+<td style="text-align: right;">3.114007</td>
+<td style="text-align: right;">0.0170488</td>
+<td style="text-align: right;">0.0026023</td>
+<td style="text-align: right;">0.0445543</td>
+<td style="text-align: right;">0.0098825</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9551</td>
+<td style="text-align: right;">-0.3207453</td>
+<td style="text-align: right;">0.5025367</td>
+<td style="text-align: right;">0.0737994</td>
+<td style="text-align: right;">0.1505371</td>
+<td style="text-align: right;">-4.3461787</td>
+<td style="text-align: right;">3.338293</td>
+<td style="text-align: right;">0.0002376</td>
+<td style="text-align: right;">0.0028542</td>
+<td style="text-align: right;">0.0010957</td>
+<td style="text-align: right;">0.0106558</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sanguibacter</td>
+<td style="text-align: right;">0.1679786</td>
+<td style="text-align: right;">-0.4292003</td>
+<td style="text-align: right;">0.0580695</td>
+<td style="text-align: right;">0.1374268</td>
+<td style="text-align: right;">2.8927185</td>
+<td style="text-align: right;">-3.123119</td>
+<td style="text-align: right;">0.0056832</td>
+<td style="text-align: right;">0.0030018</td>
+<td style="text-align: right;">0.0171370</td>
+<td style="text-align: right;">0.0111010</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Slackia</td>
+<td style="text-align: right;">0.2782291</td>
+<td style="text-align: right;">-0.5339112</td>
+<td style="text-align: right;">0.1114714</td>
+<td style="text-align: right;">0.1712637</td>
+<td style="text-align: right;">2.4959685</td>
+<td style="text-align: right;">-3.117481</td>
+<td style="text-align: right;">0.0175738</td>
+<td style="text-align: right;">0.0036990</td>
+<td style="text-align: right;">0.0450256</td>
+<td style="text-align: right;">0.0135514</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Anaerosacchariphilus</td>
+<td style="text-align: right;">0.2989153</td>
+<td style="text-align: right;">-0.5613968</td>
+<td style="text-align: right;">0.0967691</td>
+<td style="text-align: right;">0.1865338</td>
+<td style="text-align: right;">3.0889525</td>
+<td style="text-align: right;">-3.009625</td>
+<td style="text-align: right;">0.0030417</td>
+<td style="text-align: right;">0.0038214</td>
+<td style="text-align: right;">0.0102788</td>
+<td style="text-align: right;">0.0138701</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9293</td>
+<td style="text-align: right;">0.4194023</td>
+<td style="text-align: right;">-0.5104775</td>
+<td style="text-align: right;">0.0784216</td>
+<td style="text-align: right;">0.1622759</td>
+<td style="text-align: right;">5.3480479</td>
+<td style="text-align: right;">-3.145739</td>
+<td style="text-align: right;">0.0000120</td>
+<td style="text-align: right;">0.0040076</td>
+<td style="text-align: right;">0.0000838</td>
+<td style="text-align: right;">0.0144128</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB10692</td>
+<td style="text-align: right;">-0.3966208</td>
+<td style="text-align: right;">0.5614370</td>
+<td style="text-align: right;">0.0845458</td>
+<td style="text-align: right;">0.1814327</td>
+<td style="text-align: right;">-4.6911959</td>
+<td style="text-align: right;">3.094465</td>
+<td style="text-align: right;">0.0000519</td>
+<td style="text-align: right;">0.0041564</td>
+<td style="text-align: right;">0.0003182</td>
+<td style="text-align: right;">0.0148120</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB34540</td>
+<td style="text-align: right;">0.2914347</td>
+<td style="text-align: right;">-0.5245755</td>
+<td style="text-align: right;">0.0879072</td>
+<td style="text-align: right;">0.1679063</td>
+<td style="text-align: right;">3.3152556</td>
+<td style="text-align: right;">-3.124215</td>
+<td style="text-align: right;">0.0030173</td>
+<td style="text-align: right;">0.0047658</td>
+<td style="text-align: right;">0.0102788</td>
+<td style="text-align: right;">0.0168307</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB74463</td>
+<td style="text-align: right;">-0.4238825</td>
+<td style="text-align: right;">0.5347727</td>
+<td style="text-align: right;">0.0596562</td>
+<td style="text-align: right;">0.1750840</td>
+<td style="text-align: right;">-7.1054280</td>
+<td style="text-align: right;">3.054377</td>
+<td style="text-align: right;">0.0000001</td>
+<td style="text-align: right;">0.0049082</td>
+<td style="text-align: right;">0.0000012</td>
+<td style="text-align: right;">0.0171785</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Candidatus_Paralachnospira</td>
+<td style="text-align: right;">-0.3481845</td>
+<td style="text-align: right;">0.5394038</td>
+<td style="text-align: right;">0.0652567</td>
+<td style="text-align: right;">0.1648623</td>
+<td style="text-align: right;">-5.3356100</td>
+<td style="text-align: right;">3.271844</td>
+<td style="text-align: right;">0.0000832</td>
+<td style="text-align: right;">0.0051476</td>
+<td style="text-align: right;">0.0004409</td>
+<td style="text-align: right;">0.0175467</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3002</td>
+<td style="text-align: right;">-0.5360249</td>
+<td style="text-align: right;">0.7125516</td>
+<td style="text-align: right;">0.1461848</td>
+<td style="text-align: right;">0.2455261</td>
+<td style="text-align: right;">-3.6667635</td>
+<td style="text-align: right;">2.902142</td>
+<td style="text-align: right;">0.0005064</td>
+<td style="text-align: right;">0.0051011</td>
+<td style="text-align: right;">0.0021346</td>
+<td style="text-align: right;">0.0175467</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB51884</td>
+<td style="text-align: right;">-0.1272554</td>
+<td style="text-align: right;">0.4943625</td>
+<td style="text-align: right;">0.0836145</td>
+<td style="text-align: right;">0.1510694</td>
+<td style="text-align: right;">-1.5219302</td>
+<td style="text-align: right;">3.272419</td>
+<td style="text-align: right;">0.1488263</td>
+<td style="text-align: right;">0.0051416</td>
+<td style="text-align: right;">0.2764925</td>
+<td style="text-align: right;">0.0175467</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB5980</td>
+<td style="text-align: right;">-0.2201273</td>
+<td style="text-align: right;">0.6442593</td>
+<td style="text-align: right;">0.1444160</td>
+<td style="text-align: right;">0.1949870</td>
+<td style="text-align: right;">-1.5242580</td>
+<td style="text-align: right;">3.304115</td>
+<td style="text-align: right;">0.1497116</td>
+<td style="text-align: right;">0.0052194</td>
+<td style="text-align: right;">0.2768252</td>
+<td style="text-align: right;">0.0176379</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB4745</td>
+<td style="text-align: right;">-0.4639504</td>
+<td style="text-align: right;">0.5770966</td>
+<td style="text-align: right;">0.0952157</td>
+<td style="text-align: right;">0.1939675</td>
+<td style="text-align: right;">-4.8726242</td>
+<td style="text-align: right;">2.975223</td>
+<td style="text-align: right;">0.0000236</td>
+<td style="text-align: right;">0.0052778</td>
+<td style="text-align: right;">0.0001514</td>
+<td style="text-align: right;">0.0176830</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9343</td>
+<td style="text-align: right;">0.3289416</td>
+<td style="text-align: right;">-0.6079005</td>
+<td style="text-align: right;">0.1023572</td>
+<td style="text-align: right;">0.1973484</td>
+<td style="text-align: right;">3.2136634</td>
+<td style="text-align: right;">-3.080342</td>
+<td style="text-align: right;">0.0040011</td>
+<td style="text-align: right;">0.0054706</td>
+<td style="text-align: right;">0.0128561</td>
+<td style="text-align: right;">0.0181736</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Candidatus_Heteroscilispira</td>
+<td style="text-align: right;">0.4278829</td>
+<td style="text-align: right;">-0.4786673</td>
+<td style="text-align: right;">0.0548654</td>
+<td style="text-align: right;">0.1594523</td>
+<td style="text-align: right;">7.7987755</td>
+<td style="text-align: right;">-3.001947</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0058577</td>
+<td style="text-align: right;">0.0000005</td>
+<td style="text-align: right;">0.0192342</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Veillonella</td>
+<td style="text-align: right;">0.4286725</td>
+<td style="text-align: right;">-0.8145538</td>
+<td style="text-align: right;">0.1992259</td>
+<td style="text-align: right;">0.2870998</td>
+<td style="text-align: right;">2.1516908</td>
+<td style="text-align: right;">-2.837180</td>
+<td style="text-align: right;">0.0347299</td>
+<td style="text-align: right;">0.0058880</td>
+<td style="text-align: right;">0.0825099</td>
+<td style="text-align: right;">0.0192342</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Anaerococcus</td>
+<td style="text-align: right;">0.2037147</td>
+<td style="text-align: right;">-0.6090109</td>
+<td style="text-align: right;">0.1365248</td>
+<td style="text-align: right;">0.2118938</td>
+<td style="text-align: right;">1.4921450</td>
+<td style="text-align: right;">-2.874133</td>
+<td style="text-align: right;">0.1422049</td>
+<td style="text-align: right;">0.0060204</td>
+<td style="text-align: right;">0.2667193</td>
+<td style="text-align: right;">0.0193442</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3061</td>
+<td style="text-align: right;">0.1784553</td>
+<td style="text-align: right;">-0.4525483</td>
+<td style="text-align: right;">0.0635177</td>
+<td style="text-align: right;">0.1547314</td>
+<td style="text-align: right;">2.8095344</td>
+<td style="text-align: right;">-2.924735</td>
+<td style="text-align: right;">0.0080659</td>
+<td style="text-align: right;">0.0060131</td>
+<td style="text-align: right;">0.0229118</td>
+<td style="text-align: right;">0.0193442</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9694</td>
+<td style="text-align: right;">0.4013280</td>
+<td style="text-align: right;">-0.6984610</td>
+<td style="text-align: right;">0.1153906</td>
+<td style="text-align: right;">0.2292612</td>
+<td style="text-align: right;">3.4779957</td>
+<td style="text-align: right;">-3.046574</td>
+<td style="text-align: right;">0.0025180</td>
+<td style="text-align: right;">0.0066393</td>
+<td style="text-align: right;">0.0086582</td>
+<td style="text-align: right;">0.0211594</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ruminococcus</td>
+<td style="text-align: right;">-0.4950312</td>
+<td style="text-align: right;">0.9478460</td>
+<td style="text-align: right;">0.2813862</td>
+<td style="text-align: right;">0.3446906</td>
+<td style="text-align: right;">-1.7592588</td>
+<td style="text-align: right;">2.749846</td>
+<td style="text-align: right;">0.0810000</td>
+<td style="text-align: right;">0.0068547</td>
+<td style="text-align: right;">0.1707097</td>
+<td style="text-align: right;">0.0216695</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB3000</td>
+<td style="text-align: right;">-0.4637132</td>
+<td style="text-align: right;">0.6044787</td>
+<td style="text-align: right;">0.1052205</td>
+<td style="text-align: right;">0.2187255</td>
+<td style="text-align: right;">-4.4070593</td>
+<td style="text-align: right;">2.763640</td>
+<td style="text-align: right;">0.0000490</td>
+<td style="text-align: right;">0.0077607</td>
+<td style="text-align: right;">0.0003049</td>
+<td style="text-align: right;">0.0243377</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Candidatus_Alloruminococcus</td>
+<td style="text-align: right;">0.0828803</td>
+<td style="text-align: right;">-0.4276054</td>
+<td style="text-align: right;">0.0721915</td>
+<td style="text-align: right;">0.1505502</td>
+<td style="text-align: right;">1.1480623</td>
+<td style="text-align: right;">-2.840285</td>
+<td style="text-align: right;">0.2600155</td>
+<td style="text-align: right;">0.0080201</td>
+<td style="text-align: right;">0.4177298</td>
+<td style="text-align: right;">0.0249515</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB3353</td>
+<td style="text-align: right;">-0.2554487</td>
+<td style="text-align: right;">0.4642719</td>
+<td style="text-align: right;">0.0819471</td>
+<td style="text-align: right;">0.1556342</td>
+<td style="text-align: right;">-3.1172388</td>
+<td style="text-align: right;">2.983097</td>
+<td style="text-align: right;">0.0062686</td>
+<td style="text-align: right;">0.0083501</td>
+<td style="text-align: right;">0.0186157</td>
+<td style="text-align: right;">0.0257736</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gemmiger</td>
+<td style="text-align: right;">0.3729618</td>
+<td style="text-align: right;">-0.6381114</td>
+<td style="text-align: right;">0.1294313</td>
+<td style="text-align: right;">0.2387854</td>
+<td style="text-align: right;">2.8815420</td>
+<td style="text-align: right;">-2.672321</td>
+<td style="text-align: right;">0.0046833</td>
+<td style="text-align: right;">0.0085713</td>
+<td style="text-align: right;">0.0144555</td>
+<td style="text-align: right;">0.0262498</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9724</td>
+<td style="text-align: right;">-0.4126525</td>
+<td style="text-align: right;">0.5239720</td>
+<td style="text-align: right;">0.0861079</td>
+<td style="text-align: right;">0.1862558</td>
+<td style="text-align: right;">-4.7922717</td>
+<td style="text-align: right;">2.813184</td>
+<td style="text-align: right;">0.0000452</td>
+<td style="text-align: right;">0.0087146</td>
+<td style="text-align: right;">0.0002856</td>
+<td style="text-align: right;">0.0264817</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Candidatus_Neoruminococcus</td>
+<td style="text-align: right;">0.3460762</td>
+<td style="text-align: right;">-0.4775813</td>
+<td style="text-align: right;">0.0832801</td>
+<td style="text-align: right;">0.1739094</td>
+<td style="text-align: right;">4.1555707</td>
+<td style="text-align: right;">-2.746150</td>
+<td style="text-align: right;">0.0001775</td>
+<td style="text-align: right;">0.0091631</td>
+<td style="text-align: right;">0.0008698</td>
+<td style="text-align: right;">0.0276303</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9501</td>
+<td style="text-align: right;">-0.3218086</td>
+<td style="text-align: right;">0.4823929</td>
+<td style="text-align: right;">0.1058291</td>
+<td style="text-align: right;">0.1763158</td>
+<td style="text-align: right;">-3.0408338</td>
+<td style="text-align: right;">2.735959</td>
+<td style="text-align: right;">0.0043812</td>
+<td style="text-align: right;">0.0095961</td>
+<td style="text-align: right;">0.0138504</td>
+<td style="text-align: right;">0.0287149</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Eisenbergiella</td>
+<td style="text-align: right;">0.3403682</td>
+<td style="text-align: right;">-0.8127489</td>
+<td style="text-align: right;">0.2250058</td>
+<td style="text-align: right;">0.3080728</td>
+<td style="text-align: right;">1.5127083</td>
+<td style="text-align: right;">-2.638171</td>
+<td style="text-align: right;">0.1337815</td>
+<td style="text-align: right;">0.0097878</td>
+<td style="text-align: right;">0.2533221</td>
+<td style="text-align: right;">0.0290669</td>
 <td style="text-align: left;">FALSE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Parasutterella</td>
-<td style="text-align: right;">0.3371647</td>
-<td style="text-align: right;">-0.8588193</td>
-<td style="text-align: right;">0.2190507</td>
-<td style="text-align: right;">0.3081444</td>
-<td style="text-align: right;">1.5392083</td>
-<td style="text-align: right;">-2.787068</td>
-<td style="text-align: right;">0.1276996</td>
-<td style="text-align: right;">0.0066411</td>
-<td style="text-align: right;">0.3776649</td>
-<td style="text-align: right;">0.0279730</td>
+<td style="text-align: left;">GGB79998</td>
+<td style="text-align: right;">0.4003743</td>
+<td style="text-align: right;">-0.4332365</td>
+<td style="text-align: right;">0.0628300</td>
+<td style="text-align: right;">0.1492145</td>
+<td style="text-align: right;">6.3723406</td>
+<td style="text-align: right;">-2.903447</td>
+<td style="text-align: right;">0.0000069</td>
+<td style="text-align: right;">0.0098900</td>
+<td style="text-align: right;">0.0000524</td>
+<td style="text-align: right;">0.0291496</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Clostridia_unclassified</td>
+<td style="text-align: right;">0.3130903</td>
+<td style="text-align: right;">-0.6749923</td>
+<td style="text-align: right;">0.1739170</td>
+<td style="text-align: right;">0.2599807</td>
+<td style="text-align: right;">1.8002282</td>
+<td style="text-align: right;">-2.596317</td>
+<td style="text-align: right;">0.0745164</td>
+<td style="text-align: right;">0.0106861</td>
+<td style="text-align: right;">0.1578941</td>
+<td style="text-align: right;">0.0310378</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9767</td>
+<td style="text-align: right;">-0.2504688</td>
+<td style="text-align: right;">0.5853207</td>
+<td style="text-align: right;">0.1036223</td>
+<td style="text-align: right;">0.2195298</td>
+<td style="text-align: right;">-2.4171309</td>
+<td style="text-align: right;">2.666248</td>
+<td style="text-align: right;">0.0198557</td>
+<td style="text-align: right;">0.0106890</td>
+<td style="text-align: right;">0.0498939</td>
+<td style="text-align: right;">0.0310378</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3256</td>
+<td style="text-align: right;">-0.1957635</td>
+<td style="text-align: right;">0.4761439</td>
+<td style="text-align: right;">0.0757708</td>
+<td style="text-align: right;">0.1765069</td>
+<td style="text-align: right;">-2.5836283</td>
+<td style="text-align: right;">2.697593</td>
+<td style="text-align: right;">0.0157507</td>
+<td style="text-align: right;">0.0120985</td>
+<td style="text-align: right;">0.0416043</td>
+<td style="text-align: right;">0.0348720</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB4750</td>
+<td style="text-align: right;">0.2795426</td>
+<td style="text-align: right;">-0.4585543</td>
+<td style="text-align: right;">0.0882608</td>
+<td style="text-align: right;">0.1583692</td>
+<td style="text-align: right;">3.1672346</td>
+<td style="text-align: right;">-2.895477</td>
+<td style="text-align: right;">0.0074213</td>
+<td style="text-align: right;">0.0125161</td>
+<td style="text-align: right;">0.0217100</td>
+<td style="text-align: right;">0.0356246</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9636</td>
+<td style="text-align: right;">0.3482224</td>
+<td style="text-align: right;">-0.4437693</td>
+<td style="text-align: right;">0.0834511</td>
+<td style="text-align: right;">0.1565327</td>
+<td style="text-align: right;">4.1727703</td>
+<td style="text-align: right;">-2.834995</td>
+<td style="text-align: right;">0.0008166</td>
+<td style="text-align: right;">0.0125413</td>
+<td style="text-align: right;">0.0033002</td>
+<td style="text-align: right;">0.0356246</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB3444</td>
+<td style="text-align: right;">-0.2455781</td>
+<td style="text-align: right;">0.5163462</td>
+<td style="text-align: right;">0.1196787</td>
+<td style="text-align: right;">0.1981001</td>
+<td style="text-align: right;">-2.0519781</td>
+<td style="text-align: right;">2.606491</td>
+<td style="text-align: right;">0.0465945</td>
+<td style="text-align: right;">0.0126954</td>
+<td style="text-align: right;">0.1043716</td>
+<td style="text-align: right;">0.0358029</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3321</td>
+<td style="text-align: right;">0.4535493</td>
+<td style="text-align: right;">-0.5910498</td>
+<td style="text-align: right;">0.1377985</td>
+<td style="text-align: right;">0.2265522</td>
+<td style="text-align: right;">3.2913949</td>
+<td style="text-align: right;">-2.608890</td>
+<td style="text-align: right;">0.0021587</td>
+<td style="text-align: right;">0.0129182</td>
+<td style="text-align: right;">0.0078354</td>
+<td style="text-align: right;">0.0361709</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB51959</td>
+<td style="text-align: right;">0.2726604</td>
+<td style="text-align: right;">-0.4306577</td>
+<td style="text-align: right;">0.0959889</td>
+<td style="text-align: right;">0.1666655</td>
+<td style="text-align: right;">2.8405423</td>
+<td style="text-align: right;">-2.583964</td>
+<td style="text-align: right;">0.0069168</td>
+<td style="text-align: right;">0.0133357</td>
+<td style="text-align: right;">0.0203864</td>
+<td style="text-align: right;">0.0370751</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB4716</td>
+<td style="text-align: right;">0.0737205</td>
+<td style="text-align: right;">-0.5185875</td>
+<td style="text-align: right;">0.1223596</td>
+<td style="text-align: right;">0.1968486</td>
+<td style="text-align: right;">0.6024905</td>
+<td style="text-align: right;">-2.634449</td>
+<td style="text-align: right;">0.5520667</td>
+<td style="text-align: right;">0.0140106</td>
+<td style="text-align: right;">0.7049190</td>
+<td style="text-align: right;">0.0386771</td>
 <td style="text-align: left;">FALSE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9062</td>
+<td style="text-align: right;">-0.3755948</td>
+<td style="text-align: right;">0.4774744</td>
+<td style="text-align: right;">0.1016378</td>
+<td style="text-align: right;">0.1736255</td>
+<td style="text-align: right;">-3.6954240</td>
+<td style="text-align: right;">2.750025</td>
+<td style="text-align: right;">0.0019612</td>
+<td style="text-align: right;">0.0142333</td>
+<td style="text-align: right;">0.0071851</td>
+<td style="text-align: right;">0.0390172</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
 <tr class="even">
+<td style="text-align: left;">Evtepia</td>
+<td style="text-align: right;">-0.2615171</td>
+<td style="text-align: right;">0.3556034</td>
+<td style="text-align: right;">0.0731923</td>
+<td style="text-align: right;">0.1423466</td>
+<td style="text-align: right;">-3.5730130</td>
+<td style="text-align: right;">2.498151</td>
+<td style="text-align: right;">0.0006710</td>
+<td style="text-align: right;">0.0150232</td>
+<td style="text-align: right;">0.0027398</td>
+<td style="text-align: right;">0.0408964</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB13493</td>
+<td style="text-align: right;">0.2239506</td>
+<td style="text-align: right;">-0.4273701</td>
+<td style="text-align: right;">0.0837204</td>
+<td style="text-align: right;">0.1606468</td>
+<td style="text-align: right;">2.6749833</td>
+<td style="text-align: right;">-2.660309</td>
+<td style="text-align: right;">0.0149750</td>
+<td style="text-align: right;">0.0154550</td>
+<td style="text-align: right;">0.0399334</td>
+<td style="text-align: right;">0.0417818</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB4684</td>
+<td style="text-align: right;">-0.1250050</td>
+<td style="text-align: right;">0.4082636</td>
+<td style="text-align: right;">0.0739767</td>
+<td style="text-align: right;">0.1560834</td>
+<td style="text-align: right;">-1.6897895</td>
+<td style="text-align: right;">2.615676</td>
+<td style="text-align: right;">0.1051913</td>
+<td style="text-align: right;">0.0157871</td>
+<td style="text-align: right;">0.2170262</td>
+<td style="text-align: right;">0.0423873</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mediterraneibacter</td>
+<td style="text-align: right;">0.2562917</td>
+<td style="text-align: right;">-0.5660933</td>
+<td style="text-align: right;">0.1256960</td>
+<td style="text-align: right;">0.2319489</td>
+<td style="text-align: right;">2.0389809</td>
+<td style="text-align: right;">-2.440595</td>
+<td style="text-align: right;">0.0433610</td>
+<td style="text-align: right;">0.0159306</td>
+<td style="text-align: right;">0.0992408</td>
+<td style="text-align: right;">0.0424815</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB45599</td>
+<td style="text-align: right;">0.1638415</td>
+<td style="text-align: right;">-0.4634861</td>
+<td style="text-align: right;">0.1047852</td>
+<td style="text-align: right;">0.1754598</td>
+<td style="text-align: right;">1.5635947</td>
+<td style="text-align: right;">-2.641551</td>
+<td style="text-align: right;">0.1344158</td>
+<td style="text-align: right;">0.0160898</td>
+<td style="text-align: right;">0.2533221</td>
+<td style="text-align: right;">0.0426163</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">GGB27106</td>
-<td style="text-align: right;">0.2533003</td>
-<td style="text-align: right;">-0.7486168</td>
-<td style="text-align: right;">0.1684554</td>
-<td style="text-align: right;">0.2577978</td>
-<td style="text-align: right;">1.5036640</td>
-<td style="text-align: right;">-2.903891</td>
-<td style="text-align: right;">0.1431234</td>
-<td style="text-align: right;">0.0068534</td>
-<td style="text-align: right;">0.4144615</td>
-<td style="text-align: right;">0.0280183</td>
+<td style="text-align: right;">0.3185930</td>
+<td style="text-align: right;">-0.6278483</td>
+<td style="text-align: right;">0.1524834</td>
+<td style="text-align: right;">0.2489046</td>
+<td style="text-align: right;">2.0893613</td>
+<td style="text-align: right;">-2.522445</td>
+<td style="text-align: right;">0.0452572</td>
+<td style="text-align: right;">0.0171927</td>
+<td style="text-align: right;">0.1025481</td>
+<td style="text-align: right;">0.0452319</td>
 <td style="text-align: left;">FALSE</td>
 <td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Blautia</td>
-<td style="text-align: right;">0.0788492</td>
-<td style="text-align: right;">-0.4477765</td>
-<td style="text-align: right;">0.1092939</td>
-<td style="text-align: right;">0.1644963</td>
-<td style="text-align: right;">0.7214421</td>
-<td style="text-align: right;">-2.722107</td>
-<td style="text-align: right;">0.4718581</td>
-<td style="text-align: right;">0.0073238</td>
-<td style="text-align: right;">0.7509430</td>
-<td style="text-align: right;">0.0290860</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Bacteroides</td>
-<td style="text-align: right;">0.1298119</td>
-<td style="text-align: right;">-0.5319107</td>
-<td style="text-align: right;">0.1338494</td>
-<td style="text-align: right;">0.1969374</td>
-<td style="text-align: right;">0.9698353</td>
-<td style="text-align: right;">-2.700913</td>
-<td style="text-align: right;">0.3338759</td>
-<td style="text-align: right;">0.0078082</td>
-<td style="text-align: right;">0.6470326</td>
-<td style="text-align: right;">0.0301483</td>
+<td style="text-align: left;">GGB4676</td>
+<td style="text-align: right;">0.3977708</td>
+<td style="text-align: right;">-0.4322945</td>
+<td style="text-align: right;">0.0747246</td>
+<td style="text-align: right;">0.1616645</td>
+<td style="text-align: right;">5.3231558</td>
+<td style="text-align: right;">-2.674023</td>
+<td style="text-align: right;">0.0000852</td>
+<td style="text-align: right;">0.0173380</td>
+<td style="text-align: right;">0.0004454</td>
+<td style="text-align: right;">0.0453101</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Anaerobutyricum</td>
-<td style="text-align: right;">0.0791872</td>
-<td style="text-align: right;">-0.3973101</td>
-<td style="text-align: right;">0.0954996</td>
-<td style="text-align: right;">0.1576882</td>
-<td style="text-align: right;">0.8291895</td>
-<td style="text-align: right;">-2.519593</td>
-<td style="text-align: right;">0.4085171</td>
-<td style="text-align: right;">0.0129603</td>
-<td style="text-align: right;">0.7097985</td>
-<td style="text-align: right;">0.0486889</td>
+<td style="text-align: left;">GGB2980</td>
+<td style="text-align: right;">0.2632734</td>
+<td style="text-align: right;">-0.5590185</td>
+<td style="text-align: right;">0.1298860</td>
+<td style="text-align: right;">0.2319468</td>
+<td style="text-align: right;">2.0269566</td>
+<td style="text-align: right;">-2.410116</td>
+<td style="text-align: right;">0.0461743</td>
+<td style="text-align: right;">0.0183659</td>
+<td style="text-align: right;">0.1040249</td>
+<td style="text-align: right;">0.0476785</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9345</td>
+<td style="text-align: right;">-0.3224432</td>
+<td style="text-align: right;">0.6713375</td>
+<td style="text-align: right;">0.1750454</td>
+<td style="text-align: right;">0.2776112</td>
+<td style="text-align: right;">-1.8420549</td>
+<td style="text-align: right;">2.418265</td>
+<td style="text-align: right;">0.0705813</td>
+<td style="text-align: right;">0.0187554</td>
+<td style="text-align: right;">0.1511904</td>
+<td style="text-align: right;">0.0483692</td>
 <td style="text-align: left;">FALSE</td>
 <td style="text-align: left;">TRUE</td>
 <td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 </tbody>
 </table>
@@ -851,15 +2805,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display results in a table</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  filtered_results,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Differential Abundance Features for Diet2"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Differentially abundant features for Diet2"</span>,</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Taxon"</span>, <span class="st">"Log Fold Change (Diet2)"</span>, <span class="st">"Adjusted P-value (Diet2)"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<caption>Differential Abundance Features for Diet2</caption>
+<caption>Differentially abundant features for Diet2</caption>
 <colgroup>
-<col style="width: 37%">
-<col style="width: 30%">
-<col style="width: 32%">
+<col style="width: 47%">
+<col style="width: 25%">
+<col style="width: 26%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -870,189 +2824,764 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">GGB80011</td>
-<td style="text-align: right;">-1.2002787</td>
-<td style="text-align: right;">0.0000028</td>
+<td style="text-align: left;">GGB9616</td>
+<td style="text-align: right;">-2.6018413</td>
+<td style="text-align: right;">0.0000000</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">GGB9635</td>
-<td style="text-align: right;">1.4081249</td>
-<td style="text-align: right;">0.0000028</td>
+<td style="text-align: left;">GGB9350</td>
+<td style="text-align: right;">2.7181255</td>
+<td style="text-align: right;">0.0000000</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">GGB79973</td>
-<td style="text-align: right;">-1.4382679</td>
-<td style="text-align: right;">0.0000113</td>
+<td style="text-align: left;">GGB6608</td>
+<td style="text-align: right;">-2.3790119</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB4599</td>
+<td style="text-align: right;">-2.4421485</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9832</td>
+<td style="text-align: right;">-3.0004962</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB2659</td>
+<td style="text-align: right;">2.1559902</td>
+<td style="text-align: right;">0.0000001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9635</td>
+<td style="text-align: right;">1.5657695</td>
+<td style="text-align: right;">0.0000001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3614</td>
+<td style="text-align: right;">-2.2599203</td>
+<td style="text-align: right;">0.0000001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9299</td>
+<td style="text-align: right;">-1.4779365</td>
+<td style="text-align: right;">0.0000001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Propionibacterium</td>
+<td style="text-align: right;">-1.8495630</td>
+<td style="text-align: right;">0.0000001</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Catenibacterium</td>
+<td style="text-align: right;">-1.9910313</td>
+<td style="text-align: right;">0.0000002</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Longicatena</td>
+<td style="text-align: right;">-2.0364809</td>
+<td style="text-align: right;">0.0000002</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dielma</td>
+<td style="text-align: right;">-1.2243079</td>
+<td style="text-align: right;">0.0000008</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB79634</td>
+<td style="text-align: right;">2.1097383</td>
+<td style="text-align: right;">0.0000008</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9184</td>
+<td style="text-align: right;">-2.1528099</td>
+<td style="text-align: right;">0.0000014</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB42639</td>
+<td style="text-align: right;">-1.2503456</td>
+<td style="text-align: right;">0.0000022</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB79630</td>
+<td style="text-align: right;">1.2737816</td>
+<td style="text-align: right;">0.0000025</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9512</td>
+<td style="text-align: right;">-1.1793956</td>
+<td style="text-align: right;">0.0000025</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB80011</td>
+<td style="text-align: right;">-1.0903741</td>
+<td style="text-align: right;">0.0000062</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3032</td>
+<td style="text-align: right;">1.4699797</td>
+<td style="text-align: right;">0.0000064</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB4588</td>
+<td style="text-align: right;">-1.3583353</td>
+<td style="text-align: right;">0.0000064</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9611</td>
+<td style="text-align: right;">-1.1655402</td>
+<td style="text-align: right;">0.0000071</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pseudoglutamicibacter</td>
+<td style="text-align: right;">-1.4341660</td>
+<td style="text-align: right;">0.0000089</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Lactonifactor</td>
+<td style="text-align: right;">-1.2053741</td>
+<td style="text-align: right;">0.0000099</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Parvimonas</td>
+<td style="text-align: right;">-1.5724328</td>
+<td style="text-align: right;">0.0000099</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Candidatus_Borkfalkia</td>
+<td style="text-align: right;">-1.1998402</td>
+<td style="text-align: right;">0.0000112</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Coprobacillus</td>
+<td style="text-align: right;">-1.4747060</td>
+<td style="text-align: right;">0.0000112</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB6544</td>
+<td style="text-align: right;">1.3901088</td>
+<td style="text-align: right;">0.0000112</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Latilactobacillus</td>
+<td style="text-align: right;">1.2008641</td>
+<td style="text-align: right;">0.0000114</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9788</td>
+<td style="text-align: right;">-1.0660466</td>
+<td style="text-align: right;">0.0000149</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB3678</td>
+<td style="text-align: right;">-1.0919191</td>
+<td style="text-align: right;">0.0000157</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB42994</td>
+<td style="text-align: right;">-1.0172433</td>
+<td style="text-align: right;">0.0000183</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB4713</td>
+<td style="text-align: right;">-1.2431017</td>
+<td style="text-align: right;">0.0000270</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9444</td>
+<td style="text-align: right;">-1.1739386</td>
+<td style="text-align: right;">0.0000314</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Intestinibacillus</td>
+<td style="text-align: right;">1.0301502</td>
+<td style="text-align: right;">0.0000392</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Merdimonas</td>
+<td style="text-align: right;">-0.9788458</td>
+<td style="text-align: right;">0.0000426</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB4596</td>
+<td style="text-align: right;">-1.2705143</td>
+<td style="text-align: right;">0.0000500</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Lactococcus</td>
-<td style="text-align: right;">-1.8125735</td>
-<td style="text-align: right;">0.0000113</td>
+<td style="text-align: right;">-1.5795420</td>
+<td style="text-align: right;">0.0000589</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">GGB3619</td>
-<td style="text-align: right;">-1.2086401</td>
-<td style="text-align: right;">0.0001106</td>
+<td style="text-align: left;">GGB79973</td>
+<td style="text-align: right;">-1.2096368</td>
+<td style="text-align: right;">0.0000733</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Vescimonas</td>
-<td style="text-align: right;">-1.2359601</td>
-<td style="text-align: right;">0.0001106</td>
+<td style="text-align: left;">Limosilactobacillus</td>
+<td style="text-align: right;">-1.1519993</td>
+<td style="text-align: right;">0.0000733</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Turicibacter</td>
-<td style="text-align: right;">-1.3814172</td>
-<td style="text-align: right;">0.0001151</td>
+<td style="text-align: left;">GGB58233</td>
+<td style="text-align: right;">-0.8717506</td>
+<td style="text-align: right;">0.0000785</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB16040</td>
+<td style="text-align: right;">-1.0412654</td>
+<td style="text-align: right;">0.0000879</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9063</td>
+<td style="text-align: right;">-0.9030877</td>
+<td style="text-align: right;">0.0000985</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB6601</td>
+<td style="text-align: right;">0.9384493</td>
+<td style="text-align: right;">0.0001045</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB77437</td>
+<td style="text-align: right;">-0.8667329</td>
+<td style="text-align: right;">0.0001287</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Negativibacillus</td>
+<td style="text-align: right;">0.9249839</td>
+<td style="text-align: right;">0.0001664</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9210</td>
+<td style="text-align: right;">0.9200872</td>
+<td style="text-align: right;">0.0001708</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3619</td>
+<td style="text-align: right;">-1.0814052</td>
+<td style="text-align: right;">0.0001779</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dakarella</td>
+<td style="text-align: right;">-0.9713383</td>
+<td style="text-align: right;">0.0002039</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gemella</td>
+<td style="text-align: right;">0.8623997</td>
+<td style="text-align: right;">0.0002670</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB4559</td>
+<td style="text-align: right;">-0.9801813</td>
+<td style="text-align: right;">0.0002670</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">GGB9602</td>
-<td style="text-align: right;">-1.2128203</td>
-<td style="text-align: right;">0.0001361</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">GGB9758</td>
-<td style="text-align: right;">-1.1303219</td>
-<td style="text-align: right;">0.0003427</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">GGB3363</td>
-<td style="text-align: right;">-1.0121597</td>
-<td style="text-align: right;">0.0004950</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Sanguibacter</td>
-<td style="text-align: right;">-0.6269197</td>
-<td style="text-align: right;">0.0004950</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Methanobrevibacter</td>
-<td style="text-align: right;">-0.8772999</td>
-<td style="text-align: right;">0.0004969</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Lachnospiraceae_unclassified</td>
-<td style="text-align: right;">-1.0034745</td>
-<td style="text-align: right;">0.0006860</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Holdemanella</td>
-<td style="text-align: right;">-0.6792998</td>
-<td style="text-align: right;">0.0008396</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">GGB3746</td>
-<td style="text-align: right;">-0.9439942</td>
-<td style="text-align: right;">0.0018118</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Staphylococcus</td>
-<td style="text-align: right;">-0.9125833</td>
-<td style="text-align: right;">0.0019136</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">GGB51647</td>
-<td style="text-align: right;">-0.8620608</td>
-<td style="text-align: right;">0.0020174</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Enterococcus</td>
-<td style="text-align: right;">-1.0900992</td>
-<td style="text-align: right;">0.0032539</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Gemmiger</td>
-<td style="text-align: right;">-0.8447112</td>
-<td style="text-align: right;">0.0040673</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Butyricicoccus</td>
-<td style="text-align: right;">-0.6393615</td>
-<td style="text-align: right;">0.0043518</td>
+<td style="text-align: right;">-1.0989935</td>
+<td style="text-align: right;">0.0002670</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Citrobacter</td>
-<td style="text-align: right;">0.7285878</td>
-<td style="text-align: right;">0.0043864</td>
+<td style="text-align: right;">0.9390321</td>
+<td style="text-align: right;">0.0003665</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Monoglobus</td>
-<td style="text-align: right;">-0.6375355</td>
-<td style="text-align: right;">0.0043864</td>
+<td style="text-align: left;">Erysipelotrichaceae_unclassified</td>
+<td style="text-align: right;">0.9641324</td>
+<td style="text-align: right;">0.0003769</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Mediterraneibacter</td>
-<td style="text-align: right;">-0.7716228</td>
-<td style="text-align: right;">0.0051038</td>
+<td style="text-align: left;">GGB4768</td>
+<td style="text-align: right;">0.8821017</td>
+<td style="text-align: right;">0.0004352</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">GGB3730</td>
-<td style="text-align: right;">-0.4906724</td>
-<td style="text-align: right;">0.0060902</td>
+<td style="text-align: left;">Turicibacter</td>
+<td style="text-align: right;">-1.1944265</td>
+<td style="text-align: right;">0.0004415</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Slackia</td>
-<td style="text-align: right;">-0.5980238</td>
-<td style="text-align: right;">0.0087333</td>
+<td style="text-align: left;">GGB3486</td>
+<td style="text-align: right;">0.8499546</td>
+<td style="text-align: right;">0.0004593</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Pseudoruminococcus</td>
-<td style="text-align: right;">-0.5984411</td>
-<td style="text-align: right;">0.0118201</td>
+<td style="text-align: left;">Haemophilus</td>
+<td style="text-align: right;">-0.9962855</td>
+<td style="text-align: right;">0.0004618</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">GGB34797</td>
-<td style="text-align: right;">-0.5560961</td>
-<td style="text-align: right;">0.0119063</td>
+<td style="text-align: left;">GGB9618</td>
+<td style="text-align: right;">0.8541068</td>
+<td style="text-align: right;">0.0005490</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Dorea</td>
-<td style="text-align: right;">-0.5199913</td>
-<td style="text-align: right;">0.0218847</td>
+<td style="text-align: left;">Leuconostoc</td>
+<td style="text-align: right;">-0.8335619</td>
+<td style="text-align: right;">0.0006073</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Prevotella</td>
-<td style="text-align: right;">0.9591828</td>
-<td style="text-align: right;">0.0235985</td>
+<td style="text-align: left;">GGB4605</td>
+<td style="text-align: right;">-0.8125118</td>
+<td style="text-align: right;">0.0007129</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9707</td>
+<td style="text-align: right;">0.8348687</td>
+<td style="text-align: right;">0.0008456</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Candidatus_Allobutyricicoccus</td>
+<td style="text-align: right;">0.7805861</td>
+<td style="text-align: right;">0.0008585</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vescimonas</td>
+<td style="text-align: right;">-0.9952900</td>
+<td style="text-align: right;">0.0008875</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9240</td>
+<td style="text-align: right;">-0.8335862</td>
+<td style="text-align: right;">0.0010189</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB31234</td>
+<td style="text-align: right;">-0.8024541</td>
+<td style="text-align: right;">0.0011233</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Methanobrevibacter</td>
+<td style="text-align: right;">-0.7622290</td>
+<td style="text-align: right;">0.0012643</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9758</td>
+<td style="text-align: right;">-0.9690926</td>
+<td style="text-align: right;">0.0014675</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB51647</td>
+<td style="text-align: right;">-0.8385768</td>
+<td style="text-align: right;">0.0015802</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Candidatus_Pseudoruminococcus</td>
+<td style="text-align: right;">0.7067936</td>
+<td style="text-align: right;">0.0018413</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Faecalicoccus</td>
+<td style="text-align: right;">0.7264108</td>
+<td style="text-align: right;">0.0018915</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Candidatus_Avispirillum</td>
+<td style="text-align: right;">-0.8007423</td>
+<td style="text-align: right;">0.0020004</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB3819</td>
+<td style="text-align: right;">-0.6012148</td>
+<td style="text-align: right;">0.0021200</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9536</td>
+<td style="text-align: right;">-0.6845037</td>
+<td style="text-align: right;">0.0027890</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9778</td>
+<td style="text-align: right;">0.6486550</td>
+<td style="text-align: right;">0.0031362</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9790</td>
+<td style="text-align: right;">-0.5843078</td>
+<td style="text-align: right;">0.0031362</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB2982</td>
+<td style="text-align: right;">0.6245379</td>
+<td style="text-align: right;">0.0032455</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3363</td>
+<td style="text-align: right;">-0.8007635</td>
+<td style="text-align: right;">0.0032455</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Candidatus_Metalachnospira</td>
+<td style="text-align: right;">-0.6340934</td>
+<td style="text-align: right;">0.0036523</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3463</td>
+<td style="text-align: right;">-0.6957038</td>
+<td style="text-align: right;">0.0046031</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9189</td>
+<td style="text-align: right;">0.5580845</td>
+<td style="text-align: right;">0.0050592</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Waltera</td>
-<td style="text-align: right;">1.0120202</td>
-<td style="text-align: right;">0.0235985</td>
+<td style="text-align: right;">1.1760971</td>
+<td style="text-align: right;">0.0050592</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Erysipelatoclostridium</td>
-<td style="text-align: right;">-0.6807938</td>
-<td style="text-align: right;">0.0240135</td>
+<td style="text-align: left;">GGB35068</td>
+<td style="text-align: right;">0.5625014</td>
+<td style="text-align: right;">0.0065019</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">GGB79734</td>
-<td style="text-align: right;">-0.5690491</td>
-<td style="text-align: right;">0.0270245</td>
+<td style="text-align: left;">GGB9237</td>
+<td style="text-align: right;">0.6403544</td>
+<td style="text-align: right;">0.0065139</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Parasutterella</td>
-<td style="text-align: right;">-0.8588193</td>
-<td style="text-align: right;">0.0279730</td>
+<td style="text-align: left;">Candidatus_Neoclostridium</td>
+<td style="text-align: right;">-0.5899662</td>
+<td style="text-align: right;">0.0068552</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">GGB2958</td>
+<td style="text-align: right;">0.5753761</td>
+<td style="text-align: right;">0.0075824</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Prevotella</td>
+<td style="text-align: right;">1.1139729</td>
+<td style="text-align: right;">0.0075824</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Butyricicoccus</td>
+<td style="text-align: right;">-0.5758198</td>
+<td style="text-align: right;">0.0076530</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lachnospiraceae_unclassified</td>
+<td style="text-align: right;">-0.7971428</td>
+<td style="text-align: right;">0.0076530</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Candidatus_Neoanaerotignum</td>
+<td style="text-align: right;">0.6336034</td>
+<td style="text-align: right;">0.0076861</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Enterococcus</td>
+<td style="text-align: right;">-0.9600628</td>
+<td style="text-align: right;">0.0077684</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3730</td>
+<td style="text-align: right;">-0.4621185</td>
+<td style="text-align: right;">0.0077684</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB79652</td>
+<td style="text-align: right;">-0.7430495</td>
+<td style="text-align: right;">0.0077684</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9766</td>
+<td style="text-align: right;">-0.5114516</td>
+<td style="text-align: right;">0.0077684</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lacticaseibacillus</td>
+<td style="text-align: right;">-0.6639079</td>
+<td style="text-align: right;">0.0077684</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Staphylococcus</td>
+<td style="text-align: right;">-0.7428039</td>
+<td style="text-align: right;">0.0077684</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB4769</td>
+<td style="text-align: right;">-0.6529086</td>
+<td style="text-align: right;">0.0078295</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Holdemanella</td>
+<td style="text-align: right;">-0.4975623</td>
+<td style="text-align: right;">0.0078295</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Victivallis</td>
+<td style="text-align: right;">0.6651570</td>
+<td style="text-align: right;">0.0078295</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Candidatus_Gastranaerophilales_unclassified</td>
+<td style="text-align: right;">-0.6383445</td>
+<td style="text-align: right;">0.0081316</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB3278</td>
+<td style="text-align: right;">0.5224494</td>
+<td style="text-align: right;">0.0084223</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3746</td>
+<td style="text-align: right;">-0.7746918</td>
+<td style="text-align: right;">0.0084223</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9253</td>
+<td style="text-align: right;">-0.6872955</td>
+<td style="text-align: right;">0.0098825</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9770</td>
+<td style="text-align: right;">0.7641105</td>
+<td style="text-align: right;">0.0098825</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9551</td>
+<td style="text-align: right;">0.5025367</td>
+<td style="text-align: right;">0.0106558</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sanguibacter</td>
+<td style="text-align: right;">-0.4292003</td>
+<td style="text-align: right;">0.0111010</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Slackia</td>
+<td style="text-align: right;">-0.5339112</td>
+<td style="text-align: right;">0.0135514</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Anaerosacchariphilus</td>
+<td style="text-align: right;">-0.5613968</td>
+<td style="text-align: right;">0.0138701</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9293</td>
+<td style="text-align: right;">-0.5104775</td>
+<td style="text-align: right;">0.0144128</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB10692</td>
+<td style="text-align: right;">0.5614370</td>
+<td style="text-align: right;">0.0148120</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB34540</td>
+<td style="text-align: right;">-0.5245755</td>
+<td style="text-align: right;">0.0168307</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB74463</td>
+<td style="text-align: right;">0.5347727</td>
+<td style="text-align: right;">0.0171785</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Candidatus_Paralachnospira</td>
+<td style="text-align: right;">0.5394038</td>
+<td style="text-align: right;">0.0175467</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3002</td>
+<td style="text-align: right;">0.7125516</td>
+<td style="text-align: right;">0.0175467</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB51884</td>
+<td style="text-align: right;">0.4943625</td>
+<td style="text-align: right;">0.0175467</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB5980</td>
+<td style="text-align: right;">0.6442593</td>
+<td style="text-align: right;">0.0176379</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB4745</td>
+<td style="text-align: right;">0.5770966</td>
+<td style="text-align: right;">0.0176830</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9343</td>
+<td style="text-align: right;">-0.6079005</td>
+<td style="text-align: right;">0.0181736</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Candidatus_Heteroscilispira</td>
+<td style="text-align: right;">-0.4786673</td>
+<td style="text-align: right;">0.0192342</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Veillonella</td>
+<td style="text-align: right;">-0.8145538</td>
+<td style="text-align: right;">0.0192342</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Anaerococcus</td>
+<td style="text-align: right;">-0.6090109</td>
+<td style="text-align: right;">0.0193442</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3061</td>
+<td style="text-align: right;">-0.4525483</td>
+<td style="text-align: right;">0.0193442</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9694</td>
+<td style="text-align: right;">-0.6984610</td>
+<td style="text-align: right;">0.0211594</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ruminococcus</td>
+<td style="text-align: right;">0.9478460</td>
+<td style="text-align: right;">0.0216695</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB3000</td>
+<td style="text-align: right;">0.6044787</td>
+<td style="text-align: right;">0.0243377</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Candidatus_Alloruminococcus</td>
+<td style="text-align: right;">-0.4276054</td>
+<td style="text-align: right;">0.0249515</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB3353</td>
+<td style="text-align: right;">0.4642719</td>
+<td style="text-align: right;">0.0257736</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Gemmiger</td>
+<td style="text-align: right;">-0.6381114</td>
+<td style="text-align: right;">0.0262498</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9724</td>
+<td style="text-align: right;">0.5239720</td>
+<td style="text-align: right;">0.0264817</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Candidatus_Neoruminococcus</td>
+<td style="text-align: right;">-0.4775813</td>
+<td style="text-align: right;">0.0276303</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9501</td>
+<td style="text-align: right;">0.4823929</td>
+<td style="text-align: right;">0.0287149</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Eisenbergiella</td>
+<td style="text-align: right;">-0.8127489</td>
+<td style="text-align: right;">0.0290669</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB79998</td>
+<td style="text-align: right;">-0.4332365</td>
+<td style="text-align: right;">0.0291496</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Clostridia_unclassified</td>
+<td style="text-align: right;">-0.6749923</td>
+<td style="text-align: right;">0.0310378</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9767</td>
+<td style="text-align: right;">0.5853207</td>
+<td style="text-align: right;">0.0310378</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3256</td>
+<td style="text-align: right;">0.4761439</td>
+<td style="text-align: right;">0.0348720</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB4750</td>
+<td style="text-align: right;">-0.4585543</td>
+<td style="text-align: right;">0.0356246</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9636</td>
+<td style="text-align: right;">-0.4437693</td>
+<td style="text-align: right;">0.0356246</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB3444</td>
+<td style="text-align: right;">0.5163462</td>
+<td style="text-align: right;">0.0358029</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB3321</td>
+<td style="text-align: right;">-0.5910498</td>
+<td style="text-align: right;">0.0361709</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB51959</td>
+<td style="text-align: right;">-0.4306577</td>
+<td style="text-align: right;">0.0370751</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB4716</td>
+<td style="text-align: right;">-0.5185875</td>
+<td style="text-align: right;">0.0386771</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB9062</td>
+<td style="text-align: right;">0.4774744</td>
+<td style="text-align: right;">0.0390172</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Evtepia</td>
+<td style="text-align: right;">0.3556034</td>
+<td style="text-align: right;">0.0408964</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GGB13493</td>
+<td style="text-align: right;">-0.4273701</td>
+<td style="text-align: right;">0.0417818</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB4684</td>
+<td style="text-align: right;">0.4082636</td>
+<td style="text-align: right;">0.0423873</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mediterraneibacter</td>
+<td style="text-align: right;">-0.5660933</td>
+<td style="text-align: right;">0.0424815</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB45599</td>
+<td style="text-align: right;">-0.4634861</td>
+<td style="text-align: right;">0.0426163</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">GGB27106</td>
-<td style="text-align: right;">-0.7486168</td>
-<td style="text-align: right;">0.0280183</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Blautia</td>
-<td style="text-align: right;">-0.4477765</td>
-<td style="text-align: right;">0.0290860</td>
+<td style="text-align: right;">-0.6278483</td>
+<td style="text-align: right;">0.0452319</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Bacteroides</td>
-<td style="text-align: right;">-0.5319107</td>
-<td style="text-align: right;">0.0301483</td>
+<td style="text-align: left;">GGB4676</td>
+<td style="text-align: right;">-0.4322945</td>
+<td style="text-align: right;">0.0453101</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Anaerobutyricum</td>
-<td style="text-align: right;">-0.3973101</td>
-<td style="text-align: right;">0.0486889</td>
+<td style="text-align: left;">GGB2980</td>
+<td style="text-align: right;">-0.5590185</td>
+<td style="text-align: right;">0.0476785</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GGB9345</td>
+<td style="text-align: right;">0.6713375</td>
+<td style="text-align: right;">0.0483692</td>
 </tr>
 </tbody>
 </table>
@@ -1071,7 +3600,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span>  <span class="co"># Zero log2 fold change line</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Log2 fold-difference (Diet2)"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"fold-change (Diet2)"</span>,</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"-log10 (Adjusted P-value)"</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
@@ -1085,7 +3614,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> filtered_results <span class="sc">%&gt;%</span> <span class="fu">filter</span>(q_diet2 <span class="sc">&lt;</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> <span class="fu">abs</span>(lfc_diet2) <span class="sc">&gt;</span> <span class="fl">0.5</span>), <span class="co"># Customize thresholds</span></span>
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> taxon),  <span class="co"># Replace `taxon` with the correct column for taxa names</span></span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">3</span>,  <span class="co"># Font size for labels</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">max.overlaps =</span> <span class="dv">15</span>,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">max.overlaps =</span> <span class="dv">10</span>,</span>
 <span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">box.padding =</span> <span class="fl">0.3</span>,</span>
 <span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">point.padding =</span> <span class="fl">0.2</span>,</span>
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">direction =</span> <span class="st">"both"</span>,</span>
