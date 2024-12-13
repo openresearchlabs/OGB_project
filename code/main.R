@@ -13,7 +13,6 @@ quarto_bin <- quarto::quarto_path()
 # Define indices for analysis
 indices <- c("shannon", "observed")
 
-
 # Loop through each index
 lapply(indices, function(index) {
     output_dir <- path(path_abs("../output"), paste0("alpha_", index))

@@ -29,10 +29,10 @@ tse <- readRDS("../data/tse.Rds")
 #| fig-width: 20
 #| fig-height: 9
 meals <- c(
-  "1" = "oat-rice",
-  "2" = "rice-oat",
-  "3" = "rice-rice",
-  "4" = "oat-oat"
+  "1" = "1",
+  "2" = "2",
+  "3" = "3",
+  "4" = "4"
 )
 # Visualization - composition bar plot
 plots <- lapply(names(meals), function(meal_id) {
@@ -113,7 +113,6 @@ grid.newpage()
 do.call(grid.arrange, c(plots, ncol = 2))
 ```
 
-
 ## Unsupervised analysis
 
 ### Community dissimilarity
@@ -172,6 +171,7 @@ p_ellipse
 ```
 
 ### Significant variables
+
 ```{r significant variables}
 # Perform RDA
 tse <- addRDA(
@@ -198,11 +198,9 @@ plotRDA(tse, "RDA", colour.by = "meal_group") +
   theme(legend.position = "top", legend.title = element_text(size = 12), legend.text = element_text(size = 10))
 ```
 
-
 ### Significant taxa
 
 ```{r significant-taxa}
-
 plotLoadings(tse, "RDA", ncomponents = 2, n = 20)
 ```
 
@@ -373,26 +371,26 @@ tse <- getStepwiseDivergence(tse, group = "group",
                             assay_name = "relabundance")
 
 p2 <- plotReducedDim(tse[,!is.na(colData(tse)[["group"]])],
-                     "PCoA_BC", 
-                     other_fields = c("group", "id")) + 
-    geom_segment(aes(x = X1, 
-                     y = X2,
-                     xend = lead(X1),
-                     yend = lead(X2),
-                     color = time_divergence,
-                     group = id),  
-                 arrow = arrow(length = unit(0.2, "cm")),
-                 data = data.frame(reducedDim(tse), colData(tse)) %>%
-                     tidyr::drop_na(group) %>% 
-                     group_by(id) %>%  
-                     arrange(id, time) %>%  
-                     filter(n() > 1)) +  
-    labs(title = "Trajectories between Treatments",
-         x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
-         y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")) +
+                     "PCoA_BC", colour_by = "timepoint",
+                     other_fields = c("group", "id", "meal_group", "timepoint")) +
+    aes(color = timepoint) +
+    labs(
+        title = "Trajectories between meals",
+        x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
+        y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
+    ) +
     theme(plot.title = element_text(hjust = 0.5)) +
-    scale_color_gradient2(low = "white", high = "red") +
-    facet_wrap(~group, nrow = 1)
+    scale_color_manual(
+        values = c("before" = "blue", "after" = "orange"),
+        name = "Timepoint"
+    ) +
+    facet_wrap(~meal_group, nrow = 1) +
+    geom_line(
+        aes(group = id),
+        color = "grey50",
+        alpha = 0.5,
+        linetype = "dashed"
+    )
 
 # Plot 3: Divergence comparison
 p3 <- colData(tse) %>% 
