@@ -5,31 +5,42 @@ library(fs)
 # Create the data
 # OK to run just once
 # source("data.R") # Creates tse.rds
+
 # Call quarto cli
 quarto_bin <- quarto::quarto_path()
 
 # Alpha diversity analysis
 # Define indices for analysis
 indices <- c("shannon", "observed")
+
+
 # Loop through each index
-for (index in indices) {
-    output_dir <- paste0("../output/alpha_", index)
-    # Construct the Quarto render command
-    render_command <- paste(
-        shQuote(quarto_bin), 
+lapply(indices, function(index) {
+    output_dir <- path(path_abs("../output"), paste0("alpha_", index))
+    
+    # HTML render
+    system(paste(
+        shQuote(quarto_bin),
         "render alpha.qmd",
         "-P", paste0("index=", index),
-        "--output", 
-        shQuote(paste0("alpha_", index, ".html")),
-        "--output-dir", 
-        shQuote(output_dir)
-    )
+        "--to html",
+        "--output", shQuote(paste0("alpha_", index, ".html")),
+        "--output-dir", shQuote(output_dir)
+    ))
     
-    # Execute quarto cli
-    system(render_command)
-}
+    # PDF render
+    system(paste(
+        shQuote(quarto_bin),
+        "render alpha.qmd",
+        "-P", paste0("index=", index),
+        "--to pdf",
+        "--output", shQuote(paste0("alpha_", index, ".pdf")),
+        "--output-dir", shQuote(output_dir)
+    ))
+})
+# Beta diversity analysis
+system(paste(shQuote(quarto_bin), "render beta.qmd --output-dir ../output"))
 
 # # TODO
-# quarto::quarto_render("beta.qmd")
 # quarto::quarto_render("daa.qmd")
 

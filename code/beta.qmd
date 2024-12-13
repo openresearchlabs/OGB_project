@@ -4,10 +4,6 @@ format:
   html:
     code-fold: true
     number-sections: true
-    figures:
-      layout: "grid"
-      ncol: 2
-      nrow: 2
 editor: visual
 execute:
   echo: false
@@ -21,13 +17,10 @@ This section reports on a microbiota project results of community composition ac
 
 **Groups**
 
-
 ```{r data}
 source("funct.R")
 tse <- readRDS("../data/tse.Rds")
 ```
-
-
 
 ### Community composition at the phyla level
 
@@ -76,41 +69,307 @@ variable <- "group"
 
 PCoA plots
 
-```{r pcoa-plots, fig.show="hold"}
-# Generate plots
-beta_pcoa <- PCoA_plot(altExp(tse, tax.level), comparisons, variable)
- #combined_plot <- wrap_plots(beta_pcoa, nrow = 2)
- #combined_plot
-beta_pcoa
+```{r pcoa-plot, fig.show="hold"}
+tse <- runMDS(
+        tse,
+        FUN = getDissimilarity,
+        method = "bray",
+        assay.type = "counts",
+        name = "PCoA_BC"
+    )
+# Calculate explained variance
+e <- attr(reducedDim(tse, "PCoA_BC"), "eig")
+rel_eig <- e / sum(e[e > 0])
+    
+PCoA_plot <- function(tse, comparison, variable) {
+      # Subset the TSE for the specified groups in the comparison
+      tse_subset <- tse[, tse$group %in% comparison]
+      
+      # Create the PCoA plot
+      p <- plotReducedDim(tse_subset, "PCoA_BC", colour_by = variable)
+      # Add explained variance for axes
+      p1 <- p + labs(
+        x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
+        y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
+      )
+      # Add ellipses for groups
+      p_ellipse <- p1 + stat_ellipse(aes(color = tse_subset$group), level = 0.95) +
+        theme(
+            # Move legend to bottom
+            legend.position = "bottom",
+            # Make legend more compact
+            legend.box.margin = margin(-10, 0, 0, 0)
+        ) +
+        # Ensure aspect ratio is at least 1:1
+        coord_fixed(ratio = 1)
+      return(p_ellipse)
+}
+```
+
+```{r pcoa-1}
+pcoa1 <- lapply(comparisons, function(comp) PCoA_plot(tse, comp, variable))
+wrap_plots(c(pcoa1), ncol = 2)
+```
+
+### Significant taxa
+
+```{r}
+# Perform RDA
+tse <- addRDA(
+    tse,
+    assay.type = "relabundance",
+    formula = assay ~ group,
+    distance = dissimilarity.index,
+    na.action = na.exclude)
+plotLoadings(tse, "RDA", ncomponents = 2, n = 20)
 ```
 
 ## Supervised analysis
 
 ### Permanova analysis
 
-```{r permanova}
+```{r run_rdba_tests}
+# Function to perform dbRDA and permanova analysis
+perform_dbrda_permanova <- function(tse, variable, comparison) {
+    tse_subset <- tse[, colData(tse)$group %in% comparison]
+    valid_indices <- complete.cases(colData(tse_subset)[, variable])
+    tse_rda <- tse_subset[, valid_indices]
+    
+    perm_res <- getPERMANOVA(tse_rda, assay.type = "relabundance", 
+                          formula = X ~ group, 
+                          permutations = 999)
+    
+    # Extract only the 'group' row and relevant columns
+    perm_df <- as.data.frame(perm_res)
+    group_row <- perm_df[rownames(perm_df) == "group", ]
+    
+    result <- data.frame(
+        Group1 = comparison[1],
+        Group2 = comparison[2],
+        P_value = group_row$"permanova.Pr..F.",
+        Homogeneity = signif(tail(perm_df$homogeneity.Explained.variance, 1), 3),
+        P_value_adjusted = p.adjust(group_row$"permanova.Pr..F.", method = "fdr")
+    )
+    
+    return(result)
+}
 
-final_results_permanova <- run_rdba_tests(tse, comparisons, variable)
-l <- names(final_results_permanova)
-datatable(final_results_permanova[[l[[1]]]], 
-        options = list(pageLength = 10), 
-        caption = paste("Results for Group:", l[[1]]))
-
-datatable(final_results_permanova[[l[[2]]]], 
-        options = list(pageLength = 10), 
-        caption = paste("Results for Group:", l[[2]]))
-
-datatable(final_results_permanova[[l[[3]]]], 
-        options = list(pageLength = 10), 
-        caption = paste("Results for Group:", l[[3]]))
-
-datatable(final_results_permanova[[l[[4]]]], 
-        options = list(pageLength = 10), 
-        caption = paste("Results for Group:", l[[4]]))
-
+# Function to apply the test over all comparisons and combine results
+run_rdba_tests <- function(tse, comparisons, variable) {
+    all_results <- list()
+    
+    for (comp in comparisons) {
+        result <- perform_dbrda_permanova(tse, variable, comp)
+        all_results[[length(all_results) + 1]] <- result
+    }
+    
+    # Combine all results into a single data frame
+    combined_results <- do.call(rbind, all_results)
+    return(combined_results)
+}
 ```
 
+```{r permanova_before-after}
+# For the treatment comparisons
+final_results_permanova <- run_rdba_tests(tse, comparisons, variable)
+```
 
+```{r permanova_res}
+#| label: permanova_res
+if (knitr::is_html_output()) {
+  datatable(final_results_permanova,
+            options = list(pageLength = 4),
+            caption = "PERMANOVA Results - All Comparisons")
+} else {
+  library(kableExtra)
+  final_results_permanova %>%
+    mutate(across(where(is.numeric), ~round(., 3))) %>%
+    kbl(caption = "PERMANOVA Results - All Comparisons",
+        booktabs = TRUE,
+        align = c('l', rep('r', ncol(final_results_permanova)-1))) %>%
+    row_spec(0, bold = TRUE) %>%
+    pack_rows(index = table(final_results_permanova$Time),
+             indent = FALSE,
+             hline_after = TRUE)
+}
+```
+
+## Alternate analysis
+
+```{r data-load-again}
+tse <- readRDS("../data/tse.Rds")
+```
+
+```{r early-late}
+# Early/Late analysis
+beta_res <- lapply(seq(2), function(i, timepoint) {
+    tse_sub <- tse[,colData(tse) %>%
+                      as_tibble(rownames="sample_id") %>%
+                      filter(timepoint %in% timepoint[[i]]) %>%
+                      tidyr::drop_na(c("group", "age")) %>%
+                      select(sample_id) %>% .[[1]]]
+    
+    set.seed(123)
+    betadiso_pval <- anova(betadisper(
+        vegdist(t(assay(tse_sub, "relabundance")), method = "bray"),
+        colData(tse_sub)[,"group"]
+    ))["Groups","Pr(>F)"]
+    
+    mat <- t(assay(tse_sub, "relabundance"))
+    set.seed(123)
+    permanova_pval <- adonis2(
+        as.formula(paste0("mat ~ ", paste0(c("group", "meal_group"), collapse = "+"))),
+        data = colData(tse_sub),
+        method = "bray", 
+        permutations = 999,
+        strata = NULL)["Model", "Pr(>F)"]
+    
+    c(betadisp_pval = betadiso_pval,
+      permanova_pval = permanova_pval)
+}, timepoint = list("before", "after")) %>%
+    setNames(c("before", "after")) %>%
+    as.data.frame()
+```
+
+```{r change}
+# Change analysis
+beta_res_change <- lapply(
+    levels(colData(tse)[,"meal_group"]),
+    function(lv) {
+        tse_sub <- tse[,colData(tse) %>%
+                          as_tibble(rownames="sample_id") %>%
+                          filter(paired == "yes") %>%
+                          tidyr::drop_na(c("group", "age")) %>%
+                          filter(meal_group == lv) %>%
+                          select(sample_id) %>% .[[1]]]
+        
+        mat <- t(assay(tse_sub, "relabundance"))
+        set.seed(123)
+        permanova_pval <- adonis2(
+            as.formula(paste0("mat ~ ", paste0(c("timepoint", "group"), collapse = "+"))),
+            data = colData(tse_sub), 
+            method = "bray", 
+            permutations = 999,
+            strata = NULL)["Model", "Pr(>F)"]
+        permanova_pval
+    }) %>% 
+    setNames(paste0("change-", levels(colData(tse)[,"meal_group"]))) %>% 
+    data.frame(row.names = c("permanova_pval"), check.names = FALSE)
+
+beta_res_change["betadisp_pval",] = rep(NA, nlevels(colData(tse)[,"meal_group"]))
+beta_res <- merge(beta_res, beta_res_change, by="row.names")
+rownames(beta_res) <- beta_res[,"Row.names"]
+beta_res <- beta_res[,-1]
+```
+
+```{r viz, fig.height= 8, fig.width= 8}
+# Visualization
+set.seed(123)
+tse <- runMDS(tse, FUN = vegan::vegdist, method = "bray",
+              name = "PCoA_BC", exprs_values = "relabundance")
+e <- attr(reducedDim(tse, "PCoA_BC"), "eig")
+rel_eig <- e/sum(e[e>0])
+
+# Plot 1: PCoA by Treatment
+p1 <- plotReducedDim(tse[,!is.na(colData(tse)[["group"]])], "PCoA_BC",
+                     colour_by = "group",
+                     other_fields = c("meal_group", "group")) +
+    facet_wrap(~meal_group, ncol = 2) +
+    labs(x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
+         y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = ""),
+         title = "") +
+    theme(legend.position = "bottom", 
+          legend.direction = "horizontal",
+          plot.title = element_text(hjust = 0.5)) +
+    scale_color_manual(name = "group", 
+                      values = colorRampPalette(c("blue", "red"))(nlevels(colData(tse)[["group"]]))) +
+    stat_ellipse(aes(color = group))
+
+# Plot 2: Trajectories
+tse <- getStepwiseDivergence(tse, group = "group",
+                            time_field = "time",
+                            assay_name = "relabundance")
+
+p2 <- plotReducedDim(tse[,!is.na(colData(tse)[["group"]])],
+                     "PCoA_BC", 
+                     other_fields = c("group", "id")) + 
+    geom_segment(aes(x = X1, 
+                     y = X2,
+                     xend = lead(X1),
+                     yend = lead(X2),
+                     color = time_divergence,
+                     group = id),  
+                 arrow = arrow(length = unit(0.2, "cm")),
+                 data = data.frame(reducedDim(tse), colData(tse)) %>%
+                     tidyr::drop_na(group) %>% 
+                     group_by(id) %>%  
+                     arrange(id, time) %>%  
+                     filter(n() > 1)) +  
+    labs(title = "Trajectories between Treatments",
+         x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
+         y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")) +
+    theme(plot.title = element_text(hjust = 0.5)) +
+    scale_color_gradient2(low = "white", high = "red") +
+    facet_wrap(~group, nrow = 1)
+
+# Plot 3: Divergence comparison
+p3 <- colData(tse) %>% 
+    as_tibble() %>%
+    select(c("group", "time_divergence")) %>% 
+    tidyr::drop_na(c("group", "time_divergence")) %>% 
+    ggplot(aes(x = group, y = time_divergence)) + 
+    geom_boxplot(outlier.shape = NA) +
+    geom_jitter(width = 0.1, size = 0.5) +
+    geom_signif(comparisons = combn(levels(colData(tse)[,"group"]), 2, simplify = FALSE),
+                map_signif_level = FALSE, step_increase = 0.2, textsize = 2.5) +
+    labs(title = "Comparing divergences per group") +
+    theme(plot.title = element_text(hjust = 0.5))
+```
+
+```{r viz-fig1, fig.height=6, fig.width=8}
+p1
+```
+
+```{r viz-fig2, fig.height=6, fig.width=12}
+p2
+```
+
+```{r viz-fig3, fig.height=8, fig.width=8}
+p3
+```
+
+```{r viz-tab}
+#| label: beta_results
+if (knitr::is_html_output()) {
+datatable(beta_res,
+          options = list(
+            pageLength = 4, 
+            dom = 'Bfrtip'    
+          )) %>%
+  formatStyle(
+    columns = names(beta_res),  
+    backgroundColor = styleInterval(
+      cuts = 0.05,
+      values = c('green', 'white')
+    ),
+    valueColumns = names(beta_res)  
+  ) %>%
+  formatRound(
+    columns = names(beta_res),
+    digits = 3
+  ) 
+} else {
+  library(kableExtra)
+  beta_res %>%
+    as.data.frame() %>%
+    mutate(across(where(is.numeric), ~round(., 3))) %>%
+    kbl(caption = "PERMANOVA",
+        booktabs = TRUE,
+        align = c('l', rep('r', ncol(beta_res)))) %>%
+    row_spec(0, bold = TRUE) %>%
+    kable_styling(latex_options = c("striped", "hold_position"))
+}
+```
 
 ### Data Summary
 
@@ -123,4 +382,3 @@ tse
 ```{r sessioninfo}
 sessionInfo()
 ```
-

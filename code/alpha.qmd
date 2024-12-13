@@ -1,9 +1,7 @@
 ---
 title: "Alpha Diversity"
 author: "Nitin Bayal"
-format: 
-  html:
-    output-dir: "../output"
+format: html
 editor: visual
 params: 
   index: default
@@ -35,7 +33,65 @@ tse <- readRDS("../data/tse.Rds")
 -   **Group variable:** `r variable`
 -   **Multiple testing correction:** `r params$adjust.method`
 
-```{r pvalues}
+```{r run_diversity_tests}
+# Calculate p-values
+run_diversity_tests <- function(tse, comparisons, 
+                                variable, index, 
+                                adjust.method = "fdr") {
+  # Get all values and groups
+  values <- colData(tse)[[index]]
+  groups <- colData(tse)[[variable]]
+  
+  # Create an empty results dataframe
+  results <- data.frame(
+    group1 = character(),
+    group2 = character(),
+    mean1 = numeric(),
+    mean2 = numeric(),
+    logFC = numeric(),
+    p.value = numeric(),
+    stringsAsFactors = FALSE
+  )
+  
+  # Loop through requested comparisons
+  for (comp in comparisons) {
+    group1 <- comp[1]
+    group2 <- comp[2]
+    
+    # Subset data for just these two groups
+    subset_values <- values[groups %in% c(group1, group2)]
+    subset_groups <- groups[groups %in% c(group1, group2)]
+    
+    # Perform Wilcoxon test for this pair
+    test_result <- wilcox.test(
+      subset_values ~ subset_groups,
+      exact = FALSE
+    )
+    
+    # Calculate means
+    mean1 <- mean(values[groups == group1])
+    mean2 <- mean(values[groups == group2])
+    
+    # Add results
+    results <- rbind(results, data.frame(
+      group1 = group1,
+      group2 = group2,
+      mean1 = mean1,
+      mean2 = mean2,
+      logFC = log2(mean2/mean1),
+      p.value = test_result$p.value,
+      stringsAsFactors = FALSE
+    ))
+  }
+  
+  # Add adjusted p-values using specified method
+  results$p.adj <- p.adjust(results$p.value, method = adjust.method)
+  
+  return(results)
+}
+```
+
+```{r pvalues-before}
 # Calculate statistical results
 results <- run_diversity_tests(tse, comparisons, variable, index, adjust.method)
 
@@ -63,9 +119,8 @@ final_results <- final_results %>%
 ```{r boxplot}
 # Create a boxplot
 library(scater)
-p <- plotColData(
+p1 <- plotColData(
     tse, x = variable, y = index,
-    colour_by = variable,
     show_boxplot = TRUE,
     show_violin = FALSE) +
     theme(text = element_text(size = 10)) +
@@ -80,28 +135,153 @@ p <- plotColData(
       x = variable,
       y = paste("Alpha Diversity -", index)
     )
-    # This uses different p-value calculation than the table,
-    # so let's remove temporarily and fix later
-    # ggpubr::stat_pvalue_manual(pvals)
-print(p)
+p1
 ```
 
 ## Table of the top findings
 
 ```{r table-of-findings}
-# FIXME: simplify run_diversity_tests!
-# Ideally, it could be included here in this file it is not too long
-datatable(
-    final_results %>% select(-y.position), 
-    options = list(
-      pageLength = 10,
-      dom = 'Bfrtip'
-    ),
-    caption = "Table of alpha diversity comparisons",
-    rownames = FALSE
-) %>%
-  formatRound(columns = c("mean1", "mean2", "logFC"), digits = 2) %>%
-  formatSignif(columns = "p.adj", digits = 3)
+if (knitr::is_html_output()) {
+  datatable(
+      final_results %>% select(-y.position), 
+      options = list(
+        pageLength = 10,
+        dom = 'Bfrtip'
+      ),
+      caption = "Table of alpha diversity comparisons",
+      rownames = FALSE
+  ) %>%
+    formatRound(columns = c("mean1", "mean2", "logFC"), digits = 2) %>%
+    formatSignif(columns = "p.adj", digits = 3)
+} else {
+  library(kableExtra)
+  final_results %>% 
+    select(-y.position) %>%
+    mutate(
+      across(c(mean1, mean2, logFC), ~round(., 2)),
+      p.adj = format.pval(p.adj, digits = 3)
+    ) %>%
+    kbl(caption = "Table of alpha diversity comparisons",
+        booktabs = TRUE,
+        longtable = TRUE,
+        align = c('l', 'r', 'r', 'r', 'r')) %>%
+    kable_styling(latex_options = "repeat_header") %>%
+    row_spec(0, bold = TRUE)
+}
+```
+
+## Alternate analyses
+```{r stratified-timepoint}
+# First analysis - stratified by time point
+tbl_a_s <- colData(tse) %>% as_tibble() %>%
+    select(c("timepoint", index, "meal_group", "age")) %>%
+    tbl_strata(strata = timepoint, .combine_with = "tbl_merge",
+               .tbl_fun = ~.x %>% tidyr::drop_na() %>% 
+                   lm(formula = as.formula(
+                       paste0(index, " ~ meal_group + age")),
+                      data = .) %>% 
+                   tbl_regression(
+                       intercept = TRUE, 
+                       include = everything()) %>%
+                   add_global_p(quite=TRUE, keep=TRUE))
+```
+
+```{r paired}
+# Paired analysis
+tbl_a_s_diff <- colData(tse) %>% as_tibble() %>%
+    select(c("timepoint", index, variable, "meal_group", "paired", "age")) %>% 
+    tidyr::drop_na(variable) %>% filter(paired=="yes") %>% 
+    lmerTest::lmer(
+        formula = as.formula(
+              paste0(index, " ~ meal_group + age + (1|", variable, ")")
+        ),
+        data = .) %>% 
+    tbl_regression(
+        intercept = TRUE, 
+        include = everything()) %>%
+    add_global_p(quite=TRUE, keep=TRUE) %>% 
+    modify_header(label = "**Paired test of before and after**")
+```
+
+```{r table-res1}
+knitr::knit_print(tbl_a_s)
+```
+
+```{r table-res2}
+knitr::knit_print(tbl_a_s_diff)
+```
+
+```{r Plotting-code}
+# Plotting code
+# Set up reference levels
+ref <- levels(factor(colData(tse)[["meal_group"]]))[1]
+lvs <- levels(factor(colData(tse)[["meal_group"]]))[-1]
+comps <- lapply(lvs, function(lv) c(ref,lv))
+```
+
+```{r first-plot}
+# First plot
+p1 <- colData(tse) %>% as_tibble() %>%  tidyr::drop_na(variable) %>%
+    as.data.frame(check.names=FALSE) %>%
+    ggplot(aes_string(x="meal_group", y = index))+
+    geom_boxplot(outlier.shape = NA)+
+    geom_jitter(width=0.1, size=0.5)+
+    facet_wrap(~timepoint, ncol = 2, scales="free")+
+    geom_signif(comparisons = comps, map_signif_level = FALSE,
+                step_increase=0.2, textsize = 2.5)+
+    labs(x="", y = paste(index, "index"))
+
+# Process p-values for plot
+p_tmp <- ggplot_build(p1)
+df_1 <- p_tmp$data[[3]] %>% mutate(label=gsub(paste0(ref,"|\\-|[0-9]"),"",
+                                              .data[["group"]]))
+df_2 <- tbl_a_s$table_body %>% filter(label %in% lvs) %>%
+    select(c(label, contains("p.value"))) %>% 
+    tidyr::pivot_longer(cols = contains("p.value"),
+                        names_to="PANEL", names_prefix="p.value_") %>% 
+    mutate(PANEL=factor(PANEL, levels = levels(df_1$PANEL)))
+p_tmp$data[[3]] <- merge(df_1,df_2, by = c("PANEL","label")) %>%
+    mutate(annotation=round(value,3)) %>% select(colnames(p_tmp$data[[3]]))
+p1 <- p_tmp %>% ggplot_gtable() %>% ggplotify::as.ggplot()
+
+p1
+```
+
+```{r second-plot}
+# Second plot
+df_pval <- tbl_a_s_diff$table_body %>% filter(label %in% lvs) %>%
+    select(c(label, contains("p.value")))
+pos_j <- position_jitter(width = 0.1, height = 0)
+p2 <- colData(tse) %>% as_tibble() %>%  tidyr::drop_na({{ variable }}) %>%
+    filter(paired=="yes") %>% group_by(.data[[variable]]) %>% arrange(id, timepoint) %>%
+    mutate(
+        change = .data[[index]] - dplyr::first(.data[[index]])
+    ) %>% tidyr::fill(change, .direction = "downup") %>%  
+    as.data.frame(check.names=FALSE) %>%
+    ggplot(aes(x = timepoint, y = .data[[index]]))+
+    geom_boxplot(outlier.shape = NA)+
+    geom_point(position = pos_j, size = 0.5) + 
+    geom_line(aes(group = id, color = change), position = pos_j) +
+    scale_color_gradient2(midpoint=0, low="blue", mid="white", high="red", space ="Lab")+
+    facet_wrap(as.formula(paste0("~", "meal_group")), nrow = 1,
+               labeller = function(df) {
+                   df[,1] <- sapply(df[,1], function(lb){
+                       if (lb!=ref) {
+                           lb <- paste0(lb, " (p-val = ",
+                                        df_pval %>% filter(label==lb) %>%
+                                            select(contains("p.value")) %>%
+                                            .[[1]] %>% round(3)
+                                        ,")")
+                           lb
+                       } else {
+                           as.character(lb)
+                       }
+                   }) %>% unlist()
+                   df
+               })+
+    labs(x="", y = paste(index, "index"))
+
+p2
 ```
 
 ## Data Summary

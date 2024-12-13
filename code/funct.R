@@ -1,12 +1,16 @@
 library(ANCOMBC)
+library(cardx)
 library(dplyr)
 library(DT)
 library(ggplot2)
 library(ggpubr)
 library(ggsignif)
+library(gtsummary)
 library(mia)
 library(miaViz)
+library(miaTime)
 library(multtest)
+library(parameters)
 library(patchwork)
 library(quarto)
 library(scater)
@@ -21,23 +25,36 @@ variable <- "group"
 outdir ="./output/"
 
 
-# Define the kist of comparisons
+# Define the list of comparisons
 comparisons <- list(
   c("diet_1_visit_1", "diet_1_visit_2"),
   c("diet_2_visit_1", "diet_2_visit_2"),
   c("diet_1_visit_1", "diet_2_visit_1"),
   c("diet_1_visit_2", "diet_2_visit_2")
 )
-
-
-
 # Define function to extract diet and visit info
 extract_diet_visit <- function(comparison) {
   condition <- unlist(strsplit(comparison, "_"))
   list(diet = condition[2], visit = condition[4])
 }
 
+assign_timepoint <- function(df) {
+  df$timepoint <- ifelse(df$visit == 1, "before", 
+                    ifelse(df$visit == 2, "after", NA))
+  return(df)
+}
 
+assign_paired <- function(df) {
+  df$paired <- ifelse(duplicated(df$id) | duplicated(df$id, fromLast = TRUE), 
+                      "yes", "no")
+  return(df)
+}
+
+assign_time <- function(df) {
+  df$time <- ifelse(df$timepoint == "before", 1, 
+                    ifelse(df$timepoint == "after", 2, NA))
+  return(df)
+}
 
 run_ancombc_mix <- function(tse,taxa) {
   #extract prevalent
@@ -48,18 +65,8 @@ run_ancombc_mix <- function(tse,taxa) {
                                                       assay.type="relabundance",
                                                       detection=0.1/100,
                                                       prevalence=10/100)
-  # Subset the TSE to include only samples for the specified groups in the 
-  # comparison                                                   
-  #q_col <- paste0("q_", variable, comparison[2]) #q_groupdiet_1_visit_2
-  #print(q_col)
   tse_preval <- altExp(tse, "Prevalent")
-  # Ensure diet and visit columns are in character or factor form in 
-  # colData(tse_preval)
-  #colData(tse_preval)$diet <- as.factor(as.character(colData(tse_preval)$diet))
-  #colData(tse_preval)$visit <- as.factor(as.character(colData(tse_preval)$visit))
-  #colData(tse_preval)$id <- as.factor(as.character(colData(tse_preval)$id))
-  #print(colnames(colData(tse_preval)))
-  #the interactions diet *visit cannot be achive with tse object, so try to split
+  # Ensure diet and visit columns are in character or factor form 
   # Extract the abundance data
   abundance_data <- assay(tse_preval, "relabundance")
   # Extract the metadata
@@ -111,10 +118,6 @@ run_ancombc_mix <- function(tse,taxa) {
 # Was there a difference in microbiota between the diet groups after the 
 # treatment?
 
-
-#load tse
-#tse_ori <- readRDS("../output/tse.Rds")
-
 # There are some duplicates Id in diet group which prevent the code from 
 # performing paired test:
 # to remove, and keep first occurrence
@@ -155,161 +158,6 @@ remove_duplicates <- function(tse) {
   tse_unique <- tse[, unique_indices]
   return(tse_unique)
 }
-
-# Calculate p-values
-run_diversity_tests <- function(tse, comparisons, 
-                                variable, index, 
-                                adjust.method = "fdr") {
-  # Get all values and groups
-  values <- colData(tse)[[index]]
-  groups <- colData(tse)[[variable]]
-  
-  # Create an empty results dataframe
-  results <- data.frame(
-    group1 = character(),
-    group2 = character(),
-    mean1 = numeric(),
-    mean2 = numeric(),
-    logFC = numeric(),
-    p.value = numeric(),
-    stringsAsFactors = FALSE
-  )
-  
-  # Loop through requested comparisons
-  for (comp in comparisons) {
-    group1 <- comp[1]
-    group2 <- comp[2]
-    
-    # Subset data for just these two groups
-    subset_values <- values[groups %in% c(group1, group2)]
-    subset_groups <- groups[groups %in% c(group1, group2)]
-    
-    # Perform Wilcoxon test for this pair
-    test_result <- wilcox.test(
-      subset_values ~ subset_groups,
-      exact = FALSE
-    )
-    
-    # Calculate means
-    mean1 <- mean(values[groups == group1])
-    mean2 <- mean(values[groups == group2])
-    
-    # Add results
-    results <- rbind(results, data.frame(
-      group1 = group1,
-      group2 = group2,
-      mean1 = mean1,
-      mean2 = mean2,
-      logFC = log2(mean2/mean1),
-      p.value = test_result$p.value,
-      stringsAsFactors = FALSE
-    ))
-  }
-  
-  # Add adjusted p-values using specified method
-  results$p.adj <- p.adjust(results$p.value, method = adjust.method)
-  
-  return(results)
-}
-
-
-# Function to create and save richness plots for specified comparisons and 
-# indices
-create_diversity_plot <- function(tse, comparison, index) {
-  # Subset the TSE to include only samples for the specified groups in the 
-  # comparison
-  # tse_subset <- tse[, colData(tse)$group %in% comparison]
-  # Create a name for the plot based on the index and comparison
-  # Create the richness plot
-  diversity_plot <- plotColData(
-    tse, 
-    y = index, 
-    x = "group",
-    colour_by = "group",show_boxplot = TRUE, show_violin = FALSE
-  ) + 
-    geom_signif(comparisons = list(comparison), map_signif_level = FALSE) + 
-    theme_bw() + 
-    theme(text = element_text(size = 8)) +
-    labs(title = paste(index, "Diversity: ", comparison[1], " vs ", 
-                       comparison[2])) 
-  return(diversity_plot)
-}
-
-#STEP2:PCOA
-# Perform PCoA
-PCoA_plot <- function(tse, comparison, variable) {
-    # Subset the TSE to include only samples for the specified groups in the 
-    # comparison                                                   
-    #tse_subset <- tse[, colData(tse)$group %in% comparison]
-  
-    tse <- runMDS(
-        tse,
-        FUN = getDissimilarity,
-        method = "bray",
-        assay.type = "counts",
-        name = "PCoA_BC"
-    )
-    # Calculate explained variance
-    e <- attr(reducedDim(tse, "PCoA_BC"), "eig")
-    rel_eig <- e / sum(e[e > 0])
-
-    # Loop over each comparison
-    for (comp in comparisons) {
-      # Subset the TSE for the specified groups in the comparison
-      tse_subset <- tse[, tse$group %in% comp]
-      
-      # Create the PCoA plot
-      p <- plotReducedDim(tse_subset, "PCoA_BC", colour_by = variable)
-      
-      # Add explained variance for axes
-      p1 <- p + labs(
-        x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
-        y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
-      )
-      # Add ellipses for groups
-      p_ellipse <- p1 + stat_ellipse(aes(color = tse_subset$group), level = 0.95)
-      print(p_ellipse)
-    }
-}
-
-# Function to perform dbRDA and permanova analysis
-perform_dbrda_permanova <- function(tse, variable, comparison) {
-    # Subset the TSE to include only samples for the specified groups in the 
-    # comparison                                                   
-    tse_subset <- tse[, colData(tse)$group %in% comparison]
-    # Find indices of rows with complete data in the specified metadata columns
-    valid_indices <- complete.cases(colData(tse_subset)[, variable])
-    # Subset the tse_transform object to only include rows with complete metadata
-    tse_rda <- tse_subset[, valid_indices]
-    
-    # using mia::getPERMANOVA
-    
-    perm_res <- getPERMANOVA(tse_rda, assay.type = "relabundance", 
-                          formula = X ~ group, 
-                          permutations = 999)
-    perm_df <- as.data.frame(perm_res)
-    return(perm_df)
-}
-
-# Function to apply the test over all comparisons and measures
-run_rdba_tests <- function(tse, comparisons, variable) {
-  # Initialize an empty list to store the results
-  all_results <- list()
-  # Loop through each comparison
-  for (comp in comparisons) {
-    # Perform the significance test for the current comparison
-    result <- perform_dbrda_permanova(tse, variable, comp)
-    # Store result with a meaningful name
-    all_results[[paste(comp, collapse = "_vs_")]] <- result  
-  }
-  return(all_results)
-}
-
-
-
-
-
-
 
 #wilcox test taxa
 wilcox_test_taxa <- function(tse, comparison, variable, taxa) {

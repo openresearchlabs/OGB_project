@@ -25,6 +25,12 @@ samdf$diet <- factor(samdf$diet)
 samdf$visit <- factor(samdf$visit)
 samdf$meal_group <- factor(samdf$meal_group)
 samdf$gender <- factor(samdf$gender)
+
+samdf <- samdf %>%
+  assign_timepoint() %>%
+  assign_paired() %>%
+  assign_time()
+
 # Check that the sample data and assay data match by sample names
 if (!all(rownames(samdf)==colnames(tse))) {stop("Check sample ID matching")}
 
