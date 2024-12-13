@@ -4,6 +4,7 @@ format:
   html:
     code-fold: true
     number-sections: true
+    page-layout: full
 editor: visual
 execute:
   echo: false
@@ -22,30 +23,96 @@ source("funct.R")
 tse <- readRDS("../data/tse.Rds")
 ```
 
-### Community composition at the phyla level
+### Phylum
 
-```{r community-composition-phyla, fig.height= 9, fig.width= 20, echo=FALSE}
+```{r community-composition-phyla}
+#| fig-width: 20
+#| fig-height: 9
+meals <- c(
+  "1" = "oat-rice",
+  "2" = "rice-oat",
+  "3" = "rice-rice",
+  "4" = "oat-oat"
+)
 # Visualization - composition bar plot
-plotAbundance(
-  altExp(tse, "phylum"),
-  assay.type = "relabundance",
-  color.by = "phylum_sub",
-  group = "phylum",
-  order.row.by = "abund") +
-theme(axis.text.x = element_text(angle = 90, hjust = 1))
+plots <- lapply(names(meals), function(meal_id) {
+    label <- meals[[meal_id]]
+    # Filter tse for the current meal group
+    tse_filtered <- tse[, tse$meal_group == meal_id]
+    # Plot abundance for the filtered tse
+    plotAbundance(
+        altExp(tse_filtered, "phylum"),
+        assay.type = "relabundance",
+        color.by = "phylum_sub",
+        group = "phylum",
+        order.row.by = "abund"
+    ) +
+        theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+        labs(title = label, x = "Phylum", y = "Relative Abundance")
+})
+bar_plot <- wrap_plots(plots, ncol = 2, guides = "collect")
+bar_plot
 ```
 
-### Community composition at the genus level
+### Genus
 
-```{r community-composition-genus, fig.height= 9, fig.width= 20, echo=FALSE}
-
+```{r community-composition-genus}
+#| fig-width: 20
+#| fig-height: 9
 # Visualization - composition bar plot
-plotAbundance(
-  altExp(tse, "genus"),
-  assay.type = "relabundance",
-  color.by = "genus_sub", group = "genus", order.row.by = "abund") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+plots <- lapply(names(meals), function(meal_id) {
+    label <- meals[[meal_id]]
+    # Filter tse for the current meal group
+    tse_filtered <- tse[, tse$meal_group == meal_id]
+    # Plot abundance for the filtered tse
+    plotAbundance(
+      altExp(tse_filtered, "genus"),
+      assay.type = "relabundance",
+      color.by = "genus_sub", 
+      group = "genus", 
+      order.row.by = "abund"
+    ) +
+        theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+        labs(title = label)
+})
+bar_plot <- wrap_plots(plots, ncol = 2, guides = "collect")
+bar_plot
 ```
+
+### Heatmap
+
+```{r heatmap}
+#| fig.width: 20
+#| fig.height: 10
+#| out.width: "100%"
+#| fig.align: "center"
+
+tse_heat <- transformAssay(
+    altExp(tse, "phylum"), assay.type = "counts", method = "relabundance", pseudocount = 1)
+tse_heat <- transformAssay(tse_heat, assay.type = "relabundance", method = "clr")
+tse_heat <- transformAssay(
+    tse_heat, assay.type = "clr", MARGIN = "rows", method = "standardize",
+    name = "clr_z")
+# Plot heatMap with sechm
+plots <- lapply(names(meals), function(meal_id) {
+    label <- meals[[meal_id]]
+    # Filter tse for the current meal group
+    tse_heat_filtered <- tse_heat[, tse_heat$meal_group == meal_id]
+    heatmap <- sechm(
+        tse_heat_filtered, assayName = "clr_z", features=rownames(tse_heat_filtered),
+        show_rownames = TRUE, show_colnames = TRUE,
+        annocol_title_side = "left", do.scale=TRUE,
+        row_names_gp = gpar(fontsize = 6), column_names_gp = gpar(fontsize = 8),
+        breaks = 1, anno_colors = list("blue", "red", "green", "purple"),
+        width = unit(7, "inches"),
+        height = unit(3, "inches")
+        )
+    heatmap <- grid.grabExpr(draw(heatmap))
+})
+grid.newpage()
+do.call(grid.arrange, c(plots, ncol = 2))
+```
+
 
 ## Unsupervised analysis
 
@@ -81,46 +148,61 @@ tse <- runMDS(
 e <- attr(reducedDim(tse, "PCoA_BC"), "eig")
 rel_eig <- e / sum(e[e > 0])
     
-PCoA_plot <- function(tse, comparison, variable) {
-      # Subset the TSE for the specified groups in the comparison
-      tse_subset <- tse[, tse$group %in% comparison]
-      
-      # Create the PCoA plot
-      p <- plotReducedDim(tse_subset, "PCoA_BC", colour_by = variable)
-      # Add explained variance for axes
-      p1 <- p + labs(
-        x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
-        y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
-      )
-      # Add ellipses for groups
-      p_ellipse <- p1 + stat_ellipse(aes(color = tse_subset$group), level = 0.95) +
-        theme(
-            # Move legend to bottom
-            legend.position = "bottom",
-            # Make legend more compact
-            legend.box.margin = margin(-10, 0, 0, 0)
-        ) +
-        # Ensure aspect ratio is at least 1:1
-        coord_fixed(ratio = 1)
-      return(p_ellipse)
-}
+# Create the PCoA plot
+p <- plotReducedDim(tse, "PCoA_BC", 
+                    colour_by = variable, 
+                    other_fields = c("meal_group", "group"))
+# Add explained variance for axes
+p1 <- p + labs(
+  x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
+  y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
+) + facet_wrap(~meal_group, nrow = 2, labeller = labeller(meal_group = meals))
+# Add ellipses for groups
+p_ellipse <- p1 + stat_ellipse(aes(color = tse$group), level = 0.95) +
+  scale_color_manual(
+    values = c("blue", "red", "green", "purple"), 
+    ) +
+  theme(
+      legend.position = "bottom",
+      legend.box.margin = margin(-10, 0, 0, 0)
+  ) +
+  coord_fixed(ratio = 1)
+
+p_ellipse 
 ```
 
-```{r pcoa-1}
-pcoa1 <- lapply(comparisons, function(comp) PCoA_plot(tse, comp, variable))
-wrap_plots(c(pcoa1), ncol = 2)
-```
-
-### Significant taxa
-
-```{r}
+### Significant variables
+```{r significant variables}
 # Perform RDA
 tse <- addRDA(
     tse,
     assay.type = "relabundance",
-    formula = assay ~ group,
+    formula = assay ~ meal_group + timepoint + age + gender,
     distance = dissimilarity.index,
     na.action = na.exclude)
+
+# Calculate explained variance
+e_rda <- attr(reducedDim(tse, "RDA"), "eig")
+rel_eig_rda <- e / sum(e[e > 0])
+# Generate RDA plot coloured by Treatment
+plotRDA(tse, "RDA", colour.by = "meal_group") + 
+  labs(
+    x = paste("RDA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
+    y = paste("RDA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
+  ) +
+  scale_color_manual(
+    values = c("blue", "red", "green", "purple"), 
+    labels = c("Oat-Rice", "Rice-Oat", "Rice-Rice", "Oat-Oat")
+    ) + 
+  labs(color = "Meal Group") +
+  theme(legend.position = "top", legend.title = element_text(size = 12), legend.text = element_text(size = 10))
+```
+
+
+### Significant taxa
+
+```{r significant-taxa}
+
 plotLoadings(tse, "RDA", ncomponents = 2, n = 20)
 ```
 

@@ -47,11 +47,11 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="fullcontent">
+<body>
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-full">
 
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -60,7 +60,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -76,8 +76,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="1" class="anchored" data-anchor-id="community-composition"><span class="header-section-number">1</span> Community composition</h2>
 <p>This section reports on a microbiota project results of community composition across different diets and visits.</p>
 <p><strong>Groups</strong></p>
-<section id="community-composition-at-the-phyla-level" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="community-composition-at-the-phyla-level"><span class="header-section-number">1.1</span> Community composition at the phyla level</h3>
+<section id="phylum" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="phylum"><span class="header-section-number">1.1</span> Phylum</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -88,13 +88,25 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="community-composition-at-the-genus-level" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="community-composition-at-the-genus-level"><span class="header-section-number">1.2</span> Community composition at the genus level</h3>
+<section id="genus" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="genus"><span class="header-section-number">1.2</span> Genus</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="beta_files/figure-html/community-composition-genus-1.png" class="img-fluid figure-img" width="1920"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="heatmap" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="heatmap"><span class="header-section-number">1.3</span> Heatmap</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="beta_files/figure-html/heatmap-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -114,19 +126,31 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="beta_files/figure-html/pcoa-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="beta_files/figure-html/pcoa-plot-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="significant-taxa" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="significant-taxa"><span class="header-section-number">2.2</span> Significant taxa</h3>
+<section id="significant-variables" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="significant-variables"><span class="header-section-number">2.2</span> Significant variables</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="beta_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="beta_files/figure-html/significant%20variables-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="significant-taxa" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="significant-taxa"><span class="header-section-number">2.3</span> Significant taxa</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="beta_files/figure-html/significant-taxa-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -139,8 +163,8 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="3.1" class="anchored" data-anchor-id="permanova-analysis"><span class="header-section-number">3.1</span> Permanova analysis</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-d6149c277974a70514e3" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-d6149c277974a70514e3">{"x":{"filter":"none","vertical":false,"caption":"<caption>PERMANOVA Results - All Comparisons<\/caption>","data":[["1","2","3","4"],["diet_1_visit_1","diet_2_visit_1","diet_1_visit_1","diet_1_visit_2"],["diet_1_visit_2","diet_2_visit_2","diet_2_visit_1","diet_2_visit_2"],[1,0.856,0.062,0.05],[0.00359,0.000753,0.000353,0.000112],[1,0.856,0.062,0.05]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Group1<\/th>\n      <th>Group2<\/th>\n      <th>P_value<\/th>\n      <th>Homogeneity<\/th>\n      <th>P_value_adjusted<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"columnDefs":[{"className":"dt-right","targets":[3,4,5]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Group1","targets":1},{"name":"Group2","targets":2},{"name":"P_value","targets":3},{"name":"Homogeneity","targets":4},{"name":"P_value_adjusted","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-55d064a5e7befb6fed0f" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-55d064a5e7befb6fed0f">{"x":{"filter":"none","vertical":false,"caption":"<caption>PERMANOVA Results - All Comparisons<\/caption>","data":[["1","2","3","4"],["diet_1_visit_1","diet_2_visit_1","diet_1_visit_1","diet_1_visit_2"],["diet_1_visit_2","diet_2_visit_2","diet_2_visit_1","diet_2_visit_2"],[1,0.875,0.057,0.046],[0.00359,0.000753,0.000353,0.000112],[1,0.875,0.057,0.046]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Group1<\/th>\n      <th>Group2<\/th>\n      <th>P_value<\/th>\n      <th>Homogeneity<\/th>\n      <th>P_value_adjusted<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"columnDefs":[{"className":"dt-right","targets":[3,4,5]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Group1","targets":1},{"name":"Group2","targets":2},{"name":"P_value","targets":3},{"name":"Homogeneity","targets":4},{"name":"P_value_adjusted","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -176,8 +200,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-ee599445bcd4921c53a2" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-ee599445bcd4921c53a2">{"x":{"filter":"none","vertical":false,"data":[["betadisp_pval","permanova_pval"],[0.8764170089427612,0.332],[0.8764170089427612,0.332],[null,1],[null,0.978],[null,0.992],[null,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>before<\/th>\n      <th>after<\/th>\n      <th>change-1<\/th>\n      <th>change-2<\/th>\n      <th>change-3<\/th>\n      <th>change-4<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"dom":"Bfrtip","columnDefs":[{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":6,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[1,2,3,4,5,6]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"before","targets":1},{"name":"after","targets":2},{"name":"change-1","targets":3},{"name":"change-2","targets":4},{"name":"change-3","targets":5},{"name":"change-4","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.05 ? \"green\" : \"white\"});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.05 ? \"green\" : \"white\"});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.05 ? \"green\" : \"white\"});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.05 ? \"green\" : \"white\"});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.05 ? \"green\" : \"white\"});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.05 ? \"green\" : \"white\"});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.columnDefs.4.render","options.columnDefs.5.render","options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-e488edd65faaf08862de" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-e488edd65faaf08862de">{"x":{"filter":"none","vertical":false,"data":[["betadisp_pval","permanova_pval"],[0.8764170089427612,0.332],[0.8764170089427612,0.332],[null,1],[null,0.978],[null,0.992],[null,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>before<\/th>\n      <th>after<\/th>\n      <th>change-1<\/th>\n      <th>change-2<\/th>\n      <th>change-3<\/th>\n      <th>change-4<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"dom":"Bfrtip","columnDefs":[{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":6,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[1,2,3,4,5,6]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"before","targets":1},{"name":"after","targets":2},{"name":"change-1","targets":3},{"name":"change-2","targets":4},{"name":"change-3","targets":5},{"name":"change-4","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.05 ? \"green\" : \"white\"});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.05 ? \"green\" : \"white\"});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.05 ? \"green\" : \"white\"});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.05 ? \"green\" : \"white\"});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.05 ? \"green\" : \"white\"});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.05 ? \"green\" : \"white\"});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.columnDefs.4.render","options.columnDefs.5.render","options.rowCallback"],"jsHooks":[]}</script>
 </div>
 </div>
 <section id="data-summary" class="level3" data-number="4.1">
@@ -227,8 +251,8 @@ time zone: Europe/Helsinki
 tzcode source: system (glibc)
 
 attached base packages:
-[1] stats4    stats     graphics  grDevices utils     datasets  methods  
-[8] base     
+[1] stats4    grid      stats     graphics  grDevices utils     datasets 
+[8] methods   base     
 
 other attached packages:
  [1] vegan_2.6-8                     lattice_0.22-6                 
@@ -236,113 +260,122 @@ other attached packages:
  [5] forcats_1.0.0                   stringr_1.5.1                  
  [7] purrr_1.0.2                     readr_2.1.5                    
  [9] tibble_3.2.1                    tidyverse_2.0.0                
-[11] tidyr_1.3.1                     scater_1.33.4                  
-[13] scuttle_1.15.4                  quarto_1.4.4                   
-[15] patchwork_1.3.0                 parameters_0.24.0              
-[17] multtest_2.61.0                 miaTime_0.1.21                 
-[19] miaViz_1.15.4                   ggraph_2.2.1                   
-[21] mia_1.15.6                      TreeSummarizedExperiment_2.13.0
-[23] Biostrings_2.73.2               XVector_0.45.0                 
-[25] SingleCellExperiment_1.27.2     MultiAssayExperiment_1.31.5    
-[27] SummarizedExperiment_1.35.3     Biobase_2.65.1                 
-[29] GenomicRanges_1.57.1            GenomeInfoDb_1.41.2            
-[31] IRanges_2.39.2                  S4Vectors_0.43.2               
-[33] BiocGenerics_0.51.3             MatrixGenerics_1.17.0          
-[35] matrixStats_1.4.1               gtsummary_2.0.4                
-[37] ggsignif_0.6.4                  ggpubr_0.6.0                   
-[39] ggplot2_3.5.1                   DT_0.33                        
-[41] dplyr_1.1.4                     cardx_0.2.2                    
-[43] ANCOMBC_2.8.0                  
+[11] tidyr_1.3.1                     sechm_1.13.1                   
+[13] ComplexHeatmap_2.21.1           scater_1.33.4                  
+[15] scuttle_1.15.4                  quarto_1.4.4                   
+[17] patchwork_1.3.0                 parameters_0.24.0              
+[19] multtest_2.61.0                 miaTime_0.1.21                 
+[21] miaViz_1.15.4                   ggraph_2.2.1                   
+[23] mia_1.15.6                      TreeSummarizedExperiment_2.13.0
+[25] Biostrings_2.73.2               XVector_0.45.0                 
+[27] SingleCellExperiment_1.27.2     MultiAssayExperiment_1.31.5    
+[29] SummarizedExperiment_1.35.3     Biobase_2.65.1                 
+[31] GenomicRanges_1.57.1            GenomeInfoDb_1.41.2            
+[33] IRanges_2.39.2                  S4Vectors_0.43.2               
+[35] BiocGenerics_0.51.3             MatrixGenerics_1.17.0          
+[37] matrixStats_1.4.1               gridExtra_2.3                  
+[39] gtsummary_2.0.4                 ggsignif_0.6.4                 
+[41] ggpubr_0.6.0                    ggplot2_3.5.1                  
+[43] DT_0.33                         dplyr_1.1.4                    
+[45] cardx_0.2.2                     ANCOMBC_2.8.0                  
 
 loaded via a namespace (and not attached):
-  [1] fs_1.6.5                    DirichletMultinomial_1.47.0
-  [3] insight_1.0.0               httr_1.4.7                 
-  [5] doParallel_1.0.17           numDeriv_2016.8-1.1        
-  [7] tools_4.4.2                 doRNG_1.8.6                
-  [9] backports_1.5.0             utf8_1.2.4                 
- [11] R6_2.5.1                    lazyeval_0.2.2             
- [13] mgcv_1.9-1                  withr_3.0.2                
- [15] gridExtra_2.3               cli_3.6.3                  
- [17] sandwich_3.1-1              sass_0.4.9                 
- [19] labeling_0.4.3              slam_0.1-54                
- [21] mvtnorm_1.3-2               proxy_0.4-27               
- [23] yulab.utils_0.1.8           foreign_0.8-86             
- [25] decontam_1.25.0             readxl_1.4.3               
- [27] rstudioapi_0.17.1           generics_0.1.3             
- [29] gridGraphics_0.5-1          crosstalk_1.2.1            
- [31] gtools_3.9.5                car_3.1-3                  
- [33] rbiom_1.0.3                 Matrix_1.7-0               
- [35] ggbeeswarm_0.7.2            fansi_1.0.6                
- [37] DescTools_0.99.57           DECIPHER_3.1.4             
- [39] abind_1.4-8                 lifecycle_1.0.4            
- [41] multcomp_1.4-26             yaml_2.3.10                
- [43] carData_3.0-5               SparseArray_1.5.41         
- [45] grid_4.4.2                  crayon_1.5.3               
- [47] cowplot_1.1.3               beachmat_2.21.6            
- [49] pillar_1.9.0                knitr_1.48                 
- [51] boot_1.3-30                 gld_2.6.6                  
- [53] estimability_1.5.1          lpSolve_5.6.21             
- [55] codetools_0.2-20            glue_1.8.0                 
- [57] ggfun_0.1.6                 data.table_1.16.2          
- [59] vctrs_0.6.5                 treeio_1.29.1              
- [61] Rdpack_2.6.1                cellranger_1.1.0           
- [63] gtable_0.3.6                datawizard_0.13.0          
- [65] cachem_1.1.0                xfun_0.49                  
- [67] rbibutils_2.2.16            S4Arrays_1.5.10            
- [69] tidygraph_1.3.1             coda_0.19-4.1              
- [71] survival_3.7-0              iterators_1.0.14           
- [73] bluster_1.15.1              gmp_0.7-5                  
- [75] TH.data_1.1-2               nlme_3.1-165               
- [77] ggtree_3.13.1               bit64_4.5.2                
- [79] SnowballC_0.7.1             bslib_0.8.0                
- [81] irlba_2.3.5.1               vipor_0.4.7                
- [83] rpart_4.1.23                colorspace_2.1-1           
- [85] DBI_1.2.3                   Hmisc_5.2-0                
- [87] nnet_7.3-19                 processx_3.8.4             
- [89] Exact_3.3                   tidyselect_1.2.1           
- [91] emmeans_1.10.4              bit_4.5.0                  
- [93] compiler_4.4.2              htmlTable_2.4.3            
- [95] BiocNeighbors_1.99.1        expm_1.0-0                 
- [97] DelayedArray_0.31.13        bayestestR_0.15.0          
- [99] checkmate_2.3.2             scales_1.3.0               
-[101] digest_0.6.37               minqa_1.2.8                
-[103] rmarkdown_2.29              htmltools_0.5.8.1          
-[105] pkgconfig_2.0.3             base64enc_0.1-3            
-[107] lme4_1.1-35.5               sparseMatrixStats_1.17.2   
-[109] fastmap_1.2.0               rlang_1.1.4                
-[111] htmlwidgets_1.6.4           UCSC.utils_1.1.0           
-[113] DelayedMatrixStats_1.27.3   jquerylib_0.1.4            
-[115] farver_2.1.2                zoo_1.8-12                 
-[117] jsonlite_1.8.9              energy_1.7-12              
-[119] BiocParallel_1.39.0         tokenizers_0.3.0           
-[121] BiocSingular_1.21.4         magrittr_2.0.3             
-[123] Formula_1.2-5               GenomeInfoDbData_1.2.13    
-[125] ggplotify_0.1.2             munsell_0.5.1              
-[127] Rcpp_1.0.13-1               ape_5.8                    
-[129] ggnewscale_0.5.0            viridis_0.6.5              
-[131] CVXR_1.0-15                 stringi_1.8.4              
-[133] rootSolve_1.8.2.4           zlibbioc_1.51.1            
-[135] MASS_7.3-61                 plyr_1.8.9                 
-[137] mediation_4.5.0             parallel_4.4.2             
-[139] ggrepel_0.9.6               lmom_3.2                   
-[141] graphlayouts_1.2.0          splines_4.4.2              
-[143] hms_1.1.3                   ps_1.8.0                   
-[145] igraph_2.1.1                rngtools_1.5.2             
-[147] reshape2_1.4.4              ScaledMatrix_1.13.0        
-[149] evaluate_1.0.1              tidytext_0.4.2             
-[151] RcppParallel_5.1.9          tzdb_0.4.0                 
-[153] nloptr_2.1.1                foreach_1.5.2              
-[155] tweenr_2.0.3                cards_0.4.0                
-[157] polyclip_1.10-7             ggforce_0.4.2              
-[159] rsvd_1.0.5                  xtable_1.8-4               
-[161] broom_1.0.7                 Rmpfr_1.0-0                
-[163] e1071_1.7-16                tidytree_0.4.6             
-[165] later_1.3.2                 janeaustenr_1.0.0          
-[167] rstatix_0.7.2               viridisLite_0.4.2          
-[169] class_7.3-22                gsl_2.1-8                  
-[171] lmerTest_3.1-3              aplot_0.2.3                
-[173] memoise_2.0.1               beeswarm_0.4.0             
-[175] cluster_2.1.6               timechange_0.3.0           </code></pre>
+  [1] randomcoloR_1.1.0.1         gld_2.6.6                  
+  [3] nnet_7.3-19                 TH.data_1.1-2              
+  [5] vctrs_0.6.5                 energy_1.7-12              
+  [7] digest_0.6.37               png_0.1-8                  
+  [9] shape_1.4.6.1               proxy_0.4-27               
+ [11] Exact_3.3                   registry_0.5-1             
+ [13] rbiom_1.0.3                 ggrepel_0.9.6              
+ [15] bayestestR_0.15.0           mediation_4.5.0            
+ [17] MASS_7.3-61                 reshape2_1.4.4             
+ [19] foreach_1.5.2               withr_3.0.2                
+ [21] xfun_0.49                   ggfun_0.1.6                
+ [23] survival_3.7-0              doRNG_1.8.6                
+ [25] memoise_2.0.1               ggbeeswarm_0.7.2           
+ [27] emmeans_1.10.4              gmp_0.7-5                  
+ [29] tidytree_0.4.6              zoo_1.8-12                 
+ [31] GlobalOptions_0.1.2         gtools_3.9.5               
+ [33] V8_5.0.1                    Formula_1.2-5              
+ [35] datawizard_0.13.0           httr_1.4.7                 
+ [37] rstatix_0.7.2               ps_1.8.0                   
+ [39] rstudioapi_0.17.1           UCSC.utils_1.1.0           
+ [41] generics_0.1.3              base64enc_0.1-3            
+ [43] processx_3.8.4              curl_5.2.3                 
+ [45] zlibbioc_1.51.1             ScaledMatrix_1.13.0        
+ [47] polyclip_1.10-7             ca_0.71.1                  
+ [49] GenomeInfoDbData_1.2.13     SparseArray_1.5.41         
+ [51] xtable_1.8-4                doParallel_1.0.17          
+ [53] evaluate_1.0.1              S4Arrays_1.5.10            
+ [55] hms_1.1.3                   irlba_2.3.5.1              
+ [57] colorspace_2.1-1            readxl_1.4.3               
+ [59] magrittr_2.0.3              later_1.3.2                
+ [61] viridis_0.6.5               ggtree_3.13.1              
+ [63] DECIPHER_3.1.4              cowplot_1.1.3              
+ [65] class_7.3-22                Hmisc_5.2-0                
+ [67] pillar_1.9.0                nlme_3.1-165               
+ [69] iterators_1.0.14            decontam_1.25.0            
+ [71] compiler_4.4.2              beachmat_2.21.6            
+ [73] stringi_1.8.4               DescTools_0.99.57          
+ [75] TSP_1.2-4                   tokenizers_0.3.0           
+ [77] minqa_1.2.8                 plyr_1.8.9                 
+ [79] crayon_1.5.3                abind_1.4-8                
+ [81] gridGraphics_0.5-1          graphlayouts_1.2.0         
+ [83] bit_4.5.0                   rootSolve_1.8.2.4          
+ [85] sandwich_3.1-1              codetools_0.2-20           
+ [87] multcomp_1.4-26             BiocSingular_1.21.4        
+ [89] crosstalk_1.2.1             bslib_0.8.0                
+ [91] slam_0.1-54                 e1071_1.7-16               
+ [93] lmom_3.2                    GetoptLong_1.0.5           
+ [95] tidytext_0.4.2              splines_4.4.2              
+ [97] circlize_0.4.16             Rcpp_1.0.13-1              
+ [99] sparseMatrixStats_1.17.2    cellranger_1.1.0           
+[101] knitr_1.48                  utf8_1.2.4                 
+[103] clue_0.3-65                 lme4_1.1-35.5              
+[105] fs_1.6.5                    checkmate_2.3.2            
+[107] DelayedMatrixStats_1.27.3   Rdpack_2.6.1               
+[109] expm_1.0-0                  gsl_2.1-8                  
+[111] ggplotify_0.1.2             estimability_1.5.1         
+[113] Matrix_1.7-0                tzdb_0.4.0                 
+[115] lpSolve_5.6.21              tweenr_2.0.3               
+[117] pkgconfig_2.0.3             tools_4.4.2                
+[119] cachem_1.1.0                rbibutils_2.2.16           
+[121] viridisLite_0.4.2           DBI_1.2.3                  
+[123] numDeriv_2016.8-1.1         fastmap_1.2.0              
+[125] rmarkdown_2.29              scales_1.3.0               
+[127] cards_0.4.0                 sass_0.4.9                 
+[129] broom_1.0.7                 coda_0.19-4.1              
+[131] insight_1.0.0               carData_3.0-5              
+[133] rpart_4.1.23                farver_2.1.2               
+[135] tidygraph_1.3.1             mgcv_1.9-1                 
+[137] yaml_2.3.10                 foreign_0.8-86             
+[139] cli_3.6.3                   lifecycle_1.0.4            
+[141] mvtnorm_1.3-2               bluster_1.15.1             
+[143] backports_1.5.0             BiocParallel_1.39.0        
+[145] timechange_0.3.0            gtable_0.3.6               
+[147] rjson_0.2.23                parallel_4.4.2             
+[149] ape_5.8                     SnowballC_0.7.1            
+[151] CVXR_1.0-15                 jsonlite_1.8.9             
+[153] seriation_1.5.6             bit64_4.5.2                
+[155] Rtsne_0.17                  yulab.utils_0.1.8          
+[157] BiocNeighbors_1.99.1        RcppParallel_5.1.9         
+[159] janeaustenr_1.0.0           jquerylib_0.1.4            
+[161] lazyeval_0.2.2              htmltools_0.5.8.1          
+[163] glue_1.8.0                  treeio_1.29.1              
+[165] boot_1.3-30                 igraph_2.1.1               
+[167] R6_2.5.1                    Rmpfr_1.0-0                
+[169] labeling_0.4.3              cluster_2.1.6              
+[171] rngtools_1.5.2              aplot_0.2.3                
+[173] nloptr_2.1.1                DirichletMultinomial_1.47.0
+[175] DelayedArray_0.31.13        tidyselect_1.2.1           
+[177] vipor_0.4.7                 htmlTable_2.4.3            
+[179] ggforce_0.4.2               car_3.1-3                  
+[181] rsvd_1.0.5                  munsell_0.5.1              
+[183] data.table_1.16.2           htmlwidgets_1.6.4          
+[185] RColorBrewer_1.1-3          rlang_1.1.4                
+[187] lmerTest_3.1-3              Cairo_1.6-2                
+[189] ggnewscale_0.5.0            fansi_1.0.6                
+[191] beeswarm_0.4.0             </code></pre>
 </div>
 </div>
 </section>
