@@ -1,0 +1,500 @@
+---
+title: "Bacteroidetes/Firmicutes ratio"
+author:
+  - name: Muluh
+format:
+  html:
+    code-fold: true
+    number-sections: true
+    page-layout: full
+  pdf:
+    keep-tex: true
+    include-in-header: 
+      text: |
+        \usepackage{booktabs}
+        \usepackage{longtable}
+editor: visual
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Bacteroidetes/Firmicutes ratio
+
+```{r data}
+# Set Cairo to enable transparency in all devices
+knitr::opts_chunk$set(dev = "png", 
+                      dev.args = list(type = "cairo"))
+source("funct.R")
+# devtools::load_all("~/Rpackages/microbiome/miaverse/miaViz")
+tse <- readRDS("../data/tse.Rds")
+```
+
+```{r setup, include=FALSE}
+# Define variables
+tax.level     <- "Phylum"
+variable      <- "group"  
+adjust.method <- "fdr"
+test          <- "Wilcoxon"
+index         <- "bact_firm_ratio"
+```
+
+### Group-wise comparisons
+
+-   **Taxonomic level:** `r tax.level`
+-   **Group variable:** `r variable`
+-   **Multiple testing correction:** `r adjust.method`
+-   **Statistical test** `r test`
+
+```{r bact-firm}
+# We only need phylum level tse in this report, so let's pick
+# that as tse to keep things simple.
+tse <- altExp(tse, "phylum")
+
+# Calculate the Bacteroidetes/Firmicutes ratio and add to colData
+# using the chosen name
+ratio <- "bact_firm_ratio"
+colData(tse)[[ratio]] <- assay(tse, "relabundance")["Bacteroidetes", ] /
+                         assay(tse, "relabundance")["Firmicutes", ]
+```
+
+```{r run_diversity_tests}
+# Calculate p-values
+run_diversity_tests <- function(tse, comparisons, 
+                                variable, ratio, 
+                                adjust.method = "fdr", paired = FALSE) {
+  # Get all values and groups
+  values <- colData(tse)[[ratio]]
+  groups <- colData(tse)[[variable]]
+  
+  # Create an empty results dataframe
+  results <- data.frame(
+    group1 = character(),
+    group2 = character(),
+    mean1 = numeric(),
+    mean2 = numeric(),
+    logFC = numeric(),
+    p.value = numeric(),
+    stringsAsFactors = FALSE
+  )
+  
+  # Loop through requested comparisons
+  for (comp in comparisons) {
+    group1 <- comp[1]
+    group2 <- comp[2]
+    
+    # Subset data for just these two groups
+    subset_indices <- which(groups %in% c(group1, group2))
+    subset_values <- values[subset_indices]
+    subset_groups <- groups[subset_indices]
+    
+    # Ensure paired data is properly aligned (if paired is TRUE)
+    if (paired) {
+      # Assuming 'subject' column exists for pairing
+      subset_subjects <- tse$id[subset_indices]
+      paired_data <- data.frame(
+        subject = subset_subjects,
+        group = subset_groups,
+        value = subset_values
+      ) %>%
+        tidyr::pivot_wider(names_from = group, values_from = value) %>%
+        drop_na()  # Drop pairs with missing data
+      
+      # Extract paired values
+      paired_values <- paired_data %>% select(all_of(c(group1, group2)))
+    }
+    
+    # Perform Wilcoxon test
+    if (paired) {
+      test_result <- wilcox.test(
+        paired_values[[1]], paired_values[[2]],
+        paired = TRUE, exact = FALSE
+      )
+    } else {
+      test_result <- wilcox.test(
+        subset_values ~ subset_groups,
+        exact = FALSE
+      )
+    }
+    
+    # Calculate means
+    mean1 <- mean(values[groups == group1])
+    mean2 <- mean(values[groups == group2])
+
+    if (paired) {
+       # Note: when the values are paired, we can calculate FC separately
+       # for every individual and summarize afterwards. 
+       FC <- mean(values[groups == group2] / values[groups == group1])
+    } else {
+       FC <- mean2/mean1
+    }
+
+    # Add results
+    results <- rbind(results, data.frame(
+      group1 = group1,
+      group2 = group2,
+       mean1 = mean1,
+       mean2 = mean2,
+       logFC = log2(FC),
+      p.value = test_result$p.value,
+      stringsAsFactors = FALSE
+    ))
+
+  }
+  
+  # Add adjusted p-values using specified method
+  # results$p.adj <- p.adjust(results$p.value, method = adjust.method)
+  
+  return(results)
+}
+
+```
+
+```{r pvalues-before}
+# Calculate statistical results
+results_before <- run_diversity_tests(tse, comparisons_before, 
+                                      variable, ratio = "bact_firm_ratio", 
+                                      adjust.method)
+results_before$p.adj <- p.adjust(results_before$p.value, method = "fdr")
+# Format results for display
+final_results_before <- results_before %>%
+  mutate(
+    mean1 = round(mean1, 2),
+    mean2 = round(mean2, 2),
+    logFC = round(logFC, 2),
+    p.adj = round(p.adj, 3)
+  ) %>%
+  select(group1, group2, mean1, mean2, logFC, p.adj)
+
+# Calculate y-positions for p-value annotations
+final_results_before <- final_results_before %>%
+  mutate(y.position = sapply(1:nrow(final_results_before), function(i) {
+    vals1 <- colData(tse)[[ratio]][colData(tse)[[variable]] == group1[i]]
+    vals2 <- colData(tse)[[ratio]][colData(tse)[[variable]] == group2[i]]
+    max(c(vals1, vals2)) + i * 0.2
+  }))
+colnames(final_results_before)[colnames(final_results_before) == "logFC"] <- "log2FC"
+final_results_before$group1[final_results_before$group1 == "diet_1_visit_1"] <- "Diet 1"
+final_results_before$group2[final_results_before$group2 == "diet_2_visit_1"] <- "Diet 2"
+
+```
+
+```{r pvalues-after}
+# Calculate statistical results
+results_after <- run_diversity_tests(tse, comparisons_after, 
+                                     variable, ratio = "bact_firm_ratio", 
+                                     adjust.method)
+results_after$p.adj <- p.adjust(results_after$p.value, method = "fdr")
+# Format results for display
+final_results_after <- results_after %>%
+  mutate(
+    mean1 = round(mean1, 2),
+    mean2 = round(mean2, 2),
+    logFC = round(logFC, 2),
+    p.adj = round(p.adj, 3)
+  ) %>%
+  select(group1, group2, mean1, mean2, logFC, p.adj)
+
+# Calculate y-positions for p-value annotations
+final_results_after <- final_results_after %>%
+  mutate(y.position = sapply(1:nrow(final_results_after), function(i) {
+    vals1 <- colData(tse)[[ratio]][colData(tse)[[variable]] == group1[i]]
+    vals2 <- colData(tse)[[ratio]][colData(tse)[[variable]] == group2[i]]
+    max(c(vals1, vals2)) + i * 0.2
+  }))
+colnames(final_results_after)[colnames(final_results_after) == "logFC"] <- "log2FC"
+final_results_after$group1[final_results_after$group1 == "diet_1_visit_2"] <- "Diet 1"
+final_results_after$group2[final_results_after$group2 == "diet_2_visit_2"] <- "Diet 2"
+```
+
+```{r pvalues-paired}
+# Calculate statistical results
+results_paired <- run_diversity_tests(tse, comparisons_paired, 
+                                     variable, ratio = "bact_firm_ratio", 
+                                     adjust.method, paired = TRUE)
+results_paired$p.adj <- p.adjust(results_paired$p.value, method = "fdr")
+# Format results for display
+final_results_paired <- results_paired %>%
+  mutate(
+    mean1 = round(mean1, 2),
+    mean2 = round(mean2, 2),
+    logFC = round(logFC, 2),
+    p.adj = round(p.adj, 3)
+  ) %>%
+  select(group1, group2, mean1, mean2, logFC, p.adj)
+
+# Calculate y-positions for p-value annotations
+final_results_paired <- final_results_paired %>%
+  mutate(y.position = sapply(1:nrow(final_results_paired), function(i) {
+    vals1 <- colData(tse)[[ratio]][colData(tse)[[variable]] == group1[i]]
+    vals2 <- colData(tse)[[ratio]][colData(tse)[[variable]] == group2[i]]
+    max(c(vals1, vals2)) + i * 0.2
+  }))
+diet <- c("1", "2")
+final_results_paired <- data.frame(diet = diet, final_results_paired)
+final_results_paired$group1 <- NULL
+final_results_paired$group2 <- NULL
+colnames(final_results_paired)[colnames(final_results_paired) == "logFC"] <- "log2FC"
+```
+
+```{r bact-firm-before}
+tse_before <- tse[, tse$group %in% unlist(comparisons_before)]
+p1 <- plotColData(
+    tse_before, x = variable, y = "bact_firm_ratio", colour_by = "timepoint",
+    show_boxplot = TRUE, other_fields = c("timepoint"),
+    show_violin = FALSE) +
+    scale_color_manual(
+        values = c("before" = "black"),
+        name = "Timepoint"
+    ) +
+    theme(
+        text = element_text(size = 10),
+        # Remove legend
+        legend.position = "none"
+    ) +
+    ggpubr::stat_pvalue_manual(
+      data = final_results_before,
+      xmin = "group1",
+      xmax = "group2",
+      y.position = "y.position",
+      label = "p.adj"
+    )  +
+    labs(
+      title = "Before treatment",
+      x = "",
+      y = "Bacteroidetes/Firmicutes ratio"
+     ) +
+     # scale_y_log10() +
+     scale_x_discrete(
+         breaks = c("diet_1_visit_1", "diet_2_visit_1"),   
+         labels = c("Diet 1", "Diet 2") 
+     )
+```
+
+```{r bact-firm-after}
+tse_after <- tse[, tse$group %in% unlist(comparisons_after)]
+p2 <- plotColData(
+    tse_after, x = variable, y = "bact_firm_ratio", colour_by = "timepoint",
+    show_boxplot = TRUE,
+    show_violin = FALSE, other_fields = c("timepoint")) +
+    scale_color_manual(
+        values = c("after" = "black"),
+        name = "Timepoint"
+    ) +
+    theme(
+        text = element_text(size = 10),
+        # remove legend
+        legend.position = "none"
+    ) +
+    ggpubr::stat_pvalue_manual(
+      data = final_results_after,
+      xmin = "group1",
+      xmax = "group2",
+      y.position = "y.position",
+      label = "p.adj"
+    )  +
+    labs(
+      title = "After treatment",
+      x = "",
+      y = "Bacteroidetes/Firmicutes ratio"
+    ) + 
+     #scale_y_log10() +
+      scale_x_discrete(
+        breaks = c("diet_1_visit_2", "diet_2_visit_2"),   
+         labels = c("Diet 1", "Diet 2")  
+    )
+```
+
+```{r bact-firm-change}
+tse_new <- tse[,tse$paired == "yes"]
+colData(tse_new) <- DataFrame(
+    colData(tse_new) %>%
+        as_tibble() %>%
+        tidyr::drop_na({{ variable }}) %>%
+        filter(paired == "yes") %>%
+        group_by(id) %>%
+        mutate(
+            change = if_else(time == 2, .data[[index]] - .data[[index]][time == 1], 0),
+            change = if_else(time == 1, change[time == 2], change)
+        ) %>%
+        ungroup() %>%
+        as.data.frame(check.names = FALSE)
+)
+
+div_change <- plotColData(
+    tse_new, x = "timepoint", y = "bact_firm_ratio",
+    show_boxplot = TRUE,
+    show_violin = FALSE,
+    other_fields = c("group", "id", "diet", "change")) + 
+    facet_wrap(~diet, ncol = 2, scales="fixed", axis.labels = "margins") +
+    theme(
+        text = element_text(size = 10),
+    ) +
+    labs(
+        title = "Paired Bacteroidetes/Firmicutes ratio",
+        x = "",
+        y = "Bacteroidetes/Firmicutes ratio"
+    ) + 
+    geom_line(
+        aes(group = id, color = change)
+    ) +
+    scale_color_gradient2(midpoint=0, low="blue", mid="white", high="red", space ="Lab") +
+    #scale_y_log10() +
+    geom_text(
+        data = final_results_paired,
+        aes(
+            x = 1.5,                 
+            y = y.position,          
+            label = paste0("p = ", signif(p.adj, 3)),
+            group = diet        
+        ),
+        inherit.aes = FALSE,     
+        size = 3,                 
+        color = "black"            
+    )
+```
+
+```{r visualize-plot}
+#| fig-width: 5
+#| fig-height: 4
+#| fig.align: "center"
+wrap_plots(p1, p2, axes = "collect")
+```
+
+#### Table of the top findings
+
+#### Across-group
+
+##### Before treatment
+
+-   Multiple testing correction: **`r adjust.method`**
+-   Statistical test: **`r test`**
+
+```{r table-of-findings-before}
+#| label: table-of-findings-before
+final_results_before[] <- lapply(final_results_before, function(x) gsub(".before|.after", "", x))
+if (knitr::is_html_output()) {
+  datatable(
+      final_results_before %>% select(-y.position), 
+      options = list(
+        pageLength = 3,
+        dom = 'Bfrtip'
+      ),
+      caption = "Table of  Bacteroidetes/Firmicutes before Treatment",
+      rownames = FALSE
+  ) %>%
+    formatRound(columns = c("mean1", "mean2", "log2FC"), digits = 2) %>%
+    formatSignif(columns = "p.adj", digits = 3)
+} else {
+  library(kableExtra)
+  final_results_before %>% 
+    select(-y.position) %>%
+    mutate(
+      across(where(is.numeric), ~round(., 3))
+      #p.adj = signif(p.adj, 3)
+    ) %>%
+    kbl(caption = "Table of Bacteroidetes/Firmicutes before Treatment",
+        booktabs = TRUE,
+        longtable = TRUE,
+        align = c('l', 'r', 'r', 'r', 'r')) %>%
+    kable_styling(latex_options = "repeat_header") %>%
+    row_spec(0, bold = TRUE)
+}
+```
+
+##### After treatment
+
+-   Multiple testing correction: **`r adjust.method`**
+-   Statistical test: **`r test`**
+
+```{r table-of-findings-after}
+#| label: table-of-findings-after
+
+final_results_after[] <- lapply(final_results_after, function(x) gsub(".before|.after", "", x))
+if (knitr::is_html_output()) {
+  datatable(
+    final_results_after %>% select(-y.position), 
+    options = list(
+      pageLength = 3,
+      dom = 'Bfrtip'
+    ),
+    caption = "Table of Bacteroidetes/Firmicutes after Treatment",
+    rownames = FALSE
+) %>%
+  formatRound(columns = c("mean1", "mean2", "log2FC"), digits = 2) %>%
+  formatSignif(columns = "p.adj", digits = 3)
+} else {
+  library(kableExtra)
+  final_results_after %>% 
+    select(-y.position) %>%
+    mutate(
+      across(where(is.numeric), ~round(., 3))
+      #p.adj = signif(p.adj, 3)
+    ) %>%
+    kbl(caption = "Table of Bacteroidetes/Firmicutes after Treatment",
+        booktabs = TRUE,
+        longtable = TRUE,
+        align = c('l', 'r', 'r', 'r', 'r')) %>%
+    kable_styling(latex_options = "repeat_header") %>%
+    row_spec(0, bold = TRUE)
+}
+
+```
+
+```{r viz-div_change}
+#| fig-width: 5
+#| fig-height: 3
+#| fig.align: "center"
+div_change
+```
+
+#### Within-group
+
+##### Paired treatment
+
+-   Multiple testing correction: **paired `r adjust.method`**
+-   Statistical test: **`r test`**
+
+```{r table-of-findings-paired}
+#| label: table-of-findings-paired
+if (knitr::is_html_output()) {
+  datatable(
+    final_results_paired %>% select(-y.position), 
+    options = list(
+      pageLength = 3,
+      dom = 'Bfrtip'
+    ),
+    caption = "Table of Bacteroidetes/Firmicutes paired between timepoint (1 and 2)",
+    rownames = FALSE
+) %>%
+  formatRound(columns = c("mean1", "mean2", "log2FC"), digits = 2) %>%
+  formatSignif(columns = "p.adj", digits = 3)
+} else {
+  library(kableExtra)
+  final_results_paired %>% 
+    select(-y.position) %>%
+    mutate(
+      across(where(is.numeric), ~round(., 3))
+      #p.adj = signif(p.adj, 3)
+    ) %>%
+    kbl(caption = "Table of Bacteroidetes/Firmicutes paired between timepoint (1 and 2)",
+        booktabs = TRUE,
+        longtable = TRUE,
+        align = c('l', 'r', 'r', 'r', 'r')) %>%
+    kable_styling(latex_options = "repeat_header") %>%
+    row_spec(0, bold = TRUE)
+}
+```
+
+## Data Summary
+
+```{r data-summary}
+tse
+```
+
+## Version info
+
+```{r sessioninfo}
+sessionInfo()
+```

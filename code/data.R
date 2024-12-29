@@ -31,6 +31,7 @@ samdf <- samdf %>%
   assign_paired() %>%
   assign_time()
 
+samdf$timepoint <- factor(samdf$timepoint, levels = c("before", "after"))
 # Check that the sample data and assay data match by sample names
 if (!all(rownames(samdf)==colnames(tse))) {stop("Check sample ID matching")}
 
