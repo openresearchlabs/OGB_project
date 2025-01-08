@@ -20,16 +20,21 @@ samdf <-  read_excel("../data/metadata.xlsx", sheet = 1, col_names = TRUE)
 # Convert to a data frame if necessary
 samdf <- as.data.frame(samdf)
 rownames(samdf) <- samdf$sample
-# Group works better as factor
-samdf$diet <- factor(samdf$diet)
-samdf$visit <- factor(samdf$visit)
-samdf$meal_group <- factor(samdf$meal_group)
+# Group works better as factor 
 samdf$gender <- factor(samdf$gender)
+samdf$visit <- factor(samdf$visit)
+samdf$meal_group <- factor(samdf$meal_group) 
+
+# "Meal": intervention Experiment (some hours)
+# Half of each diet group received either meal, yielding 4 "diet-meal" groups:
+# oats-oats, oats-rice, rice-oats ja rice-rice
 
 samdf <- samdf %>%
   assign_timepoint() %>%
   assign_paired() %>%
-  assign_time()
+  assign_time() %>%
+  assign_meal()#  %>%
+  # assign_diet()  # Encode as factors oat/rice instead of 1/2
 
 # Check that the sample data and assay data match by sample names
 if (!all(rownames(samdf)==colnames(tse))) {stop("Check sample ID matching")}
@@ -116,6 +121,14 @@ rowData(altExp(tse, "genus"))$genus_sub <- as.character(genus_renamed)
 altExp(tse, "genus") <- agglomerateByVariable(altExp(tse, "genus"), 
                                    by = "rows", 
                                    f = "genus_sub")
+
+
+# Agglomerate the data based on specified taxa
+altExp(tse, "genus_all") <- agglomerateByRank(tse,  rank="genus")
+altExp(tse, "genus_prevalent") <- agglomerateByPrevalence(altExp(tse, "genus_all"), assay.type="relabundance", detection=0.1/100, prevalence=10/100, name="genus_prevalent")
+altExp(tse, "genus_prevalent") <- transformAssay(altExp(tse, "genus_prevalent"), assay.type="relabundance", method="clr", pseudocount=TRUE)
+
+
 
 # Print the group assignments
 print(table(tse$group))
