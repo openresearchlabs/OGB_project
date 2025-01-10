@@ -24,9 +24,8 @@ library(vegan)
 
 # Define variables
 taxa     <- c("genus","species")
-variable <- "group"
+variable <- "meal_group"
 outdir ="./output/"
-
 
 # Define the list of comparisons
 comparisons <- list(
@@ -39,18 +38,27 @@ comparisons <- list(
 # # Define the list of comparisons
 comparisons_before <- list(
   # Between-Group Comparisons at Baseline (before treatment)
-  c("diet_1_visit_1", "diet_2_visit_1") 
+  c("1", "2"), 
+  c("1", "3"),
+  c("1", "4"),
+  c("2", "3"),
+  c("2", "4"),
+  c("3", "4") 
 )
 
 comparisons_after <- list(
   # Between-Group Comparisons after treatment
-  c("diet_1_visit_2", "diet_2_visit_2")  
+  c("1", "2"), 
+  c("1", "3"),
+  c("1", "4"),
+  c("2", "3"),
+  c("2", "4"),
+  c("3", "4")   
 )
 
 comparisons_paired <- list(
   # Within-Group Comparisons after treatment
-  c("diet_1_visit_1", "diet_1_visit_2"),
-  c("diet_2_visit_1", "diet_2_visit_2")
+  c("before", "after")
 )
 
 # Define function to extract diet and visit info

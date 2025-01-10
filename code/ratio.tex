@@ -187,7 +187,7 @@ ratio}\label{bacteroidetesfirmicutes-ratio}
 \item
   \textbf{Taxonomic level:} Phylum
 \item
-  \textbf{Group variable:} group
+  \textbf{Group variable:} meal\_group
 \item
   \textbf{Multiple testing correction:} fdr
 \item
@@ -227,7 +227,13 @@ ratio}\label{bacteroidetesfirmicutes-ratio}
 \endfoot
 \bottomrule
 \endlastfoot
-Diet 1 & Diet 2 & 0.32 & 0.29 & -0.12 & 0.411\\*
+1 & 2 & 0.36 & 0.30 & -0.23 & 0.83\\
+1 & 3 & 0.36 & 0.28 & -0.34 & 0.83\\
+1 & 4 & 0.36 & 0.28 & -0.34 & 0.83\\
+2 & 3 & 0.30 & 0.28 & -0.11 & 0.83\\
+2 & 4 & 0.30 & 0.28 & -0.10 & 0.83\\
+\addlinespace
+3 & 4 & 0.28 & 0.28 & 0.00 & 0.83\\*
 \end{longtable}
 
 \subparagraph{After treatment}\label{after-treatment}
@@ -255,7 +261,13 @@ Diet 1 & Diet 2 & 0.32 & 0.29 & -0.12 & 0.411\\*
 \endfoot
 \bottomrule
 \endlastfoot
-Diet 1 & Diet 2 & 0.33 & 0.33 & -0.02 & 0.679\\*
+1 & 2 & 0.31 & 0.31 & 0.04 & 0.815\\
+1 & 3 & 0.31 & 0.34 & 0.17 & 0.803\\
+1 & 4 & 0.31 & 0.36 & 0.23 & 0.803\\
+2 & 3 & 0.31 & 0.34 & 0.12 & 0.803\\
+2 & 4 & 0.31 & 0.36 & 0.19 & 0.803\\
+\addlinespace
+3 & 4 & 0.34 & 0.36 & 0.06 & 0.803\\*
 \end{longtable}
 
 \begin{center}
@@ -269,7 +281,7 @@ Diet 1 & Diet 2 & 0.33 & 0.33 & -0.02 & 0.679\\*
 \begin{itemize}
 \tightlist
 \item
-  Multiple testing correction: \textbf{paired fdr}
+  Multiple testing correction: \textbf{paired} -none
 \item
   Statistical test: \textbf{Wilcoxon}
 \end{itemize}
@@ -277,20 +289,22 @@ Diet 1 & Diet 2 & 0.33 & 0.33 & -0.02 & 0.679\\*
 \begin{longtable}[t]{lrrrr}
 \caption{Table of Bacteroidetes/Firmicutes paired between timepoint (1 and 2)}\\
 \toprule
-\textbf{diet} & \textbf{mean1} & \textbf{mean2} & \textbf{log2FC} & \textbf{p.adj}\\
+\textbf{meal\_group} & \textbf{mean1} & \textbf{mean2} & \textbf{log2FC} & \textbf{p.value}\\
 \midrule
 \endfirsthead
 \caption[]{Table of Bacteroidetes/Firmicutes paired between timepoint (1 and 2) \textit{(continued)}}\\
 \toprule
-\textbf{diet} & \textbf{mean1} & \textbf{mean2} & \textbf{log2FC} & \textbf{p.adj}\\
+\textbf{meal\_group} & \textbf{mean1} & \textbf{mean2} & \textbf{log2FC} & \textbf{p.value}\\
 \midrule
 \endhead
 
 \endfoot
 \bottomrule
 \endlastfoot
-1 & 0.32 & 0.33 & 0.28 & 0.798\\
-2 & 0.29 & 0.33 & 1.07 & 0.744\\*
+1 & 0.36 & 0.31 & 0.27 & 0.698\\
+2 & 0.30 & 0.31 & 0.91 & 0.925\\
+3 & 0.28 & 0.34 & 1.21 & 0.163\\
+4 & 0.28 & 0.36 & 0.37 & 0.408\\*
 \end{longtable}
 
 \subsection{Data Summary}\label{data-summary}
@@ -401,7 +415,7 @@ loaded via a namespace (and not attached):
  [63] ggtree_3.13.1               DECIPHER_3.1.4             
  [65] cowplot_1.1.3               class_7.3-22               
  [67] Hmisc_5.2-0                 pillar_1.9.0               
- [69] nlme_3.1-165                iterators_1.0.14           
+ [69] nlme_3.1-166                iterators_1.0.14           
  [71] decontam_1.25.0             compiler_4.4.2             
  [73] beachmat_2.21.6             stringi_1.8.4              
  [75] DescTools_0.99.57           TSP_1.2-4                  
@@ -435,7 +449,7 @@ loaded via a namespace (and not attached):
 [131] carData_3.0-5               rpart_4.1.23               
 [133] farver_2.1.2                tidygraph_1.3.1            
 [135] mgcv_1.9-1                  yaml_2.3.10                
-[137] foreign_0.8-86              cli_3.6.3                  
+[137] foreign_0.8-87              cli_3.6.3                  
 [139] lifecycle_1.0.4             mvtnorm_1.3-2              
 [141] bluster_1.15.1              backports_1.5.0            
 [143] BiocParallel_1.39.0         timechange_0.3.0           
@@ -448,10 +462,10 @@ loaded via a namespace (and not attached):
 [157] RcppParallel_5.1.9          janeaustenr_1.0.0          
 [159] lazyeval_0.2.2              htmltools_0.5.8.1          
 [161] tinytex_0.54                glue_1.8.0                 
-[163] treeio_1.29.1               boot_1.3-30                
+[163] treeio_1.29.1               boot_1.3-31                
 [165] igraph_2.1.1                R6_2.5.1                   
 [167] labeling_0.4.3              Rmpfr_1.0-0                
-[169] cluster_2.1.6               rngtools_1.5.2             
+[169] cluster_2.1.8               rngtools_1.5.2             
 [171] aplot_0.2.3                 nloptr_2.1.1               
 [173] DirichletMultinomial_1.47.0 DelayedArray_0.31.13       
 [175] tidyselect_1.2.1            vipor_0.4.7                

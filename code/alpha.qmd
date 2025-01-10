@@ -1,25 +1,29 @@
 ---
 title: "Alpha Diversity"
-author: "Nitin Bayal"
-format: html
+author:
+  - name: Muluh
+format:
+  html:
+    code-fold: true
+    number-sections: true
+    page-layout: full
 editor: visual
 params: 
   index: default
-  adjust.method: "fdr"
 execute:
   echo: false
   warning: false
   message: false
 ---
 
-## Introduction
-
-This document reports on a microbiota project results of alpha diversity across different diets and visits.
+## Community diversity
 
 ```{r variables}
 # Alpha diversity
 index <- params$index
-adjust.method <- params$adjust.method
+variable      <- "meal_group" 
+adjust.method <- "fdr"
+test <- "Wilcoxon"
 ```
 
 ```{r data}
@@ -31,13 +35,14 @@ tse <- readRDS("../data/tse.Rds")
 
 -   **Index:** `r params$index`
 -   **Group variable:** `r variable`
--   **Multiple testing correction:** `r params$adjust.method`
+-   **Multiple testing correction:** `r adjust.method`
+-   **Statistical test** `r test`
 
 ```{r run_diversity_tests}
 # Calculate p-values
 run_diversity_tests <- function(tse, comparisons, 
                                 variable, index, 
-                                adjust.method = "fdr") {
+                                adjust.method = "fdr", paired = FALSE) {
   # Get all values and groups
   values <- colData(tse)[[index]]
   groups <- colData(tse)[[variable]]
@@ -59,44 +64,78 @@ run_diversity_tests <- function(tse, comparisons,
     group2 <- comp[2]
     
     # Subset data for just these two groups
-    subset_values <- values[groups %in% c(group1, group2)]
-    subset_groups <- groups[groups %in% c(group1, group2)]
+    subset_indices <- which(groups %in% c(group1, group2))
+    subset_values <- values[subset_indices]
+    subset_groups <- groups[subset_indices]
     
-    # Perform Wilcoxon test for this pair
-    test_result <- wilcox.test(
-      subset_values ~ subset_groups,
-      exact = FALSE
-    )
+    # Ensure paired data is properly aligned (if paired is TRUE)
+    if (paired) {
+      # Assuming 'subject' column exists for pairing
+      subset_subjects <- tse$id[subset_indices]
+      paired_data <- data.frame(
+        subject = subset_subjects,
+        group = subset_groups,
+        value = subset_values
+      ) %>%
+        tidyr::pivot_wider(names_from = group, values_from = value) %>%
+        drop_na()  # Drop pairs with missing data
+      
+      # Extract paired values
+      paired_values <- paired_data %>% select(all_of(c(group1, group2)))
+    }
+    
+    # Perform Wilcoxon test
+    if (paired) {
+      test_result <- wilcox.test(
+        paired_values[[1]], paired_values[[2]],
+        paired = TRUE, exact = FALSE
+      )
+    } else {
+      test_result <- wilcox.test(
+        subset_values ~ subset_groups,
+        exact = FALSE
+      )
+    }
     
     # Calculate means
     mean1 <- mean(values[groups == group1])
     mean2 <- mean(values[groups == group2])
-    
+
+    if (paired) {
+       # Note: when the values are paired, we can calculate FC separately
+       # for every individual and summarize afterwards. 
+       FC <- mean(values[groups == group2] / values[groups == group1])
+    } else {
+       FC <- mean2/mean1
+    }
+
     # Add results
     results <- rbind(results, data.frame(
       group1 = group1,
       group2 = group2,
-      mean1 = mean1,
-      mean2 = mean2,
-      logFC = log2(mean2/mean1),
+       mean1 = mean1,
+       mean2 = mean2,
+       logFC = log2(FC),
       p.value = test_result$p.value,
       stringsAsFactors = FALSE
     ))
+
   }
   
   # Add adjusted p-values using specified method
-  results$p.adj <- p.adjust(results$p.value, method = adjust.method)
+  # results$p.adj <- p.adjust(results$p.value, method = adjust.method)
   
   return(results)
 }
 ```
 
 ```{r pvalues-before}
+tse_before <- tse[, tse$visit == 1]
 # Calculate statistical results
-results <- run_diversity_tests(tse, comparisons, variable, index, adjust.method)
-
+results_before <- run_diversity_tests(tse_before, comparisons_before, variable, index, adjust.method)
+results_before$p.adj <- p.adjust(results_before$p.value, method = "fdr")
 # Format results for display
-final_results <- results %>%
+final_results_before <- results_before %>%
   mutate(
     mean1 = round(mean1, 2),
     mean2 = round(mean2, 2),
@@ -106,62 +145,353 @@ final_results <- results %>%
   select(group1, group2, mean1, mean2, logFC, p.adj)
 
 # Calculate y-positions for p-value annotations
-final_results <- final_results %>%
-  mutate(y.position = sapply(1:nrow(final_results), function(i) {
-    vals1 <- colData(tse)[[index]][colData(tse)[[variable]] == group1[i]]
-    vals2 <- colData(tse)[[index]][colData(tse)[[variable]] == group2[i]]
+final_results_before <- final_results_before %>%
+  mutate(y.position = sapply(1:nrow(final_results_before), function(i) {
+    vals1 <- colData(tse_before)[[index]][colData(tse_before)[[variable]] == group1[i]]
+    vals2 <- colData(tse_before)[[index]][colData(tse_before)[[variable]] == group2[i]]
     max(c(vals1, vals2)) + i * 0.2
   }))
+colnames(final_results_before)[colnames(final_results_before) == "logFC"] <- "log2FC"
 ```
 
-## Visualization
+```{r pvalues-after}
+tse_after <- tse[, tse$visit == 2]
+# Calculate statistical results
+results_after <- run_diversity_tests(tse_after, comparisons_after, variable, index, adjust.method)
+results_after$p.adj <- p.adjust(results_after$p.value, method = "fdr")
+# Format results for display
+final_results_after <- results_after %>%
+  mutate(
+    mean1 = round(mean1, 2),
+    mean2 = round(mean2, 2),
+    logFC = round(logFC, 2),
+    p.adj = round(p.adj, 3)
+  ) %>%
+  select(group1, group2, mean1, mean2, logFC, p.adj)
 
-```{r boxplot}
+# Calculate y-positions for p-value annotations
+final_results_after <- final_results_after %>%
+  mutate(y.position = sapply(1:nrow(final_results_after), function(i) {
+    vals1 <- colData(tse_after)[[index]][colData(tse_after)[[variable]] == group1[i]]
+    vals2 <- colData(tse_after)[[index]][colData(tse_after)[[variable]] == group2[i]]
+    max(c(vals1, vals2)) + i * 0.2
+  }))
+colnames(final_results_after)[colnames(final_results_after) == "logFC"] <- "log2FC"
+```
+
+```{r pvalues-paired}
+meal_groups <- unique(tse$meal_group)
+# Calculate statistical results
+results_paired <- lapply(meal_groups, function(group) {
+  # Subset tse for the current meal group
+  tse_subset <- tse[, tse$meal_group == group]
+  
+  # Run the diversity tests
+  res <- run_diversity_tests(
+    tse = tse_subset, 
+    comparisons = comparisons_paired, 
+    variable = "timepoint", 
+    index, 
+    adjust.method = adjust.method, 
+    paired = TRUE
+  )
+  
+  # Add the meal group as a new column
+  res$meal_group <- group
+  
+  return(res)
+}) %>% 
+  bind_rows()
+
+results_paired <- results_paired[, c("meal_group", setdiff(names(results_paired), "meal_group"))]
+
+# results_paired$p.adj <- p.adjust(results_paired$p.value, method = "fdr")
+# Format results for display
+final_results_paired <- results_paired %>%
+  mutate(
+    mean1 = round(mean1, 2),
+    mean2 = round(mean2, 2),
+    logFC = round(logFC, 2),
+    p.value = round(p.value, 3)
+  ) %>%
+  select(meal_group, group1, group2, mean1, mean2, logFC, p.value) %>% 
+  arrange(meal_group)
+
+# Calculate y-positions for p-value annotations
+final_results_paired <- final_results_paired %>%
+  mutate(y.position = sapply(1:nrow(final_results_paired), function(i) {
+    vals1 <- colData(tse)[[index]][colData(tse)[["timepoint"]] == group1[i]]
+    vals2 <- colData(tse)[[index]][colData(tse)[["timepoint"]] == group2[i]]
+    max(c(vals1, vals2)) + i * 0.2
+  }))
+final_results_paired$group1 <- NULL
+final_results_paired$group2 <- NULL
+colnames(final_results_paired)[colnames(final_results_paired) == "logFC"] <- "log2FC"
+```
+
+```{r boxplot-before}
 # Create a boxplot
-library(scater)
 p1 <- plotColData(
-    tse, x = variable, y = index,
-    show_boxplot = TRUE,
+    tse_before, x = variable, y = index, colour_by = "timepoint",
+    show_boxplot = TRUE, other_fields = c("timepoint"),
     show_violin = FALSE) +
-    theme(text = element_text(size = 10)) +
+    scale_color_manual(
+        values = c("before" = "black"),
+        name = "Timepoint"
+    ) +
+    theme(
+        text = element_text(size = 10),
+        # Remove legend
+        legend.position = "none"
+    ) +
     ggpubr::stat_pvalue_manual(
-      data = final_results,
+      data = final_results_before,
       xmin = "group1",
       xmax = "group2",
       y.position = "y.position",
       label = "p.adj"
     )  +
     labs(
-      x = variable,
+      title = "Before treatment",
+      x = "",
       y = paste("Alpha Diversity -", index)
-    )
-p1
+     ) #+ scale_y_log10()
 ```
 
-## Table of the top findings
+```{r boxplot-after}
+# Create a boxplot
+p2 <- plotColData(
+    tse_after, x = variable, y = index, colour_by = "timepoint",
+    show_boxplot = TRUE,
+    show_violin = FALSE, other_fields = c("timepoint")) +
+    scale_color_manual(
+        values = c("after" = "black"),
+        name = "Timepoint"
+    ) +
+    theme(
+        text = element_text(size = 10),
+        # remove legend
+        legend.position = "none"
+    ) +
+    ggpubr::stat_pvalue_manual(
+      data = final_results_after,
+      xmin = "group1",
+      xmax = "group2",
+      y.position = "y.position",
+      label = "p.adj"
+    )  +
+    labs(
+      title = "After treatment",
+      x = "",
+      y = paste("Alpha Diversity -", index)
+    ) #+ scale_y_log10()
+```
 
-```{r table-of-findings}
+```{r all-groups-1v2}
+p3 <- plotColData(
+    tse, x = "timepoint", y = index, colour_by = "timepoint",
+    show_boxplot = TRUE,
+    show_violin = FALSE, other_fields = c("timepoint", "meal_group")) +
+    scale_color_manual(
+        values = c("after" = "black", "before" = "black"),
+        name = "Timepoint"
+    ) +
+    theme(
+        text = element_text(size = 10),
+        # remove legend
+        legend.position = "none"
+    ) +
+    geom_text(
+        data = final_results_paired,
+        aes(
+            x = 1.5,                 
+            y = y.position,          
+            label = paste0("p = ", signif(p.value, 3)),
+            group = meal_group        
+        ),
+        inherit.aes = FALSE,     
+        size = 3,                 
+        color = "black"            
+    )  +
+    labs(
+      title = "Within group",
+      x = "",
+      y = paste("Alpha Diversity -", index)
+    ) +
+    facet_wrap(~meal_group, ncol = 4, scales = "free")
+```
+
+```{r changes1}
+tse_new <- tse[,tse$paired == "yes"]
+colData(tse_new) <- DataFrame(
+    colData(tse_new) %>%
+        as_tibble() %>%
+        tidyr::drop_na({{ variable }}) %>%
+        filter(paired == "yes") %>%
+        group_by(id) %>%
+        mutate(
+            change = if_else(time == 2, .data[[index]] - .data[[index]][time == 1], 0),
+            change = if_else(time == 1, change[time == 2], change)
+        ) %>%
+        ungroup() %>%
+        as.data.frame(check.names = FALSE)
+)
+
+div_change <- plotColData(
+    tse_new, x = "timepoint", y = index,
+    show_boxplot = TRUE,
+    show_violin = FALSE,
+    other_fields = c("group", "id", "diet", "change", "meal_group")) + 
+    facet_wrap(~meal_group, ncol = 4, scales="fixed", axis.labels = "margins") +
+    theme(
+        text = element_text(size = 10),
+    ) +
+    labs(
+        title = "Paired alpha diversity",
+        x = "",
+        y = paste("Alpha Diversity -", index)
+    ) + 
+    geom_line(
+        aes(group = id, color = change)
+    ) +
+    scale_color_gradient2(midpoint=0, low="blue", mid="white", high="red", space ="Lab") +
+    #scale_y_log10() +
+    geom_text(
+        data = final_results_paired,
+        aes(
+            x = 1.5,                 
+            y = y.position,          
+            label = paste0("p = ", signif(p.value, 3)),
+            group = meal_group        
+        ),
+        inherit.aes = FALSE,     
+        size = 3,                 
+        color = "black"            
+    )
+
+```
+
+```{r visualize-plot}
+#| fig-width: 5
+#| fig-height: 4
+#| fig.align: "center"
+wrap_plots(p1, p2, axes = "collect")
+```
+
+### Table of the top findings
+
+#### Across-group
+
+##### Before treatment
+
+-   Multiple testing correction: **`r adjust.method`**
+-   Statistical test: **`r test`**
+
+```{r table-of-findings-before}
+#| label: table-of-findings-before
 if (knitr::is_html_output()) {
   datatable(
-      final_results %>% select(-y.position), 
+      final_results_before %>% select(-y.position), 
       options = list(
-        pageLength = 10,
+        pageLength = 3,
         dom = 'Bfrtip'
       ),
-      caption = "Table of alpha diversity comparisons",
+      caption = "Table of alpha diversity comparisons before Treatment",
       rownames = FALSE
   ) %>%
-    formatRound(columns = c("mean1", "mean2", "logFC"), digits = 2) %>%
+    formatRound(columns = c("mean1", "mean2", "log2FC"), digits = 2) %>%
     formatSignif(columns = "p.adj", digits = 3)
 } else {
   library(kableExtra)
-  final_results %>% 
+  final_results_before %>% 
     select(-y.position) %>%
     mutate(
-      across(c(mean1, mean2, logFC), ~round(., 2)),
-      p.adj = format.pval(p.adj, digits = 3)
+      across(where(is.numeric), ~round(., 3))
+      #p.adj = signif(p.adj, 3)
     ) %>%
-    kbl(caption = "Table of alpha diversity comparisons",
+    kbl(caption = "Table of alpha diversity comparisons before Treatment",
+        booktabs = TRUE,
+        longtable = TRUE,
+        align = c('l', 'r', 'r', 'r', 'r')) %>%
+    kable_styling(latex_options = "repeat_header") %>%
+    row_spec(0, bold = TRUE)
+}
+```
+
+##### After treatment
+
+-   Multiple testing correction: **`r adjust.method`**
+-   Statistical test: **`r test`**
+
+```{r table-of-findings-after}
+#| label: table-of-findings-after
+if (knitr::is_html_output()) {
+  datatable(
+    final_results_after %>% select(-y.position), 
+    options = list(
+      pageLength = 3,
+      dom = 'Bfrtip'
+    ),
+    caption = "Table of alpha diversity comparisons after Treatment",
+    rownames = FALSE
+) %>%
+  formatRound(columns = c("mean1", "mean2", "log2FC"), digits = 2) %>%
+  formatSignif(columns = "p.adj", digits = 3)
+} else {
+  library(kableExtra)
+  final_results_after %>% 
+    select(-y.position) %>%
+    mutate(
+      across(where(is.numeric), ~round(., 3))
+      #p.adj = signif(p.adj, 3)
+    ) %>%
+    kbl(caption = "Table of alpha diversity comparisons after Treatment",
+        booktabs = TRUE,
+        longtable = TRUE,
+        align = c('l', 'r', 'r', 'r', 'r')) %>%
+    kable_styling(latex_options = "repeat_header") %>%
+    row_spec(0, bold = TRUE)
+}
+
+```
+
+```{r viz-div_change}
+#| fig-width: 5
+#| fig-height: 7
+#| fig.align: "center"
+wrap_plots(p3, div_change,nrow = 2, axes = "collect")
+```
+
+#### Within-group
+
+##### Paired treatment
+
+-   Multiple testing correction: **paired** -none
+-   Statistical test: **`r test`**
+
+```{r table-of-findings-paired}
+#| label: table-of-findings-paired
+if (knitr::is_html_output()) {
+  datatable(
+    final_results_paired %>% select(-y.position), 
+    options = list(
+      pageLength = 3,
+      dom = 'Bfrtip'
+    ),
+    caption = "Table of alpha diversity paired between timepoint(1 and 2)",
+    rownames = FALSE
+) %>%
+  formatRound(columns = c("mean1", "mean2", "log2FC"), digits = 2) %>%
+  formatSignif(columns = "p.value", digits = 3)
+} else {
+  library(kableExtra)
+  final_results_paired %>% 
+    select(-y.position) %>%
+    mutate(
+      across(where(is.numeric), ~round(., 3))
+      #p.adj = signif(p.adj, 3)
+    ) %>%
+    kbl(caption = "Table of alpha diversity paired between timepoint(1 and 2)",
         booktabs = TRUE,
         longtable = TRUE,
         align = c('l', 'r', 'r', 'r', 'r')) %>%
@@ -171,6 +501,7 @@ if (knitr::is_html_output()) {
 ```
 
 ## Alternate analyses
+
 ```{r stratified-timepoint}
 # First analysis - stratified by time point
 tbl_a_s <- colData(tse) %>% as_tibble() %>%
