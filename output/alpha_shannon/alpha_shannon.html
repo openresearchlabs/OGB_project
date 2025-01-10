@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Nitin Bayal">
+<meta name="author" content="Muluh">
 
 <title>Alpha Diversity</title>
 <style>
@@ -48,11 +48,11 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="fullcontent">
+<body>
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-full">
 
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -61,12 +61,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Nitin Bayal </p>
+             <p>Muluh </p>
           </div>
   </div>
     
@@ -79,60 +79,105 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>This document reports on a microbiota project results of alpha diversity across different diets and visits.</p>
+<section id="community-diversity" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="community-diversity"><span class="header-section-number">1</span> Community diversity</h2>
 </section>
-<section id="group-wise-comparisons" class="level2">
-<h2 class="anchored" data-anchor-id="group-wise-comparisons">Group-wise comparisons</h2>
+<section id="group-wise-comparisons" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="group-wise-comparisons"><span class="header-section-number">2</span> Group-wise comparisons</h2>
 <ul>
 <li><strong>Index:</strong> shannon</li>
-<li><strong>Group variable:</strong> group</li>
+<li><strong>Group variable:</strong> meal_group</li>
 <li><strong>Multiple testing correction:</strong> fdr</li>
+<li><strong>Statistical test</strong> Wilcoxon</li>
 </ul>
-</section>
-<section id="visualization" class="level2">
-<h2 class="anchored" data-anchor-id="visualization">Visualization</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="alpha_files/figure-html/visualize-plot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="table-of-the-top-findings" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="table-of-the-top-findings"><span class="header-section-number">2.1</span> Table of the top findings</h3>
+<section id="across-group" class="level4" data-number="2.1.1">
+<h4 data-number="2.1.1" class="anchored" data-anchor-id="across-group"><span class="header-section-number">2.1.1</span> Across-group</h4>
+<section id="before-treatment" class="level5" data-number="2.1.1.1">
+<h5 data-number="2.1.1.1" class="anchored" data-anchor-id="before-treatment"><span class="header-section-number">2.1.1.1</span> Before treatment</h5>
+<ul>
+<li>Multiple testing correction: <strong>fdr</strong></li>
+<li>Statistical test: <strong>Wilcoxon</strong></li>
+</ul>
 <div class="cell">
 <div class="cell-output-display">
-<div>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-92c07783c5f6c005798a" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-92c07783c5f6c005798a">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity comparisons before Treatment<\/caption>","data":[["1","1","1","2","2","3"],["2","3","4","3","4","4"],[3.89,3.89,3.89,4.07,4.07,3.98],[4.07,3.98,4.05,3.98,4.05,4.05],[0.07000000000000001,0.03,0.06,-0.03,-0.01,0.03],[0.5669999999999999,0.5669999999999999,0.5669999999999999,0.8120000000000001,0.8120000000000001,0.8120000000000001]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>group1<\/th>\n      <th>group2<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>log2FC<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":3,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[2,3,4,5]},{"name":"group1","targets":0},{"name":"group2","targets":1},{"name":"mean1","targets":2},{"name":"mean2","targets":3},{"name":"log2FC","targets":4},{"name":"p.adj","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[3,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="after-treatment" class="level5" data-number="2.1.1.2">
+<h5 data-number="2.1.1.2" class="anchored" data-anchor-id="after-treatment"><span class="header-section-number">2.1.1.2</span> After treatment</h5>
+<ul>
+<li>Multiple testing correction: <strong>fdr</strong></li>
+<li>Statistical test: <strong>Wilcoxon</strong></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-594b01b2711023d0f2b4" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-594b01b2711023d0f2b4">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity comparisons after Treatment<\/caption>","data":[["1","1","1","2","2","3"],["2","3","4","3","4","4"],[3.86,3.86,3.86,4.12,4.12,4.04],[4.12,4.04,3.96,4.04,3.96,3.96],[0.09,0.06,0.03,-0.03,-0.06,-0.03],[0.324,0.428,0.711,0.804,0.432,0.502]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>group1<\/th>\n      <th>group2<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>log2FC<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":3,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[2,3,4,5]},{"name":"group1","targets":0},{"name":"group2","targets":1},{"name":"mean1","targets":2},{"name":"mean2","targets":3},{"name":"log2FC","targets":4},{"name":"p.adj","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[3,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="alpha_files/figure-html/boxplot-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="alpha_files/figure-html/viz-div_change-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="table-of-the-top-findings" class="level2">
-<h2 class="anchored" data-anchor-id="table-of-the-top-findings">Table of the top findings</h2>
+</section>
+<section id="within-group" class="level4" data-number="2.1.2">
+<h4 data-number="2.1.2" class="anchored" data-anchor-id="within-group"><span class="header-section-number">2.1.2</span> Within-group</h4>
+<section id="paired-treatment" class="level5" data-number="2.1.2.1">
+<h5 data-number="2.1.2.1" class="anchored" data-anchor-id="paired-treatment"><span class="header-section-number">2.1.2.1</span> Paired treatment</h5>
+<ul>
+<li>Multiple testing correction: <strong>paired</strong> -none</li>
+<li>Statistical test: <strong>Wilcoxon</strong></li>
+</ul>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-b24f0e9752d4958ac759" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-b24f0e9752d4958ac759">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity comparisons<\/caption>","data":[["diet_1_visit_1","diet_2_visit_1","diet_1_visit_1","diet_1_visit_2"],["diet_1_visit_2","diet_2_visit_2","diet_2_visit_1","diet_2_visit_2"],[3.97,4.02,3.97,3.91],[3.91,4.08,4.02,4.08],[-0.02,0.02,0.02,0.06],[0.46,0.46,0.46,0.188]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>group1<\/th>\n      <th>group2<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>logFC<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[2,3,4,5]},{"name":"group1","targets":0},{"name":"group2","targets":1},{"name":"mean1","targets":2},{"name":"mean2","targets":3},{"name":"logFC","targets":4},{"name":"p.adj","targets":5}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-3a4dc764d8da97f14225" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3a4dc764d8da97f14225">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity paired between timepoint(1 and 2)<\/caption>","data":[["1","2","3","4"],[3.89,4.07,3.98,4.05],[3.86,4.12,4.04,3.96],[-0.01,0.03,0.02,-0.03],[0.8159999999999999,0.368,0.127,0.074]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>meal_group<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>log2FC<\/th>\n      <th>p.value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":3,"dom":"Bfrtip","columnDefs":[{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[1,2,3,4]},{"name":"meal_group","targets":0},{"name":"mean1","targets":1},{"name":"mean2","targets":2},{"name":"log2FC","targets":3},{"name":"p.value","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[3,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
-<section id="alternate-analyses" class="level2">
-<h2 class="anchored" data-anchor-id="alternate-analyses">Alternate analyses</h2>
+</section>
+</section>
+</section>
+<section id="alternate-analyses" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="alternate-analyses"><span class="header-section-number">3</span> Alternate analyses</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="spoxsuvkhz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#spoxsuvkhz table {
+<div id="saxdfwafzk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#saxdfwafzk table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#spoxsuvkhz thead, #spoxsuvkhz tbody, #spoxsuvkhz tfoot, #spoxsuvkhz tr, #spoxsuvkhz td, #spoxsuvkhz th {
+#saxdfwafzk thead, #saxdfwafzk tbody, #saxdfwafzk tfoot, #saxdfwafzk tr, #saxdfwafzk td, #saxdfwafzk th {
   border-style: none;
 }
 
-#spoxsuvkhz p {
+#saxdfwafzk p {
   margin: 0;
   padding: 0;
 }
 
-#spoxsuvkhz .gt_table {
+#saxdfwafzk .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -158,12 +203,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#spoxsuvkhz .gt_caption {
+#saxdfwafzk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#spoxsuvkhz .gt_title {
+#saxdfwafzk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -175,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#spoxsuvkhz .gt_subtitle {
+#saxdfwafzk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -187,7 +232,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#spoxsuvkhz .gt_heading {
+#saxdfwafzk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -199,13 +244,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#spoxsuvkhz .gt_bottom_border {
+#saxdfwafzk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#spoxsuvkhz .gt_col_headings {
+#saxdfwafzk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -220,7 +265,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#spoxsuvkhz .gt_col_heading {
+#saxdfwafzk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -240,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#spoxsuvkhz .gt_column_spanner_outer {
+#saxdfwafzk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -252,15 +297,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#spoxsuvkhz .gt_column_spanner_outer:first-child {
+#saxdfwafzk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#spoxsuvkhz .gt_column_spanner_outer:last-child {
+#saxdfwafzk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#spoxsuvkhz .gt_column_spanner {
+#saxdfwafzk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -272,11 +317,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#spoxsuvkhz .gt_spanner_row {
+#saxdfwafzk .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#spoxsuvkhz .gt_group_heading {
+#saxdfwafzk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -302,7 +347,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#spoxsuvkhz .gt_empty_group_heading {
+#saxdfwafzk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -317,15 +362,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#spoxsuvkhz .gt_from_md > :first-child {
+#saxdfwafzk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#spoxsuvkhz .gt_from_md > :last-child {
+#saxdfwafzk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#spoxsuvkhz .gt_row {
+#saxdfwafzk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -344,7 +389,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#spoxsuvkhz .gt_stub {
+#saxdfwafzk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -357,7 +402,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#spoxsuvkhz .gt_stub_row_group {
+#saxdfwafzk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -371,15 +416,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#spoxsuvkhz .gt_row_group_first td {
+#saxdfwafzk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#spoxsuvkhz .gt_row_group_first th {
+#saxdfwafzk .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#spoxsuvkhz .gt_summary_row {
+#saxdfwafzk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -389,16 +434,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#spoxsuvkhz .gt_first_summary_row {
+#saxdfwafzk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#spoxsuvkhz .gt_first_summary_row.thick {
+#saxdfwafzk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#spoxsuvkhz .gt_last_summary_row {
+#saxdfwafzk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -408,7 +453,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#spoxsuvkhz .gt_grand_summary_row {
+#saxdfwafzk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -418,7 +463,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#spoxsuvkhz .gt_first_grand_summary_row {
+#saxdfwafzk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -428,7 +473,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#spoxsuvkhz .gt_last_grand_summary_row_top {
+#saxdfwafzk .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -438,11 +483,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#spoxsuvkhz .gt_striped {
+#saxdfwafzk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#spoxsuvkhz .gt_table_body {
+#saxdfwafzk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -451,7 +496,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#spoxsuvkhz .gt_footnotes {
+#saxdfwafzk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -465,7 +510,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#spoxsuvkhz .gt_footnote {
+#saxdfwafzk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -474,7 +519,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#spoxsuvkhz .gt_sourcenotes {
+#saxdfwafzk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -488,7 +533,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#spoxsuvkhz .gt_sourcenote {
+#saxdfwafzk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -496,72 +541,72 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#spoxsuvkhz .gt_left {
+#saxdfwafzk .gt_left {
   text-align: left;
 }
 
-#spoxsuvkhz .gt_center {
+#saxdfwafzk .gt_center {
   text-align: center;
 }
 
-#spoxsuvkhz .gt_right {
+#saxdfwafzk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#spoxsuvkhz .gt_font_normal {
+#saxdfwafzk .gt_font_normal {
   font-weight: normal;
 }
 
-#spoxsuvkhz .gt_font_bold {
+#saxdfwafzk .gt_font_bold {
   font-weight: bold;
 }
 
-#spoxsuvkhz .gt_font_italic {
+#saxdfwafzk .gt_font_italic {
   font-style: italic;
 }
 
-#spoxsuvkhz .gt_super {
+#saxdfwafzk .gt_super {
   font-size: 65%;
 }
 
-#spoxsuvkhz .gt_footnote_marks {
+#saxdfwafzk .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#spoxsuvkhz .gt_asterisk {
+#saxdfwafzk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#spoxsuvkhz .gt_indent_1 {
+#saxdfwafzk .gt_indent_1 {
   text-indent: 5px;
 }
 
-#spoxsuvkhz .gt_indent_2 {
+#saxdfwafzk .gt_indent_2 {
   text-indent: 10px;
 }
 
-#spoxsuvkhz .gt_indent_3 {
+#saxdfwafzk .gt_indent_3 {
   text-indent: 15px;
 }
 
-#spoxsuvkhz .gt_indent_4 {
+#saxdfwafzk .gt_indent_4 {
   text-indent: 20px;
 }
 
-#spoxsuvkhz .gt_indent_5 {
+#saxdfwafzk .gt_indent_5 {
   text-indent: 25px;
 }
 
-#spoxsuvkhz .katex-display {
+#saxdfwafzk .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#spoxsuvkhz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#saxdfwafzk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -579,11 +624,11 @@ ul.task-list li input[type="checkbox"] {
 <thead>
 <tr class="header gt_col_headings gt_spanner_row">
 <th rowspan="2" id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
-<th colspan="3" id="**after**" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
-<strong>after</strong>
-</div></th>
 <th colspan="3" id="**before**" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
 <strong>before</strong>
+</div></th>
+<th colspan="3" id="**after**" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>after</strong>
 </div></th>
 </tr>
 <tr class="odd gt_col_headings">
@@ -598,11 +643,11 @@ ul.task-list li input[type="checkbox"] {
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">(Intercept)</td>
-<td class="gt_row gt_center" headers="estimate_1">3.5</td>
-<td class="gt_row gt_center" headers="conf.low_1">2.9, 4.1</td>
+<td class="gt_row gt_center" headers="estimate_1">3.6</td>
+<td class="gt_row gt_center" headers="conf.low_1">3.1, 4.0</td>
 <td class="gt_row gt_center" headers="p.value_1">&lt;0.001</td>
-<td class="gt_row gt_center" headers="estimate_2">3.6</td>
-<td class="gt_row gt_center" headers="conf.low_2">3.1, 4.0</td>
+<td class="gt_row gt_center" headers="estimate_2">3.5</td>
+<td class="gt_row gt_center" headers="conf.low_2">2.9, 4.1</td>
 <td class="gt_row gt_center" headers="p.value_2">&lt;0.001</td>
 </tr>
 <tr class="even">
@@ -631,38 +676,38 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2</td>
-<td class="gt_row gt_center" headers="estimate_1">0.28</td>
-<td class="gt_row gt_center" headers="conf.low_1">-0.02, 0.58</td>
-<td class="gt_row gt_center" headers="p.value_1">0.065</td>
-<td class="gt_row gt_center" headers="estimate_2">0.20</td>
-<td class="gt_row gt_center" headers="conf.low_2">-0.03, 0.44</td>
-<td class="gt_row gt_center" headers="p.value_2">0.085</td>
+<td class="gt_row gt_center" headers="estimate_1">0.21</td>
+<td class="gt_row gt_center" headers="conf.low_1">-0.03, 0.44</td>
+<td class="gt_row gt_center" headers="p.value_1">0.084</td>
+<td class="gt_row gt_center" headers="estimate_2">0.28</td>
+<td class="gt_row gt_center" headers="conf.low_2">-0.02, 0.58</td>
+<td class="gt_row gt_center" headers="p.value_2">0.065</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;3</td>
-<td class="gt_row gt_center" headers="estimate_1">0.20</td>
-<td class="gt_row gt_center" headers="conf.low_1">-0.09, 0.50</td>
-<td class="gt_row gt_center" headers="p.value_1">0.2</td>
-<td class="gt_row gt_center" headers="estimate_2">0.11</td>
-<td class="gt_row gt_center" headers="conf.low_2">-0.12, 0.35</td>
-<td class="gt_row gt_center" headers="p.value_2">0.3</td>
+<td class="gt_row gt_center" headers="estimate_1">0.12</td>
+<td class="gt_row gt_center" headers="conf.low_1">-0.12, 0.35</td>
+<td class="gt_row gt_center" headers="p.value_1">0.3</td>
+<td class="gt_row gt_center" headers="estimate_2">0.20</td>
+<td class="gt_row gt_center" headers="conf.low_2">-0.09, 0.50</td>
+<td class="gt_row gt_center" headers="p.value_2">0.2</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;4</td>
-<td class="gt_row gt_center" headers="estimate_1">0.10</td>
-<td class="gt_row gt_center" headers="conf.low_1">-0.20, 0.39</td>
-<td class="gt_row gt_center" headers="p.value_1">0.5</td>
-<td class="gt_row gt_center" headers="estimate_2">0.17</td>
-<td class="gt_row gt_center" headers="conf.low_2">-0.06, 0.40</td>
-<td class="gt_row gt_center" headers="p.value_2">0.2</td>
+<td class="gt_row gt_center" headers="estimate_1">0.17</td>
+<td class="gt_row gt_center" headers="conf.low_1">-0.06, 0.40</td>
+<td class="gt_row gt_center" headers="p.value_1">0.2</td>
+<td class="gt_row gt_center" headers="estimate_2">0.10</td>
+<td class="gt_row gt_center" headers="conf.low_2">-0.20, 0.39</td>
+<td class="gt_row gt_center" headers="p.value_2">0.5</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">age</td>
 <td class="gt_row gt_center" headers="estimate_1">0.01</td>
-<td class="gt_row gt_center" headers="conf.low_1">0.00, 0.02</td>
+<td class="gt_row gt_center" headers="conf.low_1">0.00, 0.01</td>
 <td class="gt_row gt_center" headers="p.value_1">0.2</td>
 <td class="gt_row gt_center" headers="estimate_2">0.01</td>
-<td class="gt_row gt_center" headers="conf.low_2">0.00, 0.01</td>
+<td class="gt_row gt_center" headers="conf.low_2">0.00, 0.02</td>
 <td class="gt_row gt_center" headers="p.value_2">0.2</td>
 </tr>
 </tbody><tfoot class="gt_footnotes">
@@ -678,23 +723,23 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="ykpupdfmsd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ykpupdfmsd table {
+<div id="neusiquunh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#neusiquunh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ykpupdfmsd thead, #ykpupdfmsd tbody, #ykpupdfmsd tfoot, #ykpupdfmsd tr, #ykpupdfmsd td, #ykpupdfmsd th {
+#neusiquunh thead, #neusiquunh tbody, #neusiquunh tfoot, #neusiquunh tr, #neusiquunh td, #neusiquunh th {
   border-style: none;
 }
 
-#ykpupdfmsd p {
+#neusiquunh p {
   margin: 0;
   padding: 0;
 }
 
-#ykpupdfmsd .gt_table {
+#neusiquunh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -720,12 +765,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#ykpupdfmsd .gt_caption {
+#neusiquunh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ykpupdfmsd .gt_title {
+#neusiquunh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -737,7 +782,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#ykpupdfmsd .gt_subtitle {
+#neusiquunh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -749,7 +794,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#ykpupdfmsd .gt_heading {
+#neusiquunh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -761,13 +806,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#ykpupdfmsd .gt_bottom_border {
+#neusiquunh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ykpupdfmsd .gt_col_headings {
+#neusiquunh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -782,7 +827,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#ykpupdfmsd .gt_col_heading {
+#neusiquunh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -802,7 +847,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#ykpupdfmsd .gt_column_spanner_outer {
+#neusiquunh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -814,15 +859,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#ykpupdfmsd .gt_column_spanner_outer:first-child {
+#neusiquunh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ykpupdfmsd .gt_column_spanner_outer:last-child {
+#neusiquunh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ykpupdfmsd .gt_column_spanner {
+#neusiquunh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -834,11 +879,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#ykpupdfmsd .gt_spanner_row {
+#neusiquunh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ykpupdfmsd .gt_group_heading {
+#neusiquunh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -864,7 +909,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#ykpupdfmsd .gt_empty_group_heading {
+#neusiquunh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -879,15 +924,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#ykpupdfmsd .gt_from_md > :first-child {
+#neusiquunh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ykpupdfmsd .gt_from_md > :last-child {
+#neusiquunh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ykpupdfmsd .gt_row {
+#neusiquunh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -906,7 +951,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#ykpupdfmsd .gt_stub {
+#neusiquunh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -919,7 +964,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ykpupdfmsd .gt_stub_row_group {
+#neusiquunh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -933,15 +978,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#ykpupdfmsd .gt_row_group_first td {
+#neusiquunh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ykpupdfmsd .gt_row_group_first th {
+#neusiquunh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ykpupdfmsd .gt_summary_row {
+#neusiquunh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -951,16 +996,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ykpupdfmsd .gt_first_summary_row {
+#neusiquunh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ykpupdfmsd .gt_first_summary_row.thick {
+#neusiquunh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ykpupdfmsd .gt_last_summary_row {
+#neusiquunh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -970,7 +1015,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#ykpupdfmsd .gt_grand_summary_row {
+#neusiquunh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -980,7 +1025,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ykpupdfmsd .gt_first_grand_summary_row {
+#neusiquunh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -990,7 +1035,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#ykpupdfmsd .gt_last_grand_summary_row_top {
+#neusiquunh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1000,11 +1045,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#ykpupdfmsd .gt_striped {
+#neusiquunh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ykpupdfmsd .gt_table_body {
+#neusiquunh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1013,7 +1058,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#ykpupdfmsd .gt_footnotes {
+#neusiquunh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1027,7 +1072,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#ykpupdfmsd .gt_footnote {
+#neusiquunh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1036,7 +1081,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ykpupdfmsd .gt_sourcenotes {
+#neusiquunh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1050,7 +1095,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#ykpupdfmsd .gt_sourcenote {
+#neusiquunh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1058,72 +1103,72 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#ykpupdfmsd .gt_left {
+#neusiquunh .gt_left {
   text-align: left;
 }
 
-#ykpupdfmsd .gt_center {
+#neusiquunh .gt_center {
   text-align: center;
 }
 
-#ykpupdfmsd .gt_right {
+#neusiquunh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ykpupdfmsd .gt_font_normal {
+#neusiquunh .gt_font_normal {
   font-weight: normal;
 }
 
-#ykpupdfmsd .gt_font_bold {
+#neusiquunh .gt_font_bold {
   font-weight: bold;
 }
 
-#ykpupdfmsd .gt_font_italic {
+#neusiquunh .gt_font_italic {
   font-style: italic;
 }
 
-#ykpupdfmsd .gt_super {
+#neusiquunh .gt_super {
   font-size: 65%;
 }
 
-#ykpupdfmsd .gt_footnote_marks {
+#neusiquunh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ykpupdfmsd .gt_asterisk {
+#neusiquunh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ykpupdfmsd .gt_indent_1 {
+#neusiquunh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ykpupdfmsd .gt_indent_2 {
+#neusiquunh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ykpupdfmsd .gt_indent_3 {
+#neusiquunh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ykpupdfmsd .gt_indent_4 {
+#neusiquunh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ykpupdfmsd .gt_indent_5 {
+#neusiquunh .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ykpupdfmsd .katex-display {
+#neusiquunh .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ykpupdfmsd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#neusiquunh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1147,7 +1192,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">(Intercept)</td>
 <td class="gt_row gt_center" headers="estimate">3.5</td>
-<td class="gt_row gt_center" headers="conf.low">3.2, 3.9</td>
+<td class="gt_row gt_center" headers="conf.low">-Inf, Inf</td>
 <td class="gt_row gt_center" headers="p.value">&lt;0.001</td>
 </tr>
 <tr class="even">
@@ -1156,7 +1201,7 @@ ul.task-list li input[type="checkbox"] {
 </td>
 <td class="gt_row gt_center" headers="conf.low"><br>
 </td>
-<td class="gt_row gt_center" headers="p.value">0.11</td>
+<td class="gt_row gt_center" headers="p.value">0.4</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
@@ -1168,20 +1213,20 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2</td>
 <td class="gt_row gt_center" headers="estimate">0.23</td>
-<td class="gt_row gt_center" headers="conf.low">0.04, 0.42</td>
-<td class="gt_row gt_center" headers="p.value">0.017</td>
+<td class="gt_row gt_center" headers="conf.low">-Inf, Inf</td>
+<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;3</td>
 <td class="gt_row gt_center" headers="estimate">0.16</td>
-<td class="gt_row gt_center" headers="conf.low">-0.03, 0.34</td>
-<td class="gt_row gt_center" headers="p.value">0.094</td>
+<td class="gt_row gt_center" headers="conf.low">-Inf, Inf</td>
+<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;4</td>
 <td class="gt_row gt_center" headers="estimate">0.13</td>
-<td class="gt_row gt_center" headers="conf.low">-0.05, 0.31</td>
-<td class="gt_row gt_center" headers="p.value">0.2</td>
+<td class="gt_row gt_center" headers="conf.low">-Inf, Inf</td>
+<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">age</td>
@@ -1219,8 +1264,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="data-summary" class="level2">
-<h2 class="anchored" data-anchor-id="data-summary">Data Summary</h2>
+<section id="data-summary" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="data-summary"><span class="header-section-number">4</span> Data Summary</h2>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>class: TreeSummarizedExperiment 
@@ -1241,8 +1286,8 @@ colTree: NULL</code></pre>
 </div>
 </div>
 </section>
-<section id="version-info" class="level2">
-<h2 class="anchored" data-anchor-id="version-info">Version info</h2>
+<section id="version-info" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="version-info"><span class="header-section-number">5</span> Version info</h2>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.4.2 (2024-10-31)
@@ -1329,7 +1374,7 @@ loaded via a namespace (and not attached):
  [65] viridis_0.6.5               ggtree_3.13.1              
  [67] DECIPHER_3.1.4              cowplot_1.1.3              
  [69] class_7.3-22                Hmisc_5.2-0                
- [71] pillar_1.9.0                nlme_3.1-165               
+ [71] pillar_1.9.0                nlme_3.1-166               
  [73] iterators_1.0.14            decontam_1.25.0            
  [75] compiler_4.4.2              beachmat_2.21.6            
  [77] stringi_1.8.4               DescTools_0.99.57          
@@ -1366,7 +1411,7 @@ loaded via a namespace (and not attached):
 [139] insight_1.0.0               carData_3.0-5              
 [141] rpart_4.1.23                farver_2.1.2               
 [143] tidygraph_1.3.1             mgcv_1.9-1                 
-[145] yaml_2.3.10                 foreign_0.8-86             
+[145] yaml_2.3.10                 foreign_0.8-87             
 [147] cli_3.6.3                   lifecycle_1.0.4            
 [149] mvtnorm_1.3-2               bluster_1.15.1             
 [151] backports_1.5.0             BiocParallel_1.39.0        
@@ -1380,10 +1425,10 @@ loaded via a namespace (and not attached):
 [167] janeaustenr_1.0.0           jquerylib_0.1.4            
 [169] lazyeval_0.2.2              htmltools_0.5.8.1          
 [171] glue_1.8.0                  broom.helpers_1.17.0       
-[173] treeio_1.29.1               boot_1.3-30                
+[173] treeio_1.29.1               boot_1.3-31                
 [175] igraph_2.1.1                R6_2.5.1                   
 [177] broom.mixed_0.2.9.6         labeling_0.4.3             
-[179] Rmpfr_1.0-0                 cluster_2.1.6              
+[179] Rmpfr_1.0-0                 cluster_2.1.8              
 [181] rngtools_1.5.2              aplot_0.2.3                
 [183] nloptr_2.1.1                DirichletMultinomial_1.47.0
 [185] DelayedArray_0.31.13        tidyselect_1.2.1           

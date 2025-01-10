@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Nitin Bayal">
+<meta name="author" content="Muluh">
 
 <title>Alpha Diversity</title>
 <style>
@@ -48,11 +48,11 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="fullcontent">
+<body>
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-full">
 
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -61,12 +61,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Nitin Bayal </p>
+             <p>Muluh </p>
           </div>
   </div>
     
@@ -79,60 +79,105 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>This document reports on a microbiota project results of alpha diversity across different diets and visits.</p>
+<section id="community-diversity" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="community-diversity"><span class="header-section-number">1</span> Community diversity</h2>
 </section>
-<section id="group-wise-comparisons" class="level2">
-<h2 class="anchored" data-anchor-id="group-wise-comparisons">Group-wise comparisons</h2>
+<section id="group-wise-comparisons" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="group-wise-comparisons"><span class="header-section-number">2</span> Group-wise comparisons</h2>
 <ul>
 <li><strong>Index:</strong> observed</li>
-<li><strong>Group variable:</strong> group</li>
+<li><strong>Group variable:</strong> meal_group</li>
 <li><strong>Multiple testing correction:</strong> fdr</li>
+<li><strong>Statistical test</strong> Wilcoxon</li>
 </ul>
-</section>
-<section id="visualization" class="level2">
-<h2 class="anchored" data-anchor-id="visualization">Visualization</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="alpha_files/figure-html/visualize-plot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="table-of-the-top-findings" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="table-of-the-top-findings"><span class="header-section-number">2.1</span> Table of the top findings</h3>
+<section id="across-group" class="level4" data-number="2.1.1">
+<h4 data-number="2.1.1" class="anchored" data-anchor-id="across-group"><span class="header-section-number">2.1.1</span> Across-group</h4>
+<section id="before-treatment" class="level5" data-number="2.1.1.1">
+<h5 data-number="2.1.1.1" class="anchored" data-anchor-id="before-treatment"><span class="header-section-number">2.1.1.1</span> Before treatment</h5>
+<ul>
+<li>Multiple testing correction: <strong>fdr</strong></li>
+<li>Statistical test: <strong>Wilcoxon</strong></li>
+</ul>
 <div class="cell">
 <div class="cell-output-display">
-<div>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-4edb5e269758d6cfcb38" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-4edb5e269758d6cfcb38">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity comparisons before Treatment<\/caption>","data":[["1","1","1","2","2","3"],["2","3","4","3","4","4"],[206.44,206.44,206.44,234,234,229.33],[234,229.33,215.83,229.33,215.83,215.83],[0.18,0.15,0.06,-0.03,-0.12,-0.09],[0.465,0.806,0.908,0.888,0.806,0.806]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>group1<\/th>\n      <th>group2<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>log2FC<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":3,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[2,3,4,5]},{"name":"group1","targets":0},{"name":"group2","targets":1},{"name":"mean1","targets":2},{"name":"mean2","targets":3},{"name":"log2FC","targets":4},{"name":"p.adj","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[3,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="after-treatment" class="level5" data-number="2.1.1.2">
+<h5 data-number="2.1.1.2" class="anchored" data-anchor-id="after-treatment"><span class="header-section-number">2.1.1.2</span> After treatment</h5>
+<ul>
+<li>Multiple testing correction: <strong>fdr</strong></li>
+<li>Statistical test: <strong>Wilcoxon</strong></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-9bb25309dc2ca3798ff3" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-9bb25309dc2ca3798ff3">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity comparisons after Treatment<\/caption>","data":[["1","1","1","2","2","3"],["2","3","4","3","4","4"],[209.69,209.69,209.69,232.85,232.85,233.87],[232.85,233.87,204.97,233.87,204.97,204.97],[0.15,0.16,-0.03,0.01,-0.18,-0.19],[0.351,0.351,0.717,0.717,0.351,0.351]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>group1<\/th>\n      <th>group2<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>log2FC<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":3,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[2,3,4,5]},{"name":"group1","targets":0},{"name":"group2","targets":1},{"name":"mean1","targets":2},{"name":"mean2","targets":3},{"name":"log2FC","targets":4},{"name":"p.adj","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[3,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="alpha_files/figure-html/boxplot-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="alpha_files/figure-html/viz-div_change-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="table-of-the-top-findings" class="level2">
-<h2 class="anchored" data-anchor-id="table-of-the-top-findings">Table of the top findings</h2>
+</section>
+<section id="within-group" class="level4" data-number="2.1.2">
+<h4 data-number="2.1.2" class="anchored" data-anchor-id="within-group"><span class="header-section-number">2.1.2</span> Within-group</h4>
+<section id="paired-treatment" class="level5" data-number="2.1.2.1">
+<h5 data-number="2.1.2.1" class="anchored" data-anchor-id="paired-treatment"><span class="header-section-number">2.1.2.1</span> Paired treatment</h5>
+<ul>
+<li>Multiple testing correction: <strong>paired</strong> -none</li>
+<li>Statistical test: <strong>Wilcoxon</strong></li>
+</ul>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-ce36b259580113ee734f" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-ce36b259580113ee734f">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity comparisons<\/caption>","data":[["diet_1_visit_1","diet_2_visit_1","diet_1_visit_1","diet_1_visit_2"],["diet_1_visit_2","diet_2_visit_2","diet_2_visit_1","diet_2_visit_2"],[211.16,231.52,211.16,207.15],[207.15,233.18,231.52,233.18],[-0.03,0.01,0.13,0.17],[0.922,0.922,0.273,0.222]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>group1<\/th>\n      <th>group2<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>logFC<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[2,3,4,5]},{"name":"group1","targets":0},{"name":"group2","targets":1},{"name":"mean1","targets":2},{"name":"mean2","targets":3},{"name":"logFC","targets":4},{"name":"p.adj","targets":5}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-f4d6d38bb1b5088acf74" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f4d6d38bb1b5088acf74">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity paired between timepoint(1 and 2)<\/caption>","data":[["1","2","3","4"],[206.44,234,229.33,215.83],[209.69,232.85,233.87,204.97],[0.06,0.07000000000000001,0.02,-0.06],[0.8159999999999999,0.85,0.177,0.017]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>meal_group<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>log2FC<\/th>\n      <th>p.value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":3,"dom":"Bfrtip","columnDefs":[{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[1,2,3,4]},{"name":"meal_group","targets":0},{"name":"mean1","targets":1},{"name":"mean2","targets":2},{"name":"log2FC","targets":3},{"name":"p.value","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[3,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
-<section id="alternate-analyses" class="level2">
-<h2 class="anchored" data-anchor-id="alternate-analyses">Alternate analyses</h2>
+</section>
+</section>
+</section>
+<section id="alternate-analyses" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="alternate-analyses"><span class="header-section-number">3</span> Alternate analyses</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="owszybtotp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#owszybtotp table {
+<div id="ogxywplyst" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ogxywplyst table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#owszybtotp thead, #owszybtotp tbody, #owszybtotp tfoot, #owszybtotp tr, #owszybtotp td, #owszybtotp th {
+#ogxywplyst thead, #ogxywplyst tbody, #ogxywplyst tfoot, #ogxywplyst tr, #ogxywplyst td, #ogxywplyst th {
   border-style: none;
 }
 
-#owszybtotp p {
+#ogxywplyst p {
   margin: 0;
   padding: 0;
 }
 
-#owszybtotp .gt_table {
+#ogxywplyst .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -158,12 +203,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#owszybtotp .gt_caption {
+#ogxywplyst .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#owszybtotp .gt_title {
+#ogxywplyst .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -175,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#owszybtotp .gt_subtitle {
+#ogxywplyst .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -187,7 +232,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#owszybtotp .gt_heading {
+#ogxywplyst .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -199,13 +244,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#owszybtotp .gt_bottom_border {
+#ogxywplyst .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#owszybtotp .gt_col_headings {
+#ogxywplyst .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -220,7 +265,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#owszybtotp .gt_col_heading {
+#ogxywplyst .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -240,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#owszybtotp .gt_column_spanner_outer {
+#ogxywplyst .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -252,15 +297,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#owszybtotp .gt_column_spanner_outer:first-child {
+#ogxywplyst .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#owszybtotp .gt_column_spanner_outer:last-child {
+#ogxywplyst .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#owszybtotp .gt_column_spanner {
+#ogxywplyst .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -272,11 +317,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#owszybtotp .gt_spanner_row {
+#ogxywplyst .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#owszybtotp .gt_group_heading {
+#ogxywplyst .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -302,7 +347,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#owszybtotp .gt_empty_group_heading {
+#ogxywplyst .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -317,15 +362,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#owszybtotp .gt_from_md > :first-child {
+#ogxywplyst .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#owszybtotp .gt_from_md > :last-child {
+#ogxywplyst .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#owszybtotp .gt_row {
+#ogxywplyst .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -344,7 +389,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#owszybtotp .gt_stub {
+#ogxywplyst .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -357,7 +402,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#owszybtotp .gt_stub_row_group {
+#ogxywplyst .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -371,15 +416,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#owszybtotp .gt_row_group_first td {
+#ogxywplyst .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#owszybtotp .gt_row_group_first th {
+#ogxywplyst .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#owszybtotp .gt_summary_row {
+#ogxywplyst .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -389,16 +434,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#owszybtotp .gt_first_summary_row {
+#ogxywplyst .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#owszybtotp .gt_first_summary_row.thick {
+#ogxywplyst .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#owszybtotp .gt_last_summary_row {
+#ogxywplyst .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -408,7 +453,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#owszybtotp .gt_grand_summary_row {
+#ogxywplyst .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -418,7 +463,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#owszybtotp .gt_first_grand_summary_row {
+#ogxywplyst .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -428,7 +473,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#owszybtotp .gt_last_grand_summary_row_top {
+#ogxywplyst .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -438,11 +483,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#owszybtotp .gt_striped {
+#ogxywplyst .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#owszybtotp .gt_table_body {
+#ogxywplyst .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -451,7 +496,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#owszybtotp .gt_footnotes {
+#ogxywplyst .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -465,7 +510,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#owszybtotp .gt_footnote {
+#ogxywplyst .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -474,7 +519,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#owszybtotp .gt_sourcenotes {
+#ogxywplyst .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -488,7 +533,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#owszybtotp .gt_sourcenote {
+#ogxywplyst .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -496,72 +541,72 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#owszybtotp .gt_left {
+#ogxywplyst .gt_left {
   text-align: left;
 }
 
-#owszybtotp .gt_center {
+#ogxywplyst .gt_center {
   text-align: center;
 }
 
-#owszybtotp .gt_right {
+#ogxywplyst .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#owszybtotp .gt_font_normal {
+#ogxywplyst .gt_font_normal {
   font-weight: normal;
 }
 
-#owszybtotp .gt_font_bold {
+#ogxywplyst .gt_font_bold {
   font-weight: bold;
 }
 
-#owszybtotp .gt_font_italic {
+#ogxywplyst .gt_font_italic {
   font-style: italic;
 }
 
-#owszybtotp .gt_super {
+#ogxywplyst .gt_super {
   font-size: 65%;
 }
 
-#owszybtotp .gt_footnote_marks {
+#ogxywplyst .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#owszybtotp .gt_asterisk {
+#ogxywplyst .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#owszybtotp .gt_indent_1 {
+#ogxywplyst .gt_indent_1 {
   text-indent: 5px;
 }
 
-#owszybtotp .gt_indent_2 {
+#ogxywplyst .gt_indent_2 {
   text-indent: 10px;
 }
 
-#owszybtotp .gt_indent_3 {
+#ogxywplyst .gt_indent_3 {
   text-indent: 15px;
 }
 
-#owszybtotp .gt_indent_4 {
+#ogxywplyst .gt_indent_4 {
   text-indent: 20px;
 }
 
-#owszybtotp .gt_indent_5 {
+#ogxywplyst .gt_indent_5 {
   text-indent: 25px;
 }
 
-#owszybtotp .katex-display {
+#ogxywplyst .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#owszybtotp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ogxywplyst div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -579,11 +624,11 @@ ul.task-list li input[type="checkbox"] {
 <thead>
 <tr class="header gt_col_headings gt_spanner_row">
 <th rowspan="2" id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
-<th colspan="3" id="**after**" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
-<strong>after</strong>
-</div></th>
 <th colspan="3" id="**before**" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
 <strong>before</strong>
+</div></th>
+<th colspan="3" id="**after**" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner">
+<strong>after</strong>
 </div></th>
 </tr>
 <tr class="odd gt_col_headings">
@@ -598,12 +643,12 @@ ul.task-list li input[type="checkbox"] {
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">(Intercept)</td>
-<td class="gt_row gt_center" headers="estimate_1">144</td>
-<td class="gt_row gt_center" headers="conf.low_1">59, 229</td>
-<td class="gt_row gt_center" headers="p.value_1">0.001</td>
-<td class="gt_row gt_center" headers="estimate_2">152</td>
-<td class="gt_row gt_center" headers="conf.low_2">67, 236</td>
-<td class="gt_row gt_center" headers="p.value_2">&lt;0.001</td>
+<td class="gt_row gt_center" headers="estimate_1">151</td>
+<td class="gt_row gt_center" headers="conf.low_1">67, 236</td>
+<td class="gt_row gt_center" headers="p.value_1">&lt;0.001</td>
+<td class="gt_row gt_center" headers="estimate_2">144</td>
+<td class="gt_row gt_center" headers="conf.low_2">59, 229</td>
+<td class="gt_row gt_center" headers="p.value_2">0.001</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label">meal_group</td>
@@ -611,12 +656,12 @@ ul.task-list li input[type="checkbox"] {
 </td>
 <td class="gt_row gt_center" headers="conf.low_1"><br>
 </td>
-<td class="gt_row gt_center" headers="p.value_1">0.3</td>
+<td class="gt_row gt_center" headers="p.value_1">0.4</td>
 <td class="gt_row gt_center" headers="estimate_2"><br>
 </td>
 <td class="gt_row gt_center" headers="conf.low_2"><br>
 </td>
-<td class="gt_row gt_center" headers="p.value_2">0.4</td>
+<td class="gt_row gt_center" headers="p.value_2">0.3</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
@@ -631,39 +676,39 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2</td>
-<td class="gt_row gt_center" headers="estimate_1">28</td>
-<td class="gt_row gt_center" headers="conf.low_1">-16, 72</td>
-<td class="gt_row gt_center" headers="p.value_1">0.2</td>
-<td class="gt_row gt_center" headers="estimate_2">32</td>
-<td class="gt_row gt_center" headers="conf.low_2">-11, 75</td>
-<td class="gt_row gt_center" headers="p.value_2">0.14</td>
+<td class="gt_row gt_center" headers="estimate_1">32</td>
+<td class="gt_row gt_center" headers="conf.low_1">-11, 75</td>
+<td class="gt_row gt_center" headers="p.value_1">0.14</td>
+<td class="gt_row gt_center" headers="estimate_2">28</td>
+<td class="gt_row gt_center" headers="conf.low_2">-16, 72</td>
+<td class="gt_row gt_center" headers="p.value_2">0.2</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;3</td>
-<td class="gt_row gt_center" headers="estimate_1">30</td>
-<td class="gt_row gt_center" headers="conf.low_1">-14, 73</td>
+<td class="gt_row gt_center" headers="estimate_1">28</td>
+<td class="gt_row gt_center" headers="conf.low_1">-15, 71</td>
 <td class="gt_row gt_center" headers="p.value_1">0.2</td>
-<td class="gt_row gt_center" headers="estimate_2">27</td>
-<td class="gt_row gt_center" headers="conf.low_2">-15, 70</td>
+<td class="gt_row gt_center" headers="estimate_2">30</td>
+<td class="gt_row gt_center" headers="conf.low_2">-14, 73</td>
 <td class="gt_row gt_center" headers="p.value_2">0.2</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;4</td>
-<td class="gt_row gt_center" headers="estimate_1">-3.8</td>
-<td class="gt_row gt_center" headers="conf.low_1">-47, 39</td>
-<td class="gt_row gt_center" headers="p.value_1">0.9</td>
-<td class="gt_row gt_center" headers="estimate_2">10</td>
-<td class="gt_row gt_center" headers="conf.low_2">-32, 53</td>
-<td class="gt_row gt_center" headers="p.value_2">0.6</td>
+<td class="gt_row gt_center" headers="estimate_1">10</td>
+<td class="gt_row gt_center" headers="conf.low_1">-32, 53</td>
+<td class="gt_row gt_center" headers="p.value_1">0.6</td>
+<td class="gt_row gt_center" headers="estimate_2">-3.9</td>
+<td class="gt_row gt_center" headers="conf.low_2">-47, 39</td>
+<td class="gt_row gt_center" headers="p.value_2">0.9</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">age</td>
-<td class="gt_row gt_center" headers="estimate_1">1.2</td>
-<td class="gt_row gt_center" headers="conf.low_1">-0.25, 2.7</td>
-<td class="gt_row gt_center" headers="p.value_1">0.10</td>
-<td class="gt_row gt_center" headers="estimate_2">1.0</td>
-<td class="gt_row gt_center" headers="conf.low_2">-0.45, 2.5</td>
-<td class="gt_row gt_center" headers="p.value_2">0.2</td>
+<td class="gt_row gt_center" headers="estimate_1">1.0</td>
+<td class="gt_row gt_center" headers="conf.low_1">-0.44, 2.5</td>
+<td class="gt_row gt_center" headers="p.value_1">0.2</td>
+<td class="gt_row gt_center" headers="estimate_2">1.2</td>
+<td class="gt_row gt_center" headers="conf.low_2">-0.25, 2.7</td>
+<td class="gt_row gt_center" headers="p.value_2">0.10</td>
 </tr>
 </tbody><tfoot class="gt_footnotes">
 <tr class="odd">
@@ -678,23 +723,23 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div id="vpeyznpwpj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#vpeyznpwpj table {
+<div id="gbstwurgaw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gbstwurgaw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#vpeyznpwpj thead, #vpeyznpwpj tbody, #vpeyznpwpj tfoot, #vpeyznpwpj tr, #vpeyznpwpj td, #vpeyznpwpj th {
+#gbstwurgaw thead, #gbstwurgaw tbody, #gbstwurgaw tfoot, #gbstwurgaw tr, #gbstwurgaw td, #gbstwurgaw th {
   border-style: none;
 }
 
-#vpeyznpwpj p {
+#gbstwurgaw p {
   margin: 0;
   padding: 0;
 }
 
-#vpeyznpwpj .gt_table {
+#gbstwurgaw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -720,12 +765,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#vpeyznpwpj .gt_caption {
+#gbstwurgaw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vpeyznpwpj .gt_title {
+#gbstwurgaw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -737,7 +782,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#vpeyznpwpj .gt_subtitle {
+#gbstwurgaw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -749,7 +794,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#vpeyznpwpj .gt_heading {
+#gbstwurgaw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -761,13 +806,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#vpeyznpwpj .gt_bottom_border {
+#gbstwurgaw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vpeyznpwpj .gt_col_headings {
+#gbstwurgaw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -782,7 +827,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#vpeyznpwpj .gt_col_heading {
+#gbstwurgaw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -802,7 +847,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#vpeyznpwpj .gt_column_spanner_outer {
+#gbstwurgaw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -814,15 +859,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#vpeyznpwpj .gt_column_spanner_outer:first-child {
+#gbstwurgaw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vpeyznpwpj .gt_column_spanner_outer:last-child {
+#gbstwurgaw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vpeyznpwpj .gt_column_spanner {
+#gbstwurgaw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -834,11 +879,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#vpeyznpwpj .gt_spanner_row {
+#gbstwurgaw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#vpeyznpwpj .gt_group_heading {
+#gbstwurgaw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -864,7 +909,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#vpeyznpwpj .gt_empty_group_heading {
+#gbstwurgaw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -879,15 +924,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#vpeyznpwpj .gt_from_md > :first-child {
+#gbstwurgaw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vpeyznpwpj .gt_from_md > :last-child {
+#gbstwurgaw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vpeyznpwpj .gt_row {
+#gbstwurgaw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -906,7 +951,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#vpeyznpwpj .gt_stub {
+#gbstwurgaw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -919,7 +964,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#vpeyznpwpj .gt_stub_row_group {
+#gbstwurgaw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -933,15 +978,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#vpeyznpwpj .gt_row_group_first td {
+#gbstwurgaw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vpeyznpwpj .gt_row_group_first th {
+#gbstwurgaw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#vpeyznpwpj .gt_summary_row {
+#gbstwurgaw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -951,16 +996,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#vpeyznpwpj .gt_first_summary_row {
+#gbstwurgaw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vpeyznpwpj .gt_first_summary_row.thick {
+#gbstwurgaw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vpeyznpwpj .gt_last_summary_row {
+#gbstwurgaw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -970,7 +1015,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#vpeyznpwpj .gt_grand_summary_row {
+#gbstwurgaw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -980,7 +1025,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#vpeyznpwpj .gt_first_grand_summary_row {
+#gbstwurgaw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -990,7 +1035,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#vpeyznpwpj .gt_last_grand_summary_row_top {
+#gbstwurgaw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1000,11 +1045,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#vpeyznpwpj .gt_striped {
+#gbstwurgaw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#vpeyznpwpj .gt_table_body {
+#gbstwurgaw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1013,7 +1058,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#vpeyznpwpj .gt_footnotes {
+#gbstwurgaw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1027,7 +1072,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#vpeyznpwpj .gt_footnote {
+#gbstwurgaw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1036,7 +1081,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#vpeyznpwpj .gt_sourcenotes {
+#gbstwurgaw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1050,7 +1095,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#vpeyznpwpj .gt_sourcenote {
+#gbstwurgaw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1058,72 +1103,72 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#vpeyznpwpj .gt_left {
+#gbstwurgaw .gt_left {
   text-align: left;
 }
 
-#vpeyznpwpj .gt_center {
+#gbstwurgaw .gt_center {
   text-align: center;
 }
 
-#vpeyznpwpj .gt_right {
+#gbstwurgaw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vpeyznpwpj .gt_font_normal {
+#gbstwurgaw .gt_font_normal {
   font-weight: normal;
 }
 
-#vpeyznpwpj .gt_font_bold {
+#gbstwurgaw .gt_font_bold {
   font-weight: bold;
 }
 
-#vpeyznpwpj .gt_font_italic {
+#gbstwurgaw .gt_font_italic {
   font-style: italic;
 }
 
-#vpeyznpwpj .gt_super {
+#gbstwurgaw .gt_super {
   font-size: 65%;
 }
 
-#vpeyznpwpj .gt_footnote_marks {
+#gbstwurgaw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#vpeyznpwpj .gt_asterisk {
+#gbstwurgaw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vpeyznpwpj .gt_indent_1 {
+#gbstwurgaw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vpeyznpwpj .gt_indent_2 {
+#gbstwurgaw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vpeyznpwpj .gt_indent_3 {
+#gbstwurgaw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vpeyznpwpj .gt_indent_4 {
+#gbstwurgaw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vpeyznpwpj .gt_indent_5 {
+#gbstwurgaw .gt_indent_5 {
   text-indent: 25px;
 }
 
-#vpeyznpwpj .katex-display {
+#gbstwurgaw .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#vpeyznpwpj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#gbstwurgaw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1147,7 +1192,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">(Intercept)</td>
 <td class="gt_row gt_center" headers="estimate">147</td>
-<td class="gt_row gt_center" headers="conf.low">89, 206</td>
+<td class="gt_row gt_center" headers="conf.low">-Inf, Inf</td>
 <td class="gt_row gt_center" headers="p.value">&lt;0.001</td>
 </tr>
 <tr class="even">
@@ -1156,7 +1201,7 @@ ul.task-list li input[type="checkbox"] {
 </td>
 <td class="gt_row gt_center" headers="conf.low"><br>
 </td>
-<td class="gt_row gt_center" headers="p.value">0.11</td>
+<td class="gt_row gt_center" headers="p.value">0.4</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
@@ -1168,26 +1213,26 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2</td>
 <td class="gt_row gt_center" headers="estimate">28</td>
-<td class="gt_row gt_center" headers="conf.low">-2.7, 58</td>
-<td class="gt_row gt_center" headers="p.value">0.074</td>
+<td class="gt_row gt_center" headers="conf.low">-Inf, Inf</td>
+<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;3</td>
 <td class="gt_row gt_center" headers="estimate">28</td>
-<td class="gt_row gt_center" headers="conf.low">-2.5, 58</td>
-<td class="gt_row gt_center" headers="p.value">0.072</td>
+<td class="gt_row gt_center" headers="conf.low">-Inf, Inf</td>
+<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;4</td>
-<td class="gt_row gt_center" headers="estimate">2.2</td>
-<td class="gt_row gt_center" headers="conf.low">-28, 32</td>
-<td class="gt_row gt_center" headers="p.value">0.9</td>
+<td class="gt_row gt_center" headers="estimate">2.1</td>
+<td class="gt_row gt_center" headers="conf.low">-Inf, Inf</td>
+<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">age</td>
 <td class="gt_row gt_center" headers="estimate">1.2</td>
-<td class="gt_row gt_center" headers="conf.low">0.13, 2.2</td>
-<td class="gt_row gt_center" headers="p.value">0.026</td>
+<td class="gt_row gt_center" headers="conf.low">0.14, 2.2</td>
+<td class="gt_row gt_center" headers="p.value">0.025</td>
 </tr>
 </tbody><tfoot class="gt_footnotes">
 <tr class="even">
@@ -1219,8 +1264,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="data-summary" class="level2">
-<h2 class="anchored" data-anchor-id="data-summary">Data Summary</h2>
+<section id="data-summary" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="data-summary"><span class="header-section-number">4</span> Data Summary</h2>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>class: TreeSummarizedExperiment 
@@ -1241,8 +1286,8 @@ colTree: NULL</code></pre>
 </div>
 </div>
 </section>
-<section id="version-info" class="level2">
-<h2 class="anchored" data-anchor-id="version-info">Version info</h2>
+<section id="version-info" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="version-info"><span class="header-section-number">5</span> Version info</h2>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.4.2 (2024-10-31)
@@ -1329,7 +1374,7 @@ loaded via a namespace (and not attached):
  [65] viridis_0.6.5               ggtree_3.13.1              
  [67] DECIPHER_3.1.4              cowplot_1.1.3              
  [69] class_7.3-22                Hmisc_5.2-0                
- [71] pillar_1.9.0                nlme_3.1-165               
+ [71] pillar_1.9.0                nlme_3.1-166               
  [73] iterators_1.0.14            decontam_1.25.0            
  [75] compiler_4.4.2              beachmat_2.21.6            
  [77] stringi_1.8.4               DescTools_0.99.57          
@@ -1366,7 +1411,7 @@ loaded via a namespace (and not attached):
 [139] insight_1.0.0               carData_3.0-5              
 [141] rpart_4.1.23                farver_2.1.2               
 [143] tidygraph_1.3.1             mgcv_1.9-1                 
-[145] yaml_2.3.10                 foreign_0.8-86             
+[145] yaml_2.3.10                 foreign_0.8-87             
 [147] cli_3.6.3                   lifecycle_1.0.4            
 [149] mvtnorm_1.3-2               bluster_1.15.1             
 [151] backports_1.5.0             BiocParallel_1.39.0        
@@ -1380,10 +1425,10 @@ loaded via a namespace (and not attached):
 [167] janeaustenr_1.0.0           jquerylib_0.1.4            
 [169] lazyeval_0.2.2              htmltools_0.5.8.1          
 [171] glue_1.8.0                  broom.helpers_1.17.0       
-[173] treeio_1.29.1               boot_1.3-30                
+[173] treeio_1.29.1               boot_1.3-31                
 [175] igraph_2.1.1                R6_2.5.1                   
 [177] broom.mixed_0.2.9.6         labeling_0.4.3             
-[179] Rmpfr_1.0-0                 cluster_2.1.6              
+[179] Rmpfr_1.0-0                 cluster_2.1.8              
 [181] rngtools_1.5.2              aplot_0.2.3                
 [183] nloptr_2.1.1                DirichletMultinomial_1.47.0
 [185] DelayedArray_0.31.13        tidyselect_1.2.1           
