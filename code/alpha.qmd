@@ -137,8 +137,8 @@ results_before$p.adj <- p.adjust(results_before$p.value, method = "fdr")
 # Format results for display
 final_results_before <- results_before %>%
   mutate(
-    mean1 = round(mean1, 2),
-    mean2 = round(mean2, 2),
+    mean1 = round(mean1, 1),
+    mean2 = round(mean2, 1),
     logFC = round(logFC, 2),
     p.adj = round(p.adj, 3)
   ) %>%
@@ -162,8 +162,8 @@ results_after$p.adj <- p.adjust(results_after$p.value, method = "fdr")
 # Format results for display
 final_results_after <- results_after %>%
   mutate(
-    mean1 = round(mean1, 2),
-    mean2 = round(mean2, 2),
+    mean1 = round(mean1, 1),
+    mean2 = round(mean2, 1),
     logFC = round(logFC, 2),
     p.adj = round(p.adj, 3)
   ) %>%
@@ -209,8 +209,8 @@ results_paired <- results_paired[, c("meal_group", setdiff(names(results_paired)
 # Format results for display
 final_results_paired <- results_paired %>%
   mutate(
-    mean1 = round(mean1, 2),
-    mean2 = round(mean2, 2),
+    mean1 = round(mean1, 1),
+    mean2 = round(mean2, 1),
     logFC = round(logFC, 2),
     p.value = round(p.value, 3)
   ) %>%
@@ -243,7 +243,7 @@ p1 <- plotColData(
         text = element_text(size = 10),
         # Remove legend
         legend.position = "none"
-    ) +
+    ) + coord_fixed(ratio = 0.5) +
     ggpubr::stat_pvalue_manual(
       data = final_results_before,
       xmin = "group1",
@@ -263,7 +263,7 @@ p1 <- plotColData(
 p2 <- plotColData(
     tse_after, x = variable, y = index, colour_by = "timepoint",
     show_boxplot = TRUE,
-    show_violin = FALSE, other_fields = c("timepoint")) +
+    show_violin = FALSE, other_fields = c("timepoint")) + 
     scale_color_manual(
         values = c("after" = "black"),
         name = "Timepoint"
@@ -272,7 +272,7 @@ p2 <- plotColData(
         text = element_text(size = 10),
         # remove legend
         legend.position = "none"
-    ) +
+    ) + coord_fixed(ratio = 0.5) +
     ggpubr::stat_pvalue_manual(
       data = final_results_after,
       xmin = "group1",
@@ -375,6 +375,24 @@ div_change <- plotColData(
 #| fig-width: 5
 #| fig-height: 4
 #| fig.align: "center"
+y_min <- min(c(tse_before[[index]], tse_after[[index]]), na.rm = TRUE)
+y_max <- max(c(tse_before[[index]], tse_after[[index]]), na.rm = TRUE)
+
+# Get the maximum y-position from your annotations
+max_annotation_y <- max(c(
+    final_results_before$y.position, 
+    final_results_after$y.position
+), na.rm = TRUE)
+
+# Use the larger of data max and annotation position for the upper limit
+y_max <- max(y_max, max_annotation_y)
+
+y_range <- y_max - y_min
+y_max <- y_max + (y_range * 0.2)  
+
+# Apply to both plots
+p1 <- p1 + coord_cartesian(ylim = c(y_min, y_max))
+p2 <- p2 + coord_cartesian(ylim = c(y_min, y_max))
 wrap_plots(p1, p2, axes = "collect")
 ```
 
@@ -457,9 +475,9 @@ if (knitr::is_html_output()) {
 
 ```{r viz-div_change}
 #| fig-width: 5
-#| fig-height: 7
+#| fig-height: 3
 #| fig.align: "center"
-wrap_plots(p3, div_change,nrow = 2, axes = "collect")
+div_change
 ```
 
 #### Within-group
@@ -531,8 +549,14 @@ tbl_a_s_diff <- colData(tse) %>% as_tibble() %>%
         intercept = TRUE, 
         include = everything()) %>%
     add_global_p(quite=TRUE, keep=TRUE) %>% 
-    modify_header(label = "**Paired test of before and after**")
+    modify_header(label = "**Paired test between timepoints (1 and 2)**")
 ```
+
+-   **Beta (Estimate)**: Shows the effect size and direction of a predictor on the outcome. Positive means an increase, negative a decrease.
+
+-   **95% CI**: Range where the true beta is likely to fall, reflecting precision.
+
+-   **p-Value**: Tests if beta differs from zero; p<0.05p < 0.05p\<0.05 suggests significance.
 
 ```{r table-res1}
 knitr::knit_print(tbl_a_s)
@@ -619,10 +643,4 @@ p2
 
 ```{r data-summary}
 tse
-```
-
-## Version info
-
-```{r sessioninfo}
-sessionInfo()
 ```

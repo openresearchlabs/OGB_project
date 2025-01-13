@@ -164,7 +164,7 @@ final_results_before <- results_before %>%
     mean1 = round(mean1, 2),
     mean2 = round(mean2, 2),
     logFC = round(logFC, 2),
-    p.adj = round(p.adj, 3)
+    p.adj = round(p.adj, 2)
   ) %>%
   select(group1, group2, mean1, mean2, logFC, p.adj)
 
@@ -191,7 +191,7 @@ final_results_after <- results_after %>%
     mean1 = round(mean1, 2),
     mean2 = round(mean2, 2),
     logFC = round(logFC, 2),
-    p.adj = round(p.adj, 3)
+    p.adj = round(p.adj, 2)
   ) %>%
   select(group1, group2, mean1, mean2, logFC, p.adj)
 
@@ -238,7 +238,7 @@ final_results_paired <- results_paired %>%
     mean1 = round(mean1, 2),
     mean2 = round(mean2, 2),
     logFC = round(logFC, 2),
-    p.value = round(p.value, 3)
+    p.value = round(p.value, 2)
   ) %>%
   select(meal_group, group1, group2, mean1, mean2, logFC, p.value) %>% 
   arrange(meal_group)
@@ -330,7 +330,7 @@ p3 <- plotColData(
         aes(
             x = 1.5,                 
             y = y.position,          
-            label = paste0("p = ", signif(p.value, 3)),
+            label = paste0("p = ", signif(p.value, 2)),
             group = meal_group        
         ),
         inherit.aes = FALSE,     
@@ -386,7 +386,7 @@ div_change <- plotColData(
         aes(
             x = 1.5,                 
             y = y.position,          
-            label = paste0("p = ", signif(p.value, 3)),
+            label = paste0("p = ", signif(p.value, 2)),
             group = meal_group        
         ),
         inherit.aes = FALSE,     
@@ -397,9 +397,27 @@ div_change <- plotColData(
 
 ```{r visualize-plot}
 #| fig-width: 5
-#| fig-height: 4
+#| fig-height: 3
 #| fig.align: "center"
-wrap_plots(p1, p2, axes = "collect")
+y_min <- min(c(tse_before$bact_firm_ratio, tse_after$bact_firm_ratio), na.rm = TRUE)
+y_max <- max(c(tse_before$bact_firm_ratio, tse_after$bact_firm_ratio), na.rm = TRUE)
+
+# Get the maximum y-position from your annotations
+max_annotation_y <- max(c(
+    final_results_before$y.position, 
+    final_results_after$y.position
+), na.rm = TRUE)
+
+# Use the larger of data max and annotation position for the upper limit
+y_max <- max(y_max, max_annotation_y)
+
+y_range <- y_max - y_min
+y_max <- y_max + (y_range * 0.13)  
+
+# Apply to both plots
+p1 <- p1 + coord_cartesian(ylim = c(y_min, y_max))
+p2 <- p2 + coord_cartesian(ylim = c(y_min, y_max))
+#wrap_plots(p1, p2, axes = "collect")
 ```
 
 #### Table of the top findings
@@ -482,9 +500,9 @@ if (knitr::is_html_output()) {
 
 ```{r viz-div_change}
 #| fig-width: 5
-#| fig-height: 7
+#| fig-height: 3
 #| fig.align: "center"
-wrap_plots(p3, div_change, nrow = 3, axes = "collect")
+div_change
 ```
 
 #### Within-group
@@ -531,8 +549,8 @@ if (knitr::is_html_output()) {
 tse
 ```
 
-## Version info
-
 ```{r sessioninfo}
-sessionInfo()
+session_info <- capture.output(sessionInfo())
+output_path <- "../output/sesinfo.txt"
+writeLines(session_info, output_path)
 ```
