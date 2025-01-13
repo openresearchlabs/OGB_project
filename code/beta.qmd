@@ -25,7 +25,7 @@ execute:
 ```{r data}
 # Set Cairo to enable transparency in all devices
 knitr::opts_chunk$set(dev = "png", 
-                      dev.args = list(type = "cairo"))
+                      dev.args = list(type = "cairo"), fig.pos = "H")
 source("funct.R")
 tse <- readRDS("../data/tse.Rds")
 ```
@@ -57,7 +57,7 @@ theme(
           legend.title = element_text(face = "bold", size = 14)
         )
 
-plots <- lapply(unique(tse$meal_group), function(meal_id) {
+plots <- lapply(sort(unique(tse$meal_group)), function(meal_id) {
     tse_meal <- tse[, tse$meal_group == meal_id]
     
     # Inner lapply for time points
@@ -122,7 +122,7 @@ theme(
           legend.title = element_text(face = "bold", size = 14)
         )
 
-plots <- lapply(unique(tse$meal_group), function(meal_id) {
+plots <- lapply(sort(unique(tse$meal_group)), function(meal_id) {
     tse_meal <- tse[, tse$meal_group == meal_id]
     
     # Inner lapply for time points
@@ -164,7 +164,7 @@ bar_plot
 
 ```{r heatmap}
 #| fig.width: 24
-#| fig.height: 16
+#| fig.height: 18
 #| out.width: "100%"
 #| fig.align: "center"
 
@@ -175,7 +175,7 @@ tse_heat <- transformAssay(
     tse_heat, assay.type = "clr", MARGIN = "rows", method = "standardize",
     name = "clr_z")
 # Plot heatMap with sechm
-plots <- lapply(unique(tse_heat$meal_group), function(meal_id) {
+plots <- lapply(sort(unique(tse_heat$meal_group)), function(meal_id) {
     # Filter tse_heat for the current meal group
     tse_heat_filtered <- tse_heat[, tse_heat$meal_group == meal_id]
     
@@ -357,7 +357,8 @@ run_divergence_tests <- function(tse, index = "time_divergence") {
       mean = mean_after,
       p.value = test_result$p.value,
       stringsAsFactors = FALSE
-    ))
+    )) %>%
+      arrange(Meal)
   }
   
   return(results)
@@ -617,7 +618,7 @@ run_rdba_tests_pair <- function(tse, comparisons, variable, var) {
 
 ```{r permanova_paired_res}
 # For the paired treatment comparisons
-meal_groups <- unique(tse$meal_group)
+meal_groups <- sort(unique(tse$meal_group))
 # Calculate statistical results
   
 # Run the diversity tests
@@ -636,15 +637,13 @@ final_results_permanova_paired$p.adj <- p.adjust(final_results_permanova_paired$
 
 #### Across-group
 
-##### Before treatment
-
 ```{r permanova_res_before}
 #| label: permanova_res_before
 
 if (knitr::is_html_output()) {
   datatable(final_results_permanova,
             options = list(pageLength = 6),
-            caption = "PERMANOVA Results - berfore treatment")
+            caption = "PERMANOVA Results - before treatment")
 } else {
   library(kableExtra)
   final_results_permanova %>%
@@ -678,8 +677,6 @@ if (knitr::is_html_output()) {
 
 #### Within-group
 
-##### Paired treatment between timepoint(1 and 2)
-
 ```{r permanova_paired_tab}
 #| label: permanova_paired_tab
 if (knitr::is_html_output()) {
@@ -690,7 +687,7 @@ if (knitr::is_html_output()) {
   library(kableExtra)
   final_results_permanova_paired %>%
     mutate(across(where(is.numeric), ~round(., 3))) %>%
-    kbl(caption = "PERMANOVA Results - Paired",
+    kbl(caption = "PERMANOVA Results - Paired between timepoint (1 and 2)",
         booktabs = TRUE,
         align = c('l', rep('r', ncol(final_results_permanova_paired)-1))) %>%
     row_spec(0, bold = TRUE)
