@@ -23,7 +23,7 @@ rownames(samdf) <- samdf$sample
 # Group works better as factor 
 samdf$gender <- factor(samdf$gender)
 samdf$visit <- factor(samdf$visit)
-samdf$meal_group <- factor(samdf$meal_group) 
+samdf$meal_group <- factor(samdf$meal_group, levels = c("1", "2", "3", "4")) 
 
 # "Meal": intervention Experiment (some hours)
 # Half of each diet group received either meal, yielding 4 "diet-meal" groups:
@@ -36,6 +36,7 @@ samdf <- samdf %>%
   assign_meal()#  %>%
   # assign_diet()  # Encode as factors oat/rice instead of 1/2
 
+samdf$timepoint <- factor(samdf$timepoint, levels = c("before", "after"))
 # Check that the sample data and assay data match by sample names
 if (!all(rownames(samdf)==colnames(tse))) {stop("Check sample ID matching")}
 

@@ -1,0 +1,484 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{longtable}
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Bacteroidetes/Firmicutes ratio},
+  pdfauthor={Muluh},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Bacteroidetes/Firmicutes ratio}
+\author{Muluh}
+\date{}
+
+\begin{document}
+\maketitle
+
+
+\subsection{Bacteroidetes/Firmicutes
+ratio}\label{bacteroidetesfirmicutes-ratio}
+
+\subsubsection{Group-wise comparisons}\label{group-wise-comparisons}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Taxonomic level:} Phylum
+\item
+  \textbf{Group variable:} meal\_group
+\item
+  \textbf{Multiple testing correction:} fdr
+\item
+  \textbf{Statistical test} Wilcoxon
+\end{itemize}
+
+\begin{center}
+\includegraphics{ratio_files/figure-pdf/visualize-plot-1.png}
+\end{center}
+
+\paragraph{Table of the top findings}\label{table-of-the-top-findings}
+
+\paragraph{Across-group}\label{across-group}
+
+\subparagraph{Before treatment}\label{before-treatment}
+
+\begin{itemize}
+\tightlist
+\item
+  Multiple testing correction: \textbf{fdr}
+\item
+  Statistical test: \textbf{Wilcoxon}
+\end{itemize}
+
+\begin{longtable}[t]{lrrrrl}
+\caption{Table of Bacteroidetes/Firmicutes before Treatment}\\
+\toprule
+\textbf{group1} & \textbf{group2} & \textbf{mean1} & \textbf{mean2} & \textbf{log2FC} & \textbf{p.adj}\\
+\midrule
+\endfirsthead
+\caption[]{Table of Bacteroidetes/Firmicutes before Treatment \textit{(continued)}}\\
+\toprule
+\textbf{group1} & \textbf{group2} & \textbf{mean1} & \textbf{mean2} & \textbf{log2FC} & \textbf{p.adj}\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+1 & 2 & 0.36 & 0.30 & -0.23 & 0.83\\
+1 & 3 & 0.36 & 0.28 & -0.34 & 0.83\\
+1 & 4 & 0.36 & 0.28 & -0.34 & 0.83\\
+2 & 3 & 0.30 & 0.28 & -0.11 & 0.83\\
+2 & 4 & 0.30 & 0.28 & -0.10 & 0.83\\
+\addlinespace
+3 & 4 & 0.28 & 0.28 & 0.00 & 0.83\\*
+\end{longtable}
+
+\subparagraph{After treatment}\label{after-treatment}
+
+\begin{itemize}
+\tightlist
+\item
+  Multiple testing correction: \textbf{fdr}
+\item
+  Statistical test: \textbf{Wilcoxon}
+\end{itemize}
+
+\begin{longtable}[t]{lrrrrl}
+\caption{Table of Bacteroidetes/Firmicutes after Treatment}\\
+\toprule
+\textbf{group1} & \textbf{group2} & \textbf{mean1} & \textbf{mean2} & \textbf{log2FC} & \textbf{p.adj}\\
+\midrule
+\endfirsthead
+\caption[]{Table of Bacteroidetes/Firmicutes after Treatment \textit{(continued)}}\\
+\toprule
+\textbf{group1} & \textbf{group2} & \textbf{mean1} & \textbf{mean2} & \textbf{log2FC} & \textbf{p.adj}\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+1 & 2 & 0.31 & 0.31 & 0.04 & 0.815\\
+1 & 3 & 0.31 & 0.34 & 0.17 & 0.803\\
+1 & 4 & 0.31 & 0.36 & 0.23 & 0.803\\
+2 & 3 & 0.31 & 0.34 & 0.12 & 0.803\\
+2 & 4 & 0.31 & 0.36 & 0.19 & 0.803\\
+\addlinespace
+3 & 4 & 0.34 & 0.36 & 0.06 & 0.803\\*
+\end{longtable}
+
+\begin{center}
+\includegraphics{ratio_files/figure-pdf/viz-div_change-1.png}
+\end{center}
+
+\paragraph{Within-group}\label{within-group}
+
+\subparagraph{Paired treatment}\label{paired-treatment}
+
+\begin{itemize}
+\tightlist
+\item
+  Multiple testing correction: \textbf{paired} -none
+\item
+  Statistical test: \textbf{Wilcoxon}
+\end{itemize}
+
+\begin{longtable}[t]{lrrrr}
+\caption{Table of Bacteroidetes/Firmicutes paired between timepoint (1 and 2)}\\
+\toprule
+\textbf{meal\_group} & \textbf{mean1} & \textbf{mean2} & \textbf{log2FC} & \textbf{p.value}\\
+\midrule
+\endfirsthead
+\caption[]{Table of Bacteroidetes/Firmicutes paired between timepoint (1 and 2) \textit{(continued)}}\\
+\toprule
+\textbf{meal\_group} & \textbf{mean1} & \textbf{mean2} & \textbf{log2FC} & \textbf{p.value}\\
+\midrule
+\endhead
+
+\endfoot
+\bottomrule
+\endlastfoot
+1 & 0.36 & 0.31 & 0.27 & 0.698\\
+2 & 0.30 & 0.31 & 0.91 & 0.925\\
+3 & 0.28 & 0.34 & 1.21 & 0.163\\
+4 & 0.28 & 0.36 & 0.37 & 0.408\\*
+\end{longtable}
+
+\subsection{Data Summary}\label{data-summary}
+
+\begin{verbatim}
+class: TreeSummarizedExperiment 
+dim: 5 140 
+metadata(1): agglomerated_by_rank
+assays(2): counts relabundance
+rownames(5): Actinobacteria Bacteroidetes Firmicutes Other
+  Proteobacteria
+rowData names(10): kingdom phylum ... clade_name phylum_sub
+colnames(140): AE1332 AK1371 ... TS2358 VK2336
+colData names(14): sample id ... group bact_firm_ratio
+reducedDimNames(0):
+mainExpName: NULL
+altExpNames(0):
+rowLinks: NULL
+rowTree: NULL
+colLinks: NULL
+colTree: NULL
+\end{verbatim}
+
+\subsection{Version info}\label{version-info}
+
+\begin{verbatim}
+R version 4.4.2 (2024-10-31)
+Platform: x86_64-pc-linux-gnu
+Running under: Ubuntu 24.04.1 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Europe/Helsinki
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats4    grid      stats     graphics  grDevices utils     datasets 
+[8] methods   base     
+
+other attached packages:
+ [1] kableExtra_1.4.0                vegan_2.6-8                    
+ [3] lattice_0.22-6                  permute_0.9-7                  
+ [5] lubridate_1.9.3                 forcats_1.0.0                  
+ [7] stringr_1.5.1                   purrr_1.0.2                    
+ [9] readr_2.1.5                     tibble_3.2.1                   
+[11] tidyverse_2.0.0                 tidyr_1.3.1                    
+[13] sechm_1.13.1                    ComplexHeatmap_2.21.1          
+[15] scater_1.33.4                   scuttle_1.15.4                 
+[17] quarto_1.4.4                    patchwork_1.3.0                
+[19] parameters_0.24.0               multtest_2.61.0                
+[21] miaTime_0.1.21                  miaViz_1.15.4                  
+[23] ggraph_2.2.1                    mia_1.15.6                     
+[25] TreeSummarizedExperiment_2.13.0 Biostrings_2.73.2              
+[27] XVector_0.45.0                  SingleCellExperiment_1.27.2    
+[29] MultiAssayExperiment_1.31.5     SummarizedExperiment_1.35.3    
+[31] Biobase_2.65.1                  GenomicRanges_1.57.1           
+[33] GenomeInfoDb_1.41.2             IRanges_2.39.2                 
+[35] S4Vectors_0.43.2                BiocGenerics_0.51.3            
+[37] MatrixGenerics_1.17.0           matrixStats_1.4.1              
+[39] gridExtra_2.3                   gtsummary_2.0.4                
+[41] ggsignif_0.6.4                  ggpubr_0.6.0                   
+[43] ggplot2_3.5.1                   DT_0.33                        
+[45] dplyr_1.1.4                     cardx_0.2.2                    
+[47] ANCOMBC_2.8.0                  
+
+loaded via a namespace (and not attached):
+  [1] randomcoloR_1.1.0.1         gld_2.6.6                  
+  [3] nnet_7.3-19                 TH.data_1.1-2              
+  [5] vctrs_0.6.5                 energy_1.7-12              
+  [7] digest_0.6.37               png_0.1-8                  
+  [9] shape_1.4.6.1               proxy_0.4-27               
+ [11] Exact_3.3                   registry_0.5-1             
+ [13] rbiom_1.0.3                 ggrepel_0.9.6              
+ [15] bayestestR_0.15.0           mediation_4.5.0            
+ [17] MASS_7.3-61                 reshape2_1.4.4             
+ [19] foreach_1.5.2               withr_3.0.2                
+ [21] xfun_0.49                   ggfun_0.1.6                
+ [23] survival_3.7-0              doRNG_1.8.6                
+ [25] memoise_2.0.1               ggbeeswarm_0.7.2           
+ [27] emmeans_1.10.4              systemfonts_1.1.0          
+ [29] gmp_0.7-5                   tidytree_0.4.6             
+ [31] zoo_1.8-12                  GlobalOptions_0.1.2        
+ [33] gtools_3.9.5                V8_5.0.1                   
+ [35] Formula_1.2-5               datawizard_0.13.0          
+ [37] httr_1.4.7                  rstatix_0.7.2              
+ [39] ps_1.8.0                    rstudioapi_0.17.1          
+ [41] UCSC.utils_1.1.0            generics_0.1.3             
+ [43] base64enc_0.1-3             processx_3.8.4             
+ [45] curl_5.2.3                  zlibbioc_1.51.1            
+ [47] ScaledMatrix_1.13.0         polyclip_1.10-7            
+ [49] ca_0.71.1                   GenomeInfoDbData_1.2.13    
+ [51] SparseArray_1.5.41          xtable_1.8-4               
+ [53] doParallel_1.0.17           evaluate_1.0.1             
+ [55] S4Arrays_1.5.10             hms_1.1.3                  
+ [57] irlba_2.3.5.1               colorspace_2.1-1           
+ [59] readxl_1.4.3                magrittr_2.0.3             
+ [61] later_1.3.2                 viridis_0.6.5              
+ [63] ggtree_3.13.1               DECIPHER_3.1.4             
+ [65] cowplot_1.1.3               class_7.3-22               
+ [67] Hmisc_5.2-0                 pillar_1.9.0               
+ [69] nlme_3.1-166                iterators_1.0.14           
+ [71] decontam_1.25.0             compiler_4.4.2             
+ [73] beachmat_2.21.6             stringi_1.8.4              
+ [75] DescTools_0.99.57           TSP_1.2-4                  
+ [77] tokenizers_0.3.0            minqa_1.2.8                
+ [79] plyr_1.8.9                  crayon_1.5.3               
+ [81] abind_1.4-8                 gridGraphics_0.5-1         
+ [83] graphlayouts_1.2.0          bit_4.5.0                  
+ [85] rootSolve_1.8.2.4           sandwich_3.1-1             
+ [87] codetools_0.2-20            multcomp_1.4-26            
+ [89] BiocSingular_1.21.4         slam_0.1-54                
+ [91] e1071_1.7-16                lmom_3.2                   
+ [93] GetoptLong_1.0.5            tidytext_0.4.2             
+ [95] splines_4.4.2               circlize_0.4.16            
+ [97] Rcpp_1.0.13-1               sparseMatrixStats_1.17.2   
+ [99] cellranger_1.1.0            knitr_1.48                 
+[101] utf8_1.2.4                  clue_0.3-65                
+[103] lme4_1.1-35.5               fs_1.6.5                   
+[105] checkmate_2.3.2             DelayedMatrixStats_1.27.3  
+[107] Rdpack_2.6.1                expm_1.0-0                 
+[109] gsl_2.1-8                   ggplotify_0.1.2            
+[111] estimability_1.5.1          Matrix_1.7-0               
+[113] svglite_2.1.3               tzdb_0.4.0                 
+[115] lpSolve_5.6.21              tweenr_2.0.3               
+[117] pkgconfig_2.0.3             tools_4.4.2                
+[119] cachem_1.1.0                rbibutils_2.2.16           
+[121] viridisLite_0.4.2           DBI_1.2.3                  
+[123] numDeriv_2016.8-1.1         fastmap_1.2.0              
+[125] rmarkdown_2.29              scales_1.3.0               
+[127] cards_0.4.0                 broom_1.0.7                
+[129] coda_0.19-4.1               insight_1.0.0              
+[131] carData_3.0-5               rpart_4.1.23               
+[133] farver_2.1.2                tidygraph_1.3.1            
+[135] mgcv_1.9-1                  yaml_2.3.10                
+[137] foreign_0.8-87              cli_3.6.3                  
+[139] lifecycle_1.0.4             mvtnorm_1.3-2              
+[141] bluster_1.15.1              backports_1.5.0            
+[143] BiocParallel_1.39.0         timechange_0.3.0           
+[145] gtable_0.3.6                rjson_0.2.23               
+[147] parallel_4.4.2              ape_5.8                    
+[149] SnowballC_0.7.1             CVXR_1.0-15                
+[151] jsonlite_1.8.9              seriation_1.5.6            
+[153] bit64_4.5.2                 Rtsne_0.17                 
+[155] yulab.utils_0.1.8           BiocNeighbors_1.99.1       
+[157] RcppParallel_5.1.9          janeaustenr_1.0.0          
+[159] lazyeval_0.2.2              htmltools_0.5.8.1          
+[161] tinytex_0.54                glue_1.8.0                 
+[163] treeio_1.29.1               boot_1.3-31                
+[165] igraph_2.1.1                R6_2.5.1                   
+[167] labeling_0.4.3              Rmpfr_1.0-0                
+[169] cluster_2.1.8               rngtools_1.5.2             
+[171] aplot_0.2.3                 nloptr_2.1.1               
+[173] DirichletMultinomial_1.47.0 DelayedArray_0.31.13       
+[175] tidyselect_1.2.1            vipor_0.4.7                
+[177] htmlTable_2.4.3             xml2_1.3.6                 
+[179] ggforce_0.4.2               car_3.1-3                  
+[181] rsvd_1.0.5                  munsell_0.5.1              
+[183] data.table_1.16.2           htmlwidgets_1.6.4          
+[185] RColorBrewer_1.1-3          rlang_1.1.4                
+[187] lmerTest_3.1-3              ggnewscale_0.5.0           
+[189] fansi_1.0.6                 beeswarm_0.4.0             
+\end{verbatim}
+
+
+
+
+\end{document}

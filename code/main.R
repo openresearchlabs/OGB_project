@@ -16,7 +16,7 @@ indices <- c("shannon", "observed")
 # Loop through each index
 lapply(indices, function(index) {
     output_dir <- path(path_abs("../output"), paste0("alpha_", index))
-
+    
     # HTML render
     system(paste(
         shQuote(quarto_bin),
@@ -26,7 +26,7 @@ lapply(indices, function(index) {
         "--output", shQuote(paste0("alpha_", index, ".html")),
         "--output-dir", shQuote(output_dir)
     ))
-
+    
     # PDF render
     system(paste(
         shQuote(quarto_bin),
@@ -38,7 +38,8 @@ lapply(indices, function(index) {
     ))
 })
 # Beta diversity analysis
-system(paste(shQuote(quarto_bin), "render beta.qmd --output-dir ../output"))
+# system(paste(shQuote(quarto_bin), "render beta.qmd --output-dir ../output"))
+system(paste(shQuote(quarto_bin), "render ratio.qmd --output-dir ../output"))
 
 # # TODO
 # quarto::quarto_render("daa.qmd")

@@ -1,5 +1,5 @@
 ---
-title: "Alpha Diversity"
+title: "Bacteroidetes/Firmicutes ratio"
 author:
   - name: Muluh
 format:
@@ -7,44 +7,65 @@ format:
     code-fold: true
     number-sections: true
     page-layout: full
+  pdf:
+    keep-tex: true
+    include-in-header: 
+      text: |
+        \usepackage{booktabs}
+        \usepackage{longtable}
 editor: visual
-params: 
-  index: default
 execute:
   echo: false
   warning: false
   message: false
 ---
 
-## Community diversity
-
-```{r variables}
-# Alpha diversity
-index <- params$index
-variable      <- "meal_group" 
-adjust.method <- "fdr"
-test <- "Wilcoxon"
-```
+## Bacteroidetes/Firmicutes ratio
 
 ```{r data}
+# Set Cairo to enable transparency in all devices
+knitr::opts_chunk$set(dev = "png", 
+                      dev.args = list(type = "cairo"))
 source("funct.R")
+# devtools::load_all("~/Rpackages/microbiome/miaverse/miaViz")
 tse <- readRDS("../data/tse.Rds")
 ```
 
-## Group-wise comparisons
+```{r setup, include=FALSE}
+# Define variables
+tax.level     <- "Phylum"
+variable      <- "meal_group"  
+adjust.method <- "fdr"
+test          <- "Wilcoxon"
+index         <- "bact_firm_ratio"
+```
 
--   **Index:** `r params$index`
+### Group-wise comparisons
+
+-   **Taxonomic level:** `r tax.level`
 -   **Group variable:** `r variable`
 -   **Multiple testing correction:** `r adjust.method`
 -   **Statistical test** `r test`
 
+```{r bact-firm}
+# We only need phylum level tse in this report, so let's pick
+# that as tse to keep things simple.
+tse <- altExp(tse, "phylum")
+
+# Calculate the Bacteroidetes/Firmicutes ratio and add to colData
+# using the chosen name
+ratio <- "bact_firm_ratio"
+colData(tse)[[ratio]] <- assay(tse, "relabundance")["Bacteroidetes", ] /
+                         assay(tse, "relabundance")["Firmicutes", ]
+```
+
 ```{r run_diversity_tests}
 # Calculate p-values
 run_diversity_tests <- function(tse, comparisons, 
-                                variable, index, 
+                                variable, ratio, 
                                 adjust.method = "fdr", paired = FALSE) {
   # Get all values and groups
-  values <- colData(tse)[[index]]
+  values <- colData(tse)[[ratio]]
   groups <- colData(tse)[[variable]]
   
   # Create an empty results dataframe
@@ -127,12 +148,15 @@ run_diversity_tests <- function(tse, comparisons,
   
   return(results)
 }
+
 ```
 
 ```{r pvalues-before}
 tse_before <- tse[, tse$visit == 1]
 # Calculate statistical results
-results_before <- run_diversity_tests(tse_before, comparisons_before, variable, index, adjust.method)
+results_before <- run_diversity_tests(tse_before, comparisons_before, 
+                                      variable, ratio = "bact_firm_ratio", 
+                                      adjust.method)
 results_before$p.adj <- p.adjust(results_before$p.value, method = "fdr")
 # Format results for display
 final_results_before <- results_before %>%
@@ -147,8 +171,8 @@ final_results_before <- results_before %>%
 # Calculate y-positions for p-value annotations
 final_results_before <- final_results_before %>%
   mutate(y.position = sapply(1:nrow(final_results_before), function(i) {
-    vals1 <- colData(tse_before)[[index]][colData(tse_before)[[variable]] == group1[i]]
-    vals2 <- colData(tse_before)[[index]][colData(tse_before)[[variable]] == group2[i]]
+    vals1 <- colData(tse_before)[[ratio]][colData(tse_before)[[variable]] == group1[i]]
+    vals2 <- colData(tse_before)[[ratio]][colData(tse_before)[[variable]] == group2[i]]
     max(c(vals1, vals2)) + i * 0.2
   }))
 colnames(final_results_before)[colnames(final_results_before) == "logFC"] <- "log2FC"
@@ -157,7 +181,9 @@ colnames(final_results_before)[colnames(final_results_before) == "logFC"] <- "lo
 ```{r pvalues-after}
 tse_after <- tse[, tse$visit == 2]
 # Calculate statistical results
-results_after <- run_diversity_tests(tse_after, comparisons_after, variable, index, adjust.method)
+results_after <- run_diversity_tests(tse_after, comparisons_after, 
+                                     variable, ratio = "bact_firm_ratio", 
+                                     adjust.method)
 results_after$p.adj <- p.adjust(results_after$p.value, method = "fdr")
 # Format results for display
 final_results_after <- results_after %>%
@@ -172,8 +198,8 @@ final_results_after <- results_after %>%
 # Calculate y-positions for p-value annotations
 final_results_after <- final_results_after %>%
   mutate(y.position = sapply(1:nrow(final_results_after), function(i) {
-    vals1 <- colData(tse_after)[[index]][colData(tse_after)[[variable]] == group1[i]]
-    vals2 <- colData(tse_after)[[index]][colData(tse_after)[[variable]] == group2[i]]
+    vals1 <- colData(tse_after)[[ratio]][colData(tse_after)[[variable]] == group1[i]]
+    vals2 <- colData(tse_after)[[ratio]][colData(tse_after)[[variable]] == group2[i]]
     max(c(vals1, vals2)) + i * 0.2
   }))
 colnames(final_results_after)[colnames(final_results_after) == "logFC"] <- "log2FC"
@@ -191,7 +217,7 @@ results_paired <- lapply(meal_groups, function(group) {
     tse = tse_subset, 
     comparisons = comparisons_paired, 
     variable = "timepoint", 
-    index, 
+    ratio = "bact_firm_ratio", 
     adjust.method = adjust.method, 
     paired = TRUE
   )
@@ -220,8 +246,8 @@ final_results_paired <- results_paired %>%
 # Calculate y-positions for p-value annotations
 final_results_paired <- final_results_paired %>%
   mutate(y.position = sapply(1:nrow(final_results_paired), function(i) {
-    vals1 <- colData(tse)[[index]][colData(tse)[["timepoint"]] == group1[i]]
-    vals2 <- colData(tse)[[index]][colData(tse)[["timepoint"]] == group2[i]]
+    vals1 <- colData(tse)[[ratio]][colData(tse)[["timepoint"]] == group1[i]]
+    vals2 <- colData(tse)[[ratio]][colData(tse)[["timepoint"]] == group2[i]]
     max(c(vals1, vals2)) + i * 0.2
   }))
 final_results_paired$group1 <- NULL
@@ -229,10 +255,9 @@ final_results_paired$group2 <- NULL
 colnames(final_results_paired)[colnames(final_results_paired) == "logFC"] <- "log2FC"
 ```
 
-```{r boxplot-before}
-# Create a boxplot
+```{r bact-firm-before}
 p1 <- plotColData(
-    tse_before, x = variable, y = index, colour_by = "timepoint",
+    tse_before, x = variable, y = "bact_firm_ratio", colour_by = "timepoint",
     show_boxplot = TRUE, other_fields = c("timepoint"),
     show_violin = FALSE) +
     scale_color_manual(
@@ -254,14 +279,13 @@ p1 <- plotColData(
     labs(
       title = "Before treatment",
       x = "",
-      y = paste("Alpha Diversity -", index)
+      y = "Bacteroidetes/Firmicutes ratio"
      ) #+ scale_y_log10()
 ```
 
-```{r boxplot-after}
-# Create a boxplot
+```{r bact-firm-after}
 p2 <- plotColData(
-    tse_after, x = variable, y = index, colour_by = "timepoint",
+    tse_after, x = variable, y = "bact_firm_ratio", colour_by = "timepoint",
     show_boxplot = TRUE,
     show_violin = FALSE, other_fields = c("timepoint")) +
     scale_color_manual(
@@ -283,13 +307,13 @@ p2 <- plotColData(
     labs(
       title = "After treatment",
       x = "",
-      y = paste("Alpha Diversity -", index)
+      y = "Bacteroidetes/Firmicutes ratio"
     ) #+ scale_y_log10()
 ```
 
 ```{r all-groups-1v2}
 p3 <- plotColData(
-    tse, x = "timepoint", y = index, colour_by = "timepoint",
+    tse, x = "timepoint", y = "bact_firm_ratio", colour_by = "timepoint",
     show_boxplot = TRUE,
     show_violin = FALSE, other_fields = c("timepoint", "meal_group")) +
     scale_color_manual(
@@ -316,12 +340,13 @@ p3 <- plotColData(
     labs(
       title = "Within group",
       x = "",
-      y = paste("Alpha Diversity -", index)
+      y = "Bacteroidetes/Firmicutes ratio"
     ) +
     facet_wrap(~meal_group, ncol = 4, scales = "free")
+
 ```
 
-```{r changes1}
+```{r bact-firm-change}
 tse_new <- tse[,tse$paired == "yes"]
 colData(tse_new) <- DataFrame(
     colData(tse_new) %>%
@@ -338,7 +363,7 @@ colData(tse_new) <- DataFrame(
 )
 
 div_change <- plotColData(
-    tse_new, x = "timepoint", y = index,
+    tse_new, x = "timepoint", y = "bact_firm_ratio",
     show_boxplot = TRUE,
     show_violin = FALSE,
     other_fields = c("group", "id", "diet", "change", "meal_group")) + 
@@ -347,9 +372,9 @@ div_change <- plotColData(
         text = element_text(size = 10),
     ) +
     labs(
-        title = "Paired alpha diversity",
+        title = "Paired Bacteroidetes/Firmicutes ratio",
         x = "",
-        y = paste("Alpha Diversity -", index)
+        y = "Bacteroidetes/Firmicutes ratio"
     ) + 
     geom_line(
         aes(group = id, color = change)
@@ -368,7 +393,6 @@ div_change <- plotColData(
         size = 3,                 
         color = "black"            
     )
-
 ```
 
 ```{r visualize-plot}
@@ -378,7 +402,7 @@ div_change <- plotColData(
 wrap_plots(p1, p2, axes = "collect")
 ```
 
-### Table of the top findings
+#### Table of the top findings
 
 #### Across-group
 
@@ -389,6 +413,7 @@ wrap_plots(p1, p2, axes = "collect")
 
 ```{r table-of-findings-before}
 #| label: table-of-findings-before
+
 if (knitr::is_html_output()) {
   datatable(
       final_results_before %>% select(-y.position), 
@@ -396,7 +421,7 @@ if (knitr::is_html_output()) {
         pageLength = 3,
         dom = 'Bfrtip'
       ),
-      caption = "Table of alpha diversity comparisons before Treatment",
+      caption = "Table of  Bacteroidetes/Firmicutes before Treatment",
       rownames = FALSE
   ) %>%
     formatRound(columns = c("mean1", "mean2", "log2FC"), digits = 2) %>%
@@ -409,7 +434,7 @@ if (knitr::is_html_output()) {
       across(where(is.numeric), ~round(., 3))
       #p.adj = signif(p.adj, 3)
     ) %>%
-    kbl(caption = "Table of alpha diversity comparisons before Treatment",
+    kbl(caption = "Table of Bacteroidetes/Firmicutes before Treatment",
         booktabs = TRUE,
         longtable = TRUE,
         align = c('l', 'r', 'r', 'r', 'r')) %>%
@@ -432,7 +457,7 @@ if (knitr::is_html_output()) {
       pageLength = 3,
       dom = 'Bfrtip'
     ),
-    caption = "Table of alpha diversity comparisons after Treatment",
+    caption = "Table of Bacteroidetes/Firmicutes after Treatment",
     rownames = FALSE
 ) %>%
   formatRound(columns = c("mean1", "mean2", "log2FC"), digits = 2) %>%
@@ -445,7 +470,7 @@ if (knitr::is_html_output()) {
       across(where(is.numeric), ~round(., 3))
       #p.adj = signif(p.adj, 3)
     ) %>%
-    kbl(caption = "Table of alpha diversity comparisons after Treatment",
+    kbl(caption = "Table of Bacteroidetes/Firmicutes after Treatment",
         booktabs = TRUE,
         longtable = TRUE,
         align = c('l', 'r', 'r', 'r', 'r')) %>%
@@ -459,7 +484,7 @@ if (knitr::is_html_output()) {
 #| fig-width: 5
 #| fig-height: 7
 #| fig.align: "center"
-wrap_plots(p3, div_change,nrow = 2, axes = "collect")
+wrap_plots(p3, div_change, nrow = 3, axes = "collect")
 ```
 
 #### Within-group
@@ -478,7 +503,7 @@ if (knitr::is_html_output()) {
       pageLength = 3,
       dom = 'Bfrtip'
     ),
-    caption = "Table of alpha diversity paired between timepoint(1 and 2)",
+    caption = "Table of Bacteroidetes/Firmicutes paired between timepoint (1 and 2)",
     rownames = FALSE
 ) %>%
   formatRound(columns = c("mean1", "mean2", "log2FC"), digits = 2) %>%
@@ -491,128 +516,13 @@ if (knitr::is_html_output()) {
       across(where(is.numeric), ~round(., 3))
       #p.adj = signif(p.adj, 3)
     ) %>%
-    kbl(caption = "Table of alpha diversity paired between timepoint(1 and 2)",
+    kbl(caption = "Table of Bacteroidetes/Firmicutes paired between timepoint (1 and 2)",
         booktabs = TRUE,
         longtable = TRUE,
         align = c('l', 'r', 'r', 'r', 'r')) %>%
     kable_styling(latex_options = "repeat_header") %>%
     row_spec(0, bold = TRUE)
 }
-```
-
-## Alternate analyses
-
-```{r stratified-timepoint}
-# First analysis - stratified by time point
-tbl_a_s <- colData(tse) %>% as_tibble() %>%
-    select(c("timepoint", index, "meal_group", "age")) %>%
-    tbl_strata(strata = timepoint, .combine_with = "tbl_merge",
-               .tbl_fun = ~.x %>% tidyr::drop_na() %>% 
-                   lm(formula = as.formula(
-                       paste0(index, " ~ meal_group + age")),
-                      data = .) %>% 
-                   tbl_regression(
-                       intercept = TRUE, 
-                       include = everything()) %>%
-                   add_global_p(quite=TRUE, keep=TRUE))
-```
-
-```{r paired}
-# Paired analysis
-tbl_a_s_diff <- colData(tse) %>% as_tibble() %>%
-    select(c("timepoint", index, variable, "meal_group", "paired", "age")) %>% 
-    tidyr::drop_na(variable) %>% filter(paired=="yes") %>% 
-    lmerTest::lmer(
-        formula = as.formula(
-              paste0(index, " ~ meal_group + age + (1|", variable, ")")
-        ),
-        data = .) %>% 
-    tbl_regression(
-        intercept = TRUE, 
-        include = everything()) %>%
-    add_global_p(quite=TRUE, keep=TRUE) %>% 
-    modify_header(label = "**Paired test of before and after**")
-```
-
-```{r table-res1}
-knitr::knit_print(tbl_a_s)
-```
-
-```{r table-res2}
-knitr::knit_print(tbl_a_s_diff)
-```
-
-```{r Plotting-code}
-# Plotting code
-# Set up reference levels
-ref <- levels(factor(colData(tse)[["meal_group"]]))[1]
-lvs <- levels(factor(colData(tse)[["meal_group"]]))[-1]
-comps <- lapply(lvs, function(lv) c(ref,lv))
-```
-
-```{r first-plot}
-# First plot
-p1 <- colData(tse) %>% as_tibble() %>%  tidyr::drop_na(variable) %>%
-    as.data.frame(check.names=FALSE) %>%
-    ggplot(aes_string(x="meal_group", y = index))+
-    geom_boxplot(outlier.shape = NA)+
-    geom_jitter(width=0.1, size=0.5)+
-    facet_wrap(~timepoint, ncol = 2, scales="free")+
-    geom_signif(comparisons = comps, map_signif_level = FALSE,
-                step_increase=0.2, textsize = 2.5)+
-    labs(x="", y = paste(index, "index"))
-
-# Process p-values for plot
-p_tmp <- ggplot_build(p1)
-df_1 <- p_tmp$data[[3]] %>% mutate(label=gsub(paste0(ref,"|\\-|[0-9]"),"",
-                                              .data[["group"]]))
-df_2 <- tbl_a_s$table_body %>% filter(label %in% lvs) %>%
-    select(c(label, contains("p.value"))) %>% 
-    tidyr::pivot_longer(cols = contains("p.value"),
-                        names_to="PANEL", names_prefix="p.value_") %>% 
-    mutate(PANEL=factor(PANEL, levels = levels(df_1$PANEL)))
-p_tmp$data[[3]] <- merge(df_1,df_2, by = c("PANEL","label")) %>%
-    mutate(annotation=round(value,3)) %>% select(colnames(p_tmp$data[[3]]))
-p1 <- p_tmp %>% ggplot_gtable() %>% ggplotify::as.ggplot()
-
-p1
-```
-
-```{r second-plot}
-# Second plot
-df_pval <- tbl_a_s_diff$table_body %>% filter(label %in% lvs) %>%
-    select(c(label, contains("p.value")))
-pos_j <- position_jitter(width = 0.1, height = 0)
-p2 <- colData(tse) %>% as_tibble() %>%  tidyr::drop_na({{ variable }}) %>%
-    filter(paired=="yes") %>% group_by(.data[[variable]]) %>% arrange(id, timepoint) %>%
-    mutate(
-        change = .data[[index]] - dplyr::first(.data[[index]])
-    ) %>% tidyr::fill(change, .direction = "downup") %>%  
-    as.data.frame(check.names=FALSE) %>%
-    ggplot(aes(x = timepoint, y = .data[[index]]))+
-    geom_boxplot(outlier.shape = NA)+
-    geom_point(position = pos_j, size = 0.5) + 
-    geom_line(aes(group = id, color = change), position = pos_j) +
-    scale_color_gradient2(midpoint=0, low="blue", mid="white", high="red", space ="Lab")+
-    facet_wrap(as.formula(paste0("~", "meal_group")), nrow = 1,
-               labeller = function(df) {
-                   df[,1] <- sapply(df[,1], function(lb){
-                       if (lb!=ref) {
-                           lb <- paste0(lb, " (p-val = ",
-                                        df_pval %>% filter(label==lb) %>%
-                                            select(contains("p.value")) %>%
-                                            .[[1]] %>% round(3)
-                                        ,")")
-                           lb
-                       } else {
-                           as.character(lb)
-                       }
-                   }) %>% unlist()
-                   df
-               })+
-    labs(x="", y = paste(index, "index"))
-
-p2
 ```
 
 ## Data Summary
