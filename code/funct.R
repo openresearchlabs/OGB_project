@@ -85,6 +85,25 @@ assign_time <- function(df) {
   return(df)
 }
 
+assign_diet <- function(df) {
+  df$diet[df$diet == 1] <- "oat"
+  df$diet[df$diet == 2] <- "rice"
+  df$diet <- factor(df$diet, levels=c("oat", "rice"))
+  return(df)
+}
+
+assign_meal <- function(df) {
+  df$meal <- rep(NA, nrow(df))
+  df$meal[df$meal_group == "1"] <- "oat-rice"
+  df$meal[df$meal_group == "2"] <- "rice-oat"
+  df$meal[df$meal_group == "3"] <- "rice-rice"
+  df$meal[df$meal_group == "4"] <- "oat-oat"
+  # meal is now combination diet-meal; extract just the meal
+  # df$meal <- factor(df$meal, levels=c("oat-rice", "rice-oat", "rice-rice", "oat-oat"))
+  df$meal <- factor(word(df$meal, 2, sep="-"), levels=c("oat", "rice"))
+  return(df)
+}
+
 run_ancombc_mix <- function(tse,taxa) {
   #extract prevalent
   # Gets a subset of object that includes prevalent taxa, genus level 
