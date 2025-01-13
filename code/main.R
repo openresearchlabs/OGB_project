@@ -38,7 +38,7 @@ lapply(indices, function(index) {
     ))
 })
 # Beta diversity analysis
-# system(paste(shQuote(quarto_bin), "render beta.qmd --output-dir ../output"))
+system(paste(shQuote(quarto_bin), "render beta.qmd --output-dir ../output"))
 system(paste(shQuote(quarto_bin), "render ratio.qmd --output-dir ../output"))
 
 # # TODO

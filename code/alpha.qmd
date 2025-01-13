@@ -411,7 +411,7 @@ if (knitr::is_html_output()) {
   datatable(
       final_results_before %>% select(-y.position), 
       options = list(
-        pageLength = 3,
+        pageLength = 6,
         dom = 'Bfrtip'
       ),
       caption = "Table of alpha diversity comparisons before Treatment",
@@ -447,7 +447,7 @@ if (knitr::is_html_output()) {
   datatable(
     final_results_after %>% select(-y.position), 
     options = list(
-      pageLength = 3,
+      pageLength = 6,
       dom = 'Bfrtip'
     ),
     caption = "Table of alpha diversity comparisons after Treatment",
@@ -493,7 +493,7 @@ if (knitr::is_html_output()) {
   datatable(
     final_results_paired %>% select(-y.position), 
     options = list(
-      pageLength = 3,
+      pageLength = 4,
       dom = 'Bfrtip'
     ),
     caption = "Table of alpha diversity paired between timepoint(1 and 2)",
@@ -556,7 +556,7 @@ tbl_a_s_diff <- colData(tse) %>% as_tibble() %>%
 
 -   **95% CI**: Range where the true beta is likely to fall, reflecting precision.
 
--   **p-Value**: Tests if beta differs from zero; p<0.05p < 0.05p\<0.05 suggests significance.
+-   **p-Value**: Tests if beta differs from zero; p\<0.05p \< 0.05p\<0.05 suggests significance.
 
 ```{r table-res1}
 knitr::knit_print(tbl_a_s)

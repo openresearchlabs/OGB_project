@@ -436,7 +436,7 @@ if (knitr::is_html_output()) {
   datatable(
       final_results_before %>% select(-y.position), 
       options = list(
-        pageLength = 3,
+        pageLength = 6,
         dom = 'Bfrtip'
       ),
       caption = "Table of  Bacteroidetes/Firmicutes before Treatment",
@@ -472,7 +472,7 @@ if (knitr::is_html_output()) {
   datatable(
     final_results_after %>% select(-y.position), 
     options = list(
-      pageLength = 3,
+      pageLength = 6,
       dom = 'Bfrtip'
     ),
     caption = "Table of Bacteroidetes/Firmicutes after Treatment",
@@ -518,7 +518,7 @@ if (knitr::is_html_output()) {
   datatable(
     final_results_paired %>% select(-y.position), 
     options = list(
-      pageLength = 3,
+      pageLength = 4,
       dom = 'Bfrtip'
     ),
     caption = "Table of Bacteroidetes/Firmicutes paired between timepoint (1 and 2)",
