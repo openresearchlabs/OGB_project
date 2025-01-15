@@ -129,7 +129,22 @@ altExp(tse, "genus_all") <- agglomerateByRank(tse,  rank="genus")
 altExp(tse, "genus_prevalent") <- agglomerateByPrevalence(altExp(tse, "genus_all"), assay.type="relabundance", detection=0.1/100, prevalence=10/100, name="genus_prevalent")
 altExp(tse, "genus_prevalent") <- transformAssay(altExp(tse, "genus_prevalent"), assay.type="relabundance", method="clr", pseudocount=TRUE)
 
+# Add functional predictions to tse
+path_abundance <- read.csv("../data/pathabundance.txt", header = TRUE, row.names = 1, sep = "\t", check.names = FALSE, stringsAsFactors = FALSE)
 
+
+columns_to_remove <- c("AK1304", "PP2368", "HK2340")
+columns_to_keep <- !grepl(paste(columns_to_remove, collapse = "|"), colnames(path_abundance))
+filtered_abundance_matrix <- path_abundance[, columns_to_keep]
+
+colnames(filtered_abundance_matrix) <- colnames(tse)
+
+# Add the filtered matrix to the `AltExp` of the SummarizedExperiment
+altExp(tse, "Abundance") <- SummarizedExperiment(
+  assays = list(counts = filtered_abundance_matrix),
+  rowData = DataFrame(Pathway = rownames(filtered_abundance_matrix)),
+  colData = colData(tse)  
+)
 
 # Print the group assignments
 print(table(tse$group))
