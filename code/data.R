@@ -140,7 +140,7 @@ filtered_abundance_matrix <- path_abundance[, columns_to_keep]
 colnames(filtered_abundance_matrix) <- colnames(tse)
 
 # Add the filtered matrix to the `AltExp` of the SummarizedExperiment
-altExp(tse, "Abundance") <- SummarizedExperiment(
+altExp(tse, "abundance") <- SummarizedExperiment(
   assays = list(counts = filtered_abundance_matrix),
   rowData = DataFrame(Pathway = rownames(filtered_abundance_matrix)),
   colData = colData(tse)  
