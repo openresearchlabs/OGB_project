@@ -34,7 +34,7 @@ tse <- readRDS("../data/tse.Rds")
 ```{r setup, include=FALSE}
 # Define variables
 tax.level     <- "Phylum"
-variable      <- "meal_group"  
+variable      <- "diet"  
 adjust.method <- "fdr"
 test          <- "Wilcoxon"
 index         <- "bact_firm_ratio"
@@ -206,11 +206,11 @@ colnames(final_results_after)[colnames(final_results_after) == "logFC"] <- "log2
 ```
 
 ```{r pvalues-paired}
-meal_groups <- unique(tse$meal_group)
+diet_groups <- unique(tse$diet)
 # Calculate statistical results
-results_paired <- lapply(meal_groups, function(group) {
+results_paired <- lapply(diet_groups, function(group) {
   # Subset tse for the current meal group
-  tse_subset <- tse[, tse$meal_group == group]
+  tse_subset <- tse[, tse$diet == group]
   
   # Run the diversity tests
   res <- run_diversity_tests(
@@ -223,13 +223,13 @@ results_paired <- lapply(meal_groups, function(group) {
   )
   
   # Add the meal group as a new column
-  res$meal_group <- group
+  res$diet <- group
   
   return(res)
 }) %>% 
   bind_rows()
 
-results_paired <- results_paired[, c("meal_group", setdiff(names(results_paired), "meal_group"))]
+results_paired <- results_paired[, c("diet", setdiff(names(results_paired), "diet"))]
 
 # results_paired$p.adj <- p.adjust(results_paired$p.value, method = "fdr")
 # Format results for display
@@ -240,8 +240,8 @@ final_results_paired <- results_paired %>%
     logFC = round(logFC, 2),
     p.value = round(p.value, 2)
   ) %>%
-  select(meal_group, group1, group2, mean1, mean2, logFC, p.value) %>% 
-  arrange(meal_group)
+  select(diet, group1, group2, mean1, mean2, logFC, p.value) %>% 
+  arrange(diet)
 
 # Calculate y-positions for p-value annotations
 final_results_paired <- final_results_paired %>%
@@ -315,7 +315,7 @@ p2 <- plotColData(
 p3 <- plotColData(
     tse, x = "timepoint", y = "bact_firm_ratio", colour_by = "timepoint",
     show_boxplot = TRUE,
-    show_violin = FALSE, other_fields = c("timepoint", "meal_group")) +
+    show_violin = FALSE, other_fields = c("timepoint", "diet")) +
     scale_color_manual(
         values = c("after" = "black", "before" = "black"),
         name = "Timepoint"
@@ -331,7 +331,7 @@ p3 <- plotColData(
             x = 1.5,                 
             y = y.position,          
             label = paste0("p = ", signif(p.value, 2)),
-            group = meal_group        
+            group = diet        
         ),
         inherit.aes = FALSE,     
         size = 3,                 
@@ -342,7 +342,7 @@ p3 <- plotColData(
       x = "",
       y = "Bacteroidetes/Firmicutes ratio"
     ) +
-    facet_wrap(~meal_group, ncol = 4, scales = "free")
+    facet_wrap(~diet, ncol = 4, scales = "free")
 
 ```
 
@@ -366,8 +366,8 @@ div_change <- plotColData(
     tse_new, x = "timepoint", y = "bact_firm_ratio",
     show_boxplot = TRUE,
     show_violin = FALSE,
-    other_fields = c("group", "id", "diet", "change", "meal_group")) + 
-    facet_wrap(~meal_group, ncol = 4, scales="fixed", axis.labels = "margins") +
+    other_fields = c("group", "id", "diet", "change")) + 
+    facet_wrap(~diet, ncol = 4, scales="fixed", axis.labels = "margins") +
     theme(
         text = element_text(size = 10),
     ) +
@@ -387,7 +387,7 @@ div_change <- plotColData(
             x = 1.5,                 
             y = y.position,          
             label = paste0("p = ", signif(p.value, 2)),
-            group = meal_group        
+            group = diet        
         ),
         inherit.aes = FALSE,     
         size = 3,                 
