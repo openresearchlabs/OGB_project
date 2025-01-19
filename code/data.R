@@ -23,6 +23,7 @@ rownames(samdf) <- samdf$sample
 # Group works better as factor 
 samdf$gender <- factor(samdf$gender)
 samdf$visit <- factor(samdf$visit)
+samdf$diet <- factor(samdf$diet)
 samdf$meal_group <- factor(samdf$meal_group, levels = c("1", "2", "3", "4")) 
 
 # "Meal": intervention Experiment (some hours)
