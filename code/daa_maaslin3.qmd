@@ -77,6 +77,37 @@ dir.create(output_base_dir, showWarnings = FALSE)
 # })
 ```
 
+```{r print_table}
+#| label: table-of-significant-results
+daa_tab <- read_tsv("../output/daa_maaslin3/significant_results.tsv", col_names = TRUE)
+if (knitr::is_html_output()) {
+  datatable(
+      daa_tab,
+      options = list(
+        pageLength = 6,
+        dom = 'Bfrtip'
+      ),
+      caption = "Table of significant features",
+      rownames = FALSE
+  ) %>%
+    formatSignif(columns = c("pval_joint", "qval_joint"), digits = 3)
+} else {
+  library(kableExtra)
+  daa_tab %>% 
+    mutate(
+      across(where(is.numeric), ~round(., 3))
+      #p.adj = signif(p.adj, 3)
+    ) %>%
+    kbl(caption = "Table of significant features",
+        booktabs = TRUE,
+        longtable = TRUE,
+        align = c('l', 'r', 'r', 'r', 'r')) %>%
+    kable_styling(latex_options = "repeat_header") %>%
+    row_spec(0, bold = TRUE)
+}
+
+```
+
 ```{r print results}
 png_files <- list.files(output_base_dir, pattern = "\\.png$", full.names = TRUE, recursive = TRUE)
 ```
