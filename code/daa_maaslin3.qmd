@@ -58,22 +58,22 @@ dir.create(output_base_dir, showWarnings = FALSE)
 #   dir.create(diet_output_dir, showWarnings = FALSE)
 #   
   # Run Maaslin3
-  fit_out <- maaslin3(
-    path_tse,
-    output = output_base_dir,
-    formula = '~ diet * time',
-    normalization = 'TSS',
-    transform = 'LOG',
-    augment = TRUE,
-    standardize = TRUE,
-    max_significance = 0.1,
-    median_comparison_abundance = TRUE,
-    median_comparison_prevalence = FALSE,
-    max_pngs = 100,
-    cores = 1,
-    save_models = TRUE,
-    verbosity = "WARN"
-  )
+  # fit_out <- maaslin3(
+  #   path_tse,
+  #   output = output_base_dir,
+  #   formula = '~ diet * time',
+  #   normalization = 'TSS',
+  #   transform = 'LOG',
+  #   augment = TRUE,
+  #   standardize = TRUE,
+  #   max_significance = 0.1,
+  #   median_comparison_abundance = TRUE,
+  #   median_comparison_prevalence = FALSE,
+  #   max_pngs = 100,
+  #   cores = 1,
+  #   save_models = TRUE,
+  #   verbosity = "WARN"
+  # )
 # })
 ```
 
@@ -81,4 +81,4 @@ dir.create(output_base_dir, showWarnings = FALSE)
 png_files <- list.files(output_base_dir, pattern = "\\.png$", full.names = TRUE, recursive = TRUE)
 ```
 
-![summary_plot.png](../output/daa_maaslin3/figures/summary_plot.png){alt="summary_plot.png"} ![diet_ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose.\_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose._linear.png) ![diet_ARG.POLYAMINE.SYN..superpathway.of.arginine.and.polyamine.biosynthesis_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_ARG.POLYAMINE.SYN..superpathway.of.arginine.and.polyamine.biosynthesis_linear.png) ![diet_ARO.PWY..chorismate.biosynthesis.I_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_ARO.PWY..chorismate.biosynthesis.I_linear.png) ![diet_BRANCHED.CHAIN.AA.SYN.PWY..superpathway.of.branched.chain.amino.acid.biosynthesis_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_BRANCHED.CHAIN.AA.SYN.PWY..superpathway.of.branched.chain.amino.acid.biosynthesis_linear.png) ![diet_CALVIN.PWY..Calvin.Benson.Bassham.cycle_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_CALVIN.PWY..Calvin.Benson.Bassham.cycle_linear.png) ![diet_COA.PWY..coenzyme.A.biosynthesis.I..prokaryotic.\_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_COA.PWY..coenzyme.A.biosynthesis.I..prokaryotic._linear.png) ![diet_COA.PWY.1..superpathway.of.coenzyme.A.biosynthesis.III..mammals.\_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_COA.PWY.1..superpathway.of.coenzyme.A.biosynthesis.III..mammals._linear.png) ![diet_COLANSYN.PWY..colanic.acid.building.blocks.biosynthesis_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_COLANSYN.PWY..colanic.acid.building.blocks.biosynthesis_linear.png) ![diet_COMPLETE.ARO.PWY..superpathway.of.aromatic.amino.acid.biosynthesis_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_COMPLETE.ARO.PWY..superpathway.of.aromatic.amino.acid.biosynthesis_linear.png) ![diet_DTDPRHAMSYN.PWY..dTDP..beta..L.rhamnose.biosynthesis_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_DTDPRHAMSYN.PWY..dTDP..beta..L.rhamnose.biosynthesis_linear.png) ![diet_GLUCARDEG.PWY..D.glucarate.degradation.I_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_GLUCARDEG.PWY..D.glucarate.degradation.I_linear.png) ![diet_HISTSYN.PWY..L.histidine.biosynthesis_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_HISTSYN.PWY..L.histidine.biosynthesis_linear.png) ![diet_ILEUSYN.PWY..L.isoleucine.biosynthesis.I..from.threonine.\_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_ILEUSYN.PWY..L.isoleucine.biosynthesis.I..from.threonine._linear.png) ![diet_NONMEVIPP.PWY..methylerythritol.phosphate.pathway.I_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_NONMEVIPP.PWY..methylerythritol.phosphate.pathway.I_linear.png) ![diet_OANTIGEN.PWY..O.antigen.building.blocks.biosynthesis..E..coli.\_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_OANTIGEN.PWY..O.antigen.building.blocks.biosynthesis..E..coli._linear.png) ![diet_PANTO.PWY..phosphopantothenate.biosynthesis.I.g\_\_Alistipes.s\_\_Alistipes_finegoldii_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_PANTO.PWY..phosphopantothenate.biosynthesis.I.g__Alistipes.s__Alistipes_finegoldii_linear.png) ![diet_PEPTIDOGLYCANSYN.PWY..peptidoglycan.biosynthesis.I..meso.diaminopimelate.containing.\_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_PEPTIDOGLYCANSYN.PWY..peptidoglycan.biosynthesis.I..meso.diaminopimelate.containing._linear.png) ![diet_PWY.1042..glycolysis.IV_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_PWY.1042..glycolysis.IV_linear.png) ![diet_PWY.2942..L.lysine.biosynthesis.III_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_PWY.2942..L.lysine.biosynthesis.III_linear.png) ![diet_PWY.3001..superpathway.of.L.isoleucine.biosynthesis.I_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_PWY.3001..superpathway.of.L.isoleucine.biosynthesis.I_linear.png) ![diet_PWY.3001..superpathway.of.L.isoleucine.biosynthesis.I.g\_\_Blautia.s\_\_Ruminococcus_torques_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_PWY.3001..superpathway.of.L.isoleucine.biosynthesis.I.g__Blautia.s__Ruminococcus_torques_linear.png) ![diet_PWY.3841..folate.transformations.II..plants.\_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_PWY.3841..folate.transformations.II..plants._linear.png) ![diet_PWY.5097..L.lysine.biosynthesis.VI_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_PWY.5097..L.lysine.biosynthesis.VI_linear.png) ![diet_PWY.5097..L.lysine.biosynthesis.VI.g\_\_Blautia.s\_\_Ruminococcus_torques_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_PWY.5097..L.lysine.biosynthesis.VI.g__Blautia.s__Ruminococcus_torques_linear.png) ![diet_PWY.5103..L.isoleucine.biosynthesis.III_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_PWY.5103..L.isoleucine.biosynthesis.III_linear.png) ![diet_PWY.5130..2.oxobutanoate.degradation.I.unclassified_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_PWY.5130..2.oxobutanoate.degradation.I.unclassified_linear.png) ![diet_PWY.5686..UMP.biosynthesis.I_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_PWY.5686..UMP.biosynthesis.I_linear.png) ![diet_PWY.5941..glycogen.degradation.II.g\_\_Blautia.s\_\_Ruminococcus_torques_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_PWY.5941..glycogen.degradation.II.g__Blautia.s__Ruminococcus_torques_linear.png) ![diet_PWY.6121..5.aminoimidazole.ribonucleotide.biosynthesis.I_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_PWY.6121..5.aminoimidazole.ribonucleotide.biosynthesis.I_linear.png) ![diet_PWY.6122..5.aminoimidazole.ribonucleotide.biosynthesis.II_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_PWY.6122..5.aminoimidazole.ribonucleotide.biosynthesis.II_linear.png) ![diet_PWY.6123..inosine.5..phosphate.biosynthesis.I_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_PWY.6123..inosine.5..phosphate.biosynthesis.I_linear.png) ![diet_PWY.6124..inosine.5..phosphate.biosynthesis.II_linear](../output/daa_maaslin3/figures/association_plots/diet/linear/diet_PWY.6124..inosine.5..phosphate.biosynthesis.II_linear.png)
+![summary_plot.png](../output/daa_maaslin3/figures/summary_plot.png) ![diet_fig1](../output/daa_maaslin3/figures/association_plots/diet/logistic/diet_PWY.5367..petroselinate.biosynthesis_logistic.png) ![diet_fig2](../output/daa_maaslin3/figures/association_plots/diet/logistic/diet_PWY.6284..superpathway.of.unsaturated.fatty.acids.biosynthesis..E..coli._logistic.png)
