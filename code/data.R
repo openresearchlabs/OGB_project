@@ -50,19 +50,6 @@ colSums(assay(tse, "counts"))
 # removing plasmids
 tse <- tse[grep("plasmid", rowData(tse)[,"kingdom"],
                 ignore.case = TRUE, invert = TRUE),]
-# Gets a subset of object that includes prevalent taxa, genus level (10% prevalence above 0.1% detection level)
-altExp(tse, "PrevalentGenus") <- agglomerateByPrevalence(tse, rank="genus",
-                                                         other_label="Other",
-                                                         assay.type="counts",
-                                                         detection=0.1/100,
-                                                         prevalence=10/100,)
-
-altExp(tse, "PrevalentSpecies") <- agglomerateByPrevalence(tse, rank="species",
-                                                           other_label="Other",
-                                                           assay.type="counts",
-                                                           detection=0.1/100,
-                                                           prevalence=10/100)
-
 # Add alpha diversity
 tse <- addAlpha(x = tse,assay.type = 'counts',
                 index = c('observed', 'shannon'), 
@@ -124,14 +111,8 @@ altExp(tse, "genus") <- agglomerateByVariable(altExp(tse, "genus"),
                                    by = "rows", 
                                    f = "genus_sub")
 
-
-# Agglomerate the data based on specified taxa
-altExp(tse, "genus_all") <- agglomerateByRank(tse,  rank="genus")
-altExp(tse, "genus_prevalent") <- agglomerateByPrevalence(altExp(tse, "genus_all"), assay.type="relabundance", detection=0.1/100, prevalence=10/100, name="genus_prevalent")
-altExp(tse, "genus_prevalent") <- transformAssay(altExp(tse, "genus_prevalent"), assay.type="relabundance", method="clr", pseudocount=TRUE)
-
 # Add functional predictions to tse
-path_abundance <- read.csv("../data/pathabundance.txt", header = TRUE, row.names = 1, sep = "\t", check.names = FALSE, stringsAsFactors = FALSE)
+path_abundance <- read.csv("../data/HUMAnN3/processed/pathabundance_unstratified.txt", header = TRUE, row.names = 1, sep = "\t", check.names = FALSE, stringsAsFactors = FALSE)
 
 
 columns_to_remove <- c("AK1304", "PP2368", "HK2340")
