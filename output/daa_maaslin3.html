@@ -33,6 +33,16 @@ ul.task-list li input[type="checkbox"] {
 <script src="daa_maaslin3_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="daa_maaslin3_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="daa_maaslin3_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="daa_maaslin3_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="daa_maaslin3_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="daa_maaslin3_files/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="daa_maaslin3_files/libs/datatables-binding-0.33/datatables.js"></script>
+<script src="daa_maaslin3_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="daa_maaslin3_files/libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="daa_maaslin3_files/libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="daa_maaslin3_files/libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="daa_maaslin3_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="daa_maaslin3_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 
 
 </head>
@@ -69,6 +79,12 @@ ul.task-list li input[type="checkbox"] {
 <li>Group variable: <strong>diet</strong></li>
 <li>Formula used: <strong>~ diet * time</strong></li>
 </ul>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-4bd3c388d3fa85930150" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-4bd3c388d3fa85930150">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of significant features<\/caption>","data":[["PWY.5367..petroselinate.biosynthesis","PWY.6284..superpathway.of.unsaturated.fatty.acids.biosynthesis..E..coli.","PWY.6284..superpathway.of.unsaturated.fatty.acids.biosynthesis..E..coli.","PWY.5367..petroselinate.biosynthesis"],["diet","diet","diet","diet"],[2,2,2,2],["diet2","diet2","diet2","diet2"],[-2.00976736743067,-2.00976736743067,-0.592654990221543,-0.634354267106057],[0.503069300320531,0.503069300320531,0.247442742679492,0.321741827704516],[6.46912607735281e-05,6.46912607735281e-05,0.0314409704877416,0.0731786705170667],[0.0696724878530898,0.0696724878530898,0.546160084117706,0.628340520512283],[0.00012937833658783,0.00012937833658783,0.00012937833658783,0.00012937833658783],[0.0921820648188329,0.0921820648188329,0.0921820648188329,0.0921820648188329],["prevalence","prevalence","abundance","abundance"],[140,140,140,140],[107,107,107,107]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>feature<\/th>\n      <th>metadata<\/th>\n      <th>value<\/th>\n      <th>name<\/th>\n      <th>coef<\/th>\n      <th>stderr<\/th>\n      <th>pval_individual<\/th>\n      <th>qval_individual<\/th>\n      <th>pval_joint<\/th>\n      <th>qval_joint<\/th>\n      <th>model<\/th>\n      <th>N<\/th>\n      <th>N_not_zero<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"dom":"Bfrtip","columnDefs":[{"targets":8,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":9,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[2,4,5,6,7,8,9,11,12]},{"name":"feature","targets":0},{"name":"metadata","targets":1},{"name":"value","targets":2},{"name":"name","targets":3},{"name":"coef","targets":4},{"name":"stderr","targets":5},{"name":"pval_individual","targets":6},{"name":"qval_individual","targets":7},{"name":"pval_joint","targets":8},{"name":"qval_joint","targets":9},{"name":"model","targets":10},{"name":"N","targets":11},{"name":"N_not_zero","targets":12}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render"],"jsHooks":[]}</script>
+</div>
+</div>
 <p><img src="../output/daa_maaslin3/figures/summary_plot.png" class="img-fluid" alt="summary_plot.png"> <img src="../output/daa_maaslin3/figures/association_plots/diet/logistic/diet_PWY.5367..petroselinate.biosynthesis_logistic.png" class="img-fluid" alt="diet_fig1"> <img src="../output/daa_maaslin3/figures/association_plots/diet/logistic/diet_PWY.6284..superpathway.of.unsaturated.fatty.acids.biosynthesis..E..coli._logistic.png" class="img-fluid" alt="diet_fig2"></p>
 </section>
 
