@@ -599,7 +599,7 @@ p_tmp$data[[3]] <- merge(df_1,df_2, by = c("PANEL","label")) %>%
     mutate(annotation=round(value,3)) %>% select(colnames(p_tmp$data[[3]]))
 p1 <- p_tmp %>% ggplot_gtable() %>% ggplotify::as.ggplot()
 
-p1
+
 ```
 
 ```{r second-plot}
@@ -636,7 +636,7 @@ p2 <- colData(tse) %>% as_tibble() %>%  tidyr::drop_na({{ variable }}) %>%
                })+
     labs(x="", y = paste(index, "index"))
 
-p2
+
 ```
 
 ## Data Summary
