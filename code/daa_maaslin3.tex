@@ -187,25 +187,25 @@ analysis}\label{differential-abundance-analysis}
   Formula used: \textbf{\textasciitilde{} diet * time}
 \end{itemize}
 
-\begin{longtable}[t]{lrrrrlrrrrlrr}
+\begin{longtable}[t]{lrrrrrr}
 \caption{Table of significant features}\\
 \toprule
-\textbf{feature} & \textbf{metadata} & \textbf{value} & \textbf{name} & \textbf{coef} & \textbf{stderr} & \textbf{pval\_individual} & \textbf{qval\_individual} & \textbf{pval\_joint} & \textbf{qval\_joint} & \textbf{model} & \textbf{N} & \textbf{N\_not\_zero}\\
+\textbf{feature} & \textbf{metadata} & \textbf{value} & \textbf{coef} & \textbf{qval\_individual} & \textbf{qval\_joint} & \textbf{model}\\
 \midrule
 \endfirsthead
 \caption[]{Table of significant features \textit{(continued)}}\\
 \toprule
-\textbf{feature} & \textbf{metadata} & \textbf{value} & \textbf{name} & \textbf{coef} & \textbf{stderr} & \textbf{pval\_individual} & \textbf{qval\_individual} & \textbf{pval\_joint} & \textbf{qval\_joint} & \textbf{model} & \textbf{N} & \textbf{N\_not\_zero}\\
+\textbf{feature} & \textbf{metadata} & \textbf{value} & \textbf{coef} & \textbf{qval\_individual} & \textbf{qval\_joint} & \textbf{model}\\
 \midrule
 \endhead
 
 \endfoot
 \bottomrule
 \endlastfoot
-PWY.5367..petroselinate.biosynthesis & diet & 2 & diet2 & -2.010 & 0.503 & 0.000 & 0.070 & 0 & 0.092 & prevalence & 140 & 107\\
-PWY.6284..superpathway.of.unsaturated.fatty.acids.biosynthesis..E..coli. & diet & 2 & diet2 & -2.010 & 0.503 & 0.000 & 0.070 & 0 & 0.092 & prevalence & 140 & 107\\
-PWY.6284..superpathway.of.unsaturated.fatty.acids.biosynthesis..E..coli. & diet & 2 & diet2 & -0.593 & 0.247 & 0.031 & 0.546 & 0 & 0.092 & abundance & 140 & 107\\
-PWY.5367..petroselinate.biosynthesis & diet & 2 & diet2 & -0.634 & 0.322 & 0.073 & 0.628 & 0 & 0.092 & abundance & 140 & 107\\*
+PWY.5367... & diet & 2 & -2.010 & 0.070 & 0.092 & prevalence\\
+PWY.6284... & diet & 2 & -2.010 & 0.070 & 0.092 & prevalence\\
+PWY.6284... & diet & 2 & -0.593 & 0.546 & 0.092 & abundance\\
+PWY.5367... & diet & 2 & -0.634 & 0.628 & 0.092 & abundance\\*
 \end{longtable}
 
 \includegraphics{../output/daa_maaslin3/figures/summary_plot.png}
