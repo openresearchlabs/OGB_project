@@ -221,7 +221,7 @@ among microbiota samples.
 \item
   \textbf{Dissimilarity index:} bray
 \item
-  \textbf{Group variable:} meal\_group
+  \textbf{Group variable:} diet
 \item
   \textbf{Multiple testing correction:} fdr
 \item
@@ -265,10 +265,8 @@ findings}\label{table-of-the-top-findings}
 \endfoot
 \bottomrule
 \endlastfoot
-1 & 0.3590009 & 0.0004824 & 0.0004824\\
-2 & 0.3795514 & 0.0003210 & 0.0004281\\
-3 & 0.3439832 & 0.0002141 & 0.0004281\\
-4 & 0.3280638 & 0.0002141 & 0.0004281\\*
+1 & 0.3426224 & 4e-07 & 4e-07\\
+2 & 0.3612592 & 3e-07 & 4e-07\\*
 \end{longtable}
 
 \begin{center}
@@ -309,7 +307,7 @@ findings}\label{table-of-the-top-findings}
 \item
   Dissimilarity index: \textbf{bray}
 \item
-  Group variable: \textbf{meal\_group}
+  Group variable: \textbf{diet}
 \end{itemize}
 
 \textbf{Interpretation}
@@ -334,13 +332,7 @@ findings}\label{table-of-the-top-findings}
 \toprule
 \textbf{Group1} & \textbf{Group2} & \textbf{P\_value} & \textbf{Homogeneity} & \textbf{p.adj}\\
 \midrule
-1 & 2 & 0.002 & 0.201 & 0.004\\
-1 & 3 & 0.002 & 0.212 & 0.004\\
-1 & 4 & 0.121 & 0.911 & 0.121\\
-2 & 3 & 0.002 & 0.005 & 0.004\\
-2 & 4 & 0.008 & 0.021 & 0.0096\\
-\addlinespace
-3 & 4 & 0.003 & 0.12 & 0.0045\\
+1 & 2 & 0.001 & 0.856 & 0.001\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -355,13 +347,7 @@ findings}\label{table-of-the-top-findings}
 \toprule
 \textbf{Group1} & \textbf{Group2} & \textbf{P\_value} & \textbf{Homogeneity} & \textbf{p.adj}\\
 \midrule
-1 & 2 & 0.003 & 0.16 & 0.0045\\
-1 & 3 & 0.002 & 0.202 & 0.004\\
-1 & 4 & 0.131 & 0.898 & 0.131\\
-2 & 3 & 0.001 & 0.003 & 0.004\\
-2 & 4 & 0.006 & 0.026 & 0.0072\\
-\addlinespace
-3 & 4 & 0.002 & 0.121 & 0.004\\
+1 & 2 & 0.002 & 0.857 & 0.002\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -374,12 +360,10 @@ findings}\label{table-of-the-top-findings}
 \centering
 \begin{tabular}[t]{lrrr}
 \toprule
-\textbf{Meal} & \textbf{P\_value} & \textbf{Homogeneity} & \textbf{p.adj}\\
+\textbf{Diet} & \textbf{P\_value} & \textbf{Homogeneity} & \textbf{p.adj}\\
 \midrule
-1 & 1.000 & 0.923 & 1\\
-2 & 0.963 & 0.863 & 1\\
-3 & 0.995 & 0.968 & 1\\
-4 & 1.000 & 0.504 & 1\\
+1 & 1.000 & 0.609 & 1\\
+2 & 0.849 & 0.787 & 1\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -416,10 +400,10 @@ assays(2): counts relabundance
 rownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921
 rowData names(9): kingdom phylum ... strain clade_name
 colnames(140): AE1332 AK1371 ... TS2358 VK2336
-colData names(15): sample id ... time_difference time_divergence
+colData names(16): sample id ... time_difference time_divergence
 reducedDimNames(1): PCoA_BC
 mainExpName: NULL
-altExpNames(10): PrevalentGenus PrevalentSpecies ... species strain
+altExpNames(9): kingdom phylum ... strain pathabundance
 rowLinks: NULL
 rowTree: NULL
 colLinks: NULL
