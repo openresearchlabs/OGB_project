@@ -38,10 +38,10 @@ indices <- c("shannon", "observed")
 #     ))
 # })
 # Beta diversity analysis
-#system(paste(shQuote(quarto_bin), "render beta.qmd --output-dir ../output"))
+system(paste(shQuote(quarto_bin), "render beta.qmd --output-dir ../output"))
 # system(paste(shQuote(quarto_bin), "render ratio.qmd --output-dir ../output"))
 
 # # TODO
 # quarto::quarto_render("daa.qmd")
-system(paste(shQuote(quarto_bin), "render daa_maaslin3.qmd --output-dir ../output"))
+# system(paste(shQuote(quarto_bin), "render daa_maaslin3.qmd --output-dir ../output"))
 
