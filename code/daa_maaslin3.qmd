@@ -80,6 +80,8 @@ dir.create(output_base_dir, showWarnings = FALSE)
 ```{r print_table}
 #| label: table-of-significant-results
 daa_tab <- read_tsv("../output/daa_maaslin3/significant_results.tsv", col_names = TRUE)
+daa_tab <- daa_tab %>%
+              select(feature, metadata, value, coef, qval_individual, qval_joint, model)
 if (knitr::is_html_output()) {
   datatable(
       daa_tab,
@@ -90,18 +92,21 @@ if (knitr::is_html_output()) {
       caption = "Table of significant features",
       rownames = FALSE
   ) %>%
-    formatSignif(columns = c("pval_joint", "qval_joint"), digits = 3)
+    formatSignif(columns = c("qval_joint"), digits = 3)
 } else {
   library(kableExtra)
   daa_tab %>% 
     mutate(
-      across(where(is.numeric), ~round(., 3))
+      across(where(is.numeric), ~round(., 3)),
+      feature = ifelse(nchar(feature) > 8, 
+                     paste0(substr(feature, 1, 8), "..."), 
+                     feature)
       #p.adj = signif(p.adj, 3)
     ) %>%
     kbl(caption = "Table of significant features",
         booktabs = TRUE,
         longtable = TRUE,
-        align = c('l', 'r', 'r', 'r', 'r')) %>%
+        align = c('l', 'r', 'r', 'r', 'r', 'r', 'r')) %>%
     kable_styling(latex_options = "repeat_header") %>%
     row_spec(0, bold = TRUE)
 }
