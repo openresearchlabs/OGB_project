@@ -292,39 +292,26 @@
 2 & 4 & 4.1 & 0.03 & 0.073\\*
 \end{longtable}
 
-\begin{verbatim}
-Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-lmerModLmerTest]
-Formula: y ~ diet * time + (1 | id)
-   Data: df_no_miss
+\begin{longtable}[t]{lrrrrl}
+\caption{Table of interaction effects}\\
+\toprule
+\textbf{Term} & \textbf{Estimate} & \textbf{Std. Error} & \textbf{df} & \textbf{t value} & \textbf{Pr(>|t|)}\\
+\midrule
+\endfirsthead
+\caption[]{Table of interaction effects \textit{(continued)}}\\
+\toprule
+\textbf{Term} & \textbf{Estimate} & \textbf{Std. Error} & \textbf{df} & \textbf{t value} & \textbf{Pr(>|t|)}\\
+\midrule
+\endhead
 
-REML criterion at convergence: 75.8
-
-Scaled residuals: 
-     Min       1Q   Median       3Q      Max 
--2.62184 -0.44101  0.01695  0.47507  1.84121 
-
-Random effects:
- Groups   Name        Variance Std.Dev.
- id       (Intercept) 0.11992  0.3463  
- Residual             0.03086  0.1757  
-Number of obs: 140, groups:  id, 71
-
-Fixed effects:
-             Estimate Std. Error        df t value Pr(>|t|)    
-(Intercept)   4.03642    0.08878 135.88442  45.468   <2e-16 ***
-diet2        -0.07679    0.12467 135.88494  -0.616   0.5389    
-time         -0.06274    0.04254  67.44785  -1.475   0.1450    
-diet2:time    0.12717    0.05973  67.44297   2.129   0.0369 *  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Correlation of Fixed Effects:
-           (Intr) diet2  time  
-diet2      -0.712              
-time       -0.713  0.507       
-diet2:time  0.508 -0.713 -0.712
-\end{verbatim}
+\endfoot
+\bottomrule
+\endlastfoot
+(Intercept) & 4.036 & 0.089 & 135.884 & 45.468 & 0.000\\
+diet2 & -0.077 & 0.125 & 135.885 & -0.616 & 0.539\\
+time & -0.063 & 0.043 & 67.448 & -1.475 & 0.145\\
+diet2:time & 0.127 & 0.060 & 67.443 & 2.129 & 0.037\\*
+\end{longtable}
 
 \section{Alternate analyses}\label{alternate-analyses}
 
