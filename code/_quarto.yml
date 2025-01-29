@@ -1,0 +1,31 @@
+project:
+    type: website  # Change to "book" or "article" if needed
+output-dir: _site  # Where rendered files are stored
+resources:
+    - "lib/"  # Include shared resources (e.g., figures, styles)
+
+format:
+    html:
+    theme: cosmo  # Bootstrap theme for styling
+number-sections: true
+toc: true  # Enable table of contents
+toc-depth: 3  # Number of heading levels in TOC
+code-fold: true  # Allow users to toggle code visibility
+code-summary: "Show Code"
+page-layout: full  # Use full-width layout
+pdf:
+    documentclass: article
+keep-tex: true
+number-sections: true
+include-in-header:
+    text: |
+    \usepackage{booktabs}
+\usepackage{longtable}
+
+execute:
+    echo: false  # Hide code output
+warning: false  # Suppress warnings
+message: false  # Suppress messages
+
+editor: visual  # Use the visual editor
+

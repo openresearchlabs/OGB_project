@@ -1,0 +1,125 @@
+---
+title: "DAA Metacyc"
+format:
+  html:
+    code-fold: true
+    number-sections: true
+    page-layout: full
+  pdf:
+    keep-tex: true
+    include-in-header: 
+      text: |
+        \usepackage{booktabs}
+        \usepackage{longtable}
+editor: visual
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+### Differential abundance analysis
+
+```{r setup}
+library(maaslin3)
+
+# Source group-assignment
+source("funct.R")
+
+# Load the TreeSummarizedExperiment object
+tse <- readRDS("../data/tse.Rds")
+
+metacyc_tse <- altExp(tse, "metacyc")
+
+variable <- "diet" 
+formula_used <- "~ diet * time + (1 | id)"
+```
+
+-   Group variable: **`r variable`**
+-   Formula used: **`r formula_used`**
+
+```{r data_prep}
+# Create output directory for results
+output_base_dir <- "../output/daa/daa_mtc"
+dir.create(output_base_dir, showWarnings = FALSE)
+# Keep paired cases that have both time points
+paired.cases <- names(which(table(colData(metacyc_tse)$id) == 2))
+metacyc_tse <- metacyc_tse[, metacyc_tse$id %in% paired.cases]
+```
+
+```{r maaslin all}
+# Run Maaslin3
+# fit_out <- maaslin3(
+#   metacyc_tse,
+#   output = output_base_dir,
+#   formula = '~ diet * time + (1 | id)',
+#   normalization = 'TSS',
+#   transform = 'LOG',
+#   augment = TRUE,
+#   standardize = FALSE,
+#   median_comparison_abundance = FALSE,
+#   median_comparison_prevalence = FALSE,
+#   max_pngs = 100,
+#   verbosity = "WARN"
+# )
+```
+
+```{r print_table}
+#| label: table-of-significant-results
+daa_tab <- read_tsv("../output/daa/daa_mtc/significant_results.tsv", col_names = TRUE)
+daa_tab <- daa_tab %>%
+    filter(!is.na(feature)) %>%
+    select(feature, metadata, value, coef, qval_individual, qval_joint, model)
+if (knitr::is_html_output()) {
+  datatable(
+      daa_tab,
+      options = list(
+        pageLength = 6,
+        dom = 'Bfrtip'
+      ),
+      caption = "Table of significant features",
+      rownames = FALSE
+  ) %>%
+    formatSignif(columns = c("qval_joint"), digits = 3)
+} else {
+  library(kableExtra)
+  daa_tab %>% 
+    mutate(
+      across(where(is.numeric), ~round(., 3)),
+      feature = ifelse(nchar(feature) > 8, 
+                     paste0(substr(feature, 1, 8), "..."), 
+                     feature)
+      #p.adj = signif(p.adj, 3)
+    ) %>%
+    kbl(caption = "Table of significant features",
+        booktabs = TRUE,
+        longtable = TRUE,
+        align = c('l', 'r', 'r', 'r', 'r', 'r', 'r')) %>%
+    kable_styling(latex_options = "repeat_header") %>%
+    row_spec(0, bold = TRUE)
+}
+
+```
+
+```{r print results}
+png_files <- list.files(output_base_dir, pattern = "\\.png$", full.names = TRUE, recursive = TRUE)
+```
+![fig17](../output/daa/daa_mtc/figures/summary_plot.png) 
+![fig1](../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X2.1.1.184_linear.png)  
+![fig2](../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X2.3.1.28_linear.png)  
+![fig3](../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X2.3.3.14_linear.png)  
+![fig4](../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X3.1.1.72_linear.png)  
+![fig5](../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X3.6.3.5_linear.png)  
+![fig6](../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X4.2.1.104_linear.png)  
+![fig7](../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X4.2.1.17_linear.png)  
+![fig8](../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X4.2.2.2_linear.png)  
+![fig9](../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.1.1.144_logistic.png)  
+![fig10](../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.4.1.20_logistic.png)  
+![fig11](../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.8.3.11_logistic.png)  
+![fig12](../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X5.1.99.1_logistic.png)  
+![fig13](../output/daa/daa_mtc/figures/association_plots/time/linear/time_X1.2.1.62_linear.png)  
+![fig14](../output/daa/daa_mtc/figures/association_plots/time/linear/time_X3.1.1.83_linear.png)  
+![fig15](../output/daa/daa_mtc/figures/association_plots/time/logistic/time_X1.1.1.135_logistic.png)  
+![fig16](../output/daa/daa_mtc/figures/association_plots/time/logistic/time_X5.1.99.1_logistic.png)  
+ 
+

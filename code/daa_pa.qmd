@@ -1,0 +1,108 @@
+---
+title: "DAA path abundance"
+format:
+  html:
+    code-fold: true
+    number-sections: true
+    page-layout: full
+  pdf:
+    keep-tex: true
+    include-in-header: 
+      text: |
+        \usepackage{booktabs}
+        \usepackage{longtable}
+editor: visual
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+### Differential abundance analysis
+
+```{r setup}
+library(maaslin3)
+
+# Source group-assignment
+source("funct.R")
+
+# Load the TreeSummarizedExperiment object
+tse <- readRDS("../data/tse.Rds")
+
+pa_tse <- altExp(tse, "pathabundance")
+
+variable <- "diet" 
+formula_used <- "~ diet * time + (1 | id)"
+```
+
+-   Group variable: **`r variable`**
+-   Formula used: **`r formula_used`**
+
+```{r data_prep}
+# Create output directory for results
+output_base_dir <- "../output/daa/daa_pa"
+dir.create(output_base_dir, showWarnings = FALSE)
+# Keep paired cases that have both time points
+paired.cases <- names(which(table(colData(pa_tse)$id) == 2))
+pa_tse <- pa_tse[, pa_tse$id %in% paired.cases]
+```
+
+```{r maaslin all}
+# Run Maaslin3
+# fit_out <- maaslin3(
+#   pa_tse,
+#   output = output_base_dir,
+#   formula = '~ diet * time + (1 | id)',
+#   normalization = 'TSS',
+#   transform = 'LOG',
+#   augment = TRUE,
+#   standardize = FALSE,
+#   median_comparison_abundance = FALSE,
+#   median_comparison_prevalence = FALSE,
+#   max_pngs = 100,
+#   verbosity = "WARN"
+# )
+```
+
+```{r print_table}
+#| label: table-of-significant-results
+daa_tab <- read_tsv("../output/daa/daa_pa/significant_results.tsv", col_names = TRUE)
+daa_tab <- daa_tab %>%
+    filter(!is.na(feature)) %>%
+    select(feature, metadata, value, coef, qval_individual, qval_joint, model)
+if (knitr::is_html_output()) {
+  datatable(
+      daa_tab,
+      options = list(
+        pageLength = 6,
+        dom = 'Bfrtip'
+      ),
+      caption = "Table of significant features",
+      rownames = FALSE
+  ) %>%
+    formatSignif(columns = c("qval_joint"), digits = 3)
+} else {
+  library(kableExtra)
+  daa_tab %>% 
+    mutate(
+      across(where(is.numeric), ~round(., 3)),
+      feature = ifelse(nchar(feature) > 8, 
+                     paste0(substr(feature, 1, 8), "..."), 
+                     feature)
+      #p.adj = signif(p.adj, 3)
+    ) %>%
+    kbl(caption = "Table of significant features",
+        booktabs = TRUE,
+        longtable = TRUE,
+        align = c('l', 'r', 'r', 'r', 'r', 'r', 'r')) %>%
+    kable_styling(latex_options = "repeat_header") %>%
+    row_spec(0, bold = TRUE)
+}
+
+```
+
+```{r print results}
+png_files <- list.files(output_base_dir, pattern = "\\.png$", full.names = TRUE, recursive = TRUE)
+```
+
+![summary_plot.png](../output/daa/daa_pa/figures/summary_plot.png) ![diet_fig1](../output/daa/daa_pa/figures/association_plots/diet/linear/diet_PWY.5497..purine.nucleobases.degradation.II..anaerobic._linear.png) ![diet_fig2](../output/daa/daa_pa/figures/association_plots/diet/logistic/diet_PWY.5130..2.oxobutanoate.degradation.I_logistic.png) ![time_fig1](../output/daa/daa_pa/figures/association_plots/time/logistic/time_PWY.5130..2.oxobutanoate.degradation.I_logistic.png)
