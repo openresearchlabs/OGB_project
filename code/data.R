@@ -119,7 +119,7 @@ altExp(tse, "genus_prevalent") <- transformAssay(altExp(tse, "genus_prevalent"),
 # Add functional predictions to tse
 path_abundance <- read.csv("../data/HUMAnN3/processed/pathabundance_unstratified.txt", header = TRUE, row.names = 1, sep = "\t", check.names = FALSE, stringsAsFactors = FALSE)
 
-path_coverage <- read.csv("../data/HUMAnN3/final/pathcoverage.txt", header = TRUE, row.names = 1, sep = "\t", check.names = FALSE, stringsAsFactors = FALSE)
+path_coverage <- read.csv("../data/HUMAnN3/processed/pathcoverage_unstratified.txt", header = TRUE, row.names = 1, sep = "\t", check.names = FALSE, stringsAsFactors = FALSE)
 
 genefam_KO <- read.csv("../data/HUMAnN3/final/Renorm_genefamilies_Uniref90_KO_unstratified.txt", header = TRUE, row.names = 1, sep = "\t", check.names = FALSE, stringsAsFactors = FALSE)
 

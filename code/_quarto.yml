@@ -1,31 +1,35 @@
 project:
-    type: website  # Change to "book" or "article" if needed
-output-dir: _site  # Where rendered files are stored
-resources:
+  type: website  # Change this based on your project type, could be "book" or "article"
+  output-dir: "../output"  # Where rendered files are stored
+  resources:
     - "lib/"  # Include shared resources (e.g., figures, styles)
 
 format:
-    html:
+  html:
     theme: cosmo  # Bootstrap theme for styling
-number-sections: true
-toc: true  # Enable table of contents
-toc-depth: 3  # Number of heading levels in TOC
-code-fold: true  # Allow users to toggle code visibility
-code-summary: "Show Code"
-page-layout: full  # Use full-width layout
-pdf:
+    number-sections: true
+    toc: true  # Enable table of contents
+    toc-depth: 3  # Number of heading levels in TOC
+    code-fold: true  # Allow users to toggle code visibility
+    code-summary: "Show Code"
+    page-layout: full  # Use full-width layout
+  pdf:
     documentclass: article
-keep-tex: true
-number-sections: true
-include-in-header:
-    text: |
-    \usepackage{booktabs}
-\usepackage{longtable}
+    keep-tex: true
+    number-sections: true
+    include-in-header:
+      text: |
+        \usepackage{booktabs}
+        \usepackage{longtable}
+        \usepackage[a4paper, left=0.75in, right=1in, top=1in, bottom=1in]{geometry}
 
 execute:
-    echo: false  # Hide code output
-warning: false  # Suppress warnings
-message: false  # Suppress messages
+  echo: false  # Hide code output
+  warning: false  # Suppress warnings
+  message: false  # Suppress messages
+  include: true  # Make sure code is evaluated in the document
+  dependencies:
+    - quarto  # Ensure quarto package is available
+    - fs      # Ensure fs package is available
 
-editor: visual  # Use the visual editor
-
+editor: visual 

@@ -1,0 +1,852 @@
+"feature"	"metadata"	"value"	"name"	"coef"	"stderr"	"pval_individual"	"qval_individual"	"pval_joint"	"qval_joint"	"error"	"model"	"N"	"N_not_zero"
+"ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose."	"diet"	"2"	"diet2"	-1.30407286935632	0.814687674148652	0.113158905203446	1	0.21351287258005	1	NA	"abundance"	138	130
+"ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose."	"diet"	"2:time"	"diet2:time"	0.653535812048826	0.511369926283515	0.20561187899549	1	0.368947513206924	1	NA	"abundance"	138	130
+"ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose."	"time"	"time"	"time"	0.0909020739131601	0.354305403411618	0.798331955659514	1	0.959329999891884	1	NA	"abundance"	138	130
+"ARGSYN.PWY..L.arginine.biosynthesis.I..via.L.ornithine."	"diet"	"2"	"diet2"	0.0597481851254394	0.0667065392996458	0.372050377640271	1	0.605679271778274	1	NA	"abundance"	138	136
+"ARGSYN.PWY..L.arginine.biosynthesis.I..via.L.ornithine."	"diet"	"2:time"	"diet2:time"	-0.00152713230235851	0.0421889198028828	0.971179583668818	1	0.999169383602497	1	NA	"abundance"	138	136
+"ARGSYN.PWY..L.arginine.biosynthesis.I..via.L.ornithine."	"time"	"time"	"time"	0.0214988135697821	0.0298320712835538	0.47239236920631	1	0.721630187928269	1	NA	"abundance"	138	136
+"ARGSYNBSUB.PWY..L.arginine.biosynthesis.II..acetyl.cycle."	"diet"	"2"	"diet2"	-1.04904886924707	0.891593141835423	0.24145657615968	1	0.424611874148604	1	NA	"abundance"	138	137
+"ARGSYNBSUB.PWY..L.arginine.biosynthesis.II..acetyl.cycle."	"diet"	"2:time"	"diet2:time"	0.552871394883894	0.565114004429845	0.329684353278783	1	0.550676933760716	1	NA	"abundance"	138	137
+"ARGSYNBSUB.PWY..L.arginine.biosynthesis.II..acetyl.cycle."	"time"	"time"	"time"	0.0214988135698038	0.40103076417443	0.957327215060269	1	0.998179033425487	1	NA	"abundance"	138	137
+"ARO.PWY..chorismate.biosynthesis.I"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"ARO.PWY..chorismate.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"ARO.PWY..chorismate.biosynthesis.I"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"ASPASN.PWY..superpathway.of.L.aspartate.and.L.asparagine.biosynthesis"	"diet"	"2"	"diet2"	-7.04207886548293	5.56478329400966	0.21796952190036	1	0.388428331323249	1	NA	"abundance"	138	61
+"ASPASN.PWY..superpathway.of.L.aspartate.and.L.asparagine.biosynthesis"	"diet"	"2:time"	"diet2:time"	5.9388344158345	3.40478401389416	0.100392323978195	1	0.190706029242647	1	NA	"abundance"	138	61
+"ASPASN.PWY..superpathway.of.L.aspartate.and.L.asparagine.biosynthesis"	"time"	"time"	"time"	-1.06572858797193	2.18219858482524	0.63349816042854	1	0.865676401590736	1	NA	"abundance"	138	61
+"BRANCHED.CHAIN.AA.SYN.PWY..superpathway.of.branched.chain.amino.acid.biosynthesis"	"diet"	"2"	"diet2"	-0.452289169709529	1.50983382020671	0.76497874431971	1	0.931216629226276	1	NA	"abundance"	138	137
+"BRANCHED.CHAIN.AA.SYN.PWY..superpathway.of.branched.chain.amino.acid.biosynthesis"	"diet"	"2:time"	"diet2:time"	-0.111342740246173	0.952848459051484	0.907153195441672	1	0.907429274491496	1	NA	"abundance"	138	137
+"BRANCHED.CHAIN.AA.SYN.PWY..superpathway.of.branched.chain.amino.acid.biosynthesis"	"time"	"time"	"time"	0.0214988135698044	0.676184880715129	0.974683769025723	1	0.999359088449257	1	NA	"abundance"	138	137
+"CALVIN.PWY..Calvin.Benson.Bassham.cycle"	"diet"	"2"	"diet2"	-2.05493246179219	1.75222492590422	0.243038096422011	1	0.427008676531588	1	NA	"abundance"	138	134
+"CALVIN.PWY..Calvin.Benson.Bassham.cycle"	"diet"	"2:time"	"diet2:time"	0.772674276507213	1.10820434775542	0.486903339302505	1	0.736731816781079	1	NA	"abundance"	138	134
+"CALVIN.PWY..Calvin.Benson.Bassham.cycle"	"time"	"time"	"time"	0.0051332990543062	0.777748922773738	0.994743957619644	1	0.999972374018496	1	NA	"abundance"	138	134
+"COA.PWY..coenzyme.A.biosynthesis.I..prokaryotic."	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"COA.PWY..coenzyme.A.biosynthesis.I..prokaryotic."	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"COA.PWY..coenzyme.A.biosynthesis.I..prokaryotic."	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"COA.PWY.1..superpathway.of.coenzyme.A.biosynthesis.III..mammals."	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"COA.PWY.1..superpathway.of.coenzyme.A.biosynthesis.III..mammals."	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"COA.PWY.1..superpathway.of.coenzyme.A.biosynthesis.III..mammals."	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"COBALSYN.PWY..superpathway.of.adenosylcobalamin.salvage.from.cobinamide.I"	"diet"	"2"	"diet2"	-5.42439310623013	3.98796975150257	0.180070303308502	1	0.327715292483388	1	NA	"abundance"	138	101
+"COBALSYN.PWY..superpathway.of.adenosylcobalamin.salvage.from.cobinamide.I"	"diet"	"2:time"	"diet2:time"	3.72258797458077	2.55223142812973	0.153774159593923	1	0.283901827029029	1	NA	"abundance"	138	101
+"COBALSYN.PWY..superpathway.of.adenosylcobalamin.salvage.from.cobinamide.I"	"time"	"time"	"time"	-1.25627720484525	1.66144497087196	0.456242496234549	1	0.608833100083312	1	NA	"abundance"	138	101
+"COMPLETE.ARO.PWY..superpathway.of.aromatic.amino.acid.biosynthesis"	"diet"	"2"	"diet2"	0.0700186922117566	0.0703846098678092	0.321625973064206	1	0.321625973064206	1	NA	"abundance"	138	138
+"COMPLETE.ARO.PWY..superpathway.of.aromatic.amino.acid.biosynthesis"	"diet"	"2:time"	"diet2:time"	-0.000917241828666394	0.044515135880928	0.983591268591905	1	0.983591268591905	1	NA	"abundance"	138	138
+"COMPLETE.ARO.PWY..superpathway.of.aromatic.amino.acid.biosynthesis"	"time"	"time"	"time"	0.0214988135698143	0.0317042278274744	0.498874043807574	1	0.498874043807574	1	NA	"abundance"	138	138
+"DTDPRHAMSYN.PWY..dTDP..beta..L.rhamnose.biosynthesis"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"DTDPRHAMSYN.PWY..dTDP..beta..L.rhamnose.biosynthesis"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"DTDPRHAMSYN.PWY..dTDP..beta..L.rhamnose.biosynthesis"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"GLUCOSE1PMETAB.PWY..glucose.and.glucose.1.phosphate.degradation"	"diet"	"2"	"diet2"	-0.898291393230896	0.916498607135742	0.331311573599479	1	0.552855788397995	1	NA	"abundance"	138	76
+"GLUCOSE1PMETAB.PWY..glucose.and.glucose.1.phosphate.degradation"	"diet"	"2:time"	"diet2:time"	0.0343516828316006	0.0609123727768405	0.579742711820471	1	0.823383811731988	1	NA	"abundance"	138	76
+"GLUCOSE1PMETAB.PWY..glucose.and.glucose.1.phosphate.degradation"	"time"	"time"	"time"	-0.0265102109254226	0.0430722930044337	0.545937657454248	1	0.793827389081864	1	NA	"abundance"	138	76
+"GLUTORN.PWY..L.ornithine.biosynthesis.I"	"diet"	"2"	"diet2"	0.0427727379939643	0.065074881373493	0.512142186983581	1	0.761994754278837	1	NA	"abundance"	138	136
+"GLUTORN.PWY..L.ornithine.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	0.00696059126338075	0.0411569687211009	0.865958764327252	1	0.982032947139323	1	NA	"abundance"	138	136
+"GLUTORN.PWY..L.ornithine.biosynthesis.I"	"time"	"time"	"time"	0.0214988135697838	0.029102371675773	0.461382080939031	1	0.709890737266432	1	NA	"abundance"	138	136
+"GLYCOGENSYNTH.PWY..glycogen.biosynthesis.I..from.ADP.D.Glucose."	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"GLYCOGENSYNTH.PWY..glycogen.biosynthesis.I..from.ADP.D.Glucose."	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"GLYCOGENSYNTH.PWY..glycogen.biosynthesis.I..from.ADP.D.Glucose."	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"HISDEG.PWY..L.histidine.degradation.I"	"diet"	"2"	"diet2"	18.6893293311121	15.0230653204369	0.232574163103819	1	0.411057584864196	1	NA	"abundance"	138	19
+"HISDEG.PWY..L.histidine.degradation.I"	"diet"	"2:time"	"diet2:time"	-14.1136499570093	9.3936506969423	0.153734912254434	1	0.283835401262989	1	NA	"abundance"	138	19
+"HISDEG.PWY..L.histidine.degradation.I"	"time"	"time"	"time"	11.8972903701635	7.13498989606978	0.116159882873276	1	0.218826647357418	1	NA	"abundance"	138	19
+"HISTSYN.PWY..L.histidine.biosynthesis"	"diet"	"2"	"diet2"	0.0734687030865332	0.0711469856366549	0.303649906010364	1	0.303649906010364	1	NA	"abundance"	138	137
+"HISTSYN.PWY..L.histidine.biosynthesis"	"diet"	"2:time"	"diet2:time"	-0.00437151512725883	0.0451006168101603	0.922929437681474	1	0.922929437681474	1	NA	"abundance"	138	137
+"HISTSYN.PWY..L.histidine.biosynthesis"	"time"	"time"	"time"	0.0182738501191256	0.0322399883458767	0.571800658118113	1	0.571800658118113	1	NA	"abundance"	138	137
+"HSERMETANA.PWY..L.methionine.biosynthesis.III"	"diet"	"2"	"diet2"	2.98944352300098	2.91659565663767	0.307544060153508	1	0.520504771371312	1	NA	"abundance"	138	118
+"HSERMETANA.PWY..L.methionine.biosynthesis.III"	"diet"	"2:time"	"diet2:time"	-1.16509621810246	1.85409053665968	0.531003941398194	1	0.780042697015972	1	NA	"abundance"	138	118
+"HSERMETANA.PWY..L.methionine.biosynthesis.III"	"time"	"time"	"time"	0.572728247217007	1.28861439204232	0.657557876530542	1	0.882733392073728	1	NA	"abundance"	138	118
+"ILEUSYN.PWY..L.isoleucine.biosynthesis.I..from.threonine."	"diet"	"2"	"diet2"	-0.452289169709529	1.50983382020671	0.76497874431971	1	0.931216629226276	1	NA	"abundance"	138	137
+"ILEUSYN.PWY..L.isoleucine.biosynthesis.I..from.threonine."	"diet"	"2:time"	"diet2:time"	-0.111342740246173	0.952848459051484	0.907153195441672	1	0.907429274491496	1	NA	"abundance"	138	137
+"ILEUSYN.PWY..L.isoleucine.biosynthesis.I..from.threonine."	"time"	"time"	"time"	0.0214988135698044	0.676184880715129	0.974683769025723	1	0.999359088449257	1	NA	"abundance"	138	137
+"NONMEVIPP.PWY..methylerythritol.phosphate.pathway.I"	"diet"	"2"	"diet2"	0.071054556063742	0.0701317958138053	0.312810834678509	1	0.312810834678509	1	NA	"abundance"	138	138
+"NONMEVIPP.PWY..methylerythritol.phosphate.pathway.I"	"diet"	"2:time"	"diet2:time"	-0.00195310568065118	0.0443552422338973	0.964943445200995	1	0.964943445200995	1	NA	"abundance"	138	138
+"NONMEVIPP.PWY..methylerythritol.phosphate.pathway.I"	"time"	"time"	"time"	0.0214988135698176	0.0315903496035107	0.497330466209888	1	0.497330466209888	1	NA	"abundance"	138	138
+"NONOXIPENT.PWY..pentose.phosphate.pathway..non.oxidative.branch..I"	"diet"	"2"	"diet2"	-2.36805460849564	1.86277185740841	0.205908474702617	1	0.369418649450876	1	NA	"abundance"	138	134
+"NONOXIPENT.PWY..pentose.phosphate.pathway..non.oxidative.branch..I"	"diet"	"2:time"	"diet2:time"	0.915958320783921	1.17812036613459	0.438291540207511	1	0.68448360619755	1	NA	"abundance"	138	134
+"NONOXIPENT.PWY..pentose.phosphate.pathway..non.oxidative.branch..I"	"time"	"time"	"time"	-0.0151803561947685	0.826816685492018	0.985379809505657	1	0.999786250029909	1	NA	"abundance"	138	134
+"OANTIGEN.PWY..O.antigen.building.blocks.biosynthesis..E..coli."	"diet"	"2"	"diet2"	-3.26762126936499	6.41373071333885	0.612496681096686	1	0.0613119913597452	1	NA	"abundance"	138	58
+"OANTIGEN.PWY..O.antigen.building.blocks.biosynthesis..E..coli."	"diet"	"2:time"	"diet2:time"	2.71951146589647	4.02704034309636	0.502358727645995	1	0.173649708184832	1	NA	"abundance"	138	58
+"OANTIGEN.PWY..O.antigen.building.blocks.biosynthesis..E..coli."	"time"	"time"	"time"	-1.70121106750202	2.59309550736856	0.514575092002763	1	0.288438952073955	1	NA	"abundance"	138	58
+"P41.PWY..pyruvate.fermentation.to.acetate.and..S..lactate.I"	"diet"	"2"	"diet2"	-0.546033092404357	0.772411977810856	0.481034162118386	1	0.114932846735271	1	NA	"abundance"	138	120
+"P41.PWY..pyruvate.fermentation.to.acetate.and..S..lactate.I"	"diet"	"2:time"	"diet2:time"	0.546201112938298	0.487781432930738	0.265126619803225	1	0.217808497667054	1	NA	"abundance"	138	120
+"P41.PWY..pyruvate.fermentation.to.acetate.and..S..lactate.I"	"time"	"time"	"time"	-0.726606760808353	0.336135693141059	0.0326999464925396	1	0.0643306064844642	1	NA	"abundance"	138	120
+"PANTO.PWY..phosphopantothenate.biosynthesis.I"	"diet"	"2"	"diet2"	0.837142678613105	0.586328537890918	0.155719462438127	1	0.155719462438127	1	NA	"abundance"	138	136
+"PANTO.PWY..phosphopantothenate.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	-0.396762899727686	0.372474351739244	0.288726099144062	1	0.494089437961177	1	NA	"abundance"	138	136
+"PANTO.PWY..phosphopantothenate.biosynthesis.I"	"time"	"time"	"time"	0.389525462985831	0.265309515138437	0.14443083302049	1	0.14443083302049	1	NA	"abundance"	138	136
+"PANTOSYN.PWY..superpathway.of.coenzyme.A.biosynthesis.I..bacteria."	"diet"	"2"	"diet2"	0.738824897096634	0.532472604019063	0.167616379545153	1	0.167616379545153	1	NA	"abundance"	138	136
+"PANTOSYN.PWY..superpathway.of.coenzyme.A.biosynthesis.I..bacteria."	"diet"	"2:time"	"diet2:time"	-0.332851259727307	0.338261529473439	0.326912909261755	1	0.546953768281525	1	NA	"abundance"	138	136
+"PANTOSYN.PWY..superpathway.of.coenzyme.A.biosynthesis.I..bacteria."	"time"	"time"	"time"	0.337483406247488	0.240940086090574	0.163651902263159	1	0.163651902263159	1	NA	"abundance"	138	136
+"PEPTIDOGLYCANSYN.PWY..peptidoglycan.biosynthesis.I..meso.diaminopimelate.containing."	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PEPTIDOGLYCANSYN.PWY..peptidoglycan.biosynthesis.I..meso.diaminopimelate.containing."	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PEPTIDOGLYCANSYN.PWY..peptidoglycan.biosynthesis.I..meso.diaminopimelate.containing."	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.1042..glycolysis.IV"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.1042..glycolysis.IV"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.1042..glycolysis.IV"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.2942..L.lysine.biosynthesis.III"	"diet"	"2"	"diet2"	4.79045859074804	2.3520739867994	0.043711028665256	1	0.043711028665256	1	NA	"abundance"	138	134
+"PWY.2942..L.lysine.biosynthesis.III"	"diet"	"2:time"	"diet2:time"	-2.96393785417791	1.50109160224764	0.0504419415555808	1	0.098339493643265	1	NA	"abundance"	138	134
+"PWY.2942..L.lysine.biosynthesis.III"	"time"	"time"	"time"	1.95371436411786	1.060958514614	0.0678333268536949	1	0.0678333268536949	1	NA	"abundance"	138	134
+"PWY.3001..superpathway.of.L.isoleucine.biosynthesis.I"	"diet"	"2"	"diet2"	2.30727310842009	5.97172499561215	0.700107978466527	1	0.132506835673602	1	NA	"abundance"	138	97
+"PWY.3001..superpathway.of.L.isoleucine.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	-2.65539233214479	3.80633549725536	0.487152617779588	1	0.179328075429963	1	NA	"abundance"	138	97
+"PWY.3001..superpathway.of.L.isoleucine.biosynthesis.I"	"time"	"time"	"time"	1.30577834676182	2.65664635116988	0.624221139826736	1	0.214495135754837	1	NA	"abundance"	138	97
+"PWY.3841..folate.transformations.II..plants."	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.3841..folate.transformations.II..plants."	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.3841..folate.transformations.II..plants."	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.5097..L.lysine.biosynthesis.VI"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.5097..L.lysine.biosynthesis.VI"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.5097..L.lysine.biosynthesis.VI"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.5100..pyruvate.fermentation.to.acetate.and.lactate.II"	"diet"	"2"	"diet2"	-0.533809974890311	0.765400930215936	0.486908538364691	1	0.128371341639412	1	NA	"abundance"	138	122
+"PWY.5100..pyruvate.fermentation.to.acetate.and.lactate.II"	"diet"	"2:time"	"diet2:time"	0.533977995424249	0.481001463193946	0.269196711916654	1	0.26362416854975	1	NA	"abundance"	138	122
+"PWY.5100..pyruvate.fermentation.to.acetate.and.lactate.II"	"time"	"time"	"time"	-0.697071461102317	0.331320490649683	0.0375089307669181	1	0.0736109416465587	1	NA	"abundance"	138	122
+"PWY.5103..L.isoleucine.biosynthesis.III"	"diet"	"2"	"diet2"	-0.466289172179219	1.55356369722411	0.764537720980799	1	0.931216629226276	1	NA	"abundance"	138	137
+"PWY.5103..L.isoleucine.biosynthesis.III"	"diet"	"2:time"	"diet2:time"	-0.117278297539856	0.980446162436374	0.904966831710748	1	0.907429274491496	1	NA	"abundance"	138	137
+"PWY.5103..L.isoleucine.biosynthesis.III"	"time"	"time"	"time"	0.0214988135698059	0.695769474250496	0.975396141227005	1	0.999394650133479	1	NA	"abundance"	138	137
+"PWY.5154..L.arginine.biosynthesis.III..via.N.acetyl.L.citrulline."	"diet"	"2"	"diet2"	-1.61998617032592	14.4712648176975	0.91364620117325	1	0.959681610598415	1	NA	"abundance"	138	12
+"PWY.5154..L.arginine.biosynthesis.III..via.N.acetyl.L.citrulline."	"diet"	"2:time"	"diet2:time"	-2.58754258014238	8.16329354844928	0.759468159600753	1	0.942144433754151	1	NA	"abundance"	138	12
+"PWY.5154..L.arginine.biosynthesis.III..via.N.acetyl.L.citrulline."	"time"	"time"	"time"	0.593391526305754	0.19890220132752	0.99853187180894	1	0.873489393325922	1	NA	"abundance"	138	12
+"PWY.5188..tetrapyrrole.biosynthesis.I..from.glutamate."	"diet"	"2"	"diet2"	16.1857810126338	6.21589468260211	0.0136983049186706	1	0.0272089662796964	1	NA	"abundance"	138	70
+"PWY.5188..tetrapyrrole.biosynthesis.I..from.glutamate."	"diet"	"2:time"	"diet2:time"	-11.6587350053278	3.81838598317214	0.00554515638837456	1	0.0110595640173776	1	NA	"abundance"	138	70
+"PWY.5188..tetrapyrrole.biosynthesis.I..from.glutamate."	"time"	"time"	"time"	4.45107133625789	2.49051254220424	0.0937341192916481	1	0.178682153463915	1	NA	"abundance"	138	70
+"PWY.5667..CDP.diacylglycerol.biosynthesis.I"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.5667..CDP.diacylglycerol.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.5667..CDP.diacylglycerol.biosynthesis.I"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.5686..UMP.biosynthesis.I"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.5686..UMP.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.5686..UMP.biosynthesis.I"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.5695..inosine.5..phosphate.degradation"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.5695..inosine.5..phosphate.degradation"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.5695..inosine.5..phosphate.degradation"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.5941..glycogen.degradation.II"	"diet"	"2"	"diet2"	1.28172848770262	1.50383905913944	0.414845549360576	1	0.414845549360576	1	NA	"abundance"	138	132
+"PWY.5941..glycogen.degradation.II"	"diet"	"2:time"	"diet2:time"	-1.30089818678039	0.949792448722276	0.218093279143662	1	0.218093279143662	1	NA	"abundance"	138	132
+"PWY.5941..glycogen.degradation.II"	"time"	"time"	"time"	0.0100284669814155	0.66635912696518	0.988492013183382	1	0.998582159636191	1	NA	"abundance"	138	132
+"PWY.5973..cis.vaccenate.biosynthesis"	"diet"	"2"	"diet2"	-3.27747056364742	10.5270503146017	0.758674558171063	1	0.779043826367862	1	NA	"abundance"	138	38
+"PWY.5973..cis.vaccenate.biosynthesis"	"diet"	"2:time"	"diet2:time"	-0.647560137039447	6.7286892824174	0.924450198456402	1	0.994292227486723	1	NA	"abundance"	138	38
+"PWY.5973..cis.vaccenate.biosynthesis"	"time"	"time"	"time"	1.33571247987321	5.4886852813746	0.810362022321157	1	0.938974902531242	1	NA	"abundance"	138	38
+"PWY.6121..5.aminoimidazole.ribonucleotide.biosynthesis.I"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.6121..5.aminoimidazole.ribonucleotide.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.6121..5.aminoimidazole.ribonucleotide.biosynthesis.I"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.6122..5.aminoimidazole.ribonucleotide.biosynthesis.II"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.6122..5.aminoimidazole.ribonucleotide.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.6122..5.aminoimidazole.ribonucleotide.biosynthesis.II"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.6123..inosine.5..phosphate.biosynthesis.I"	"diet"	"2"	"diet2"	0.0771967331930743	0.0697973362070344	0.270717646485913	1	0.468147248852954	1	NA	"abundance"	138	137
+"PWY.6123..inosine.5..phosphate.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	-0.00809528281000138	0.0442392951579861	0.855085684931778	1	0.885645398330383	1	NA	"abundance"	138	137
+"PWY.6123..inosine.5..phosphate.biosynthesis.I"	"time"	"time"	"time"	0.0214988131878999	0.0313942287833495	0.494660897887115	1	0.744632391875744	1	NA	"abundance"	138	137
+"PWY.6124..inosine.5..phosphate.biosynthesis.II"	"diet"	"2"	"diet2"	0.077196733116692	0.0697973361984521	0.270717646899212	1	0.468147249455777	1	NA	"abundance"	138	137
+"PWY.6124..inosine.5..phosphate.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	-0.0080952827336215	0.0442392951525465	0.855085686266134	1	0.885645398330383	1	NA	"abundance"	138	137
+"PWY.6124..inosine.5..phosphate.biosynthesis.II"	"time"	"time"	"time"	0.0214988131115224	0.0313942287794892	0.494660899364615	1	0.74463239336902	1	NA	"abundance"	138	137
+"PWY.6125..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.II"	"diet"	"2"	"diet2"	3.27296520820205	7.54760254169205	0.67970514104595	1	0.67970514104595	1	NA	"abundance"	138	9
+"PWY.6125..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.II"	"time"	"time"	"time"	6.18092633951753	7.54760254169204	0.44413090188106	1	0.44413090188106	1	NA	"abundance"	138	9
+"PWY.6126..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.II"	"diet"	"2"	"diet2"	3.30636227467728	7.31892592319078	0.667316225258972	1	0.667316225258972	1	NA	"abundance"	138	9
+"PWY.6126..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.II"	"time"	"time"	"time"	6.27257145613884	7.31892592319078	0.424328693751812	1	0.424328693751812	1	NA	"abundance"	138	9
+"PWY.6151..S.adenosyl.L.methionine.salvage.I"	"diet"	"2"	"diet2"	0.0701082285860859	0.0703526051683675	0.320790559651559	1	0.320790559651559	1	NA	"abundance"	138	138
+"PWY.6151..S.adenosyl.L.methionine.salvage.I"	"diet"	"2:time"	"diet2:time"	-0.00102289462795484	0.044494894331715	0.981693218489647	1	0.981693218489647	1	NA	"abundance"	138	138
+"PWY.6151..S.adenosyl.L.methionine.salvage.I"	"time"	"time"	"time"	0.0214988135698059	0.0316898115469189	0.498679107856447	1	0.498679107856447	1	NA	"abundance"	138	138
+"PWY.6163..chorismate.biosynthesis.from.3.dehydroquinate"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.6163..chorismate.biosynthesis.from.3.dehydroquinate"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.6163..chorismate.biosynthesis.from.3.dehydroquinate"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.6270..isoprene.biosynthesis.I"	"diet"	"2"	"diet2"	-1.53292116414819	9.66439823082627	0.874909492683953	1	0.829590474961139	1	NA	"abundance"	138	43
+"PWY.6270..isoprene.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	-0.567331729219381	6.52506693073181	0.931243468326054	1	0.50300670946825	1	NA	"abundance"	138	43
+"PWY.6270..isoprene.biosynthesis.I"	"time"	"time"	"time"	-2.10241483100194	3.98369891962436	0.601916550131453	1	0.841529566940756	1	NA	"abundance"	138	43
+"PWY.6277..superpathway.of.5.aminoimidazole.ribonucleotide.biosynthesis"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.6277..superpathway.of.5.aminoimidazole.ribonucleotide.biosynthesis"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.6277..superpathway.of.5.aminoimidazole.ribonucleotide.biosynthesis"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.6317..D.galactose.degradation.I..Leloir.pathway."	"diet"	"2"	"diet2"	-0.782082641368602	1.96711564859901	0.691603245734022	1	0.691603245734022	1	NA	"abundance"	138	132
+"PWY.6317..D.galactose.degradation.I..Leloir.pathway."	"diet"	"2:time"	"diet2:time"	-0.285892052121255	1.24394176536963	0.818592667981421	1	0.818592667981421	1	NA	"abundance"	138	132
+"PWY.6317..D.galactose.degradation.I..Leloir.pathway."	"time"	"time"	"time"	0.00839261076522945	0.872907505450236	0.992343788016896	1	0.998582159636191	1	NA	"abundance"	138	132
+"PWY.6385..peptidoglycan.biosynthesis.III..mycobacteria."	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.6385..peptidoglycan.biosynthesis.III..mycobacteria."	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.6385..peptidoglycan.biosynthesis.III..mycobacteria."	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.6386..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.II..lysine.containing."	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.6386..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.II..lysine.containing."	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.6386..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.II..lysine.containing."	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.6387..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.I..meso.diaminopimelate.containing."	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.6387..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.I..meso.diaminopimelate.containing."	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.6387..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.I..meso.diaminopimelate.containing."	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.6527..stachyose.degradation"	"diet"	"2"	"diet2"	6.23576601233375	3.36711989851565	0.0669819368240205	1	0.129477293787344	1	NA	"abundance"	138	104
+"PWY.6527..stachyose.degradation"	"diet"	"2:time"	"diet2:time"	-4.80026144797847	2.16653677992236	0.0289841257761908	1	0.0571281720053715	1	NA	"abundance"	138	104
+"PWY.6527..stachyose.degradation"	"time"	"time"	"time"	2.38184900901855	1.52047483808631	0.120386829434868	1	0.226280670168357	1	NA	"abundance"	138	104
+"PWY.6609..adenine.and.adenosine.salvage.III"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.6609..adenine.and.adenosine.salvage.III"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.6609..adenine.and.adenosine.salvage.III"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.6629..superpathway.of.L.tryptophan.biosynthesis"	"diet"	"2"	"diet2"	-0.109321644941463	0.106191534721075	0.305182384001267	1	0.517228480497837	1	NA	"abundance"	138	133
+"PWY.6629..superpathway.of.L.tryptophan.biosynthesis"	"diet"	"2:time"	"diet2:time"	0.104065999932638	0.067320489110688	0.124595489736318	1	0.233666943410002	1	NA	"abundance"	138	133
+"PWY.6629..superpathway.of.L.tryptophan.biosynthesis"	"time"	"time"	"time"	-0.0355434130941907	0.0470599908390886	0.451458519410425	1	0.699102244072597	1	NA	"abundance"	138	133
+"PWY.6700..queuosine.biosynthesis.I..de.novo."	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.6700..queuosine.biosynthesis.I..de.novo."	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.6700..queuosine.biosynthesis.I..de.novo."	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.6703..preQ0.biosynthesis"	"diet"	"2"	"diet2"	-1.35392003329001	3.90056978295044	0.729537372213454	1	0.899353069266432	1	NA	"abundance"	138	115
+"PWY.6703..preQ0.biosynthesis"	"diet"	"2:time"	"diet2:time"	1.16029233625735	2.49877944555969	0.644078184416169	1	0.611732327655502	1	NA	"abundance"	138	115
+"PWY.6703..preQ0.biosynthesis"	"time"	"time"	"time"	0.401551891086682	1.72365035836621	0.816609853887097	1	0.966368054308688	1	NA	"abundance"	138	115
+"PWY.6823..molybdopterin.biosynthesis"	"diet"	"2"	"diet2"	1.49737543418327	2.15757678128947	0.489007483554605	1	0.455582431042521	1	NA	"abundance"	138	125
+"PWY.6823..molybdopterin.biosynthesis"	"diet"	"2:time"	"diet2:time"	-0.812509943937358	1.35369870259597	0.549485594164169	1	0.797036770134388	1	NA	"abundance"	138	125
+"PWY.6823..molybdopterin.biosynthesis"	"time"	"time"	"time"	0.990735161995871	0.929385759391318	0.288541261977488	1	0.493826464091415	1	NA	"abundance"	138	125
+"PWY.6892..thiazole.component.of.thiamine.diphosphate.biosynthesis.I"	"diet"	"2"	"diet2"	7.53172451820341	7.3651287509342	0.309959526323624	1	0.523844144688483	1	NA	"abundance"	138	75
+"PWY.6892..thiazole.component.of.thiamine.diphosphate.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	-5.82968287944933	4.68942475302781	0.21790020342547	1	0.220529996786728	1	NA	"abundance"	138	75
+"PWY.6892..thiazole.component.of.thiamine.diphosphate.biosynthesis.I"	"time"	"time"	"time"	0.858720336272789	3.06124415083556	0.779899317577476	1	0.377295234376028	1	NA	"abundance"	138	75
+"PWY.6897..thiamine.diphosphate.salvage.II"	"diet"	"2"	"diet2"	-4.56255526611983	5.11750230775372	0.375270164506623	1	0.609712632644418	1	NA	"abundance"	138	85
+"PWY.6897..thiamine.diphosphate.salvage.II"	"diet"	"2:time"	"diet2:time"	2.20404838848021	3.35024871604279	0.512483146757403	1	0.762327317804437	1	NA	"abundance"	138	85
+"PWY.6897..thiamine.diphosphate.salvage.II"	"time"	"time"	"time"	-3.23752709792171	2.44813338291299	0.189741227653634	1	0.263698381600113	1	NA	"abundance"	138	85
+"PWY.6936..seleno.amino.acid.biosynthesis..plants."	"diet"	"2"	"diet2"	1.98500969994596	3.72715681864713	0.595730315737586	1	0.836566022386368	1	NA	"abundance"	138	88
+"PWY.6936..seleno.amino.acid.biosynthesis..plants."	"diet"	"2:time"	"diet2:time"	-1.41091880157347	2.40706264204919	0.559341193961501	1	0.805819816660724	1	NA	"abundance"	138	88
+"PWY.6936..seleno.amino.acid.biosynthesis..plants."	"time"	"time"	"time"	0.181269442830432	1.70469942408852	0.915569994750795	1	0.520600913520162	1	NA	"abundance"	138	88
+"PWY.702..L.methionine.biosynthesis.II"	"diet"	"2"	"diet2"	-11.1896591895021	21.8329104194591	0.616281897821992	1	0.183237199730275	1	NA	"abundance"	138	18
+"PWY.702..L.methionine.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	7.75054105412422	11.9583775327273	0.527390677875244	1	0.239052266278941	1	NA	"abundance"	138	18
+"PWY.702..L.methionine.biosynthesis.II"	"time"	"time"	"time"	-7.94330086297471	10.5462976784729	0.463817893559461	1	0.100259617046766	1	NA	"abundance"	138	18
+"PWY.7111..pyruvate.fermentation.to.isobutanol..engineered."	"diet"	"2"	"diet2"	0.208322150148861	2.06725880353944	0.919969249207418	1	0.56170158141408	1	NA	"abundance"	138	133
+"PWY.7111..pyruvate.fermentation.to.isobutanol..engineered."	"diet"	"2:time"	"diet2:time"	0.166908678714316	1.28799829837328	0.897274823464593	1	0.861847265395367	1	NA	"abundance"	138	133
+"PWY.7111..pyruvate.fermentation.to.isobutanol..engineered."	"time"	"time"	"time"	0.0355914500042769	0.898622433518668	0.968527187049444	1	0.999009462044979	1	NA	"abundance"	138	133
+"PWY.7199..pyrimidine.deoxyribonucleosides.salvage"	"diet"	"2"	"diet2"	2.26676394021052	1.34176195165856	0.0946800341476373	1	0.180395759429077	1	NA	"abundance"	138	128
+"PWY.7199..pyrimidine.deoxyribonucleosides.salvage"	"diet"	"2:time"	"diet2:time"	-1.86970035984327	0.824027176877413	0.0265046033691211	1	0.0523067127384877	1	NA	"abundance"	138	128
+"PWY.7199..pyrimidine.deoxyribonucleosides.salvage"	"time"	"time"	"time"	0.635777643697359	0.581471611678011	0.278206236231255	1	0.47901376258455	1	NA	"abundance"	138	128
+"PWY.7208..superpathway.of.pyrimidine.nucleobases.salvage"	"diet"	"2"	"diet2"	-2.2254875808289	10.5809795785376	0.842966894157731	1	0.804565564325072	1	NA	"abundance"	138	8
+"PWY.7208..superpathway.of.pyrimidine.nucleobases.salvage"	"time"	"time"	"time"	2.15091819667661	5.88315807920629	0.927017287368557	1	0.19540941470049	1	NA	"abundance"	138	8
+"PWY.7220..adenosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"diet"	"2"	"diet2"	3.24830151624749	7.79173123892237	0.69126234120382	1	0.69126234120382	1	NA	"abundance"	138	9
+"PWY.7220..adenosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"time"	"time"	"time"	6.03241663479701	7.79173123892236	0.468207886585298	1	0.468207886585298	1	NA	"abundance"	138	9
+"PWY.7221..guanosine.ribonucleotides.de.novo.biosynthesis"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.7221..guanosine.ribonucleotides.de.novo.biosynthesis"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.7221..guanosine.ribonucleotides.de.novo.biosynthesis"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.7222..guanosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"diet"	"2"	"diet2"	3.24830151624749	7.79173123892237	0.69126234120382	1	0.69126234120382	1	NA	"abundance"	138	9
+"PWY.7222..guanosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"time"	"time"	"time"	6.03241663479701	7.79173123892236	0.468207886585298	1	0.468207886585298	1	NA	"abundance"	138	9
+"PWY.7228..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.I"	"diet"	"2"	"diet2"	3.29264026479452	7.40625979791439	0.672213871450668	1	0.672213871450668	1	NA	"abundance"	138	9
+"PWY.7228..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.I"	"time"	"time"	"time"	6.24332907366558	7.40625979791439	0.431554836221287	1	0.431554836221287	1	NA	"abundance"	138	9
+"PWY.7229..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.I"	"diet"	"2"	"diet2"	3.36149825854118	7.01047989689855	0.648562773534669	1	0.648562773534669	1	NA	"abundance"	138	9
+"PWY.7229..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.I"	"time"	"time"	"time"	6.31613385125846	7.01047989689855	0.402325663235854	1	0.402325663235854	1	NA	"abundance"	138	9
+"PWY.7237..myo...chiro..and.scyllo.inositol.degradation"	"diet"	"2"	"diet2"	0.846984368316628	1.27098758593034	0.506337259776337	1	0.506337259776337	1	NA	"abundance"	138	134
+"PWY.7237..myo...chiro..and.scyllo.inositol.degradation"	"diet"	"2:time"	"diet2:time"	-0.491343289061968	0.811143187888056	0.545742385128992	1	0.793650019331703	1	NA	"abundance"	138	134
+"PWY.7237..myo...chiro..and.scyllo.inositol.degradation"	"time"	"time"	"time"	0.784188587494626	0.573308964271322	0.173725483169422	1	0.173725483169422	1	NA	"abundance"	138	134
+"PWY.7238..sucrose.biosynthesis.II"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.7238..sucrose.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.7238..sucrose.biosynthesis.II"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.724..superpathway.of.L.lysine..L.threonine.and.L.methionine.biosynthesis.II"	"diet"	"2"	"diet2"	-0.994148206606308	0.778613317875085	0.205277062560712	1	0.368415452707869	1	NA	"abundance"	138	137
+"PWY.724..superpathway.of.L.lysine..L.threonine.and.L.methionine.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	0.527637639505031	0.492821456294134	0.288161621533242	1	0.493286122941817	1	NA	"abundance"	138	137
+"PWY.724..superpathway.of.L.lysine..L.threonine.and.L.methionine.biosynthesis.II"	"time"	"time"	"time"	0.021497814398375	0.349711032286862	0.951166370969864	1	0.997615276675747	1	NA	"abundance"	138	137
+"PWY.7328..superpathway.of.UDP.glucose.derived.O.antigen.building.blocks.biosynthesis"	"diet"	"2"	"diet2"	-1.44512417996383	10.7448596826408	0.894047326865399	1	0.316637541043895	1	NA	"abundance"	138	30
+"PWY.7328..superpathway.of.UDP.glucose.derived.O.antigen.building.blocks.biosynthesis"	"diet"	"2:time"	"diet2:time"	3.06612669928718	6.87544100185078	0.659322573846219	1	0.211911288118519	1	NA	"abundance"	138	30
+"PWY.7328..superpathway.of.UDP.glucose.derived.O.antigen.building.blocks.biosynthesis"	"time"	"time"	"time"	-2.0470250736385	4.67094236760705	0.664827185123222	1	0.468091250184341	1	NA	"abundance"	138	30
+"PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast."	"diet"	"2"	"diet2"	-0.459606618082917	1.94736325465528	0.813807435006125	1	0.965332328741002	1	NA	"abundance"	138	129
+"PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast."	"diet"	"2:time"	"diet2:time"	-0.540955560948703	1.2405592743489	0.663546949201407	1	0.886799344608319	1	NA	"abundance"	138	129
+"PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast."	"time"	"time"	"time"	-0.397300503579105	0.881404221767903	0.652944486020829	1	0.879552470216653	1	NA	"abundance"	138	129
+"PWY.7560..methylerythritol.phosphate.pathway.II"	"diet"	"2"	"diet2"	-5.23595309431046	8.94797163483486	0.562996606214018	1	0.809028033819534	1	NA	"abundance"	138	45
+"PWY.7560..methylerythritol.phosphate.pathway.II"	"diet"	"2:time"	"diet2:time"	2.64635056478767	5.80294673765208	0.652260722198557	1	0.798222518876072	1	NA	"abundance"	138	45
+"PWY.7560..methylerythritol.phosphate.pathway.II"	"time"	"time"	"time"	-1.94986020093664	3.79111370233711	0.611782025412758	1	0.849286804207379	1	NA	"abundance"	138	45
+"PWY.7663..gondoate.biosynthesis..anaerobic."	"diet"	"2"	"diet2"	-2.72587462790935	10.1682158721533	0.790880277570478	1	0.586457735921629	1	NA	"abundance"	138	40
+"PWY.7663..gondoate.biosynthesis..anaerobic."	"diet"	"2:time"	"diet2:time"	-1.18592428079976	6.32148656020982	0.853022323385136	1	0.908216681495406	1	NA	"abundance"	138	40
+"PWY.7663..gondoate.biosynthesis..anaerobic."	"time"	"time"	"time"	1.94627421467313	5.03655193865954	0.702623386342954	1	0.911567149649868	1	NA	"abundance"	138	40
+"PWY.7790..UMP.biosynthesis.II"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.7790..UMP.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.7790..UMP.biosynthesis.II"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.7791..UMP.biosynthesis.III"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.7791..UMP.biosynthesis.III"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.7791..UMP.biosynthesis.III"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.7851..coenzyme.A.biosynthesis.II..eukaryotic."	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.7851..coenzyme.A.biosynthesis.II..eukaryotic."	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.7851..coenzyme.A.biosynthesis.II..eukaryotic."	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.7953..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.III..meso.diaminopimelate.containing."	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY.7953..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.III..meso.diaminopimelate.containing."	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY.7953..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.III..meso.diaminopimelate.containing."	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY.7977..L.methionine.biosynthesis.IV"	"diet"	"2"	"diet2"	0.0700260664966307	0.0703841426300476	0.321571997979141	1	0.321571997979141	1	NA	"abundance"	138	138
+"PWY.7977..L.methionine.biosynthesis.IV"	"diet"	"2:time"	"diet2:time"	-0.000924616109294182	0.0445148403738209	0.983459257787621	1	0.983459257787621	1	NA	"abundance"	138	138
+"PWY.7977..L.methionine.biosynthesis.IV"	"time"	"time"	"time"	0.0214963156904881	0.0317040173636746	0.498920992582246	1	0.498920992582246	1	NA	"abundance"	138	138
+"PWY.8178..pentose.phosphate.pathway..non.oxidative.branch..II"	"diet"	"2"	"diet2"	-2.27947755627221	1.84952241279508	0.219998554030167	1	0.391597744284971	1	NA	"abundance"	138	134
+"PWY.8178..pentose.phosphate.pathway..non.oxidative.branch..II"	"diet"	"2:time"	"diet2:time"	0.873856425893872	1.16974068159252	0.456381564498826	1	0.704478996583257	1	NA	"abundance"	138	134
+"PWY.8178..pentose.phosphate.pathway..non.oxidative.branch..II"	"time"	"time"	"time"	-0.0101426106748053	0.820935738860669	0.990161376376452	1	0.999903201485194	1	NA	"abundance"	138	134
+"PWY.841..superpathway.of.purine.nucleotides.de.novo.biosynthesis.I"	"diet"	"2"	"diet2"	-3.02293216450114	6.85880356085293	0.674839047342926	1	0.674839047342926	1	NA	"abundance"	138	9
+"PWY.841..superpathway.of.purine.nucleotides.de.novo.biosynthesis.I"	"time"	"time"	"time"	6.31390712396528	6.85880356085293	0.392790284012765	1	0.392790284012765	1	NA	"abundance"	138	9
+"PWY.I9..L.cysteine.biosynthesis.VI..from.L.methionine."	"diet"	"2"	"diet2"	3.56131547907605	4.80221922128946	0.467842142904292	1	0.16052689015015	1	NA	"abundance"	138	23
+"PWY.I9..L.cysteine.biosynthesis.VI..from.L.methionine."	"diet"	"2:time"	"diet2:time"	0.168382703444098	0.144876961016165	0.452401777943939	1	0.205674308535271	1	NA	"abundance"	138	23
+"PWY.I9..L.cysteine.biosynthesis.VI..from.L.methionine."	"time"	"time"	"time"	-0.0104688322180229	0.118294016935534	0.94381347995233	1	0.0572134866521353	1	NA	"abundance"	138	23
+"PWY0.1296..purine.ribonucleosides.degradation"	"diet"	"2"	"diet2"	-0.951334494233601	2.18722324257559	0.664319335912917	1	0.869717282790019	1	NA	"abundance"	138	134
+"PWY0.1296..purine.ribonucleosides.degradation"	"diet"	"2:time"	"diet2:time"	0.242555291347984	1.38332143955956	0.861083190982902	1	0.980702120172507	1	NA	"abundance"	138	134
+"PWY0.1296..purine.ribonucleosides.degradation"	"time"	"time"	"time"	0.865580065339392	0.97082885629024	0.374260675846617	1	0.608450298208068	1	NA	"abundance"	138	134
+"PWY0.1319..CDP.diacylglycerol.biosynthesis.II"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"PWY0.1319..CDP.diacylglycerol.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"PWY0.1319..CDP.diacylglycerol.biosynthesis.II"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"PWY0.1586..peptidoglycan.maturation..meso.diaminopimelate.containing."	"diet"	"2"	"diet2"	-0.006787496805905	1.56582028559064	0.996548207130186	1	0.999042680684378	1	NA	"abundance"	138	130
+"PWY0.1586..peptidoglycan.maturation..meso.diaminopimelate.containing."	"diet"	"2:time"	"diet2:time"	0.108081121841133	0.990311701792348	0.913266270068837	1	0.992477260092228	1	NA	"abundance"	138	130
+"PWY0.1586..peptidoglycan.maturation..meso.diaminopimelate.containing."	"time"	"time"	"time"	-0.595539013132129	0.705622145576581	0.400273755810431	1	0.640328432030274	1	NA	"abundance"	138	130
+"PWY66.429..fatty.acid.biosynthesis.initiation..mitochondria."	"diet"	"2"	"diet2"	0.795669726705793	1.11550505297681	0.477705863419937	1	0.727208834894087	1	NA	"abundance"	138	137
+"PWY66.429..fatty.acid.biosynthesis.initiation..mitochondria."	"diet"	"2:time"	"diet2:time"	-0.726568276322735	0.706785526791449	0.307639298465029	1	0.520636658970003	1	NA	"abundance"	138	137
+"PWY66.429..fatty.acid.biosynthesis.initiation..mitochondria."	"time"	"time"	"time"	0.0214988135697757	0.501560857212196	0.965938063809789	1	0.998839784502974	1	NA	"abundance"	138	137
+"PYRIDNUCSYN.PWY..NAD.de.novo.biosynthesis.I..from.aspartate."	"diet"	"2"	"diet2"	0.0759975846546289	1.62069959517078	0.962673673980222	1	0.964270270314267	1	NA	"abundance"	138	130
+"PYRIDNUCSYN.PWY..NAD.de.novo.biosynthesis.I..from.aspartate."	"diet"	"2:time"	"diet2:time"	-0.526945281306309	1.03493875399977	0.611533378818923	1	0.849093684228158	1	NA	"abundance"	138	130
+"PYRIDNUCSYN.PWY..NAD.de.novo.biosynthesis.I..from.aspartate."	"time"	"time"	"time"	0.539319965364174	0.720085400781544	0.455273216643658	1	0.703272731494253	1	NA	"abundance"	138	130
+"RHAMCAT.PWY..L.rhamnose.degradation.I"	"diet"	"2"	"diet2"	5.62607096778177	4.74558350283634	0.271834732301992	1	0.193952386674586	1	NA	"abundance"	138	33
+"RHAMCAT.PWY..L.rhamnose.degradation.I"	"diet"	"2:time"	"diet2:time"	-8.63395793634145	2.01935054364904	0.120413062862845	1	0.059945568997013	1	NA	"abundance"	138	33
+"RHAMCAT.PWY..L.rhamnose.degradation.I"	"time"	"time"	"time"	-0.96373049800925	1.17083353127818	0.547785364398526	1	0.216139309873269	1	NA	"abundance"	138	33
+"RIBOSYN2.PWY..flavin.biosynthesis.I..bacteria.and.plants."	"diet"	"2"	"diet2"	-1.48019547480736	3.18257416236641	0.642759317144719	1	0.872379094513093	1	NA	"abundance"	138	117
+"RIBOSYN2.PWY..flavin.biosynthesis.I..bacteria.and.plants."	"diet"	"2:time"	"diet2:time"	1.11046995854276	2.01868088357844	0.583338674761404	1	0.826393340050417	1	NA	"abundance"	138	117
+"RIBOSYN2.PWY..flavin.biosynthesis.I..bacteria.and.plants."	"time"	"time"	"time"	-0.128242430291872	1.3839424651615	0.926334134113077	1	0.99457334020313	1	NA	"abundance"	138	117
+"SER.GLYSYN.PWY..superpathway.of.L.serine.and.glycine.biosynthesis.I"	"diet"	"2"	"diet2"	0.0495511871473452	0.0678634596641518	0.466596085868414	1	0.715480264389104	1	NA	"abundance"	138	135
+"SER.GLYSYN.PWY..superpathway.of.L.serine.and.glycine.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	0.00784143302015249	0.0428241333954984	0.854996525585636	1	0.969688404477675	1	NA	"abundance"	138	135
+"SER.GLYSYN.PWY..superpathway.of.L.serine.and.glycine.biosynthesis.I"	"time"	"time"	"time"	0.0215045356468142	0.0301671811008466	0.477209284097602	1	0.726689867366259	1	NA	"abundance"	138	135
+"THISYN.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.I"	"diet"	"2"	"diet2"	1.53411763093953	7.6332455314148	0.844390229726234	1	0.844390229726234	1	NA	"abundance"	138	14
+"THISYN.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.I"	"time"	"time"	"time"	-0.3202924910614	6.59011875587265	0.962809260510657	1	0.962809260510657	1	NA	"abundance"	138	14
+"THISYNARA.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.III..eukaryotes."	"diet"	"2"	"diet2"	-0.414124101968971	7.88612180997169	0.958294366536853	1	0.984693589521394	1	NA	"abundance"	138	64
+"THISYNARA.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.III..eukaryotes."	"diet"	"2:time"	"diet2:time"	-0.0378263421577796	5.19011993606517	0.99420913248877	1	0.932055483883177	1	NA	"abundance"	138	64
+"THISYNARA.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.III..eukaryotes."	"time"	"time"	"time"	-2.40387998126139	3.5953177641699	0.506306015759603	1	0.716298239892127	1	NA	"abundance"	138	64
+"THRESYN.PWY..superpathway.of.L.threonine.biosynthesis"	"diet"	"2"	"diet2"	-1.69199404173813	1.36163885365655	0.217566818746419	1	0.387798316873401	1	NA	"abundance"	138	136
+"THRESYN.PWY..superpathway.of.L.threonine.biosynthesis"	"diet"	"2:time"	"diet2:time"	1.07888547164163	0.863950660966314	0.216063678867538	1	0.385443844409302	1	NA	"abundance"	138	136
+"THRESYN.PWY..superpathway.of.L.threonine.biosynthesis"	"time"	"time"	"time"	-0.670273669138516	0.610716349147555	0.276375419207684	1	0.476367466073144	1	NA	"abundance"	138	136
+"TRNA.CHARGING.PWY..tRNA.charging"	"diet"	"2"	"diet2"	0.0700167701595382	0.0703851117126078	0.32164264551539	1	0.32164264551539	1	NA	"abundance"	138	138
+"TRNA.CHARGING.PWY..tRNA.charging"	"diet"	"2:time"	"diet2:time"	-0.000915324071565028	0.0445154532754471	0.983625687607769	1	0.983625687607769	1	NA	"abundance"	138	138
+"TRNA.CHARGING.PWY..tRNA.charging"	"time"	"time"	"time"	0.0214988135698126	0.0317044538797586	0.498877099385239	1	0.498877099385239	1	NA	"abundance"	138	138
+"TRPSYN.PWY..L.tryptophan.biosynthesis"	"diet"	"2"	"diet2"	-0.211655214659615	0.164927888108642	0.201680721801576	1	0.362686330056747	1	NA	"abundance"	138	133
+"TRPSYN.PWY..L.tryptophan.biosynthesis"	"diet"	"2:time"	"diet2:time"	0.176295987630968	0.104556602601422	0.0941880069831456	1	0.179504633306834	1	NA	"abundance"	138	133
+"TRPSYN.PWY..L.tryptophan.biosynthesis"	"time"	"time"	"time"	-0.0777308295434715	0.0730896763465131	0.289542265196258	1	0.495249807057536	1	NA	"abundance"	138	133
+"UDPNAGSYN.PWY..UDP.N.acetyl.D.glucosamine.biosynthesis.I"	"diet"	"2"	"diet2"	-4.09558996200052	6.61848683919046	0.538642925473494	1	0.0613119913597452	1	NA	"abundance"	138	58
+"UDPNAGSYN.PWY..UDP.N.acetyl.D.glucosamine.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	3.57975469763838	4.1556022076576	0.392811114193415	1	0.173649708184832	1	NA	"abundance"	138	58
+"UDPNAGSYN.PWY..UDP.N.acetyl.D.glucosamine.biosynthesis.I"	"time"	"time"	"time"	-1.84316336529276	2.67587918098738	0.493893885000074	1	0.288438952073955	1	NA	"abundance"	138	58
+"UNINTEGRATED"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"UNINTEGRATED"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"UNINTEGRATED"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"UNMAPPED"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"UNMAPPED"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"UNMAPPED"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"VALSYN.PWY..L.valine.biosynthesis"	"diet"	"2"	"diet2"	0.0700167787415151	0.0703851124025863	0.32164259114702	1	0.32164259114702	1	NA	"abundance"	138	138
+"VALSYN.PWY..L.valine.biosynthesis"	"diet"	"2:time"	"diet2:time"	-0.000915328358432623	0.0445154537118278	0.983625611091001	1	0.983625611091001	1	NA	"abundance"	138	138
+"VALSYN.PWY..L.valine.biosynthesis"	"time"	"time"	"time"	0.0214988135698143	0.0317044541905543	0.498877103586236	1	0.498877103586236	1	NA	"abundance"	138	138
+"X1CMET2.PWY..folate.transformations.III..E..coli."	"diet"	"2"	"diet2"	0.0772163027854527	0.069796439749731	0.270590628997148	1	0.467961969493224	1	NA	"abundance"	138	137
+"X1CMET2.PWY..folate.transformations.III..E..coli."	"diet"	"2:time"	"diet2:time"	-0.0081050677971377	0.0442387269609546	0.854910644681718	1	0.885645398330383	1	NA	"abundance"	138	137
+"X1CMET2.PWY..folate.transformations.III..E..coli."	"time"	"time"	"time"	0.0215085981750314	0.0313938255647281	0.494459311799828	1	0.744428612574096	1	NA	"abundance"	138	137
+"ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose."	"diet"	"2"	"diet2"	-40.5346401406418	53145.1713989132	0.999391441224878	1	0.21351287258005	1	NA	"prevalence"	138	130
+"ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose."	"diet"	"2:time"	"diet2:time"	19.414944208378	26572.5857169112	0.999417035172283	1	0.368947513206924	1	NA	"prevalence"	138	130
+"ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose."	"time"	"time"	"time"	-20.4265515796283	26572.585702848	0.999386660044567	1	0.959329999891884	1	NA	"prevalence"	138	130
+"ARGININE.SYN4.PWY..L.ornithine.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	9.12343791639409	6457553.449235	0.99999887272319	1	0.99999887272319	1	NA	"prevalence"	138	2
+"ARGSYN.PWY..L.arginine.biosynthesis.I..via.L.ornithine."	"diet"	"2"	"diet2"	-1.3175104386874	4.22174474701227	0.754981824987198	1	0.605679271778274	1	NA	"prevalence"	138	136
+"ARGSYN.PWY..L.arginine.biosynthesis.I..via.L.ornithine."	"diet"	"2:time"	"diet2:time"	-2.78074876557439e-13	2.67006439680015	0.999999999999917	1	0.999169383602497	1	NA	"prevalence"	138	136
+"ARGSYN.PWY..L.arginine.biosynthesis.I..via.L.ornithine."	"time"	"time"	"time"	6.52482549708529e-13	2.36419072290954	0.99999999999978	1	0.721630187928269	1	NA	"prevalence"	138	136
+"ARGSYNBSUB.PWY..L.arginine.biosynthesis.II..acetyl.cycle."	"diet"	"2"	"diet2"	1.31751032490585	5.05972685088423	0.794561728680918	1	0.424611874148604	1	NA	"prevalence"	138	137
+"ARGSYNBSUB.PWY..L.arginine.biosynthesis.II..acetyl.cycle."	"diet"	"2:time"	"diet2:time"	-1.31751034518194	3.01222276395214	0.66182992395028	1	0.550676933760716	1	NA	"prevalence"	138	137
+"ARGSYNBSUB.PWY..L.arginine.biosynthesis.II..acetyl.cycle."	"time"	"time"	"time"	2.69028688216859e-12	2.36408370920684	0.999999999999092	1	0.998179033425487	1	NA	"prevalence"	138	137
+"ASPASN.PWY..superpathway.of.L.aspartate.and.L.asparagine.biosynthesis"	"diet"	"2"	"diet2"	0.542546180165972	1.08498616912596	0.617040620068741	1	0.388428331323249	1	NA	"prevalence"	138	61
+"ASPASN.PWY..superpathway.of.L.aspartate.and.L.asparagine.biosynthesis"	"diet"	"2:time"	"diet2:time"	-0.59658548930838	0.6911160049562	0.388016255744312	1	0.190706029242647	1	NA	"prevalence"	138	61
+"ASPASN.PWY..superpathway.of.L.aspartate.and.L.asparagine.biosynthesis"	"time"	"time"	"time"	0.117817780527316	0.485489195929809	0.808254479004467	1	0.865676401590736	1	NA	"prevalence"	138	61
+"BRANCHED.CHAIN.AA.SYN.PWY..superpathway.of.branched.chain.amino.acid.biosynthesis"	"diet"	"2"	"diet2"	-2.63502071063825	7.86912988534127	0.737734160109014	1	0.931216629226276	1	NA	"prevalence"	138	137
+"BRANCHED.CHAIN.AA.SYN.PWY..superpathway.of.branched.chain.amino.acid.biosynthesis"	"diet"	"2:time"	"diet2:time"	2.63502069036125	6.73798006579682	0.695745623682249	1	0.907429274491496	1	NA	"prevalence"	138	137
+"BRANCHED.CHAIN.AA.SYN.PWY..superpathway.of.branched.chain.amino.acid.biosynthesis"	"time"	"time"	"time"	-3.5173248351798e-13	2.36404807978219	0.999999999999881	1	0.999359088449257	1	NA	"prevalence"	138	137
+"CALVIN.PWY..Calvin.Benson.Bassham.cycle"	"diet"	"2"	"diet2"	-1.89191295276232	4.03375617234826	0.639055228229271	1	0.427008676531588	1	NA	"prevalence"	138	134
+"CALVIN.PWY..Calvin.Benson.Bassham.cycle"	"diet"	"2:time"	"diet2:time"	-1.94672890985262e-12	2.55118387686066	0.999999999999391	1	0.736731816781079	1	NA	"prevalence"	138	134
+"CALVIN.PWY..Calvin.Benson.Bassham.cycle"	"time"	"time"	"time"	3.76602989466761e-12	2.36408961595854	0.999999999998729	1	0.999972374018496	1	NA	"prevalence"	138	134
+"CITRULBIO.PWY..L.citrulline.biosynthesis"	"diet"	"2"	"diet2"	0.00976033513314974	397.222150281314	0.999980394797459	1	0.999980394797459	1	NA	"prevalence"	138	2
+"CITRULBIO.PWY..L.citrulline.biosynthesis"	"diet"	"2:time"	"diet2:time"	-0.0205282940470764	198.615049278833	0.999917532891339	1	0.999917532891339	1	NA	"prevalence"	138	2
+"CITRULBIO.PWY..L.citrulline.biosynthesis"	"time"	"time"	"time"	9.8547264037842	134.666357934684	0.941663813077181	1	0.941663813077181	1	NA	"prevalence"	138	2
+"COBALSYN.PWY..superpathway.of.adenosylcobalamin.salvage.from.cobinamide.I"	"diet"	"2"	"diet2"	-0.051132603440067	1.346535251407	0.969708842061024	1	0.327715292483388	1	NA	"prevalence"	138	101
+"COBALSYN.PWY..superpathway.of.adenosylcobalamin.salvage.from.cobinamide.I"	"diet"	"2:time"	"diet2:time"	-0.464149752864525	0.812545206494811	0.567844116427555	1	0.283901827029029	1	NA	"prevalence"	138	101
+"COBALSYN.PWY..superpathway.of.adenosylcobalamin.salvage.from.cobinamide.I"	"time"	"time"	"time"	-0.551602682939987	0.621207847710921	0.374566630314078	1	0.608833100083312	1	NA	"prevalence"	138	101
+"GLCMANNANAUT.PWY..superpathway.of.N.acetylglucosamine..N.acetylmannosamine.and.N.acetylneuraminate.degradation"	"diet"	"2"	"diet2"	9.72741455462105	63.8401878149352	0.878894065526199	1	0.878894065526199	1	NA	"prevalence"	138	10
+"GLCMANNANAUT.PWY..superpathway.of.N.acetylglucosamine..N.acetylmannosamine.and.N.acetylneuraminate.degradation"	"diet"	"2:time"	"diet2:time"	-9.76064582556022	63.8222572203138	0.87844967149375	1	0.87844967149375	1	NA	"prevalence"	138	10
+"GLCMANNANAUT.PWY..superpathway.of.N.acetylglucosamine..N.acetylmannosamine.and.N.acetylneuraminate.degradation"	"time"	"time"	"time"	0.319501146989231	0.805574264805987	0.691652936817065	1	0.691652936817065	1	NA	"prevalence"	138	10
+"GLUCOSE1PMETAB.PWY..glucose.and.glucose.1.phosphate.degradation"	"diet"	"2"	"diet2"	0.389917548744303	1.08842479835128	0.720163544088154	1	0.552855788397995	1	NA	"prevalence"	138	76
+"GLUCOSE1PMETAB.PWY..glucose.and.glucose.1.phosphate.degradation"	"diet"	"2:time"	"diet2:time"	-0.224623656118482	0.6859123534534	0.743303678281332	1	0.823383811731988	1	NA	"prevalence"	138	76
+"GLUCOSE1PMETAB.PWY..glucose.and.glucose.1.phosphate.degradation"	"time"	"time"	"time"	-0.116042362014783	0.487095583076914	0.811700192489925	1	0.793827389081864	1	NA	"prevalence"	138	76
+"GLUTORN.PWY..L.ornithine.biosynthesis.I"	"diet"	"2"	"diet2"	-1.3175104386874	4.22174474701227	0.754981824987198	1	0.761994754278837	1	NA	"prevalence"	138	136
+"GLUTORN.PWY..L.ornithine.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	-2.78074876557439e-13	2.67006439680015	0.999999999999917	1	0.982032947139323	1	NA	"prevalence"	138	136
+"GLUTORN.PWY..L.ornithine.biosynthesis.I"	"time"	"time"	"time"	6.52482549708529e-13	2.36419072290954	0.99999999999978	1	0.709890737266432	1	NA	"prevalence"	138	136
+"HISDEG.PWY..L.histidine.degradation.I"	"diet"	"2"	"diet2"	-0.00177918544036287	1.79867004092009	0.999210758877462	1	0.411057584864196	1	NA	"prevalence"	138	19
+"HISDEG.PWY..L.histidine.degradation.I"	"diet"	"2:time"	"diet2:time"	0.268899824248435	1.10068402071065	0.806996571135307	1	0.283835401262989	1	NA	"prevalence"	138	19
+"HISDEG.PWY..L.histidine.degradation.I"	"time"	"time"	"time"	9.33799560297751e-07	0.818222448131029	0.999999089411133	1	0.218826647357418	1	NA	"prevalence"	138	19
+"HSERMETANA.PWY..L.methionine.biosynthesis.III"	"diet"	"2"	"diet2"	-0.890134104773634	1.65184469127754	0.589974655501242	1	0.520504771371312	1	NA	"prevalence"	138	118
+"HSERMETANA.PWY..L.methionine.biosynthesis.III"	"diet"	"2:time"	"diet2:time"	0.130631775402347	1.01419004472838	0.897512708460073	1	0.780042697015972	1	NA	"prevalence"	138	118
+"HSERMETANA.PWY..L.methionine.biosynthesis.III"	"time"	"time"	"time"	-0.320099597885343	0.80551543444472	0.691083715166801	1	0.882733392073728	1	NA	"prevalence"	138	118
+"ILEUSYN.PWY..L.isoleucine.biosynthesis.I..from.threonine."	"diet"	"2"	"diet2"	-2.63502071063825	7.86912988534127	0.737734160109014	1	0.931216629226276	1	NA	"prevalence"	138	137
+"ILEUSYN.PWY..L.isoleucine.biosynthesis.I..from.threonine."	"diet"	"2:time"	"diet2:time"	2.63502069036125	6.73798006579682	0.695745623682249	1	0.907429274491496	1	NA	"prevalence"	138	137
+"ILEUSYN.PWY..L.isoleucine.biosynthesis.I..from.threonine."	"time"	"time"	"time"	-3.5173248351798e-13	2.36404807978219	0.999999999999881	1	0.999359088449257	1	NA	"prevalence"	138	137
+"LACTOSECAT.PWY..lactose.and.galactose.degradation.I"	"diet"	"2"	"diet2"	-3.94249137329412	2.64342303877196	0.135847549726047	1	0.135847549726047	1	NA	"prevalence"	138	9
+"LACTOSECAT.PWY..lactose.and.galactose.degradation.I"	"diet"	"2:time"	"diet2:time"	1.95628035737287	1.81426993618099	0.280911433481717	1	0.280911433481717	1	NA	"prevalence"	138	9
+"LACTOSECAT.PWY..lactose.and.galactose.degradation.I"	"time"	"time"	"time"	-1.9559731469124	1.11020936348032	0.0781021371338159	1	0.0781021371338159	1	NA	"prevalence"	138	9
+"METH.ACETATE.PWY..methanogenesis.from.acetate"	"diet"	"2"	"diet2"	0.0705151958872352	2641.12735613964	0.999978697359685	1	0.999978697359685	1	NA	"prevalence"	138	3
+"METH.ACETATE.PWY..methanogenesis.from.acetate"	"diet"	"2:time"	"diet2:time"	-7.78334610318423	1348.69105292977	0.995395404157177	1	0.995395404157177	1	NA	"prevalence"	138	3
+"METH.ACETATE.PWY..methanogenesis.from.acetate"	"time"	"time"	"time"	12.0165907501069	148.433846191443	0.935477050069241	1	0.935477050069241	1	NA	"prevalence"	138	3
+"NONOXIPENT.PWY..pentose.phosphate.pathway..non.oxidative.branch..I"	"diet"	"2"	"diet2"	-1.89191295276232	4.03375617234826	0.639055228229271	1	0.369418649450876	1	NA	"prevalence"	138	134
+"NONOXIPENT.PWY..pentose.phosphate.pathway..non.oxidative.branch..I"	"diet"	"2:time"	"diet2:time"	-1.94672890985262e-12	2.55118387686066	0.999999999999391	1	0.68448360619755	1	NA	"prevalence"	138	134
+"NONOXIPENT.PWY..pentose.phosphate.pathway..non.oxidative.branch..I"	"time"	"time"	"time"	3.76602989466761e-12	2.36408961595854	0.999999999998729	1	0.999786250029909	1	NA	"prevalence"	138	134
+"OANTIGEN.PWY..O.antigen.building.blocks.biosynthesis..E..coli."	"diet"	"2"	"diet2"	-2.43829227437922	1.13131746780843	0.0311408726547214	1	0.0613119913597452	1	NA	"prevalence"	138	58
+"OANTIGEN.PWY..O.antigen.building.blocks.biosynthesis..E..coli."	"diet"	"2:time"	"diet2:time"	1.19530703125013	0.70713772622337	0.0909618864892582	1	0.173649708184832	1	NA	"prevalence"	138	58
+"OANTIGEN.PWY..O.antigen.building.blocks.biosynthesis..E..coli."	"time"	"time"	"time"	-0.697858884713645	0.492462208604963	0.156459219761104	1	0.288438952073955	1	NA	"prevalence"	138	58
+"P164.PWY..purine.nucleobases.degradation.I..anaerobic."	"diet"	"2"	"diet2"	3.78382530636913	4.3039746840362	0.379321718638624	1	0.379321718638624	1	NA	"prevalence"	138	2
+"P164.PWY..purine.nucleobases.degradation.I..anaerobic."	"diet"	"2:time"	"diet2:time"	-1.89191256423643	2.96016971998653	0.522742915862649	1	0.522742915862649	1	NA	"prevalence"	138	2
+"P164.PWY..purine.nucleobases.degradation.I..anaerobic."	"time"	"time"	"time"	-1.17220330390353e-12	2.36390929120723	0.999999999999604	1	0.999999999999604	1	NA	"prevalence"	138	2
+"P41.PWY..pyruvate.fermentation.to.acetate.and..S..lactate.I"	"diet"	"2"	"diet2"	-4.3370802376723	2.29893930235705	0.0592199230081829	1	0.114932846735271	1	NA	"prevalence"	138	120
+"P41.PWY..pyruvate.fermentation.to.acetate.and..S..lactate.I"	"diet"	"2:time"	"diet2:time"	2.05696833237701	1.30718842525386	0.11558408973326	1	0.217808497667054	1	NA	"prevalence"	138	120
+"P41.PWY..pyruvate.fermentation.to.acetate.and..S..lactate.I"	"time"	"time"	"time"	-1.4816034599814	1.1460338992158	0.196076969669079	1	0.0643306064844642	1	NA	"prevalence"	138	120
+"PANTO.PWY..phosphopantothenate.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	-8.78827267251389	3650240.98554814	0.999998079023519	1	0.494089437961177	1	NA	"prevalence"	138	136
+"PANTOSYN.PWY..superpathway.of.coenzyme.A.biosynthesis.I..bacteria."	"diet"	"2:time"	"diet2:time"	-8.78827267251389	3650240.98554814	0.999998079023519	1	0.546953768281525	1	NA	"prevalence"	138	136
+"PENTOSE.P.PWY..pentose.phosphate.pathway"	"diet"	"2"	"diet2"	-0.550312852357964	2.03154566080744	0.786480388475513	1	0.786480388475513	1	NA	"prevalence"	138	11
+"PENTOSE.P.PWY..pentose.phosphate.pathway"	"diet"	"2:time"	"diet2:time"	0.260447373187501	1.60528290983727	0.871113784014599	1	0.871113784014599	1	NA	"prevalence"	138	11
+"PENTOSE.P.PWY..pentose.phosphate.pathway"	"time"	"time"	"time"	-1.73914085420787	1.12480373571964	0.122062859413463	1	0.122062859413463	1	NA	"prevalence"	138	11
+"PWY.241..C4.photosynthetic.carbon.assimilation.cycle..NADP.ME.type"	"diet"	"2"	"diet2"	1.31751043868655	4.22171897719875	0.75498037729749	1	0.75498037729749	1	NA	"prevalence"	138	2
+"PWY.241..C4.photosynthetic.carbon.assimilation.cycle..NADP.ME.type"	"diet"	"2:time"	"diet2:time"	7.92244469801386e-13	2.67004614721751	0.999999999999763	1	0.999999999999763	1	NA	"prevalence"	138	2
+"PWY.241..C4.photosynthetic.carbon.assimilation.cycle..NADP.ME.type"	"time"	"time"	"time"	-1.59251667265224e-12	2.36420883911959	0.999999999999463	1	0.999999999999463	1	NA	"prevalence"	138	2
+"PWY.2942..L.lysine.biosynthesis.III"	"diet"	"2:time"	"diet2:time"	-11.2949835701878	583.91173543338	0.984566963685446	1	0.098339493643265	1	NA	"prevalence"	138	134
+"PWY.3001..superpathway.of.L.isoleucine.biosynthesis.I"	"diet"	"2"	"diet2"	-2.26037711321194	1.24128347772613	0.0686068690792281	1	0.132506835673602	1	NA	"prevalence"	138	97
+"PWY.3001..superpathway.of.L.isoleucine.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	1.28098531068174	0.765131051760495	0.0940905538796733	1	0.179328075429963	1	NA	"prevalence"	138	97
+"PWY.3001..superpathway.of.L.isoleucine.biosynthesis.I"	"time"	"time"	"time"	-0.901323081820205	0.569836327161172	0.113712877084879	1	0.214495135754837	1	NA	"prevalence"	138	97
+"PWY.4984..urea.cycle"	"diet"	"2"	"diet2"	0.00976033513314974	397.222150281314	0.999980394797459	1	0.999980394797459	1	NA	"prevalence"	138	2
+"PWY.4984..urea.cycle"	"diet"	"2:time"	"diet2:time"	-0.0205282940470764	198.615049278833	0.999917532891339	1	0.999917532891339	1	NA	"prevalence"	138	2
+"PWY.4984..urea.cycle"	"time"	"time"	"time"	9.8547264037842	134.666357934684	0.941663813077181	1	0.941663813077181	1	NA	"prevalence"	138	2
+"PWY.5030..L.histidine.degradation.III"	"diet"	"2"	"diet2"	0.00976033513314974	397.222150281314	0.999980394797459	1	0.999980394797459	1	NA	"prevalence"	138	2
+"PWY.5030..L.histidine.degradation.III"	"diet"	"2:time"	"diet2:time"	-0.0205282940470764	198.615049278833	0.999917532891339	1	0.999917532891339	1	NA	"prevalence"	138	2
+"PWY.5030..L.histidine.degradation.III"	"time"	"time"	"time"	9.8547264037842	134.666357934684	0.941663813077181	1	0.941663813077181	1	NA	"prevalence"	138	2
+"PWY.5100..pyruvate.fermentation.to.acetate.and.lactate.II"	"diet"	"2"	"diet2"	-4.27250420183567	2.32734445388159	0.0663894503806269	1	0.128371341639412	1	NA	"prevalence"	138	122
+"PWY.5100..pyruvate.fermentation.to.acetate.and.lactate.II"	"diet"	"2:time"	"diet2:time"	1.99242453259972	1.35646251007776	0.141876563977973	1	0.26362416854975	1	NA	"prevalence"	138	122
+"PWY.5100..pyruvate.fermentation.to.acetate.and.lactate.II"	"time"	"time"	"time"	-1.16114253709271	1.18138684083873	0.32567440244867	1	0.0736109416465587	1	NA	"prevalence"	138	122
+"PWY.5103..L.isoleucine.biosynthesis.III"	"diet"	"2"	"diet2"	-2.63502071063825	7.86912988534127	0.737734160109014	1	0.931216629226276	1	NA	"prevalence"	138	137
+"PWY.5103..L.isoleucine.biosynthesis.III"	"diet"	"2:time"	"diet2:time"	2.63502069036125	6.73798006579682	0.695745623682249	1	0.907429274491496	1	NA	"prevalence"	138	137
+"PWY.5103..L.isoleucine.biosynthesis.III"	"time"	"time"	"time"	-3.5173248351798e-13	2.36404807978219	0.999999999999881	1	0.999394650133479	1	NA	"prevalence"	138	137
+"PWY.5154..L.arginine.biosynthesis.III..via.N.acetyl.L.citrulline."	"diet"	"2"	"diet2"	0.523249177955892	2.05699651589221	0.799205604157923	1	0.959681610598415	1	NA	"prevalence"	138	12
+"PWY.5154..L.arginine.biosynthesis.III..via.N.acetyl.L.citrulline."	"diet"	"2:time"	"diet2:time"	-0.117785235739038	1.24245611483271	0.924473433675142	1	0.942144433754151	1	NA	"prevalence"	138	12
+"PWY.5154..L.arginine.biosynthesis.III..via.N.acetyl.L.citrulline."	"time"	"time"	"time"	0.43721326635235	0.947021838015606	0.644316704533264	1	0.873489393325922	1	NA	"prevalence"	138	12
+"PWY.5188..tetrapyrrole.biosynthesis.I..from.glutamate."	"diet"	"2"	"diet2"	-1.88749981507353	1.13630837188863	0.0966972561248803	1	0.0272089662796964	1	NA	"prevalence"	138	70
+"PWY.5188..tetrapyrrole.biosynthesis.I..from.glutamate."	"diet"	"2:time"	"diet2:time"	0.973296125017964	0.708156530867014	0.169314999715801	1	0.0110595640173776	1	NA	"prevalence"	138	70
+"PWY.5188..tetrapyrrole.biosynthesis.I..from.glutamate."	"time"	"time"	"time"	-0.495545774495147	0.502905093688429	0.324444134795809	1	0.178682153463915	1	NA	"prevalence"	138	70
+"PWY.5384..sucrose.degradation.IV..sucrose.phosphorylase."	"diet"	"2"	"diet2"	-0.65247251439738	2.20147761276868	0.766940389973571	1	0.766940389973571	1	NA	"prevalence"	138	9
+"PWY.5384..sucrose.degradation.IV..sucrose.phosphorylase."	"diet"	"2:time"	"diet2:time"	0.335914378878801	1.42402629558759	0.813517583490638	1	0.813517583490638	1	NA	"prevalence"	138	9
+"PWY.5384..sucrose.degradation.IV..sucrose.phosphorylase."	"time"	"time"	"time"	-0.34554561526785	0.984467390120692	0.725590206794581	1	0.725590206794581	1	NA	"prevalence"	138	9
+"PWY.5659..GDP.mannose.biosynthesis"	"diet"	"2"	"diet2"	2.46777811523169	2.38208405226221	0.300214082154992	1	0.300214082154992	1	NA	"prevalence"	138	7
+"PWY.5659..GDP.mannose.biosynthesis"	"diet"	"2:time"	"diet2:time"	-1.53417736237816	1.53070190870205	0.316212967781671	1	0.316212967781671	1	NA	"prevalence"	138	7
+"PWY.5659..GDP.mannose.biosynthesis"	"time"	"time"	"time"	0.578638644912395	1.1132592107403	0.603223950753318	1	0.603223950753318	1	NA	"prevalence"	138	7
+"PWY.5676..acetyl.CoA.fermentation.to.butanoate.II"	"diet"	"2"	"diet2"	4.54609849738806	4.24466859274488	0.284163239710093	1	0.284163239710093	1	NA	"prevalence"	138	3
+"PWY.5676..acetyl.CoA.fermentation.to.butanoate.II"	"diet"	"2:time"	"diet2:time"	-2.27304898400256	2.93860149716644	0.439218329982616	1	0.439218329982616	1	NA	"prevalence"	138	3
+"PWY.5676..acetyl.CoA.fermentation.to.butanoate.II"	"time"	"time"	"time"	-1.49091960967367e-12	2.36374770859957	0.999999999999497	1	0.999999999999497	1	NA	"prevalence"	138	3
+"PWY.5941..glycogen.degradation.II"	"time"	"time"	"time"	-14.576035769645	308.748259078185	0.9623457789377	1	0.998582159636191	1	NA	"prevalence"	138	132
+"PWY.5973..cis.vaccenate.biosynthesis"	"diet"	"2"	"diet2"	0.806921528558449	1.28470797865352	0.529940244615498	1	0.779043826367862	1	NA	"prevalence"	138	38
+"PWY.5973..cis.vaccenate.biosynthesis"	"diet"	"2:time"	"diet2:time"	0.0657154563177023	0.81529574626506	0.93575751128472	1	0.994292227486723	1	NA	"prevalence"	138	38
+"PWY.5973..cis.vaccenate.biosynthesis"	"time"	"time"	"time"	-0.19876941076529	0.631557322691121	0.752967416180055	1	0.938974902531242	1	NA	"prevalence"	138	38
+"PWY.6123..inosine.5..phosphate.biosynthesis.I"	"diet"	"2"	"diet2"	1.31751032490542	5.05985048003721	0.794566635806683	1	0.468147248852954	1	NA	"prevalence"	138	137
+"PWY.6123..inosine.5..phosphate.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	-1.31751034518169	3.01228453574154	0.661836427642454	1	0.885645398330383	1	NA	"prevalence"	138	137
+"PWY.6123..inosine.5..phosphate.biosynthesis.I"	"time"	"time"	"time"	2.16767612898177e-12	2.36408863290323	0.999999999999268	1	0.744632391875744	1	NA	"prevalence"	138	137
+"PWY.6124..inosine.5..phosphate.biosynthesis.II"	"diet"	"2"	"diet2"	1.31751032490542	5.05985048003721	0.794566635806683	1	0.468147249455777	1	NA	"prevalence"	138	137
+"PWY.6124..inosine.5..phosphate.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	-1.31751034518169	3.01228453574154	0.661836427642454	1	0.885645398330383	1	NA	"prevalence"	138	137
+"PWY.6124..inosine.5..phosphate.biosynthesis.II"	"time"	"time"	"time"	2.16767612898177e-12	2.36408863290323	0.999999999999268	1	0.74463239336902	1	NA	"prevalence"	138	137
+"PWY.6147..6.hydroxymethyl.dihydropterin.diphosphate.biosynthesis.I"	"diet"	"2"	"diet2"	-1.76810930979302	2.04549461092911	0.387372550637701	1	0.387372550637701	1	NA	"prevalence"	138	12
+"PWY.6147..6.hydroxymethyl.dihydropterin.diphosphate.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	1.7363900669909	1.41195886005043	0.218781807553855	1	0.218781807553855	1	NA	"prevalence"	138	12
+"PWY.6147..6.hydroxymethyl.dihydropterin.diphosphate.biosynthesis.I"	"time"	"time"	"time"	-1.16102489613286	1.18141231369424	0.325733852241567	1	0.325733852241567	1	NA	"prevalence"	138	12
+"PWY.621..sucrose.degradation.III..sucrose.invertase."	"diet"	"2"	"diet2"	-1.62913016030037	2.6721611589997	0.542082001649666	1	0.542082001649666	1	NA	"prevalence"	138	7
+"PWY.621..sucrose.degradation.III..sucrose.invertase."	"diet"	"2:time"	"diet2:time"	0.438158372018011	1.71912827423109	0.798821643766418	1	0.798821643766418	1	NA	"prevalence"	138	7
+"PWY.621..sucrose.degradation.III..sucrose.invertase."	"time"	"time"	"time"	-0.437650921696223	0.947120351351664	0.644019750113442	1	0.644019750113442	1	NA	"prevalence"	138	7
+"PWY.6270..isoprene.biosynthesis.I"	"diet"	"2"	"diet2"	0.627370813586482	1.15557471519375	0.587193114109199	1	0.829590474961139	1	NA	"prevalence"	138	43
+"PWY.6270..isoprene.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	-0.798385590522967	0.762424207160285	0.295022489343277	1	0.50300670946825	1	NA	"prevalence"	138	43
+"PWY.6270..isoprene.biosynthesis.I"	"time"	"time"	"time"	-0.126563042446201	0.503318081678263	0.801460515215506	1	0.841529566940756	1	NA	"prevalence"	138	43
+"PWY.6317..D.galactose.degradation.I..Leloir.pathway."	"time"	"time"	"time"	-14.576035769645	308.748259078185	0.9623457789377	1	0.998582159636191	1	NA	"prevalence"	138	132
+"PWY.6527..stachyose.degradation"	"diet"	"2"	"diet2"	-1.37002532218789	1.33044792094574	0.303128586128682	1	0.129477293787344	1	NA	"prevalence"	138	104
+"PWY.6527..stachyose.degradation"	"diet"	"2:time"	"diet2:time"	0.704810607563018	0.807394092887525	0.382693076325323	1	0.0571281720053715	1	NA	"prevalence"	138	104
+"PWY.6527..stachyose.degradation"	"time"	"time"	"time"	-0.844751274866908	0.604602620658027	0.162353191456466	1	0.226280670168357	1	NA	"prevalence"	138	104
+"PWY.6608..guanosine.nucleotides.degradation.III"	"diet"	"2"	"diet2"	95.7746694222241	10610900.4412292	0.999992798242668	1	0.999992798242668	1	NA	"prevalence"	138	8
+"PWY.6608..guanosine.nucleotides.degradation.III"	"diet"	"2:time"	"diet2:time"	-74.7034257075916	10610843.0713239	0.999994382660302	1	0.999994382660302	1	NA	"prevalence"	138	8
+"PWY.6608..guanosine.nucleotides.degradation.III"	"time"	"time"	"time"	21.6805094116399	20852.3025722455	0.999170425397709	1	0.999170425397709	1	NA	"prevalence"	138	8
+"PWY.6628..superpathway.of.L.phenylalanine.biosynthesis"	"diet"	"2"	"diet2"	-0.741353248550056	2.4284054842519	0.76014988944709	1	0.76014988944709	1	NA	"prevalence"	138	11
+"PWY.6628..superpathway.of.L.phenylalanine.biosynthesis"	"diet"	"2:time"	"diet2:time"	1.29381834453123	1.4790583485051	0.381705512686091	1	0.381705512686091	1	NA	"prevalence"	138	11
+"PWY.6628..superpathway.of.L.phenylalanine.biosynthesis"	"time"	"time"	"time"	-1.5496056992474e-12	1.24631869889216	0.999999999999008	1	0.999999999999008	1	NA	"prevalence"	138	11
+"PWY.6629..superpathway.of.L.tryptophan.biosynthesis"	"diet"	"2"	"diet2"	-1.51077656147041	4.01798715926602	0.706914418602618	1	0.517228480497837	1	NA	"prevalence"	138	133
+"PWY.6629..superpathway.of.L.tryptophan.biosynthesis"	"diet"	"2:time"	"diet2:time"	-0.381136548853777	2.52627526174212	0.880079077936529	1	0.233666943410002	1	NA	"prevalence"	138	133
+"PWY.6629..superpathway.of.L.tryptophan.biosynthesis"	"time"	"time"	"time"	0	2.36397149406226	1	1	0.699102244072597	1	NA	"prevalence"	138	133
+"PWY.6703..preQ0.biosynthesis"	"diet"	"2"	"diet2"	0.629225965220123	1.5395337080599	0.682750995693338	1	0.899353069266432	1	NA	"prevalence"	138	115
+"PWY.6703..preQ0.biosynthesis"	"diet"	"2:time"	"diet2:time"	-0.836973793397821	0.94718496835149	0.37688871592267	1	0.611732327655502	1	NA	"prevalence"	138	115
+"PWY.6703..preQ0.biosynthesis"	"time"	"time"	"time"	0	0.731394917789257	1	1	0.966368054308688	1	NA	"prevalence"	138	115
+"PWY.6731..starch.degradation.III"	"diet"	"2"	"diet2"	0.886958780832588	1.625738119314	0.585359505974443	1	0.585359505974443	1	NA	"prevalence"	138	18
+"PWY.6731..starch.degradation.III"	"diet"	"2:time"	"diet2:time"	-0.917217947351305	1.02132468795715	0.369149857667974	1	0.369149857667974	1	NA	"prevalence"	138	18
+"PWY.6731..starch.degradation.III"	"time"	"time"	"time"	0.626704524533584	0.665928127936189	0.346653951555829	1	0.346653951555829	1	NA	"prevalence"	138	18
+"PWY.6823..molybdopterin.biosynthesis"	"diet"	"2"	"diet2"	-2.46845231525442	2.20138886748217	0.262153424513281	1	0.455582431042521	1	NA	"prevalence"	138	125
+"PWY.6823..molybdopterin.biosynthesis"	"diet"	"2:time"	"diet2:time"	0.622168863340009	1.41183401964622	0.659443730076208	1	0.797036770134388	1	NA	"prevalence"	138	125
+"PWY.6823..molybdopterin.biosynthesis"	"time"	"time"	"time"	1.28560256805458e-12	1.24620788250215	0.999999999999177	1	0.493826464091415	1	NA	"prevalence"	138	125
+"PWY.6892..thiazole.component.of.thiamine.diphosphate.biosynthesis.I"	"diet"	"2"	"diet2"	0.922556126425784	1.0933487714437	0.398787088306998	1	0.523844144688483	1	NA	"prevalence"	138	75
+"PWY.6892..thiazole.component.of.thiamine.diphosphate.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	-1.10177295935161	0.703127637075149	0.117124015949425	1	0.220529996786728	1	NA	"prevalence"	138	75
+"PWY.6892..thiazole.component.of.thiamine.diphosphate.biosynthesis.I"	"time"	"time"	"time"	0.639131509697329	0.510839489904937	0.21088355382493	1	0.377295234376028	1	NA	"prevalence"	138	75
+"PWY.6897..thiamine.diphosphate.salvage.II"	"diet"	"2"	"diet2"	-0.319515516320466	1.14216819804333	0.779673370236809	1	0.609712632644418	1	NA	"prevalence"	138	85
+"PWY.6897..thiamine.diphosphate.salvage.II"	"diet"	"2:time"	"diet2:time"	0.362353315861698	0.709687668004496	0.609644209939439	1	0.762327317804437	1	NA	"prevalence"	138	85
+"PWY.6897..thiamine.diphosphate.salvage.II"	"time"	"time"	"time"	-0.737314296457235	0.502025403758484	0.141919806544932	1	0.263698381600113	1	NA	"prevalence"	138	85
+"PWY.6936..seleno.amino.acid.biosynthesis..plants."	"diet"	"2"	"diet2"	-0.511973148228758	1.1660201925495	0.660605433194031	1	0.836566022386368	1	NA	"prevalence"	138	88
+"PWY.6936..seleno.amino.acid.biosynthesis..plants."	"diet"	"2:time"	"diet2:time"	0.281069997355794	0.723920524014613	0.697823006960929	1	0.805819816660724	1	NA	"prevalence"	138	88
+"PWY.6936..seleno.amino.acid.biosynthesis..plants."	"time"	"time"	"time"	-0.533352702291662	0.522770540347967	0.307613484764588	1	0.520600913520162	1	NA	"prevalence"	138	88
+"PWY.702..L.methionine.biosynthesis.II"	"diet"	"2"	"diet2"	8.52227245897	5.1236871959232	0.0962506983296058	1	0.183237199730275	1	NA	"prevalence"	138	18
+"PWY.702..L.methionine.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	-4.00473718741219	2.62894057823382	0.127676818076546	1	0.239052266278941	1	NA	"prevalence"	138	18
+"PWY.702..L.methionine.biosynthesis.II"	"time"	"time"	"time"	5.00168814186058	2.5680266217785	0.0514535420163996	1	0.100259617046766	1	NA	"prevalence"	138	18
+"PWY.7111..pyruvate.fermentation.to.isobutanol..engineered."	"diet"	"2"	"diet2"	-3.80961479527301	3.97577854142667	0.337958899624865	1	0.56170158141408	1	NA	"prevalence"	138	133
+"PWY.7111..pyruvate.fermentation.to.isobutanol..engineered."	"diet"	"2:time"	"diet2:time"	1.24605181602043	2.57392596429775	0.628310970561905	1	0.861847265395367	1	NA	"prevalence"	138	133
+"PWY.7111..pyruvate.fermentation.to.isobutanol..engineered."	"time"	"time"	"time"	0	2.3641443551682	1	1	0.999009462044979	1	NA	"prevalence"	138	133
+"PWY.7117..C4.photosynthetic.carbon.assimilation.cycle..PEPCK.type"	"diet"	"2"	"diet2"	-7.19438758778067	51.6887441327486	0.889302589555558	1	0.889302589555558	1	NA	"prevalence"	138	8
+"PWY.7117..C4.photosynthetic.carbon.assimilation.cycle..PEPCK.type"	"diet"	"2:time"	"diet2:time"	8.32511493496309	51.6510780955097	0.871951721776418	1	0.871951721776418	1	NA	"prevalence"	138	8
+"PWY.7117..C4.photosynthetic.carbon.assimilation.cycle..PEPCK.type"	"time"	"time"	"time"	-8.00598748899606	51.6449779706707	0.876805809626071	1	0.876805809626071	1	NA	"prevalence"	138	8
+"PWY.7199..pyrimidine.deoxyribonucleosides.salvage"	"diet"	"2"	"diet2"	-2.29006790077996	2.51181140786458	0.361916299746396	1	0.180395759429077	1	NA	"prevalence"	138	128
+"PWY.7199..pyrimidine.deoxyribonucleosides.salvage"	"diet"	"2:time"	"diet2:time"	1.16084052091361	1.45770470251163	0.42582967530109	1	0.0523067127384877	1	NA	"prevalence"	138	128
+"PWY.7199..pyrimidine.deoxyribonucleosides.salvage"	"time"	"time"	"time"	-1.16100141239792	1.18142059279697	0.325747028292918	1	0.47901376258455	1	NA	"prevalence"	138	128
+"PWY.7208..superpathway.of.pyrimidine.nucleobases.salvage"	"diet"	"2"	"diet2"	3.07851875211835	5.25404286925874	0.557920328815125	1	0.804565564325072	1	NA	"prevalence"	138	8
+"PWY.7208..superpathway.of.pyrimidine.nucleobases.salvage"	"diet"	"2:time"	"diet2:time"	-4.98557878963736	4.4787699678357	0.265640561049021	1	0.265640561049021	1	NA	"prevalence"	138	8
+"PWY.7208..superpathway.of.pyrimidine.nucleobases.salvage"	"time"	"time"	"time"	-2.98600387284363	1.83141903956987	0.103010264663241	1	0.19540941470049	1	NA	"prevalence"	138	8
+"PWY.7234..inosine.5..phosphate.biosynthesis.III"	"diet"	"2"	"diet2"	-0.596340256497473	2.72437361460428	0.826735131391606	1	0.826735131391606	1	NA	"prevalence"	138	5
+"PWY.7234..inosine.5..phosphate.biosynthesis.III"	"diet"	"2:time"	"diet2:time"	0.574402217331007	1.66819196672221	0.730600975374188	1	0.730600975374188	1	NA	"prevalence"	138	5
+"PWY.7234..inosine.5..phosphate.biosynthesis.III"	"time"	"time"	"time"	0	1.24627372820735	1	1	1	1	NA	"prevalence"	138	5
+"PWY.7237..myo...chiro..and.scyllo.inositol.degradation"	"diet"	"2:time"	"diet2:time"	-11.2498420792464	210.169224251117	0.957311586374452	1	0.793650019331703	1	NA	"prevalence"	138	134
+"PWY.724..superpathway.of.L.lysine..L.threonine.and.L.methionine.biosynthesis.II"	"diet"	"2"	"diet2"	1.31751032490542	5.05985048003721	0.794566635806683	1	0.368415452707869	1	NA	"prevalence"	138	137
+"PWY.724..superpathway.of.L.lysine..L.threonine.and.L.methionine.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	-1.31751034518169	3.01228453574154	0.661836427642454	1	0.493286122941817	1	NA	"prevalence"	138	137
+"PWY.724..superpathway.of.L.lysine..L.threonine.and.L.methionine.biosynthesis.II"	"time"	"time"	"time"	2.16767612898177e-12	2.36408863290323	0.999999999999268	1	0.997615276675747	1	NA	"prevalence"	138	137
+"PWY.7328..superpathway.of.UDP.glucose.derived.O.antigen.building.blocks.biosynthesis"	"diet"	"2"	"diet2"	1.7961469746123	1.31920095899327	0.173342598801593	1	0.316637541043895	1	NA	"prevalence"	138	30
+"PWY.7328..superpathway.of.UDP.glucose.derived.O.antigen.building.blocks.biosynthesis"	"diet"	"2:time"	"diet2:time"	-1.33635810848055	0.841465151316615	0.112256392936856	1	0.211911288118519	1	NA	"prevalence"	138	30
+"PWY.7328..superpathway.of.UDP.glucose.derived.O.antigen.building.blocks.biosynthesis"	"time"	"time"	"time"	0.639325438781492	0.580413653145228	0.270679254500697	1	0.468091250184341	1	NA	"prevalence"	138	30
+"PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast."	"diet"	"2"	"diet2"	-22.8329912074585	211.521280984535	0.914038096243943	1	0.965332328741002	1	NA	"prevalence"	138	129
+"PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast."	"diet"	"2:time"	"diet2:time"	11.8107138014406	105.763266662616	0.911084093814051	1	0.886799344608319	1	NA	"prevalence"	138	129
+"PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast."	"time"	"time"	"time"	-11.3744689429699	105.759157599794	0.914352124417117	1	0.879552470216653	1	NA	"prevalence"	138	129
+"PWY.7400..L.arginine.biosynthesis.IV..archaebacteria."	"diet"	"2:time"	"diet2:time"	8.69853057861222	3013276.94684844	0.999997696719096	1	0.999997696719096	1	NA	"prevalence"	138	2
+"PWY.7456...beta...1.4..mannan.degradation"	"diet"	"2"	"diet2"	3.78382530636955	4.30438929681215	0.379367629543327	1	0.379367629543327	1	NA	"prevalence"	138	2
+"PWY.7456...beta...1.4..mannan.degradation"	"diet"	"2:time"	"diet2:time"	-1.89191256423668	2.96040759923191	0.522776322807644	1	0.522776322807644	1	NA	"prevalence"	138	2
+"PWY.7456...beta...1.4..mannan.degradation"	"time"	"time"	"time"	-6.55321335186804e-13	2.36419633482684	0.999999999999779	1	0.999999999999779	1	NA	"prevalence"	138	2
+"PWY.7560..methylerythritol.phosphate.pathway.II"	"diet"	"2"	"diet2"	0.268270268700708	1.13853678418358	0.81372194183304	1	0.809028033819534	1	NA	"prevalence"	138	45
+"PWY.7560..methylerythritol.phosphate.pathway.II"	"diet"	"2:time"	"diet2:time"	-0.439264752356831	0.736333853989376	0.550803516126931	1	0.798222518876072	1	NA	"prevalence"	138	45
+"PWY.7560..methylerythritol.phosphate.pathway.II"	"time"	"time"	"time"	-0.126548059803493	0.503326373805516	0.801486729519864	1	0.849286804207379	1	NA	"prevalence"	138	45
+"PWY.7663..gondoate.biosynthesis..anaerobic."	"diet"	"2"	"diet2"	1.15099308146909	1.24940155528323	0.356927481477889	1	0.586457735921629	1	NA	"prevalence"	138	40
+"PWY.7663..gondoate.biosynthesis..anaerobic."	"diet"	"2:time"	"diet2:time"	-0.303894054110127	0.78058449392133	0.697042381669327	1	0.908216681495406	1	NA	"prevalence"	138	40
+"PWY.7663..gondoate.biosynthesis..anaerobic."	"time"	"time"	"time"	0.175314590828143	0.592728845739137	0.767401637396258	1	0.911567149649868	1	NA	"prevalence"	138	40
+"PWY.8178..pentose.phosphate.pathway..non.oxidative.branch..II"	"diet"	"2"	"diet2"	-1.89191295276232	4.03375617234826	0.639055228229271	1	0.391597744284971	1	NA	"prevalence"	138	134
+"PWY.8178..pentose.phosphate.pathway..non.oxidative.branch..II"	"diet"	"2:time"	"diet2:time"	-1.94672890985262e-12	2.55118387686066	0.999999999999391	1	0.704478996583257	1	NA	"prevalence"	138	134
+"PWY.8178..pentose.phosphate.pathway..non.oxidative.branch..II"	"time"	"time"	"time"	3.76602989466761e-12	2.36408961595854	0.999999999998729	1	0.999903201485194	1	NA	"prevalence"	138	134
+"PWY.8187..L.arginine.degradation.XIII..reductive.Stickland.reaction."	"diet"	"2"	"diet2"	-1.18771535466217	1.85949522428735	0.522998603431473	1	0.522998603431473	1	NA	"prevalence"	138	12
+"PWY.8187..L.arginine.degradation.XIII..reductive.Stickland.reaction."	"diet"	"2:time"	"diet2:time"	0.57854133739224	1.28867092040909	0.653471908944359	1	0.653471908944359	1	NA	"prevalence"	138	12
+"PWY.8187..L.arginine.degradation.XIII..reductive.Stickland.reaction."	"time"	"time"	"time"	-1.01495726506447	0.875094668782697	0.246119788371551	1	0.246119788371551	1	NA	"prevalence"	138	12
+"PWY.I9..L.cysteine.biosynthesis.VI..from.L.methionine."	"diet"	"2"	"diet2"	4.19000724911347	2.42308250798484	0.0837723482398875	1	0.16052689015015	1	NA	"prevalence"	138	23
+"PWY.I9..L.cysteine.biosynthesis.VI..from.L.methionine."	"diet"	"2:time"	"diet2:time"	-2.10988912755511	1.31552777721533	0.108750488659473	1	0.205674308535271	1	NA	"prevalence"	138	23
+"PWY.I9..L.cysteine.biosynthesis.VI..from.L.methionine."	"time"	"time"	"time"	2.52931317270337	1.15858506166412	0.0290280573838065	1	0.0572134866521353	1	NA	"prevalence"	138	23
+"PWY0.1296..purine.ribonucleosides.degradation"	"diet"	"2"	"diet2"	-1.89191295276369	4.03372968860848	0.639053027149442	1	0.869717282790019	1	NA	"prevalence"	138	134
+"PWY0.1296..purine.ribonucleosides.degradation"	"diet"	"2:time"	"diet2:time"	-1.15415287873858e-12	2.55116809374486	0.999999999999639	1	0.980702120172507	1	NA	"prevalence"	138	134
+"PWY0.1296..purine.ribonucleosides.degradation"	"time"	"time"	"time"	2.1509182889354e-12	2.36405535890095	0.999999999999274	1	0.608450298208068	1	NA	"prevalence"	138	134
+"PWY0.1586..peptidoglycan.maturation..meso.diaminopimelate.containing."	"diet"	"2"	"diet2"	-0.141239649473254	3.64132457975951	0.969059422829843	1	0.999042680684378	1	NA	"prevalence"	138	130
+"PWY0.1586..peptidoglycan.maturation..meso.diaminopimelate.containing."	"diet"	"2:time"	"diet2:time"	-5.44027854988807e-06	2.19234802969196	0.999998020061504	1	0.992477260092228	1	NA	"prevalence"	138	130
+"PWY0.1586..peptidoglycan.maturation..meso.diaminopimelate.containing."	"time"	"time"	"time"	-7.22815216334927e-07	1.64857208177029	0.999999650168101	1	0.640328432030274	1	NA	"prevalence"	138	130
+"PWY66.429..fatty.acid.biosynthesis.initiation..mitochondria."	"diet"	"2"	"diet2"	1.31751032490542	5.05985048003721	0.794566635806683	1	0.727208834894087	1	NA	"prevalence"	138	137
+"PWY66.429..fatty.acid.biosynthesis.initiation..mitochondria."	"diet"	"2:time"	"diet2:time"	-1.31751034518169	3.01228453574154	0.661836427642454	1	0.520636658970003	1	NA	"prevalence"	138	137
+"PWY66.429..fatty.acid.biosynthesis.initiation..mitochondria."	"time"	"time"	"time"	2.16767612898177e-12	2.36408863290323	0.999999999999268	1	0.998839784502974	1	NA	"prevalence"	138	137
+"PYRIDNUCSYN.PWY..NAD.de.novo.biosynthesis.I..from.aspartate."	"diet"	"2"	"diet2"	-40.8901010394747	170.969578179777	0.810976907004109	1	0.964270270314267	1	NA	"prevalence"	138	130
+"PYRIDNUCSYN.PWY..NAD.de.novo.biosynthesis.I..from.aspartate."	"diet"	"2:time"	"diet2:time"	19.5926799313341	85.4868166375227	0.818721640739674	1	0.849093684228158	1	NA	"prevalence"	138	130
+"PYRIDNUCSYN.PWY..NAD.de.novo.biosynthesis.I..from.aspartate."	"time"	"time"	"time"	-20.6042635547178	85.4829819747694	0.809529141509291	1	0.703272731494253	1	NA	"prevalence"	138	130
+"RHAMCAT.PWY..L.rhamnose.degradation.I"	"diet"	"2"	"diet2"	2.14626162368559	1.31327037820026	0.102198455489514	1	0.193952386674586	1	NA	"prevalence"	138	33
+"RHAMCAT.PWY..L.rhamnose.degradation.I"	"diet"	"2:time"	"diet2:time"	-1.8571281786789	0.858045579503282	0.0304359582766144	1	0.059945568997013	1	NA	"prevalence"	138	33
+"RHAMCAT.PWY..L.rhamnose.degradation.I"	"time"	"time"	"time"	0.870505632905144	0.551765828437373	0.114640925879939	1	0.216139309873269	1	NA	"prevalence"	138	33
+"RIBOSYN2.PWY..flavin.biosynthesis.I..bacteria.and.plants."	"diet"	"2"	"diet2"	-0.721248253773599	1.59251896975431	0.65062237320909	1	0.872379094513093	1	NA	"prevalence"	138	117
+"RIBOSYN2.PWY..flavin.biosynthesis.I..bacteria.and.plants."	"diet"	"2:time"	"diet2:time"	-0.162938508650406	1.00265682981916	0.870906808588197	1	0.826393340050417	1	NA	"prevalence"	138	117
+"RIBOSYN2.PWY..flavin.biosynthesis.I..bacteria.and.plants."	"time"	"time"	"time"	3.29443287987718e-13	0.819530271824881	0.999999999999679	1	0.99457334020313	1	NA	"prevalence"	138	117
+"SER.GLYSYN.PWY..superpathway.of.L.serine.and.glycine.biosynthesis.I"	"diet"	"2"	"diet2"	-2.46631504272227	4.07215782579321	0.544745128522304	1	0.715480264389104	1	NA	"prevalence"	138	135
+"SER.GLYSYN.PWY..superpathway.of.L.serine.and.glycine.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	0.574402217329439	2.61132441150002	0.825897744063078	1	0.969688404477675	1	NA	"prevalence"	138	135
+"SER.GLYSYN.PWY..superpathway.of.L.serine.and.glycine.biosynthesis.I"	"time"	"time"	"time"	3.18656436233777e-12	2.36415242470199	0.999999999998925	1	0.726689867366259	1	NA	"prevalence"	138	135
+"THISYNARA.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.III..eukaryotes."	"diet"	"2"	"diet2"	0.168500015991463	1.08231021998532	0.876280921121253	1	0.984693589521394	1	NA	"prevalence"	138	64
+"THISYNARA.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.III..eukaryotes."	"diet"	"2:time"	"diet2:time"	-0.2291016047861	0.688551665025899	0.739338310991386	1	0.932055483883177	1	NA	"prevalence"	138	64
+"THISYNARA.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.III..eukaryotes."	"time"	"time"	"time"	-0.354076277434836	0.487187850261812	0.467363388314441	1	0.716298239892127	1	NA	"prevalence"	138	64
+"THRESYN.PWY..superpathway.of.L.threonine.biosynthesis"	"diet"	"2"	"diet2"	1.89191238634363	5.02892132815579	0.706763458175887	1	0.387798316873401	1	NA	"prevalence"	138	136
+"THRESYN.PWY..superpathway.of.L.threonine.biosynthesis"	"diet"	"2:time"	"diet2:time"	-1.89191256423864	2.96024770787426	0.522753868684291	1	0.385443844409302	1	NA	"prevalence"	138	136
+"THRESYN.PWY..superpathway.of.L.threonine.biosynthesis"	"time"	"time"	"time"	2.18409194640966e-12	2.36395397534438	0.999999999999263	1	0.476367466073144	1	NA	"prevalence"	138	136
+"TRPSYN.PWY..L.tryptophan.biosynthesis"	"diet"	"2"	"diet2"	-1.51077656147041	4.01798715926602	0.706914418602618	1	0.362686330056747	1	NA	"prevalence"	138	133
+"TRPSYN.PWY..L.tryptophan.biosynthesis"	"diet"	"2:time"	"diet2:time"	-0.381136548853777	2.52627526174212	0.880079077936529	1	0.179504633306834	1	NA	"prevalence"	138	133
+"TRPSYN.PWY..L.tryptophan.biosynthesis"	"time"	"time"	"time"	0	2.36397149406226	1	1	0.495249807057536	1	NA	"prevalence"	138	133
+"UDPNAGSYN.PWY..UDP.N.acetyl.D.glucosamine.biosynthesis.I"	"diet"	"2"	"diet2"	-2.43829227437922	1.13131746780843	0.0311408726547214	1	0.0613119913597452	1	NA	"prevalence"	138	58
+"UDPNAGSYN.PWY..UDP.N.acetyl.D.glucosamine.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	1.19530703125013	0.70713772622337	0.0909618864892582	1	0.173649708184832	1	NA	"prevalence"	138	58
+"UDPNAGSYN.PWY..UDP.N.acetyl.D.glucosamine.biosynthesis.I"	"time"	"time"	"time"	-0.697858884713645	0.492462208604963	0.156459219761104	1	0.288438952073955	1	NA	"prevalence"	138	58
+"X1CMET2.PWY..folate.transformations.III..E..coli."	"diet"	"2"	"diet2"	1.31751032490542	5.05985048003721	0.794566635806683	1	0.467961969493224	1	NA	"prevalence"	138	137
+"X1CMET2.PWY..folate.transformations.III..E..coli."	"diet"	"2:time"	"diet2:time"	-1.31751034518169	3.01228453574154	0.661836427642454	1	0.885645398330383	1	NA	"prevalence"	138	137
+"X1CMET2.PWY..folate.transformations.III..E..coli."	"time"	"time"	"time"	2.16767612898177e-12	2.36408863290323	0.999999999999268	1	0.744428612574096	1	NA	"prevalence"	138	137
+"ARGININE.SYN4.PWY..L.ornithine.biosynthesis.II"	"diet"	"2"	"diet2"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"ARGININE.SYN4.PWY..L.ornithine.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.99999887272319	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"ARGININE.SYN4.PWY..L.ornithine.biosynthesis.II"	"time"	"time"	"time"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"CITRULBIO.PWY..L.citrulline.biosynthesis"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.999980394797459	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"CITRULBIO.PWY..L.citrulline.biosynthesis"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.999917532891339	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"CITRULBIO.PWY..L.citrulline.biosynthesis"	"time"	"time"	"time"	NA	NA	NA	NA	0.941663813077181	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"COLANSYN.PWY..colanic.acid.building.blocks.biosynthesis"	"diet"	"2"	"diet2"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	3
+"COLANSYN.PWY..colanic.acid.building.blocks.biosynthesis"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	3
+"COLANSYN.PWY..colanic.acid.building.blocks.biosynthesis"	"time"	"time"	"time"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	3
+"GLCMANNANAUT.PWY..superpathway.of.N.acetylglucosamine..N.acetylmannosamine.and.N.acetylneuraminate.degradation"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.878894065526199	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	10
+"GLCMANNANAUT.PWY..superpathway.of.N.acetylglucosamine..N.acetylmannosamine.and.N.acetylneuraminate.degradation"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.87844967149375	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	10
+"GLCMANNANAUT.PWY..superpathway.of.N.acetylglucosamine..N.acetylmannosamine.and.N.acetylneuraminate.degradation"	"time"	"time"	"time"	NA	NA	NA	NA	0.691652936817065	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	10
+"LACTOSECAT.PWY..lactose.and.galactose.degradation.I"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.135847549726047	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	9
+"LACTOSECAT.PWY..lactose.and.galactose.degradation.I"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.280911433481717	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	9
+"LACTOSECAT.PWY..lactose.and.galactose.degradation.I"	"time"	"time"	"time"	NA	NA	NA	NA	0.0781021371338159	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	9
+"METH.ACETATE.PWY..methanogenesis.from.acetate"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.999978697359685	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	3
+"METH.ACETATE.PWY..methanogenesis.from.acetate"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.995395404157177	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	3
+"METH.ACETATE.PWY..methanogenesis.from.acetate"	"time"	"time"	"time"	NA	NA	NA	NA	0.935477050069241	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	3
+"P164.PWY..purine.nucleobases.degradation.I..anaerobic."	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.379321718638624	1	"No data points have the baseline factor level"	"abundance"	138	2
+"P164.PWY..purine.nucleobases.degradation.I..anaerobic."	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.522742915862649	1	"No data points have the baseline factor level"	"abundance"	138	2
+"P164.PWY..purine.nucleobases.degradation.I..anaerobic."	"time"	"time"	"time"	NA	NA	NA	NA	0.999999999999604	1	"No data points have the baseline factor level"	"abundance"	138	2
+"PENTOSE.P.PWY..pentose.phosphate.pathway"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.786480388475513	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	11
+"PENTOSE.P.PWY..pentose.phosphate.pathway"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.871113784014599	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	11
+"PENTOSE.P.PWY..pentose.phosphate.pathway"	"time"	"time"	"time"	NA	NA	NA	NA	0.122062859413463	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	11
+"PWY.241..C4.photosynthetic.carbon.assimilation.cycle..NADP.ME.type"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.75498037729749	1	"No data points have the baseline factor level"	"abundance"	138	2
+"PWY.241..C4.photosynthetic.carbon.assimilation.cycle..NADP.ME.type"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.999999999999763	1	"No data points have the baseline factor level"	"abundance"	138	2
+"PWY.241..C4.photosynthetic.carbon.assimilation.cycle..NADP.ME.type"	"time"	"time"	"time"	NA	NA	NA	NA	0.999999999999463	1	"No data points have the baseline factor level"	"abundance"	138	2
+"PWY.4984..urea.cycle"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.999980394797459	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.4984..urea.cycle"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.999917532891339	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.4984..urea.cycle"	"time"	"time"	"time"	NA	NA	NA	NA	0.941663813077181	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.5030..L.histidine.degradation.III"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.999980394797459	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.5030..L.histidine.degradation.III"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.999917532891339	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.5030..L.histidine.degradation.III"	"time"	"time"	"time"	NA	NA	NA	NA	0.941663813077181	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.5384..sucrose.degradation.IV..sucrose.phosphorylase."	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.766940389973571	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	9
+"PWY.5384..sucrose.degradation.IV..sucrose.phosphorylase."	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.813517583490638	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	9
+"PWY.5384..sucrose.degradation.IV..sucrose.phosphorylase."	"time"	"time"	"time"	NA	NA	NA	NA	0.725590206794581	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	9
+"PWY.5659..GDP.mannose.biosynthesis"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.300214082154992	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	7
+"PWY.5659..GDP.mannose.biosynthesis"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.316212967781671	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	7
+"PWY.5659..GDP.mannose.biosynthesis"	"time"	"time"	"time"	NA	NA	NA	NA	0.603223950753318	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	7
+"PWY.5676..acetyl.CoA.fermentation.to.butanoate.II"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.284163239710093	1	"No data points have the baseline factor level"	"abundance"	138	3
+"PWY.5676..acetyl.CoA.fermentation.to.butanoate.II"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.439218329982616	1	"No data points have the baseline factor level"	"abundance"	138	3
+"PWY.5676..acetyl.CoA.fermentation.to.butanoate.II"	"time"	"time"	"time"	NA	NA	NA	NA	0.999999999999497	1	"No data points have the baseline factor level"	"abundance"	138	3
+"PWY.6125..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"Fitting error (NA p-value returned from fitting procedure)"	"abundance"	138	9
+"PWY.6126..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"Fitting error (NA p-value returned from fitting procedure)"	"abundance"	138	9
+"PWY.6147..6.hydroxymethyl.dihydropterin.diphosphate.biosynthesis.I"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.387372550637701	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	12
+"PWY.6147..6.hydroxymethyl.dihydropterin.diphosphate.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.218781807553855	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	12
+"PWY.6147..6.hydroxymethyl.dihydropterin.diphosphate.biosynthesis.I"	"time"	"time"	"time"	NA	NA	NA	NA	0.325733852241567	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	12
+"PWY.621..sucrose.degradation.III..sucrose.invertase."	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.542082001649666	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	7
+"PWY.621..sucrose.degradation.III..sucrose.invertase."	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.798821643766418	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	7
+"PWY.621..sucrose.degradation.III..sucrose.invertase."	"time"	"time"	"time"	NA	NA	NA	NA	0.644019750113442	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	7
+"PWY.6353..purine.nucleotides.degradation.II..aerobic."	"diet"	"2"	"diet2"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.6353..purine.nucleotides.degradation.II..aerobic."	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.6353..purine.nucleotides.degradation.II..aerobic."	"time"	"time"	"time"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.6606..guanosine.nucleotides.degradation.II"	"diet"	"2"	"diet2"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.6606..guanosine.nucleotides.degradation.II"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.6606..guanosine.nucleotides.degradation.II"	"time"	"time"	"time"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.6608..guanosine.nucleotides.degradation.III"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.999992798242668	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	8
+"PWY.6608..guanosine.nucleotides.degradation.III"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.999994382660302	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	8
+"PWY.6608..guanosine.nucleotides.degradation.III"	"time"	"time"	"time"	NA	NA	NA	NA	0.999170425397709	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	8
+"PWY.6628..superpathway.of.L.phenylalanine.biosynthesis"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.76014988944709	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	11
+"PWY.6628..superpathway.of.L.phenylalanine.biosynthesis"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.381705512686091	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	11
+"PWY.6628..superpathway.of.L.phenylalanine.biosynthesis"	"time"	"time"	"time"	NA	NA	NA	NA	0.999999999999008	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	11
+"PWY.6731..starch.degradation.III"	"diet"	"2"	"diet2"	-1.04192604625851	12.2012467007156	0.933156545088119	NA	0.585359505974443	1	"Model may not have converged with 1 eigenvalue close to zero: 4.3e-11"	"abundance"	138	18
+"PWY.6731..starch.degradation.III"	"diet"	"2:time"	"diet2:time"	-3.63662602817015	7.78375249238832	0.647540090058524	NA	0.369149857667974	1	"Model may not have converged with 1 eigenvalue close to zero: 4.3e-11"	"abundance"	138	18
+"PWY.6731..starch.degradation.III"	"time"	"time"	"time"	-5.04355137112813	0.000853434930200057	3.48415898808515e-46	NA	0.346653951555829	1	"Model may not have converged with 1 eigenvalue close to zero: 4.3e-11"	"abundance"	138	18
+"PWY.7117..C4.photosynthetic.carbon.assimilation.cycle..PEPCK.type"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.889302589555558	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	8
+"PWY.7117..C4.photosynthetic.carbon.assimilation.cycle..PEPCK.type"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.871951721776418	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	8
+"PWY.7117..C4.photosynthetic.carbon.assimilation.cycle..PEPCK.type"	"time"	"time"	"time"	NA	NA	NA	NA	0.876805809626071	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	8
+"PWY.7197..pyrimidine.deoxyribonucleotide.phosphorylation"	"diet"	"2"	"diet2"	NA	NA	NA	NA	NA	NA	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	138	7
+"PWY.7197..pyrimidine.deoxyribonucleotide.phosphorylation"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	138	7
+"PWY.7197..pyrimidine.deoxyribonucleotide.phosphorylation"	"time"	"time"	"time"	NA	NA	NA	NA	NA	NA	"contrasts can be applied only to factors with 2 or more levels"	"abundance"	138	7
+"PWY.7208..superpathway.of.pyrimidine.nucleobases.salvage"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.265640561049021	1	"Fitting error (NA p-value returned from fitting procedure)"	"abundance"	138	8
+"PWY.7220..adenosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"Fitting error (NA p-value returned from fitting procedure)"	"abundance"	138	9
+"PWY.7222..guanosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"Fitting error (NA p-value returned from fitting procedure)"	"abundance"	138	9
+"PWY.7228..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"Fitting error (NA p-value returned from fitting procedure)"	"abundance"	138	9
+"PWY.7229..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"Fitting error (NA p-value returned from fitting procedure)"	"abundance"	138	9
+"PWY.7234..inosine.5..phosphate.biosynthesis.III"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.826735131391606	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	5
+"PWY.7234..inosine.5..phosphate.biosynthesis.III"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.730600975374188	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	5
+"PWY.7234..inosine.5..phosphate.biosynthesis.III"	"time"	"time"	"time"	NA	NA	NA	NA	1	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	5
+"PWY.7400..L.arginine.biosynthesis.IV..archaebacteria."	"diet"	"2"	"diet2"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.7400..L.arginine.biosynthesis.IV..archaebacteria."	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.999997696719096	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.7400..L.arginine.biosynthesis.IV..archaebacteria."	"time"	"time"	"time"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.7456...beta...1.4..mannan.degradation"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.379367629543327	1	"No data points have the baseline factor level"	"abundance"	138	2
+"PWY.7456...beta...1.4..mannan.degradation"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.522776322807644	1	"No data points have the baseline factor level"	"abundance"	138	2
+"PWY.7456...beta...1.4..mannan.degradation"	"time"	"time"	"time"	NA	NA	NA	NA	0.999999999999779	1	"No data points have the baseline factor level"	"abundance"	138	2
+"PWY.8187..L.arginine.degradation.XIII..reductive.Stickland.reaction."	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.522998603431473	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	12
+"PWY.8187..L.arginine.degradation.XIII..reductive.Stickland.reaction."	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.653471908944359	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	12
+"PWY.8187..L.arginine.degradation.XIII..reductive.Stickland.reaction."	"time"	"time"	"time"	NA	NA	NA	NA	0.246119788371551	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	12
+"PWY.841..superpathway.of.purine.nucleotides.de.novo.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"Fitting error (NA p-value returned from fitting procedure)"	"abundance"	138	9
+"SALVADEHYPOX.PWY..adenosine.nucleotides.degradation.II"	"diet"	"2"	"diet2"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	3
+"SALVADEHYPOX.PWY..adenosine.nucleotides.degradation.II"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	3
+"SALVADEHYPOX.PWY..adenosine.nucleotides.degradation.II"	"time"	"time"	"time"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	3
+"THISYN.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"Fitting error (NA p-value returned from fitting procedure)"	"abundance"	138	14
+"ARGININE.SYN4.PWY..L.ornithine.biosynthesis.II"	"diet"	"2"	"diet2"	-18.2767287971834	12915106.8984698	0.999998870878898	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"ARGININE.SYN4.PWY..L.ornithine.biosynthesis.II"	"time"	"time"	"time"	22.2647940205106	66620.9870274105	0.999733346264287	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"ARO.PWY..chorismate.biosynthesis.I"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"ARO.PWY..chorismate.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"ARO.PWY..chorismate.biosynthesis.I"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"COA.PWY..coenzyme.A.biosynthesis.I..prokaryotic."	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"COA.PWY..coenzyme.A.biosynthesis.I..prokaryotic."	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"COA.PWY..coenzyme.A.biosynthesis.I..prokaryotic."	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"COA.PWY.1..superpathway.of.coenzyme.A.biosynthesis.III..mammals."	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"COA.PWY.1..superpathway.of.coenzyme.A.biosynthesis.III..mammals."	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"COA.PWY.1..superpathway.of.coenzyme.A.biosynthesis.III..mammals."	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"COLANSYN.PWY..colanic.acid.building.blocks.biosynthesis"	"diet"	"2"	"diet2"	NA	NA	NA	NA	NA	NA	"Downdated VtV is not positive definite"	"prevalence"	138	3
+"COLANSYN.PWY..colanic.acid.building.blocks.biosynthesis"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"Downdated VtV is not positive definite"	"prevalence"	138	3
+"COLANSYN.PWY..colanic.acid.building.blocks.biosynthesis"	"time"	"time"	"time"	NA	NA	NA	NA	NA	NA	"Downdated VtV is not positive definite"	"prevalence"	138	3
+"COMPLETE.ARO.PWY..superpathway.of.aromatic.amino.acid.biosynthesis"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.321625973064206	1	"All logistic values are the same"	"prevalence"	138	138
+"COMPLETE.ARO.PWY..superpathway.of.aromatic.amino.acid.biosynthesis"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983591268591905	1	"All logistic values are the same"	"prevalence"	138	138
+"COMPLETE.ARO.PWY..superpathway.of.aromatic.amino.acid.biosynthesis"	"time"	"time"	"time"	NA	NA	NA	NA	0.498874043807574	1	"All logistic values are the same"	"prevalence"	138	138
+"DTDPRHAMSYN.PWY..dTDP..beta..L.rhamnose.biosynthesis"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"DTDPRHAMSYN.PWY..dTDP..beta..L.rhamnose.biosynthesis"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"DTDPRHAMSYN.PWY..dTDP..beta..L.rhamnose.biosynthesis"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"GLYCOGENSYNTH.PWY..glycogen.biosynthesis.I..from.ADP.D.Glucose."	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"GLYCOGENSYNTH.PWY..glycogen.biosynthesis.I..from.ADP.D.Glucose."	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"GLYCOGENSYNTH.PWY..glycogen.biosynthesis.I..from.ADP.D.Glucose."	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"HISTSYN.PWY..L.histidine.biosynthesis"	"diet"	"2"	"diet2"	15.317883363236	25093956.3773998	0.999999512954336	NA	0.303649906010364	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	137
+"HISTSYN.PWY..L.histidine.biosynthesis"	"diet"	"2:time"	"diet2:time"	21.7646959492368	15870698.0019308	0.999998905800182	NA	0.922929437681474	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	137
+"HISTSYN.PWY..L.histidine.biosynthesis"	"time"	"time"	"time"	-22.5674036670117	77498.3854388694	0.99976765731819	NA	0.571800658118113	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	137
+"NONMEVIPP.PWY..methylerythritol.phosphate.pathway.I"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.312810834678509	1	"All logistic values are the same"	"prevalence"	138	138
+"NONMEVIPP.PWY..methylerythritol.phosphate.pathway.I"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.964943445200995	1	"All logistic values are the same"	"prevalence"	138	138
+"NONMEVIPP.PWY..methylerythritol.phosphate.pathway.I"	"time"	"time"	"time"	NA	NA	NA	NA	0.497330466209888	1	"All logistic values are the same"	"prevalence"	138	138
+"PANTO.PWY..phosphopantothenate.biosynthesis.I"	"diet"	"2"	"diet2"	17.6063983142211	7300481.97109585	0.999998075760828	NA	0.155719462438127	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	136
+"PANTO.PWY..phosphopantothenate.biosynthesis.I"	"time"	"time"	"time"	-21.4887180887455	45193.234296605	0.999620617642989	NA	0.14443083302049	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	136
+"PANTOSYN.PWY..superpathway.of.coenzyme.A.biosynthesis.I..bacteria."	"diet"	"2"	"diet2"	17.6063983142211	7300481.97109585	0.999998075760828	NA	0.167616379545153	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	136
+"PANTOSYN.PWY..superpathway.of.coenzyme.A.biosynthesis.I..bacteria."	"time"	"time"	"time"	-21.4887180887455	45193.234296605	0.999620617642989	NA	0.163651902263159	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	136
+"PEPTIDOGLYCANSYN.PWY..peptidoglycan.biosynthesis.I..meso.diaminopimelate.containing."	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PEPTIDOGLYCANSYN.PWY..peptidoglycan.biosynthesis.I..meso.diaminopimelate.containing."	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PEPTIDOGLYCANSYN.PWY..peptidoglycan.biosynthesis.I..meso.diaminopimelate.containing."	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.1042..glycolysis.IV"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.1042..glycolysis.IV"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.1042..glycolysis.IV"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.2942..L.lysine.biosynthesis.III"	"diet"	"2"	"diet2"	21.4605831938358	1167.82282149964	0.985338440052087	NA	0.043711028665256	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	134
+"PWY.2942..L.lysine.biosynthesis.III"	"time"	"time"	"time"	-22.484253091487	390.94901558853	0.954137360950949	NA	0.0678333268536949	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	134
+"PWY.3841..folate.transformations.II..plants."	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.3841..folate.transformations.II..plants."	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.3841..folate.transformations.II..plants."	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5097..L.lysine.biosynthesis.VI"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5097..L.lysine.biosynthesis.VI"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5097..L.lysine.biosynthesis.VI"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5667..CDP.diacylglycerol.biosynthesis.I"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5667..CDP.diacylglycerol.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5667..CDP.diacylglycerol.biosynthesis.I"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5686..UMP.biosynthesis.I"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5686..UMP.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5686..UMP.biosynthesis.I"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5695..inosine.5..phosphate.degradation"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5695..inosine.5..phosphate.degradation"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5695..inosine.5..phosphate.degradation"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5941..glycogen.degradation.II"	"diet"	"2"	"diet2"	-30.7176919392604	617.496342913641	0.960325161928483	NA	0.414845549360576	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	132
+"PWY.5941..glycogen.degradation.II"	"diet"	"2:time"	"diet2:time"	15.0122722125106	308.749393564936	0.961219868191998	NA	0.218093279143662	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	132
+"PWY.6121..5.aminoimidazole.ribonucleotide.biosynthesis.I"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6121..5.aminoimidazole.ribonucleotide.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6121..5.aminoimidazole.ribonucleotide.biosynthesis.I"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6122..5.aminoimidazole.ribonucleotide.biosynthesis.II"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6122..5.aminoimidazole.ribonucleotide.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6122..5.aminoimidazole.ribonucleotide.biosynthesis.II"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6125..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.II"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.67970514104595	1	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.6125..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.6125..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.II"	"time"	"time"	"time"	NA	NA	NA	NA	0.44413090188106	1	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.6126..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.II"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.667316225258972	1	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.6126..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.6126..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.II"	"time"	"time"	"time"	NA	NA	NA	NA	0.424328693751812	1	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.6151..S.adenosyl.L.methionine.salvage.I"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.320790559651559	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6151..S.adenosyl.L.methionine.salvage.I"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.981693218489647	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6151..S.adenosyl.L.methionine.salvage.I"	"time"	"time"	"time"	NA	NA	NA	NA	0.498679107856447	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6163..chorismate.biosynthesis.from.3.dehydroquinate"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6163..chorismate.biosynthesis.from.3.dehydroquinate"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6163..chorismate.biosynthesis.from.3.dehydroquinate"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6277..superpathway.of.5.aminoimidazole.ribonucleotide.biosynthesis"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6277..superpathway.of.5.aminoimidazole.ribonucleotide.biosynthesis"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6277..superpathway.of.5.aminoimidazole.ribonucleotide.biosynthesis"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6317..D.galactose.degradation.I..Leloir.pathway."	"diet"	"2"	"diet2"	-30.7176919392604	617.496342913641	0.960325161928483	NA	0.691603245734022	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	132
+"PWY.6317..D.galactose.degradation.I..Leloir.pathway."	"diet"	"2:time"	"diet2:time"	15.0122722125106	308.749393564936	0.961219868191998	NA	0.818592667981421	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	132
+"PWY.6353..purine.nucleotides.degradation.II..aerobic."	"diet"	"2"	"diet2"	79.0638119263843	11343573.0709685	0.999994438807379	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.6353..purine.nucleotides.degradation.II..aerobic."	"diet"	"2:time"	"diet2:time"	-58.5431227230932	11343468.3879195	0.999995882154191	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.6353..purine.nucleotides.degradation.II..aerobic."	"time"	"time"	"time"	20.5505421729997	28271.2711609565	0.999420013384661	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.6385..peptidoglycan.biosynthesis.III..mycobacteria."	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6385..peptidoglycan.biosynthesis.III..mycobacteria."	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6385..peptidoglycan.biosynthesis.III..mycobacteria."	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6386..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.II..lysine.containing."	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6386..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.II..lysine.containing."	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6386..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.II..lysine.containing."	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6387..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.I..meso.diaminopimelate.containing."	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6387..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.I..meso.diaminopimelate.containing."	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6387..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.I..meso.diaminopimelate.containing."	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6606..guanosine.nucleotides.degradation.II"	"diet"	"2"	"diet2"	79.0638119263843	11343573.0709685	0.999994438807379	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.6606..guanosine.nucleotides.degradation.II"	"diet"	"2:time"	"diet2:time"	-58.5431227230932	11343468.3879195	0.999995882154191	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.6606..guanosine.nucleotides.degradation.II"	"time"	"time"	"time"	20.5505421729997	28271.2711609565	0.999420013384661	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.6609..adenine.and.adenosine.salvage.III"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6609..adenine.and.adenosine.salvage.III"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6609..adenine.and.adenosine.salvage.III"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6700..queuosine.biosynthesis.I..de.novo."	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6700..queuosine.biosynthesis.I..de.novo."	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6700..queuosine.biosynthesis.I..de.novo."	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7197..pyrimidine.deoxyribonucleotide.phosphorylation"	"diet"	"2"	"diet2"	-157.185535352444	25093477.6918599	0.999995002051394	NA	NA	NA	" Hessian is numerically singular: parameters are not uniquely determined"	"prevalence"	138	7
+"PWY.7197..pyrimidine.deoxyribonucleotide.phosphorylation"	"diet"	"2:time"	"diet2:time"	-126.482711056992	15870508.7841804	0.999993641123688	NA	NA	NA	" Hessian is numerically singular: parameters are not uniquely determined"	"prevalence"	138	7
+"PWY.7197..pyrimidine.deoxyribonucleotide.phosphorylation"	"time"	"time"	"time"	-2.4726253595737	1.49845676307524	0.0989195022529315	NA	NA	NA	" Hessian is numerically singular: parameters are not uniquely determined"	"prevalence"	138	7
+"PWY.7220..adenosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.69126234120382	1	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.7220..adenosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.7220..adenosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"time"	"time"	"time"	NA	NA	NA	NA	0.468207886585298	1	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.7221..guanosine.ribonucleotides.de.novo.biosynthesis"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7221..guanosine.ribonucleotides.de.novo.biosynthesis"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7221..guanosine.ribonucleotides.de.novo.biosynthesis"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7222..guanosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.69126234120382	1	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.7222..guanosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.7222..guanosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"time"	"time"	"time"	NA	NA	NA	NA	0.468207886585298	1	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.7228..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.I"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.672213871450668	1	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.7228..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.7228..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.I"	"time"	"time"	"time"	NA	NA	NA	NA	0.431554836221287	1	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.7229..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.I"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.648562773534669	1	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.7229..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.7229..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.I"	"time"	"time"	"time"	NA	NA	NA	NA	0.402325663235854	1	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.7237..myo...chiro..and.scyllo.inositol.degradation"	"diet"	"2"	"diet2"	21.3703002120462	420.337536599567	0.959452372410715	NA	0.506337259776337	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	134
+"PWY.7237..myo...chiro..and.scyllo.inositol.degradation"	"time"	"time"	"time"	-22.3903687501865	155.742815202481	0.885686026840918	NA	0.173725483169422	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	134
+"PWY.7238..sucrose.biosynthesis.II"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7238..sucrose.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7238..sucrose.biosynthesis.II"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7400..L.arginine.biosynthesis.IV..archaebacteria."	"diet"	"2"	"diet2"	-17.4269141238476	6026553.8936964	0.999997692766718	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.7400..L.arginine.biosynthesis.IV..archaebacteria."	"time"	"time"	"time"	21.2809196967733	40732.3172404147	0.999583138950994	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.7790..UMP.biosynthesis.II"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7790..UMP.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7790..UMP.biosynthesis.II"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7791..UMP.biosynthesis.III"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7791..UMP.biosynthesis.III"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7791..UMP.biosynthesis.III"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7851..coenzyme.A.biosynthesis.II..eukaryotic."	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7851..coenzyme.A.biosynthesis.II..eukaryotic."	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7851..coenzyme.A.biosynthesis.II..eukaryotic."	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7953..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.III..meso.diaminopimelate.containing."	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7953..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.III..meso.diaminopimelate.containing."	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7953..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.III..meso.diaminopimelate.containing."	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7977..L.methionine.biosynthesis.IV"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.321571997979141	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7977..L.methionine.biosynthesis.IV"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983459257787621	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7977..L.methionine.biosynthesis.IV"	"time"	"time"	"time"	NA	NA	NA	NA	0.498920992582246	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.841..superpathway.of.purine.nucleotides.de.novo.biosynthesis.I"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.674839047342926	1	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.841..superpathway.of.purine.nucleotides.de.novo.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY.841..superpathway.of.purine.nucleotides.de.novo.biosynthesis.I"	"time"	"time"	"time"	NA	NA	NA	NA	0.392790284012765	1	"Downdated VtV is not positive definite"	"prevalence"	138	9
+"PWY0.1319..CDP.diacylglycerol.biosynthesis.II"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY0.1319..CDP.diacylglycerol.biosynthesis.II"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY0.1319..CDP.diacylglycerol.biosynthesis.II"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"SALVADEHYPOX.PWY..adenosine.nucleotides.degradation.II"	"diet"	"2"	"diet2"	NA	NA	NA	NA	NA	NA	"Downdated VtV is not positive definite"	"prevalence"	138	3
+"SALVADEHYPOX.PWY..adenosine.nucleotides.degradation.II"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	NA	NA	"Downdated VtV is not positive definite"	"prevalence"	138	3
+"SALVADEHYPOX.PWY..adenosine.nucleotides.degradation.II"	"time"	"time"	"time"	NA	NA	NA	NA	NA	NA	"Downdated VtV is not positive definite"	"prevalence"	138	3
+"THISYN.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.I"	"diet"	"2"	"diet2"	13.7952566470918	301.963866183084	0.963561220818353	NA	0.844390229726234	1	"Model is nearly unidentifiable: large eigenvalue ratio
+ - Rescale variables?"	"prevalence"	138	14
+"THISYN.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.I"	"diet"	"2:time"	"diet2:time"	-14.8440438078049	301.963210605605	0.960793022203534	NA	NA	NA	"Model is nearly unidentifiable: large eigenvalue ratio
+ - Rescale variables?"	"prevalence"	138	14
+"THISYN.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.I"	"time"	"time"	"time"	-0.688504315219873	0.710556654825256	0.332562802479034	NA	0.962809260510657	1	"Model is nearly unidentifiable: large eigenvalue ratio
+ - Rescale variables?"	"prevalence"	138	14
+"TRNA.CHARGING.PWY..tRNA.charging"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164264551539	1	"All logistic values are the same"	"prevalence"	138	138
+"TRNA.CHARGING.PWY..tRNA.charging"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625687607769	1	"All logistic values are the same"	"prevalence"	138	138
+"TRNA.CHARGING.PWY..tRNA.charging"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877099385239	1	"All logistic values are the same"	"prevalence"	138	138
+"UNINTEGRATED"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"UNINTEGRATED"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"UNINTEGRATED"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"UNMAPPED"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"UNMAPPED"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"UNMAPPED"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138
+"VALSYN.PWY..L.valine.biosynthesis"	"diet"	"2"	"diet2"	NA	NA	NA	NA	0.32164259114702	1	"All logistic values are the same"	"prevalence"	138	138
+"VALSYN.PWY..L.valine.biosynthesis"	"diet"	"2:time"	"diet2:time"	NA	NA	NA	NA	0.983625611091001	1	"All logistic values are the same"	"prevalence"	138	138
+"VALSYN.PWY..L.valine.biosynthesis"	"time"	"time"	"time"	NA	NA	NA	NA	0.498877103586236	1	"All logistic values are the same"	"prevalence"	138	138

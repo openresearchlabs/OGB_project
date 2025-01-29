@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "daa/daa_pa.html",
+    "href": "daa/daa_pa.html",
+    "title": "DAA path abundance",
+    "section": "",
+    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * time + (1 | id)"
+  },
+  {
+    "objectID": "daa/daa_pc.html",
+    "href": "daa/daa_pc.html",
+    "title": "DAA path coverage",
+    "section": "",
+    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * time + (1 | id)\n\n\n\n\n\n\n\n\n\n\nsummary_plot.png"
+  },
+  {
+    "objectID": "daa/daa_ko.html",
+    "href": "daa/daa_ko.html",
+    "title": "DAA KO",
+    "section": "",
+    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * time + (1 | id)"
+  },
+  {
+    "objectID": "daa/daa_mtc.html",
+    "href": "daa/daa_mtc.html",
+    "title": "DAA Metacyc",
+    "section": "",
+    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * time + (1 | id)"
+  },
+  {
+    "objectID": "daa/daa_taxa.html",
+    "href": "daa/daa_taxa.html",
+    "title": "DAA Taxa",
+    "section": "",
+    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * time + (1 | id)"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "beta/beta.html#unsupervised-analysis",
+    "href": "beta/beta.html#unsupervised-analysis",
+    "title": "Beta diversity",
+    "section": "2 Unsupervised analysis",
+    "text": "2 Unsupervised analysis\n\n2.1 Community dissimilarity\nThis document presents the results of a microbiota project, focusing on beta diversity analysis. Specifically, in this section, we employed Principal Coordinates Analysis (PCoA) to assess community dissimilarity among microbiota samples.\n\nTaxonomic level: species\nDissimilarity index: bray\nGroup variable: diet\nMultiple testing correction: fdr\nStatistical test Wilcoxon\n\n\n\n2.2 PCoA plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2.3 Table of the top findings\n\n2.3.0.1 Paired treatment between timepoint(1 and 2)\n\nMultiple testing correction: paired fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n2.4 Significant variables\n\n\n\n\n\n\n\n\n\n\n\n2.5 Significant taxa\n\nRDA\n\n\n\n\n\n\n\n\n\n\n\nMDS"
+  },
+  {
+    "objectID": "beta/beta.html#supervised-analysis",
+    "href": "beta/beta.html#supervised-analysis",
+    "title": "Beta diversity",
+    "section": "3 Supervised analysis",
+    "text": "3 Supervised analysis\n\n3.1 Permanova analysis\n\nDissimilarity index: bray\nGroup variable: diet\n\nInterpretation\n\nHomogeneity &lt; 0.05: The assumption of homogeneity of variance is violated (i.e., the variances are significantly different across groups).\nHomogeneity ≥ 0.05: The assumption of homogeneity of variance is not violated (i.e., the variances are similar across groups).\n\n\n3.1.1 Across-group\n\n\n\n\n\n\n\n3.1.1.1 After treatment\n\n\n\n\n\n\n\n\n\n3.1.2 Within-group"
+  },
+  {
+    "objectID": "beta/beta.html#alternate-analysis",
+    "href": "beta/beta.html#alternate-analysis",
+    "title": "Beta diversity",
+    "section": "4 Alternate analysis",
+    "text": "4 Alternate analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4.1 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 1700 140 \nmetadata(0):\nassays(2): counts relabundance\nrownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(140): AE1332 AK1371 ... TS2358 VK2336\ncolData names(16): sample id ... time_difference time_divergence\nreducedDimNames(1): PCoA_BC\nmainExpName: NULL\naltExpNames(14): kingdom phylum ... KO metacyc\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
+  }
+]
