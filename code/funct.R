@@ -20,6 +20,7 @@ library(tidyr)
 library(TreeSummarizedExperiment)
 library(tidyverse)
 library(vegan)
+library(lmerTest)
 
 # Define variables
 taxa     <- c("genus","species")
@@ -146,4 +147,17 @@ remove_duplicates <- function(tse) {
   # Subset the original TSE object to keep only unique samples
   tse_unique <- tse[, unique_indices]
   return(tse_unique)
+}
+
+run_lmer <- function(tse, target){
+  
+  df <- colData(tse) %>% as.data.frame
+  df$y <- df[[target]]
+  df <- df[, c("y", "diet", "time", "id")]
+  
+  # Filter out missing data cases
+  df_no_miss <- df[df %>% complete.cases,]
+  
+  m <- lmerTest::lmer(y ~ diet * time + (1 | id), data = df_no_miss)
+  return(m)
 }
