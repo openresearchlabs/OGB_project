@@ -2,18 +2,8 @@
 title: "Alpha Diversity"
 author:
   - name: Muluh
-format:
-  html:
-    code-fold: true
-    number-sections: true
-    page-layout: full
-editor: visual
 params: 
   index: default
-execute:
-  echo: false
-  warning: false
-  message: false
 ---
 
 ## Community diversity
@@ -518,6 +508,17 @@ if (knitr::is_html_output()) {
     row_spec(0, bold = TRUE)
 }
 ```
+
+```{r lmer-stuff}
+if (index == "observed") {
+  tse$observed_log2 <- log2(tse$observed)
+  res <- run_lmer(tse, "observed_log2")
+} else {
+  res <- run_lmer(tse, index)
+}
+summary(res)
+```
+
 
 ## Alternate analyses
 

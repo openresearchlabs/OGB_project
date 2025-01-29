@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DAA Metacyc</title>
+<title>DAA Metacyc – OGB Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -39,11 +40,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -79,12 +80,104 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body>
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">OGB Analysis</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-alpha-diversity" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Alpha Diversity</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-alpha-diversity">    
+        <li>
+    <a class="dropdown-item" href="../alpha/alpha_shannon.html">
+ <span class="dropdown-text">Shannon</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../alpha/alpha_observed.html">
+ <span class="dropdown-text">Observed</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../beta/beta.html"> 
+<span class="menu-text">Beta Diversity</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../ratio/ratio.html"> 
+<span class="menu-text">B/F Ratio</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-daa" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">DAA</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-daa">    
+        <li>
+    <a class="dropdown-item" href="../daa/daa_taxa.html">
+ <span class="dropdown-text">Taxa</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../daa/daa_pa.html">
+ <span class="dropdown-text">Pathway Abundance</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../daa/daa_pc.html">
+ <span class="dropdown-text">Pathway Coverage</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../daa/daa_ko.html">
+ <span class="dropdown-text">KO</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../daa/daa_mtc.html">
+ <span class="dropdown-text">Metacyc</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">DAA Metacyc</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -96,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="daa_mtc.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -105,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -125,8 +218,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-3144514a2d24e445e0ff" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-3144514a2d24e445e0ff">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of significant features<\/caption>","data":[["X5.1.99.1","X5.1.99.1","X5.1.99.1","X4.2.2.2","X2.3.1.28","X2.3.3.14","X1.1.1.135","X3.6.3.5","X3.1.1.83","X4.2.2.2","X1.2.1.62","X4.2.1.17","X3.1.1.72","X2.1.1.184","X2.3.3.14","X3.6.3.5","X4.2.1.104","X2.1.1.184","X2.1.1.144","X2.4.1.20","X2.8.3.11","X2.3.1.28","X5.1.1.13","X2.3.3.14","X2.8.3.11","X2.3.3.14","X5.1.99.1","X5.1.99.1","X2.1.1.144","X4.2.2.2","X2.1.1.184","X5.1.99.1","X4.2.2.2","X2.1.1.184","X2.4.1.20","X4.2.1.104","X1.2.1.62","X1.1.1.135","X2.3.1.28","X2.3.1.28","X3.1.1.72","X3.1.1.83","X3.6.3.5","X3.6.3.5","X4.2.1.17","X5.1.1.13"],["time","diet","diet","diet","diet","diet","time","diet","time","diet","time","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","time","diet","diet","diet","diet","time","time","diet","diet","diet","time","diet","diet","diet","diet"],["time","2","2:time","2:time","2:time","2","time","2","time","2","time","2:time","2:time","2:time","2:time","2:time","2:time","2","2:time","2","2:time","2","2","2:time","2:time","2","2:time","2","2:time","2","2","time","2:time","2:time","2","2:time","time","time","2","2:time","2:time","time","2","2:time","2:time","2"],[-10.6024841401075,-20.3110927364188,10.6025012314229,-2.36028766045258,-0.777756745588288,6.92199488304798,10.0794033710377,-2.36873273056825,-0.862294277091104,3.16465444861549,-1.85695056501543,-0.885088157368264,-2.35521516283972,-1.91269676601226,-3.63906122631415,1.3800022450107,2.34498759715903,3.10374430066002,10.4162336954544,-8.34754487661319,11.1757429501404,1.01691457692968,-1.88735892216473,1.25179157265825,-1.95961956252896,-1.73054749950038,-0.497949781297881,0.703662200937974,0.62840384182878,-3.78382530637096,-3.22858829519738,-0.191335665713945,1.89191256423766,0.955538717465138,-0.0755308867677995,9.94103646998723,-2.75587929447873e-07,-1.28110204342765,null,null,20.6300622119417,null,null,null,null,null],[2.49939989909565e-22,0.00050612069369803,0.00215687868976159,0.00655761615429402,0.0213741944626125,0.0213741944626125,0.0213741944626125,0.0376497958063859,0.0502106979797816,0.058300703684498,0.0599486109993901,0.0599486109993901,0.06256868206518169,0.07005769873140601,0.07005769873140601,0.07005769873140601,0.07005769873140601,0.07039398545437631,0.07039398545437631,0.07039398545437631,0.0732986316975426,0.103109838606175,0.103109838606175,0.671212448986604,0.693901519873522,0.7591485009593411,0.791002300451339,0.825765116658765,0.879931510693348,0.897837389547511,0.917110500819055,0.931098480908867,0.945027220756685,0.996619984029567,1,1,1,null,null,null,null,null,null,null,null,null],[3.55760339857826e-22,0.00072040356506742,0.00307006340880591,0.0093339858210574,0.0177471382973113,0.0228171957252512,0.0177471382973113,0.0267950401944563,0.0357345276845234,0.0592725147076799,0.0465435466348202,0.0465435466348202,0.0482404001010154,0.0910815434687027,0.0910815434687027,0.0592725147076799,0.0910815434687027,0.0910815434687027,0.0910815434687027,0.0910815434687027,0.0952514598218307,0.0910815434687027,0.0910815434687027,0.0910815434687027,0.0952514598218307,0.0228171957252512,0.00307006340880591,0.00072040356506742,0.0910815434687027,0.0592725147076799,0.0910815434687027,3.55760339857826e-22,0.0093339858210574,0.0910815434687027,0.0910815434687027,0.0910815434687027,0.0465435466348202,0.0177471382973113,0.0910815434687027,0.0177471382973113,0.0482404001010154,0.0357345276845234,0.0267950401944563,0.0592725147076799,0.0465435466348202,0.0910815434687027],["prevalence","prevalence","prevalence","abundance","abundance","abundance","prevalence","abundance","abundance","abundance","abundance","abundance","abundance","abundance","abundance","abundance","abundance","abundance","prevalence","prevalence","prevalence","abundance","abundance","prevalence","abundance","prevalence","abundance","abundance","abundance","prevalence","prevalence","abundance","prevalence","prevalence","abundance","prevalence","prevalence","abundance","prevalence","prevalence","prevalence","prevalence","prevalence","prevalence","prevalence","prevalence"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>feature<\/th>\n      <th>metadata<\/th>\n      <th>value<\/th>\n      <th>coef<\/th>\n      <th>qval_individual<\/th>\n      <th>qval_joint<\/th>\n      <th>model<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[3,4,5]},{"name":"feature","targets":0},{"name":"metadata","targets":1},{"name":"value","targets":2},{"name":"coef","targets":3},{"name":"qval_individual","targets":4},{"name":"qval_joint","targets":5},{"name":"model","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-fafbf19f3410d075353e" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-fafbf19f3410d075353e">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of significant features<\/caption>","data":[["X5.1.99.1","X5.1.99.1","X5.1.99.1","X4.2.2.2","X2.3.1.28","X2.3.3.14","X1.1.1.135","X3.6.3.5","X3.1.1.83","X4.2.2.2","X1.2.1.62","X4.2.1.17","X3.1.1.72","X2.1.1.184","X2.3.3.14","X3.6.3.5","X4.2.1.104","X2.1.1.184","X2.1.1.144","X2.4.1.20","X2.8.3.11","X2.3.1.28","X5.1.1.13","X2.3.3.14","X2.8.3.11","X2.3.3.14","X5.1.99.1","X5.1.99.1","X2.1.1.144","X4.2.2.2","X2.1.1.184","X5.1.99.1","X4.2.2.2","X2.1.1.184","X2.4.1.20","X4.2.1.104","X1.2.1.62","X1.1.1.135","X2.3.1.28","X2.3.1.28","X3.1.1.72","X3.1.1.83","X3.6.3.5","X3.6.3.5","X4.2.1.17","X5.1.1.13"],["time","diet","diet","diet","diet","diet","time","diet","time","diet","time","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","diet","time","diet","diet","diet","diet","time","time","diet","diet","diet","time","diet","diet","diet","diet"],["time","2","2:time","2:time","2:time","2","time","2","time","2","time","2:time","2:time","2:time","2:time","2:time","2:time","2","2:time","2","2:time","2","2","2:time","2:time","2","2:time","2","2:time","2","2","time","2:time","2:time","2","2:time","time","time","2","2:time","2:time","time","2","2:time","2:time","2"],[-10.6024841401075,-20.3110927364188,10.6025012314229,-2.36028766045258,-0.777756745588288,6.92199488304798,10.0794033710377,-2.36873273056825,-0.862294277091104,3.16465444861549,-1.85695056501543,-0.885088157368264,-2.35521516283972,-1.91269676601226,-3.63906122631415,1.3800022450107,2.34498759715903,3.10374430066002,10.4162336954544,-8.34754487661319,11.1757429501404,1.01691457692968,-1.88735892216473,1.25179157265825,-1.95961956252896,-1.73054749950038,-0.497949781297881,0.703662200937974,0.62840384182878,-3.78382530637096,-3.22858829519738,-0.191335665713945,1.89191256423766,0.955538717465138,-0.0755308867677995,9.94103646998723,-2.75587929447873e-07,-1.28110204342765,null,null,20.6300622119417,null,null,null,null,null],[2.49939989909565e-22,0.00050612069369803,0.00215687868976159,0.00655761615429402,0.0213741944626125,0.0213741944626125,0.0213741944626125,0.0376497958063859,0.0502106979797816,0.058300703684498,0.0599486109993901,0.0599486109993901,0.06256868206518169,0.07005769873140601,0.07005769873140601,0.07005769873140601,0.07005769873140601,0.07039398545437631,0.07039398545437631,0.07039398545437631,0.0732986316975426,0.103109838606175,0.103109838606175,0.671212448986604,0.693901519873522,0.7591485009593411,0.791002300451339,0.825765116658765,0.879931510693348,0.897837389547511,0.917110500819055,0.931098480908867,0.945027220756685,0.996619984029567,1,1,1,null,null,null,null,null,null,null,null,null],[3.55760339857826e-22,0.00072040356506742,0.00307006340880591,0.0093339858210574,0.0177471382973113,0.0228171957252512,0.0177471382973113,0.0267950401944563,0.0357345276845234,0.0592725147076799,0.0465435466348202,0.0465435466348202,0.0482404001010154,0.0910815434687027,0.0910815434687027,0.0592725147076799,0.0910815434687027,0.0910815434687027,0.0910815434687027,0.0910815434687027,0.0952514598218307,0.0910815434687027,0.0910815434687027,0.0910815434687027,0.0952514598218307,0.0228171957252512,0.00307006340880591,0.00072040356506742,0.0910815434687027,0.0592725147076799,0.0910815434687027,3.55760339857826e-22,0.0093339858210574,0.0910815434687027,0.0910815434687027,0.0910815434687027,0.0465435466348202,0.0177471382973113,0.0910815434687027,0.0177471382973113,0.0482404001010154,0.0357345276845234,0.0267950401944563,0.0592725147076799,0.0465435466348202,0.0910815434687027],["prevalence","prevalence","prevalence","abundance","abundance","abundance","prevalence","abundance","abundance","abundance","abundance","abundance","abundance","abundance","abundance","abundance","abundance","abundance","prevalence","prevalence","prevalence","abundance","abundance","prevalence","abundance","prevalence","abundance","abundance","abundance","prevalence","prevalence","abundance","prevalence","prevalence","abundance","prevalence","prevalence","abundance","prevalence","prevalence","prevalence","prevalence","prevalence","prevalence","prevalence","prevalence"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>feature<\/th>\n      <th>metadata<\/th>\n      <th>value<\/th>\n      <th>coef<\/th>\n      <th>qval_individual<\/th>\n      <th>qval_joint<\/th>\n      <th>model<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[3,4,5]},{"name":"feature","targets":0},{"name":"metadata","targets":1},{"name":"value","targets":2},{"name":"coef","targets":3},{"name":"qval_individual","targets":4},{"name":"qval_joint","targets":5},{"name":"model","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
 </div>
 </div>
 <p><img src="../../output/daa/daa_mtc/figures/summary_plot.png" class="img-fluid" alt="fig17"> <img src="../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X2.1.1.184_linear.png" class="img-fluid" alt="fig1"> <img src="../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X2.3.1.28_linear.png" class="img-fluid" alt="fig2"> <img src="../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X2.3.3.14_linear.png" class="img-fluid" alt="fig3"> <img src="../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X3.1.1.72_linear.png" class="img-fluid" alt="fig4"> <img src="../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X3.6.3.5_linear.png" class="img-fluid" alt="fig5"> <img src="../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X4.2.1.104_linear.png" class="img-fluid" alt="fig6"> <img src="../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X4.2.1.17_linear.png" class="img-fluid" alt="fig7"> <img src="../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X4.2.2.2_linear.png" class="img-fluid" alt="fig8"> <img src="../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.1.1.144_logistic.png" class="img-fluid" alt="fig9"> <img src="../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.4.1.20_logistic.png" class="img-fluid" alt="fig10"> <img src="../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.8.3.11_logistic.png" class="img-fluid" alt="fig11"> <img src="../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X5.1.99.1_logistic.png" class="img-fluid" alt="fig12"> <img src="../../output/daa/daa_mtc/figures/association_plots/time/linear/time_X1.2.1.62_linear.png" class="img-fluid" alt="fig13"> <img src="../../output/daa/daa_mtc/figures/association_plots/time/linear/time_X3.1.1.83_linear.png" class="img-fluid" alt="fig14"> <img src="../../output/daa/daa_mtc/figures/association_plots/time/logistic/time_X1.1.1.135_logistic.png" class="img-fluid" alt="fig15"> <img src="../../output/daa/daa_mtc/figures/association_plots/time/logistic/time_X5.1.99.1_logistic.png" class="img-fluid" alt="fig16"></p>

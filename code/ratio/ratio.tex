@@ -106,6 +106,7 @@
 \usepackage{xcolor}
 \usepackage{booktabs}
 \usepackage{longtable}
+\usepackage[a4paper, left=0.75in, right=1in, top=1in, bottom=1in]{geometry}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -287,6 +288,40 @@ findings}\label{table-of-the-top-findings}
 2 & 0.29 & 0.33 & 1.07 & 0.37\\*
 \end{longtable}
 
+\begin{verbatim}
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: y ~ diet * time + (1 | id)
+   Data: df_no_miss
+
+REML criterion at convergence: 414
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.2394 -0.4707 -0.0571  0.5582  2.2699 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ id       (Intercept) 0.5842   0.7643  
+ Residual             0.6656   0.8159  
+Number of obs: 140, groups:  id, 71
+
+Fixed effects:
+             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)  -1.93048    0.33557 105.44036  -5.753 8.67e-08 ***
+diet2        -0.50534    0.47123 105.43979  -1.072    0.286    
+time         -0.02308    0.19712  68.20547  -0.117    0.907    
+diet2:time    0.22067    0.27679  68.19487   0.797    0.428    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+           (Intr) diet2  time  
+diet2      -0.712              
+time       -0.875  0.623       
+diet2:time  0.623 -0.875 -0.712
+\end{verbatim}
+
 \section{Data Summary}\label{data-summary}
 
 \begin{verbatim}
@@ -298,7 +333,7 @@ rownames(5): Actinobacteria Bacteroidetes Firmicutes Other
   Proteobacteria
 rowData names(10): kingdom phylum ... clade_name phylum_sub
 colnames(140): AE1332 AK1371 ... TS2358 VK2336
-colData names(15): sample id ... group bact_firm_ratio
+colData names(16): sample id ... bact_firm_ratio bfratio
 reducedDimNames(0):
 mainExpName: NULL
 altExpNames(0):

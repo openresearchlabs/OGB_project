@@ -1,21 +1,5 @@
 ---
 title: "DAA KO"
-format:
-  html:
-    code-fold: true
-    number-sections: true
-    page-layout: full
-  pdf:
-    keep-tex: true
-    include-in-header: 
-      text: |
-        \usepackage{booktabs}
-        \usepackage{longtable}
-editor: visual
-execute:
-  echo: false
-  warning: false
-  message: false
 ---
 
 ### Differential abundance analysis
