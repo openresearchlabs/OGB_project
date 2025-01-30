@@ -18,14 +18,63 @@
     "href": "beta/beta.html#alternate-analysis",
     "title": "Beta diversity",
     "section": "4 Alternate analysis",
-    "text": "4 Alternate analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4.1 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 1700 140 \nmetadata(0):\nassays(2): counts relabundance\nrownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(140): AE1332 AK1371 ... TS2358 VK2336\ncolData names(16): sample id ... time_difference time_divergence\nreducedDimNames(1): PCoA_BC\nmainExpName: NULL\naltExpNames(14): kingdom phylum ... KO metacyc\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
+    "text": "4 Alternate analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4.1 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 1700 140 \nmetadata(0):\nassays(2): counts relabundance\nrownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(140): AE1332 AK1371 ... TS2358 VK2336\ncolData names(17): sample id ... time_difference time_divergence\nreducedDimNames(1): PCoA_BC\nmainExpName: NULL\naltExpNames(16): kingdom phylum ... KO metacyc\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
   },
   {
-    "objectID": "daa/daa_ko.html",
-    "href": "daa/daa_ko.html",
-    "title": "DAA KO",
+    "objectID": "daa/daa_taxa.html",
+    "href": "daa/daa_taxa.html",
+    "title": "DAA Taxa",
     "section": "",
-    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * time + (1 | id)"
+    "text": "Group variable: diet\nFormula used: ~ diet * time + (1 | id)"
+  },
+  {
+    "objectID": "daa/daa_taxa.html#species",
+    "href": "daa/daa_taxa.html#species",
+    "title": "DAA Taxa",
+    "section": "1 species",
+    "text": "1 species\n\n\n\ntaxa_image18"
+  },
+  {
+    "objectID": "daa/daa_taxa.html#family",
+    "href": "daa/daa_taxa.html#family",
+    "title": "DAA Taxa",
+    "section": "2 family",
+    "text": "2 family"
+  },
+  {
+    "objectID": "daa/daa_taxa.html#genus",
+    "href": "daa/daa_taxa.html#genus",
+    "title": "DAA Taxa",
+    "section": "3 genus",
+    "text": "3 genus"
+  },
+  {
+    "objectID": "daa/daa_taxa.html#phylum",
+    "href": "daa/daa_taxa.html#phylum",
+    "title": "DAA Taxa",
+    "section": "4 phylum",
+    "text": "4 phylum"
+  },
+  {
+    "objectID": "daa/daa_taxa.html#associations-species",
+    "href": "daa/daa_taxa.html#associations-species",
+    "title": "DAA Taxa",
+    "section": "5 Associations-species",
+    "text": "5 Associations-species"
+  },
+  {
+    "objectID": "daa/daa_taxa.html#associations-family",
+    "href": "daa/daa_taxa.html#associations-family",
+    "title": "DAA Taxa",
+    "section": "6 Associations-family",
+    "text": "6 Associations-family"
+  },
+  {
+    "objectID": "daa/daa_taxa.html#associations-genus",
+    "href": "daa/daa_taxa.html#associations-genus",
+    "title": "DAA Taxa",
+    "section": "7 Associations-genus",
+    "text": "7 Associations-genus"
   },
   {
     "objectID": "daa/daa_pc.html",
@@ -49,9 +98,9 @@
     "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * time + (1 | id)"
   },
   {
-    "objectID": "daa/daa_taxa.html",
-    "href": "daa/daa_taxa.html",
-    "title": "DAA Taxa",
+    "objectID": "daa/daa_ko.html",
+    "href": "daa/daa_ko.html",
+    "title": "DAA KO",
     "section": "",
     "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * time + (1 | id)"
   },
@@ -74,6 +123,6 @@
     "href": "ratio/ratio.html#data-summary",
     "title": "Bacteroidetes/Firmicutes ratio",
     "section": "2 Data Summary",
-    "text": "2 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 5 140 \nmetadata(1): agglomerated_by_rank\nassays(2): counts relabundance\nrownames(5): Actinobacteria Bacteroidetes Firmicutes Other\n  Proteobacteria\nrowData names(10): kingdom phylum ... clade_name phylum_sub\ncolnames(140): AE1332 AK1371 ... TS2358 VK2336\ncolData names(16): sample id ... bact_firm_ratio bfratio\nreducedDimNames(0):\nmainExpName: NULL\naltExpNames(0):\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
+    "text": "2 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 5 140 \nmetadata(1): agglomerated_by_rank\nassays(2): counts relabundance\nrownames(5): Actinobacteria Bacteroidetes Firmicutes Other\n  Proteobacteria\nrowData names(10): kingdom phylum ... clade_name phylum_sub\ncolnames(140): AE1332 AK1371 ... TS2358 VK2336\ncolData names(17): sample id ... bact_firm_ratio bfratio\nreducedDimNames(0):\nmainExpName: NULL\naltExpNames(0):\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
   }
 ]

@@ -226,7 +226,7 @@
 \endfoot
 \bottomrule
 \endlastfoot
-1 & 2 & 4 & 4 & 0.02 & 0.385\\*
+oat & rice & 4 & 4 & 0.02 & 0.385\\*
 \end{longtable}
 
 \paragraph{After treatment}\label{after-treatment}
@@ -254,7 +254,7 @@
 \endfoot
 \bottomrule
 \endlastfoot
-1 & 2 & 3.9 & 4.1 & 0.06 & 0.047\\*
+oat & rice & 3.9 & 4.1 & 0.06 & 0.048\\*
 \end{longtable}
 
 \begin{center}
@@ -288,8 +288,8 @@
 \endfoot
 \bottomrule
 \endlastfoot
-1 & 4 & 3.9 & -0.02 & 0.141\\
-2 & 4 & 4.1 & 0.03 & 0.073\\*
+oat & 4 & 3.9 & -0.02 & 0.137\\
+rice & 4 & 4.1 & 0.03 & 0.078\\*
 \end{longtable}
 
 \begin{longtable}[t]{lrrrrl}
@@ -307,10 +307,10 @@
 \endfoot
 \bottomrule
 \endlastfoot
-(Intercept) & 4.036 & 0.089 & 135.884 & 45.468 & 0.000\\
-diet2 & -0.077 & 0.125 & 135.885 & -0.616 & 0.539\\
-time & -0.063 & 0.043 & 67.448 & -1.475 & 0.145\\
-diet2:time & 0.127 & 0.060 & 67.443 & 2.129 & 0.037\\*
+(Intercept) & 4.036 & 0.089 & 135.880 & 45.474 & 0.000\\
+dietrice & -0.076 & 0.125 & 135.881 & -0.608 & 0.544\\
+time & -0.063 & 0.043 & 67.446 & -1.470 & 0.146\\
+dietrice:time & 0.127 & 0.060 & 67.441 & 2.121 & 0.038\\*
 \end{longtable}
 
 \section{Alternate analyses}\label{alternate-analyses}
@@ -341,7 +341,7 @@ meal\_group &  &  & 0.3 &  &  & 0.3 \\
     1 & — & — &  & — & — &  \\ 
     2 & 0.21 & -0.03, 0.44 & 0.084 & 0.28 & -0.02, 0.58 & 0.065 \\ 
     3 & 0.12 & -0.12, 0.35 & 0.3 & 0.20 & -0.09, 0.50 & 0.2 \\ 
-    4 & 0.17 & -0.06, 0.40 & 0.2 & 0.10 & -0.19, 0.39 & 0.5 \\ 
+    4 & 0.17 & -0.06, 0.40 & 0.2 & 0.10 & -0.20, 0.39 & 0.5 \\ 
 age & 0.01 & 0.00, 0.01 & 0.2 & 0.01 & 0.00, 0.02 & 0.2 \\ 
 \bottomrule
 \end{tabular*}
@@ -362,7 +362,7 @@ meal\_group &  &  & 0.2 \\
     2 & 0.23 & -Inf, Inf & >0.9 \\ 
     3 & 0.16 & -Inf, Inf & >0.9 \\ 
     4 & 0.13 & -0.05, 0.32 & 0.2 \\ 
-age & 0.01 & 0.00, 0.01 & 0.039 \\ 
+age & 0.01 & 0.00, 0.01 & 0.040 \\ 
 \bottomrule
 \end{tabular*}
 \begin{minipage}{\linewidth}
@@ -380,10 +380,10 @@ assays(2): counts relabundance
 rownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921
 rowData names(9): kingdom phylum ... strain clade_name
 colnames(140): AE1332 AK1371 ... TS2358 VK2336
-colData names(14): sample id ... shannon group
+colData names(15): sample id ... shannon group
 reducedDimNames(0):
 mainExpName: NULL
-altExpNames(14): kingdom phylum ... KO metacyc
+altExpNames(16): kingdom phylum ... KO metacyc
 rowLinks: NULL
 rowTree: NULL
 colLinks: NULL

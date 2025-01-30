@@ -21,6 +21,7 @@ library(TreeSummarizedExperiment)
 library(tidyverse)
 library(vegan)
 library(lmerTest)
+library(kableExtra)
 
 # Define variables
 taxa     <- c("genus","species")
@@ -38,12 +39,12 @@ comparisons <- list(
 # # Define the list of comparisons
 comparisons_before <- list(
   # Between-Group Comparisons at Baseline (before treatment)
-  c("1", "2")
+  c("oat", "rice")
 )
 
 comparisons_after <- list(
   # Between-Group Comparisons after treatment
-  c("1", "2")
+  c("oat", "rice")
 )
 
 comparisons_paired <- list(
@@ -54,7 +55,7 @@ comparisons_paired <- list(
 # Define function to extract diet and visit info
 extract_diet_visit <- function(comparison) {
   condition <- unlist(strsplit(comparison, "_"))
-  list(diet = condition[2], visit = condition[4])
+  list(diet_in = condition[2], visit = condition[4])
 }
 
 assign_timepoint <- function(df) {
@@ -76,8 +77,9 @@ assign_time <- function(df) {
 }
 
 assign_diet <- function(df) {
-  df$diet[df$diet == 1] <- "oat"
-  df$diet[df$diet == 2] <- "rice"
+  df$diet <- rep(NA, nrow(df))
+  df$diet[df$diet_in == 1] <- "oat"
+  df$diet[df$diet_in == 2] <- "rice"
   df$diet <- factor(df$diet, levels=c("oat", "rice"))
   return(df)
 }
@@ -89,8 +91,8 @@ assign_meal <- function(df) {
   df$meal[df$meal_group == "3"] <- "rice-rice"
   df$meal[df$meal_group == "4"] <- "oat-oat"
   # meal is now combination diet-meal; extract just the meal
-  # df$meal <- factor(df$meal, levels=c("oat-rice", "rice-oat", "rice-rice", "oat-oat"))
-  df$meal <- factor(word(df$meal, 2, sep="-"), levels=c("oat", "rice"))
+  df$meal <- factor(df$meal, levels=c("oat-rice", "rice-oat", "rice-rice", "oat-oat"))
+  # df$meal <- factor(word(df$meal, 2, sep="-"), levels=c("oat", "rice"))
   return(df)
 }
 
