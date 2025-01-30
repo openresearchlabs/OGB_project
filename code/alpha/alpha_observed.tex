@@ -226,7 +226,7 @@
 \endfoot
 \bottomrule
 \endlastfoot
-1 & 2 & 211.1 & 231.6 & 0.13 & 0.125\\*
+oat & rice & 211.5 & 231.9 & 0.13 & 0.13\\*
 \end{longtable}
 
 \paragraph{After treatment}\label{after-treatment}
@@ -254,7 +254,7 @@
 \endfoot
 \bottomrule
 \endlastfoot
-1 & 2 & 207.1 & 233.3 & 0.17 & 0.053\\*
+oat & rice & 207.3 & 233.6 & 0.17 & 0.053\\*
 \end{longtable}
 
 \begin{center}
@@ -288,8 +288,8 @@
 \endfoot
 \bottomrule
 \endlastfoot
-1 & 211.1 & 207.1 & 0.04 & 0.128\\
-2 & 231.6 & 233.3 & 0.13 & 0.390\\*
+oat & 211.5 & 207.3 & 0.04 & 0.116\\
+rice & 231.9 & 233.6 & 0.13 & 0.381\\*
 \end{longtable}
 
 \begin{longtable}[t]{lrrrrl}
@@ -307,10 +307,10 @@
 \endfoot
 \bottomrule
 \endlastfoot
-(Intercept) & 7.673 & 0.085 & 88.101 & 90.739 & 0.000\\
-diet2 & 0.115 & 0.119 & 88.097 & 0.971 & 0.334\\
-time & -0.027 & 0.020 & 67.101 & -1.367 & 0.176\\
-diet2:time & 0.037 & 0.028 & 67.101 & 1.302 & 0.197\\*
+(Intercept) & 7.677 & 0.084 & 88.283 & 91.019 & 0.000\\
+dietrice & 0.114 & 0.118 & 88.280 & 0.963 & 0.338\\
+time & -0.028 & 0.020 & 67.103 & -1.409 & 0.163\\
+dietrice:time & 0.037 & 0.028 & 67.102 & 1.326 & 0.189\\*
 \end{longtable}
 
 \section{Alternate analyses}\label{alternate-analyses}
@@ -336,12 +336,12 @@ diet2:time & 0.037 & 0.028 & 67.101 & 1.302 & 0.197\\*
 \cmidrule(lr){2-4} \cmidrule(lr){5-7}
 \textbf{Characteristic} & \textbf{Beta} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} & \textbf{Beta} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} \\ 
 \midrule\addlinespace[2.5pt]
-(Intercept) & 151 & 67, 236 & <0.001 & 144 & 59, 229 & 0.001 \\ 
+(Intercept) & 152 & 67, 236 & <0.001 & 144 & 59, 229 & 0.001 \\ 
 meal\_group &  &  & 0.4 &  &  & 0.3 \\ 
     1 & — & — &  & — & — &  \\ 
     2 & 32 & -11, 75 & 0.14 & 28 & -16, 72 & 0.2 \\ 
     3 & 28 & -15, 71 & 0.2 & 30 & -14, 74 & 0.2 \\ 
-    4 & 10 & -32, 53 & 0.6 & -3.9 & -47, 39 & 0.9 \\ 
+    4 & 10 & -32, 53 & 0.6 & -3.7 & -47, 39 & 0.9 \\ 
 age & 1.0 & -0.44, 2.5 & 0.2 & 1.2 & -0.25, 2.7 & 0.10 \\ 
 \bottomrule
 \end{tabular*}
@@ -356,12 +356,12 @@ age & 1.0 & -0.44, 2.5 & 0.2 & 1.2 & -0.25, 2.7 & 0.10 \\
 \toprule
 \textbf{Paired test between timepoints (1 and 2)} & \textbf{Beta} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} \\ 
 \midrule\addlinespace[2.5pt]
-(Intercept) & 147 & 84, 210 & <0.001 \\ 
+(Intercept) & 147 & -Inf, Inf & <0.001 \\ 
 meal\_group &  &  & 0.6 \\ 
     1 & — & — &  \\ 
-    2 & 28 & -16, 71 & 0.2 \\ 
-    3 & 28 & -15, 71 & 0.2 \\ 
-    4 & 2.1 & -28, 32 & 0.9 \\ 
+    2 & 28 & -Inf, Inf & >0.9 \\ 
+    3 & 28 & -Inf, Inf & >0.9 \\ 
+    4 & 2.3 & -28, 32 & 0.9 \\ 
 age & 1.2 & 0.13, 2.2 & 0.025 \\ 
 \bottomrule
 \end{tabular*}
@@ -380,10 +380,10 @@ assays(2): counts relabundance
 rownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921
 rowData names(9): kingdom phylum ... strain clade_name
 colnames(140): AE1332 AK1371 ... TS2358 VK2336
-colData names(15): sample id ... group observed_log2
+colData names(16): sample id ... group observed_log2
 reducedDimNames(0):
 mainExpName: NULL
-altExpNames(14): kingdom phylum ... KO metacyc
+altExpNames(16): kingdom phylum ... KO metacyc
 rowLinks: NULL
 rowTree: NULL
 colLinks: NULL

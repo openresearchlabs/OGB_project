@@ -23,7 +23,7 @@ rownames(samdf) <- samdf$sample
 # Group works better as factor 
 samdf$gender <- factor(samdf$gender)
 samdf$visit <- factor(samdf$visit)
-samdf$diet <- factor(samdf$diet)
+samdf$diet_in <- factor(samdf$diet)
 samdf$meal_group <- factor(samdf$meal_group, levels = c("1", "2", "3", "4")) 
 
 # "Meal": intervention Experiment (some hours)
@@ -34,8 +34,8 @@ samdf <- samdf %>%
   assign_timepoint() %>%
   assign_paired() %>%
   assign_time() %>%
-  assign_meal()#  %>%
-  # assign_diet()  # Encode as factors oat/rice instead of 1/2
+  assign_meal()  %>%
+  assign_diet()  # Encode as factors oat/rice instead of 1/2
 
 samdf$timepoint <- factor(samdf$timepoint, levels = c("before", "after"))
 # Check that the sample data and assay data match by sample names
@@ -67,8 +67,8 @@ for (comp in comparisons) {
   group2_info <- extract_diet_visit(comp[2])
   
   # Assign group labels directly in tse object based on diet and visit
-  tse$group[colData(tse)$diet == group1_info$diet & colData(tse)$visit == group1_info$visit] <- comp[1]
-  tse$group[colData(tse)$diet == group2_info$diet & colData(tse)$visit == group2_info$visit] <- comp[2]
+  tse$group[colData(tse)$diet_in == group1_info$diet_in & colData(tse)$visit == group1_info$visit] <- comp[1]
+  tse$group[colData(tse)$diet_in == group2_info$diet_in & colData(tse)$visit == group2_info$visit] <- comp[2]
 }
 
 # There are some duplicates Id in diet group which prevent the code from 
@@ -112,9 +112,17 @@ altExp(tse, "genus") <- agglomerateByVariable(altExp(tse, "genus"),
                                    f = "genus_sub")
 
 # Agglomerate the data based on specified taxa
-altExp(tse, "genus_all") <- agglomerateByRank(tse,  rank="genus")
-altExp(tse, "genus_prevalent") <- agglomerateByPrevalence(altExp(tse, "genus_all"), assay.type="relabundance", detection=0.1/100, prevalence=10/100, name="genus_prevalent")
-altExp(tse, "genus_prevalent") <- transformAssay(altExp(tse, "genus_prevalent"), assay.type="relabundance", method="clr", pseudocount=TRUE)
+altExp(tse, "genus_prevalent") <- agglomerateByRank(tse,  rank="genus")
+altExp(tse, "genus_prevalent") <- agglomerateByPrevalence(altExp(tse, "genus_prevalent"), assay.type="relabundance", detection=0.1/100, prevalence=10/100, name="genus_prevalent")
+
+altExp(tse, "phylum_prevalent") <- agglomerateByRank(tse,  rank="phylum")
+altExp(tse, "phylum_prevalent") <- agglomerateByPrevalence(altExp(tse, "phylum_prevalent"), assay.type="relabundance", detection=0.1/100, prevalence=10/100, name="phylum_prevalent")
+
+altExp(tse, "family_prevalent") <- agglomerateByRank(tse,  rank="family")
+altExp(tse, "family_prevalent") <- agglomerateByPrevalence(altExp(tse, "family_prevalent"), assay.type="relabundance", detection=0.1/100, prevalence=10/100, name="family_prevalent")
+
+altExp(tse, "species_prevalent") <- agglomerateByRank(tse,  rank="species")
+altExp(tse, "species_prevalent") <- agglomerateByPrevalence(altExp(tse, "species_prevalent"), assay.type="relabundance", detection=0.1/100, prevalence=10/100, name="species_prevalent")
 
 # Add functional predictions to tse
 path_abundance <- read.csv("../data/HUMAnN3/processed/pathabundance_unstratified.txt", header = TRUE, row.names = 1, sep = "\t", check.names = FALSE, stringsAsFactors = FALSE)

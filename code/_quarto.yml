@@ -64,7 +64,7 @@ execute:
   warning: false
   message: false
   include: true
-  freeze: auto
+  freeze: false
   dependencies:
     - quarto
     - fs

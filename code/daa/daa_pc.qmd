@@ -87,4 +87,4 @@ if (knitr::is_html_output()) {
 png_files <- list.files(output_base_dir, pattern = "\\.png$", full.names = TRUE, recursive = TRUE)
 ```
 
-![summary_plot.png](../../output/daa/daa_taxa/figures/summary_plot.png)
+![summary_plot.png](../../output/daa/daa_pc/figures/summary_plot.png)
