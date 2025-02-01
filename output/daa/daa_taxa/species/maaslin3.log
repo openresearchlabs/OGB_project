@@ -1,6 +1,1 @@
-2025-02-01 08:21:57.809087 WARNING::Deleting existing residuals file: ../../output/daa/daa_taxa/species/fits/residuals_linear.rds
-2025-02-01 08:21:57.821681 WARNING::Deleting existing fitted file: ../../output/daa/daa_taxa/species/fits/fitted_linear.rds
-2025-02-01 08:21:57.83358 WARNING::Deleting existing ranef file: ../../output/daa/daa_taxa/species/fits/ranef_linear.rds
-2025-02-01 08:21:57.840516 WARNING::Deleting existing residuals file: ../../output/daa/daa_taxa/species/fits/residuals_logistic.rds
-2025-02-01 08:21:57.859848 WARNING::Deleting existing fitted file: ../../output/daa/daa_taxa/species/fits/fitted_logistic.rds
-2025-02-01 08:21:57.8753 WARNING::Deleting existing ranef file: ../../output/daa/daa_taxa/species/fits/ranef_logistic.rds
+2025-02-01 14:10:19.298383 WARNING::Fitting problem for feature 115 returning NA

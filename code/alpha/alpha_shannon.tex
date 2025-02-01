@@ -226,7 +226,7 @@
 \endfoot
 \bottomrule
 \endlastfoot
-oat & rice & 4 & 4 & 0.02 & 0.385\\*
+oat & rice & 4 & 4 & 0.02 & 0.373\\*
 \end{longtable}
 
 \paragraph{After treatment}\label{after-treatment}
@@ -289,7 +289,7 @@ oat & rice & 3.9 & 4.1 & 0.06 & 0.048\\*
 \bottomrule
 \endlastfoot
 oat & 4 & 3.9 & -0.02 & 0.137\\
-rice & 4 & 4.1 & 0.03 & 0.078\\*
+rice & 4 & 4.1 & 0.03 & 0.070\\*
 \end{longtable}
 
 \begin{longtable}[t]{lrrrrl}
@@ -307,10 +307,10 @@ rice & 4 & 4.1 & 0.03 & 0.078\\*
 \endfoot
 \bottomrule
 \endlastfoot
-(Intercept) & 4.036 & 0.089 & 135.880 & 45.474 & 0.000\\
-dietrice & -0.076 & 0.125 & 135.881 & -0.608 & 0.544\\
-time & -0.063 & 0.043 & 67.446 & -1.470 & 0.146\\
-dietrice:time & 0.127 & 0.060 & 67.441 & 2.121 & 0.038\\*
+(Intercept) & 4.036 & 0.089 & 135.876 & 45.498 & 0.000\\
+dietrice & -0.077 & 0.125 & 135.876 & -0.619 & 0.537\\
+time & -0.063 & 0.043 & 67.446 & -1.477 & 0.144\\
+dietrice:time & 0.127 & 0.060 & 67.441 & 2.134 & 0.036\\*
 \end{longtable}
 
 \section{Alternate analyses}\label{alternate-analyses}
@@ -339,8 +339,8 @@ dietrice:time & 0.127 & 0.060 & 67.441 & 2.121 & 0.038\\*
 (Intercept) & 3.6 & 3.1, 4.0 & <0.001 & 3.5 & 2.9, 4.1 & <0.001 \\ 
 meal\_group &  &  & 0.3 &  &  & 0.3 \\ 
     1 & — & — &  & — & — &  \\ 
-    2 & 0.21 & -0.03, 0.44 & 0.084 & 0.28 & -0.02, 0.58 & 0.065 \\ 
-    3 & 0.12 & -0.12, 0.35 & 0.3 & 0.20 & -0.09, 0.50 & 0.2 \\ 
+    2 & 0.21 & -0.03, 0.44 & 0.085 & 0.28 & -0.02, 0.58 & 0.065 \\ 
+    3 & 0.11 & -0.12, 0.35 & 0.3 & 0.20 & -0.09, 0.50 & 0.2 \\ 
     4 & 0.17 & -0.06, 0.40 & 0.2 & 0.10 & -0.20, 0.39 & 0.5 \\ 
 age & 0.01 & 0.00, 0.01 & 0.2 & 0.01 & 0.00, 0.02 & 0.2 \\ 
 \bottomrule
@@ -357,11 +357,11 @@ age & 0.01 & 0.00, 0.01 & 0.2 & 0.01 & 0.00, 0.02 & 0.2 \\
 \textbf{Paired test between timepoints (1 and 2)} & \textbf{Beta} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} \\ 
 \midrule\addlinespace[2.5pt]
 (Intercept) & 3.5 & -Inf, Inf & <0.001 \\ 
-meal\_group &  &  & 0.2 \\ 
+meal\_group &  &  & 0.3 \\ 
     1 & — & — &  \\ 
     2 & 0.23 & -Inf, Inf & >0.9 \\ 
     3 & 0.16 & -Inf, Inf & >0.9 \\ 
-    4 & 0.13 & -0.05, 0.32 & 0.2 \\ 
+    4 & 0.13 & -0.05, 0.31 & 0.2 \\ 
 age & 0.01 & 0.00, 0.01 & 0.040 \\ 
 \bottomrule
 \end{tabular*}
@@ -379,11 +379,11 @@ metadata(0):
 assays(2): counts relabundance
 rownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921
 rowData names(9): kingdom phylum ... strain clade_name
-colnames(140): AE1332 AK1371 ... TS2358 VK2336
+colnames(140): AE1332 AE2332 ... VK1336 VK2336
 colData names(15): sample id ... shannon group
 reducedDimNames(0):
 mainExpName: NULL
-altExpNames(16): kingdom phylum ... KO metacyc
+altExpNames(20): kingdom phylum ... KO metacyc
 rowLinks: NULL
 rowTree: NULL
 colLinks: NULL

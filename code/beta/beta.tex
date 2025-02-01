@@ -325,7 +325,7 @@ rice & 0.3612592 & 3e-07 & 4e-07\\*
 \toprule
 \textbf{Group1} & \textbf{Group2} & \textbf{P\_value} & \textbf{Homogeneity} & \textbf{p.adj}\\
 \midrule
-oat & rice & 0.001 & 0.864 & 0.001\\
+oat & rice & 0.002 & 0.839 & 0.002\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -340,7 +340,7 @@ oat & rice & 0.001 & 0.864 & 0.001\\
 \toprule
 \textbf{Group1} & \textbf{Group2} & \textbf{P\_value} & \textbf{Homogeneity} & \textbf{p.adj}\\
 \midrule
-oat & rice & 0.002 & 0.842 & 0.002\\
+oat & rice & 0.002 & 0.859 & 0.002\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -355,8 +355,8 @@ oat & rice & 0.002 & 0.842 & 0.002\\
 \toprule
 \textbf{Diet} & \textbf{P\_value} & \textbf{Homogeneity} & \textbf{p.adj}\\
 \midrule
-oat & 1.00 & 0.615 & 1\\
-rice & 0.87 & 0.820 & 1\\
+oat & 0.999 & 0.653 & 0.999\\
+rice & 0.871 & 0.834 & 0.999\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -373,8 +373,8 @@ rice & 0.87 & 0.820 & 1\\
 \toprule
 \textbf{ } & \textbf{before} & \textbf{after} & \textbf{change-1} & \textbf{change-2} & \textbf{change-3} & \textbf{change-4}\\
 \midrule
-\cellcolor{gray!10}{betadisp\_pval} & \cellcolor{gray!10}{0.876} & \cellcolor{gray!10}{0.876} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA}\\
-permanova\_pval & 0.332 & 0.332 & 1 & 0.978 & 0.992 & 1\\
+\cellcolor{gray!10}{betadisp\_pval} & \cellcolor{gray!10}{0.876} & \cellcolor{gray!10}{0.931} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA}\\
+permanova\_pval & 0.333 & 0.105 & 0.999 & 0.976 & 0.997 & 1\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -388,11 +388,11 @@ metadata(0):
 assays(2): counts relabundance
 rownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921
 rowData names(9): kingdom phylum ... strain clade_name
-colnames(140): AE1332 AK1371 ... TS2358 VK2336
+colnames(140): AE1332 AE2332 ... VK1336 VK2336
 colData names(17): sample id ... time_difference time_divergence
 reducedDimNames(1): PCoA_BC
 mainExpName: NULL
-altExpNames(16): kingdom phylum ... KO metacyc
+altExpNames(20): kingdom phylum ... KO metacyc
 rowLinks: NULL
 rowTree: NULL
 colLinks: NULL
