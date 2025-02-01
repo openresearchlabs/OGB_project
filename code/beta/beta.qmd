@@ -88,14 +88,20 @@ bar_plot
 #| out.width: "100%"
 #| fig.align: "center"
 # Visualization - composition bar plot
+top_taxa <- getTop(altExp(tse, "genus"), top = 10, assay.type = "relabundance")
+genus_renamed <- lapply(rowData(altExp(tse, "genus"))$genus, function(x){
+    if (x %in% top_taxa) {x} else {"Other"}})
+rowData(altExp(tse, "genus"))$genus_sub <- as.character(genus_renamed)
+altExp(tse, "genus") <- agglomerateByVariable(altExp(tse, "genus"), 
+                                   by = "rows", 
+                                   f = "genus_sub")
+
 plotAbundance(
   altExp(tse, "genus"),
   assay.type = "relabundance",
-  # color.by = "phylum_sub",
   color_by = "genus_sub",  
   group = "genus",
   order.row.by = "abund") +
-  #order.row.by = "abund") +  
 theme(
           axis.text.y = element_text(face = "bold", size = 12),
           axis.title.x = element_text(face = "bold", size = 14),

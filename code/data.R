@@ -76,112 +76,57 @@ for (comp in comparisons) {
 # to remove, and keep first occurrence
 # Function to remove duplicates within specific group categories
 # Use the function to remove duplicates across both diet groups
-tse <- remove_duplicates(tse)
+# tse <- remove_duplicates(tse)
 tse <- transformAssay(tse, method = "relabundance")
 tse <- agglomerateByRanks(tse)
+
+# Loop starts:
+for (alt_name in altExpNames(tse)) {
+  prevalent_tse <- agglomerateByPrevalence(
+    altExp(tse, alt_name),
+    assay.type = "relabundance",
+    detection = 0.1 / 100,
+    prevalence = 10 / ncol(tse)
+  )
+  
+  # Adding back with "_prevalent"
+  altExp(tse, paste0(alt_name, "_prevalent")) <- prevalent_tse
+}
 
 # Changes old levels with new levels
 tse$group <- factor(tse$group)
 
-# Getting top taxa on a Phylum level
-top_phyla <- getTop(altExp(tse, "phylum"), top = 4, assay.type = "relabundance")
-
-# Renaming the "Phylum" rank to keep only top taxa and the rest to "Other"
-phylum_renamed <- lapply(rowData(altExp(tse, "phylum"))$phylum, function(x) {
-  if (x %in% top_phyla) { x } else { "Other" }
-})
-rowData(altExp(tse, "phylum"))$phylum_sub <- as.character(phylum_renamed)
-
-# Agglomerate the data based on specified phyla
-altExp(tse, "phylum") <- agglomerateByVariable(altExp(tse, "phylum"), 
-                                    by = "rows", 
-                                    f = "phylum_sub")
-
-# Getting top taxa on a Genus level
-top_genera <- getTop(altExp(tse, "genus"), top = 10, assay.type = "relabundance")
-
-# Renaming the "Genus" rank to keep only top taxa and the rest to "Other"
-genus_renamed <- lapply(rowData(altExp(tse, "genus"))$genus, function(x) {
-  if (x %in% top_genera) { x } else { "Other" }
-})
-rowData(altExp(tse, "genus"))$genus_sub <- as.character(genus_renamed)
-
-# Agglomerate the data based on specified taxa
-altExp(tse, "genus") <- agglomerateByVariable(altExp(tse, "genus"), 
-                                   by = "rows", 
-                                   f = "genus_sub")
-
-# Agglomerate the data based on specified taxa
-altExp(tse, "genus_prevalent") <- agglomerateByRank(tse,  rank="genus")
-altExp(tse, "genus_prevalent") <- agglomerateByPrevalence(altExp(tse, "genus_prevalent"), assay.type="relabundance", detection=0.1/100, prevalence=10/100, name="genus_prevalent")
-
-altExp(tse, "phylum_prevalent") <- agglomerateByRank(tse,  rank="phylum")
-altExp(tse, "phylum_prevalent") <- agglomerateByPrevalence(altExp(tse, "phylum_prevalent"), assay.type="relabundance", detection=0.1/100, prevalence=10/100, name="phylum_prevalent")
-
-altExp(tse, "family_prevalent") <- agglomerateByRank(tse,  rank="family")
-altExp(tse, "family_prevalent") <- agglomerateByPrevalence(altExp(tse, "family_prevalent"), assay.type="relabundance", detection=0.1/100, prevalence=10/100, name="family_prevalent")
-
-altExp(tse, "species_prevalent") <- agglomerateByRank(tse,  rank="species")
-altExp(tse, "species_prevalent") <- agglomerateByPrevalence(altExp(tse, "species_prevalent"), assay.type="relabundance", detection=0.1/100, prevalence=10/100, name="species_prevalent")
-
 # Add functional predictions to tse
-path_abundance <- read.csv("../data/HUMAnN3/processed/pathabundance_unstratified.txt", header = TRUE, row.names = 1, sep = "\t", check.names = FALSE, stringsAsFactors = FALSE)
-
-path_coverage <- read.csv("../data/HUMAnN3/processed/pathcoverage_unstratified.txt", header = TRUE, row.names = 1, sep = "\t", check.names = FALSE, stringsAsFactors = FALSE)
-
-genefam_KO <- read.csv("../data/HUMAnN3/final/Renorm_genefamilies_Uniref90_KO_unstratified.txt", header = TRUE, row.names = 1, sep = "\t", check.names = FALSE, stringsAsFactors = FALSE)
-
-genefam_metacyc <- read.csv("../data/HUMAnN3/final/Renorm_genefamilies_Uniref90_MetaCyc_unstratified.txt", header = TRUE, row.names = 1, sep = "\t", check.names = FALSE, stringsAsFactors = FALSE)
+# Read functional prediction data
+file_paths <- list(
+  pathabundance = "../data/HUMAnN3/processed/pathabundance_unstratified.txt",
+  pathcoverage = "../data/HUMAnN3/processed/pathcoverage_unstratified.txt",
+  KO = "../data/HUMAnN3/final/Renorm_genefamilies_Uniref90_KO_unstratified.txt",
+  metacyc = "../data/HUMAnN3/final/Renorm_genefamilies_Uniref90_MetaCyc_unstratified.txt"
+)
 
 
 columns_to_remove <- c("AK1304", "PP2368", "HK2340")
-columns_to_keep_pa <- !grepl(paste(columns_to_remove, collapse = "|"), colnames(path_abundance))
-columns_to_keep_pc <- !grepl(paste(columns_to_remove, collapse = "|"), colnames(path_coverage))
-columns_to_keep_ko <- !grepl(paste(columns_to_remove, collapse = "|"), colnames(genefam_KO))
-columns_to_keep_mtc <- !grepl(paste(columns_to_remove, collapse = "|"), colnames(genefam_metacyc))
 
-abundance_matrix_pa <- path_abundance[, columns_to_keep_pa]
-abundance_matrix_pc <- path_coverage[, columns_to_keep_pc]
-abundance_matrix_ko <- genefam_KO[, columns_to_keep_ko]
-abundance_matrix_mtc <- genefam_metacyc[, columns_to_keep_mtc]
+# Function to process each file
+process_file <- function(file_path, tse_colnames, feature_name) {
+  data <- read.csv(file_path, header = TRUE, row.names = 1, sep = "\t", check.names = FALSE, stringsAsFactors = FALSE)
+  columns_to_keep <- !grepl(paste(columns_to_remove, collapse = "|"), colnames(data))
+  abundance_matrix <- data[, columns_to_keep]
+  colnames(abundance_matrix) <- tse_colnames
+  
+  SummarizedExperiment(
+    assays = list(counts = abundance_matrix),
+    rowData = DataFrame(Feature = rownames(abundance_matrix)),
+    colData = colData(tse)
+  )
+}
 
-colnames(abundance_matrix_pa) <- colnames(tse)
-colnames(abundance_matrix_pc) <- colnames(tse)
-colnames(abundance_matrix_ko) <- colnames(tse)
-colnames(abundance_matrix_mtc) <- colnames(tse)
-
-# Add the filtered matrices to the `AltExp` of the SummarizedExperiment
-altExp(tse, "pathabundance") <- SummarizedExperiment(
-  assays = list(counts = abundance_matrix_pa),
-  rowData = DataFrame(Pathway = rownames(abundance_matrix_pa)),
-  colData = colData(tse)  
-)
-
-altExp(tse, "pathcoverage") <- SummarizedExperiment(
-  assays = list(counts = abundance_matrix_pc),
-  rowData = DataFrame(Coverage = rownames(abundance_matrix_pc)),
-  colData = colData(tse)  
-)
-
-altExp(tse, "KO") <- SummarizedExperiment(
-  assays = list(counts = abundance_matrix_ko),
-  rowData = DataFrame(Gene_Families = rownames(abundance_matrix_ko)),
-  colData = colData(tse)  
-)
-
-altExp(tse, "metacyc") <- SummarizedExperiment(
-  assays = list(counts = abundance_matrix_mtc),
-  rowData = DataFrame(Gene_Families = rownames(abundance_matrix_mtc)),
-  colData = colData(tse)  
-)
-
-altExp(tse, "pathabundance") <- transformAssay(altExp(tse, "pathabundance"), method = "relabundance")
-
-altExp(tse, "pathcoverage") <- transformAssay(altExp(tse, "pathcoverage"), method = "relabundance")
-
-altExp(tse, "KO") <- transformAssay(altExp(tse, "KO"), method = "relabundance")
-
-altExp(tse, "metacyc") <- transformAssay(altExp(tse, "metacyc"), method = "relabundance")
+# Add functional predictions to tse
+for (name in names(file_paths)) {
+  altExp(tse, name) <- process_file(file_paths[[name]], colnames(tse), name)
+  altExp(tse, name) <- transformAssay(altExp(tse, name), method = "relabundance")
+}
 
 # Print the group assignments
 print(table(tse$group))
