@@ -1,3 +1,9 @@
-2025-01-30 04:56:19.21586 WARNING::Fitting problem for feature 107 returning NA
-2025-01-30 04:56:20.020453 WARNING::Fitting problem for feature 108 returning NA
-2025-01-30 04:56:24.380243 WARNING::Fitting problem for feature 123 returning NA
+2025-02-01 08:22:52.098623 WARNING::Fitting problem for feature 107 returning NA
+2025-02-01 08:22:52.787816 WARNING::Fitting problem for feature 108 returning NA
+2025-02-01 08:22:56.969632 WARNING::Fitting problem for feature 123 returning NA
+2025-02-01 08:23:07.395742 WARNING::Deleting existing residuals file: ../../output/daa/daa_taxa/genus/fits/residuals_linear.rds
+2025-02-01 08:23:07.404202 WARNING::Deleting existing fitted file: ../../output/daa/daa_taxa/genus/fits/fitted_linear.rds
+2025-02-01 08:23:07.412323 WARNING::Deleting existing ranef file: ../../output/daa/daa_taxa/genus/fits/ranef_linear.rds
+2025-02-01 08:23:07.417685 WARNING::Deleting existing residuals file: ../../output/daa/daa_taxa/genus/fits/residuals_logistic.rds
+2025-02-01 08:23:07.428638 WARNING::Deleting existing fitted file: ../../output/daa/daa_taxa/genus/fits/fitted_logistic.rds
+2025-02-01 08:23:07.440272 WARNING::Deleting existing ranef file: ../../output/daa/daa_taxa/genus/fits/ranef_logistic.rds

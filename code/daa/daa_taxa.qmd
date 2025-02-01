@@ -10,12 +10,16 @@ library(maaslin3)
 source("../funct.R")
 # Load the TreeSummarizedExperiment object
 tse <- readRDS("../../data/tse.Rds")
-taxa_levels <- c("species","genus", "family", "phylum")
+taxa_levels <- c("species","genus", "family", "phylum", "Lactobacillus", "Bifidobacterium", "Tyzzerella_nexilis", "Ruminococcus_gnavus")
 
 phylum_tse <- altExp(tse, "phylum_prevalent")
 genus_tse <- altExp(tse, "genus_prevalent")
 family_tse <- altExp(tse, "family_prevalent")
 species_tse <- altExp(tse, "species_prevalent")
+lac_tse <- agglomerateByRank(tse[rowData(tse)$genus == "Lactobacillus", ], rank = "species")
+bif_tse <- agglomerateByRank(tse[rowData(tse)$genus == "Bifidobacterium", ], rank = "species")
+tyz_tse <- agglomerateByRank(tse[rowData(tse)$species == "Tyzzerella_nexilis", ], rank = "species")
+rum_tse <- agglomerateByRank(tse[rowData(tse)$species == "Ruminococcus_gnavus", ], rank = "species")
 
 variable <- "diet" 
 formula_used <- "~ diet * time + (1 | id)"
@@ -30,7 +34,11 @@ taxa_list <- list(
     species = species_tse,
     genus = genus_tse,
     family = family_tse,
-    phylum = phylum_tse
+    phylum = phylum_tse,
+    lacto = lac_tse,
+    bifi = bif_tse,
+    tyzz = tyz_tse,
+    rumi = rum_tse
 )
 
 # Create output directory for results
@@ -82,15 +90,14 @@ tab_res <- lapply(names(taxa_list), function(taxa_name) {
     
   total_features <- nrow(taxa_tse)
   # Check if the file exists before proceeding
-  # if (!file.exists(file_path)) {
-  #   message(paste("File not found:", file_path))
-  #   return(NULL)  # Skip this table if the file does not exist
-  # }
+  if (!file.exists(file_path)) {
+    return(NULL)  # Skip this table if the file does not exist
+  }
 
   # Read and process the table
   daa_tab <- read_tsv(file_path, col_names = TRUE, show_col_types = FALSE) %>%
     filter(!is.na(feature)) %>%  # Remove NA values in "feature" column
-    select(feature, metadata, value, coef, qval_individual, qval_joint, model)  # Select relevant columns
+    select(feature, metadata, value, coef, qval_individual, qval_joint, model)
   
   table_caption <- paste("Table of significant features for", taxa_name, 
                          "- Total features analyzed:", total_features)
@@ -124,11 +131,19 @@ tab_res[[1]]
 tab_res[[2]]
 tab_res[[3]]
 tab_res[[4]]
+tab_res[[5]]
+tab_res[[6]]
 ```
 
 ```{r print results}
 # png_files <- list.files(output_base_dir, pattern = "\\.png$", full.names = TRUE, recursive = TRUE)
 ```
+
+## Bifidobacterium
+![taxa_image18](../../output/daa/daa_taxa/bifi/figures/summary_plot.png)
+
+## Lactobacillus
+![taxa_image18](../../output/daa/daa_taxa/lacto/figures/summary_plot.png)
 
 ## species
 

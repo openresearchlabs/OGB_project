@@ -1,6 +1,7 @@
 # Load libraries
 library(quarto)
 library(fs)
+library(rlang)
 
 # Create the data
 # OK to run just once
