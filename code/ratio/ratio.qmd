@@ -33,12 +33,9 @@ index         <- "bact_firm_ratio"
 -   **Statistical test** `r test`
 
 ```{r bact-firm}
-# We only need phylum level tse in this report, so let's pick
-# that as tse to keep things simple.
-tse <- altExp(tse, "phylum")
-
 # Calculate the Bacteroidetes/Firmicutes ratio and add to colData
 # using the chosen name
+tse <- altExp(tse, "phylum")
 ratio <- "bact_firm_ratio"
 colData(tse)[[ratio]] <- assay(tse, "relabundance")["Bacteroidetes", ] /
                          assay(tse, "relabundance")["Firmicutes", ]
