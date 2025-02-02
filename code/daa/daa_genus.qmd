@@ -1,0 +1,186 @@
+---
+title: "Differential abundance analysis"
+author: ""
+---
+
+### Differential abundance analysis
+
+```{r setup}
+# Define variables and formulas
+variable <- "diet" 
+prevalence.th <- 10/100
+detection.th <- 0.1/100
+tax.level <- "genus"
+
+# Source group-assignment
+source("../funct.R")
+
+# Load the TreeSummarizedExperiment object
+tse <- readRDS("../../data/tse.Rds")
+
+# Add CLR transformation
+tse <- transformAssay(
+  altExp(tse, "genus_prevalent"), assay.type = "relabundance",
+  method = "clr",
+  pseudocount=1
+)
+```
+
+Analysis information:
+
+-   Taxonomic level: `r tax.level`
+
+Taxa that are less prevalent than this (in relabundance) have been agglomerated:
+
+-   Detection threshold: `r 100 * detection.th`%
+-   Prevalence threshold: `r prevalence.th`
+-   Number of taxonomic groups: `r nrow(tse)`
+
+BMI is not significantly different between conditions or time points. Hence we can ignore it in the differential abundance testing. In group "B" it seems to be borderline significant (p\<0.05 before multiple testing adjustment).
+
+```{r bmicheck}
+# Check whether BMI is significantly different between conditions:
+# Between conditions within time point 1
+# Between conditions within time point 2
+# Within conditions between time points (paired analysis)
+
+# pvs <- c()
+# for (tp in unique(tse$timepoint)) {
+#   tse.sub <- tse[, tse$timepoint==tp]
+#   pvs[[tp]] <- kruskal.test(tse.sub$BMI ~ tse.sub$Treatment)$p.value
+# }
+
+# pick tse for time point 1 and 2 separately
+tse <- tse[, tse$paired=="yes"]
+tse1 <- tse[, tse$timepoint=="before"]
+tse2 <- tse[, tse$timepoint=="after"]
+# Paired wilcoxon test for BMI within each treatment
+# for (g in unique(tse$Treatment)) {
+#   # subject order matches
+#   if (!all(tse1[, tse1$Treatment==g]$subject==tse2[, tse2$Treatment==g]$subject)) {stop("Subjects do not match")}
+# 
+#   pvs[[g]] <- wilcox.test(tse1[, tse1$Treatment==g]$BMI,
+#                           tse2[, tse2$Treatment==g]$BMI,
+# 	                  paired=TRUE)$p.value
+# }
+# padj <- p.adjust(pvs, method="bonferroni")
+# print(padj)
+```
+
+```{r within_timepoint_analysis}
+# Calculate adjusted p-values within each time point
+# to test if any taxonomic group differs between treatments (Kruskal test)
+pvals <- NULL
+for (tp in unique(tse$timepoint)) {
+  # Pick data for the given time point
+  tse2 <- tse[, tse$timepoint==tp]
+  pvs <- apply(assay(tse2, "clr"), 1, function (x) {kruskal.test(x ~ tse2$diet)$p.value})
+  padj <- p.adjust(pvs, "BH")
+  pvals <- cbind(pvals, padj)
+}
+colnames(pvals) <- unique(tse$timepoint)
+pvals.timepoints <- pvals
+```
+
+Number of significant findings within time points.
+
+-   Kruskal test, Benjamini-Hochberg FDR adjustment
+
+```{r between_timepoint_analysis2}
+print(colSums(pvals.timepoints<0.25))
+```
+
+```{r between_timepoint_analysis}
+# Calculate adjusted p-values within each time point
+# to test if any taxonomic group differs between treatments (Kruskal test)
+pvals <- NULL
+for (g in unique(tse$diet)) {
+  # Pick data for the given Treatment for time points 1 and 2
+  tse1  <- tse[, tse$diet==g & tse$timepoint=="before"]
+  tse2  <- tse[, tse$diet==g & tse$timepoint=="after"]
+  # Ensure that subject match (pairing ok)
+  if (!all(tse1$id==tse2$id)) {stop("Subjects do not match!")}
+  pvs   <- sapply(rownames(tse), function (tax) {
+               wilcox.test(assay(tse1, "clr")[tax,], assay(tse2, "clr")[tax,], paired=TRUE)$p.value
+	     }
+	   )
+  padj  <- p.adjust(pvs, "BH")
+  pvals <- cbind(pvals, padj)
+}
+colnames(pvals) <- unique(tse$diet)
+pvals.treatments <- pvals
+```
+
+Number of significant findings within treatments:
+
+-   Paired Wilcoxon test, Benjamini-Hochberg FDR adjustment
+
+```{r between_timepoint_analysis3}
+print(colSums(pvals.treatments<0.25))
+```
+
+Let us look more closely to the significant hits. The logFC corresponds to logFC in CLR (tp2-tp1).
+
+```{r hits}
+#| layout-ncol: 3
+#| fig-width: 10
+#| fig-height: 10
+library(reshape2)
+theme_set(theme_bw(30))
+tabs <- NULL # Collect results in a table
+for (g in unique(tse$diet)) {
+
+  # P-values
+  signif.features <- names(which(pvals.treatments[, g]<0.25))
+
+  # Pick data for the given Treatment for time points 1 and 2
+  #tse1  <- tse[, tse$Treatment==g & tse$timepoint=="before"]
+  #tse2  <- tse[, tse$Treatment==g & tse$timepoint=="after"]
+
+  if (length(signif.features)>0) {
+    tseg <- tse[, tse$diet==g] 
+    df <- colData(tseg)
+    for (tax in signif.features) {
+      df$signal <- as.vector(assay(tseg, "relabundance")[tax,])
+      df$clr <- as.vector(assay(tseg, "clr")[tax,])      
+      vars <- c("id", "timepoint", "signal")
+      dfm <- melt(df[, vars])
+      colnames(dfm) <- vars
+      pv <- pvals.treatments[tax, g]
+
+      tabs <-
+        rbind(tabs,
+        c(
+          Group = g,
+          Taxon = tax,
+          mean1 = mean(subset(df, timepoint=="before")$signal),
+          mean2 = mean(subset(df, timepoint=="after")$signal),
+	  logFC.clr = mean(subset(df, timepoint=="after")$clr - subset(df, timepoint=="before")$clr),
+          FDR   = pv 
+        ))
+      
+      p <- ggplot(df, aes(x=timepoint, y=signal)) +
+             geom_boxplot(outlier.shape=NA) +
+             # geom_jitter(width=0.05) +
+             geom_point() + 	     	     
+             geom_line(aes(group=id), color="gray") +
+	     scale_y_log10() + 
+	     labs(title=paste(g, "/", tax),
+	          y="Abundance (%)")
+      print(p)
+    }
+  }
+}
+
+# Clean up the table
+tabs <- as.data.frame(tabs)
+tabs$mean.relabundance1 <- round(100 * as.numeric(tabs$mean1), 3); tabs$mean1 <- NULL
+tabs$mean.relabundance2 <- round(100 * as.numeric(tabs$mean2), 3); tabs$mean2 <- NULL
+tabs$FDR <- round(as.numeric(tabs$FDR), 4)
+tabs$logFC.clr <- round(as.numeric(tabs$logFC.clr), 4)
+```
+
+```{r table}
+library(knitr)
+kable(tabs)
+```

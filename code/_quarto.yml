@@ -27,6 +27,10 @@ website:
         menu:
           - text: "Taxa"
             href: daa/daa_taxa.html
+          - text: "Genus Taxa"
+            href: daa/daa_genus.html
+          - text: "Species Taxa"
+            href: daa/daa_species.html
           - text: "Pathway Abundance"
             href: daa/daa_pa.html
           - text: "Pathway Coverage"
