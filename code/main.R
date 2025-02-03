@@ -23,5 +23,19 @@ lapply(indices, function(index) {
     file.remove(temp_qmd)
 })
 
+taxa.levels <- c("species_prevalent", "genus_prevalent")
+# Loop through each level
+lapply(taxa.levels, function(tax.level) {
+    orig_dir <- dirname("daa/daa_level.qmd")
+    temp_qmd <- file.path(orig_dir, paste0("daa_", tax.level, ".qmd"))
+    file.copy("daa/daa_level.qmd", temp_qmd)
+    
+    quarto::quarto_render(
+        input = temp_qmd,
+        execute_params = list(tax.level = tax.level)
+    )
+    file.remove(temp_qmd)
+})
+
 # Finally, render the entire website for qmds that do not directly take params from mainR
 quarto::quarto_render()

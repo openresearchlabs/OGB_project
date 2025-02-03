@@ -1,0 +1,21 @@
+{
+  "hash": "270989b58946c905ee43688231a814a0",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"DAA path abundance\"\n---\n\n\n\n\n\n\n### Differential abundance analysis\n\n\n\n\n\n\n::: {.cell}\n\n:::\n\n\n\n\n\n\n-   Group variable: **diet**\n-   Formula used: **~ diet * time + (1 | id)**\n\n\n\n\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n\n\\begin{longtable}[t]{lrrrrrr}\n\\caption{\\label{tab:table-of-significant-results}Table of significant features}\\\\\n\\toprule\n\\textbf{feature} & \\textbf{metadata} & \\textbf{value} & \\textbf{coef} & \\textbf{qval\\_individual} & \\textbf{qval\\_joint} & \\textbf{model}\\\\\n\\midrule\n\\endfirsthead\n\\caption[]{Table of significant features \\textit{(continued)}}\\\\\n\\toprule\n\\textbf{feature} & \\textbf{metadata} & \\textbf{value} & \\textbf{coef} & \\textbf{qval\\_individual} & \\textbf{qval\\_joint} & \\textbf{model}\\\\\n\\midrule\n\\endhead\n\n\\endfoot\n\\bottomrule\n\\endlastfoot\nPWY.5130... & time & time & -10.602 & 0.000 & 0.000 & prevalence\\\\\nPWY.5130... & diet & 2 & -20.311 & 0.000 & 0.000 & prevalence\\\\\nPWY.5130... & diet & 2:time & 10.603 & 0.000 & 0.001 & prevalence\\\\\nPWY.5497... & diet & 2:time & -1.036 & 0.088 & 0.064 & abundance\\\\\nPWY.5130... & diet & 2:time & -0.425 & 0.843 & 0.001 & abundance\\\\\n\\addlinespace\nPWY.5130... & diet & 2 & 0.563 & 0.868 & 0.000 & abundance\\\\\nPWY.5130... & time & time & -0.075 & 1.000 & 0.000 & abundance\\\\\nPWY.5497... & diet & 2:time & NA & NA & 0.064 & prevalence\\\\*\n\\end{longtable}\n\n\n:::\n:::\n\n::: {.cell}\n\n:::\n\n\n\n\n\n\n![summary_plot.png](../../output/daa/daa_pa/figures/summary_plot.png) ![diet_fig1](../../output/daa/daa_pa/figures/association_plots/diet/linear/diet_PWY.5497..purine.nucleobases.degradation.II..anaerobic._linear.png) ![diet_fig2](../../output/daa/daa_pa/figures/association_plots/diet/logistic/diet_PWY.5130..2.oxobutanoate.degradation.I_logistic.png) ![time_fig1](../../output/daa/daa_pa/figures/association_plots/time/logistic/time_PWY.5130..2.oxobutanoate.degradation.I_logistic.png)\n",
+    "supporting": [
+      "daa_pa_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "\\usepackage{booktabs}\n\\usepackage{longtable}\n\\usepackage{array}\n\\usepackage{multirow}\n\\usepackage{wrapfig}\n\\usepackage{float}\n\\usepackage{colortbl}\n\\usepackage{pdflscape}\n\\usepackage{tabu}\n\\usepackage{threeparttable}\n\\usepackage{threeparttablex}\n\\usepackage[normalem]{ulem}\n\\usepackage{makecell}\n\\usepackage{xcolor}\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}
