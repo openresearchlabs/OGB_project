@@ -38,8 +38,6 @@ Taxa that are less prevalent than this (in relabundance) have been agglomerated:
 -   Prevalence threshold: `r prevalence.th`
 -   Number of taxonomic groups: `r nrow(tse)`
 
-BMI is not significantly different between conditions or time points. Hence we can ignore it in the differential abundance testing. In group "B" it seems to be borderline significant (p\<0.05 before multiple testing adjustment).
-
 ```{r tsesub}
 # pick tse for time point 1 and 2 separately
 tse <- tse[, tse$paired=="yes"]
