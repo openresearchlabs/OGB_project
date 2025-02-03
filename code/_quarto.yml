@@ -28,6 +28,8 @@ website:
         menu:
           - text: "Taxa"
             href: daa/daa_taxa.html
+          - text: "Taxa of interest"
+            href: daa/daa_interest.html
           - text: "Genus Taxa"
             href: daa/daa_genus_prevalent.html
           - text: "Species Taxa"

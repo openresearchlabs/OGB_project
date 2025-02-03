@@ -1,0 +1,92 @@
+---
+title: "Differential abundance analysis"
+author: ""
+---
+
+### Differential abundance analysis
+
+```{r setup}
+# Source group-assignment
+source("../funct.R")
+
+# Load the TreeSummarizedExperiment object
+tse <- readRDS("../../data/tse.Rds")
+tse <- tse[, tse$paired=="yes"]
+
+```
+
+```{r tsesub}
+genus_of_interest <- c("Lactobacillus", "Bifidobacterium")
+species_of_interest <- c("Bifidobacterium_adolescentis", "Lactobacillus_acidophilus", "Bifidobacterium_animalis", "Lactobacillus_gasseri", "Bifidobacterium_angulatum", "Bifidobacterium_bifidum", "Bifidobacterium_catenulatum", "Lactobacillus_iners", "Bifidobacterium_pullorum", "Tyzzerella_nexilis", "Ruminococcus_gnavus")
+
+taxa_of_interest <- c(genus_of_interest, species_of_interest)
+
+```
+
+```{r hits}
+#| layout-ncol: 3
+#| fig-width: 10
+#| fig-height: 10
+library(reshape2)
+theme_set(theme_bw(30))
+
+for (g in unique(tse$diet)) {
+
+  if (length(rowData(tse))>0) {
+    tseg <- tse[, tse$diet==g] 
+    df <- as.data.frame(colData(tseg)) 
+    
+    for (tax in taxa_of_interest) {
+      # Check if the genus or species exists in the dataset
+      if (tax %in% rowData(tseg)$genus | tax %in% rowData(tseg)$species) {
+        
+        if (tax %in% rowData(tseg)$genus) {
+          rownames(tseg) <- rowData(tseg)$genus
+          df$signal <- as.vector(assay(tseg, "relabundance")[tax,])
+        } else {
+          rownames(tseg) <- rowData(tseg)$species
+          df$signal <- as.vector(assay(tseg, "relabundance")[tax,])
+        }
+
+        # Prepare data for plotting
+        vars <- c("id", "timepoint", "signal")
+        dfm <- melt(df[, vars])
+        colnames(dfm) <- vars
+        
+        # Filter and mutate for paired design
+        df <- df %>%
+          filter(paired == "yes") %>%
+          group_by(id) %>%
+          mutate(
+            change = if_else(timepoint == "after", signal - signal[timepoint == "before"], 0),
+            change = if_else(timepoint == "before", change[timepoint == "after"], change)
+          ) %>%
+          ungroup() %>%
+          as.data.frame(check.names = FALSE)
+
+        # Create the plot
+        p <- ggplot(df, aes(x = timepoint, y = signal)) +
+          geom_boxplot(outlier.shape = NA) +
+          geom_point() + 
+          geom_line(aes(group = id, color = change)) +
+          scale_color_gradient2(midpoint = 0, low = "blue", mid = "white", high = "red", space = "Lab") +
+          scale_y_log10(labels = scales::percent) + 
+          labs(title = paste(g, "/", tax), y = "Abundance (%)")  
+        
+        # Print the plot for each taxon
+        print(p)
+      }
+    }
+  }
+}
+```
+
+```{r table}
+file_path <- file.path("../../output/daa/daa_taxa/species/all_results.tsv")
+daa_tab <- read_tsv(file_path, col_names = TRUE, show_col_types = FALSE) %>%
+      filter(!is.na(feature)) %>%
+      select(feature, metadata, value, coef, qval_individual, qval_joint, model)
+daa_tab <- daa_tab %>%
+  filter(feature %in% species_of_interest)
+kable(daa_tab)
+```
