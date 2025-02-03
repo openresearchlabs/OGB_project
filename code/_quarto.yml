@@ -9,6 +9,7 @@ project:
     - "ratio/*.qmd"
     - "daa/*.qmd"
     - "!alpha/alpha.qmd"
+    - "!daa/daa_level.qmd"
 website:
   title: "OGB Analysis"
   navbar:
@@ -28,9 +29,9 @@ website:
           - text: "Taxa"
             href: daa/daa_taxa.html
           - text: "Genus Taxa"
-            href: daa/daa_genus.html
+            href: daa/daa_genus_prevalent.html
           - text: "Species Taxa"
-            href: daa/daa_species.html
+            href: daa/daa_species_prevalent.html
           - text: "Pathway Abundance"
             href: daa/daa_pa.html
           - text: "Pathway Coverage"
@@ -68,7 +69,7 @@ execute:
   warning: false
   message: false
   include: true
-  freeze: false
+  freeze: true
   dependencies:
     - quarto
     - fs

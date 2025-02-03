@@ -1,0 +1,21 @@
+{
+  "hash": "73cdb5d5c3f21851f3d1210903b6d39d",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"DAA path coverage\"\n---\n\n\n\n\n\n\n### Differential abundance analysis\n\n\n\n\n\n\n::: {.cell}\n\n:::\n\n\n\n\n\n\n-   Group variable: **diet**\n-   Formula used: **~ diet * time + (1 | id)**\n\n\n\n\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n\n\\begin{longtable}[t]{lrrrrrr}\n\\caption{\\label{tab:table-of-significant-results}Table of significant features}\\\\\n\\toprule\n\\endfirsthead\n\\caption[]{Table of significant features \\textit{(continued)}}\\\\\n\\toprule\n\\endhead\n\n\\endfoot\n\\bottomrule\n\\endlastfoot\nfeature & metadata & value & coef & qval\\_individual & qval\\_joint & model\\\\\n\n*\n\\end{longtable}\n\n\n:::\n:::\n\n::: {.cell}\n\n:::\n\n\n\n\n\n\n![summary_plot.png](../../output/daa/daa_pc/figures/summary_plot.png)\n",
+    "supporting": [
+      "daa_pc_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "\\usepackage{booktabs}\n\\usepackage{longtable}\n\\usepackage{array}\n\\usepackage{multirow}\n\\usepackage{wrapfig}\n\\usepackage{float}\n\\usepackage{colortbl}\n\\usepackage{pdflscape}\n\\usepackage{tabu}\n\\usepackage{threeparttable}\n\\usepackage{threeparttablex}\n\\usepackage[normalem]{ulem}\n\\usepackage{makecell}\n\\usepackage{xcolor}\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}

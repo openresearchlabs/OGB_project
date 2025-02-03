@@ -1,0 +1,19 @@
+{
+  "hash": "73cdb5d5c3f21851f3d1210903b6d39d",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"DAA path coverage\"\n---\n\n\n\n\n### Differential abundance analysis\n\n\n\n\n::: {.cell}\n\n:::\n\n\n\n\n-   Group variable: **diet**\n-   Formula used: **~ diet * time + (1 | id)**\n\n\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n\n```{=html}\n<div class=\"datatables html-widget html-fill-item\" id=\"htmlwidget-b4679153c11fcd1d413e\" style=\"width:100%;height:auto;\"></div>\n<script type=\"application/json\" data-for=\"htmlwidget-b4679153c11fcd1d413e\">{\"x\":{\"filter\":\"none\",\"vertical\":false,\"caption\":\"<caption>Table of significant features<\\/caption>\",\"data\":[[],[],[],[],[],[],[]],\"container\":\"<table class=\\\"display\\\">\\n  <thead>\\n    <tr>\\n      <th>feature<\\/th>\\n      <th>metadata<\\/th>\\n      <th>value<\\/th>\\n      <th>coef<\\/th>\\n      <th>qval_individual<\\/th>\\n      <th>qval_joint<\\/th>\\n      <th>model<\\/th>\\n    <\\/tr>\\n  <\\/thead>\\n<\\/table>\",\"options\":{\"pageLength\":6,\"dom\":\"Bfrtip\",\"columnDefs\":[{\"targets\":5,\"render\":\"function(data, type, row, meta) {\\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \\\",\\\", \\\".\\\", null);\\n  }\"},{\"name\":\"feature\",\"targets\":0},{\"name\":\"metadata\",\"targets\":1},{\"name\":\"value\",\"targets\":2},{\"name\":\"coef\",\"targets\":3},{\"name\":\"qval_individual\",\"targets\":4},{\"name\":\"qval_joint\",\"targets\":5},{\"name\":\"model\",\"targets\":6}],\"order\":[],\"autoWidth\":false,\"orderClasses\":false,\"lengthMenu\":[6,10,25,50,100]}},\"evals\":[\"options.columnDefs.0.render\"],\"jsHooks\":[]}</script>\n```\n\n:::\n:::\n\n::: {.cell}\n\n:::\n\n\n\n\n![summary_plot.png](../../output/daa/daa_pc/figures/summary_plot.png)\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<link href=\"../site_libs/htmltools-fill-0.5.8.1/fill.css\" rel=\"stylesheet\" />\n<script src=\"../site_libs/htmlwidgets-1.6.4/htmlwidgets.js\"></script>\n<link href=\"../site_libs/datatables-css-0.0.0/datatables-crosstalk.css\" rel=\"stylesheet\" />\n<script src=\"../site_libs/datatables-binding-0.33/datatables.js\"></script>\n<script src=\"../site_libs/jquery-3.6.0/jquery-3.6.0.min.js\"></script>\n<link href=\"../site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css\" rel=\"stylesheet\" />\n<link href=\"../site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css\" rel=\"stylesheet\" />\n<script src=\"../site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js\"></script>\n<link href=\"../site_libs/crosstalk-1.2.1/css/crosstalk.min.css\" rel=\"stylesheet\" />\n<script src=\"../site_libs/crosstalk-1.2.1/js/crosstalk.min.js\"></script>\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
