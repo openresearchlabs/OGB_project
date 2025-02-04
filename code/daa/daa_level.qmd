@@ -219,7 +219,7 @@ volcano_plot <- ggplot(tabs_all, aes(x = logFC.clr, y = FDR, size = mean.relabun
   geom_point(aes(color = FDR < 0.25), alpha = 0.7) +  
   geom_vline(xintercept = c(-1, 1), linetype = "dashed", color = "gray40") + 
   geom_hline(yintercept = -log10(0.05), linetype = "dashed", color = "red") + 
-  scale_x_log10() +
+  # scale_x_log10() +
   labs(
     title = "Volcano Plot: Effect Size vs Significance",
     x = "Log Fold Change (CLR)",
