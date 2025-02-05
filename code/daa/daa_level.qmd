@@ -16,7 +16,7 @@ tse <- readRDS("../../data/tse.Rds")
 
 # Define variables and formulas
 variable <- "diet" 
-prevalence.th <- 10/ncol(tse)
+prevalence.th <- 10/100
 detection.th <- 0.1/100
 tax.level <- params$tax.level
 
@@ -24,7 +24,7 @@ tax.level <- params$tax.level
 tse <- transformAssay(
   altExp(tse, tax.level), assay.type = "relabundance",
   method = "clr",
-  pseudocount=1
+  pseudocount=TRUE
 )
 ```
 
@@ -217,13 +217,13 @@ tabs_all$logFC.clr <- round(as.numeric(tabs_all$logFC.clr), 4)
 ```{r volcano-plot}
 volcano_plot <- ggplot(tabs_all, aes(x = logFC.clr, y = FDR, size = mean.relabundance2)) +
   geom_point(aes(color = FDR < 0.25), alpha = 0.7) +  
-  geom_vline(xintercept = c(-1, 1), linetype = "dashed", color = "gray40") + 
-  geom_hline(yintercept = -log10(0.05), linetype = "dashed", color = "red") + 
+  # geom_vline(xintercept = c(-1, 1), linetype = "dashed", color = "gray40") + 
+  # geom_hline(yintercept = -log10(0.05), linetype = "dashed", color = "red") + 
   # scale_x_log10() +
   labs(
     title = "Volcano Plot: Effect Size vs Significance",
     x = "Log Fold Change (CLR)",
-    y = "-log10(FDR)"
+    y = "FDR"
   ) +
   scale_color_manual(values = c("gray", "blue")) +  
   theme_minimal(base_size = 14) +
@@ -232,7 +232,7 @@ volcano_plot <- ggplot(tabs_all, aes(x = logFC.clr, y = FDR, size = mean.relabun
     plot.title = element_text(hjust = 0.5)
   )
 volcano_plot + 
-  geom_text_repel(data = subset(tabs, FDR < 0.25),
+  geom_text_repel(data = subset(tabs_all, FDR < 0.25),
                   aes(label = Taxon), size = 3, box.padding = 0.3)
 ```
 
