@@ -86,7 +86,7 @@ for (alt_name in altExpNames(tse)) {
     altExp(tse, alt_name),
     assay.type = "relabundance",
     detection = 0.1 / 100,
-    prevalence = 10 / ncol(tse)
+    prevalence = 10 / 100
   )
   
   # Adding back with "_prevalent"

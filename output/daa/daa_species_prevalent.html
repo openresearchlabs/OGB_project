@@ -222,7 +222,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Taxa that are less prevalent than this (in relabundance) have been agglomerated:</p>
 <ul>
 <li>Detection threshold: 0.1%</li>
-<li>Prevalence threshold: 0.0714286</li>
+<li>Prevalence threshold: 0.1</li>
 <li>Number of taxonomic groups: 215</li>
 </ul>
 <p>Number of significant findings within time points.</p>
@@ -232,7 +232,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>before  after 
-     1     14 </code></pre>
+     0      5 </code></pre>
 </div>
 </div>
 <p>Number of significant findings within treatments:</p>
@@ -242,7 +242,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>rice  oat 
-  14    8 </code></pre>
+  16    2 </code></pre>
 </div>
 </div>
 <p>Let us look more closely to the significant hits. The logFC corresponds to logFC in CLR (tp2-tp1).</p>
@@ -316,22 +316,6 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="daa_species_prevalent_files/figure-html/hits-18.png" class="img-fluid" width="960"></p>
 </div>
 </div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="daa_species_prevalent_files/figure-html/hits-19.png" class="img-fluid" width="960"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="daa_species_prevalent_files/figure-html/hits-20.png" class="img-fluid" width="960"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="daa_species_prevalent_files/figure-html/hits-21.png" class="img-fluid" width="960"></p>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="daa_species_prevalent_files/figure-html/hits-22.png" class="img-fluid" width="960"></p>
-</div>
-</div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -358,178 +342,146 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td style="text-align: left;">rice</td>
 <td style="text-align: left;">Candidatus_Cibionibacter_quicibialis</td>
-<td style="text-align: right;">-0.0147</td>
-<td style="text-align: right;">0.0003</td>
+<td style="text-align: right;">-1.0893</td>
+<td style="text-align: right;">0.0002</td>
 <td style="text-align: right;">2.336</td>
 <td style="text-align: right;">0.822</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">rice</td>
 <td style="text-align: left;">Bifidobacterium_longum</td>
-<td style="text-align: right;">-0.0049</td>
-<td style="text-align: right;">0.0019</td>
+<td style="text-align: right;">-0.8433</td>
+<td style="text-align: right;">0.0034</td>
 <td style="text-align: right;">1.794</td>
 <td style="text-align: right;">1.311</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">rice</td>
-<td style="text-align: left;">Clostridiaceae_bacterium</td>
-<td style="text-align: right;">0.0075</td>
-<td style="text-align: right;">0.0236</td>
-<td style="text-align: right;">0.648</td>
-<td style="text-align: right;">1.422</td>
+<td style="text-align: left;">Blautia_sp_Marseille_P3087</td>
+<td style="text-align: right;">0.7361</td>
+<td style="text-align: right;">0.0295</td>
+<td style="text-align: right;">0.016</td>
+<td style="text-align: right;">0.054</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">rice</td>
-<td style="text-align: left;">Firmicutes_bacterium_AF16_15</td>
-<td style="text-align: right;">0.0031</td>
-<td style="text-align: right;">0.0719</td>
-<td style="text-align: right;">0.317</td>
-<td style="text-align: right;">0.627</td>
+<td style="text-align: left;">Eubacterium_siraeum</td>
+<td style="text-align: right;">-1.7692</td>
+<td style="text-align: right;">0.0516</td>
+<td style="text-align: right;">0.262</td>
+<td style="text-align: right;">0.205</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">oat</td>
-<td style="text-align: left;">Blautia_massiliensis</td>
-<td style="text-align: right;">0.0097</td>
-<td style="text-align: right;">0.0983</td>
-<td style="text-align: right;">1.169</td>
-<td style="text-align: right;">2.183</td>
+<td style="text-align: left;">rice</td>
+<td style="text-align: left;">Bilophila_wadsworthia</td>
+<td style="text-align: right;">0.7231</td>
+<td style="text-align: right;">0.0796</td>
+<td style="text-align: right;">0.066</td>
+<td style="text-align: right;">0.096</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">oat</td>
-<td style="text-align: left;">GGB4569_SGB6310</td>
-<td style="text-align: right;">0.0004</td>
-<td style="text-align: right;">0.0983</td>
-<td style="text-align: right;">0.029</td>
-<td style="text-align: right;">0.070</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">oat</td>
-<td style="text-align: left;">Candidatus_Cibionibacter_quicibialis</td>
-<td style="text-align: right;">-0.0052</td>
-<td style="text-align: right;">0.0983</td>
-<td style="text-align: right;">1.548</td>
-<td style="text-align: right;">1.014</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">oat</td>
-<td style="text-align: left;">GGB27106_SGB6188</td>
-<td style="text-align: right;">0.0010</td>
-<td style="text-align: right;">0.1030</td>
-<td style="text-align: right;">0.019</td>
-<td style="text-align: right;">0.115</td>
+<td style="text-align: left;">rice</td>
+<td style="text-align: left;">GGB34797_SGB14322</td>
+<td style="text-align: right;">0.4614</td>
+<td style="text-align: right;">0.0796</td>
+<td style="text-align: right;">0.355</td>
+<td style="text-align: right;">0.851</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">rice</td>
 <td style="text-align: left;">GGB79734_SGB15291</td>
-<td style="text-align: right;">0.0006</td>
-<td style="text-align: right;">0.1078</td>
+<td style="text-align: right;">0.4818</td>
+<td style="text-align: right;">0.1168</td>
 <td style="text-align: right;">0.116</td>
 <td style="text-align: right;">0.178</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">rice</td>
-<td style="text-align: left;">Bilophila_wadsworthia</td>
-<td style="text-align: right;">0.0003</td>
-<td style="text-align: right;">0.1078</td>
-<td style="text-align: right;">0.066</td>
-<td style="text-align: right;">0.096</td>
+<td style="text-align: left;">Firmicutes_bacterium_AF16_15</td>
+<td style="text-align: right;">0.4403</td>
+<td style="text-align: right;">0.1866</td>
+<td style="text-align: right;">0.317</td>
+<td style="text-align: right;">0.627</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">rice</td>
-<td style="text-align: left;">Eubacterium_rectale</td>
-<td style="text-align: right;">-0.0127</td>
-<td style="text-align: right;">0.1238</td>
-<td style="text-align: right;">3.214</td>
-<td style="text-align: right;">1.878</td>
+<td style="text-align: left;">Blautia_SGB4815</td>
+<td style="text-align: right;">0.2757</td>
+<td style="text-align: right;">0.1866</td>
+<td style="text-align: right;">0.151</td>
+<td style="text-align: right;">0.166</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">oat</td>
-<td style="text-align: left;">Clostridiales_bacterium_KLE1615</td>
-<td style="text-align: right;">-0.0025</td>
-<td style="text-align: right;">0.1552</td>
-<td style="text-align: right;">0.667</td>
-<td style="text-align: right;">0.412</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">rice</td>
-<td style="text-align: left;">Eubacterium_siraeum</td>
-<td style="text-align: right;">-0.0006</td>
-<td style="text-align: right;">0.1991</td>
-<td style="text-align: right;">0.262</td>
-<td style="text-align: right;">0.205</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">oat</td>
-<td style="text-align: left;">Lawsonibacter_asaccharolyticus</td>
-<td style="text-align: right;">-0.0005</td>
-<td style="text-align: right;">0.2078</td>
-<td style="text-align: right;">0.164</td>
-<td style="text-align: right;">0.111</td>
+<td style="text-align: left;">GGB27106_SGB6188</td>
+<td style="text-align: right;">1.6089</td>
+<td style="text-align: right;">0.1929</td>
+<td style="text-align: right;">0.019</td>
+<td style="text-align: right;">0.115</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">oat</td>
-<td style="text-align: left;">Phocaeicola_SGB6473</td>
-<td style="text-align: right;">0.0003</td>
-<td style="text-align: right;">0.2185</td>
-<td style="text-align: right;">0.023</td>
-<td style="text-align: right;">0.048</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">oat</td>
-<td style="text-align: left;">Butyricicoccus_sp_AM29_23AC</td>
-<td style="text-align: right;">0.0002</td>
-<td style="text-align: right;">0.2185</td>
-<td style="text-align: right;">0.033</td>
-<td style="text-align: right;">0.049</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">rice</td>
-<td style="text-align: left;">GGB34797_SGB14322</td>
-<td style="text-align: right;">0.0049</td>
-<td style="text-align: right;">0.2206</td>
-<td style="text-align: right;">0.355</td>
-<td style="text-align: right;">0.851</td>
+<td style="text-align: left;">Blautia_massiliensis</td>
+<td style="text-align: right;">0.6438</td>
+<td style="text-align: right;">0.1929</td>
+<td style="text-align: right;">1.169</td>
+<td style="text-align: right;">2.183</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">rice</td>
-<td style="text-align: left;">Blautia_obeum</td>
-<td style="text-align: right;">0.0034</td>
-<td style="text-align: right;">0.2206</td>
-<td style="text-align: right;">0.832</td>
-<td style="text-align: right;">1.179</td>
+<td style="text-align: left;">Streptococcus_salivarius</td>
+<td style="text-align: right;">1.2865</td>
+<td style="text-align: right;">0.2221</td>
+<td style="text-align: right;">0.070</td>
+<td style="text-align: right;">0.176</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">rice</td>
-<td style="text-align: left;">Ruminococcus_SGB4421</td>
-<td style="text-align: right;">-0.0010</td>
-<td style="text-align: right;">0.2206</td>
-<td style="text-align: right;">0.245</td>
-<td style="text-align: right;">0.142</td>
+<td style="text-align: left;">GGB14025_SGB14906</td>
+<td style="text-align: right;">0.5171</td>
+<td style="text-align: right;">0.2221</td>
+<td style="text-align: right;">0.040</td>
+<td style="text-align: right;">0.064</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">rice</td>
-<td style="text-align: left;">GGB51647_SGB4348</td>
-<td style="text-align: right;">-0.0015</td>
-<td style="text-align: right;">0.2206</td>
-<td style="text-align: right;">0.215</td>
-<td style="text-align: right;">0.060</td>
+<td style="text-align: left;">Clostridiaceae_bacterium</td>
+<td style="text-align: right;">0.3150</td>
+<td style="text-align: right;">0.2221</td>
+<td style="text-align: right;">0.648</td>
+<td style="text-align: right;">1.422</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">rice</td>
+<td style="text-align: left;">Bacteroides_cellulosilyticus</td>
+<td style="text-align: right;">0.3472</td>
+<td style="text-align: right;">0.2316</td>
+<td style="text-align: right;">0.224</td>
+<td style="text-align: right;">0.446</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">rice</td>
 <td style="text-align: left;">Alistipes_communis</td>
-<td style="text-align: right;">-0.0016</td>
-<td style="text-align: right;">0.2206</td>
+<td style="text-align: right;">-0.4789</td>
+<td style="text-align: right;">0.2316</td>
 <td style="text-align: right;">0.295</td>
 <td style="text-align: right;">0.135</td>
 </tr>
+<tr class="odd">
+<td style="text-align: left;">rice</td>
+<td style="text-align: left;">GGB9760_SGB15374</td>
+<td style="text-align: right;">0.7116</td>
+<td style="text-align: right;">0.2339</td>
+<td style="text-align: right;">0.049</td>
+<td style="text-align: right;">0.109</td>
+</tr>
 <tr class="even">
 <td style="text-align: left;">rice</td>
-<td style="text-align: left;">Anaerostipes_hadrus</td>
-<td style="text-align: right;">-0.0055</td>
-<td style="text-align: right;">0.2206</td>
-<td style="text-align: right;">2.495</td>
-<td style="text-align: right;">1.923</td>
+<td style="text-align: left;">Akkermansia_muciniphila</td>
+<td style="text-align: right;">-0.8478</td>
+<td style="text-align: right;">0.2339</td>
+<td style="text-align: right;">1.110</td>
+<td style="text-align: right;">1.113</td>
 </tr>
 </tbody>
 </table>
