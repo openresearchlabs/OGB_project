@@ -12,12 +12,23 @@ source("../funct.R")
 tse <- readRDS("../../data/tse.Rds")
 taxa_levels <- c("species","genus", "family", "phylum")
 
+prevalence.th <- 10/100
+detection.th <- 0.1/100
+
 variable <- "diet" 
 formula_used <- "~ diet * time + (1 | id)"
+correction <- "Benjamini-Hochberg FDR adjustment"
 ```
 
--   Group variable: **`r variable`**
--   Formula used: **`r formula_used`**
+Analysis information:
+
+-   Method: maaslin3
+-   Taxonomic level: `r taxa_levels`
+-   Group variable: `r variable`
+-   Formula used: `r formula_used`
+-   Correction: `r correction`
+-   Detection threshold: `r 100 * detection.th`%
+-   Prevalence threshold: `r prevalence.th`
 
 ```{r data_prep}
 # Create output directory for results
@@ -53,6 +64,10 @@ run_maaslin3 <- function(taxa_tse, taxa_name) {
 }
 ```
 
+
+For a complete table of maaslin3 results, see filepath "../../data/daa/daa_taxa/all_results.tsv"
+
+
 ```{r print_table}
 #| label: table-of-significant-results
 #| results: 'asis'
@@ -75,35 +90,54 @@ tab_res <- lapply(taxa_levels, function(taxa_name) {
     table_caption <- paste("Table of significant features for", taxa_name, 
                            "- Total features analyzed:", total_features)
     
+    # Split the results by model
+    daa_tab_split <- split(daa_tab, daa_tab$model)
+    
     # Format output for HTML or LaTeX
     if (knitr::is_html_output()) {
-      datatable(
-        daa_tab,
-        options = list(pageLength = 6, dom = 'Bfrtip'),
-        caption = table_caption,
-        rownames = FALSE
-      ) %>%
-      formatSignif(columns = c("qval_joint", "qval_individual", "coef"), digits = 3)
-    } else {
-      daa_tab %>%
-        mutate(across(where(is.numeric), ~round(., 3))) %>%
-        kbl(
+      lapply(daa_tab_split, function(df) {
+        datatable(
+          df,
+          options = list(pageLength = 6, dom = 'Bfrtip'),
           caption = table_caption,
-          booktabs = TRUE,
-          longtable = TRUE,
-          align = c('l', 'r', 'r', 'r', 'r', 'r', 'r')
+          rownames = FALSE
         ) %>%
-        kable_styling(latex_options = "repeat_header") %>%
-        row_spec(0, bold = TRUE)
+        formatSignif(columns = c("qval_joint", "qval_individual", "coef"), digits = 3)
+      })
+    } else {
+      lapply(daa_tab_split, function(df) {
+        df %>%
+          mutate(across(where(is.numeric), ~round(., 3))) %>%
+          kbl(
+            caption = paste(table_caption, "- Model:", unique(df$model)),
+            booktabs = TRUE,
+            longtable = TRUE,
+            align = c('l', 'r', 'r', 'r', 'r', 'r', 'r')
+          ) %>%
+          kable_styling(latex_options = "repeat_header") %>%
+          row_spec(0, bold = TRUE)
+      })
     }
   } else {
     return(NULL)
   }
 })
-tab_res[[1]]
-tab_res[[2]]
-tab_res[[3]]
-tab_res[[4]]
+species_tab <- tab_res[[1]]
+genus_tab <- tab_res[[2]]
+phylum_tab <- tab_res[[3]]
+family_tab <- tab_res[[4]]
+
+species_tab[["abundance"]]
+species_tab[["prevalence"]]
+
+genus_tab[["abundance"]]
+genus_tab[["prevalence"]]
+
+phylum_tab[["abundance"]]
+phylum_tab[["prevalence"]]
+# 
+# family_tab[["abundance"]]
+# family_tab[["prevalence"]]
 ```
 
 ```{r print results}

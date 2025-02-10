@@ -61,9 +61,7 @@ colnames(pvals) <- unique(tse$timepoint)
 pvals.timepoints <- pvals
 ```
 
-Number of significant findings within time points.
-
--   Kruskal test, Benjamini-Hochberg FDR adjustment
+Number of significant findings within time points (Kruskal test, Benjamini-Hochberg FDR adjustment).
 
 ```{r between_timepoint_analysis2}
 print(colSums(pvals.timepoints<0.25))
@@ -90,9 +88,7 @@ colnames(pvals) <- unique(tse$diet)
 pvals.treatments <- pvals
 ```
 
-Number of significant findings within treatments:
-
--   Paired Wilcoxon test, Benjamini-Hochberg FDR adjustment
+Number of significant findings within treatments (Paired Wilcoxon test, Benjamini-Hochberg FDR adjustment).
 
 ```{r between_timepoint_analysis3}
 print(colSums(pvals.treatments<0.25))
@@ -103,7 +99,7 @@ Let us look more closely to the significant hits. The logFC corresponds to logFC
 ```{r hits}
 #| layout-ncol: 3
 #| fig-width: 10
-#| fig-height: 10
+#| fig-height: 8
 library(reshape2)
 theme_set(theme_bw(30))
 tabs <- NULL # Collect results in a table
@@ -169,8 +165,14 @@ tabs <- tabs %>%
 ```
 
 ```{r table}
-library(knitr)
-kable(tabs)
+#| label: table
+if (knitr::is_html_output()) {
+  datatable(tabs,
+            options = list(pageLength = 10),
+            caption = "Table of significant hits")
+} else {
+  kable(tabs)
+}
 ```
 
 ```{r volcano-tab}
@@ -197,6 +199,20 @@ for (g in unique(tse$diet)) {
           Taxon = tax,
           mean1 = mean(subset(df, timepoint=="before")$signal),
           mean2 = mean(subset(df, timepoint=="after")$signal),
+          # Standard Deviations
+        # sd1 = sd(subset(df, timepoint == "before")$signal),
+        # sd2 = sd(subset(df, timepoint == "after")$signal),
+        # 
+        # # Medians
+        # median1 = median(subset(df, timepoint == "before")$signal),
+        # median2 = median(subset(df, timepoint == "after")$signal),
+        # 
+        # # IQR (25th and 75th percentiles)
+        # iqr25_1 = quantile(subset(df, timepoint == "before")$signal, 0.25),
+        # iqr75_1 = quantile(subset(df, timepoint == "before")$signal, 0.75),
+        # 
+        # iqr25_2 = quantile(subset(df, timepoint == "after")$signal, 0.25),
+        # iqr75_2 = quantile(subset(df, timepoint == "after")$signal, 0.75),
 	  logFC.clr = mean(subset(df, timepoint=="after")$clr - subset(df, timepoint=="before")$clr),
           FDR   = pv 
         ))
@@ -208,14 +224,14 @@ for (g in unique(tse$diet)) {
 
 ```{r volcano-tab-fix}
 tabs_all <- as.data.frame(tabs_all)
-tabs_all$mean.relabundance1 <- round(100 * as.numeric(tabs_all$mean1), 3); tabs_all$mean1 <- NULL
-tabs_all$mean.relabundance2 <- round(100 * as.numeric(tabs_all$mean2), 3); tabs_all$mean2 <- NULL
-tabs_all$FDR <- round(as.numeric(tabs_all$FDR), 4)
+tabs_all$mean.rel1 <- round(100 * as.numeric(tabs_all$mean1), 1); tabs_all$mean1 <- NULL
+tabs_all$mean.rel2 <- round(100 * as.numeric(tabs_all$mean2), 1); tabs_all$mean2 <- NULL
+tabs_all$FDR <- round(as.numeric(tabs_all$FDR), 3)
 tabs_all$logFC.clr <- round(as.numeric(tabs_all$logFC.clr), 4)
 ```
 
 ```{r volcano-plot}
-volcano_plot <- ggplot(tabs_all, aes(x = logFC.clr, y = FDR, size = mean.relabundance2)) +
+volcano_plot <- ggplot(tabs_all, aes(x = logFC.clr, y = FDR, size = mean.rel2)) +
   geom_point(aes(color = FDR < 0.25), alpha = 0.7) +  
   # geom_vline(xintercept = c(-1, 1), linetype = "dashed", color = "gray40") + 
   # geom_hline(yintercept = -log10(0.05), linetype = "dashed", color = "red") + 
