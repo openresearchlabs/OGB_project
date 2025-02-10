@@ -50,10 +50,14 @@ colSums(assay(tse, "counts"))
 # removing plasmids
 tse <- tse[grep("plasmid", rowData(tse)[,"kingdom"],
                 ignore.case = TRUE, invert = TRUE),]
+
+tse <- transformAssay(tse, method = "relabundance")
 # Add alpha diversity
-tse <- addAlpha(x = tse,assay.type = 'counts',
+tse <- addAlpha(x = tse, assay.type = 'counts',
                 index = c('observed', 'shannon'), 
-                niter = 100) 
+                niter = 100)
+
+assays(tse) <- assays(tse)[-which(names(assays(tse)) == "counts")]
 
 # make primary comparison into tse
 # Create a new column for group in colData of the TreeSummarizedExperiment object
@@ -77,7 +81,7 @@ for (comp in comparisons) {
 # Function to remove duplicates within specific group categories
 # Use the function to remove duplicates across both diet groups
 # tse <- remove_duplicates(tse)
-tse <- transformAssay(tse, method = "relabundance")
+
 tse <- agglomerateByRanks(tse)
 
 # Loop starts:

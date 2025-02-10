@@ -226,7 +226,7 @@
 \endfoot
 \bottomrule
 \endlastfoot
-oat & rice & 4 & 4 & 0.02 & 0.385\\*
+oat & rice & 4 & 4 & 0.02 & 0.373\\*
 \end{longtable}
 
 \paragraph{After treatment}\label{after-treatment}
@@ -254,7 +254,7 @@ oat & rice & 4 & 4 & 0.02 & 0.385\\*
 \endfoot
 \bottomrule
 \endlastfoot
-oat & rice & 3.9 & 4.1 & 0.06 & 0.047\\*
+oat & rice & 3.9 & 4.1 & 0.06 & 0.048\\*
 \end{longtable}
 
 \begin{center}
@@ -288,8 +288,8 @@ oat & rice & 3.9 & 4.1 & 0.06 & 0.047\\*
 \endfoot
 \bottomrule
 \endlastfoot
-oat & 4 & 3.9 & -0.02 & 0.137\\
-rice & 4 & 4.1 & 0.03 & 0.073\\*
+oat & 4 & 3.9 & -0.02 & 0.151\\
+rice & 4 & 4.1 & 0.03 & 0.078\\*
 \end{longtable}
 
 \begin{longtable}[t]{lrrrrl}
@@ -307,10 +307,10 @@ rice & 4 & 4.1 & 0.03 & 0.073\\*
 \endfoot
 \bottomrule
 \endlastfoot
-(Intercept) & 4.036 & 0.089 & 135.876 & 45.483 & 0.000\\
-dietrice & -0.076 & 0.125 & 135.877 & -0.613 & 0.541\\
-time & -0.063 & 0.043 & 67.447 & -1.471 & 0.146\\
-dietrice:time & 0.127 & 0.060 & 67.443 & 2.127 & 0.037\\*
+(Intercept) & 4.035 & 0.089 & 135.874 & 45.491 & 0.000\\
+dietrice & -0.076 & 0.125 & 135.874 & -0.607 & 0.545\\
+time & -0.062 & 0.043 & 67.447 & -1.464 & 0.148\\
+dietrice:time & 0.127 & 0.060 & 67.442 & 2.119 & 0.038\\*
 \end{longtable}
 
 \section{Alternate analyses}\label{alternate-analyses}
@@ -356,12 +356,12 @@ age & 0.01 & 0.00, 0.01 & 0.2 & 0.01 & 0.00, 0.02 & 0.2 \\
 \toprule
 \textbf{Paired test between timepoints (1 and 2)} & \textbf{Beta} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} \\ 
 \midrule\addlinespace[2.5pt]
-(Intercept) & 3.5 & 3.2, 3.9 & <0.001 \\ 
-meal\_group &  &  & 0.2 \\ 
+(Intercept) & 3.5 & 3.1, 3.9 & <0.001 \\ 
+meal\_group &  &  & 0.3 \\ 
     1 & — & — &  \\ 
-    2 & 0.23 & 0.00, 0.46 & 0.053 \\ 
-    3 & 0.16 & -0.07, 0.39 & 0.2 \\ 
-    4 & 0.13 & -0.05, 0.32 & 0.2 \\ 
+    2 & 0.23 & -0.07, 0.53 & 0.14 \\ 
+    3 & 0.16 & -0.14, 0.46 & 0.3 \\ 
+    4 & 0.13 & -0.05, 0.31 & 0.2 \\ 
 age & 0.01 & 0.00, 0.01 & 0.039 \\ 
 \bottomrule
 \end{tabular*}
@@ -376,7 +376,7 @@ age & 0.01 & 0.00, 0.01 & 0.039 \\
 class: TreeSummarizedExperiment 
 dim: 1700 140 
 metadata(0):
-assays(2): counts relabundance
+assays(1): relabundance
 rownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921
 rowData names(9): kingdom phylum ... strain clade_name
 colnames(140): AE1332 AE2332 ... VK1336 VK2336

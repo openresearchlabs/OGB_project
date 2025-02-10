@@ -16,19 +16,25 @@ tse <- tse[, tse$paired=="yes"]
 ```
 
 ```{r tsesub}
+file_path <- file.path("../../output/daa/daa_taxa/species/significant_results.tsv")
+daa_tab <- read_tsv(file_path, col_names = TRUE, show_col_types = FALSE) %>%
+      filter(!is.na(feature)) %>%
+      select(feature)
+significant_species <- daa_tab$feature
 genus_of_interest <- c("Lactobacillus", "Bifidobacterium")
 species_of_interest <- c("Bifidobacterium_adolescentis", "Lactobacillus_acidophilus", "Bifidobacterium_animalis", "Lactobacillus_gasseri", "Bifidobacterium_angulatum", "Bifidobacterium_bifidum", "Bifidobacterium_catenulatum", "Lactobacillus_iners", "Bifidobacterium_pullorum", "Tyzzerella_nexilis", "Ruminococcus_gnavus")
 
-taxa_of_interest <- c(genus_of_interest, species_of_interest)
+taxa_of_interest <- c(genus_of_interest, species_of_interest, significant_species)
 
 ```
 
 ```{r hits}
-#| layout-ncol: 3
-#| fig-width: 10
-#| fig-height: 10
+#| layout-ncol: 2
+#| fig-width: 5
+#| fig-height: 5
 library(reshape2)
-theme_set(theme_bw(30))
+theme_set(theme_bw(12))
+plots_list <- list()
 
 for (g in unique(tse$diet)) {
 
@@ -73,11 +79,14 @@ for (g in unique(tse$diet)) {
           scale_y_log10(labels = scales::percent) + 
           labs(title = paste(g, "/", tax), y = "Abundance (%)")  
         
-        # Print the plot for each taxon
-        print(p)
+        plots_list[[paste(tax, g, sep = "_")]] <- p
       }
     }
   }
+}
+ordered_plots <- plots_list[order(names(plots_list))]
+for (plot_name in names(ordered_plots)) {
+  print(ordered_plots[[plot_name]])
 }
 ```
 
