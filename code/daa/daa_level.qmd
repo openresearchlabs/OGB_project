@@ -34,7 +34,7 @@ Analysis information:
 
 Taxa that are less prevalent than this (in relabundance) have been agglomerated:
 
--   Detection threshold: `r 100 * detection.th`%
+-   Detection threshold: `r detection.th`
 -   Prevalence threshold: `r prevalence.th`
 -   Number of taxonomic groups: `r nrow(tse)`
 
@@ -163,6 +163,8 @@ tabs$logFC.clr <- round(as.numeric(tabs$logFC.clr), 4)
 tabs <- tabs %>%
   arrange(FDR, desc(logFC.clr))
 ```
+
+For a complete table of results, see [complete results](https://seafile.utu.fi/f/a5d57b061c3249e193da/)
 
 ```{r table}
 #| label: table

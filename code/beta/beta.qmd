@@ -155,9 +155,8 @@ bar_plot
 #| out.width: "100%"
 #| fig.align: "center"
 
-tse_heat <- transformAssay(
-    altExp(tse, "genus"), assay.type = "counts", method = "relabundance", pseudocount = 1)
-tse_heat <- transformAssay(tse_heat, assay.type = "relabundance", method = "clr")
+tse_heat <-  altExp(tse, "genus")
+tse_heat <- transformAssay(tse_heat, assay.type = "relabundance", method = "clr", pseudocount = TRUE)
 tse_heat <- transformAssay(
     tse_heat, assay.type = "clr", MARGIN = "rows", method = "standardize",
     name = "clr_z")
@@ -228,7 +227,7 @@ dissimilarity.index <- "bray"
 variable <- "diet"  
 adjust.method <- "fdr"
 test <- "Wilcoxon"
-index <- "time_divergence" 
+index <- "divergence" 
 ```
 
 -   **Taxonomic level:** `r tax.level`
@@ -244,10 +243,10 @@ tse <- runMDS(
         tse,
         FUN = getDissimilarity,
         method = "bray",
-        assay.type = "counts",
+        assay.type = "relabundance",
         name = "PCoA_BC"
     )
-tse <- transformAssay(tse, assay.type = "relabundance", method = "clr", pseudocount = 1)
+tse <- transformAssay(tse, assay.type = "relabundance", method = "clr", pseudocount = TRUE)
 # Calculate explained variance
 e <- attr(reducedDim(tse, "PCoA_BC"), "eig")
 rel_eig <- e / sum(e[e > 0])
@@ -273,10 +272,10 @@ p_ellipse
 
 ```{r trajectories}
 # Plot 2: Trajectories
-tse <- getStepwiseDivergence(tse, group = "id",
-                            time_field = "time",
-                            assay_name = "relabundance")
-tse_sub <- tse[, !is.na(colData(tse)$time_divergence)]
+tse <- addStepwiseDivergence(tse, group = "id",
+                            time.col = "time",
+                            assay.type = "relabundance")
+tse_sub <- tse[, !is.na(colData(tse)$divergence)]
 
 p2_traj <- plotReducedDim(
     tse[, !is.na(colData(tse)[["meal_group"]])],
@@ -305,7 +304,7 @@ p2_traj <- plotReducedDim(
 
 ```{r run_diversity_tests}
 # Calculate p-values
-run_divergence_tests <- function(tse, index = "time_divergence") {
+run_divergence_tests <- function(tse, index = "divergence") {
   # Extract values and timepoint
   values <- colData(tse)[[index]]
   timepoint <- tse$timepoint
@@ -408,7 +407,9 @@ if (knitr::is_html_output()) {
     ),
     caption = "Table of divergence paired between timepoint(1 and 2)",
     rownames = FALSE
-)
+) %>% 
+    formatRound(columns = c("mean"), digits = 2) %>%
+  formatSignif(columns = c("p.adj", "p.value"), digits = 3)
 } else {
   library(kableExtra)
   results_unpaired %>% 
@@ -772,9 +773,9 @@ p1 <- plotReducedDim(tse[,!is.na(colData(tse)[["group"]])], "PCoA_BC",
     stat_ellipse(aes(color = group))
 
 # Plot 2: Trajectories
-tse <- getStepwiseDivergence(tse, group = "group",
-                            time_field = "time",
-                            assay_name = "relabundance")
+tse <- addStepwiseDivergence(tse, group = "id",
+                            time.col = "time",
+                            assay.type = "relabundance")
 
 p2 <- plotReducedDim(tse[,!is.na(colData(tse)[["group"]])],
                      "PCoA_BC", colour_by = "timepoint",
@@ -801,9 +802,9 @@ p2 <- plotReducedDim(tse[,!is.na(colData(tse)[["group"]])],
 # Plot 3: Divergence comparison
 p3 <- colData(tse) %>% 
     as_tibble() %>%
-    select(c("group", "time_divergence")) %>% 
-    tidyr::drop_na(c("group", "time_divergence")) %>% 
-    ggplot(aes(x = group, y = time_divergence)) + 
+    select(c("group", "divergence")) %>% 
+    tidyr::drop_na(c("group", "divergence")) %>% 
+    ggplot(aes(x = group, y = divergence)) + 
     geom_boxplot(outlier.shape = NA) +
     geom_jitter(width = 0.1, size = 0.5) +
     geom_signif(comparisons = combn(levels(colData(tse)[,"group"]), 2, simplify = FALSE),

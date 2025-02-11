@@ -18,7 +18,7 @@
     "href": "beta/beta.html#alternate-analysis",
     "title": "Beta diversity",
     "section": "4 Alternate analysis",
-    "text": "4 Alternate analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4.1 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 1700 140 \nmetadata(0):\nassays(2): counts relabundance\nrownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(140): AE1332 AE2332 ... VK1336 VK2336\ncolData names(17): sample id ... time_difference time_divergence\nreducedDimNames(1): PCoA_BC\nmainExpName: NULL\naltExpNames(20): kingdom phylum ... KO metacyc\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
+    "text": "4 Alternate analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4.1 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 1700 140 \nmetadata(0):\nassays(1): relabundance\nrownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(140): AE1332 AE2332 ... VK1336 VK2336\ncolData names(18): sample id ... time_diff ref_samples\nreducedDimNames(1): PCoA_BC\nmainExpName: NULL\naltExpNames(20): kingdom phylum ... KO metacyc\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
   },
   {
     "objectID": "daa/daa_ko.html",
@@ -60,56 +60,21 @@
     "href": "daa/daa_taxa.html",
     "title": "DAA Taxa",
     "section": "",
-    "text": "Analysis information:\n\nMethod: maaslin3\nTaxonomic level: species, genus, family, phylum\nGroup variable: diet\nFormula used: ~ diet * time + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 0.1\n\nFor a complete table of maaslin3 results, see filepath “../../data/daa/daa_taxa/all_results.tsv”\n\n\n\n\n\n\n\n\n\n\n\n\nNULL NULL"
+    "text": "Analysis information:\n\nMethod: maaslin3\nTaxonomic level: species, genus, family, phylum\nGroup variable: diet\nFormula used: ~ diet * time + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.001\nPrevalence threshold: 0.1\n\nFor a complete table of maaslin3 results, see Species, genus, phylum, family\nThe following tables lists all associations that pass MaAsLin 3’s significance threshold for joint or individual q-values, ordered by increasing individual q-value.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis plots contain a combined coefficient plot and heatmap of the most significant association between microbial features (listed on the y-axis) and different dietary conditions over time.\nThe coef plot shows the estimated effect sizes (β coefficients) for different microbial features.\n\nCircles (○) represent associations based on abundance.\nTriangles (△) represent associations based on prevalence.\n\nThe purple color represents the significance level (FDR-adjusted p-value) for abundance. The teal color represents the significance level (FDR-adjusted p-value) for prevalence.Darker colors indicate more significant associations.Error bars show uncertainty in the estimates.\nThe heatmap summarizes how different microbes are affected. Blue/Red coloring represents the effect sizes:\n\nDark blue: Strong negative association.\nLight blue: Weak negative association.\nLight red: Weak positive association.\nDark red: Strong positive association.\nGray (NA): No data.\n\nAsterisks () indicate significant associations: - (p &lt; 0.1) - ** (p &lt; 0.01)\n\n\n\n\n\ntaxa_image18\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBox plots are used for categorical data abundance associations. Grids are used for categorical data prevalence associations. Data points plotted are after filtering, normalization, and transformation so that the scale in the plot is the scale that was used in fitting."
   },
   {
-    "objectID": "daa/daa_taxa.html#species",
-    "href": "daa/daa_taxa.html#species",
+    "objectID": "daa/daa_taxa.html#summary-plots",
+    "href": "daa/daa_taxa.html#summary-plots",
     "title": "DAA Taxa",
-    "section": "1 species",
-    "text": "1 species\n\n\n\ntaxa_image18"
+    "section": "",
+    "text": "This plots contain a combined coefficient plot and heatmap of the most significant association between microbial features (listed on the y-axis) and different dietary conditions over time.\nThe coef plot shows the estimated effect sizes (β coefficients) for different microbial features.\n\nCircles (○) represent associations based on abundance.\nTriangles (△) represent associations based on prevalence.\n\nThe purple color represents the significance level (FDR-adjusted p-value) for abundance. The teal color represents the significance level (FDR-adjusted p-value) for prevalence.Darker colors indicate more significant associations.Error bars show uncertainty in the estimates.\nThe heatmap summarizes how different microbes are affected. Blue/Red coloring represents the effect sizes:\n\nDark blue: Strong negative association.\nLight blue: Weak negative association.\nLight red: Weak positive association.\nDark red: Strong positive association.\nGray (NA): No data.\n\nAsterisks () indicate significant associations: - (p &lt; 0.1) - ** (p &lt; 0.01)\n\n\n\n\n\ntaxa_image18"
   },
   {
-    "objectID": "daa/daa_taxa.html#family",
-    "href": "daa/daa_taxa.html#family",
+    "objectID": "daa/daa_taxa.html#associations-plots",
+    "href": "daa/daa_taxa.html#associations-plots",
     "title": "DAA Taxa",
-    "section": "2 family",
-    "text": "2 family"
-  },
-  {
-    "objectID": "daa/daa_taxa.html#genus",
-    "href": "daa/daa_taxa.html#genus",
-    "title": "DAA Taxa",
-    "section": "3 genus",
-    "text": "3 genus"
-  },
-  {
-    "objectID": "daa/daa_taxa.html#phylum",
-    "href": "daa/daa_taxa.html#phylum",
-    "title": "DAA Taxa",
-    "section": "4 phylum",
-    "text": "4 phylum"
-  },
-  {
-    "objectID": "daa/daa_taxa.html#associations-species",
-    "href": "daa/daa_taxa.html#associations-species",
-    "title": "DAA Taxa",
-    "section": "5 Associations-species",
-    "text": "5 Associations-species"
-  },
-  {
-    "objectID": "daa/daa_taxa.html#associations-family",
-    "href": "daa/daa_taxa.html#associations-family",
-    "title": "DAA Taxa",
-    "section": "6 Associations-family",
-    "text": "6 Associations-family"
-  },
-  {
-    "objectID": "daa/daa_taxa.html#associations-genus",
-    "href": "daa/daa_taxa.html#associations-genus",
-    "title": "DAA Taxa",
-    "section": "7 Associations-genus",
-    "text": "7 Associations-genus"
+    "section": "",
+    "text": "Box plots are used for categorical data abundance associations. Grids are used for categorical data prevalence associations. Data points plotted are after filtering, normalization, and transformation so that the scale in the plot is the scale that was used in fitting."
   },
   {
     "objectID": "ratio/ratio.html",
@@ -130,6 +95,6 @@
     "href": "ratio/ratio.html#data-summary",
     "title": "Bacteroidetes/Firmicutes ratio",
     "section": "2 Data Summary",
-    "text": "2 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 18 140 \nmetadata(1): agglomerated_by_rank\nassays(2): counts relabundance\nrownames(18): Actinobacteria Ascomycota ... Thaumarchaeota\n  Verrucomicrobia\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(140): AE1332 AE2332 ... VK1336 VK2336\ncolData names(17): sample id ... bact_firm_ratio bfratio\nreducedDimNames(0):\nmainExpName: NULL\naltExpNames(0):\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
+    "text": "2 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 18 140 \nmetadata(1): agglomerated_by_rank\nassays(1): relabundance\nrownames(18): Actinobacteria Ascomycota ... Thaumarchaeota\n  Verrucomicrobia\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(140): AE1332 AE2332 ... VK1336 VK2336\ncolData names(17): sample id ... bact_firm_ratio bfratio\nreducedDimNames(0):\nmainExpName: NULL\naltExpNames(0):\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
   }
 ]
