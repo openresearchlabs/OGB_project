@@ -2,7 +2,7 @@
 title: "DAA Taxa"
 ---
 
-### Differential abundance analysis
+# Differential abundance analysis
 
 ```{r setup}
 library(maaslin3)
@@ -27,7 +27,7 @@ Analysis information:
 -   Group variable: `r variable`
 -   Formula used: `r formula_used`
 -   Correction: `r correction`
--   Detection threshold: `r 100 * detection.th`%
+-   Detection threshold: `r detection.th`
 -   Prevalence threshold: `r prevalence.th`
 
 ```{r data_prep}
@@ -65,7 +65,9 @@ run_maaslin3 <- function(taxa_tse, taxa_name) {
 ```
 
 
-For a complete table of maaslin3 results, see filepath "../../data/daa/daa_taxa/all_results.tsv"
+For a complete table of maaslin3 results, see [Species](https://github.com/openresearchlabs/OGB_project/blob/main/output/daa/daa_taxa/species/all_results.tsv), [genus](https://github.com/openresearchlabs/OGB_project/blob/main/output/daa/daa_taxa/genus/all_results.tsv), [phylum](https://github.com/openresearchlabs/OGB_project/blob/main/output/daa/daa_taxa/phylum/all_results.tsv), [family](https://github.com/openresearchlabs/OGB_project/blob/main/output/daa/daa_taxa/family/all_results.tsv)
+
+The following tables lists all associations that pass MaAsLin 3's significance threshold for joint or individual q-values, ordered by increasing individual q-value.
 
 
 ```{r print_table}
@@ -144,35 +146,60 @@ phylum_tab[["prevalence"]]
 # png_files <- list.files(output_base_dir, pattern = "\\.png$", full.names = TRUE, recursive = TRUE)
 ```
 
-## species
+## Summary plots
+
+This plots contain a combined coefficient plot and heatmap of the most significant association between microbial features (listed on the y-axis) and different dietary conditions over time.
+
+The coef plot shows the estimated effect sizes (β coefficients) for different microbial features.
+
+-   Circles (○) represent associations based on abundance.
+-   Triangles (△) represent associations based on prevalence.
+
+The purple color represents the significance level (FDR-adjusted p-value) for abundance. The teal color represents the significance level (FDR-adjusted p-value) for prevalence.Darker colors indicate more significant associations.Error bars show uncertainty in the estimates.
+
+The heatmap summarizes how different microbes are affected. Blue/Red coloring represents the effect sizes:
+
+-   Dark blue: Strong negative association.
+-   Light blue: Weak negative association.
+-   Light red: Weak positive association.
+-   Dark red: Strong positive association.
+-   Gray (NA): No data.
+
+Asterisks (*) indicate significant associations: -* (p \< 0.1) - \*\* (p \< 0.01)
+
+### species
 
 ![taxa_image18](../../output/daa/daa_taxa/species/figures/summary_plot.png)
 
-## family
+### family
 
 ![taxa_image5](../../output/daa/daa_taxa/family/figures/summary_plot.png)\
 
-## genus
+### genus
 
 ![taxa_image13](../../output/daa/daa_taxa/genus/figures/summary_plot.png)\
 
-## phylum
+### phylum
 
 ![taxa_image14](../../output/daa/daa_taxa/phylum/figures/summary_plot.png)\
 
-## Associations-species
+## Associations plots
+
+Box plots are used for categorical data abundance associations. Grids are used for categorical data prevalence associations. Data points plotted are after filtering, normalization, and transformation so that the scale in the plot is the scale that was used in fitting.
+
+### Associations-species
 
 ![taxa_image15](../../output/daa/daa_taxa/species/figures/association_plots/diet/linear/diet_Clostridiales_bacterium_KLE1615_linear.png)\
 ![taxa_image16](../../output/daa/daa_taxa/species/figures/association_plots/diet/linear/diet_GGB34797_SGB14322_linear.png)\
 ![taxa_image17](../../output/daa/daa_taxa/species/figures/association_plots/time/logistic/time_Lawsonibacter_asaccharolyticus_logistic.png)\
 ![taxa_image20](../../output/daa/daa_taxa/species/figures/association_plots/diet/logistic/diet_Blautia_wexlerae_logistic.png)
 
-## Associations-family
+### Associations-family
 
 ![taxa_image1](../../output/daa/daa_taxa/family/figures/association_plots/diet/linear/diet_FGB12107_linear.png)\
 ![taxa_image4](../../output/daa/daa_taxa/family/figures/association_plots/time/logistic/time_Clostridiales_unclassified_logistic.png)\
 
-## Associations-genus
+### Associations-genus
 
 ![taxa_image6](../../output/daa/daa_taxa/genus/figures/association_plots/diet/linear/diet_Clostridiaceae_unclassified_linear.png)\
 ![taxa_image7](../../output/daa/daa_taxa/genus/figures/association_plots/diet/linear/diet_Eubacteriales_unclassified_linear.png)\

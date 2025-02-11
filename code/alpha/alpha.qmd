@@ -535,7 +535,9 @@ if (knitr::is_html_output()) {
     ),
     caption = "Table of interaction effects",
     rownames = FALSE
-)
+) %>% 
+    formatRound(columns = c("Estimate", "Std. Error", "df", "t value"), digits = 2) %>%
+  formatSignif(columns = "Pr(>|t|)", digits = 3)
 } else {
   library(kableExtra)
   fixed_effects %>% 
