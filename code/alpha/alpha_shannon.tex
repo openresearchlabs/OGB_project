@@ -177,8 +177,6 @@
 \maketitle
 
 
-\section{Community diversity}\label{community-diversity}
-
 \section{Group-wise comparisons}\label{group-wise-comparisons}
 
 \begin{itemize}
@@ -229,6 +227,18 @@
 oat & rice & 4 & 4 & 0.02 & 0.373\\*
 \end{longtable}
 
+The alpha diversity between the `oat' and `rice' groups appears to be
+very similar, with minimal difference in the mean values (both 4.00).
+
+The log2FC indicates almost no change between the two groups in terms of
+diversity \texttt{(0.02)}, further supporting the notion of no
+substantial difference.
+
+The p.adj of `0.373' shows that the difference between the groups is not
+statistically significant. Thus, we would conclude that the treatment
+(`oat' and `rice') does not have a significant impact on the alpha
+diversity of the groups at the baseline.
+
 \paragraph{After treatment}\label{after-treatment}
 
 \begin{itemize}
@@ -256,6 +266,20 @@ oat & rice & 4 & 4 & 0.02 & 0.373\\*
 \endlastfoot
 oat & rice & 3.9 & 4.1 & 0.06 & 0.048\\*
 \end{longtable}
+
+After treatment, the mean alpha diversity for `oat' is \texttt{3.90},
+and for `rice' is \texttt{4.10}, showing a slight difference between the
+two groups, with `rice' having slightly higher diversity.
+
+The log2FC value of \texttt{0.06} indicates a very small positive
+difference, suggesting that the `rice' group experienced a slight
+increase in diversity compared to `oat'.
+
+The p.adj of \texttt{0.0480} indicates that the difference between the
+groups is statistically significant (since it's less than
+\texttt{0.05}), meaning that the observed difference in diversity
+between the `oat' and `rice' groups after treatment is likely not
+random.
 
 \begin{center}
 \includegraphics{alpha_shannon_files/figure-pdf/viz-div_change-1.pdf}
@@ -292,6 +316,16 @@ oat & 4 & 3.9 & -0.02 & 0.151\\
 rice & 4 & 4.1 & 0.03 & 0.078\\*
 \end{longtable}
 
+For the oat diet, there was a slight decrease in alpha diversity from
+Timepoint 1 \texttt{(mean\ =\ 4.00)}to Timepoint 2
+\texttt{(mean\ =\ 3.90)}, but the change was not statistically
+significant \texttt{(p-value\ =\ 0.151)}.
+
+For the rice diet, there was a slight increase in alpha diversity from
+Timepoint 1 \texttt{(mean\ =\ 4.00)} to Timepoint 2
+\texttt{(mean\ =\ 4.10)}, but again, the change was not statistically
+significant \texttt{(p-value\ =\ 0.0780)}.
+
 \subsection{LMM}\label{lmm}
 
 \begin{itemize}
@@ -325,6 +359,44 @@ dietrice & -0.076 & 0.125 & 135.874 & -0.607 & 0.545\\
 time & -0.062 & 0.043 & 67.447 & -1.464 & 0.148\\
 dietrice:time & 0.127 & 0.060 & 67.442 & 2.119 & 0.038\\*
 \end{longtable}
+
+(Intercept):
+
+Estimate: \texttt{4.04} This represents the baseline value of the alpha
+diversity when both the diet and timepoint are at their reference
+categories (oat for diet and before for timepoint).
+\texttt{Pr(\textgreater{}\textbar{}t\textbar{}):\ 4.19e-84}, which is
+extremely small and indicates highly significant evidence that the
+intercept term is different from zero.
+
+dietrice:
+
+Estimate: \texttt{-0.08} This is the difference in alpha diversity
+between rice and the reference diet (oat), after adjusting for the
+effect of time. \texttt{Pr(\textgreater{}\textbar{}t\textbar{}):\ 0.545}
+suggests that the diet (rice vs oat) effect is not statistically
+significant. The difference in alpha diversity between rice and oat
+diets is not substantial enough to conclude that it is different.
+
+time:
+
+Estimate: \texttt{-0.06} This is the difference in alpha diversity
+between timepoints ( after vs before), after adjusting for the effect of
+diet. \texttt{Pr(\textgreater{}\textbar{}t\textbar{}):\ 0.148} indicates
+that the effect of time (before vs after) on alpha diversity is not
+statistically significant. This suggests that alpha diversity does not
+change significantly between timepoints in the study.
+
+dietrice:time (Interaction ):
+
+Estimate:\texttt{0.13} This is the interaction between diet (rice vs
+oat) and timepoint (before vs after). The positive estimate suggests
+that the effect of time on alpha diversity differs between the rice and
+oat diets. \texttt{Pr(\textgreater{}\textbar{}t\textbar{}):\ 0.0378}
+indicates that the interaction between diet and timepoint is
+statistically significant at the usual significance level
+\texttt{(0.05)}. This suggests that the relationship between alpha
+diversity and timepoint differs for the rice and oat diets.
 
 \section{Alternate analyses}\label{alternate-analyses}
 

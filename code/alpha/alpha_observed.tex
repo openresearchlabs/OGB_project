@@ -177,8 +177,6 @@
 \maketitle
 
 
-\section{Community diversity}\label{community-diversity}
-
 \section{Group-wise comparisons}\label{group-wise-comparisons}
 
 \begin{itemize}
@@ -229,6 +227,14 @@
 oat & rice & 210.9 & 231.3 & 0.13 & 0.133\\*
 \end{longtable}
 
+Before treatment, the rice group had a slightly higher observed alpha
+diversity \texttt{(231.30)} compared to the oat group \texttt{(210.90)}.
+The fold change (log2FC) of \texttt{0.13} suggests a small increase in
+richness for the rice group. However, the corrected p-value
+\texttt{(p.adj\ =\ 0.133)} indicates that this difference is not
+statistically significant, meaning it could be due to random variation
+rather than a true effect of diet.
+
 \paragraph{After treatment}\label{after-treatment}
 
 \begin{itemize}
@@ -256,6 +262,13 @@ oat & rice & 210.9 & 231.3 & 0.13 & 0.133\\*
 \endlastfoot
 oat & rice & 206.9 & 233 & 0.17 & 0.054\\*
 \end{longtable}
+
+After treatment, the rice group \texttt{(233.00)} continued to show a
+higher observed alpha diversity compared to the oat group
+\texttt{(206.90)}, with a fold change (log2FC) of \texttt{0.17}. The
+adjusted p-value \texttt{(p.adj\ =\ 0.0540)} is approaching statistical
+significance, suggesting a potential effect of diet on diversity, though
+it remains marginal.
 
 \begin{center}
 \includegraphics{alpha_observed_files/figure-pdf/viz-div_change-1.pdf}
@@ -292,6 +305,19 @@ oat & 210.9 & 206.9 & 0.04 & 0.120\\
 rice & 231.3 & 233.0 & 0.13 & 0.363\\*
 \end{longtable}
 
+Oat group: Observed alpha diversity slightly decreased from
+\texttt{210.90} to \texttt{206.90} (log2FC = \texttt{0.04}, p =
+\texttt{0.120}), indicating a small but non-significant reduction over
+time.
+
+Rice group: Diversity increased modestly from \texttt{231.30} to
+\texttt{233.00} (log2FC = \texttt{0.13}, p = \texttt{0.363}), but this
+change is also not statistically significant.
+
+Overall, there were no significant within-group changes in observed
+alpha diversity over time, suggesting that dietary intervention had a
+minimal effect on diversity shifts within each group.
+
 \subsection{LMM}\label{lmm}
 
 \begin{itemize}
@@ -325,6 +351,19 @@ dietrice & 0.115 & 0.118 & 88.333 & 0.973 & 0.333\\
 time & -0.027 & 0.020 & 67.103 & -1.365 & 0.177\\
 dietrice:time & 0.036 & 0.028 & 67.102 & 1.291 & 0.201\\*
 \end{longtable}
+
+Diet effect (rice vs.~oat): No significant difference between rice and
+oat groups \texttt{(Estimate\ =\ 0.12,\ p\ =\ 0.333}), suggesting
+baseline diversity was similar.
+
+Time effect: A slight decrease in diversity over time
+\texttt{(Estimate\ =\ -0.03,\ p\ =\ 0.177)}, but this was not
+statistically significant.
+
+Diet × Time interaction: The interaction term
+\texttt{(Estimate\ =\ 0.04,\ p\ =\ 0.201)} suggests that the change in
+diversity over time did not significantly differ between the oat and
+rice groups.
 
 \section{Alternate analyses}\label{alternate-analyses}
 
