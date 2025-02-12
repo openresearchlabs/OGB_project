@@ -5,8 +5,6 @@ params:
   tax.level: default
 ---
 
-### Differential abundance analysis
-
 ```{r setup}
 # Source group-assignment
 source("../funct.R")
@@ -97,12 +95,13 @@ print(colSums(pvals.treatments<0.25))
 Let us look more closely to the significant hits. The logFC corresponds to logFC in CLR (tp2-tp1).
 
 ```{r hits}
-#| layout-ncol: 3
+#| layout-ncol: 4
 #| fig-width: 10
 #| fig-height: 8
 library(reshape2)
 theme_set(theme_bw(30))
-tabs <- NULL # Collect results in a table
+tabs <- NULL 
+plots_list <- list()
 for (g in unique(tse$diet)) {
 
   # P-values
@@ -128,6 +127,10 @@ for (g in unique(tse$diet)) {
         ) %>%
         ungroup() %>%
         as.data.frame(check.names = FALSE)
+      
+      min_change <- min(df$change, na.rm = TRUE)
+      max_change <- max(df$change, na.rm = TRUE)
+      median_change <- median(df$change, na.rm = TRUE)
 
       tabs <-
         rbind(tabs,
@@ -145,24 +148,41 @@ for (g in unique(tse$diet)) {
              # geom_jitter(width=0.05) +
              geom_point() + 	     	     
              geom_line(aes(group = id, color = change)) +
-          scale_color_gradient2(midpoint=0, low="blue", mid="white", high="red", space ="Lab") +
+          scale_color_gradient2(midpoint=median_change, 
+                                low="blue", 
+                                mid="white", 
+                                high="red", 
+                                space ="Lab",
+                                limits = c(min_change, max_change)) +
 	     scale_y_log10(labels = scales::percent) + 
 	     labs(title=paste(g, "/", tax),
 	          y="Abundance (%)")  
-      print(p)
+      
+      plots_list[[paste(tax, "0", g, sep = "_")]] <- p
     }
   }
 }
 
+ordered_plots <- plots_list[order(names(plots_list))]
+
+for (plot_name in names(ordered_plots)) {
+  print(ordered_plots[[plot_name]])
+}
+
+```
+
+
+```{r}
 # Clean up the table
 tabs <- as.data.frame(tabs)
-tabs$mean.relabundance1 <- round(100 * as.numeric(tabs$mean1), 3); tabs$mean1 <- NULL
-tabs$mean.relabundance2 <- round(100 * as.numeric(tabs$mean2), 3); tabs$mean2 <- NULL
+tabs$mean.rel1 <- round(100 * as.numeric(tabs$mean1), 3); tabs$mean1 <- NULL
+tabs$mean.rel2 <- round(100 * as.numeric(tabs$mean2), 3); tabs$mean2 <- NULL
 tabs$FDR <- round(as.numeric(tabs$FDR), 4)
 tabs$logFC.clr <- round(as.numeric(tabs$logFC.clr), 4)
 tabs <- tabs %>%
   arrange(FDR, desc(logFC.clr))
 ```
+
 
 For a complete table of results, see [complete results](https://seafile.utu.fi/f/a5d57b061c3249e193da/)
 
@@ -233,6 +253,9 @@ tabs_all$logFC.clr <- round(as.numeric(tabs_all$logFC.clr), 4)
 ```
 
 ```{r volcano-plot}
+#| fig.width: 12
+#| fig.height: 8
+
 volcano_plot <- ggplot(tabs_all, aes(x = logFC.clr, y = FDR, size = mean.rel2)) +
   geom_point(aes(color = FDR < 0.25), alpha = 0.7) +  
   # geom_vline(xintercept = c(-1, 1), linetype = "dashed", color = "gray40") + 
@@ -243,7 +266,7 @@ volcano_plot <- ggplot(tabs_all, aes(x = logFC.clr, y = FDR, size = mean.rel2)) 
     x = "Log Fold Change (CLR)",
     y = "FDR"
   ) +
-  scale_color_manual(values = c("gray", "blue")) +  
+  scale_color_manual(values = c("blue", "red")) +  
   theme_minimal(base_size = 14) +
   theme(
     legend.position = "none",

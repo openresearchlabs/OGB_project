@@ -525,11 +525,21 @@ if (knitr::is_html_output()) {
 }
 ```
 
+### LMM
+
 ```{r lmer-stuff}
+adjust.method <- "FDR"
+test <- "paired Wilcoxon"
+formula_used <- "~ diet * timepoint + (1 | id)"
+
 tse$bfratio <- log2(tse$bact_firm_ratio)
 res <- run_lmer(tse, "bfratio")
 l <- summary(res)
 ```
+
+-   Multiple testing correction: **`r adjust.method`**
+-   Statistical test: **`r test`**
+-   Formula used: **`r formula_used`**
 
 ```{r clean-lmer}
 fixed_effects <- as.data.frame(l$coefficients) %>%

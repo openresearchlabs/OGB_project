@@ -1,0 +1,17 @@
+{
+  "hash": "66b9a55f20977e09ad5bed9225d800bd",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Differential abundance analysis\"\nauthor: \"\"\n---\n\n::: {.cell}\n\n:::\n\n\n\n\nAnalysis information:\n\n-   Method: maaslin3\n-   Taxonomic level: species\n-   Group variable: Diet\n-   Formula used: **~ diet * timepoint + (1 | id)**\n-   Correction: **Benjamini-Hochberg FDR adjustment**\n-   Detection threshold: 0.001\n-   Prevalence threshold: 0.1\n\n\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell layout-ncol=\"3\"}\n::: {.cell-output-display}\n![](daa_maaslin_files/figure-html/hits-1.png){width=1152}\n:::\n\n::: {.cell-output-display}\n![](daa_maaslin_files/figure-html/hits-2.png){width=1152}\n:::\n\n::: {.cell-output-display}\n![](daa_maaslin_files/figure-html/hits-3.png){width=1152}\n:::\n\n::: {.cell-output-display}\n![](daa_maaslin_files/figure-html/hits-4.png){width=1152}\n:::\n\n::: {.cell-output-display}\n![](daa_maaslin_files/figure-html/hits-5.png){width=1152}\n:::\n\n::: {.cell-output-display}\n![](daa_maaslin_files/figure-html/hits-6.png){width=1152}\n:::\n\n::: {.cell-output-display}\n![](daa_maaslin_files/figure-html/hits-7.png){width=1152}\n:::\n\n::: {.cell-output-display}\n![](daa_maaslin_files/figure-html/hits-8.png){width=1152}\n:::\n\n::: {.cell-output-display}\n![](daa_maaslin_files/figure-html/hits-9.png){width=1152}\n:::\n\n::: {.cell-output-display}\n![](daa_maaslin_files/figure-html/hits-10.png){width=1152}\n:::\n\n::: {.cell-output-display}\n![](daa_maaslin_files/figure-html/hits-11.png){width=1152}\n:::\n\n::: {.cell-output-display}\n![](daa_maaslin_files/figure-html/hits-12.png){width=1152}\n:::\n:::\n",
+    "supporting": [
+      "daa_maaslin_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
