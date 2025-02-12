@@ -26,13 +26,15 @@ website:
         href: ratio/ratio.html
       - text: "DAA"
         menu:
-          - text: "Taxa"
+          - text: "Maaslin"
             href: daa/daa_taxa.html
           - text: "Taxa of interest"
             href: daa/daa_interest.html
-          - text: "Genus Taxa"
+          - text: "Significant hits"
+            href: daa/daa_maaslin.html
+          - text: "Genus"
             href: daa/daa_genus_prevalent.html
-          - text: "Species Taxa"
+          - text: "Species"
             href: daa/daa_species_prevalent.html
           - text: "Pathway Abundance"
             href: daa/daa_pa.html

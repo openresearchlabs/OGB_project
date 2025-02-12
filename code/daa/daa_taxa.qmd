@@ -25,8 +25,8 @@ Analysis information:
 -   Method: maaslin3
 -   Taxonomic level: `r taxa_levels`
 -   Group variable: `r variable`
--   Formula used: `r formula_used`
--   Correction: `r correction`
+-   Formula used: **`r formula_used`**
+-   Correction: **`r correction`**
 -   Detection threshold: `r detection.th`
 -   Prevalence threshold: `r prevalence.th`
 

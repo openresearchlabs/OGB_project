@@ -188,7 +188,7 @@
 \item
   \textbf{Group variable:} diet
 \item
-  \textbf{Multiple testing correction:} fdr
+  \textbf{Multiple testing correction:} FDR
 \item
   \textbf{Statistical test} Wilcoxon
 \end{itemize}
@@ -206,7 +206,7 @@
 \begin{itemize}
 \tightlist
 \item
-  Multiple testing correction: \textbf{fdr}
+  Multiple testing correction: \textbf{FDR}
 \item
   Statistical test: \textbf{Wilcoxon}
 \end{itemize}
@@ -234,7 +234,7 @@ oat & rice & 210.9 & 231.3 & 0.13 & 0.133\\*
 \begin{itemize}
 \tightlist
 \item
-  Multiple testing correction: \textbf{fdr}
+  Multiple testing correction: \textbf{FDR}
 \item
   Statistical test: \textbf{Wilcoxon}
 \end{itemize}
@@ -291,6 +291,19 @@ oat & rice & 206.9 & 233 & 0.17 & 0.054\\*
 oat & 210.9 & 206.9 & 0.04 & 0.120\\
 rice & 231.3 & 233.0 & 0.13 & 0.363\\*
 \end{longtable}
+
+\subsection{LMM}\label{lmm}
+
+\begin{itemize}
+\tightlist
+\item
+  Multiple testing correction: \textbf{FDR}
+\item
+  Statistical test: \textbf{paired Wilcoxon}
+\item
+  Formula used: \textbf{\textasciitilde{} diet * timepoint + (1
+  \textbar{} id)}
+\end{itemize}
 
 \begin{longtable}[t]{lrrrrl}
 \caption{Table of interaction effects}\\

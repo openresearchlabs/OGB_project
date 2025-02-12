@@ -12,7 +12,7 @@ params:
 # Alpha diversity
 index <- params$index
 variable      <- "diet" 
-adjust.method <- "fdr"
+adjust.method <- "FDR"
 test <- "Wilcoxon"
 ```
 
@@ -509,7 +509,13 @@ if (knitr::is_html_output()) {
 }
 ```
 
+### LMM
+
 ```{r lmer-stuff}
+adjust.method <- "FDR"
+test <- "paired Wilcoxon"
+formula_used <- "~ diet * timepoint + (1 | id)"
+
 if (index == "observed") {
   tse$observed_log2 <- log2(tse$observed)
   res <- run_lmer(tse, "observed_log2")
@@ -518,6 +524,10 @@ if (index == "observed") {
 }
 l <- summary(res)
 ```
+
+-   Multiple testing correction: **`r adjust.method`**
+-   Statistical test: **`r test`**
+-   Formula used: **`r formula_used`**
 
 ```{r clean-lmer}
 fixed_effects <- as.data.frame(l$coefficients) %>%
