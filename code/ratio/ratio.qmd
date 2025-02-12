@@ -402,6 +402,37 @@ p2 <- p2 + coord_cartesian(ylim = c(y_min, y_max))
 #wrap_plots(p1, p2, axes = "collect")
 ```
 
+```{r Explanations}
+before_exp <- "
+
+The B/F ratio was slightly lower in the rice group `(mean = 0.29)` compared to the oat group `(mean = 0.32)`. The fold change `(log2FC = -0.12)` suggests a small decrease in the ratio for the rice group. However, this difference was not statistically significant `(p.adj = 0.410)`, indicating no strong evidence of a baseline difference between the two diet groups."
+
+after_exp <- "
+
+The B/F ratio was identical between the oat and rice groups (`mean = 0.33` for both) after treatment. The fold change `(log2FC = -0.02)` indicates minimal difference. The p-value `(p.adj = 0.680)` confirms that there is no statistically significant difference in the B/F ratio between the two diet groups post-treatment."
+
+paired_exp <- "
+
+In the oat diet group, the B/F ratio slightly increased from `0.32 to 0.33` (log2FC = `0.28`, p = `0.800`), indicating no significant change over time.
+
+In the rice diet group, the B/F ratio increased from `0.29 to 0.33` (log2FC = `1.07`, p = `0.370`), but this change was not statistically significant.
+
+Hence, B/F ratio remained relatively stable over time for both diet groups, with no significant shifts from before to after treatment."
+
+lmm_exp <- "
+
+The Intercept is highly significant (Estimate = `-1.93`, `p = 8.67e-8`), suggesting a clear baseline effect before treatment.
+
+
+The dietrice term, representing the difference between the rice and oat groups, is not significant (Estimate = `-0.51`, p = `0.286`).
+
+The time term, indicating any overall time effect, is also not significant (Estimate = `-0.02`, `p = 0.907`).
+
+The interaction between diet and time (dietrice:time) shows a non-significant effect (Estimate = `0.22`, `p = 0.428`), indicating that the effect of diet over time is not statistically different for rice vs. oat."
+
+```
+
+
 #### Table of the top findings
 
 #### Across-group
@@ -443,6 +474,8 @@ if (knitr::is_html_output()) {
 }
 ```
 
+`r before_exp`
+
 ##### After treatment
 
 -   Multiple testing correction: **`r adjust.method`**
@@ -480,6 +513,8 @@ if (knitr::is_html_output()) {
 
 ```
 
+`r after_exp`
+
 ```{r viz-div_change}
 #| fig-width: 5
 #| fig-height: 3
@@ -491,8 +526,8 @@ div_change
 
 ##### Paired treatment
 
--   Multiple testing correction: **paired** -none
--   Statistical test: **`r test`**
+-   Multiple testing correction: **`r adjust.method`**
+-   Statistical test: **`paired r test`**
 
 ```{r table-of-findings-paired}
 #| label: table-of-findings-paired
@@ -524,6 +559,8 @@ if (knitr::is_html_output()) {
     row_spec(0, bold = TRUE)
 }
 ```
+
+`r paired_exp`
 
 ### LMM
 
@@ -575,6 +612,8 @@ if (knitr::is_html_output()) {
     row_spec(0, bold = TRUE)
 }
 ```
+
+`r lmm_exp`
 
 ## Data Summary
 
