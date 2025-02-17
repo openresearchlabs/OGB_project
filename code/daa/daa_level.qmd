@@ -32,8 +32,8 @@ Analysis information:
 
 Taxa that are less prevalent than this (in relabundance) have been agglomerated:
 
--   Detection threshold: `r detection.th`
--   Prevalence threshold: `r prevalence.th`
+-   Detection threshold: `r 100 * detection.th`%
+-   Prevalence threshold: `r 100 * prevalence.th`%
 -   Number of taxonomic groups: `r nrow(tse)`
 
 ```{r tsesub}
@@ -94,18 +94,120 @@ print(colSums(pvals.treatments<0.25))
 
 Let us look more closely to the significant hits. The logFC corresponds to logFC in CLR (tp2-tp1).
 
+```{r tsefix}
+file_path1 <- file.path("../../output/daa/daa_taxa/species/all_results.tsv")
+file_path2 <- file.path("../../output/daa/daa_taxa/genus/all_results.tsv")
+
+
+signif.features <- names(which(pvals.treatments[, 1] < 0.25 | pvals.treatments[, 2] < 0.25))
+
+taxa_of_interest <- c(signif.features)
+
+daa_tab1 <- read_tsv(file_path1, col_names = TRUE, show_col_types = FALSE) %>%
+      filter(!is.na(feature)) %>%
+      filter(model == "abundance") %>%
+      filter(feature %in% taxa_of_interest) %>%
+      select(feature,metadata, value, qval_joint) 
+daa_tab2 <- read_tsv(file_path2, col_names = TRUE, show_col_types = FALSE) %>%
+      filter(!is.na(feature)) %>%
+      filter(model == "abundance") %>%
+      filter(feature %in% taxa_of_interest) %>%
+      select(feature,metadata, value, qval_joint)
+
+daa_tab <- rbind(daa_tab1, daa_tab2) %>%
+  mutate(qval_joint = signif(qval_joint, digits = 3)) 
+```
+
+```{r before-after}
+df <- as.data.frame(colData(tse))
+
+plot_taxon <- function(taxon) {
+  
+  # Check if the taxon exists in genus or species
+  if (taxon %in% rowData(tse)$genus | taxon %in% rowData(tse)$species) {
+    
+    # Calculate signal (relative abundance)
+        if (taxon %in% rowData(tse)$genus) {
+          rownames(tse) <- rowData(tse)$genus
+          df$signal <- as.vector(assay(tse, "relabundance")[taxon,])
+        } else {
+          rownames(tse) <- rowData(tse)$species
+          df$signal <- as.vector(assay(tse, "relabundance")[taxon,])
+        }
+    
+    daa_tab_tax <- daa_tab %>%
+      filter(feature == taxon)
+    
+    anot_tax <- daa_tab_tax %>% 
+        filter(value == "time")
+    
+    anot_tax$pval_color <- ifelse(anot_tax$qval_joint <= 0.25, "red", "blue")
+    # Subset for before and after
+    df_before <- df %>% filter(timepoint == "before")
+    df_after <- df %>% filter(timepoint == "after")
+    
+    # Generate "Before treatment" plot
+    p1 <- ggplot(df_before, aes(x = diet, y = signal)) +
+      geom_boxplot(outlier.shape = NA) +
+      geom_point() + 
+      scale_y_log10(labels = scales::percent) + 
+      theme(text = element_text(size = 40), legend.position = "none") +
+      # ggpubr::stat_pvalue_manual(
+      #   data = final_results_before %>% filter(taxon == !!taxon),
+      #   xmin = "group1",
+      #   xmax = "group2",
+      #   y.position = "y.position",
+      #   label = "p.adj"
+      # ) +
+      labs(title = "Before", x = "Diet", y = "Abundance (%)")
+    
+    # Generate "After treatment" plot
+    p2 <- ggplot(df_after, aes(x = diet, y = signal)) +
+      geom_boxplot(outlier.shape = NA) +
+      geom_point() + 
+      scale_y_log10(labels = scales::percent) + 
+      theme(text = element_text(size = 40), legend.position = "none") +
+      # ggpubr::stat_pvalue_manual(
+      #   data = final_results_after %>% filter(taxon == !!taxon),
+      #   xmin = "group1",
+      #   xmax = "group2",
+      #   y.position = "y.position",
+      #   label = "p.adj"
+      # ) +
+      labs(title = "After", x = "Diet", y = "Abundance (%)")
+    
+    # Combine the before and after plots
+    return(wrap_plots(p1, p2, axes = "collect") + 
+  plot_annotation(
+    title = paste(taxon, "/", "p =", ifelse(taxon %in% anot_tax$feature, 
+                         paste0("<span style='color:", anot_tax$pval_color[anot_tax$feature == taxon], "'>", 
+                                anot_tax$qval_joint[anot_tax$feature == taxon], "</span>"), 
+                         "<span style='color:gray;'>NA</span>")
+    ),
+    theme = theme(plot.title = ggtext::element_markdown())
+  ))
+  }
+  
+  return(NULL)
+}
+```
+
+```{r}
+plots_list <- list()
+plots_list <- setNames(lapply(taxa_of_interest, plot_taxon),
+                       taxa_of_interest)
+```
+
+
 ```{r hits}
-#| layout-ncol: 4
+#| layout-ncol: 3
 #| fig-width: 10
 #| fig-height: 8
 library(reshape2)
 theme_set(theme_bw(30))
 tabs <- NULL 
-plots_list <- list()
-for (g in unique(tse$diet)) {
 
-  # P-values
-  signif.features <- names(which(pvals.treatments[, g]<0.25))
+for (g in unique(tse$diet)) {
 
   if (length(signif.features)>0) {
     tseg <- tse[, tse$diet==g] 
@@ -131,6 +233,14 @@ for (g in unique(tse$diet)) {
       min_change <- min(df$change, na.rm = TRUE)
       max_change <- max(df$change, na.rm = TRUE)
       median_change <- median(df$change, na.rm = TRUE)
+      
+      daa_tab_tax <- daa_tab %>%
+            filter(feature == tax)
+          
+      anot_tax <- daa_tab_tax %>% 
+          filter(value == g)
+      
+      anot_tax$pval_color <- ifelse(anot_tax$qval_joint <= 0.25, "red", "blue")
 
       tabs <-
         rbind(tabs,
@@ -155,8 +265,17 @@ for (g in unique(tse$diet)) {
                                 space ="Lab",
                                 limits = c(min_change, max_change)) +
 	     scale_y_log10(labels = scales::percent) + 
-	     labs(title=paste(g, "/", tax),
-	          y="Abundance (%)")  
+	     labs(
+            title = paste0(g, "/", " p = ", 
+                           ifelse(tax %in% anot_tax$feature, 
+                                  paste0("<span style='color:", anot_tax$pval_color[anot_tax$feature == tax], "'>", 
+                                         anot_tax$qval_joint[anot_tax$feature == tax], "</span>"), 
+                                  "<span style='color:gray;'>NA</span>")),
+            y = "Abundance (%)"
+          ) +
+          theme(
+            plot.title = ggtext::element_markdown() 
+          )  
       
       plots_list[[paste(tax, "0", g, sep = "_")]] <- p
     }

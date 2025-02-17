@@ -601,46 +601,15 @@ if (index == "observed") {
 } else {
   res <- run_lmer(tse, index)
 }
-l <- summary(res)
 ```
 
 -   Multiple testing correction: **`r adjust.method`**
 -   Statistical test: **`r test`**
 -   Formula used: **`r formula_used`**
 
-```{r clean-lmer}
-fixed_effects <- as.data.frame(l$coefficients) %>%
-  rownames_to_column("Term") 
-```
-
 ```{r table-fixed-fx}
-#| label: table-fx
-if (knitr::is_html_output()) {
-  datatable(
-    fixed_effects, 
-    options = list(
-      pageLength = 4,
-      dom = 'Bfrtip'
-    ),
-    caption = "Table of interaction effects",
-    rownames = FALSE
-) %>% 
-    formatRound(columns = c("Estimate", "Std. Error", "df", "t value"), digits = 2) %>%
-  formatSignif(columns = "Pr(>|t|)", digits = 3)
-} else {
-  library(kableExtra)
-  fixed_effects %>% 
-    mutate(
-      across(where(is.numeric), ~round(., 3))
-      #p.adj = signif(p.adj, 3)
-    ) %>%
-    kbl(caption = "Table of interaction effects",
-        booktabs = TRUE,
-        longtable = TRUE,
-        align = c('l', 'r', 'r', 'r', 'r')) %>%
-    kable_styling(latex_options = "repeat_header") %>%
-    row_spec(0, bold = TRUE)
-}
+sjPlot::plot_model(res)
+sjPlot::tab_model(res)
 ```
 
 `r lmm_exp`
