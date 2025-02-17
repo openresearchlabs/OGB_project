@@ -27,8 +27,8 @@ Analysis information:
 -   Group variable: `r variable`
 -   Formula used: **`r formula_used`**
 -   Correction: **`r correction`**
--   Detection threshold: `r detection.th`
--   Prevalence threshold: `r prevalence.th`
+-   Detection threshold: `r 100 * detection.th`%
+-   Prevalence threshold: `r 100 * prevalence.th`%
 
 ```{r data_prep}
 # Create output directory for results
