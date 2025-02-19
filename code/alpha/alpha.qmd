@@ -499,8 +499,6 @@ if (knitr::is_html_output()) {
 }
 ```
 
-`r before_exp`
-
 ##### After treatment
 
 -   Multiple testing correction: **`r adjust.method`**
@@ -537,8 +535,6 @@ if (knitr::is_html_output()) {
     row_spec(0, bold = TRUE)
 }
 ```
-
-`r after_exp`
 
 ```{r viz-div_change}
 #| fig-width: 5
@@ -586,14 +582,15 @@ if (knitr::is_html_output()) {
 }
 ```
 
-`r paired_exp`
-
 ### LMM
 
-```{r lmer-stuff}
+```{r lmer-stuffm}
 adjust.method <- "FDR"
 test <- "paired Wilcoxon"
-formula_used <- "~ diet * timepoint + (1 | id)"
+```
+
+```{r lmer-stuff}
+formula_used <- "~ diet * intervention + (1 | id)"
 
 if (index == "observed") {
   tse$observed_log2 <- log2(tse$observed)
@@ -611,8 +608,6 @@ if (index == "observed") {
 sjPlot::plot_model(res)
 sjPlot::tab_model(res)
 ```
-
-`r lmm_exp`
 
 ## Alternate analyses
 

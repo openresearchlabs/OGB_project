@@ -21,18 +21,53 @@
     "text": "4 Alternate analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4.1 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 1700 140 \nmetadata(0):\nassays(1): relabundance\nrownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(140): AE1332 AE2332 ... VK1336 VK2336\ncolData names(18): sample id ... time_diff ref_samples\nreducedDimNames(1): PCoA_BC\nmainExpName: NULL\naltExpNames(20): kingdom phylum ... KO metacyc\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
   },
   {
+    "objectID": "daa/daa_interest.html",
+    "href": "daa/daa_interest.html",
+    "title": "Differential abundance analysis",
+    "section": "",
+    "text": "Analysis information:\n\nMethod: maaslin3\nTaxonomic level: species, genus\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfeature\nmetadata\nvalue\ncoef\nqval_individual\nqval_joint\nmodel\n\n\n\n\nBifidobacterium_animalis\ndiet\noat\n1.6724398\n0.5922506\n0.5990227\nprevalence\n\n\nBifidobacterium_animalis\nintervention\noat\n1.3242713\n0.7816477\n0.8016409\nprevalence\n\n\nBifidobacterium_animalis\ndiet\noat:interventionoat\n-1.6724373\n0.8376377\n0.8504384\nprevalence\n\n\nBifidobacterium_adolescentis\ndiet\noat\n-0.0140225\n1.0000000\n0.9975694\nabundance\n\n\nBifidobacterium_adolescentis\ndiet\noat:interventionoat\n0.5459126\n1.0000000\n0.9975694\nabundance\n\n\nBifidobacterium_adolescentis\nintervention\noat\n-0.8367930\n1.0000000\n0.9975694\nabundance\n\n\nBifidobacterium_animalis\ndiet\noat\n0.8997651\n1.0000000\n0.5990227\nabundance\n\n\nBifidobacterium_animalis\ndiet\noat:interventionoat\n-0.2603632\n1.0000000\n0.8504384\nabundance\n\n\nBifidobacterium_animalis\nintervention\noat\n0.9830428\n1.0000000\n0.8016409\nabundance\n\n\nBifidobacterium_bifidum\ndiet\noat\n-1.1160628\n1.0000000\n0.9975694\nabundance\n\n\nBifidobacterium_bifidum\nintervention\noat\n0.8574439\n1.0000000\n0.9975694\nabundance\n\n\nRuminococcus_gnavus\ndiet\noat\n0.8651521\n1.0000000\n0.9975694\nabundance\n\n\nRuminococcus_gnavus\ndiet\noat:interventionoat\n1.2065904\n1.0000000\n0.9975694\nabundance\n\n\nRuminococcus_gnavus\nintervention\noat\n-0.6782211\n1.0000000\n0.9975694\nabundance\n\n\nBifidobacterium_adolescentis\ndiet\noat\n-0.3304582\n1.0000000\n0.9975694\nprevalence\n\n\nBifidobacterium_adolescentis\ndiet\noat:interventionoat\n-1.3545892\n1.0000000\n0.9975694\nprevalence\n\n\nBifidobacterium_adolescentis\nintervention\noat\n1.6858125\n1.0000000\n0.9975694\nprevalence\n\n\nBifidobacterium_bifidum\ndiet\noat\n-9.9916786\n1.0000000\n0.9975694\nprevalence\n\n\nBifidobacterium_bifidum\ndiet\noat:interventionoat\n9.9101692\n1.0000000\n0.9975694\nprevalence\n\n\nBifidobacterium_bifidum\nintervention\noat\n-0.7520547\n1.0000000\n0.9975694\nprevalence\n\n\nRuminococcus_gnavus\ndiet\noat\n0.1428974\n1.0000000\n0.9975694\nprevalence\n\n\nRuminococcus_gnavus\ndiet\noat:interventionoat\n1.5857227\n1.0000000\n0.9975694\nprevalence\n\n\nRuminococcus_gnavus\nintervention\noat\n-1.4617410\n1.0000000\n0.9975694\nprevalence\n\n\nBifidobacterium_bifidum\ndiet\noat:interventionoat\nNA\nNA\n0.9975694\nabundance"
+  },
+  {
+    "objectID": "daa/daa_pc.html",
+    "href": "daa/daa_pc.html",
+    "title": "DAA path coverage",
+    "section": "",
+    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * intervention + (1 | id)\n\n\n\n\n\n\n\n\n\n\nsummary_plot.png\n\n\n\n\n\n1"
+  },
+  {
+    "objectID": "daa/daa_mtc.html",
+    "href": "daa/daa_mtc.html",
+    "title": "DAA Metacyc",
+    "section": "",
+    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * intervention + (1 | id)\n\n\n\n\n\n\n\n\n\n\nfig17"
+  },
+  {
     "objectID": "daa/daa_ko.html",
     "href": "daa/daa_ko.html",
     "title": "DAA KO",
     "section": "",
-    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * time + (1 | id)"
+    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * intervention + (1 | id)\n\n\n\n\n\n\n\n\n\n\nfig38"
+  },
+  {
+    "objectID": "daa/daa_maaslin.html",
+    "href": "daa/daa_maaslin.html",
+    "title": "Differential abundance analysis",
+    "section": "",
+    "text": "Analysis information:\n\nMethod: maaslin3\nTaxonomic level: species\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.001\nPrevalence threshold: 0.1"
+  },
+  {
+    "objectID": "daa/daa_pa.html",
+    "href": "daa/daa_pa.html",
+    "title": "DAA path abundance",
+    "section": "",
+    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * intervention + (1 | id)\n\n\n\n\n\n\n\n\n\n\nsummary_plot.png"
   },
   {
     "objectID": "daa/daa_taxa.html",
     "href": "daa/daa_taxa.html",
     "title": "DAA Taxa",
     "section": "",
-    "text": "Analysis information:\n\nMethod: maaslin3\nTaxonomic level: species, genus, family, phylum\nGroup variable: diet\nFormula used: ~ diet * time + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.001\nPrevalence threshold: 0.1\n\nFor a complete table of maaslin3 results, see Species, genus, phylum, family\nThe following tables lists all associations that pass MaAsLin 3’s significance threshold for joint or individual q-values, ordered by increasing individual q-value.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis plots contain a combined coefficient plot and heatmap of the most significant association between microbial features (listed on the y-axis) and different dietary conditions over time.\nThe coef plot shows the estimated effect sizes (β coefficients) for different microbial features.\n\nCircles (○) represent associations based on abundance.\nTriangles (△) represent associations based on prevalence.\n\nThe purple color represents the significance level (FDR-adjusted p-value) for abundance. The teal color represents the significance level (FDR-adjusted p-value) for prevalence.Darker colors indicate more significant associations.Error bars show uncertainty in the estimates.\nThe heatmap summarizes how different microbes are affected. Blue/Red coloring represents the effect sizes:\n\nDark blue: Strong negative association.\nLight blue: Weak negative association.\nLight red: Weak positive association.\nDark red: Strong positive association.\nGray (NA): No data.\n\nAsterisks () indicate significant associations: - (p &lt; 0.1) - ** (p &lt; 0.01)\n\n\n\n\n\ntaxa_image18\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBox plots are used for categorical data abundance associations. Grids are used for categorical data prevalence associations. Data points plotted are after filtering, normalization, and transformation so that the scale in the plot is the scale that was used in fitting."
+    "text": "Analysis information:\n\nMethod: maaslin3\nTaxonomic level: species, genus, family, phylum\nGroup variable: diet\nFormula used: ~ diet * intervention + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%\n\nFor a complete table of maaslin3 results, see Species, genus, phylum, family\nThe following tables lists all associations that pass MaAsLin 3’s significance threshold for joint or individual q-values, ordered by increasing individual q-value.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis plots contain a combined coefficient plot and heatmap of the most significant association between microbial features (listed on the y-axis) and different dietary conditions over time.\nThe coef plot shows the estimated effect sizes (β coefficients) for different microbial features.\n\nCircles (○) represent associations based on abundance.\nTriangles (△) represent associations based on prevalence.\n\nThe purple color represents the significance level (FDR-adjusted p-value) for abundance. The teal color represents the significance level (FDR-adjusted p-value) for prevalence.Darker colors indicate more significant associations.Error bars show uncertainty in the estimates.\nThe heatmap summarizes how different microbes are affected. Blue/Red coloring represents the effect sizes:\n\nDark blue: Strong negative association.\nLight blue: Weak negative association.\nLight red: Weak positive association.\nDark red: Strong positive association.\nGray (NA): No data.\n\nAsterisks () indicate significant associations: - (p &lt; 0.1) - ** (p &lt; 0.01)\n\n\n\n\n\ntaxa_image18\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBox plots are used for categorical data abundance associations. Grids are used for categorical data prevalence associations. Data points plotted are after filtering, normalization, and transformation so that the scale in the plot is the scale that was used in fitting."
   },
   {
     "objectID": "daa/daa_taxa.html#summary-plots",
@@ -49,59 +84,24 @@
     "text": "Box plots are used for categorical data abundance associations. Grids are used for categorical data prevalence associations. Data points plotted are after filtering, normalization, and transformation so that the scale in the plot is the scale that was used in fitting."
   },
   {
-    "objectID": "daa/daa_pa.html",
-    "href": "daa/daa_pa.html",
-    "title": "DAA path abundance",
-    "section": "",
-    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * time + (1 | id)"
-  },
-  {
-    "objectID": "daa/daa_maaslin.html",
-    "href": "daa/daa_maaslin.html",
-    "title": "Differential abundance analysis",
-    "section": "",
-    "text": "Analysis information:\n\nMethod: maaslin3\nTaxonomic level: species\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.001\nPrevalence threshold: 0.1"
-  },
-  {
-    "objectID": "daa/daa_mtc.html",
-    "href": "daa/daa_mtc.html",
-    "title": "DAA Metacyc",
-    "section": "",
-    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * time + (1 | id)"
-  },
-  {
-    "objectID": "daa/daa_pc.html",
-    "href": "daa/daa_pc.html",
-    "title": "DAA path coverage",
-    "section": "",
-    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * time + (1 | id)\n\n\n\n\n\n\n\n\n\n\nsummary_plot.png"
-  },
-  {
-    "objectID": "daa/daa_interest.html",
-    "href": "daa/daa_interest.html",
-    "title": "Differential abundance analysis",
-    "section": "",
-    "text": "0.1 Differential abundance analysis\nAnalysis information:\n\nMethod: maaslin3\nTaxonomic level: species, genus\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.001\nPrevalence threshold: 0.1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfeature\nmetadata\nvalue\ncoef\nqval_individual\nqval_joint\nmodel\n\n\n\n\nRuminococcus_gnavus\ndiet\nrice\n-4.0092800\n0.5037868\n0.5073636\nabundance\n\n\nRuminococcus_gnavus\ndiet\nrice:time\n1.7013930\n0.6937474\n0.7222605\nabundance\n\n\nRuminococcus_gnavus\ndiet\nrice\n-4.0381316\n0.8070848\n0.5073636\nprevalence\n\n\nRuminococcus_gnavus\ntime\ntime\n-0.9808781\n0.8691533\n0.8763341\nabundance\n\n\nRuminococcus_gnavus\ndiet\nrice:time\n2.0115654\n0.8796792\n0.7222605\nprevalence\n\n\nBifidobacterium_animalis\ndiet\nrice:time\n-1.3087063\n0.9815966\n0.9686254\nprevalence\n\n\nBifidobacterium_adolescentis\ndiet\nrice\n0.9229613\n1.0000000\n0.9999092\nabundance\n\n\nBifidobacterium_adolescentis\ndiet\nrice:time\n-0.8101079\n1.0000000\n0.9999092\nabundance\n\n\nBifidobacterium_adolescentis\ntime\ntime\n-0.3836930\n1.0000000\n0.9999092\nabundance\n\n\nBifidobacterium_animalis\ndiet\nrice\n0.5712285\n1.0000000\n0.9999092\nabundance\n\n\nBifidobacterium_animalis\ndiet\nrice:time\n-0.7599236\n1.0000000\n0.9686254\nabundance\n\n\nBifidobacterium_animalis\ntime\ntime\n1.3001821\n1.0000000\n0.9943812\nabundance\n\n\nBifidobacterium_bifidum\ndiet\nrice\n-0.6106749\n1.0000000\n0.9999092\nabundance\n\n\nBifidobacterium_bifidum\ndiet\nrice:time\n0.7938902\n1.0000000\n0.9999092\nabundance\n\n\nBifidobacterium_bifidum\ntime\ntime\n-1.7830446\n1.0000000\n0.9999092\nabundance\n\n\nBifidobacterium_adolescentis\ndiet\nrice\n0.8960185\n1.0000000\n0.9999092\nprevalence\n\n\nBifidobacterium_adolescentis\ndiet\nrice:time\n-0.0000009\n1.0000000\n0.9999092\nprevalence\n\n\nBifidobacterium_adolescentis\ntime\ntime\n0.0000004\n1.0000000\n0.9999092\nprevalence\n\n\nBifidobacterium_animalis\ndiet\nrice\n1.0491075\n1.0000000\n0.9999092\nprevalence\n\n\nBifidobacterium_animalis\ntime\ntime\n0.0000000\n1.0000000\n0.9943812\nprevalence\n\n\nBifidobacterium_bifidum\ndiet\nrice\n1.2681437\n1.0000000\n0.9999092\nprevalence\n\n\nBifidobacterium_bifidum\ndiet\nrice:time\n0.0000029\n1.0000000\n0.9999092\nprevalence\n\n\nBifidobacterium_bifidum\ntime\ntime\n0.0000029\n1.0000000\n0.9999092\nprevalence\n\n\nRuminococcus_gnavus\ntime\ntime\n-0.8913836\n1.0000000\n0.8763341\nprevalence"
-  },
-  {
     "objectID": "ratio/ratio.html",
     "href": "ratio/ratio.html",
     "title": "Bacteroidetes/Firmicutes ratio",
     "section": "",
-    "text": "Taxonomic level: Phylum\nGroup variable: diet\nMultiple testing correction: fdr\nStatistical test Wilcoxon\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\nThe B/F ratio was slightly lower in the rice group (mean = 0.29) compared to the oat group (mean = 0.32). The fold change (log2FC = -0.12) suggests a small decrease in the ratio for the rice group. However, this difference was not statistically significant (p.adj = 0.410), indicating no strong evidence of a baseline difference between the two diet groups.\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\nThe B/F ratio was identical between the oat and rice groups (mean = 0.33 for both) after treatment. The fold change (log2FC = -0.02) indicates minimal difference. The p-value (p.adj = 0.680) confirms that there is no statistically significant difference in the B/F ratio between the two diet groups post-treatment.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: paired r test\n\n\n\n\n\n\n\nIn the oat diet group, the B/F ratio slightly increased from 0.32 to 0.33 (log2FC = 0.28, p = 0.800), indicating no significant change over time.\nIn the rice diet group, the B/F ratio increased from 0.29 to 0.33 (log2FC = 1.07, p = 0.370), but this change was not statistically significant.\nHence, B/F ratio remained relatively stable over time for both diet groups, with no significant shifts from before to after treatment.\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n-1.93\n-2.59 – -1.27\n&lt;0.001\n\n\ndiet [rice]\n-0.51\n-1.44 – 0.43\n0.285\n\n\ntime\n-0.02\n-0.41 – 0.37\n0.907\n\n\ndiet [rice] × time\n0.22\n-0.33 – 0.77\n0.427\n\n\nRandom Effects\n\n\n\nσ2\n0.67\n\n\n\nτ00 id\n0.58\n\n\nICC\n0.47\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.010 / 0.473\n\n\n\n\n\n\nThe Intercept is highly significant (Estimate = -1.93, p = 8.67e-8), suggesting a clear baseline effect before treatment.\nThe dietrice term, representing the difference between the rice and oat groups, is not significant (Estimate = -0.51, p = 0.286).\nThe time term, indicating any overall time effect, is also not significant (Estimate = -0.02, p = 0.907).\nThe interaction between diet and time (dietrice:time) shows a non-significant effect (Estimate = 0.22, p = 0.428), indicating that the effect of diet over time is not statistically different for rice vs. oat."
+    "text": "Taxonomic level: Phylum\nGroup variable: diet\nMultiple testing correction: fdr\nStatistical test Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: paired r test\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * intervention + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n-2.20\n-2.65 – -1.75\n&lt;0.001\n\n\ndiet [oat]\n0.23\n-0.42 – 0.88\n0.492\n\n\nintervention [oat]\n0.12\n-0.52 – 0.76\n0.714\n\n\ndiet [oat] × intervention[oat]\n-0.10\n-1.02 – 0.81\n0.825\n\n\nRandom Effects\n\n\n\nσ2\n0.66\n\n\n\nτ00 id\n0.61\n\n\nICC\n0.48\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.008 / 0.486"
   },
   {
     "objectID": "ratio/ratio.html#bacteroidetesfirmicutes-ratio",
     "href": "ratio/ratio.html#bacteroidetesfirmicutes-ratio",
     "title": "Bacteroidetes/Firmicutes ratio",
     "section": "",
-    "text": "Taxonomic level: Phylum\nGroup variable: diet\nMultiple testing correction: fdr\nStatistical test Wilcoxon\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\nThe B/F ratio was slightly lower in the rice group (mean = 0.29) compared to the oat group (mean = 0.32). The fold change (log2FC = -0.12) suggests a small decrease in the ratio for the rice group. However, this difference was not statistically significant (p.adj = 0.410), indicating no strong evidence of a baseline difference between the two diet groups.\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\nThe B/F ratio was identical between the oat and rice groups (mean = 0.33 for both) after treatment. The fold change (log2FC = -0.02) indicates minimal difference. The p-value (p.adj = 0.680) confirms that there is no statistically significant difference in the B/F ratio between the two diet groups post-treatment.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: paired r test\n\n\n\n\n\n\n\nIn the oat diet group, the B/F ratio slightly increased from 0.32 to 0.33 (log2FC = 0.28, p = 0.800), indicating no significant change over time.\nIn the rice diet group, the B/F ratio increased from 0.29 to 0.33 (log2FC = 1.07, p = 0.370), but this change was not statistically significant.\nHence, B/F ratio remained relatively stable over time for both diet groups, with no significant shifts from before to after treatment.\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n-1.93\n-2.59 – -1.27\n&lt;0.001\n\n\ndiet [rice]\n-0.51\n-1.44 – 0.43\n0.285\n\n\ntime\n-0.02\n-0.41 – 0.37\n0.907\n\n\ndiet [rice] × time\n0.22\n-0.33 – 0.77\n0.427\n\n\nRandom Effects\n\n\n\nσ2\n0.67\n\n\n\nτ00 id\n0.58\n\n\nICC\n0.47\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.010 / 0.473\n\n\n\n\n\n\nThe Intercept is highly significant (Estimate = -1.93, p = 8.67e-8), suggesting a clear baseline effect before treatment.\nThe dietrice term, representing the difference between the rice and oat groups, is not significant (Estimate = -0.51, p = 0.286).\nThe time term, indicating any overall time effect, is also not significant (Estimate = -0.02, p = 0.907).\nThe interaction between diet and time (dietrice:time) shows a non-significant effect (Estimate = 0.22, p = 0.428), indicating that the effect of diet over time is not statistically different for rice vs. oat."
+    "text": "Taxonomic level: Phylum\nGroup variable: diet\nMultiple testing correction: fdr\nStatistical test Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: paired r test\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * intervention + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n-2.20\n-2.65 – -1.75\n&lt;0.001\n\n\ndiet [oat]\n0.23\n-0.42 – 0.88\n0.492\n\n\nintervention [oat]\n0.12\n-0.52 – 0.76\n0.714\n\n\ndiet [oat] × intervention[oat]\n-0.10\n-1.02 – 0.81\n0.825\n\n\nRandom Effects\n\n\n\nσ2\n0.66\n\n\n\nτ00 id\n0.61\n\n\nICC\n0.48\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.008 / 0.486"
   },
   {
     "objectID": "ratio/ratio.html#data-summary",
     "href": "ratio/ratio.html#data-summary",
     "title": "Bacteroidetes/Firmicutes ratio",
     "section": "2 Data Summary",
-    "text": "2 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 18 140 \nmetadata(1): agglomerated_by_rank\nassays(1): relabundance\nrownames(18): Actinobacteria Ascomycota ... Thaumarchaeota\n  Verrucomicrobia\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(140): AE1332 AE2332 ... VK1336 VK2336\ncolData names(17): sample id ... bact_firm_ratio bfratio\nreducedDimNames(0):\nmainExpName: NULL\naltExpNames(0):\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
+    "text": "2 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 18 140 \nmetadata(1): agglomerated_by_rank\nassays(1): relabundance\nrownames(18): Actinobacteria Ascomycota ... Thaumarchaeota\n  Verrucomicrobia\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(140): AE1332 AE2332 ... VK1336 VK2336\ncolData names(18): sample id ... bact_firm_ratio bfratio\nreducedDimNames(0):\nmainExpName: NULL\naltExpNames(0):\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
   }
 ]

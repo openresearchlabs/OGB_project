@@ -230,18 +230,24 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="0.1" class="anchored" data-anchor-id="differential-abundance-analysis"><span class="header-section-number">0.1</span> Differential abundance analysis</h3>
 <ul>
 <li>Group variable: <strong>diet</strong></li>
-<li>Formula used: <strong>~ diet * time + (1 | id)</strong></li>
+<li>Formula used: <strong>~ diet * intervention + (1 | id)</strong></li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-b4679153c11fcd1d413e" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-b4679153c11fcd1d413e">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of significant features<\/caption>","data":[[],[],[],[],[],[],[]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>feature<\/th>\n      <th>metadata<\/th>\n      <th>value<\/th>\n      <th>coef<\/th>\n      <th>qval_individual<\/th>\n      <th>qval_joint<\/th>\n      <th>model<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"name":"feature","targets":0},{"name":"metadata","targets":1},{"name":"value","targets":2},{"name":"coef","targets":3},{"name":"qval_individual","targets":4},{"name":"qval_joint","targets":5},{"name":"model","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-4a195652b9e6142a5928" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-4a195652b9e6142a5928">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of significant features<\/caption>","data":[["PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast.","PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast."],["intervention","intervention"],["oat","oat"],[10.6940489575446,1.7055342314476],[0.0245730193484007,1],[0.0310558329624287,0.0310558329624287],["prevalence","abundance"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>feature<\/th>\n      <th>metadata<\/th>\n      <th>value<\/th>\n      <th>coef<\/th>\n      <th>qval_individual<\/th>\n      <th>qval_joint<\/th>\n      <th>model<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[3,4,5]},{"name":"feature","targets":0},{"name":"metadata","targets":1},{"name":"value","targets":2},{"name":"coef","targets":3},{"name":"qval_individual","targets":4},{"name":"qval_joint","targets":5},{"name":"model","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../../output/daa/daa_pc/figures/summary_plot.png" class="img-fluid figure-img"></p>
 <figcaption>summary_plot.png</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../output/daa/daa_pc/figures/association_plots/intervention/logistic/intervention_PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast._logistic.png" class="img-fluid figure-img"></p>
+<figcaption>1</figcaption>
 </figure>
 </div>
 

@@ -14,7 +14,7 @@ tse <- readRDS("../../data/tse.Rds")
 metacyc_tse <- altExp(tse, "metacyc")
 
 variable <- "diet" 
-formula_used <- "~ diet * time + (1 | id)"
+formula_used <- "~ diet * intervention + (1 | id)"
 ```
 
 -   Group variable: **`r variable`**
@@ -31,55 +31,79 @@ metacyc_tse <- metacyc_tse[, metacyc_tse$id %in% paired.cases]
 
 ```{r maaslin all}
 # Run Maaslin3
-# fit_out <- maaslin3(
-#   metacyc_tse,
-#   output = output_base_dir,
-#   formula = '~ diet * time + (1 | id)',
-#   normalization = 'TSS',
-#   transform = 'LOG',
-#   augment = TRUE,
-#   standardize = FALSE,
-#   median_comparison_abundance = FALSE,
-#   median_comparison_prevalence = FALSE,
-#   max_pngs = 100,
-#   verbosity = "WARN"
-# )
+run_maaslin3 <- function(metacyc_tse) {
+  # Keep only paired cases (individuals with both time points)
+  paired.cases <- names(which(table(colData(metacyc_tse)$id) == 2))
+  metacyc_tse <- metacyc_tse[, metacyc_tse$id %in% paired.cases]
+
+  # Create output directory for this taxonomic level
+  output_dir <- file.path(output_base_dir)
+  dir.create(output_dir, showWarnings = FALSE)
+
+  # Run MaAsLin3
+  maaslin3(
+    metacyc_tse,
+    output = output_dir,
+    formula = '~ diet * intervention + (1 | id)',
+    normalization = 'TSS',
+    transform = 'LOG',
+    augment = TRUE,
+    standardize = FALSE,
+    median_comparison_abundance = FALSE,
+    median_comparison_prevalence = FALSE,
+    max_pngs = 100,
+    verbosity = "WARN"
+  )
+}
 ```
 
 ```{r print_table}
 #| label: table-of-significant-results
-daa_tab <- read_tsv("../../output/daa/daa_mtc/significant_results.tsv", col_names = TRUE)
-daa_tab <- daa_tab %>%
-    filter(!is.na(feature)) %>%
-    select(feature, metadata, value, coef, qval_individual, qval_joint, model)
-if (knitr::is_html_output()) {
-  datatable(
-      daa_tab,
-      options = list(
-        pageLength = 6,
-        dom = 'Bfrtip'
-      ),
-      caption = "Table of significant features",
-      rownames = FALSE
-  ) %>%
-    formatSignif(columns = c("qval_joint"), digits = 3)
-} else {
-  library(kableExtra)
-  daa_tab %>% 
-    mutate(
-      across(where(is.numeric), ~round(., 3)),
-      feature = ifelse(nchar(feature) > 8, 
-                     paste0(substr(feature, 1, 8), "..."), 
-                     feature)
-      #p.adj = signif(p.adj, 3)
-    ) %>%
-    kbl(caption = "Table of significant features",
-        booktabs = TRUE,
-        longtable = TRUE,
-        align = c('l', 'r', 'r', 'r', 'r', 'r', 'r')) %>%
-    kable_styling(latex_options = "repeat_header") %>%
-    row_spec(0, bold = TRUE)
+
+file_path <- file.path("../../output/daa/daa_mtc/significant_results.tsv")
+total_features <- nrow(metacyc_tse)
+
+# Run Maaslin3 only if the file doesn't exist
+if (!file.exists(file_path)) {
+run_maaslin3(metacyc_tse)
 }
+
+ if (file.exists(file_path)) {
+    daa_tab <- read_tsv(file_path, col_names = TRUE)
+    daa_tab <- daa_tab %>%
+        filter(!is.na(feature)) %>%
+        select(feature, metadata, value, coef, qval_individual, qval_joint, model)
+    if (knitr::is_html_output()) {
+      datatable(
+          daa_tab,
+          options = list(
+            pageLength = 6,
+            dom = 'Bfrtip'
+          ),
+          caption = "Table of significant features",
+          rownames = FALSE
+      ) %>%
+        formatSignif(columns = c("qval_joint"), digits = 3)
+    } else {
+      library(kableExtra)
+      daa_tab %>% 
+        mutate(
+          across(where(is.numeric), ~round(., 3)),
+          feature = ifelse(nchar(feature) > 8, 
+                         paste0(substr(feature, 1, 8), "..."), 
+                         feature)
+          #p.adj = signif(p.adj, 3)
+        ) %>%
+        kbl(caption = "Table of significant features",
+            booktabs = TRUE,
+            longtable = TRUE,
+            align = c('l', 'r', 'r', 'r', 'r', 'r', 'r')) %>%
+        kable_styling(latex_options = "repeat_header") %>%
+        row_spec(0, bold = TRUE)
+    }
+} else {
+    return(NULL)
+  }
 
 ```
 
@@ -87,4 +111,61 @@ if (knitr::is_html_output()) {
 png_files <- list.files(output_base_dir, pattern = "\\.png$", full.names = TRUE, recursive = TRUE)
 ```
 
-![fig17](../../output/daa/daa_mtc/figures/summary_plot.png) ![fig1](../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X2.1.1.184_linear.png) ![fig2](../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X2.3.1.28_linear.png) ![fig3](../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X2.3.3.14_linear.png) ![fig4](../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X3.1.1.72_linear.png) ![fig5](../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X3.6.3.5_linear.png) ![fig6](../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X4.2.1.104_linear.png) ![fig7](../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X4.2.1.17_linear.png) ![fig8](../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X4.2.2.2_linear.png) ![fig9](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.1.1.144_logistic.png) ![fig10](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.4.1.20_logistic.png) ![fig11](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.8.3.11_logistic.png) ![fig12](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X5.1.99.1_logistic.png) ![fig13](../../output/daa/daa_mtc/figures/association_plots/time/linear/time_X1.2.1.62_linear.png) ![fig14](../../output/daa/daa_mtc/figures/association_plots/time/linear/time_X3.1.1.83_linear.png) ![fig15](../../output/daa/daa_mtc/figures/association_plots/time/logistic/time_X1.1.1.135_logistic.png) ![fig16](../../output/daa/daa_mtc/figures/association_plots/time/logistic/time_X5.1.99.1_logistic.png)
+![fig17](../../output/daa/daa_mtc/figures/summary_plot.png)
+
+![1](../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X1.1.1.179_linear.png)\
+![2](../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X1.3.5.2_linear.png)\
+![3](../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X1.3.98.3_linear.png)\
+![4](../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X3.4.22.71_linear.png)\
+![5](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X1.11.1.18_logistic.png)\
+![6](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.3.1.50_logistic.png)\
+![7](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.4.1.20_logistic.png)\
+![8](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.4.1.247_logistic.png)\
+![9](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.4.1.320_logistic.png)\
+![10](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.4.1.7_logistic.png)\
+![11](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.4.2.31_logistic.png)\
+![12](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.6.1.59_logistic.png)\
+![13](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.6.1.92_logistic.png)\
+![14](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.7.7.19_logistic.png)\
+![15](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.7.7.21_logistic.png)\
+![16](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.7.7.25_logistic.png)\
+![17](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.7.7.81_logistic.png)\
+![18](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.7.8.11_logistic.png)\
+![19](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X3.1.21.5_logistic.png)\
+![20](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X3.1.3.4_logistic.png)\
+![21](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X3.1.3.41_logistic.png)\
+![22](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X3.2.1.45_logistic.png)\
+![23](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X3.4.21.83_logistic.png)\
+![24](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X3.4.24.71_logistic.png)\
+![25](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X3.5.1.49_logistic.png)\
+![26](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X4.1.2.22_logistic.png)\
+![27](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X4.2.1.40_logistic.png)\
+![28](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X4.2.2.8_logistic.png)\
+![29](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X5.1.99.1_logistic.png)\
+![30](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X6.3.2.3_logistic.png)\
+![31](../../output/daa/daa_mtc/figures/association_plots/intervention/linear/intervention_X3.2.1.145_linear.png)\
+![32](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X1.11.1.18_logistic.png)\
+![33](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X1.2.1.50_logistic.png)\
+![34](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.1.1.157_logistic.png)\
+![35](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.1.1.52_logistic.png)\
+![36](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.3.1.38_logistic.png)\
+![37](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.3.1.50_logistic.png)\
+![38](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.4.1.320_logistic.png)\
+![39](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.4.2.31_logistic.png)\
+![40](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.6.1.29_logistic.png)\
+![41](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.6.1.92_logistic.png)\
+![42](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.7.7.19_logistic.png)\
+![43](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.7.7.81_logistic.png)\
+![44](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.7.8.11_logistic.png)\
+![45](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X3.1.3.4_logistic.png)\
+![46](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X3.1.3.41_logistic.png)\
+![47](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X3.2.1.3_logistic.png)\
+![48](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X3.2.1.68_logistic.png)\
+![49](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X3.4.21.83_logistic.png)\
+![50](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X3.4.22.8_logistic.png)\
+![51](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X3.5.1.49_logistic.png)\
+![52](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X3.5.3.19_logistic.png)\
+![53](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X4.1.1.12_logistic.png)\
+![54](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X4.1.2.22_logistic.png)\
+![55](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X5.1.3.15_logistic.png)\
+![56](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X6.2.1.16_logistic.png)

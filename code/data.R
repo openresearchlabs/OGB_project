@@ -37,6 +37,8 @@ samdf <- samdf %>%
   assign_meal()  %>%
   assign_diet()  # Encode as factors oat/rice instead of 1/2
 
+samdf$intervention <- factor(word(samdf$meal, 2, sep="-"), levels=c("rice", "oat"))
+
 samdf$timepoint <- factor(samdf$timepoint, levels = c("before", "after"))
 # Check that the sample data and assay data match by sample names
 if (!all(rownames(samdf)==colnames(tse))) {stop("Check sample ID matching")}

@@ -224,16 +224,8 @@
 \endfoot
 \bottomrule
 \endlastfoot
-oat & rice & 210.9 & 231.3 & 0.13 & 0.133\\*
+oat & rice & 210.6 & 231.2 & 0.13 & 0.13\\*
 \end{longtable}
-
-Before treatment, the rice group had a slightly higher observed alpha
-diversity \texttt{(231.30)} compared to the oat group \texttt{(210.90)}.
-The fold change (log2FC) of \texttt{0.13} suggests a small increase in
-richness for the rice group. However, the corrected p-value
-\texttt{(p.adj\ =\ 0.133)} indicates that this difference is not
-statistically significant, meaning it could be due to random variation
-rather than a true effect of diet.
 
 \paragraph{After treatment}\label{after-treatment}
 
@@ -260,15 +252,8 @@ rather than a true effect of diet.
 \endfoot
 \bottomrule
 \endlastfoot
-oat & rice & 206.9 & 233 & 0.17 & 0.054\\*
+oat & rice & 206.5 & 232.8 & 0.17 & 0.054\\*
 \end{longtable}
-
-After treatment, the rice group \texttt{(233.00)} continued to show a
-higher observed alpha diversity compared to the oat group
-\texttt{(206.90)}, with a fold change (log2FC) of \texttt{0.17}. The
-adjusted p-value \texttt{(p.adj\ =\ 0.0540)} is approaching statistical
-significance, suggesting a potential effect of diet on diversity, though
-it remains marginal.
 
 \begin{center}
 \includegraphics{alpha_observed_files/figure-pdf/viz-div_change-1.pdf}
@@ -301,22 +286,9 @@ it remains marginal.
 \endfoot
 \bottomrule
 \endlastfoot
-oat & 210.9 & 206.9 & 0.04 & 0.120\\
-rice & 231.3 & 233.0 & 0.13 & 0.363\\*
+rice & 231.2 & 232.8 & 0.13 & 0.399\\
+oat & 210.6 & 206.5 & 0.04 & 0.112\\*
 \end{longtable}
-
-Oat group: Observed alpha diversity slightly decreased from
-\texttt{210.90} to \texttt{206.90} (log2FC = \texttt{0.04}, p =
-\texttt{0.120}), indicating a small but non-significant reduction over
-time.
-
-Rice group: Diversity increased modestly from \texttt{231.30} to
-\texttt{233.00} (log2FC = \texttt{0.13}, p = \texttt{0.363}), but this
-change is also not statistically significant.
-
-Overall, there were no significant within-group changes in observed
-alpha diversity over time, suggesting that dietary intervention had a
-minimal effect on diversity shifts within each group.
 
 \subsection{LMM}\label{lmm}
 
@@ -327,24 +299,11 @@ minimal effect on diversity shifts within each group.
 \item
   Statistical test: \textbf{paired Wilcoxon}
 \item
-  Formula used: \textbf{\textasciitilde{} diet * timepoint + (1
+  Formula used: \textbf{\textasciitilde{} diet * intervention + (1
   \textbar{} id)}
 \end{itemize}
 
 \includegraphics{alpha_observed_files/figure-pdf/table-fixed-fx-1.pdf}
-
-Diet effect (rice vs.~oat): No significant difference between rice and
-oat groups \texttt{(Estimate\ =\ 0.12,\ p\ =\ 0.333}), suggesting
-baseline diversity was similar.
-
-Time effect: A slight decrease in diversity over time
-\texttt{(Estimate\ =\ -0.03,\ p\ =\ 0.177)}, but this was not
-statistically significant.
-
-Diet × Time interaction: The interaction term
-\texttt{(Estimate\ =\ 0.04,\ p\ =\ 0.201)} suggests that the change in
-diversity over time did not significantly differ between the oat and
-rice groups.
 
 \section{Alternate analyses}\label{alternate-analyses}
 
@@ -369,11 +328,11 @@ rice groups.
 \cmidrule(lr){2-4} \cmidrule(lr){5-7}
 \textbf{Characteristic} & \textbf{Beta} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} & \textbf{Beta} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} \\ 
 \midrule\addlinespace[2.5pt]
-(Intercept) & 151 & 67, 235 & <0.001 & 144 & 59, 229 & 0.001 \\ 
+(Intercept) & 151 & 66, 235 & <0.001 & 143 & 58, 228 & 0.001 \\ 
 meal\_group &  &  & 0.4 &  &  & 0.3 \\ 
     1 & — & — &  & — & — &  \\ 
     2 & 32 & -11, 75 & 0.14 & 28 & -16, 72 & 0.2 \\ 
-    3 & 28 & -15, 70 & 0.2 & 30 & -14, 73 & 0.2 \\ 
+    3 & 28 & -15, 71 & 0.2 & 30 & -14, 74 & 0.2 \\ 
     4 & 10 & -32, 53 & 0.6 & -3.8 & -47, 39 & 0.9 \\ 
 age & 1.0 & -0.44, 2.5 & 0.2 & 1.2 & -0.25, 2.7 & 0.10 \\ 
 \bottomrule
@@ -389,13 +348,13 @@ age & 1.0 & -0.44, 2.5 & 0.2 & 1.2 & -0.25, 2.7 & 0.10 \\
 \toprule
 \textbf{Paired test between timepoints (1 and 2)} & \textbf{Beta} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} \\ 
 \midrule\addlinespace[2.5pt]
-(Intercept) & 147 & 84, 210 & <0.001 \\ 
+(Intercept) & 146 & 84, 209 & <0.001 \\ 
 meal\_group &  &  & 0.6 \\ 
     1 & — & — &  \\ 
     2 & 28 & -16, 71 & 0.2 \\ 
     3 & 28 & -15, 71 & 0.2 \\ 
-    4 & 2.2 & -27, 32 & 0.9 \\ 
-age & 1.2 & 0.13, 2.2 & 0.026 \\ 
+    4 & 2.1 & -28, 32 & 0.9 \\ 
+age & 1.2 & 0.14, 2.2 & 0.025 \\ 
 \bottomrule
 \end{tabular*}
 \begin{minipage}{\linewidth}
@@ -413,7 +372,7 @@ assays(1): relabundance
 rownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921
 rowData names(9): kingdom phylum ... strain clade_name
 colnames(140): AE1332 AE2332 ... VK1336 VK2336
-colData names(16): sample id ... group observed_log2
+colData names(17): sample id ... group observed_log2
 reducedDimNames(0):
 mainExpName: NULL
 altExpNames(20): kingdom phylum ... KO metacyc

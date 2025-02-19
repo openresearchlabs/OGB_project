@@ -187,14 +187,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#differential-abundance-analysis" id="toc-differential-abundance-analysis" class="nav-link active" data-scroll-target="#differential-abundance-analysis"><span class="header-section-number">0.1</span> Differential abundance analysis</a></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="daa_interest.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
-    </div>
+        
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="daa_interest.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
@@ -217,8 +211,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="differential-abundance-analysis" class="level3" data-number="0.1">
-<h3 data-number="0.1" class="anchored" data-anchor-id="differential-abundance-analysis"><span class="header-section-number">0.1</span> Differential abundance analysis</h3>
 <p>Analysis information:</p>
 <ul>
 <li>Method: maaslin3</li>
@@ -226,8 +218,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Group variable: Diet</li>
 <li>Formula used: <strong>~ diet * timepoint + (1 | id)</strong></li>
 <li>Correction: <strong>Benjamini-Hochberg FDR adjustment</strong></li>
-<li>Detection threshold: 0.001</li>
-<li>Prevalence threshold: 0.1</li>
+<li>Detection threshold: 0.1%</li>
+<li>Prevalence threshold: 10%</li>
 </ul>
 <div>
 
@@ -381,13 +373,13 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 29%">
+<col style="width: 26%">
+<col style="width: 11%">
+<col style="width: 18%">
 <col style="width: 9%">
-<col style="width: 10%">
-<col style="width: 11%">
-<col style="width: 16%">
-<col style="width: 11%">
-<col style="width: 11%">
+<col style="width: 14%">
+<col style="width: 9%">
+<col style="width: 9%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -402,220 +394,220 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Ruminococcus_gnavus</td>
+<td style="text-align: left;">Bifidobacterium_animalis</td>
 <td style="text-align: left;">diet</td>
-<td style="text-align: left;">rice</td>
-<td style="text-align: right;">-4.0092800</td>
-<td style="text-align: right;">0.5037868</td>
-<td style="text-align: right;">0.5073636</td>
-<td style="text-align: left;">abundance</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ruminococcus_gnavus</td>
-<td style="text-align: left;">diet</td>
-<td style="text-align: left;">rice:time</td>
-<td style="text-align: right;">1.7013930</td>
-<td style="text-align: right;">0.6937474</td>
-<td style="text-align: right;">0.7222605</td>
-<td style="text-align: left;">abundance</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ruminococcus_gnavus</td>
-<td style="text-align: left;">diet</td>
-<td style="text-align: left;">rice</td>
-<td style="text-align: right;">-4.0381316</td>
-<td style="text-align: right;">0.8070848</td>
-<td style="text-align: right;">0.5073636</td>
-<td style="text-align: left;">prevalence</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ruminococcus_gnavus</td>
-<td style="text-align: left;">time</td>
-<td style="text-align: left;">time</td>
-<td style="text-align: right;">-0.9808781</td>
-<td style="text-align: right;">0.8691533</td>
-<td style="text-align: right;">0.8763341</td>
-<td style="text-align: left;">abundance</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ruminococcus_gnavus</td>
-<td style="text-align: left;">diet</td>
-<td style="text-align: left;">rice:time</td>
-<td style="text-align: right;">2.0115654</td>
-<td style="text-align: right;">0.8796792</td>
-<td style="text-align: right;">0.7222605</td>
+<td style="text-align: left;">oat</td>
+<td style="text-align: right;">1.6724398</td>
+<td style="text-align: right;">0.5922506</td>
+<td style="text-align: right;">0.5990227</td>
 <td style="text-align: left;">prevalence</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Bifidobacterium_animalis</td>
-<td style="text-align: left;">diet</td>
-<td style="text-align: left;">rice:time</td>
-<td style="text-align: right;">-1.3087063</td>
-<td style="text-align: right;">0.9815966</td>
-<td style="text-align: right;">0.9686254</td>
-<td style="text-align: left;">prevalence</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Bifidobacterium_adolescentis</td>
-<td style="text-align: left;">diet</td>
-<td style="text-align: left;">rice</td>
-<td style="text-align: right;">0.9229613</td>
-<td style="text-align: right;">1.0000000</td>
-<td style="text-align: right;">0.9999092</td>
-<td style="text-align: left;">abundance</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Bifidobacterium_adolescentis</td>
-<td style="text-align: left;">diet</td>
-<td style="text-align: left;">rice:time</td>
-<td style="text-align: right;">-0.8101079</td>
-<td style="text-align: right;">1.0000000</td>
-<td style="text-align: right;">0.9999092</td>
-<td style="text-align: left;">abundance</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Bifidobacterium_adolescentis</td>
-<td style="text-align: left;">time</td>
-<td style="text-align: left;">time</td>
-<td style="text-align: right;">-0.3836930</td>
-<td style="text-align: right;">1.0000000</td>
-<td style="text-align: right;">0.9999092</td>
-<td style="text-align: left;">abundance</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Bifidobacterium_animalis</td>
-<td style="text-align: left;">diet</td>
-<td style="text-align: left;">rice</td>
-<td style="text-align: right;">0.5712285</td>
-<td style="text-align: right;">1.0000000</td>
-<td style="text-align: right;">0.9999092</td>
-<td style="text-align: left;">abundance</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Bifidobacterium_animalis</td>
-<td style="text-align: left;">diet</td>
-<td style="text-align: left;">rice:time</td>
-<td style="text-align: right;">-0.7599236</td>
-<td style="text-align: right;">1.0000000</td>
-<td style="text-align: right;">0.9686254</td>
-<td style="text-align: left;">abundance</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Bifidobacterium_animalis</td>
-<td style="text-align: left;">time</td>
-<td style="text-align: left;">time</td>
-<td style="text-align: right;">1.3001821</td>
-<td style="text-align: right;">1.0000000</td>
-<td style="text-align: right;">0.9943812</td>
-<td style="text-align: left;">abundance</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Bifidobacterium_bifidum</td>
-<td style="text-align: left;">diet</td>
-<td style="text-align: left;">rice</td>
-<td style="text-align: right;">-0.6106749</td>
-<td style="text-align: right;">1.0000000</td>
-<td style="text-align: right;">0.9999092</td>
-<td style="text-align: left;">abundance</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Bifidobacterium_bifidum</td>
-<td style="text-align: left;">diet</td>
-<td style="text-align: left;">rice:time</td>
-<td style="text-align: right;">0.7938902</td>
-<td style="text-align: right;">1.0000000</td>
-<td style="text-align: right;">0.9999092</td>
-<td style="text-align: left;">abundance</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Bifidobacterium_bifidum</td>
-<td style="text-align: left;">time</td>
-<td style="text-align: left;">time</td>
-<td style="text-align: right;">-1.7830446</td>
-<td style="text-align: right;">1.0000000</td>
-<td style="text-align: right;">0.9999092</td>
-<td style="text-align: left;">abundance</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Bifidobacterium_adolescentis</td>
-<td style="text-align: left;">diet</td>
-<td style="text-align: left;">rice</td>
-<td style="text-align: right;">0.8960185</td>
-<td style="text-align: right;">1.0000000</td>
-<td style="text-align: right;">0.9999092</td>
-<td style="text-align: left;">prevalence</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Bifidobacterium_adolescentis</td>
-<td style="text-align: left;">diet</td>
-<td style="text-align: left;">rice:time</td>
-<td style="text-align: right;">-0.0000009</td>
-<td style="text-align: right;">1.0000000</td>
-<td style="text-align: right;">0.9999092</td>
-<td style="text-align: left;">prevalence</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Bifidobacterium_adolescentis</td>
-<td style="text-align: left;">time</td>
-<td style="text-align: left;">time</td>
-<td style="text-align: right;">0.0000004</td>
-<td style="text-align: right;">1.0000000</td>
-<td style="text-align: right;">0.9999092</td>
+<td style="text-align: left;">intervention</td>
+<td style="text-align: left;">oat</td>
+<td style="text-align: right;">1.3242713</td>
+<td style="text-align: right;">0.7816477</td>
+<td style="text-align: right;">0.8016409</td>
 <td style="text-align: left;">prevalence</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Bifidobacterium_animalis</td>
 <td style="text-align: left;">diet</td>
-<td style="text-align: left;">rice</td>
-<td style="text-align: right;">1.0491075</td>
-<td style="text-align: right;">1.0000000</td>
-<td style="text-align: right;">0.9999092</td>
+<td style="text-align: left;">oat:interventionoat</td>
+<td style="text-align: right;">-1.6724373</td>
+<td style="text-align: right;">0.8376377</td>
+<td style="text-align: right;">0.8504384</td>
 <td style="text-align: left;">prevalence</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bifidobacterium_adolescentis</td>
+<td style="text-align: left;">diet</td>
+<td style="text-align: left;">oat</td>
+<td style="text-align: right;">-0.0140225</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.9975694</td>
+<td style="text-align: left;">abundance</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bifidobacterium_adolescentis</td>
+<td style="text-align: left;">diet</td>
+<td style="text-align: left;">oat:interventionoat</td>
+<td style="text-align: right;">0.5459126</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.9975694</td>
+<td style="text-align: left;">abundance</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bifidobacterium_adolescentis</td>
+<td style="text-align: left;">intervention</td>
+<td style="text-align: left;">oat</td>
+<td style="text-align: right;">-0.8367930</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.9975694</td>
+<td style="text-align: left;">abundance</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bifidobacterium_animalis</td>
+<td style="text-align: left;">diet</td>
+<td style="text-align: left;">oat</td>
+<td style="text-align: right;">0.8997651</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.5990227</td>
+<td style="text-align: left;">abundance</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Bifidobacterium_animalis</td>
-<td style="text-align: left;">time</td>
-<td style="text-align: left;">time</td>
-<td style="text-align: right;">0.0000000</td>
+<td style="text-align: left;">diet</td>
+<td style="text-align: left;">oat:interventionoat</td>
+<td style="text-align: right;">-0.2603632</td>
 <td style="text-align: right;">1.0000000</td>
-<td style="text-align: right;">0.9943812</td>
-<td style="text-align: left;">prevalence</td>
+<td style="text-align: right;">0.8504384</td>
+<td style="text-align: left;">abundance</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bifidobacterium_animalis</td>
+<td style="text-align: left;">intervention</td>
+<td style="text-align: left;">oat</td>
+<td style="text-align: right;">0.9830428</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.8016409</td>
+<td style="text-align: left;">abundance</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bifidobacterium_bifidum</td>
+<td style="text-align: left;">diet</td>
+<td style="text-align: left;">oat</td>
+<td style="text-align: right;">-1.1160628</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.9975694</td>
+<td style="text-align: left;">abundance</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Bifidobacterium_bifidum</td>
-<td style="text-align: left;">diet</td>
-<td style="text-align: left;">rice</td>
-<td style="text-align: right;">1.2681437</td>
+<td style="text-align: left;">intervention</td>
+<td style="text-align: left;">oat</td>
+<td style="text-align: right;">0.8574439</td>
 <td style="text-align: right;">1.0000000</td>
-<td style="text-align: right;">0.9999092</td>
+<td style="text-align: right;">0.9975694</td>
+<td style="text-align: left;">abundance</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ruminococcus_gnavus</td>
+<td style="text-align: left;">diet</td>
+<td style="text-align: left;">oat</td>
+<td style="text-align: right;">0.8651521</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.9975694</td>
+<td style="text-align: left;">abundance</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ruminococcus_gnavus</td>
+<td style="text-align: left;">diet</td>
+<td style="text-align: left;">oat:interventionoat</td>
+<td style="text-align: right;">1.2065904</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.9975694</td>
+<td style="text-align: left;">abundance</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ruminococcus_gnavus</td>
+<td style="text-align: left;">intervention</td>
+<td style="text-align: left;">oat</td>
+<td style="text-align: right;">-0.6782211</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.9975694</td>
+<td style="text-align: left;">abundance</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bifidobacterium_adolescentis</td>
+<td style="text-align: left;">diet</td>
+<td style="text-align: left;">oat</td>
+<td style="text-align: right;">-0.3304582</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.9975694</td>
+<td style="text-align: left;">prevalence</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bifidobacterium_adolescentis</td>
+<td style="text-align: left;">diet</td>
+<td style="text-align: left;">oat:interventionoat</td>
+<td style="text-align: right;">-1.3545892</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.9975694</td>
+<td style="text-align: left;">prevalence</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bifidobacterium_adolescentis</td>
+<td style="text-align: left;">intervention</td>
+<td style="text-align: left;">oat</td>
+<td style="text-align: right;">1.6858125</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.9975694</td>
 <td style="text-align: left;">prevalence</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Bifidobacterium_bifidum</td>
 <td style="text-align: left;">diet</td>
-<td style="text-align: left;">rice:time</td>
-<td style="text-align: right;">0.0000029</td>
+<td style="text-align: left;">oat</td>
+<td style="text-align: right;">-9.9916786</td>
 <td style="text-align: right;">1.0000000</td>
-<td style="text-align: right;">0.9999092</td>
+<td style="text-align: right;">0.9975694</td>
 <td style="text-align: left;">prevalence</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Bifidobacterium_bifidum</td>
-<td style="text-align: left;">time</td>
-<td style="text-align: left;">time</td>
-<td style="text-align: right;">0.0000029</td>
+<td style="text-align: left;">diet</td>
+<td style="text-align: left;">oat:interventionoat</td>
+<td style="text-align: right;">9.9101692</td>
 <td style="text-align: right;">1.0000000</td>
-<td style="text-align: right;">0.9999092</td>
+<td style="text-align: right;">0.9975694</td>
+<td style="text-align: left;">prevalence</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bifidobacterium_bifidum</td>
+<td style="text-align: left;">intervention</td>
+<td style="text-align: left;">oat</td>
+<td style="text-align: right;">-0.7520547</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.9975694</td>
+<td style="text-align: left;">prevalence</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ruminococcus_gnavus</td>
+<td style="text-align: left;">diet</td>
+<td style="text-align: left;">oat</td>
+<td style="text-align: right;">0.1428974</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.9975694</td>
 <td style="text-align: left;">prevalence</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Ruminococcus_gnavus</td>
-<td style="text-align: left;">time</td>
-<td style="text-align: left;">time</td>
-<td style="text-align: right;">-0.8913836</td>
+<td style="text-align: left;">diet</td>
+<td style="text-align: left;">oat:interventionoat</td>
+<td style="text-align: right;">1.5857227</td>
 <td style="text-align: right;">1.0000000</td>
-<td style="text-align: right;">0.8763341</td>
+<td style="text-align: right;">0.9975694</td>
 <td style="text-align: left;">prevalence</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ruminococcus_gnavus</td>
+<td style="text-align: left;">intervention</td>
+<td style="text-align: left;">oat</td>
+<td style="text-align: right;">-1.4617410</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.9975694</td>
+<td style="text-align: left;">prevalence</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bifidobacterium_bifidum</td>
+<td style="text-align: left;">diet</td>
+<td style="text-align: left;">oat:interventionoat</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">0.9975694</td>
+<td style="text-align: left;">abundance</td>
 </tr>
 </tbody>
 </table>
@@ -623,7 +615,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

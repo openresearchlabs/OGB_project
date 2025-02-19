@@ -182,8 +182,8 @@ analysis}\label{differential-abundance-analysis}
 \item
   Group variable: \textbf{diet}
 \item
-  Formula used: \textbf{\textasciitilde{} diet * time + (1 \textbar{}
-  id)}
+  Formula used: \textbf{\textasciitilde{} diet * intervention + (1
+  \textbar{} id)}
 \end{itemize}
 
 \begin{longtable}[t]{lrrrrrr}
@@ -201,201 +201,452 @@ analysis}\label{differential-abundance-analysis}
 \endfoot
 \bottomrule
 \endlastfoot
-K01179 & time & time & -14.915 & 0.000 & 0.000 & prevalence\\
-K19509 & time & time & -13.727 & 0.000 & 0.000 & prevalence\\
-K21993 & diet & 2 & -29.652 & 0.000 & 0.000 & prevalence\\
-K21993 & diet & 2:time & 20.218 & 0.000 & 0.000 & prevalence\\
-K17195 & time & time & -12.980 & 0.000 & 0.000 & prevalence\\
+K02300 & diet & oat & 0.427 & 0.000 & 0.000 & prevalence\\
+K02300 & diet & oat:interventionoat & 86.591 & 0.000 & 0.000 & prevalence\\
+K02300 & intervention & oat & -88.014 & 0.000 & 0.000 & prevalence\\
+K06970 & intervention & oat & 16.959 & 0.000 & 0.000 & prevalence\\
+K20116 & intervention & oat & 12.308 & 0.000 & 0.000 & prevalence\\
 \addlinespace
-K21993 & time & time & -9.813 & 0.000 & 0.000 & prevalence\\
-K01179 & diet & 2 & -35.366 & 0.000 & 0.000 & prevalence\\
-K19509 & diet & 2 & -28.755 & 0.000 & 0.000 & prevalence\\
-K01179 & diet & 2:time & 19.494 & 0.000 & 0.000 & prevalence\\
-K19509 & diet & 2:time & 15.090 & 0.000 & 0.000 & prevalence\\
+K20117 & intervention & oat & 12.308 & 0.000 & 0.000 & prevalence\\
+K20118 & intervention & oat & 12.308 & 0.000 & 0.000 & prevalence\\
+K04092 & intervention & oat & 14.146 & 0.000 & 0.000 & prevalence\\
+K15372 & intervention & oat & 11.995 & 0.000 & 0.000 & prevalence\\
+K06143 & diet & oat & 12.074 & 0.000 & 0.000 & prevalence\\
 \addlinespace
-K17235 & time & time & 13.346 & 0.000 & 0.000 & prevalence\\
-K00950 & time & time & 11.113 & 0.000 & 0.000 & prevalence\\
-K17235 & diet & 2:time & -14.183 & 0.000 & 0.000 & prevalence\\
-K08972 & time & time & -8.959 & 0.000 & 0.000 & prevalence\\
-K08972 & diet & 2 & -20.665 & 0.000 & 0.000 & prevalence\\
+K23004 & intervention & oat & 12.947 & 0.000 & 0.000 & prevalence\\
+K01551 & intervention & oat & 11.880 & 0.000 & 0.000 & prevalence\\
+K04518 & diet & oat & 12.565 & 0.000 & 0.000 & prevalence\\
+K06952 & intervention & oat & 10.937 & 0.000 & 0.000 & prevalence\\
+K08678 & intervention & oat & 9.880 & 0.000 & 0.000 & prevalence\\
 \addlinespace
-K07458 & diet & 2 & 33.261 & 0.000 & 0.000 & prevalence\\
-K07458 & diet & 2:time & -16.730 & 0.000 & 0.000 & prevalence\\
-K02048 & time & time & 9.179 & 0.000 & 0.000 & prevalence\\
-K00950 & diet & 2:time & -11.903 & 0.000 & 0.000 & prevalence\\
-K03489 & diet & 2:time & 19.968 & 0.000 & 0.000 & prevalence\\
+K02081 & diet & oat & 9.745 & 0.000 & 0.000 & prevalence\\
+K02418 & diet & oat & 17.631 & 0.000 & 0.000 & prevalence\\
+K06042 & diet & oat & 12.645 & 0.000 & 0.000 & prevalence\\
+K02081 & intervention & oat & 9.641 & 0.000 & 0.000 & prevalence\\
+K02081 & diet & oat:interventionoat & -20.717 & 0.000 & 0.000 & prevalence\\
 \addlinespace
-K17235 & diet & 2 & 15.134 & 0.000 & 0.000 & prevalence\\
-K08972 & diet & 2:time & 11.383 & 0.000 & 0.000 & prevalence\\
-K03489 & diet & 2 & -29.363 & 0.000 & 0.000 & prevalence\\
-K17195 & diet & 2:time & 8.929 & 0.000 & 0.000 & prevalence\\
-K17195 & diet & 2 & -17.615 & 0.000 & 0.000 & prevalence\\
+K01179 & intervention & oat & 10.828 & 0.000 & 0.000 & prevalence\\
+K02413 & diet & oat:interventionoat & 9.098 & 0.000 & 0.000 & prevalence\\
+K07341 & intervention & oat & 9.772 & 0.000 & 0.000 & prevalence\\
+K08307 & diet & oat & 11.583 & 0.000 & 0.000 & prevalence\\
+K10008 & intervention & oat & 10.481 & 0.000 & 0.000 & prevalence\\
 \addlinespace
-K09692 & diet & 2:time & -6.303 & 0.001 & 0.001 & prevalence\\
-K05966 & time & time & -2.588 & 0.001 & 0.001 & abundance\\
-K08159 & diet & 2 & -4.064 & 0.001 & 0.001 & abundance\\
-K13641 & diet & 2 & -5.574 & 0.001 & 0.002 & abundance\\
-K02048 & diet & 2:time & -10.565 & 0.002 & 0.003 & prevalence\\
+K17836 & diet & oat & 10.428 & 0.000 & 0.000 & prevalence\\
+K06970 & diet & oat:interventionoat & -16.537 & 0.000 & 0.000 & prevalence\\
+K05346 & intervention & oat & 9.327 & 0.000 & 0.000 & prevalence\\
+K19052 & intervention & oat & 10.650 & 0.000 & 0.000 & prevalence\\
+K02418 & diet & oat:interventionoat & -17.271 & 0.000 & 0.000 & prevalence\\
 \addlinespace
-K03489 & time & time & -10.263 & 0.003 & 0.002 & prevalence\\
-K07496 & diet & 2 & -2.784 & 0.004 & 0.003 & abundance\\
-K08159 & diet & 2:time & 2.395 & 0.004 & 0.006 & abundance\\
-K09117 & diet & 2 & -2.945 & 0.006 & 0.007 & abundance\\
-K00950 & diet & 2 & 11.982 & 0.010 & 0.012 & prevalence\\
+K03727 & intervention & oat & 12.839 & 0.000 & 0.000 & prevalence\\
+K07048 & diet & oat & 10.038 & 0.000 & 0.000 & prevalence\\
+K04092 & diet & oat:interventionoat & -14.330 & 0.000 & 0.000 & prevalence\\
+K18205 & intervention & oat & 11.977 & 0.000 & 0.000 & prevalence\\
+K02782 & intervention & oat & 10.581 & 0.000 & 0.000 & prevalence\\
 \addlinespace
-K00949 & diet & 2:time & -1.234 & 0.011 & 0.007 & abundance\\
-K19302 & diet & 2:time & -0.953 & 0.013 & 0.009 & abundance\\
-K03786 & diet & 2:time & -1.294 & 0.017 & 0.012 & abundance\\
-K02408 & time & time & 8.574 & 0.017 & 0.021 & prevalence\\
-K07979 & time & time & -0.839 & 0.018 & 0.012 & abundance\\
+K01205 & intervention & oat & 9.085 & 0.000 & 0.000 & prevalence\\
+K13527 & intervention & oat & 9.063 & 0.000 & 0.000 & prevalence\\
+K00194 & intervention & oat & 12.079 & 0.000 & 0.000 & prevalence\\
+K13787 & intervention & oat & 11.413 & 0.000 & 0.000 & prevalence\\
+K18928 & intervention & oat & 11.524 & 0.000 & 0.000 & prevalence\\
 \addlinespace
-K07496 & diet & 2:time & 1.560 & 0.025 & 0.017 & abundance\\
-K06893 & time & time & 1.947 & 0.040 & 0.052 & abundance\\
-K03529 & diet & 2:time & -0.958 & 0.040 & 0.028 & abundance\\
-K09117 & diet & 2:time & 1.536 & 0.076 & 0.082 & abundance\\
-K19302 & diet & 2 & 1.330 & 0.077 & 0.053 & abundance\\
+K07273 & intervention & oat & 12.611 & 0.000 & 0.000 & prevalence\\
+K07259 & intervention & oat & 11.266 & 0.000 & 0.000 & prevalence\\
+K17836 & diet & oat:interventionoat & -18.924 & 0.000 & 0.000 & prevalence\\
+K09692 & diet & oat & -11.654 & 0.000 & 0.000 & prevalence\\
+K17836 & intervention & oat & 9.827 & 0.000 & 0.000 & prevalence\\
 \addlinespace
-K01756 & diet & 2 & -2.359 & 0.092 & 0.064 & abundance\\
-K02809 & diet & 2 & -2.449 & 0.092 & 0.094 & abundance\\
-K02810 & diet & 2 & -2.449 & 0.092 & 0.094 & abundance\\
-K01756 & diet & 2:time & 1.484 & 0.094 & 0.067 & abundance\\
-K10797 & time & time & 1.386 & 0.094 & 0.067 & abundance\\
+K09384 & intervention & oat & 11.020 & 0.000 & 0.000 & prevalence\\
+K00324 & intervention & oat & 10.220 & 0.000 & 0.000 & prevalence\\
+K01224 & diet & oat & -11.184 & 0.000 & 0.000 & prevalence\\
+K12452 & diet & oat & -8.705 & 0.000 & 0.000 & prevalence\\
+K04518 & diet & oat:interventionoat & -12.890 & 0.000 & 0.000 & prevalence\\
 \addlinespace
-K05808 & diet & 2 & -1.936 & 0.098 & 0.070 & abundance\\
-K00949 & diet & 2 & 1.654 & 0.100 & 0.071 & abundance\\
-K07258 & diet & 2:time & -0.877 & 0.101 & 0.072 & abundance\\
-K03786 & diet & 2 & 1.778 & 0.101 & 0.072 & abundance\\
-K07301 & diet & 2:time & -1.058 & 0.106 & 0.075 & abundance\\
+K02065 & diet & oat & 10.636 & 0.000 & 0.000 & prevalence\\
+K03327 & diet & oat & 10.636 & 0.000 & 0.000 & prevalence\\
+K02396 & intervention & oat & 1.407 & 0.000 & 0.000 & prevalence\\
+K03389 & diet & oat & 9.565 & 0.000 & 0.000 & prevalence\\
+K00425 & diet & oat & 10.022 & 0.000 & 0.000 & prevalence\\
 \addlinespace
-K01464 & diet & 2:time & -1.178 & 0.114 & 0.083 & abundance\\
-K02115 & time & time & -0.414 & 0.114 & 0.083 & abundance\\
-K02796 & diet & 2 & -2.746 & 0.114 & 0.082 & abundance\\
-K03150 & diet & 2 & 1.406 & 0.114 & 0.085 & abundance\\
-K03150 & diet & 2:time & -0.897 & 0.114 & 0.083 & abundance\\
+K09124 & diet & oat:interventionoat & 9.051 & 0.000 & 0.000 & prevalence\\
+K01787 & intervention & oat & 3.791 & 0.000 & 0.000 & prevalence\\
+K17331 & intervention & oat & 10.733 & 0.000 & 0.000 & prevalence\\
+K01661 & diet & oat:interventionoat & 14.558 & 0.000 & 0.000 & prevalence\\
+K03473 & intervention & oat & 9.180 & 0.000 & 0.000 & prevalence\\
 \addlinespace
-K03281 & diet & 2:time & -1.364 & 0.114 & 0.081 & abundance\\
-K06383 & diet & 2:time & -1.126 & 0.114 & 0.085 & abundance\\
-K03529 & diet & 2 & 1.350 & 0.121 & 0.094 & abundance\\
-K02825 & time & time & -1.082 & 0.121 & 0.094 & abundance\\
-K01464 & diet & 2 & 1.866 & 0.124 & 0.096 & abundance\\
+K06864 & diet & oat & -10.795 & 0.000 & 0.000 & prevalence\\
+K09706 & intervention & oat & 12.289 & 0.000 & 0.000 & prevalence\\
+K23004 & diet & oat:interventionoat & -14.163 & 0.000 & 0.000 & prevalence\\
+K06042 & diet & oat:interventionoat & -13.637 & 0.000 & 0.000 & prevalence\\
+K07273 & diet & oat:interventionoat & -14.393 & 0.000 & 0.000 & prevalence\\
 \addlinespace
-K02408 & time & time & 0.795 & 0.489 & 0.021 & abundance\\
-K02048 & diet & 2:time & 1.322 & 0.532 & 0.003 & abundance\\
-K21993 & diet & 2:time & -0.897 & 0.658 & 0.000 & abundance\\
-K17235 & time & time & 0.744 & 0.695 & 0.000 & abundance\\
-K05966 & time & time & 0.822 & 0.745 & 0.001 & prevalence\\
+K12452 & intervention & oat & -8.025 & 0.000 & 0.000 & prevalence\\
+K23003 & intervention & oat & 9.440 & 0.000 & 0.000 & prevalence\\
+K03931 & diet & oat & 10.033 & 0.000 & 0.000 & prevalence\\
+K03735 & diet & oat:interventionoat & 10.698 & 0.000 & 0.000 & prevalence\\
+K01089 & diet & oat & 9.922 & 0.000 & 0.001 & prevalence\\
 \addlinespace
-K00950 & time & time & -0.564 & 0.750 & 0.000 & abundance\\
-K01179 & diet & 2 & 1.500 & 0.765 & 0.000 & abundance\\
-K17195 & diet & 2 & 1.365 & 0.768 & 0.000 & abundance\\
-K13641 & diet & 2 & 1.828 & 0.793 & 0.002 & prevalence\\
-K01179 & diet & 2:time & -0.867 & 0.796 & 0.000 & abundance\\
+K03281 & diet & oat & 9.922 & 0.000 & 0.001 & prevalence\\
+K07277 & diet & oat & 9.922 & 0.000 & 0.001 & prevalence\\
+K00194 & diet & oat:interventionoat & -12.655 & 0.000 & 0.001 & prevalence\\
+K02445 & diet & oat & 11.004 & 0.001 & 0.001 & prevalence\\
+K09767 & diet & oat & -9.589 & 0.001 & 0.001 & prevalence\\
 \addlinespace
-K17195 & time & time & 0.565 & 0.812 & 0.000 & abundance\\
-K21993 & diet & 2 & 0.905 & 0.838 & 0.000 & abundance\\
-K19509 & diet & 2 & -1.320 & 0.839 & 0.000 & abundance\\
-K09692 & diet & 2:time & -0.622 & 0.865 & 0.001 & abundance\\
-K00950 & diet & 2:time & -0.504 & 0.895 & 0.000 & abundance\\
+K01551 & diet & oat:interventionoat & -11.943 & 0.001 & 0.002 & prevalence\\
+K08223 & diet & oat & 10.992 & 0.003 & 0.004 & prevalence\\
+K07588 & intervention & oat & 9.413 & 0.003 & 0.004 & prevalence\\
+K00575 & diet & oat:interventionoat & 10.073 & 0.004 & 0.005 & prevalence\\
+K05879 & diet & oat:interventionoat & -0.306 & 0.005 & 0.006 & prevalence\\
 \addlinespace
-K06893 & time & time & -0.473 & 0.916 & 0.052 & prevalence\\
-K17195 & diet & 2:time & -0.473 & 0.935 & 0.000 & abundance\\
-K21993 & time & time & 0.223 & 0.961 & 0.000 & abundance\\
-K00950 & diet & 2 & 0.527 & 0.966 & 0.012 & abundance\\
-K08159 & diet & 2:time & -0.609 & 0.974 & 0.006 & prevalence\\
+K01719 & intervention & oat & 10.570 & 0.005 & 0.006 & prevalence\\
+K13787 & diet & oat:interventionoat & -11.418 & 0.005 & 0.007 & prevalence\\
+K20116 & diet & oat:interventionoat & -12.964 & 0.006 & 0.007 & prevalence\\
+K20117 & diet & oat:interventionoat & -12.964 & 0.006 & 0.007 & prevalence\\
+K20118 & diet & oat:interventionoat & -12.964 & 0.006 & 0.007 & prevalence\\
 \addlinespace
-K17235 & diet & 2:time & -0.306 & 0.992 & 0.000 & abundance\\
-K01179 & time & time & 0.192 & 1.000 & 0.000 & abundance\\
-K02048 & time & time & -0.072 & 1.000 & 0.000 & abundance\\
-K07458 & diet & 2 & 0.378 & 1.000 & 0.000 & abundance\\
-K07458 & diet & 2:time & 0.041 & 1.000 & 0.000 & abundance\\
+K02783 & diet & oat:interventionoat & -13.345 & 0.006 & 0.007 & prevalence\\
+K02773 & diet & oat & -11.242 & 0.006 & 0.007 & prevalence\\
+K01438 & diet & oat & 10.754 & 0.007 & 0.009 & prevalence\\
+K02002 & diet & oat & 10.754 & 0.007 & 0.009 & prevalence\\
+K06952 & diet & oat:interventionoat & -11.411 & 0.008 & 0.009 & prevalence\\
 \addlinespace
-K08972 & diet & 2 & 0.164 & 1.000 & 0.000 & abundance\\
-K08972 & diet & 2:time & 0.150 & 1.000 & 0.000 & abundance\\
-K08972 & time & time & 0.101 & 1.000 & 0.000 & abundance\\
-K17235 & diet & 2 & 0.288 & 1.000 & 0.000 & abundance\\
-K19509 & diet & 2:time & 0.137 & 1.000 & 0.000 & abundance\\
+K23003 & diet & oat & 9.279 & 0.008 & 0.009 & prevalence\\
+K06206 & diet & oat & 1.387 & 0.010 & 0.007 & abundance\\
+K18889 & diet & oat:interventionoat & 9.722 & 0.012 & 0.015 & prevalence\\
+K19508 & diet & oat & 9.717 & 0.013 & 0.015 & prevalence\\
+K00872 & intervention & oat & -9.023 & 0.013 & 0.016 & prevalence\\
 \addlinespace
-K19509 & time & time & -0.072 & 1.000 & 0.000 & abundance\\
-K02809 & diet & 2 & 1.318 & 1.000 & 0.094 & prevalence\\
-K02810 & diet & 2 & 1.318 & 1.000 & 0.094 & prevalence\\
-K09117 & diet & 2 & 1.318 & 1.000 & 0.007 & prevalence\\
-K09117 & diet & 2:time & -1.318 & 1.000 & 0.082 & prevalence\\
+K07341 & diet & oat:interventionoat & 4.587 & 0.014 & 0.018 & prevalence\\
+K02221 & intervention & oat & 10.084 & 0.015 & 0.019 & prevalence\\
+K16927 & intervention & oat & 9.203 & 0.020 & 0.024 & prevalence\\
+K05516 & intervention & oat & 10.483 & 0.021 & 0.026 & prevalence\\
+K08307 & diet & oat:interventionoat & -12.112 & 0.022 & 0.026 & prevalence\\
 \addlinespace
-K08159 & diet & 2 & -0.394 & 1.000 & 0.001 & prevalence\\
-K10797 & time & time & 0.201 & 1.000 & 0.067 & prevalence\\
-K03489 & diet & 2 & NA & NA & 0.000 & abundance\\
-K03489 & diet & 2:time & NA & NA & 0.000 & abundance\\
-K03489 & time & time & NA & NA & 0.002 & abundance\\
+K03592 & intervention & oat & 10.860 & 0.024 & 0.030 & prevalence\\
+K00425 & diet & oat:interventionoat & -10.819 & 0.025 & 0.031 & prevalence\\
+K06956 & diet & oat & -1.674 & 0.025 & 0.031 & prevalence\\
+K18330 & intervention & oat & 14.039 & 0.026 & 0.032 & prevalence\\
+K00349 & intervention & oat & 9.706 & 0.028 & 0.034 & prevalence\\
 \addlinespace
-K00949 & diet & 2 & NA & NA & 0.071 & prevalence\\
-K00949 & diet & 2:time & NA & NA & 0.007 & prevalence\\
-K01464 & diet & 2 & NA & NA & 0.096 & prevalence\\
-K01464 & diet & 2:time & NA & NA & 0.083 & prevalence\\
-K01756 & diet & 2 & NA & NA & 0.064 & prevalence\\
+K01179 & diet & oat:interventionoat & -9.766 & 0.028 & 0.034 & prevalence\\
+K07221 & intervention & oat & 9.706 & 0.028 & 0.034 & prevalence\\
+K09474 & intervention & oat & 9.706 & 0.028 & 0.034 & prevalence\\
+K09797 & intervention & oat & 9.706 & 0.028 & 0.034 & prevalence\\
+K02422 & diet & oat & 2.498 & 0.028 & 0.035 & abundance\\
 \addlinespace
-K01756 & diet & 2:time & NA & NA & 0.067 & prevalence\\
-K02115 & time & time & NA & NA & 0.083 & prevalence\\
-K02796 & diet & 2 & NA & NA & 0.082 & prevalence\\
-K02825 & time & time & -19.550 & NA & 0.094 & prevalence\\
-K03150 & diet & 2 & NA & NA & 0.085 & prevalence\\
+K02773 & intervention & oat & -10.797 & 0.032 & 0.038 & prevalence\\
+K06897 & diet & oat:interventionoat & 9.783 & 0.032 & 0.038 & prevalence\\
+K02445 & diet & oat:interventionoat & -11.391 & 0.033 & 0.040 & prevalence\\
+K09251 & intervention & oat & 11.011 & 0.033 & 0.040 & prevalence\\
+K18205 & diet & oat:interventionoat & -10.186 & 0.040 & 0.048 & prevalence\\
 \addlinespace
-K03150 & diet & 2:time & NA & NA & 0.083 & prevalence\\
-K03281 & diet & 2:time & 31.316 & NA & 0.081 & prevalence\\
-K03529 & diet & 2 & NA & NA & 0.094 & prevalence\\
-K03529 & diet & 2:time & NA & NA & 0.028 & prevalence\\
-K03786 & diet & 2 & NA & NA & 0.072 & prevalence\\
+K00658 & diet & oat & 10.765 & 0.041 & 0.050 & prevalence\\
+K07048 & diet & oat:interventionoat & -10.347 & 0.041 & 0.050 & prevalence\\
+K05595 & diet & oat & -1.138 & 0.042 & 0.051 & prevalence\\
+K01975 & diet & oat:interventionoat & 3.894 & 0.043 & 0.052 & prevalence\\
+K10805 & intervention & oat & 9.155 & 0.044 & 0.053 & prevalence\\
 \addlinespace
-K03786 & diet & 2:time & NA & NA & 0.012 & prevalence\\
-K05808 & diet & 2 & NA & NA & 0.070 & prevalence\\
-K06383 & diet & 2:time & NA & NA & 0.085 & prevalence\\
-K07258 & diet & 2:time & NA & NA & 0.072 & prevalence\\
-K07301 & diet & 2:time & NA & NA & 0.075 & prevalence\\
+K06143 & diet & oat:interventionoat & -12.011 & 0.045 & 0.055 & prevalence\\
+K14415 & intervention & oat & 9.872 & 0.046 & 0.056 & prevalence\\
+K18955 & intervention & oat & 7.403 & 0.047 & 0.057 & prevalence\\
+K09706 & diet & oat:interventionoat & -12.758 & 0.051 & 0.061 & prevalence\\
+K08678 & diet & oat:interventionoat & -11.475 & 0.051 & 0.061 & prevalence\\
 \addlinespace
-K07496 & diet & 2 & NA & NA & 0.003 & prevalence\\
-K07496 & diet & 2:time & NA & NA & 0.017 & prevalence\\
-K07979 & time & time & NA & NA & 0.012 & prevalence\\
-K19302 & diet & 2 & NA & NA & 0.053 & prevalence\\
-K19302 & diet & 2:time & NA & NA & 0.009 & prevalence\\*
+K08156 & diet & oat & 8.475 & 0.054 & 0.064 & prevalence\\
+K03563 & diet & oat & 1.845 & 0.055 & 0.038 & abundance\\
+K18640 & diet & oat & 1.141 & 0.059 & 0.040 & abundance\\
+K01697 & intervention & oat & 9.128 & 0.065 & 0.077 & prevalence\\
+K05516 & diet & oat:interventionoat & -11.650 & 0.065 & 0.077 & prevalence\\
+\addlinespace
+K21512 & intervention & oat & -4.428 & 0.069 & 0.082 & abundance\\
+K00210 & intervention & oat & 8.951 & 0.082 & 0.098 & prevalence\\
+K09680 & intervention & oat & 8.951 & 0.082 & 0.098 & prevalence\\
+K03820 & intervention & oat & 10.552 & 0.083 & 0.099 & prevalence\\
+K07458 & diet & oat & -1.973 & 0.084 & 0.056 & abundance\\
+\addlinespace
+K03610 & diet & oat & 2.122 & 0.091 & 0.060 & abundance\\
+K10008 & diet & oat:interventionoat & -8.931 & 0.097 & 0.115 & prevalence\\
+K08322 & diet & oat & 2.193 & 0.098 & 0.064 & abundance\\
+K07405 & diet & oat:interventionoat & 2.244 & 0.102 & 0.066 & abundance\\
+K01176 & diet & oat & -1.056 & 0.147 & 0.099 & abundance\\
+\addlinespace
+K03727 & intervention & oat & -1.379 & 0.492 & 0.000 & abundance\\
+K17331 & intervention & oat & -1.266 & 0.668 & 0.000 & abundance\\
+K02773 & intervention & oat & -1.413 & 0.709 & 0.038 & abundance\\
+K05516 & intervention & oat & -1.223 & 0.945 & 0.026 & abundance\\
+K00194 & diet & oat:interventionoat & -0.616 & 1.000 & 0.001 & abundance\\
+\addlinespace
+K00194 & intervention & oat & 1.179 & 1.000 & 0.000 & abundance\\
+K00210 & intervention & oat & -0.005 & 1.000 & 0.098 & abundance\\
+K00324 & intervention & oat & -0.267 & 1.000 & 0.000 & abundance\\
+K00349 & intervention & oat & -0.174 & 1.000 & 0.034 & abundance\\
+K00425 & diet & oat & 0.338 & 1.000 & 0.000 & abundance\\
+\addlinespace
+K00425 & diet & oat:interventionoat & 1.022 & 1.000 & 0.031 & abundance\\
+K00575 & diet & oat:interventionoat & 0.575 & 1.000 & 0.005 & abundance\\
+K00658 & diet & oat & -0.089 & 1.000 & 0.050 & abundance\\
+K00872 & intervention & oat & 0.530 & 1.000 & 0.016 & abundance\\
+K01089 & diet & oat & 0.544 & 1.000 & 0.001 & abundance\\
+\addlinespace
+K01179 & diet & oat:interventionoat & 0.633 & 1.000 & 0.034 & abundance\\
+K01179 & intervention & oat & 0.017 & 1.000 & 0.000 & abundance\\
+K01205 & intervention & oat & 0.187 & 1.000 & 0.000 & abundance\\
+K01224 & diet & oat & -0.148 & 1.000 & 0.000 & abundance\\
+K01438 & diet & oat & 0.315 & 1.000 & 0.009 & abundance\\
+\addlinespace
+K01551 & diet & oat:interventionoat & 0.745 & 1.000 & 0.002 & abundance\\
+K01551 & intervention & oat & -0.362 & 1.000 & 0.000 & abundance\\
+K01661 & diet & oat:interventionoat & 0.618 & 1.000 & 0.000 & abundance\\
+K01697 & intervention & oat & -0.502 & 1.000 & 0.077 & abundance\\
+K01719 & intervention & oat & -0.084 & 1.000 & 0.006 & abundance\\
+\addlinespace
+K01787 & intervention & oat & -0.444 & 1.000 & 0.000 & abundance\\
+K01975 & diet & oat:interventionoat & -0.798 & 1.000 & 0.052 & abundance\\
+K02002 & diet & oat & 0.304 & 1.000 & 0.009 & abundance\\
+K02065 & diet & oat & 0.441 & 1.000 & 0.000 & abundance\\
+K02081 & diet & oat & -0.099 & 1.000 & 0.000 & abundance\\
+\addlinespace
+K02081 & diet & oat:interventionoat & 0.237 & 1.000 & 0.000 & abundance\\
+K02081 & intervention & oat & 0.200 & 1.000 & 0.000 & abundance\\
+K02221 & intervention & oat & -0.450 & 1.000 & 0.019 & abundance\\
+K02300 & diet & oat & -0.202 & 1.000 & 0.000 & abundance\\
+K02300 & intervention & oat & -1.733 & 1.000 & 0.000 & abundance\\
+\addlinespace
+K02396 & intervention & oat & 0.712 & 1.000 & 0.000 & abundance\\
+K02413 & diet & oat:interventionoat & 0.210 & 1.000 & 0.000 & abundance\\
+K02418 & diet & oat & -0.320 & 1.000 & 0.000 & abundance\\
+K02418 & diet & oat:interventionoat & 0.362 & 1.000 & 0.000 & abundance\\
+K02445 & diet & oat & 0.141 & 1.000 & 0.001 & abundance\\
+\addlinespace
+K02445 & diet & oat:interventionoat & -0.604 & 1.000 & 0.040 & abundance\\
+K02773 & diet & oat & -0.127 & 1.000 & 0.007 & abundance\\
+K02782 & intervention & oat & -0.095 & 1.000 & 0.000 & abundance\\
+K02783 & diet & oat:interventionoat & 0.291 & 1.000 & 0.007 & abundance\\
+K03281 & diet & oat & 0.416 & 1.000 & 0.001 & abundance\\
+\addlinespace
+K03327 & diet & oat & 0.378 & 1.000 & 0.000 & abundance\\
+K03389 & diet & oat & -0.964 & 1.000 & 0.000 & abundance\\
+K03473 & intervention & oat & 0.045 & 1.000 & 0.000 & abundance\\
+K03592 & intervention & oat & 0.285 & 1.000 & 0.030 & abundance\\
+K03735 & diet & oat:interventionoat & 0.212 & 1.000 & 0.000 & abundance\\
+\addlinespace
+K03820 & intervention & oat & 0.303 & 1.000 & 0.099 & abundance\\
+K03931 & diet & oat & 0.052 & 1.000 & 0.000 & abundance\\
+K04092 & diet & oat:interventionoat & 0.630 & 1.000 & 0.000 & abundance\\
+K04092 & intervention & oat & -0.254 & 1.000 & 0.000 & abundance\\
+K04518 & diet & oat & -0.419 & 1.000 & 0.000 & abundance\\
+\addlinespace
+K04518 & diet & oat:interventionoat & 0.918 & 1.000 & 0.000 & abundance\\
+K05346 & intervention & oat & -0.517 & 1.000 & 0.000 & abundance\\
+K05516 & diet & oat:interventionoat & 1.072 & 1.000 & 0.077 & abundance\\
+K05595 & diet & oat & -0.422 & 1.000 & 0.051 & abundance\\
+K05879 & diet & oat:interventionoat & -1.070 & 1.000 & 0.006 & abundance\\
+\addlinespace
+K06042 & diet & oat & -0.049 & 1.000 & 0.000 & abundance\\
+K06042 & diet & oat:interventionoat & 0.232 & 1.000 & 0.000 & abundance\\
+K06143 & diet & oat & -0.140 & 1.000 & 0.000 & abundance\\
+K06143 & diet & oat:interventionoat & -0.242 & 1.000 & 0.055 & abundance\\
+K06864 & diet & oat & -0.292 & 1.000 & 0.000 & abundance\\
+\addlinespace
+K06897 & diet & oat:interventionoat & 0.169 & 1.000 & 0.038 & abundance\\
+K06952 & diet & oat:interventionoat & -0.574 & 1.000 & 0.009 & abundance\\
+K06952 & intervention & oat & 0.620 & 1.000 & 0.000 & abundance\\
+K06956 & diet & oat & 0.146 & 1.000 & 0.031 & abundance\\
+K06970 & diet & oat:interventionoat & -0.937 & 1.000 & 0.000 & abundance\\
+\addlinespace
+K06970 & intervention & oat & 0.519 & 1.000 & 0.000 & abundance\\
+K07048 & diet & oat & 0.196 & 1.000 & 0.000 & abundance\\
+K07048 & diet & oat:interventionoat & -0.087 & 1.000 & 0.050 & abundance\\
+K07221 & intervention & oat & -0.099 & 1.000 & 0.034 & abundance\\
+K07259 & intervention & oat & -0.240 & 1.000 & 0.000 & abundance\\
+\addlinespace
+K07273 & diet & oat:interventionoat & -0.085 & 1.000 & 0.000 & abundance\\
+K07273 & intervention & oat & 0.574 & 1.000 & 0.000 & abundance\\
+K07277 & diet & oat & 0.036 & 1.000 & 0.001 & abundance\\
+K07341 & diet & oat:interventionoat & 0.112 & 1.000 & 0.018 & abundance\\
+K07341 & intervention & oat & 0.379 & 1.000 & 0.000 & abundance\\
+\addlinespace
+K07588 & intervention & oat & 0.027 & 1.000 & 0.004 & abundance\\
+K08156 & diet & oat & -0.993 & 1.000 & 0.064 & abundance\\
+K08223 & diet & oat & 0.134 & 1.000 & 0.004 & abundance\\
+K08307 & diet & oat & -0.232 & 1.000 & 0.000 & abundance\\
+K08307 & diet & oat:interventionoat & 0.594 & 1.000 & 0.026 & abundance\\
+\addlinespace
+K08678 & diet & oat:interventionoat & 0.275 & 1.000 & 0.061 & abundance\\
+K08678 & intervention & oat & 0.228 & 1.000 & 0.000 & abundance\\
+K09124 & diet & oat:interventionoat & -1.071 & 1.000 & 0.000 & abundance\\
+K09251 & intervention & oat & 0.972 & 1.000 & 0.040 & abundance\\
+K09384 & intervention & oat & 0.149 & 1.000 & 0.000 & abundance\\
+\addlinespace
+K09474 & intervention & oat & -0.122 & 1.000 & 0.034 & abundance\\
+K09680 & intervention & oat & -0.023 & 1.000 & 0.098 & abundance\\
+K09692 & diet & oat & -0.235 & 1.000 & 0.000 & abundance\\
+K09706 & diet & oat:interventionoat & 0.378 & 1.000 & 0.061 & abundance\\
+K09706 & intervention & oat & 0.133 & 1.000 & 0.000 & abundance\\
+\addlinespace
+K09767 & diet & oat & 0.385 & 1.000 & 0.001 & abundance\\
+K09797 & intervention & oat & 0.009 & 1.000 & 0.034 & abundance\\
+K10008 & intervention & oat & -0.877 & 1.000 & 0.000 & abundance\\
+K10805 & intervention & oat & -0.911 & 1.000 & 0.053 & abundance\\
+K12452 & diet & oat & -0.139 & 1.000 & 0.000 & abundance\\
+\addlinespace
+K12452 & intervention & oat & 0.155 & 1.000 & 0.000 & abundance\\
+K13527 & intervention & oat & -0.449 & 1.000 & 0.000 & abundance\\
+K13787 & diet & oat:interventionoat & 0.414 & 1.000 & 0.007 & abundance\\
+K13787 & intervention & oat & -0.334 & 1.000 & 0.000 & abundance\\
+K14415 & intervention & oat & 0.160 & 1.000 & 0.056 & abundance\\
+\addlinespace
+K15372 & intervention & oat & 0.403 & 1.000 & 0.000 & abundance\\
+K16927 & intervention & oat & -0.126 & 1.000 & 0.024 & abundance\\
+K17836 & diet & oat & -0.441 & 1.000 & 0.000 & abundance\\
+K17836 & diet & oat:interventionoat & 0.948 & 1.000 & 0.000 & abundance\\
+K17836 & intervention & oat & -0.123 & 1.000 & 0.000 & abundance\\
+\addlinespace
+K18205 & diet & oat:interventionoat & 1.866 & 1.000 & 0.048 & abundance\\
+K18205 & intervention & oat & -0.913 & 1.000 & 0.000 & abundance\\
+K18330 & intervention & oat & 0.571 & 1.000 & 0.032 & abundance\\
+K18889 & diet & oat:interventionoat & -0.771 & 1.000 & 0.015 & abundance\\
+K18928 & intervention & oat & 0.575 & 1.000 & 0.000 & abundance\\
+\addlinespace
+K18955 & intervention & oat & -0.328 & 1.000 & 0.057 & abundance\\
+K19052 & intervention & oat & 0.591 & 1.000 & 0.000 & abundance\\
+K19508 & diet & oat & 0.141 & 1.000 & 0.015 & abundance\\
+K20116 & diet & oat:interventionoat & 0.198 & 1.000 & 0.007 & abundance\\
+K20116 & intervention & oat & 0.558 & 1.000 & 0.000 & abundance\\
+\addlinespace
+K20117 & diet & oat:interventionoat & 0.199 & 1.000 & 0.007 & abundance\\
+K20117 & intervention & oat & 0.558 & 1.000 & 0.000 & abundance\\
+K20118 & diet & oat:interventionoat & 0.199 & 1.000 & 0.007 & abundance\\
+K20118 & intervention & oat & 0.558 & 1.000 & 0.000 & abundance\\
+K23003 & diet & oat & -0.062 & 1.000 & 0.009 & abundance\\
+\addlinespace
+K23003 & intervention & oat & 0.109 & 1.000 & 0.000 & abundance\\
+K23004 & diet & oat:interventionoat & -0.595 & 1.000 & 0.000 & abundance\\
+K23004 & intervention & oat & 0.598 & 1.000 & 0.000 & abundance\\
+K02422 & diet & oat & -0.365 & 1.000 & 0.035 & prevalence\\
+K21512 & intervention & oat & 1.613 & 1.000 & 0.082 & prevalence\\
+\addlinespace
+K03610 & diet & oat & 1.208 & 1.000 & 0.060 & prevalence\\
+K07458 & diet & oat & -0.652 & 1.000 & 0.056 & prevalence\\
+K08322 & diet & oat & 0.575 & 1.000 & 0.064 & prevalence\\
+K02300 & diet & oat:interventionoat & NA & NA & 0.000 & abundance\\
+K01176 & diet & oat & NA & NA & 0.099 & prevalence\\
+\addlinespace
+K03563 & diet & oat & NA & NA & 0.038 & prevalence\\
+K06206 & diet & oat & NA & NA & 0.007 & prevalence\\
+K07405 & diet & oat:interventionoat & NA & NA & 0.066 & prevalence\\
+K18640 & diet & oat & NA & NA & 0.040 & prevalence\\*
 \end{longtable}
 
-\includegraphics{../../output/daa/daa_ko/figures/summary_plot.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K00949_linear.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K01756_linear.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K02809_linear.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K02810_linear.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K03529_linear.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K03786_linear.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K05808_linear.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K07496_linear.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K08159_linear.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K09117_linear.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K13641_linear.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K19302_linear.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K00950_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K01179_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K02048_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K03489_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K07458_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K08972_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K09692_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K17195_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K17235_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K19509_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K21993_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/time/linear/time_K05966_linear.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/time/linear/time_K06893_linear.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/time/linear/time_K07979_linear.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/time/linear/time_K10797_linear.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/time/logistic/time_K00950_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/time/logistic/time_K01179_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/time/logistic/time_K02048_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/time/logistic/time_K02408_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/time/logistic/time_K03489_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/time/logistic/time_K08972_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/time/logistic/time_K17195_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/time/logistic/time_K17235_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/time/logistic/time_K19509_logistic.png}
-\includegraphics{../../output/daa/daa_ko/figures/association_plots/time/logistic/time_K21993_logistic.png}
+\begin{figure}[H]
+
+{\centering \includegraphics{../../output/daa/daa_ko/figures/summary_plot.png}
+
+}
+
+\caption{fig38}
+
+\end{figure}%
+
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K06206_linear.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K00194_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K00425_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K00575_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K01089_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K01179_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K01224_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K01438_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K01551_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K01661_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K02002_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K02065_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K02081_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K02300_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K02413_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K02418_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K02445_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K02773_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K02783_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K03281_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K03327_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K03389_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K03735_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K03931_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K04092_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K04518_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K05879_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K06042_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K06143_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K06864_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K06952_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K06956_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K06970_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K07048_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K07273_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K07277_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K07341_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K08223_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K08307_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K09124_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K09692_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K09767_logistic.png}
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K12452_logistic.png}
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K13787_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K17836_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K18889_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K19508_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K20116_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K20117_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K20118_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K23003_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K23004_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K00194_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K00324_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K00349_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K00872_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K01179_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K01205_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K01551_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K01719_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K01787_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K02081_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K02221_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K02300_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K02396_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K02782_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K03473_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K03592_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K03727_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K04092_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K05346_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K05516_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K06952_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K06970_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K07221_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K07259_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K07273_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K07341_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K07588_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K08678_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K09384_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K09474_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K09706_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K10008_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K12452_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K13527_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K13787_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K15372_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K16927_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K17331_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K17836_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K18205_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K18330_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K18928_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K19052_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K20116_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K20117_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K20118_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K23003_logistic.png}\\
+\includegraphics{../../output/daa/daa_ko/figures/association_plots/intervention/logistic/intervention_K23004_logistic.png}
 
 
 
