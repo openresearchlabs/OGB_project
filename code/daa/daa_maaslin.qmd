@@ -16,7 +16,7 @@ prevalence.th <- 10/100
 detection.th <- 0.1/100
 
 variable <- "Diet" 
-formula_used <- "~ diet * timepoint + (1 | id)"
+formula_used <- "~ diet * intervention + (1 | id)"
 correction <- "Benjamini-Hochberg FDR adjustment"
 
 ```
@@ -66,7 +66,7 @@ plot_taxon <- function(taxon) {
       filter(feature == taxon)
     
     anot_tax <- daa_tab_tax %>% 
-        filter(value == "time")
+        filter(metadata == "intervention")
     
     anot_tax$pval_color <- ifelse(anot_tax$qval_joint <= 0.25, "red", "blue")
     # Subset for before and after
@@ -175,7 +175,7 @@ for (g in unique(tse$diet)) {
             filter(feature == tax)
           
           anot_tax <- daa_tab_tax %>% 
-              filter(value == g)
+              filter(value == "s")
           
           anot_tax$pval_color <- ifelse(anot_tax$qval_joint <= 0.25, "red", "blue")
 

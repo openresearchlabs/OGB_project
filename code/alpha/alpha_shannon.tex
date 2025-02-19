@@ -224,20 +224,8 @@
 \endfoot
 \bottomrule
 \endlastfoot
-oat & rice & 4 & 4 & 0.02 & 0.373\\*
+oat & rice & 4 & 4 & 0.02 & 0.379\\*
 \end{longtable}
-
-The alpha diversity between the `oat' and `rice' groups appears to be
-very similar, with minimal difference in the mean values (both 4.00).
-
-The log2FC indicates almost no change between the two groups in terms of
-diversity \texttt{(0.02)}, further supporting the notion of no
-substantial difference.
-
-The p.adj of `0.373' shows that the difference between the groups is not
-statistically significant. Thus, we would conclude that the treatment
-(`oat' and `rice') does not have a significant impact on the alpha
-diversity of the groups at the baseline.
 
 \paragraph{After treatment}\label{after-treatment}
 
@@ -266,20 +254,6 @@ diversity of the groups at the baseline.
 \endlastfoot
 oat & rice & 3.9 & 4.1 & 0.06 & 0.048\\*
 \end{longtable}
-
-After treatment, the mean alpha diversity for `oat' is \texttt{3.90},
-and for `rice' is \texttt{4.10}, showing a slight difference between the
-two groups, with `rice' having slightly higher diversity.
-
-The log2FC value of \texttt{0.06} indicates a very small positive
-difference, suggesting that the `rice' group experienced a slight
-increase in diversity compared to `oat'.
-
-The p.adj of \texttt{0.0480} indicates that the difference between the
-groups is statistically significant (since it's less than
-\texttt{0.05}), meaning that the observed difference in diversity
-between the `oat' and `rice' groups after treatment is likely not
-random.
 
 \begin{center}
 \includegraphics{alpha_shannon_files/figure-pdf/viz-div_change-1.pdf}
@@ -312,19 +286,9 @@ random.
 \endfoot
 \bottomrule
 \endlastfoot
-oat & 4 & 3.9 & -0.02 & 0.151\\
-rice & 4 & 4.1 & 0.03 & 0.078\\*
+rice & 4 & 4.1 & 0.03 & 0.070\\
+oat & 4 & 3.9 & -0.02 & 0.132\\*
 \end{longtable}
-
-For the oat diet, there was a slight decrease in alpha diversity from
-Timepoint 1 \texttt{(mean\ =\ 4.00)}to Timepoint 2
-\texttt{(mean\ =\ 3.90)}, but the change was not statistically
-significant \texttt{(p-value\ =\ 0.151)}.
-
-For the rice diet, there was a slight increase in alpha diversity from
-Timepoint 1 \texttt{(mean\ =\ 4.00)} to Timepoint 2
-\texttt{(mean\ =\ 4.10)}, but again, the change was not statistically
-significant \texttt{(p-value\ =\ 0.0780)}.
 
 \subsection{LMM}\label{lmm}
 
@@ -335,49 +299,11 @@ significant \texttt{(p-value\ =\ 0.0780)}.
 \item
   Statistical test: \textbf{paired Wilcoxon}
 \item
-  Formula used: \textbf{\textasciitilde{} diet * timepoint + (1
+  Formula used: \textbf{\textasciitilde{} diet * intervention + (1
   \textbar{} id)}
 \end{itemize}
 
 \includegraphics{alpha_shannon_files/figure-pdf/table-fixed-fx-1.pdf}
-
-(Intercept):
-
-Estimate: \texttt{4.04} This represents the baseline value of the alpha
-diversity when both the diet and timepoint are at their reference
-categories (oat for diet and before for timepoint).
-\texttt{Pr(\textgreater{}\textbar{}t\textbar{}):\ 4.19e-84}, which is
-extremely small and indicates highly significant evidence that the
-intercept term is different from zero.
-
-dietrice:
-
-Estimate: \texttt{-0.08} This is the difference in alpha diversity
-between rice and the reference diet (oat), after adjusting for the
-effect of time. \texttt{Pr(\textgreater{}\textbar{}t\textbar{}):\ 0.545}
-suggests that the diet (rice vs oat) effect is not statistically
-significant. The difference in alpha diversity between rice and oat
-diets is not substantial enough to conclude that it is different.
-
-time:
-
-Estimate: \texttt{-0.06} This is the difference in alpha diversity
-between timepoints ( after vs before), after adjusting for the effect of
-diet. \texttt{Pr(\textgreater{}\textbar{}t\textbar{}):\ 0.148} indicates
-that the effect of time (before vs after) on alpha diversity is not
-statistically significant. This suggests that alpha diversity does not
-change significantly between timepoints in the study.
-
-dietrice:time (Interaction ):
-
-Estimate:\texttt{0.13} This is the interaction between diet (rice vs
-oat) and timepoint (before vs after). The positive estimate suggests
-that the effect of time on alpha diversity differs between the rice and
-oat diets. \texttt{Pr(\textgreater{}\textbar{}t\textbar{}):\ 0.0378}
-indicates that the interaction between diet and timepoint is
-statistically significant at the usual significance level
-\texttt{(0.05)}. This suggests that the relationship between alpha
-diversity and timepoint differs for the rice and oat diets.
 
 \section{Alternate analyses}\label{alternate-analyses}
 
@@ -405,9 +331,9 @@ diversity and timepoint differs for the rice and oat diets.
 (Intercept) & 3.6 & 3.1, 4.0 & <0.001 & 3.5 & 2.9, 4.1 & <0.001 \\ 
 meal\_group &  &  & 0.3 &  &  & 0.3 \\ 
     1 & — & — &  & — & — &  \\ 
-    2 & 0.21 & -0.03, 0.44 & 0.084 & 0.28 & -0.02, 0.58 & 0.065 \\ 
+    2 & 0.21 & -0.03, 0.44 & 0.084 & 0.28 & -0.02, 0.58 & 0.064 \\ 
     3 & 0.12 & -0.12, 0.35 & 0.3 & 0.20 & -0.09, 0.50 & 0.2 \\ 
-    4 & 0.17 & -0.06, 0.40 & 0.2 & 0.10 & -0.20, 0.39 & 0.5 \\ 
+    4 & 0.17 & -0.06, 0.40 & 0.2 & 0.10 & -0.19, 0.39 & 0.5 \\ 
 age & 0.01 & 0.00, 0.01 & 0.2 & 0.01 & 0.00, 0.02 & 0.2 \\ 
 \bottomrule
 \end{tabular*}
@@ -422,12 +348,12 @@ age & 0.01 & 0.00, 0.01 & 0.2 & 0.01 & 0.00, 0.02 & 0.2 \\
 \toprule
 \textbf{Paired test between timepoints (1 and 2)} & \textbf{Beta} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} \\ 
 \midrule\addlinespace[2.5pt]
-(Intercept) & 3.5 & 3.1, 3.9 & <0.001 \\ 
-meal\_group &  &  & 0.3 \\ 
+(Intercept) & 3.5 & -Inf, Inf & <0.001 \\ 
+meal\_group &  &  & 0.12 \\ 
     1 & — & — &  \\ 
-    2 & 0.23 & -0.07, 0.53 & 0.14 \\ 
-    3 & 0.16 & -0.14, 0.46 & 0.3 \\ 
-    4 & 0.13 & -0.05, 0.31 & 0.2 \\ 
+    2 & 0.23 & -Inf, Inf & >0.9 \\ 
+    3 & 0.16 & -Inf, Inf & >0.9 \\ 
+    4 & 0.13 & -0.05, 0.32 & 0.2 \\ 
 age & 0.01 & 0.00, 0.01 & 0.039 \\ 
 \bottomrule
 \end{tabular*}
@@ -446,7 +372,7 @@ assays(1): relabundance
 rownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921
 rowData names(9): kingdom phylum ... strain clade_name
 colnames(140): AE1332 AE2332 ... VK1336 VK2336
-colData names(15): sample id ... shannon group
+colData names(16): sample id ... shannon group
 reducedDimNames(0):
 mainExpName: NULL
 altExpNames(20): kingdom phylum ... KO metacyc

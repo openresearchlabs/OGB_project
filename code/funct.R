@@ -81,7 +81,7 @@ assign_diet <- function(df) {
   df$diet <- rep(NA, nrow(df))
   df$diet[df$diet_in == 1] <- "oat"
   df$diet[df$diet_in == 2] <- "rice"
-  df$diet <- factor(df$diet, levels=c("oat", "rice"))
+  df$diet <- factor(df$diet, levels=c("rice", "oat"))
   return(df)
 }
 
@@ -93,7 +93,7 @@ assign_meal <- function(df) {
   df$meal[df$meal_group == "4"] <- "oat-oat"
   # meal is now combination diet-meal; extract just the meal
   df$meal <- factor(df$meal, levels=c("oat-rice", "rice-oat", "rice-rice", "oat-oat"))
-  # df$meal <- factor(word(df$meal, 2, sep="-"), levels=c("oat", "rice"))
+  # df$meal <- factor(word(df$meal, 2, sep="-"), levels=c("rice", "oat"))
   return(df)
 }
 
@@ -156,11 +156,11 @@ run_lmer <- function(tse, target){
   
   df <- colData(tse) %>% as.data.frame
   df$y <- df[[target]]
-  df <- df[, c("y", "diet", "time", "id")]
+  df <- df[, c("y", "diet", "intervention", "id")]
   
   # Filter out missing data cases
   df_no_miss <- df[df %>% complete.cases,]
   
-  m <- lmerTest::lmer(y ~ diet * time + (1 | id), data = df_no_miss)
+  m <- lmerTest::lmer(y ~ diet * intervention + (1 | id), data = df_no_miss)
   return(m)
 }

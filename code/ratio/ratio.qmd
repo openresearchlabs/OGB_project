@@ -399,7 +399,7 @@ y_max <- y_max + (y_range * 0.13)
 # Apply to both plots
 p1 <- p1 + coord_cartesian(ylim = c(y_min, y_max))
 p2 <- p2 + coord_cartesian(ylim = c(y_min, y_max))
-#wrap_plots(p1, p2, axes = "collect")
+wrap_plots(p1, p2, axes = "collect")
 ```
 
 ```{r Explanations}
@@ -474,8 +474,6 @@ if (knitr::is_html_output()) {
 }
 ```
 
-`r before_exp`
-
 ##### After treatment
 
 -   Multiple testing correction: **`r adjust.method`**
@@ -512,8 +510,6 @@ if (knitr::is_html_output()) {
 }
 
 ```
-
-`r after_exp`
 
 ```{r viz-div_change}
 #| fig-width: 5
@@ -560,14 +556,12 @@ if (knitr::is_html_output()) {
 }
 ```
 
-`r paired_exp`
-
 ### LMM
 
 ```{r lmer-stuff}
 adjust.method <- "FDR"
 test <- "paired Wilcoxon"
-formula_used <- "~ diet * timepoint + (1 | id)"
+formula_used <- "~ diet * intervention + (1 | id)"
 
 tse$bfratio <- log2(tse$bact_firm_ratio)
 res <- run_lmer(tse, "bfratio")
@@ -581,8 +575,6 @@ res <- run_lmer(tse, "bfratio")
 sjPlot::plot_model(res)
 sjPlot::tab_model(res)
 ```
-
-`r lmm_exp`
 
 ## Data Summary
 

@@ -182,24 +182,27 @@ analysis}\label{differential-abundance-analysis}
 \item
   Group variable: \textbf{diet}
 \item
-  Formula used: \textbf{\textasciitilde{} diet * time + (1 \textbar{}
-  id)}
+  Formula used: \textbf{\textasciitilde{} diet * intervention + (1
+  \textbar{} id)}
 \end{itemize}
 
 \begin{longtable}[t]{lrrrrrr}
 \caption{Table of significant features}\\
 \toprule
+\textbf{feature} & \textbf{metadata} & \textbf{value} & \textbf{coef} & \textbf{qval\_individual} & \textbf{qval\_joint} & \textbf{model}\\
+\midrule
 \endfirsthead
 \caption[]{Table of significant features \textit{(continued)}}\\
 \toprule
+\textbf{feature} & \textbf{metadata} & \textbf{value} & \textbf{coef} & \textbf{qval\_individual} & \textbf{qval\_joint} & \textbf{model}\\
+\midrule
 \endhead
 
 \endfoot
 \bottomrule
 \endlastfoot
-feature & metadata & value & coef & qval\_individual & qval\_joint & model\\
-
-*
+PWY.7357... & intervention & oat & 10.694 & 0.025 & 0.031 & prevalence\\
+PWY.7357... & intervention & oat & 1.706 & 1.000 & 0.031 & abundance\\*
 \end{longtable}
 
 \begin{figure}[H]
@@ -209,6 +212,15 @@ feature & metadata & value & coef & qval\_individual & qval\_joint & model\\
 }
 
 \caption{summary\_plot.png}
+
+\end{figure}%%
+\begin{figure}[H]
+
+{\centering \includegraphics{../../output/daa/daa_pc/figures/association_plots/intervention/logistic/intervention_PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast._logistic.png}
+
+}
+
+\caption{1}
 
 \end{figure}%
 
