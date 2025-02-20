@@ -523,7 +523,7 @@ div_change
 ##### Paired treatment
 
 -   Multiple testing correction: **`r adjust.method`**
--   Statistical test: **`paired r test`**
+-   Statistical test: **paired `r test`**
 
 ```{r table-of-findings-paired}
 #| label: table-of-findings-paired

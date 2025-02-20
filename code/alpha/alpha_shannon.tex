@@ -224,7 +224,7 @@
 \endfoot
 \bottomrule
 \endlastfoot
-oat & rice & 4 & 4 & 0.02 & 0.379\\*
+oat & rice & 4 & 4 & 0.02 & 0.373\\*
 \end{longtable}
 
 \paragraph{After treatment}\label{after-treatment}
@@ -266,9 +266,9 @@ oat & rice & 3.9 & 4.1 & 0.06 & 0.048\\*
 \begin{itemize}
 \tightlist
 \item
-  Multiple testing correction: \textbf{paired} -none
+  Multiple testing correction: \textbf{FDR}
 \item
-  Statistical test: \textbf{Wilcoxon}
+  Statistical test: \textbf{paired Wilcoxon}
 \end{itemize}
 
 \begin{longtable}[t]{lrrrr}
@@ -286,8 +286,8 @@ oat & rice & 3.9 & 4.1 & 0.06 & 0.048\\*
 \endfoot
 \bottomrule
 \endlastfoot
-rice & 4 & 4.1 & 0.03 & 0.070\\
-oat & 4 & 3.9 & -0.02 & 0.132\\*
+rice & 4 & 4.1 & 0.03 & 0.076\\
+oat & 4 & 3.9 & -0.02 & 0.146\\*
 \end{longtable}
 
 \subsection{LMM}\label{lmm}
@@ -331,9 +331,9 @@ oat & 4 & 3.9 & -0.02 & 0.132\\*
 (Intercept) & 3.6 & 3.1, 4.0 & <0.001 & 3.5 & 2.9, 4.1 & <0.001 \\ 
 meal\_group &  &  & 0.3 &  &  & 0.3 \\ 
     1 & — & — &  & — & — &  \\ 
-    2 & 0.21 & -0.03, 0.44 & 0.084 & 0.28 & -0.02, 0.58 & 0.064 \\ 
+    2 & 0.21 & -0.03, 0.44 & 0.085 & 0.28 & -0.02, 0.58 & 0.066 \\ 
     3 & 0.12 & -0.12, 0.35 & 0.3 & 0.20 & -0.09, 0.50 & 0.2 \\ 
-    4 & 0.17 & -0.06, 0.40 & 0.2 & 0.10 & -0.19, 0.39 & 0.5 \\ 
+    4 & 0.17 & -0.06, 0.40 & 0.2 & 0.10 & -0.20, 0.39 & 0.5 \\ 
 age & 0.01 & 0.00, 0.01 & 0.2 & 0.01 & 0.00, 0.02 & 0.2 \\ 
 \bottomrule
 \end{tabular*}
@@ -349,12 +349,12 @@ age & 0.01 & 0.00, 0.01 & 0.2 & 0.01 & 0.00, 0.02 & 0.2 \\
 \textbf{Paired test between timepoints (1 and 2)} & \textbf{Beta} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} \\ 
 \midrule\addlinespace[2.5pt]
 (Intercept) & 3.5 & -Inf, Inf & <0.001 \\ 
-meal\_group &  &  & 0.12 \\ 
+meal\_group &  &  & 0.4 \\ 
     1 & — & — &  \\ 
     2 & 0.23 & -Inf, Inf & >0.9 \\ 
     3 & 0.16 & -Inf, Inf & >0.9 \\ 
     4 & 0.13 & -0.05, 0.32 & 0.2 \\ 
-age & 0.01 & 0.00, 0.01 & 0.039 \\ 
+age & 0.01 & 0.00, 0.01 & 0.040 \\ 
 \bottomrule
 \end{tabular*}
 \begin{minipage}{\linewidth}

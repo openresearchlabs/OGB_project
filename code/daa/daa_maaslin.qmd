@@ -105,14 +105,19 @@ plot_taxon <- function(taxon) {
     
     # Combine the before and after plots
     return(wrap_plots(p1, p2, axes = "collect") + 
-  plot_annotation(
-    title = paste(taxon, "/", "p =", ifelse(taxon %in% anot_tax$feature, 
-                         paste0("<span style='color:", anot_tax$pval_color[anot_tax$feature == taxon], "'>", 
-                                anot_tax$qval_joint[anot_tax$feature == taxon], "</span>"), 
-                         "<span style='color:gray;'>NA</span>")
-    ),
+             plot_annotation(
+    title = taxon,
     theme = theme(plot.title = ggtext::element_markdown())
-  ))
+  )
+  # plot_annotation(
+  #   title = paste(taxon, "/", "p =", ifelse(taxon %in% anot_tax$feature, 
+  #                        paste0("<span style='color:", anot_tax$pval_color[anot_tax$feature == taxon], "'>", 
+  #                               anot_tax$qval_joint[anot_tax$feature == taxon], "</span>"), 
+  #                        "<span style='color:gray;'>NA</span>")
+  #   ),
+  #   theme = theme(plot.title = ggtext::element_markdown())
+  # )
+  )
   }
   
   return(NULL)
@@ -191,14 +196,15 @@ for (g in unique(tse$diet)) {
                                 space = "Lab",
                                 limits = c(min_change, max_change)) +
           scale_y_log10(labels = scales::percent) + 
-          labs(
-            title = paste0(g, "/", " p = ", 
-                           ifelse(tax %in% anot_tax$feature, 
-                                  paste0("<span style='color:", anot_tax$pval_color[anot_tax$feature == tax], "'>", 
-                                         anot_tax$qval_joint[anot_tax$feature == tax], "</span>"), 
-                                  "<span style='color:gray;'>NA</span>")),
-            y = "Abundance (%)"
-          ) +
+          labs(title = g, y = "Abundance (%)") +
+          # labs(
+          #   title = paste0(g, "/", " p = ", 
+          #                  ifelse(tax %in% anot_tax$feature, 
+          #                         paste0("<span style='color:", anot_tax$pval_color[anot_tax$feature == tax], "'>", 
+          #                                anot_tax$qval_joint[anot_tax$feature == tax], "</span>"), 
+          #                         "<span style='color:gray;'>NA</span>")),
+          #   y = "Abundance (%)"
+          # ) +
           theme(
             plot.title = ggtext::element_markdown() 
           ) 

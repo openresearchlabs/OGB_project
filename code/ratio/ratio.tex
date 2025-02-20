@@ -192,6 +192,10 @@ ratio}\label{bacteroidetesfirmicutes-ratio}
   \textbf{Statistical test} Wilcoxon
 \end{itemize}
 
+\begin{center}
+\includegraphics{ratio_files/figure-pdf/visualize-plot-1.png}
+\end{center}
+
 \subsubsection{Table of the top
 findings}\label{table-of-the-top-findings}
 
@@ -264,9 +268,9 @@ oat & rice & 0.33 & 0.33 & -0.02 & 0.68\\*
 \begin{itemize}
 \tightlist
 \item
-  Multiple testing correction: \textbf{paired} -none
+  Multiple testing correction: \textbf{fdr}
 \item
-  Statistical test: \textbf{Wilcoxon}
+  Statistical test: \textbf{paired Wilcoxon}
 \end{itemize}
 
 \begin{longtable}[t]{lrrrr}
@@ -284,30 +288,24 @@ oat & rice & 0.33 & 0.33 & -0.02 & 0.68\\*
 \endfoot
 \bottomrule
 \endlastfoot
-oat & 0.32 & 0.33 & 0.28 & 0.80\\
-rice & 0.29 & 0.33 & 1.07 & 0.37\\*
+rice & 0.29 & 0.33 & 1.07 & 0.37\\
+oat & 0.32 & 0.33 & 0.28 & 0.80\\*
 \end{longtable}
 
-\begin{longtable}[t]{lrrrrl}
-\caption{Table of interaction effects}\\
-\toprule
-\textbf{Term} & \textbf{Estimate} & \textbf{Std. Error} & \textbf{df} & \textbf{t value} & \textbf{Pr(>|t|)}\\
-\midrule
-\endfirsthead
-\caption[]{Table of interaction effects \textit{(continued)}}\\
-\toprule
-\textbf{Term} & \textbf{Estimate} & \textbf{Std. Error} & \textbf{df} & \textbf{t value} & \textbf{Pr(>|t|)}\\
-\midrule
-\endhead
+\subsection{LMM}\label{lmm}
 
-\endfoot
-\bottomrule
-\endlastfoot
-(Intercept) & -1.930 & 0.336 & 105.440 & -5.753 & 0.000\\
-dietrice & -0.505 & 0.471 & 105.440 & -1.072 & 0.286\\
-time & -0.023 & 0.197 & 68.205 & -0.117 & 0.907\\
-dietrice:time & 0.221 & 0.277 & 68.195 & 0.797 & 0.428\\*
-\end{longtable}
+\begin{itemize}
+\tightlist
+\item
+  Multiple testing correction: \textbf{FDR}
+\item
+  Statistical test: \textbf{paired Wilcoxon}
+\item
+  Formula used: \textbf{\textasciitilde{} diet * intervention + (1
+  \textbar{} id)}
+\end{itemize}
+
+\includegraphics{ratio_files/figure-pdf/table-fixed-fx-1.png}
 
 \section{Data Summary}\label{data-summary}
 
@@ -315,12 +313,12 @@ dietrice:time & 0.221 & 0.277 & 68.195 & 0.797 & 0.428\\*
 class: TreeSummarizedExperiment 
 dim: 18 140 
 metadata(1): agglomerated_by_rank
-assays(2): counts relabundance
+assays(1): relabundance
 rownames(18): Actinobacteria Ascomycota ... Thaumarchaeota
   Verrucomicrobia
 rowData names(9): kingdom phylum ... strain clade_name
 colnames(140): AE1332 AE2332 ... VK1336 VK2336
-colData names(17): sample id ... bact_firm_ratio bfratio
+colData names(18): sample id ... bact_firm_ratio bfratio
 reducedDimNames(0):
 mainExpName: NULL
 altExpNames(0):

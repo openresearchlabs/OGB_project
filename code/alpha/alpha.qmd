@@ -385,80 +385,6 @@ p2 <- p2 + coord_cartesian(ylim = c(y_min, y_max))
 wrap_plots(p1, p2, axes = "collect")
 ```
 
-```{r Explanations}
-before_exp_sh <- "The alpha diversity between the 'oat' and 'rice' groups appears to be very similar, with minimal difference in the mean values (both 4.00). 
-
-The log2FC indicates almost no change between the two groups in terms of diversity `(0.02)`, further supporting the notion of no substantial difference.
-
-The p.adj of '0.373' shows that the difference between the groups is not statistically significant. Thus, we would conclude that the treatment ('oat' and 'rice') does not have a significant impact on the alpha diversity of the groups at the baseline."
-
-after_exp_sh <- "After treatment, the mean alpha diversity for 'oat' is `3.90`, and for 'rice' is `4.10`, showing a slight difference between the two groups, with 'rice' having slightly higher diversity.\n
-
-The log2FC value of `0.06` indicates a very small positive difference, suggesting that the 'rice' group experienced a slight increase in diversity compared to 'oat'.
-
-The p.adj of `0.0480` indicates that the difference between the groups is statistically significant (since it's less than `0.05`), meaning that the observed difference in diversity between the 'oat' and 'rice' groups after treatment is likely not random."
-
-paired_exp_sh <- "For the oat diet, there was a slight decrease in alpha diversity from Timepoint 1 `(mean = 4.00) `to Timepoint 2 `(mean = 3.90)`, but the change was not statistically significant `(p-value = 0.151)`.
-
-For the rice diet, there was a slight increase in alpha diversity from Timepoint 1 `(mean = 4.00)` to Timepoint 2 `(mean = 4.10)`, but again, the change was not statistically significant `(p-value = 0.0780)`."
-
-lmm_sh <- "
-(Intercept):
-
-Estimate: `4.04`
-This represents the baseline value of the alpha diversity when both the diet and timepoint are at their reference categories (oat for diet and before for timepoint). `Pr(>|t|): 4.19e-84`, which is extremely small and indicates highly significant evidence that the intercept term is different from zero.
-
-dietrice:
-
-Estimate: `-0.08`
-This is the difference in alpha diversity between rice and the reference diet (oat), after adjusting for the effect of time. `Pr(>|t|): 0.545` suggests that the diet (rice vs oat) effect is not statistically significant. The difference in alpha diversity between rice and oat diets is not substantial enough to conclude that it is different.
-
-time:
-
-Estimate: `-0.06`
-This is the difference in alpha diversity between timepoints ( after vs before), after adjusting for the effect of diet. `Pr(>|t|): 0.148` indicates that the effect of time (before vs after) on alpha diversity is not statistically significant. This suggests that alpha diversity does not change significantly between timepoints in the study.
-
-dietrice:time (Interaction ):
-
-Estimate:` 0.13`
-This is the interaction between diet (rice vs oat) and timepoint (before vs after). The positive estimate suggests that the effect of time on alpha diversity differs between the rice and oat diets. `Pr(>|t|): 0.0378` indicates that the interaction between diet and timepoint is statistically significant at the usual significance level `(0.05)`. This suggests that the relationship between alpha diversity and timepoint differs for the rice and oat diets.
-"
-before_exp_obs <- "Before treatment, the rice group had a slightly higher observed alpha diversity `(231.30)` compared to the oat group `(210.90)`. The fold change (log2FC) of `0.13` suggests a small increase in richness for the rice group. However, the corrected p-value `(p.adj = 0.133)` indicates that this difference is not statistically significant, meaning it could be due to random variation rather than a true effect of diet."
-
-after_exp_obs <- "
-
-After treatment, the rice group `(233.00)` continued to show a higher observed alpha diversity compared to the oat group `(206.90)`, with a fold change (log2FC) of `0.17`. The adjusted p-value `(p.adj = 0.0540)` is approaching statistical significance, suggesting a potential effect of diet on diversity, though it remains marginal."
-
-paired_exp_obs <- "
-
-Oat group: Observed alpha diversity slightly decreased from `210.90` to `206.90` (log2FC = `0.04`, p = `0.120`), indicating a small but non-significant reduction over time.
-
-Rice group: Diversity increased modestly from `231.30` to `233.00` (log2FC = `0.13`, p = `0.363`), but this change is also not statistically significant.
-
-Overall, there were no significant within-group changes in observed alpha diversity over time, suggesting that dietary intervention had a minimal effect on diversity shifts within each group."
-
-lmm_obs <- "
-
-Diet effect (rice vs. oat): No significant difference between rice and oat groups `(Estimate = 0.12, p = 0.333`), suggesting baseline diversity was similar.
-
-Time effect: A slight decrease in diversity over time `(Estimate = -0.03, p = 0.177)`, but this was not statistically significant.
-
-Diet × Time interaction: The interaction term `(Estimate = 0.04, p = 0.201)` suggests that the change in diversity over time did not significantly differ between the oat and rice groups."
-
-if (index == "observed") {
-  before_exp <- before_exp_obs
-  after_exp <- after_exp_obs
-  paired_exp <- paired_exp_obs
-  lmm_exp <- lmm_obs
-} else {
-  before_exp <- before_exp_sh
-  after_exp <- after_exp_sh
-  paired_exp <- paired_exp_sh
-  lmm_exp <- lmm_sh
-}
-```
-
-
 ### Table of the top findings
 
 #### Across-group
@@ -547,8 +473,8 @@ div_change
 
 ##### Paired treatment
 
--   Multiple testing correction: **paired** -none
--   Statistical test: **`r test`**
+-   Multiple testing correction: **`r adjust.method`**
+-   Statistical test:  **paired `r test`**
 
 ```{r table-of-findings-paired}
 #| label: table-of-findings-paired
