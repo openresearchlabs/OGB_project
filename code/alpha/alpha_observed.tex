@@ -224,7 +224,7 @@
 \endfoot
 \bottomrule
 \endlastfoot
-oat & rice & 210.6 & 231.2 & 0.13 & 0.13\\*
+oat & rice & 211.1 & 231.6 & 0.13 & 0.13\\*
 \end{longtable}
 
 \paragraph{After treatment}\label{after-treatment}
@@ -252,7 +252,7 @@ oat & rice & 210.6 & 231.2 & 0.13 & 0.13\\*
 \endfoot
 \bottomrule
 \endlastfoot
-oat & rice & 206.5 & 232.8 & 0.17 & 0.054\\*
+oat & rice & 207.1 & 233.2 & 0.17 & 0.056\\*
 \end{longtable}
 
 \begin{center}
@@ -266,9 +266,9 @@ oat & rice & 206.5 & 232.8 & 0.17 & 0.054\\*
 \begin{itemize}
 \tightlist
 \item
-  Multiple testing correction: \textbf{paired} -none
+  Multiple testing correction: \textbf{FDR}
 \item
-  Statistical test: \textbf{Wilcoxon}
+  Statistical test: \textbf{paired Wilcoxon}
 \end{itemize}
 
 \begin{longtable}[t]{lrrrr}
@@ -286,8 +286,8 @@ oat & rice & 206.5 & 232.8 & 0.17 & 0.054\\*
 \endfoot
 \bottomrule
 \endlastfoot
-rice & 231.2 & 232.8 & 0.13 & 0.399\\
-oat & 210.6 & 206.5 & 0.04 & 0.112\\*
+rice & 231.6 & 233.2 & 0.13 & 0.372\\
+oat & 211.1 & 207.1 & 0.04 & 0.124\\*
 \end{longtable}
 
 \subsection{LMM}\label{lmm}
@@ -328,13 +328,13 @@ oat & 210.6 & 206.5 & 0.04 & 0.112\\*
 \cmidrule(lr){2-4} \cmidrule(lr){5-7}
 \textbf{Characteristic} & \textbf{Beta} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} & \textbf{Beta} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} \\ 
 \midrule\addlinespace[2.5pt]
-(Intercept) & 151 & 66, 235 & <0.001 & 143 & 58, 228 & 0.001 \\ 
+(Intercept) & 151 & 67, 235 & <0.001 & 143 & 59, 228 & 0.001 \\ 
 meal\_group &  &  & 0.4 &  &  & 0.3 \\ 
     1 & — & — &  & — & — &  \\ 
     2 & 32 & -11, 75 & 0.14 & 28 & -16, 72 & 0.2 \\ 
-    3 & 28 & -15, 71 & 0.2 & 30 & -14, 74 & 0.2 \\ 
-    4 & 10 & -32, 53 & 0.6 & -3.8 & -47, 39 & 0.9 \\ 
-age & 1.0 & -0.44, 2.5 & 0.2 & 1.2 & -0.25, 2.7 & 0.10 \\ 
+    3 & 28 & -15, 71 & 0.2 & 30 & -14, 73 & 0.2 \\ 
+    4 & 10 & -32, 53 & 0.6 & -3.6 & -47, 39 & 0.9 \\ 
+age & 1.0 & -0.44, 2.5 & 0.2 & 1.2 & -0.24, 2.7 & 0.10 \\ 
 \bottomrule
 \end{tabular*}
 \begin{minipage}{\linewidth}
@@ -348,12 +348,12 @@ age & 1.0 & -0.44, 2.5 & 0.2 & 1.2 & -0.25, 2.7 & 0.10 \\
 \toprule
 \textbf{Paired test between timepoints (1 and 2)} & \textbf{Beta} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} \\ 
 \midrule\addlinespace[2.5pt]
-(Intercept) & 146 & 84, 209 & <0.001 \\ 
+(Intercept) & 147 & 84, 209 & <0.001 \\ 
 meal\_group &  &  & 0.6 \\ 
     1 & — & — &  \\ 
     2 & 28 & -16, 71 & 0.2 \\ 
     3 & 28 & -15, 71 & 0.2 \\ 
-    4 & 2.1 & -28, 32 & 0.9 \\ 
+    4 & 2.4 & -27, 32 & 0.9 \\ 
 age & 1.2 & 0.14, 2.2 & 0.025 \\ 
 \bottomrule
 \end{tabular*}
