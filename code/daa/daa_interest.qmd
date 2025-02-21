@@ -138,22 +138,22 @@ plot_taxon <- function(taxon) {
 
 ```{r}
 plots_list <- list()
-plots_list <- setNames(lapply(taxa_of_interest, plot_taxon), taxa_of_interest)
+# plots_list <- setNames(lapply(taxa_of_interest, plot_taxon), taxa_of_interest)
 ```
 
 
 ```{r hits}
-#| layout-ncol: 3
+#| layout-ncol: 4
 #| fig-width: 12 
 #| fig-height: 8 
 library(reshape2)
 theme_set(theme_bw(40))
 
 
-for (g in unique(tse$diet)) {
+for (g in unique(tse$meal)) {
 
   if (length(rowData(tse))>0) {
-    tseg <- tse[, tse$diet==g] 
+    tseg <- tse[, tse$meal==g] 
     df <- as.data.frame(colData(tseg)) 
     
     for (tax in taxa_of_interest) {
@@ -209,7 +209,7 @@ for (g in unique(tse$diet)) {
                                 space = "Lab",
                                 limits = c(min_change, max_change)) +
           scale_y_log10(labels = scales::percent) + 
-          labs(title = g, y = "Abundance (%)") +
+          labs(title = paste(tax, "/", g), y = "Abundance (%)") +
           # labs(
           #   title = paste0(g, "/", " p = ", 
           #                  ifelse(tax %in% anot_tax$feature, 
@@ -232,6 +232,7 @@ for (plot_name in names(ordered_plots)) {
   print(ordered_plots[[plot_name]])
 }
 ```
+
 
 ```{r table}
 file_path <- file.path("../../output/daa/daa_taxa/species/all_results.tsv")

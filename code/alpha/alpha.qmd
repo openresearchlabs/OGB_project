@@ -168,6 +168,58 @@ final_results_after <- final_results_after %>%
 colnames(final_results_after)[colnames(final_results_after) == "logFC"] <- "log2FC"
 ```
 
+```{r}
+meal_groups <- unique(tse$meal)
+# Calculate statistical results
+results_paired_meal <- lapply(meal_groups, function(group) {
+  # Subset tse for the current meal group
+  tse_subset <- tse[, tse$meal == group]
+  
+  # Run the diversity tests
+  res <- run_diversity_tests(
+    tse = tse_subset, 
+    comparisons = comparisons_paired, 
+    variable = "timepoint", 
+    index, 
+    adjust.method = adjust.method, 
+    paired = TRUE
+  )
+  
+  # Add the meal group as a new column
+  res$diet <- group
+  
+  return(res)
+}) %>% 
+  bind_rows()
+
+results_paired_meal <- results_paired_meal[, c("diet", setdiff(names(results_paired_meal), "diet"))]
+
+# results_paired$p.adj <- p.adjust(results_paired$p.value, method = "fdr")
+# Format results for display
+final_results_paired_meal <- results_paired_meal %>%
+  mutate(
+    mean1 = round(mean1, 1),
+    mean2 = round(mean2, 1),
+    logFC = round(logFC, 2),
+    p.value = round(p.value, 3)
+  ) %>%
+  select(diet, group1, group2, mean1, mean2, logFC, p.value) %>% 
+  arrange(diet)
+
+# Calculate y-positions for p-value annotations
+final_results_paired_meal <- final_results_paired_meal %>%
+  mutate(y.position = sapply(1:nrow(final_results_paired_meal), function(i) {
+    vals1 <- colData(tse)[[index]][colData(tse)[["timepoint"]] == group1[i]]
+    vals2 <- colData(tse)[[index]][colData(tse)[["timepoint"]] == group2[i]]
+    max(c(vals1, vals2)) + i * 0.2
+  }))
+final_results_paired_meal$group1 <- NULL
+final_results_paired_meal$group2 <- NULL
+colnames(final_results_paired_meal)[colnames(final_results_paired_meal) == "logFC"] <- "log2FC"
+colnames(final_results_paired_meal)[colnames(final_results_paired_meal) == "diet"] <- "Meal"
+```
+
+
 ```{r pvalues-paired}
 diet_groups <- unique(tse$diet)
 # Calculate statistical results
@@ -481,7 +533,7 @@ div_change
 
 if (knitr::is_html_output()) {
   datatable(
-    final_results_paired %>% select(-y.position), 
+    final_results_paired_meal, 
     options = list(
       pageLength = 4,
       dom = 'Bfrtip'
@@ -493,8 +545,7 @@ if (knitr::is_html_output()) {
   formatSignif(columns = "p.value", digits = 3)
 } else {
   library(kableExtra)
-  final_results_paired %>% 
-    select(-y.position) %>%
+  final_results_paired_meal %>% 
     mutate(
       across(where(is.numeric), ~round(., 3))
       #p.adj = signif(p.adj, 3)

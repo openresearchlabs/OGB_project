@@ -206,9 +206,17 @@ before  after
 Number of significant findings within treatments (Paired Wilcoxon test,
 Benjamini-Hochberg FDR adjustment).
 
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Multiple testing correction:} BH
+\item
+  \textbf{Statistical test:} Paired Wilcoxon
+\end{itemize}
+
 \begin{verbatim}
-rice  oat 
-   5    2 
+rice-rice  oat-rice   oat-oat  rice-oat 
+        2         0        34         1 
 \end{verbatim}
 
 Let us look more closely to the significant hits. The logFC corresponds
@@ -216,68 +224,437 @@ to logFC in CLR (tp2-tp1).
 
 \begin{figure}
 
-\begin{minipage}{0.33\linewidth}
+\begin{minipage}{0.25\linewidth}
 \includegraphics{daa_genus_prevalent_files/figure-pdf/hits-1.pdf}\end{minipage}%
 %
-\begin{minipage}{0.33\linewidth}
+\begin{minipage}{0.25\linewidth}
 \includegraphics{daa_genus_prevalent_files/figure-pdf/hits-2.pdf}\end{minipage}%
 %
-\begin{minipage}{0.33\linewidth}
+\begin{minipage}{0.25\linewidth}
 \includegraphics{daa_genus_prevalent_files/figure-pdf/hits-3.pdf}\end{minipage}%
-\newline
-\begin{minipage}{0.33\linewidth}
-\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-4.pdf}\end{minipage}%
 %
-\begin{minipage}{0.33\linewidth}
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-4.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
 \includegraphics{daa_genus_prevalent_files/figure-pdf/hits-5.pdf}\end{minipage}%
 %
-\begin{minipage}{0.33\linewidth}
+\begin{minipage}{0.25\linewidth}
 \includegraphics{daa_genus_prevalent_files/figure-pdf/hits-6.pdf}\end{minipage}%
-\newline
-\begin{minipage}{0.33\linewidth}
+%
+\begin{minipage}{0.25\linewidth}
 \includegraphics{daa_genus_prevalent_files/figure-pdf/hits-7.pdf}\end{minipage}%
 %
-\begin{minipage}{0.33\linewidth}
+\begin{minipage}{0.25\linewidth}
 \includegraphics{daa_genus_prevalent_files/figure-pdf/hits-8.pdf}\end{minipage}%
-%
-\begin{minipage}{0.33\linewidth}
-\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-9.pdf}\end{minipage}%
 \newline
-\begin{minipage}{0.33\linewidth}
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-9.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
 \includegraphics{daa_genus_prevalent_files/figure-pdf/hits-10.pdf}\end{minipage}%
 %
-\begin{minipage}{0.33\linewidth}
+\begin{minipage}{0.25\linewidth}
 \includegraphics{daa_genus_prevalent_files/figure-pdf/hits-11.pdf}\end{minipage}%
 %
-\begin{minipage}{0.33\linewidth}
+\begin{minipage}{0.25\linewidth}
 \includegraphics{daa_genus_prevalent_files/figure-pdf/hits-12.pdf}\end{minipage}%
 \newline
-\begin{minipage}{0.33\linewidth}
+\begin{minipage}{0.25\linewidth}
 \includegraphics{daa_genus_prevalent_files/figure-pdf/hits-13.pdf}\end{minipage}%
 %
-\begin{minipage}{0.33\linewidth}
+\begin{minipage}{0.25\linewidth}
 \includegraphics{daa_genus_prevalent_files/figure-pdf/hits-14.pdf}\end{minipage}%
 %
-\begin{minipage}{0.33\linewidth}
+\begin{minipage}{0.25\linewidth}
 \includegraphics{daa_genus_prevalent_files/figure-pdf/hits-15.pdf}\end{minipage}%
-\newline
-\begin{minipage}{0.33\linewidth}
-\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-16.pdf}\end{minipage}%
 %
-\begin{minipage}{0.33\linewidth}
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-16.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
 \includegraphics{daa_genus_prevalent_files/figure-pdf/hits-17.pdf}\end{minipage}%
 %
-\begin{minipage}{0.33\linewidth}
+\begin{minipage}{0.25\linewidth}
 \includegraphics{daa_genus_prevalent_files/figure-pdf/hits-18.pdf}\end{minipage}%
-\newline
-\begin{minipage}{0.33\linewidth}
+%
+\begin{minipage}{0.25\linewidth}
 \includegraphics{daa_genus_prevalent_files/figure-pdf/hits-19.pdf}\end{minipage}%
 %
-\begin{minipage}{0.33\linewidth}
+\begin{minipage}{0.25\linewidth}
 \includegraphics{daa_genus_prevalent_files/figure-pdf/hits-20.pdf}\end{minipage}%
-%
-\begin{minipage}{0.33\linewidth}
+\newline
+\begin{minipage}{0.25\linewidth}
 \includegraphics{daa_genus_prevalent_files/figure-pdf/hits-21.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-22.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-23.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-24.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-25.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-26.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-27.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-28.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-29.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-30.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-31.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-32.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-33.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-34.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-35.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-36.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-37.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-38.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-39.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-40.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-41.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-42.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-43.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-44.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-45.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-46.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-47.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-48.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-49.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-50.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-51.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-52.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-53.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-54.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-55.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-56.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-57.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-58.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-59.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-60.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-61.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-62.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-63.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-64.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-65.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-66.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-67.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-68.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-69.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-70.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-71.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-72.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-73.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-74.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-75.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-76.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-77.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-78.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-79.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-80.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-81.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-82.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-83.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-84.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-85.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-86.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-87.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-88.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-89.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-90.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-91.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-92.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-93.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-94.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-95.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-96.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-97.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-98.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-99.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-100.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-101.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-102.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-103.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-104.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-105.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-106.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-107.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-108.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-109.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-110.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-111.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-112.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-113.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-114.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-115.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-116.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-117.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-118.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-119.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-120.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-121.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-122.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-123.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-124.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-125.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-126.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-127.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-128.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-129.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-130.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-131.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-132.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-133.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-134.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-135.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-136.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-137.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-138.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-139.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-140.pdf}\end{minipage}%
+\newline
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-141.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-142.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-143.pdf}\end{minipage}%
+%
+\begin{minipage}{0.25\linewidth}
+\includegraphics{daa_genus_prevalent_files/figure-pdf/hits-144.pdf}\end{minipage}%
 
 \end{figure}%
 
@@ -285,12 +662,12 @@ For a complete table of results, see
 \href{https://seafile.utu.fi/f/a5d57b061c3249e193da/}{complete results}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0882}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.3676}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1471}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1029}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1471}}
-  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1471}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1389}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.3472}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1389}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0972}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1389}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1389}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Group
@@ -309,20 +686,154 @@ mean.rel2
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-rice & Candidatus\_Cibionibacter & -1.1231 & 0.0000 & 2.336 & 0.822 \\
-oat & GGB27106 & 1.6815 & 0.1020 & 0.019 & 0.115 \\
-oat & GGB4569 & 0.7232 & 0.1020 & 0.029 & 0.090 \\
-rice & Bifidobacterium & -0.7623 & 0.1128 & 6.265 & 4.463 \\
-rice & GGB34797 & 0.4275 & 0.1176 & 0.355 & 0.851 \\
-rice & Akkermansia & -1.1755 & 0.1176 & 1.147 & 1.116 \\
-rice & GGB3612 & 1.5879 & 0.1570 & 0.017 & 0.043 \\
-oat & Candidatus\_Cibionibacter & -0.2537 & 0.4231 & 1.548 & 1.014 \\
-rice & GGB27106 & -0.8557 & 0.5326 & 0.094 & 0.050 \\
-oat & Akkermansia & -0.2480 & 0.7113 & 0.704 & 0.904 \\
-oat & GGB3612 & -0.3678 & 0.8582 & 0.046 & 0.061 \\
-oat & Bifidobacterium & 0.2431 & 0.9049 & 3.874 & 3.871 \\
-oat & GGB34797 & -0.0360 & 0.9351 & 0.484 & 0.410 \\
-rice & GGB4569 & 0.2229 & 0.9905 & 0.239 & 0.479 \\
+rice-rice & Candidatus\_Cibionibacter & -1.1818 & 0.0106 & 1.912 &
+0.772 \\
+rice-rice & GGB34797 & 0.5891 & 0.0583 & 0.244 & 0.869 \\
+rice-oat & Candidatus\_Cibionibacter & -1.0610 & 0.0912 & 2.785 &
+0.874 \\
+oat-oat & GGB4569 & 1.1494 & 0.0933 & 0.026 & 0.082 \\
+oat-oat & GGB27106 & 1.2338 & 0.1845 & 0.011 & 0.030 \\
+oat-oat & GGB6612 & 0.8012 & 0.1845 & 0.007 & 0.045 \\
+oat-oat & Blautia & 0.3517 & 0.1845 & 8.146 & 9.297 \\
+oat-oat & GGB1550 & 0.3186 & 0.1845 & 0.212 & 0.795 \\
+oat-oat & Other & 0.2836 & 0.1845 & 6.951 & 8.480 \\
+oat-oat & Holdemanella & 0.2072 & 0.1845 & 0.203 & 0.266 \\
+oat-oat & GGB3256 & 0.2041 & 0.1845 & 0.084 & 0.119 \\
+oat-oat & GGB3277 & 0.1839 & 0.1845 & 0.220 & 0.233 \\
+oat-oat & GGB1266 & 0.1690 & 0.1845 & 0.045 & 0.034 \\
+oat-oat & Faecalitalea & 0.1631 & 0.1845 & 0.164 & 0.096 \\
+oat-oat & Flavonifractor & -1.1561 & 0.1845 & 0.139 & 0.125 \\
+oat-oat & Dialister & 0.3046 & 0.1950 & 1.278 & 1.538 \\
+oat-oat & Parasutterella & 0.6538 & 0.2097 & 0.107 & 0.187 \\
+oat-oat & Sutterella & 0.4336 & 0.2097 & 0.079 & 0.132 \\
+oat-oat & Bacteroides & 0.4106 & 0.2097 & 5.543 & 7.417 \\
+oat-oat & Citrobacter & 0.4099 & 0.2097 & 0.040 & 0.028 \\
+oat-oat & GGB9767 & 0.3827 & 0.2097 & 0.006 & 0.016 \\
+oat-oat & Barnesiella & 0.3133 & 0.2097 & 0.596 & 0.639 \\
+oat-oat & Butyricicoccus & 0.2639 & 0.2097 & 0.041 & 0.045 \\
+oat-oat & GGB9760 & 0.2634 & 0.2097 & 0.139 & 0.159 \\
+oat-oat & Paraprevotella & 0.2444 & 0.2097 & 0.065 & 0.122 \\
+oat-oat & GGB3175 & 0.2245 & 0.2097 & 0.025 & 0.064 \\
+oat-oat & GGB79734 & 0.2156 & 0.2097 & 0.088 & 0.122 \\
+oat-oat & GGB3363 & 0.2083 & 0.2097 & 0.219 & 0.189 \\
+oat-oat & GGB3278 & 0.1801 & 0.2097 & 0.532 & 0.490 \\
+oat-oat & GGB9642 & 0.1698 & 0.2097 & 0.043 & 0.043 \\
+oat-oat & GGB9747 & 0.1633 & 0.2097 & 0.080 & 0.079 \\
+oat-oat & Monoglobus & 0.1630 & 0.2097 & 0.090 & 0.123 \\
+oat-oat & GGB3730 & 0.1400 & 0.2097 & 0.029 & 0.025 \\
+oat-oat & Gordonibacter & -0.8494 & 0.2097 & 0.092 & 0.061 \\
+oat-oat & Intestinimonas & -1.8461 & 0.2097 & 0.036 & 0.039 \\
+oat-oat & GGB80011 & 0.3166 & 0.2268 & 0.148 & 0.253 \\
+oat-oat & Clostridium & 0.4179 & 0.2450 & 1.737 & 2.127 \\
+rice-rice & GGB27106 & -2.1773 & 0.2595 & 0.168 & 0.041 \\
+rice-rice & GGB9760 & 0.3651 & 0.4429 & 0.162 & 0.244 \\
+rice-rice & Gordonibacter & 0.8034 & 0.5690 & 0.057 & 0.094 \\
+rice-rice & Bacteroides & 0.2882 & 0.5690 & 3.294 & 3.996 \\
+oat-oat & Candidatus\_Cibionibacter & -0.1233 & 0.7009 & 1.419 &
+0.943 \\
+rice-rice & GGB79734 & 0.2090 & 0.7192 & 0.119 & 0.169 \\
+rice-rice & Dialister & -0.1598 & 0.7192 & 1.260 & 1.048 \\
+rice-rice & Sutterella & -0.3976 & 0.7192 & 0.131 & 0.075 \\
+rice-rice & GGB6612 & -0.5198 & 0.7192 & 0.246 & 0.123 \\
+rice-oat & GGB79734 & 0.7116 & 0.7249 & 0.112 & 0.188 \\
+rice-oat & GGB3363 & -0.6188 & 0.7249 & 0.117 & 0.058 \\
+rice-rice & GGB3175 & -0.0903 & 0.7440 & 0.034 & 0.084 \\
+rice-rice & GGB9767 & -0.1683 & 0.7440 & 0.136 & 0.076 \\
+rice-oat & Gordonibacter & 0.8474 & 0.7568 & 0.041 & 0.068 \\
+rice-oat & Flavonifractor & 0.5474 & 0.7595 & 0.065 & 0.067 \\
+rice-rice & GGB80011 & -0.1894 & 0.8280 & 0.304 & 0.143 \\
+rice-rice & Parasutterella & 0.3923 & 0.8413 & 0.037 & 0.062 \\
+rice-rice & Faecalitalea & -0.0756 & 0.8413 & 0.017 & 0.015 \\
+rice-rice & GGB3278 & -0.0667 & 0.8530 & 0.119 & 0.125 \\
+rice-oat & Other & -0.1001 & 0.8675 & 5.819 & 6.101 \\
+rice-oat & GGB9760 & 0.3318 & 0.8682 & 0.238 & 0.311 \\
+rice-oat & GGB34797 & 0.2564 & 0.8682 & 0.472 & 0.831 \\
+rice-oat & GGB80011 & -0.2807 & 0.8682 & 0.090 & 0.078 \\
+rice-oat & Parasutterella & -0.5218 & 0.8682 & 0.042 & 0.035 \\
+rice-oat & GGB3175 & -0.7982 & 0.8682 & 0.109 & 0.059 \\
+oat-oat & GGB34797 & -0.0833 & 0.8962 & 0.595 & 0.364 \\
+rice-oat & GGB27106 & 0.5435 & 0.9055 & 0.017 & 0.060 \\
+rice-oat & Blautia & 0.0937 & 0.9055 & 7.571 & 8.568 \\
+rice-oat & GGB3277 & 0.0508 & 0.9055 & 0.317 & 0.491 \\
+rice-oat & Intestinimonas & 0.0150 & 0.9200 & 0.042 & 0.060 \\
+rice-rice & GGB3256 & -0.1433 & 0.9315 & 0.322 & 0.277 \\
+rice-oat & GGB4569 & 0.7142 & 0.9336 & 0.262 & 0.605 \\
+rice-oat & Bacteroides & 0.1073 & 0.9336 & 4.696 & 6.069 \\
+rice-oat & Faecalitalea & 0.0952 & 0.9336 & 0.024 & 0.124 \\
+rice-oat & Clostridium & -0.0695 & 0.9336 & 1.871 & 1.997 \\
+rice-oat & GGB1266 & -0.0731 & 0.9336 & 0.456 & 0.487 \\
+rice-oat & Sutterella & -0.4532 & 0.9336 & 0.135 & 0.208 \\
+rice-oat & GGB6612 & -0.4702 & 0.9336 & 0.015 & 0.009 \\
+rice-oat & Barnesiella & 0.1096 & 0.9420 & 0.546 & 0.601 \\
+rice-oat & Holdemanella & -0.0059 & 0.9420 & 0.146 & 0.173 \\
+rice-oat & Citrobacter & 0.1861 & 0.9515 & 0.029 & 0.021 \\
+rice-oat & GGB9747 & -0.0947 & 0.9515 & 0.080 & 0.068 \\
+rice-oat & Monoglobus & 0.0425 & 0.9522 & 0.026 & 0.085 \\
+rice-rice & Flavonifractor & 0.4540 & 0.9555 & 0.113 & 0.080 \\
+rice-rice & Intestinimonas & 0.1760 & 0.9555 & 0.119 & 0.141 \\
+rice-rice & Monoglobus & 0.1212 & 0.9555 & 0.041 & 0.068 \\
+rice-rice & GGB3363 & 0.0948 & 0.9555 & 0.086 & 0.088 \\
+rice-rice & GGB1550 & 0.0883 & 0.9555 & 0.740 & 0.285 \\
+rice-rice & Paraprevotella & 0.0423 & 0.9555 & 0.174 & 0.171 \\
+rice-rice & Citrobacter & 0.0148 & 0.9555 & 0.138 & 0.311 \\
+rice-rice & GGB3730 & -0.0314 & 0.9555 & 0.018 & 0.022 \\
+rice-rice & Blautia & -0.0390 & 0.9555 & 7.923 & 9.093 \\
+rice-rice & GGB9642 & -0.0510 & 0.9555 & 0.083 & 0.093 \\
+rice-rice & Other & -0.0530 & 0.9555 & 11.371 & 11.481 \\
+rice-rice & Butyricicoccus & -0.1027 & 0.9555 & 0.054 & 0.068 \\
+rice-rice & Clostridium & -0.1835 & 0.9555 & 1.534 & 1.362 \\
+rice-rice & GGB4569 & -0.2412 & 0.9555 & 0.217 & 0.361 \\
+rice-rice & GGB1266 & 0.3561 & 0.9608 & 0.000 & 0.003 \\
+rice-rice & GGB9747 & 0.1883 & 0.9608 & 0.089 & 0.103 \\
+rice-rice & Holdemanella & 0.0418 & 0.9608 & 0.148 & 0.184 \\
+rice-rice & GGB3277 & -0.0110 & 0.9608 & 0.145 & 0.193 \\
+oat-rice & GGB27106 & 2.1853 & 0.9670 & 0.029 & 0.209 \\
+oat-rice & Parasutterella & 0.7525 & 0.9670 & 0.042 & 0.076 \\
+oat-rice & GGB80011 & 0.6300 & 0.9670 & 0.224 & 0.223 \\
+oat-rice & Clostridium & 0.3575 & 0.9670 & 2.106 & 1.893 \\
+oat-rice & GGB9767 & 0.3451 & 0.9670 & 0.019 & 0.017 \\
+oat-rice & Citrobacter & 0.3412 & 0.9670 & 0.054 & 0.015 \\
+oat-rice & Dialister & 0.3006 & 0.9670 & 0.796 & 1.279 \\
+oat-rice & Blautia & 0.2852 & 0.9670 & 9.743 & 11.884 \\
+oat-rice & GGB79734 & 0.2847 & 0.9670 & 0.126 & 0.213 \\
+oat-rice & GGB4569 & 0.2438 & 0.9670 & 0.033 & 0.098 \\
+oat-rice & GGB9747 & 0.2106 & 0.9670 & 0.017 & 0.036 \\
+oat-rice & Butyricicoccus & 0.1741 & 0.9670 & 0.026 & 0.057 \\
+oat-rice & GGB9760 & 0.0983 & 0.9670 & 0.195 & 0.209 \\
+oat-rice & Gordonibacter & 0.0258 & 0.9670 & 0.065 & 0.061 \\
+oat-rice & Bacteroides & 0.0012 & 0.9670 & 6.048 & 5.353 \\
+oat-rice & Other & -0.0291 & 0.9670 & 7.787 & 8.090 \\
+oat-rice & Barnesiella & -0.0989 & 0.9670 & 0.519 & 0.392 \\
+oat-rice & Flavonifractor & -0.1008 & 0.9670 & 0.059 & 0.066 \\
+oat-rice & Faecalitalea & -0.1077 & 0.9670 & 0.028 & 0.008 \\
+oat-rice & Intestinimonas & -0.1605 & 0.9670 & 0.073 & 0.051 \\
+oat-rice & GGB3175 & -0.3071 & 0.9670 & 0.081 & 0.047 \\
+oat-rice & Sutterella & -0.3190 & 0.9670 & 0.070 & 0.085 \\
+oat-rice & Candidatus\_Cibionibacter & -0.4004 & 0.9670 & 1.693 &
+1.093 \\
+oat-rice & Monoglobus & -0.5423 & 0.9670 & 0.030 & 0.039 \\
+oat-rice & GGB6612 & -0.5767 & 0.9670 & 0.058 & 0.014 \\
+rice-oat & GGB3256 & 0.3058 & 0.9726 & 0.336 & 0.597 \\
+rice-oat & GGB9767 & 0.1562 & 0.9726 & 0.044 & 0.039 \\
+rice-oat & Paraprevotella & 0.1011 & 0.9726 & 0.088 & 0.205 \\
+rice-oat & GGB1550 & 0.0330 & 0.9726 & 1.750 & 1.617 \\
+rice-oat & GGB3730 & -0.0853 & 0.9726 & 0.031 & 0.029 \\
+rice-oat & Butyricicoccus & -0.1203 & 0.9726 & 0.032 & 0.025 \\
+oat-rice & GGB3278 & 0.0904 & 0.9882 & 0.248 & 0.267 \\
+oat-rice & GGB3256 & -0.0461 & 0.9882 & 0.049 & 0.101 \\
+rice-oat & GGB9642 & -0.0527 & 0.9896 & 0.011 & 0.012 \\
+oat-rice & GGB9642 & 0.0351 & 0.9973 & 0.042 & 0.050 \\
+oat-rice & GGB3730 & 0.0319 & 0.9973 & 0.020 & 0.019 \\
+oat-rice & GGB34797 & 0.0172 & 0.9973 & 0.359 & 0.462 \\
+oat-rice & GGB3363 & 0.4768 & 1.0000 & 0.133 & 0.085 \\
+rice-rice & Barnesiella & 0.1992 & 1.0000 & 0.486 & 0.606 \\
+oat-rice & GGB1550 & 0.1140 & 1.0000 & 1.961 & 1.850 \\
+oat-rice & GGB1266 & 0.0024 & 1.0000 & 0.173 & 0.102 \\
+oat-rice & Paraprevotella & -0.0066 & 1.0000 & 0.086 & 0.075 \\
+oat-rice & GGB3277 & -0.0145 & 1.0000 & 0.444 & 0.482 \\
+oat-rice & Holdemanella & -0.0235 & 1.0000 & 0.249 & 0.168 \\
+rice-oat & GGB3278 & -0.0263 & 1.0000 & 0.268 & 0.345 \\
+rice-oat & Dialister & -0.9706 & 1.0000 & 2.136 & 1.115 \\
 \end{longtable}
 
 \includegraphics{daa_genus_prevalent_files/figure-pdf/volcano-plot-1.pdf}
