@@ -69,10 +69,10 @@ print(colSums(pvals.timepoints<0.25))
 # Calculate adjusted p-values within each time point
 # to test if any taxonomic group differs between treatments (Kruskal test)
 pvals <- NULL
-for (g in unique(tse$diet)) {
+for (g in unique(tse$meal)) {
   # Pick data for the given Treatment for time points 1 and 2
-  tse1  <- tse[, tse$diet==g & tse$timepoint=="before"]
-  tse2  <- tse[, tse$diet==g & tse$timepoint=="after"]
+  tse1  <- tse[, tse$meal==g & tse$timepoint=="before"]
+  tse2  <- tse[, tse$meal==g & tse$timepoint=="after"]
   # Ensure that subject match (pairing ok)
   if (!all(tse1$id==tse2$id)) {stop("Subjects do not match!")}
   pvs   <- sapply(rownames(tse), function (tax) {
@@ -82,11 +82,14 @@ for (g in unique(tse$diet)) {
   padj  <- p.adjust(pvs, "BH")
   pvals <- cbind(pvals, padj)
 }
-colnames(pvals) <- unique(tse$diet)
+colnames(pvals) <- unique(tse$meal)
 pvals.treatments <- pvals
 ```
 
 Number of significant findings within treatments (Paired Wilcoxon test, Benjamini-Hochberg FDR adjustment).
+
+-   **Multiple testing correction:** BH
+-   **Statistical test:** Paired Wilcoxon
 
 ```{r between_timepoint_analysis3}
 print(colSums(pvals.treatments<0.25))
@@ -99,7 +102,7 @@ file_path1 <- file.path("../../output/daa/daa_taxa/species/all_results.tsv")
 file_path2 <- file.path("../../output/daa/daa_taxa/genus/all_results.tsv")
 
 
-signif.features <- names(which(pvals.treatments[, 1] < 0.25 | pvals.treatments[, 2] < 0.25))
+signif.features <- names(which(pvals.treatments[, 1] < 0.25 | pvals.treatments[, 2] < 0.25 | pvals.treatments[, 3] < 0.25 | pvals.treatments[, 4] < 0.25))
 
 taxa_of_interest <- c(signif.features)
 
@@ -199,23 +202,23 @@ plot_taxon <- function(taxon) {
 
 ```{r}
 plots_list <- list()
-plots_list <- setNames(lapply(taxa_of_interest, plot_taxon),
-                       taxa_of_interest)
+#plots_list <- setNames(lapply(taxa_of_interest, plot_taxon),
+#                       taxa_of_interest)
 ```
 
 
 ```{r hits}
-#| layout-ncol: 3
-#| fig-width: 10
+#| layout-ncol: 4
+#| fig-width: 12
 #| fig-height: 8
 library(reshape2)
 theme_set(theme_bw(30))
 tabs <- NULL 
 
-for (g in unique(tse$diet)) {
+for (g in unique(tse$meal)) {
 
   if (length(signif.features)>0) {
-    tseg <- tse[, tse$diet==g] 
+    tseg <- tse[, tse$meal==g] 
     df <- as.data.frame(colData(tseg)) 
     for (tax in signif.features) {
       df$signal <- as.vector(assay(tseg, "relabundance")[tax,])
@@ -270,7 +273,7 @@ for (g in unique(tse$diet)) {
                                 space ="Lab",
                                 limits = c(min_change, max_change)) +
 	     scale_y_log10(labels = scales::percent) + 
-          labs(title = g, y = "Abundance (%)") +
+          labs(title = paste(tax, "/", g), y = "Abundance (%)") +
 # 	     labs(
 #             title = paste0(g, "/", " p = ", 
 #                            ifelse(tax %in% anot_tax$feature, 
@@ -324,12 +327,12 @@ if (knitr::is_html_output()) {
 
 ```{r volcano-tab}
 tabs_all <- NULL
-for (g in unique(tse$diet)) {
+for (g in unique(tse$meal)) {
   # P-values
   all_features <-  names(pvals.treatments[, g])
 
   if (length(all_features)>0) {
-    tseg <- tse[, tse$diet==g] 
+    tseg <- tse[, tse$meal==g] 
     df <- as.data.frame(colData(tseg)) 
     for (tax in all_features) {
       df$signal <- as.vector(assay(tseg, "relabundance")[tax,])
