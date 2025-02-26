@@ -213,15 +213,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#pcoa-plots" id="toc-pcoa-plots" class="nav-link" data-scroll-target="#pcoa-plots"><span class="header-section-number">2.2</span> PCoA plots</a></li>
   <li><a href="#table-of-the-top-findings" id="toc-table-of-the-top-findings" class="nav-link" data-scroll-target="#table-of-the-top-findings"><span class="header-section-number">2.3</span> Table of the top findings</a></li>
   <li><a href="#significant-variables" id="toc-significant-variables" class="nav-link" data-scroll-target="#significant-variables"><span class="header-section-number">2.4</span> Significant variables</a></li>
-  <li><a href="#significant-taxa" id="toc-significant-taxa" class="nav-link" data-scroll-target="#significant-taxa"><span class="header-section-number">2.5</span> Significant taxa</a></li>
   </ul></li>
   <li><a href="#supervised-analysis" id="toc-supervised-analysis" class="nav-link" data-scroll-target="#supervised-analysis"><span class="header-section-number">3</span> Supervised analysis</a>
   <ul class="collapse">
-  <li><a href="#permanova-analysis" id="toc-permanova-analysis" class="nav-link" data-scroll-target="#permanova-analysis"><span class="header-section-number">3.1</span> Permanova analysis</a></li>
-  </ul></li>
-  <li><a href="#alternate-analysis" id="toc-alternate-analysis" class="nav-link" data-scroll-target="#alternate-analysis"><span class="header-section-number">4</span> Alternate analysis</a>
-  <ul class="collapse">
-  <li><a href="#data-summary" id="toc-data-summary" class="nav-link" data-scroll-target="#data-summary"><span class="header-section-number">4.1</span> Data Summary</a></li>
+  <li><a href="#significant-taxa" id="toc-significant-taxa" class="nav-link" data-scroll-target="#significant-taxa"><span class="header-section-number">3.1</span> Significant taxa</a></li>
+  <li><a href="#permanova-analysis" id="toc-permanova-analysis" class="nav-link" data-scroll-target="#permanova-analysis"><span class="header-section-number">3.2</span> Permanova analysis</a></li>
+  <li><a href="#data-summary" id="toc-data-summary" class="nav-link" data-scroll-target="#data-summary"><span class="header-section-number">3.3</span> Data Summary</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="beta.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -351,54 +348,33 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-d188dfc66d91160e7731" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-d188dfc66d91160e7731">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of divergence paired between timepoint(1 and 2)<\/caption>","data":[["oat","rice"],[0.3426224208635092,0.3612591858888241],[3.82101653818264e-07,2.587691416709574e-07],[3.82101653818264e-07,3.82101653818264e-07]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Meal<\/th>\n      <th>mean<\/th>\n      <th>p.value<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":3,"dom":"Bfrtip","columnDefs":[{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[1,2,3]},{"name":"Meal","targets":0},{"name":"mean","targets":1},{"name":"p.value","targets":2},{"name":"p.adj","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[3,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-0dba9dc2d9b4e87d1cc7" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-0dba9dc2d9b4e87d1cc7">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of divergence paired between timepoint(1 and 2)<\/caption>","data":[["oat","rice"],[0.3426224208635092,0.3612591858888241],[3.82101653818264e-07,2.587691416709574e-07],[3.82101653818264e-07,3.82101653818264e-07]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Meal<\/th>\n      <th>mean<\/th>\n      <th>p.value<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":3,"dom":"Bfrtip","columnDefs":[{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[1,2,3]},{"name":"Meal","targets":0},{"name":"mean","targets":1},{"name":"p.value","targets":2},{"name":"p.adj","targets":3}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[3,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render"],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 </section>
 <section id="significant-variables" class="level3" data-number="2.4">
 <h3 data-number="2.4" class="anchored" data-anchor-id="significant-variables"><span class="header-section-number">2.4</span> Significant variables</h3>
-<div class="cell">
-<div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="beta_files/figure-html/significant variables-1.png" class="img-fluid figure-img" data-fig-pos="H" width="672"></p>
-</figure>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<pre><code>[[1]]</code></pre>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="beta_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" data-fig-pos="H" width="576"></p>
 </div>
 </div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="beta_files/figure-html/significant variables-2.png" class="img-fluid figure-img" data-fig-pos="H" width="672"></p>
-</figure>
+<div class="quarto-layout-row">
+<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<pre><code>
+[[2]]</code></pre>
 </div>
-</div>
-</div>
-</section>
-<section id="significant-taxa" class="level3" data-number="2.5">
-<h3 data-number="2.5" class="anchored" data-anchor-id="significant-taxa"><span class="header-section-number">2.5</span> Significant taxa</h3>
-<ul>
-<li>RDA-oat</li>
-</ul>
-<div class="cell" data-layout-align="center" width="100%">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="beta_files/figure-html/significant-taxa-oat-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<ul>
-<li>RDA-rice</li>
-</ul>
-<div class="cell" data-layout-align="center" width="100%">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="beta_files/figure-html/significant-taxa-rice-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="960"></p>
-</figure>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="beta_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid" data-fig-pos="H" width="576"></p>
 </div>
 </div>
 </div>
@@ -406,10 +382,24 @@ ul.task-list li input[type="checkbox"] {
 <li>MDS</li>
 </ul>
 <div class="cell" data-layout-align="center" width="100%">
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="beta_files/figure-html/mds-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+[[2]]</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="beta_files/figure-html/mds-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="960"></p>
 </figure>
 </div>
 </div>
@@ -418,8 +408,37 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="supervised-analysis" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="supervised-analysis"><span class="header-section-number">3</span> Supervised analysis</h2>
-<section id="permanova-analysis" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="permanova-analysis"><span class="header-section-number">3.1</span> Permanova analysis</h3>
+<section id="significant-taxa" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="significant-taxa"><span class="header-section-number">3.1</span> Significant taxa</h3>
+<ul>
+<li>RDA</li>
+</ul>
+<div class="cell" data-layout-align="center" width="100%">
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="beta_files/figure-html/significant-taxa-oat-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+[[2]]</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="beta_files/figure-html/significant-taxa-oat-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="permanova-analysis" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="permanova-analysis"><span class="header-section-number">3.2</span> Permanova analysis</h3>
 <ul>
 <li><p>Dissimilarity index: <strong>bray</strong></p></li>
 <li><p>Group variable: <strong>diet</strong></p></li>
@@ -429,57 +448,39 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Homogeneity &lt; 0.05: The assumption of homogeneity of variance is violated (i.e., the variances are significantly different across groups).</p></li>
 <li><p>Homogeneity ≥ 0.05: The assumption of homogeneity of variance is not violated (i.e., the variances are similar across groups).</p></li>
 </ul>
-<section id="across-group" class="level4" data-number="3.1.1">
-<h4 data-number="3.1.1" class="anchored" data-anchor-id="across-group"><span class="header-section-number">3.1.1</span> Across-group</h4>
+<section id="across-group" class="level4" data-number="3.2.1">
+<h4 data-number="3.2.1" class="anchored" data-anchor-id="across-group"><span class="header-section-number">3.2.1</span> Across-group</h4>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-4d299f5d21d6540220e7" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-4d299f5d21d6540220e7">{"x":{"filter":"none","vertical":false,"caption":"<caption>PERMANOVA Results - before treatment<\/caption>","data":[["1"],["oat"],["rice"],["0.001"],["0.873"],["0.001"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Group1<\/th>\n      <th>Group2<\/th>\n      <th>P_value<\/th>\n      <th>Homogeneity<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Group1","targets":1},{"name":"Group2","targets":2},{"name":"P_value","targets":3},{"name":"Homogeneity","targets":4},{"name":"p.adj","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-97499de892ab11ba32b3" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-97499de892ab11ba32b3">{"x":{"filter":"none","vertical":false,"caption":"<caption>PERMANOVA Results - before treatment<\/caption>","data":[["1"],["rice"],["oat"],["0.001"],["0.854"],["0.001"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Group1<\/th>\n      <th>Group2<\/th>\n      <th>P_value<\/th>\n      <th>Homogeneity<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Group1","targets":1},{"name":"Group2","targets":2},{"name":"P_value","targets":3},{"name":"Homogeneity","targets":4},{"name":"p.adj","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-f0ccae8b83acf36cdadf" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-f0ccae8b83acf36cdadf">{"x":{"filter":"none","vertical":false,"caption":"<caption>PERMANOVA Results - after treatment<\/caption>","data":[["1"],["oat"],["rice"],["0.001"],["0.845"],["0.001"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Group1<\/th>\n      <th>Group2<\/th>\n      <th>P_value<\/th>\n      <th>Homogeneity<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Group1","targets":1},{"name":"Group2","targets":2},{"name":"P_value","targets":3},{"name":"Homogeneity","targets":4},{"name":"p.adj","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-35b1682a8f4d61989247" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-35b1682a8f4d61989247">{"x":{"filter":"none","vertical":false,"caption":"<caption>PERMANOVA Results - after treatment<\/caption>","data":[["1"],["rice"],["oat"],["0.001"],["0.856"],["0.001"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Group1<\/th>\n      <th>Group2<\/th>\n      <th>P_value<\/th>\n      <th>Homogeneity<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Group1","targets":1},{"name":"Group2","targets":2},{"name":"P_value","targets":3},{"name":"Homogeneity","targets":4},{"name":"p.adj","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
-<section id="within-group" class="level4" data-number="3.1.2">
-<h4 data-number="3.1.2" class="anchored" data-anchor-id="within-group"><span class="header-section-number">3.1.2</span> Within-group</h4>
+<section id="within-group" class="level4" data-number="3.2.2">
+<h4 data-number="3.2.2" class="anchored" data-anchor-id="within-group"><span class="header-section-number">3.2.2</span> Within-group</h4>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-22ddbc9d6629e3870037" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-22ddbc9d6629e3870037">{"x":{"filter":"none","vertical":false,"caption":"<caption>PERMANOVA Results - Paired after intervention<\/caption>","data":[["1","2","3","4"],["oat-oat","oat-rice","rice-oat","rice-rice"],[1,1,0.977,1],[0.516,0.93,0.867,0.963],[1,1,1,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Meal<\/th>\n      <th>P_value<\/th>\n      <th>Homogeneity<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"columnDefs":[{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Meal","targets":1},{"name":"P_value","targets":2},{"name":"Homogeneity","targets":3},{"name":"p.adj","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-1aa3027a982ca56ae858" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-1aa3027a982ca56ae858">{"x":{"filter":"none","vertical":false,"caption":"<caption>PERMANOVA Results - Paired after intervention<\/caption>","data":[["1","2"],["oat","rice"],[0.999,0.858],[0.62,0.8159999999999999],[0.999,0.999]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Meal<\/th>\n      <th>P_value<\/th>\n      <th>Homogeneity<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"columnDefs":[{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Meal","targets":1},{"name":"P_value","targets":2},{"name":"Homogeneity","targets":3},{"name":"p.adj","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 </section>
-</section>
-<section id="alternate-analysis" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="alternate-analysis"><span class="header-section-number">4</span> Alternate analysis</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="beta_files/figure-html/viz-fig3-1.png" class="img-fluid figure-img" data-fig-pos="H" width="768"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-89efa8def91b9a050640" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-89efa8def91b9a050640">{"x":{"filter":"none","vertical":false,"data":[["betadisp_pval","permanova_pval"],[0.8764170089427543,0.333],[0.9311708264726097,0.105],[null,0.999],[null,0.976],[null,0.997],[null,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>before<\/th>\n      <th>after<\/th>\n      <th>change-1<\/th>\n      <th>change-2<\/th>\n      <th>change-3<\/th>\n      <th>change-4<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"dom":"Bfrtip","columnDefs":[{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":6,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[1,2,3,4,5,6]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"before","targets":1},{"name":"after","targets":2},{"name":"change-1","targets":3},{"name":"change-2","targets":4},{"name":"change-3","targets":5},{"name":"change-4","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.05 ? \"green\" : \"white\"});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.05 ? \"green\" : \"white\"});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.05 ? \"green\" : \"white\"});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.05 ? \"green\" : \"white\"});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.05 ? \"green\" : \"white\"});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background-color':isNaN(parseFloat(value)) ? '' : value <= 0.05 ? \"green\" : \"white\"});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.columnDefs.4.render","options.columnDefs.5.render","options.rowCallback"],"jsHooks":[]}</script>
-</div>
-</div>
-<section id="data-summary" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="data-summary"><span class="header-section-number">4.1</span> Data Summary</h3>
+<section id="data-summary" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="data-summary"><span class="header-section-number">3.3</span> Data Summary</h3>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>class: TreeSummarizedExperiment 
 dim: 1700 140 
 metadata(0):
-assays(1): relabundance
+assays(2): relabundance clr
 rownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921
 rowData names(9): kingdom phylum ... strain clade_name
 colnames(140): AE1332 AE2332 ... VK1336 VK2336
