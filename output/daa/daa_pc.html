@@ -230,25 +230,58 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="0.1" class="anchored" data-anchor-id="differential-abundance-analysis"><span class="header-section-number">0.1</span> Differential abundance analysis</h3>
 <ul>
 <li>Group variable: <strong>diet</strong></li>
-<li>Formula used: <strong>~ diet * intervention + (1 | id)</strong></li>
+<li>Formula used: <strong>~ diet * timepoint + (1 | id)</strong></li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-4a195652b9e6142a5928" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-4a195652b9e6142a5928">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of significant features<\/caption>","data":[["PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast.","PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast."],["intervention","intervention"],["oat","oat"],[10.6940489575446,1.7055342314476],[0.0245730193484007,1],[0.0310558329624287,0.0310558329624287],["prevalence","abundance"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>feature<\/th>\n      <th>metadata<\/th>\n      <th>value<\/th>\n      <th>coef<\/th>\n      <th>qval_individual<\/th>\n      <th>qval_joint<\/th>\n      <th>model<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[3,4,5]},{"name":"feature","targets":0},{"name":"metadata","targets":1},{"name":"value","targets":2},{"name":"coef","targets":3},{"name":"qval_individual","targets":4},{"name":"qval_joint","targets":5},{"name":"model","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-716aede550e8b4f07c30" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-716aede550e8b4f07c30">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of significant features<\/caption>","data":[["ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose.","ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose.","PYRIDNUCSYN.PWY..NAD.de.novo.biosynthesis.I..from.aspartate.","PYRIDNUCSYN.PWY..NAD.de.novo.biosynthesis.I..from.aspartate.","ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose.","ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose.","PYRIDNUCSYN.PWY..NAD.de.novo.biosynthesis.I..from.aspartate."],["diet","diet","diet","diet","diet","diet","diet"],["oat:timepointafter","oat","oat","oat:timepointafter","oat","oat:timepointafter","oat"],[-12.1174199748974,12.080139328539,7.68744212185371,-7.79349851501199,0.869421518159428,-0.807499282063552,1.22578906927974],[3.31188970819461e-276,4.97360196526759e-272,0.00635476872210788,0.0984064495661299,1,1,1],[4.34685524200541e-276,6.52785257941323e-272,0.00834048780034086,0.129111737018863,6.52785257941323e-272,4.34685524200541e-276,0.00834048780034086],["prevalence","prevalence","prevalence","prevalence","abundance","abundance","abundance"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>feature<\/th>\n      <th>metadata<\/th>\n      <th>value<\/th>\n      <th>coef<\/th>\n      <th>qval_individual<\/th>\n      <th>qval_joint<\/th>\n      <th>model<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[3,4,5]},{"name":"feature","targets":0},{"name":"metadata","targets":1},{"name":"value","targets":2},{"name":"coef","targets":3},{"name":"qval_individual","targets":4},{"name":"qval_joint","targets":5},{"name":"model","targets":6}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render"],"jsHooks":[]}</script>
 </div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../../output/daa/daa_pc/figures/summary_plot.png" class="img-fluid figure-img"></p>
-<figcaption>summary_plot.png</figcaption>
-</figure>
+<p><img src="../../output/daa/daa_pc/figures/summary_plot.png" class="img-fluid"></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="kable_wrapper">
+<tbody>
+<tr>
+<td>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><img src="../../output/daa/daa_pc/figures/association_plots/diet/logistic/diet_ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose._logistic.png" class="img-fluid"></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><img src="../../output/daa/daa_pc/figures/association_plots/diet/logistic/diet_PYRIDNUCSYN.PWY..NAD.de.novo.biosynthesis.I..from.aspartate._logistic.png" class="img-fluid"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../../output/daa/daa_pc/figures/association_plots/intervention/logistic/intervention_PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast._logistic.png" class="img-fluid figure-img"></p>
-<figcaption>1</figcaption>
-</figure>
 </div>
 
 

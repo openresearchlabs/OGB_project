@@ -328,6 +328,33 @@ p2 <- plotColData(
     ) #+ scale_y_log10()
 ```
 
+```{r}
+p <- plotColData(
+    tse, x = "intervention", y = index, colour_by = "timepoint",
+    show_boxplot = TRUE, other_fields = c("timepoint", "diet", "intervention", "meal"),
+    show_violin = FALSE) + scale_color_manual(
+        values = c("before" = "black", "after" = "black"),
+        name = "Timepoint"
+    ) +
+    facet_wrap( diet ~ timepoint) +
+    theme(
+        text = element_text(size = 10),
+        legend.position = "none"
+    ) + 
+    # ggpubr::stat_pvalue_manual(
+    #   data = final_results_comb,
+    #   xmin = "group1",
+    #   xmax = "group2",
+    #   y.position = "y.position",
+    #   label = "p.adj"
+    # )  +
+    labs(
+      x = "Intervention",
+      y = "Bacteroidetes/Firmicutes ratio"
+     ) 
+```
+
+
 ```{r all-groups-1v2}
 p3 <- plotColData(
     tse, x = "timepoint", y = index, colour_by = "timepoint",
@@ -435,6 +462,7 @@ y_max <- y_max + (y_range * 0.2)
 p1 <- p1 + coord_cartesian(ylim = c(y_min, y_max))
 p2 <- p2 + coord_cartesian(ylim = c(y_min, y_max))
 wrap_plots(p1, p2, axes = "collect")
+# p
 ```
 
 ### Table of the top findings
@@ -533,7 +561,7 @@ div_change
 
 if (knitr::is_html_output()) {
   datatable(
-    final_results_paired_meal, 
+    final_results_paired, 
     options = list(
       pageLength = 4,
       dom = 'Bfrtip'
@@ -545,7 +573,7 @@ if (knitr::is_html_output()) {
   formatSignif(columns = "p.value", digits = 3)
 } else {
   library(kableExtra)
-  final_results_paired_meal %>% 
+  final_results_paired %>% 
     mutate(
       across(where(is.numeric), ~round(., 3))
       #p.adj = signif(p.adj, 3)
@@ -567,7 +595,7 @@ test <- "paired Wilcoxon"
 ```
 
 ```{r lmer-stuff}
-formula_used <- "~ diet * intervention + (1 | id)"
+formula_used <- "~ diet * timepoint + (1 | id)"
 
 if (index == "observed") {
   tse$observed_log2 <- log2(tse$observed)
@@ -584,127 +612,6 @@ if (index == "observed") {
 ```{r table-fixed-fx}
 sjPlot::plot_model(res)
 sjPlot::tab_model(res)
-```
-
-## Alternate analyses
-
-```{r stratified-timepoint}
-# First analysis - stratified by time point
-tbl_a_s <- colData(tse) %>% as_tibble() %>%
-    select(c("timepoint", index, "meal_group", "age")) %>%
-    tbl_strata(strata = timepoint, .combine_with = "tbl_merge",
-               .tbl_fun = ~.x %>% tidyr::drop_na() %>% 
-                   lm(formula = as.formula(
-                       paste0(index, " ~ meal_group + age")),
-                      data = .) %>% 
-                   tbl_regression(
-                       intercept = TRUE, 
-                       include = everything()) %>%
-                   add_global_p(quite=TRUE, keep=TRUE))
-```
-
-```{r paired}
-# Paired analysis
-tbl_a_s_diff <- colData(tse) %>% as_tibble() %>%
-    select(c("timepoint", index, variable, "meal_group", "paired", "age")) %>% 
-    tidyr::drop_na(variable) %>% filter(paired=="yes") %>% 
-    lmerTest::lmer(
-        formula = as.formula(
-              paste0(index, " ~ meal_group + age + (1|", variable, ")")
-        ),
-        data = .) %>% 
-    tbl_regression(
-        intercept = TRUE, 
-        include = everything()) %>%
-    add_global_p(quite=TRUE, keep=TRUE) %>% 
-    modify_header(label = "**Paired test between timepoints (1 and 2)**")
-```
-
--   **Beta (Estimate)**: Shows the effect size and direction of a predictor on the outcome. Positive means an increase, negative a decrease.
-
--   **95% CI**: Range where the true beta is likely to fall, reflecting precision.
-
--   **p-Value**: Tests if beta differs from zero; p\<0.05p \< 0.05p\<0.05 suggests significance.
-
-```{r table-res1}
-knitr::knit_print(tbl_a_s)
-```
-
-```{r table-res2}
-knitr::knit_print(tbl_a_s_diff)
-```
-
-```{r Plotting-code}
-# Plotting code
-# Set up reference levels
-ref <- levels(factor(colData(tse)[["meal_group"]]))[1]
-lvs <- levels(factor(colData(tse)[["meal_group"]]))[-1]
-comps <- lapply(lvs, function(lv) c(ref,lv))
-```
-
-```{r first-plot}
-# First plot
-p1 <- colData(tse) %>% as_tibble() %>%  tidyr::drop_na(variable) %>%
-    as.data.frame(check.names=FALSE) %>%
-    ggplot(aes_string(x="meal_group", y = index))+
-    geom_boxplot(outlier.shape = NA)+
-    geom_jitter(width=0.1, size=0.5)+
-    facet_wrap(~timepoint, ncol = 2, scales="free")+
-    geom_signif(comparisons = comps, map_signif_level = FALSE,
-                step_increase=0.2, textsize = 2.5)+
-    labs(x="", y = paste(index, "index"))
-
-# Process p-values for plot
-p_tmp <- ggplot_build(p1)
-df_1 <- p_tmp$data[[3]] %>% mutate(label=gsub(paste0(ref,"|\\-|[0-9]"),"",
-                                              .data[["group"]]))
-df_2 <- tbl_a_s$table_body %>% filter(label %in% lvs) %>%
-    select(c(label, contains("p.value"))) %>% 
-    tidyr::pivot_longer(cols = contains("p.value"),
-                        names_to="PANEL", names_prefix="p.value_") %>% 
-    mutate(PANEL=factor(PANEL, levels = levels(df_1$PANEL)))
-p_tmp$data[[3]] <- merge(df_1,df_2, by = c("PANEL","label")) %>%
-    mutate(annotation=round(value,3)) %>% select(colnames(p_tmp$data[[3]]))
-p1 <- p_tmp %>% ggplot_gtable() %>% ggplotify::as.ggplot()
-
-
-```
-
-```{r second-plot}
-# Second plot
-df_pval <- tbl_a_s_diff$table_body %>% filter(label %in% lvs) %>%
-    select(c(label, contains("p.value")))
-pos_j <- position_jitter(width = 0.1, height = 0)
-p2 <- colData(tse) %>% as_tibble() %>%  tidyr::drop_na({{ variable }}) %>%
-    filter(paired=="yes") %>% group_by(.data[[variable]]) %>% arrange(id, timepoint) %>%
-    mutate(
-        change = .data[[index]] - dplyr::first(.data[[index]])
-    ) %>% tidyr::fill(change, .direction = "downup") %>%  
-    as.data.frame(check.names=FALSE) %>%
-    ggplot(aes(x = timepoint, y = .data[[index]]))+
-    geom_boxplot(outlier.shape = NA)+
-    geom_point(position = pos_j, size = 0.5) + 
-    geom_line(aes(group = id, color = change), position = pos_j) +
-    scale_color_gradient2(midpoint=0, low="blue", mid="white", high="red", space ="Lab")+
-    facet_wrap(as.formula(paste0("~", "meal_group")), nrow = 1,
-               labeller = function(df) {
-                   df[,1] <- sapply(df[,1], function(lb){
-                       if (lb!=ref) {
-                           lb <- paste0(lb, " (p-val = ",
-                                        df_pval %>% filter(label==lb) %>%
-                                            select(contains("p.value")) %>%
-                                            .[[1]] %>% round(3)
-                                        ,")")
-                           lb
-                       } else {
-                           as.character(lb)
-                       }
-                   }) %>% unlist()
-                   df
-               })+
-    labs(x="", y = paste(index, "index"))
-
-
 ```
 
 ## Data Summary

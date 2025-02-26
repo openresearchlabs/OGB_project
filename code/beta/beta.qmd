@@ -239,6 +239,7 @@ index <- "divergence"
 ### PCoA plots
 
 ```{r pcoa-plot, fig.show="hold"}
+
 tse <- runMDS(
         tse,
         FUN = getDissimilarity,
@@ -253,19 +254,18 @@ rel_eig <- e / sum(e[e > 0])
 # Create the PCoA plot
 p <- plotReducedDim(tse, "PCoA_BC", 
                     colour_by = "meal", 
-                    other_fields = c("diet", "group", "timepoint"))
+                    other_fields = c("diet", "group", "timepoint", "intervention", "meal", "time"))
 # Add explained variance for axes
 p1 <- p + labs(
   x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
   y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
-) + facet_wrap(~diet, nrow = 1)
+) + facet_wrap(timepoint ~ diet, nrow = 2)
 # Add ellipses for groups
 p_ellipse <- p1 + #stat_ellipse(aes(color = tse$group), level = 0.95) +
   theme(
-      legend.position = "bottom",
+      legend.position = "none",
       legend.box.margin = margin(-10, 0, 0, 0)
-  ) +
-  coord_fixed(ratio = 1)
+  )
 
 p_ellipse
 ```
@@ -277,29 +277,29 @@ tse <- addStepwiseDivergence(tse, group = "id",
                             assay.type = "relabundance")
 tse_sub <- tse[, !is.na(colData(tse)$divergence)]
 
-p2_traj <- plotReducedDim(
-    tse[, !is.na(colData(tse)[["meal_group"]])],
-    "PCoA_BC", colour_by = "timepoint",
-    other_fields = c("group", "id", "diet", "timepoint")
-) +
-    aes(color = timepoint) +
-    labs(
-        title = "Trajectories between Treatments",
-        x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
-        y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
-    ) +
-    theme(plot.title = element_text(hjust = 0.5)) +
-    scale_color_manual(
-        values = c("before" = "blue", "after" = "orange"),
-        name = "Timepoint"
-    ) +
-    facet_wrap(~diet, nrow = 1) +
-    geom_line(
-        aes(group = id),
-        color = "grey50",
-        alpha = 0.5,
-        linetype = "dashed"
-    )
+# p2_traj <- plotReducedDim(
+#     tse[, !is.na(colData(tse)[["meal_group"]])],
+#     "PCoA_BC", colour_by = "timepoint",
+#     other_fields = c("group", "id", "diet", "timepoint")
+# ) +
+#     aes(color = timepoint) +
+#     labs(
+#         title = "Trajectories between Treatments",
+#         x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
+#         y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
+#     ) +
+#     theme(plot.title = element_text(hjust = 0.5)) +
+#     scale_color_manual(
+#         values = c("before" = "blue", "after" = "orange"),
+#         name = "Timepoint"
+#     ) +
+#     facet_wrap(~diet, nrow = 1) +
+#     geom_line(
+#         aes(group = id),
+#         color = "grey50",
+#         alpha = 0.5,
+#         linetype = "dashed"
+#     )
 ```
 
 ```{r run_diversity_tests}
@@ -433,74 +433,47 @@ if (knitr::is_html_output()) {
 
 ```{r significant variables}
 
-tse1 <- tse[, tse$diet == "oat"]
-tse2 <- tse[, tse$diet == "rice"]
+tse1 <- tse[, tse$diet == "rice"]
+tse2 <- tse[, tse$diet == "oat"]
+
 # Perform RDA
 tse1 <- addRDA(
     tse1,
     assay.type = "relabundance",
-    formula = assay ~ time * intervention,
+    formula = assay ~ timepoint ,
     distance = dissimilarity.index,
     na.action = na.exclude)
 
 tse2 <- addRDA(
     tse2,
     assay.type = "relabundance",
-    formula = assay ~ time * intervention,
+    formula = assay ~ timepoint,
     distance = dissimilarity.index,
     na.action = na.exclude)
+```
 
+```{r}
+#| layout-ncol: 2
+#| fig-width: 6
+#| fig-height: 5
+tse_list <- list(tse1, tse2)
 # Calculate explained variance
-e_rda1 <- attr(reducedDim(tse1, "RDA"), "eig")
+lapply(tse_list, function(tse) {
+
+e_rda1 <- attr(reducedDim(tse, "RDA"), "eig")
 rel_eig_rda1 <- e_rda1 / sum(e_rda1[e_rda1 > 0])
 # Generate RDA plot coloured by Treatment
-plotRDA(tse1, "RDA", colour.by = "intervention") + 
+plotRDA(tse, "RDA") + 
   labs(
     x = paste("RDA 1 (", round(100 * rel_eig_rda1[[1]], 1), "%)", sep = ""),
     y = paste("RDA 2 (", round(100 * rel_eig_rda1[[2]], 1), "%)", sep = "")
   ) +
-  labs(color = "Meal", title = "Diet-oat") +
-  theme(legend.position = "top", legend.title = element_text(size = 12), legend.text = element_text(size = 10))
+  labs(color = "Diet") +
+  theme(legend.position = "right", legend.title = element_text(size = 12), legend.text = element_text(size = 10))
 
-# Calculate explained variance
-e_rda2 <- attr(reducedDim(tse2, "RDA"), "eig")
-rel_eig_rda2 <- e_rda2 / sum(e_rda2[e_rda2 > 0])
-# Generate RDA plot coloured by Treatment
-plotRDA(tse2, "RDA", colour.by = "intervention") + 
-  labs(
-    x = paste("RDA 1 (", round(100 * rel_eig_rda2[[1]], 1), "%)", sep = ""),
-    y = paste("RDA 2 (", round(100 * rel_eig_rda2[[2]], 1), "%)", sep = "")
-  ) +
-  labs(color = "Meal", title = "Diet-rice") +
-  theme(legend.position = "top", legend.title = element_text(size = 12), legend.text = element_text(size = 10))
+})
+
 ```
-
-### Significant taxa
-
--   RDA-oat
-
-```{r significant-taxa-oat}
-#| fig-width: 10
-#| fig-height: 3
-#| width: 100%
-#| fig.align: "center"
-loadings_matrix <- attr(reducedDim(tse1, "RDA"), "species")
-rownames(loadings_matrix) <- rowData(tse1)$genus
-plotLoadings(loadings_matrix, ncomponents = 2, n = 10) 
-```
-
--   RDA-rice
-
-```{r significant-taxa-rice}
-#| fig-width: 10
-#| fig-height: 3
-#| width: 100%
-#| fig.align: "center"
-loadings_matrix <- attr(reducedDim(tse2, "RDA"), "species")
-rownames(loadings_matrix) <- rowData(tse2)$genus
-plotLoadings(loadings_matrix, ncomponents = 2, n = 10) 
-```
-
 
 -   MDS
 
@@ -509,6 +482,7 @@ plotLoadings(loadings_matrix, ncomponents = 2, n = 10)
 #| fig-height: 3
 #| width: 100%
 #| fig.align: "center"
+lapply(tse_list, function(tse) {
 pcoa_axes <- reducedDim(tse, "PCoA_BC") 
 taxa_abundances <- t(assay(tse, "clr")) 
 
@@ -524,10 +498,33 @@ top_taxa <- apply(cor_matrix, 2, function(x) {
 unique_taxa <- unique(unlist(top_taxa))
 filtered_cor_matrix <- cor_matrix[unique_taxa,]
 rownames(filtered_cor_matrix) <- rowData(tse[unique_taxa,])$genus
-plotLoadings(filtered_cor_matrix, ncomponents = 2)
+plotLoadings(filtered_cor_matrix, ncomponents = 2) + 
+labs(
+    title = unique(tse$diet)
+  )
+})
 ```
 
 ## Supervised analysis
+
+### Significant taxa
+
+-   RDA
+
+```{r significant-taxa-oat}
+#| fig-width: 10
+#| fig-height: 3
+#| width: 100%
+#| fig.align: "center"
+lapply(tse_list, function(tse) {
+loadings_matrix <- attr(reducedDim(tse, "RDA"), "species")
+rownames(loadings_matrix) <- rowData(tse)$genus
+plotLoadings(loadings_matrix, ncomponents = 2, n = 10) +
+  labs(
+    title = unique(tse$diet)
+  )
+})
+```
 
 ### Permanova analysis
 
@@ -640,7 +637,7 @@ run_rdba_tests_pair <- function(tse, comparisons, variable, var) {
 
 ```{r permanova_paired_res}
 # For the paired treatment comparisons
-meal_groups <- sort(unique(tse$meal))
+diet_groups <- sort(unique(tse$diet))
 # Calculate statistical results
   
 # Run the diversity tests
@@ -648,8 +645,8 @@ meal_groups <- sort(unique(tse$meal))
  #    respair <- run_rdba_tests_pair(tse, comp, variable, var= "time")
  # }
 
-final_results_permanova_paired<- lapply(meal_groups, function(meal_id) {
-    respair <- run_rdba_tests_pair(tse, comp = meal_id, variable = "meal", var = "time")
+final_results_permanova_paired<- lapply(diet_groups, function(diet_id) {
+    respair <- run_rdba_tests_pair(tse, comp = diet_id, variable = "diet", var = "time")
     return(respair)
 }) %>% 
   bind_rows() %>%
@@ -711,183 +708,6 @@ if (knitr::is_html_output()) {
         booktabs = TRUE,
         align = c('l', rep('r', ncol(final_results_permanova_paired)-1))) %>%
     row_spec(0, bold = TRUE)
-}
-```
-
-## Alternate analysis
-
-```{r data-load-again}
-tse <- readRDS("../../data/tse.Rds")
-```
-
-```{r early-late}
-# Early/Late analysis
-beta_res <- lapply(seq(2), function(i, timepoint) {
-    tse_sub <- tse[,colData(tse) %>%
-                      as_tibble(rownames="sample_id") %>%
-                      filter(timepoint %in% timepoint[[i]]) %>%
-                      tidyr::drop_na(c("group", "age")) %>%
-                      select(sample_id) %>% .[[1]]]
-    
-    set.seed(123)
-    betadiso_pval <- anova(betadisper(
-        vegdist(t(assay(tse_sub, "relabundance")), method = "bray"),
-        colData(tse_sub)[,"group"]
-    ))["Groups","Pr(>F)"]
-    
-    mat <- t(assay(tse_sub, "relabundance"))
-    set.seed(123)
-    permanova_pval <- adonis2(
-        as.formula(paste0("mat ~ ", paste0(c("group", "meal_group"), collapse = "+"))),
-        data = colData(tse_sub),
-        method = "bray", 
-        permutations = 999,
-        strata = NULL)["Model", "Pr(>F)"]
-    
-    c(betadisp_pval = betadiso_pval,
-      permanova_pval = permanova_pval)
-}, timepoint = list("before", "after")) %>%
-    setNames(c("before", "after")) %>%
-    as.data.frame()
-```
-
-```{r change}
-# Change analysis
-beta_res_change <- lapply(
-    levels(colData(tse)[,"meal_group"]),
-    function(lv) {
-        tse_sub <- tse[,colData(tse) %>%
-                          as_tibble(rownames="sample_id") %>%
-                          filter(paired == "yes") %>%
-                          tidyr::drop_na(c("group", "age")) %>%
-                          filter(meal_group == lv) %>%
-                          select(sample_id) %>% .[[1]]]
-        
-        mat <- t(assay(tse_sub, "relabundance"))
-        set.seed(123)
-        permanova_pval <- adonis2(
-            as.formula(paste0("mat ~ ", paste0(c("timepoint", "group"), collapse = "+"))),
-            data = colData(tse_sub), 
-            method = "bray", 
-            permutations = 999,
-            strata = NULL)["Model", "Pr(>F)"]
-        permanova_pval
-    }) %>% 
-    setNames(paste0("change-", levels(colData(tse)[,"meal_group"]))) %>% 
-    data.frame(row.names = c("permanova_pval"), check.names = FALSE)
-
-beta_res_change["betadisp_pval",] = rep(NA, nlevels(colData(tse)[,"meal_group"]))
-beta_res <- merge(beta_res, beta_res_change, by="row.names")
-rownames(beta_res) <- beta_res[,"Row.names"]
-beta_res <- beta_res[,-1]
-```
-
-```{r viz, fig.height= 8, fig.width= 8}
-# Visualization
-set.seed(123)
-tse <- runMDS(tse, FUN = vegan::vegdist, method = "bray",
-              name = "PCoA_BC", exprs_values = "relabundance")
-e <- attr(reducedDim(tse, "PCoA_BC"), "eig")
-rel_eig <- e/sum(e[e>0])
-
-# Plot 1: PCoA by Treatment
-p1 <- plotReducedDim(tse[,!is.na(colData(tse)[["group"]])], "PCoA_BC",
-                     colour_by = "group",
-                     other_fields = c("meal_group", "group")) +
-    facet_wrap(~meal_group, ncol = 2) +
-    labs(x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
-         y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = ""),
-         title = "") +
-    theme(legend.position = "bottom", 
-          legend.direction = "horizontal",
-          plot.title = element_text(hjust = 0.5)) +
-    scale_color_manual(name = "group", 
-                      values = colorRampPalette(c("blue", "red"))(nlevels(colData(tse)[["group"]]))) +
-    stat_ellipse(aes(color = group))
-
-# Plot 2: Trajectories
-tse <- addStepwiseDivergence(tse, group = "id",
-                            time.col = "time",
-                            assay.type = "relabundance")
-
-p2 <- plotReducedDim(tse[,!is.na(colData(tse)[["group"]])],
-                     "PCoA_BC", colour_by = "timepoint",
-                     other_fields = c("group", "id", "meal_group", "timepoint")) +
-    aes(color = timepoint) +
-    labs(
-        title = "Trajectories between meals",
-        x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
-        y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
-    ) +
-    theme(plot.title = element_text(hjust = 0.5)) +
-    scale_color_manual(
-        values = c("before" = "blue", "after" = "orange"),
-        name = "Timepoint"
-    ) +
-    facet_wrap(~meal_group, nrow = 1) +
-    geom_line(
-        aes(group = id),
-        color = "grey50",
-        alpha = 0.5,
-        linetype = "dashed"
-    )
-
-# Plot 3: Divergence comparison
-p3 <- colData(tse) %>% 
-    as_tibble() %>%
-    select(c("group", "divergence")) %>% 
-    tidyr::drop_na(c("group", "divergence")) %>% 
-    ggplot(aes(x = group, y = divergence)) + 
-    geom_boxplot(outlier.shape = NA) +
-    geom_jitter(width = 0.1, size = 0.5) +
-    geom_signif(comparisons = combn(levels(colData(tse)[,"group"]), 2, simplify = FALSE),
-                map_signif_level = FALSE, step_increase = 0.2, textsize = 2.5) +
-    labs(title = "Comparing divergences per group") +
-    theme(plot.title = element_text(hjust = 0.5))
-```
-
-```{r viz-fig1, fig.height=6, fig.width=8}
-# p1
-```
-
-```{r viz-fig2, fig.height=6, fig.width=12}
-# p2
-```
-
-```{r viz-fig3, fig.height=8, fig.width=8}
-p3
-```
-
-```{r viz-tab}
-#| label: beta_results
-if (knitr::is_html_output()) {
-datatable(beta_res,
-          options = list(
-            pageLength = 4, 
-            dom = 'Bfrtip'    
-          )) %>%
-  formatStyle(
-    columns = names(beta_res),  
-    backgroundColor = styleInterval(
-      cuts = 0.05,
-      values = c('green', 'white')
-    ),
-    valueColumns = names(beta_res)  
-  ) %>%
-  formatRound(
-    columns = names(beta_res),
-    digits = 3
-  ) 
-} else {
-  library(kableExtra)
-  beta_res %>%
-    as.data.frame() %>%
-    mutate(across(where(is.numeric), ~round(., 3))) %>%
-    kbl(caption = "PERMANOVA",
-        booktabs = TRUE,
-        align = c('l', rep('r', ncol(beta_res)))) %>%
-    row_spec(0, bold = TRUE) %>%
-    kable_styling(latex_options = c("striped", "hold_position"))
 }
 ```
 

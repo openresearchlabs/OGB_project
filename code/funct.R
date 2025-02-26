@@ -20,6 +20,7 @@ library(sechm)
 library(tidyr)
 library(TreeSummarizedExperiment)
 library(tidyverse)
+library(reshape2)
 library(vegan)
 library(lmerTest)
 library(kableExtra)
@@ -40,12 +41,12 @@ comparisons <- list(
 # # Define the list of comparisons
 comparisons_before <- list(
   # Between-Group Comparisons at Baseline (before treatment)
-  c("oat", "rice")
+  c("rice", "oat")
 )
 
 comparisons_after <- list(
   # Between-Group Comparisons after treatment
-  c("oat", "rice")
+  c("rice", "oat")
 )
 
 comparisons_paired <- list(
@@ -92,7 +93,7 @@ assign_meal <- function(df) {
   df$meal[df$meal_group == "3"] <- "rice-rice"
   df$meal[df$meal_group == "4"] <- "oat-oat"
   # meal is now combination diet-meal; extract just the meal
-  df$meal <- factor(df$meal, levels=c("oat-rice", "rice-oat", "rice-rice", "oat-oat"))
+  df$meal <- factor(df$meal, levels=c("rice-oat", "rice-rice", "oat-rice", "oat-oat"))
   # df$meal <- factor(word(df$meal, 2, sep="-"), levels=c("rice", "oat"))
   return(df)
 }
@@ -156,11 +157,11 @@ run_lmer <- function(tse, target){
   
   df <- colData(tse) %>% as.data.frame
   df$y <- df[[target]]
-  df <- df[, c("y", "diet", "intervention", "id")]
+  df <- df[, c("y", "diet", "timepoint", "id")]
   
   # Filter out missing data cases
   df_no_miss <- df[df %>% complete.cases,]
   
-  m <- lmerTest::lmer(y ~ diet * intervention + (1 | id), data = df_no_miss)
+  m <- lmerTest::lmer(y ~ diet * timepoint + (1 | id), data = df_no_miss)
   return(m)
 }

@@ -104,8 +104,6 @@
 \usepackage[normalem]{ulem}
 \usepackage{makecell}
 \usepackage{xcolor}
-\usepackage{caption}
-\usepackage{anyfontsize}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage[a4paper, left=0.75in, right=1in, top=1in, bottom=1in]{geometry}
@@ -224,7 +222,7 @@
 \endfoot
 \bottomrule
 \endlastfoot
-oat & rice & 211.1 & 231.6 & 0.13 & 0.13\\*
+rice & oat & 231.5 & 211 & -0.13 & 0.128\\*
 \end{longtable}
 
 \paragraph{After treatment}\label{after-treatment}
@@ -252,7 +250,7 @@ oat & rice & 211.1 & 231.6 & 0.13 & 0.13\\*
 \endfoot
 \bottomrule
 \endlastfoot
-oat & rice & 207.1 & 233.2 & 0.17 & 0.056\\*
+rice & oat & 233.1 & 207 & -0.17 & 0.053\\*
 \end{longtable}
 
 \begin{center}
@@ -274,22 +272,20 @@ oat & rice & 207.1 & 233.2 & 0.17 & 0.056\\*
 \begin{longtable}[t]{lrrrrl}
 \caption{Table of alpha diversity paired between timepoint(1 and 2)}\\
 \toprule
-\textbf{Meal} & \textbf{mean1} & \textbf{mean2} & \textbf{log2FC} & \textbf{p.value} & \textbf{y.position}\\
+\textbf{diet} & \textbf{mean1} & \textbf{mean2} & \textbf{log2FC} & \textbf{p.value} & \textbf{y.position}\\
 \midrule
 \endfirsthead
 \caption[]{Table of alpha diversity paired between timepoint(1 and 2) \textit{(continued)}}\\
 \toprule
-\textbf{Meal} & \textbf{mean1} & \textbf{mean2} & \textbf{log2FC} & \textbf{p.value} & \textbf{y.position}\\
+\textbf{diet} & \textbf{mean1} & \textbf{mean2} & \textbf{log2FC} & \textbf{p.value} & \textbf{y.position}\\
 \midrule
 \endhead
 
 \endfoot
 \bottomrule
 \endlastfoot
-oat-rice & 206.1 & 209.4 & 0.06 & 0.816 & 340.15\\
-rice-oat & 233.9 & 232.6 & 0.07 & 0.813 & 340.35\\
-rice-rice & 229.3 & 233.7 & 0.01 & 0.191 & 340.55\\
-oat-oat & 215.9 & 205.0 & -0.06 & 0.019 & 340.75\\*
+rice & 231.5 & 233.1 & 0.13 & 0.408 & 339.5\\
+oat & 211.0 & 207.0 & 0.04 & 0.120 & 339.7\\*
 \end{longtable}
 
 \subsection{LMM}\label{lmm}
@@ -301,68 +297,11 @@ oat-oat & 215.9 & 205.0 & -0.06 & 0.019 & 340.75\\*
 \item
   Statistical test: \textbf{paired Wilcoxon}
 \item
-  Formula used: \textbf{\textasciitilde{} diet * intervention + (1
+  Formula used: \textbf{\textasciitilde{} diet * timepoint + (1
   \textbar{} id)}
 \end{itemize}
 
 \includegraphics{alpha_observed_files/figure-pdf/table-fixed-fx-1.pdf}
-
-\section{Alternate analyses}\label{alternate-analyses}
-
-\begin{itemize}
-\item
-  \textbf{Beta (Estimate)}: Shows the effect size and direction of a
-  predictor on the outcome. Positive means an increase, negative a
-  decrease.
-\item
-  \textbf{95\% CI}: Range where the true beta is likely to fall,
-  reflecting precision.
-\item
-  \textbf{p-Value}: Tests if beta differs from zero; p\textless0.05p
-  \textless{} 0.05p\textless0.05 suggests significance.
-\end{itemize}
-
-\begin{table}
-\fontsize{12.0pt}{14.4pt}\selectfont
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccccc}
-\toprule
- & \multicolumn{3}{c}{\textbf{before}} & \multicolumn{3}{c}{\textbf{after}} \\ 
-\cmidrule(lr){2-4} \cmidrule(lr){5-7}
-\textbf{Characteristic} & \textbf{Beta} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} & \textbf{Beta} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} \\ 
-\midrule\addlinespace[2.5pt]
-(Intercept) & 151 & 67, 235 & <0.001 & 143 & 59, 228 & 0.001 \\ 
-meal\_group &  &  & 0.4 &  &  & 0.3 \\ 
-    1 & — & — &  & — & — &  \\ 
-    2 & 32 & -11, 75 & 0.14 & 28 & -16, 72 & 0.2 \\ 
-    3 & 28 & -15, 71 & 0.2 & 30 & -14, 73 & 0.2 \\ 
-    4 & 10 & -32, 53 & 0.6 & -3.6 & -47, 39 & 0.9 \\ 
-age & 1.0 & -0.44, 2.5 & 0.2 & 1.2 & -0.24, 2.7 & 0.10 \\ 
-\bottomrule
-\end{tabular*}
-\begin{minipage}{\linewidth}
-\textsuperscript{\textit{1}}CI = Confidence Interval\\
-\end{minipage}
-\end{table}
-
-\begin{table}
-\fontsize{12.0pt}{14.4pt}\selectfont
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccc}
-\toprule
-\textbf{Paired test between timepoints (1 and 2)} & \textbf{Beta} & \textbf{95\% CI}\textsuperscript{\textit{1}} & \textbf{p-value} \\ 
-\midrule\addlinespace[2.5pt]
-(Intercept) & 147 & 84, 209 & <0.001 \\ 
-meal\_group &  &  & 0.6 \\ 
-    1 & — & — &  \\ 
-    2 & 28 & -16, 71 & 0.2 \\ 
-    3 & 28 & -15, 71 & 0.2 \\ 
-    4 & 2.4 & -27, 32 & 0.9 \\ 
-age & 1.2 & 0.14, 2.2 & 0.025 \\ 
-\bottomrule
-\end{tabular*}
-\begin{minipage}{\linewidth}
-\textsuperscript{\textit{1}}CI = Confidence Interval\\
-\end{minipage}
-\end{table}
 
 \section{Data Summary}\label{data-summary}
 

@@ -14,7 +14,7 @@ tse <- readRDS("../../data/tse.Rds")
 metacyc_tse <- altExp(tse, "metacyc")
 
 variable <- "diet" 
-formula_used <- "~ diet * intervention + (1 | id)"
+formula_used <- "~ diet * timepoint + (1 | id)"
 ```
 
 -   Group variable: **`r variable`**
@@ -44,7 +44,7 @@ run_maaslin3 <- function(metacyc_tse) {
   maaslin3(
     metacyc_tse,
     output = output_dir,
-    formula = '~ diet * intervention + (1 | id)',
+    formula = '~ diet * timepoint + (1 | id)',
     normalization = 'TSS',
     transform = 'LOG',
     augment = TRUE,
@@ -83,7 +83,7 @@ run_maaslin3(metacyc_tse)
           caption = "Table of significant features",
           rownames = FALSE
       ) %>%
-        formatSignif(columns = c("qval_joint"), digits = 3)
+        formatSignif(columns = c("qval_joint", "qval_individual", "coef"), digits = 3)
     } else {
       library(kableExtra)
       daa_tab %>% 
@@ -112,60 +112,61 @@ png_files <- list.files(output_base_dir, pattern = "\\.png$", full.names = TRUE,
 ```
 
 ![fig17](../../output/daa/daa_mtc/figures/summary_plot.png)
+```{r}
+image_paths <- c(
+  "../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X2.3.1.128_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X3.1.1.23_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X3.1.2.12_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X4.2.1.113_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X5.1.3.32_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X6.2.1.30_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X1.1.1.244_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X1.2.7.3_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X1.3.99.5_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.3.1.86_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.3.2.2_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.3.3.16_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.4.1.20_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.4.1.247_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.7.1.12_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/linear/timepoint_X1.1.1.276_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/linear/timepoint_X1.1.1.79_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/linear/timepoint_X1.17.1.2_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/linear/timepoint_X1.2.1.50_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/linear/timepoint_X1.4.1.16_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/linear/timepoint_X2.1.1.52_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/linear/timepoint_X2.3.1.128_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/linear/timepoint_X2.3.1.38_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/linear/timepoint_X2.4.1.175_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/linear/timepoint_X2.4.1.226_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/linear/timepoint_X2.6.1.17_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/linear/timepoint_X2.6.1.2_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/linear/timepoint_X2.6.1.85_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/linear/timepoint_X2.7.1.105_linear.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/logistic/timepoint_X1.3.99.5_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/logistic/timepoint_X2.1.1.51_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/logistic/timepoint_X2.3.2.2_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/logistic/timepoint_X2.3.3.16_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/logistic/timepoint_X2.7.1.12_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/logistic/timepoint_X2.7.1.172_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/logistic/timepoint_X2.7.1.22_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/logistic/timepoint_X2.7.11.33_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/logistic/timepoint_X2.7.4.28_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/logistic/timepoint_X3.13.1.1_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/logistic/timepoint_X3.4.21.83_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/logistic/timepoint_X3.5.1.49_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/logistic/timepoint_X3.5.4.1_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/logistic/timepoint_X3.6.1.41_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/logistic/timepoint_X3.6.3.15_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/logistic/timepoint_X6.3.4.6_logistic.png",
+  "../../output/daa/daa_mtc/figures/association_plots/timepoint/logistic/timepoint_X6.6.1.1_logistic.png"
+)
 
-![1](../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X1.1.1.179_linear.png)\
-![2](../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X1.3.5.2_linear.png)\
-![3](../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X1.3.98.3_linear.png)\
-![4](../../output/daa/daa_mtc/figures/association_plots/diet/linear/diet_X3.4.22.71_linear.png)\
-![5](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X1.11.1.18_logistic.png)\
-![6](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.3.1.50_logistic.png)\
-![7](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.4.1.20_logistic.png)\
-![8](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.4.1.247_logistic.png)\
-![9](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.4.1.320_logistic.png)\
-![10](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.4.1.7_logistic.png)\
-![11](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.4.2.31_logistic.png)\
-![12](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.6.1.59_logistic.png)\
-![13](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.6.1.92_logistic.png)\
-![14](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.7.7.19_logistic.png)\
-![15](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.7.7.21_logistic.png)\
-![16](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.7.7.25_logistic.png)\
-![17](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.7.7.81_logistic.png)\
-![18](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X2.7.8.11_logistic.png)\
-![19](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X3.1.21.5_logistic.png)\
-![20](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X3.1.3.4_logistic.png)\
-![21](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X3.1.3.41_logistic.png)\
-![22](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X3.2.1.45_logistic.png)\
-![23](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X3.4.21.83_logistic.png)\
-![24](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X3.4.24.71_logistic.png)\
-![25](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X3.5.1.49_logistic.png)\
-![26](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X4.1.2.22_logistic.png)\
-![27](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X4.2.1.40_logistic.png)\
-![28](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X4.2.2.8_logistic.png)\
-![29](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X5.1.99.1_logistic.png)\
-![30](../../output/daa/daa_mtc/figures/association_plots/diet/logistic/diet_X6.3.2.3_logistic.png)\
-![31](../../output/daa/daa_mtc/figures/association_plots/intervention/linear/intervention_X3.2.1.145_linear.png)\
-![32](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X1.11.1.18_logistic.png)\
-![33](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X1.2.1.50_logistic.png)\
-![34](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.1.1.157_logistic.png)\
-![35](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.1.1.52_logistic.png)\
-![36](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.3.1.38_logistic.png)\
-![37](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.3.1.50_logistic.png)\
-![38](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.4.1.320_logistic.png)\
-![39](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.4.2.31_logistic.png)\
-![40](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.6.1.29_logistic.png)\
-![41](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.6.1.92_logistic.png)\
-![42](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.7.7.19_logistic.png)\
-![43](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.7.7.81_logistic.png)\
-![44](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X2.7.8.11_logistic.png)\
-![45](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X3.1.3.4_logistic.png)\
-![46](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X3.1.3.41_logistic.png)\
-![47](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X3.2.1.3_logistic.png)\
-![48](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X3.2.1.68_logistic.png)\
-![49](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X3.4.21.83_logistic.png)\
-![50](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X3.4.22.8_logistic.png)\
-![51](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X3.5.1.49_logistic.png)\
-![52](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X3.5.3.19_logistic.png)\
-![53](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X4.1.1.12_logistic.png)\
-![54](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X4.1.2.22_logistic.png)\
-![55](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X5.1.3.15_logistic.png)\
-![56](../../output/daa/daa_mtc/figures/association_plots/intervention/logistic/intervention_X6.2.1.16_logistic.png)
+# Convert to a matrix with 4 columns (fills row-wise)
+image_matrix <- matrix(image_paths, ncol = 4, byrow = TRUE)
+
+# Print as a kable table
+kable(image_matrix, format = "markdown", escape = FALSE)
+
+```
+

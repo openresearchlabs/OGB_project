@@ -182,7 +182,7 @@ analysis}\label{differential-abundance-analysis}
 \item
   Group variable: \textbf{diet}
 \item
-  Formula used: \textbf{\textasciitilde{} diet * intervention + (1
+  Formula used: \textbf{\textasciitilde{} diet * timepoint + (1
   \textbar{} id)}
 \end{itemize}
 
@@ -201,28 +201,37 @@ analysis}\label{differential-abundance-analysis}
 \endfoot
 \bottomrule
 \endlastfoot
-PWY.7357... & intervention & oat & 10.694 & 0.025 & 0.031 & prevalence\\
-PWY.7357... & intervention & oat & 1.706 & 1.000 & 0.031 & abundance\\*
+ANAGLYCO... & diet & oat:timepointafter & -12.117 & 0.000 & 0.000 & prevalence\\
+ANAGLYCO... & diet & oat & 12.080 & 0.000 & 0.000 & prevalence\\
+PYRIDNUC... & diet & oat & 7.687 & 0.006 & 0.008 & prevalence\\
+PYRIDNUC... & diet & oat:timepointafter & -7.793 & 0.098 & 0.129 & prevalence\\
+ANAGLYCO... & diet & oat & 0.869 & 1.000 & 0.000 & abundance\\
+\addlinespace
+ANAGLYCO... & diet & oat:timepointafter & -0.807 & 1.000 & 0.000 & abundance\\
+PYRIDNUC... & diet & oat & 1.226 & 1.000 & 0.008 & abundance\\*
 \end{longtable}
 
-\begin{figure}[H]
+\includegraphics{../../output/daa/daa_pc/figures/summary_plot.png}
 
-{\centering \includegraphics{../../output/daa/daa_pc/figures/summary_plot.png}
+\begin{table}
 
-}
-
-\caption{summary\_plot.png}
-
-\end{figure}%%
-\begin{figure}[H]
-
-{\centering \includegraphics{../../output/daa/daa_pc/figures/association_plots/intervention/logistic/intervention_PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast._logistic.png}
-
-}
-
-\caption{1}
-
-\end{figure}%
+\centering
+\begin{tabular}[t]{l}
+\hline
+x\\
+\hline
+![](../../output/daa/daa\_pc/figures/association\_plots/diet/logistic/diet\_ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose.\_logistic.png)\\
+\hline
+\end{tabular}
+\centering
+\begin{tabular}[t]{l}
+\hline
+x\\
+\hline
+![](../../output/daa/daa\_pc/figures/association\_plots/diet/logistic/diet\_PYRIDNUCSYN.PWY..NAD.de.novo.biosynthesis.I..from.aspartate.\_logistic.png)\\
+\hline
+\end{tabular}
+\end{table}
 
 
 
