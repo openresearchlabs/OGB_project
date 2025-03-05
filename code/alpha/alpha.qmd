@@ -27,6 +27,8 @@ tse <- readRDS("../../data/tse.Rds")
 -   **Multiple testing correction:** `r adjust.method`
 -   **Statistical test** `r test`
 
+In the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2
+
 ```{r run_diversity_tests}
 # Calculate p-values
 run_diversity_tests <- function(tse, comparisons, 

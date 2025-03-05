@@ -17,7 +17,7 @@ variable <- "diet"
 prevalence.th <- 10/100
 detection.th <- 0.1/100
 tax.level <- params$tax.level
-tax.level <- "genus_prevalent"
+# tax.level <- "genus_prevalent"
 
 # Add CLR transformation
 tse <- transformAssay(
@@ -170,7 +170,7 @@ plot_taxon <- function(taxon) {
           max_change <- max(df$change, na.rm = TRUE)
           median_change <- median(df$change, na.rm = TRUE)
     
-    p12 <- ggplot(df, aes(x = diet, y = signal)) +
+    p12 <- ggplot(df, aes(x = meal, y = signal)) +
       geom_boxplot(outlier.shape = NA) +
       geom_point() + 
       scale_y_log10(labels = scales::percent) + 
@@ -205,6 +205,7 @@ plots_list <- setNames(lapply(taxa_of_interest, plot_taxon),
 #| layout-ncol: 1
 #| fig-width: 12
 #| fig-height: 5
+
 ordered_plots <- plots_list[order(names(plots_list))]
 
 for (plot_name in names(ordered_plots)) {

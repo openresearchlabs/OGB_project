@@ -32,6 +32,8 @@ index         <- "bact_firm_ratio"
 -   **Multiple testing correction:** `r adjust.method`
 -   **Statistical test** `r test`
 
+In the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2
+
 ```{r bact-firm}
 # Calculate the Bacteroidetes/Firmicutes ratio and add to colData
 # using the chosen name
