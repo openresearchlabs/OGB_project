@@ -260,8 +260,7 @@ e <- attr(reducedDim(tse, "PCoA_BC"), "eig")
 rel_eig <- e / sum(e[e > 0])
 # Create the PCoA plot
 p <- plotReducedDim(tse, "PCoA_BC", 
-                    colour_by = "meal", 
-                    other_fields = c("diet", "group", "timepoint", "intervention", "meal", "time"))
+                    other_fields = c("diet", "group", "timepoint", "time"))
 # Add explained variance for axes
 p1 <- p + labs(
   x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
@@ -368,33 +367,33 @@ results_unpaired <- results_unpaired %>% arrange(desc(Diet))
 ```
 
 ```{r changes1}
-div_change <- plotColData(
-    tse_sub, x = "timepoint", y = index, colour_by = "timepoint",
-    show_boxplot = TRUE,
-    show_violin = FALSE, other_fields = c("group", "diet", "timepoint")) + 
-    facet_wrap(~diet, ncol = 4, scales="fixed", axis.labels = "margins") +
-    scale_color_manual(
-        values = c("after" = "black"),
-        name = "Timepoint"
-    ) +
-    theme(
-        text = element_text(size = 10),
-        legend.position = "none",
-        axis.text.x = element_blank(),
-        axis.ticks.x = element_blank(),
-    ) +
-    labs(
-        title = "Change",
-        x = "",
-        y = "Divergence over time"
-    )
+# div_change <- plotColData(
+#     tse_sub, x = "timepoint", y = index, colour_by = "timepoint",
+#     show_boxplot = TRUE,
+#     show_violin = FALSE, other_fields = c("group", "diet", "timepoint")) + 
+#     facet_wrap(~diet, ncol = 4, scales="fixed", axis.labels = "margins") +
+#     scale_color_manual(
+#         values = c("after" = "black"),
+#         name = "Timepoint"
+#     ) +
+#     theme(
+#         text = element_text(size = 10),
+#         legend.position = "none",
+#         axis.text.x = element_blank(),
+#         axis.ticks.x = element_blank(),
+#     ) +
+#     labs(
+#         title = "Change",
+#         x = "",
+#         y = "Divergence over time"
+#     )
 ```
 
 ```{r viz-div_change}
 #| fig-width: 5
 #| fig-height: 3
 #| fig.align: "center"
-div_change
+# div_change
 ```
 
 ### Table of the top findings
@@ -770,9 +769,9 @@ if (knitr::is_html_output()) {
 ```{r}
 tse <- readRDS("../../data/tse.Rds")
 tabs_species <- NULL 
-tseg <- altExp(tse, "species_prevalent")
-for (g in unique(tseg$diet)) {
-    #tseg <- tseg[, tseg$diet==g] 
+tse_g <- altExp(tse, "species_prevalent")
+for (g in unique(tse_g$diet)) {
+    tseg <- tse_g[, tse_g$diet==g] 
     df <- as.data.frame(colData(tseg)) 
     for (tax in na.omit(rowData(tseg)$species)) {
       df$signal <- as.vector(assay(tseg, "relabundance")[tax,])
@@ -804,8 +803,9 @@ tabs_species$logFC.rel <- round(100 * as.numeric(tabs_species$logFC.rel), 3);
 
 ```{r}
 tabs_genus <- NULL 
- tseg <- altExp(tse, "genus_prevalent")
-for (g in unique(tseg$diet)) {
+ tse_g <- altExp(tse, "genus_prevalent")
+for (g in unique(tse_g$diet)) {
+  tseg <- tse_g[, tse_g$diet==g] 
     df <- as.data.frame(colData(tseg)) 
     for (tax in na.omit(rowData(tseg)$genus)) {
       df$signal <- as.vector(assay(tseg, "relabundance")[tax,])
