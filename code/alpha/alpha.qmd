@@ -18,6 +18,9 @@ test <- "Wilcoxon"
 # Source fxns
 source("../funct.R")
 tse <- readRDS("../../data/tse.Rds")
+tse$diet <- factor(tse$diet, levels=c("oat", "rice"))
+#tse$timepoint <- factor(tse$timepoint, levels=c("Baseline", "Week 6"))
+
 ```
 
 ## Group-wise comparisons
@@ -27,7 +30,7 @@ tse <- readRDS("../../data/tse.Rds")
 -   **Multiple testing correction:** `r adjust.method`
 -   **Statistical test** `r test`
 
-In the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2
+In the report, a suffix of 1~ Baseline and 2~ Week 6
 
 ```{r run_diversity_tests}
 # Calculate p-values
@@ -171,59 +174,59 @@ colnames(final_results_after)[colnames(final_results_after) == "logFC"] <- "log2
 ```
 
 ```{r}
-meal_groups <- unique(tse$meal)
-# Calculate statistical results
-results_paired_meal <- lapply(meal_groups, function(group) {
-  # Subset tse for the current meal group
-  tse_subset <- tse[, tse$meal == group]
-  
-  # Run the diversity tests
-  res <- run_diversity_tests(
-    tse = tse_subset, 
-    comparisons = comparisons_paired, 
-    variable = "timepoint", 
-    index, 
-    adjust.method = adjust.method, 
-    paired = TRUE
-  )
-  
-  # Add the meal group as a new column
-  res$diet <- group
-  
-  return(res)
-}) %>% 
-  bind_rows()
-
-results_paired_meal <- results_paired_meal[, c("diet", setdiff(names(results_paired_meal), "diet"))]
-
-# results_paired$p.adj <- p.adjust(results_paired$p.value, method = "fdr")
-# Format results for display
-final_results_paired_meal <- results_paired_meal %>%
-  mutate(
-    mean1 = round(mean1, 1),
-    mean2 = round(mean2, 1),
-    logFC = round(logFC, 2),
-    p.value = round(p.value, 3)
-  ) %>%
-  select(diet, group1, group2, mean1, mean2, logFC, p.value) %>% 
-  arrange(diet)
-
-# Calculate y-positions for p-value annotations
-final_results_paired_meal <- final_results_paired_meal %>%
-  mutate(y.position = sapply(1:nrow(final_results_paired_meal), function(i) {
-    vals1 <- colData(tse)[[index]][colData(tse)[["timepoint"]] == group1[i]]
-    vals2 <- colData(tse)[[index]][colData(tse)[["timepoint"]] == group2[i]]
-    max(c(vals1, vals2)) + i * 0.2
-  }))
-final_results_paired_meal$group1 <- NULL
-final_results_paired_meal$group2 <- NULL
-colnames(final_results_paired_meal)[colnames(final_results_paired_meal) == "logFC"] <- "log2FC"
-colnames(final_results_paired_meal)[colnames(final_results_paired_meal) == "diet"] <- "Meal"
+# meal_groups <- unique(tse$meal)
+# # Calculate statistical results
+# results_paired_meal <- lapply(meal_groups, function(group) {
+#   # Subset tse for the current meal group
+#   tse_subset <- tse[, tse$meal == group]
+#   
+#   # Run the diversity tests
+#   res <- run_diversity_tests(
+#     tse = tse_subset, 
+#     comparisons = comparisons_paired, 
+#     variable = "timepoint", 
+#     index, 
+#     adjust.method = adjust.method, 
+#     paired = TRUE
+#   )
+#   
+#   # Add the meal group as a new column
+#   res$diet <- group
+#   
+#   return(res)
+# }) %>% 
+#   bind_rows()
+# 
+# results_paired_meal <- results_paired_meal[, c("diet", setdiff(names(results_paired_meal), "diet"))]
+# 
+# # results_paired$p.adj <- p.adjust(results_paired$p.value, method = "fdr")
+# # Format results for display
+# final_results_paired_meal <- results_paired_meal %>%
+#   mutate(
+#     mean1 = round(mean1, 1),
+#     mean2 = round(mean2, 1),
+#     logFC = round(logFC, 2),
+#     p.value = round(p.value, 3)
+#   ) %>%
+#   select(diet, group1, group2, mean1, mean2, logFC, p.value)
+# 
+# # Calculate y-positions for p-value annotations
+# final_results_paired_meal <- final_results_paired_meal %>%
+#   mutate(y.position = sapply(1:nrow(final_results_paired_meal), function(i) {
+#     vals1 <- colData(tse)[[index]][colData(tse)[["timepoint"]] == group1[i]]
+#     vals2 <- colData(tse)[[index]][colData(tse)[["timepoint"]] == group2[i]]
+#     max(c(vals1, vals2)) + i * 0.2
+#   }))
+# final_results_paired_meal$group1 <- NULL
+# final_results_paired_meal$group2 <- NULL
+# colnames(final_results_paired_meal)[colnames(final_results_paired_meal) == "logFC"] <- "log2FC"
+# colnames(final_results_paired_meal)[colnames(final_results_paired_meal) == "diet"] <- "Meal"
 ```
 
 
 ```{r pvalues-paired}
 diet_groups <- unique(tse$diet)
+
 # Calculate statistical results
 results_paired <- lapply(diet_groups, function(group) {
   # Subset tse for the current meal group
@@ -257,8 +260,7 @@ final_results_paired <- results_paired %>%
     logFC = round(logFC, 2),
     p.value = round(p.value, 3)
   ) %>%
-  select(diet, group1, group2, mean1, mean2, logFC, p.value) %>% 
-  arrange(diet)
+  select(diet, group1, group2, mean1, mean2, logFC, p.value) %>% arrange(diet)
 
 # Calculate y-positions for p-value annotations
 final_results_paired <- final_results_paired %>%
@@ -295,7 +297,7 @@ p1 <- plotColData(
       label = "p.adj"
     )  +
     labs(
-      title = "Before treatment",
+      title = "Baseline",
       x = "",
       y = paste("Alpha Diversity -", index)
      ) #+ scale_y_log10()
@@ -324,36 +326,36 @@ p2 <- plotColData(
       label = "p.adj"
     )  +
     labs(
-      title = "After treatment",
+      title = "Week 6",
       x = "",
       y = paste("Alpha Diversity -", index)
     ) #+ scale_y_log10()
 ```
 
 ```{r}
-p <- plotColData(
-    tse, x = "intervention", y = index, colour_by = "timepoint",
-    show_boxplot = TRUE, other_fields = c("timepoint", "diet", "intervention", "meal"),
-    show_violin = FALSE) + scale_color_manual(
-        values = c("before" = "black", "after" = "black"),
-        name = "Timepoint"
-    ) +
-    facet_wrap( diet ~ timepoint) +
-    theme(
-        text = element_text(size = 10),
-        legend.position = "none"
-    ) + 
-    # ggpubr::stat_pvalue_manual(
-    #   data = final_results_comb,
-    #   xmin = "group1",
-    #   xmax = "group2",
-    #   y.position = "y.position",
-    #   label = "p.adj"
-    # )  +
-    labs(
-      x = "Intervention",
-      y = "Bacteroidetes/Firmicutes ratio"
-     ) 
+# p <- plotColData(
+#     tse, x = "intervention", y = index, colour_by = "timepoint",
+#     show_boxplot = TRUE, other_fields = c("timepoint", "diet", "intervention", "meal"),
+#     show_violin = FALSE) + scale_color_manual(
+#         values = c("before" = "black", "after" = "black"),
+#         name = "Timepoint"
+#     ) +
+#     facet_wrap( diet ~ timepoint) +
+#     theme(
+#         text = element_text(size = 10),
+#         legend.position = "none"
+#     ) + 
+#     # ggpubr::stat_pvalue_manual(
+#     #   data = final_results_comb,
+#     #   xmin = "group1",
+#     #   xmax = "group2",
+#     #   y.position = "y.position",
+#     #   label = "p.adj"
+#     # )  +
+#     labs(
+#       x = "Intervention",
+#       y = "Bacteroidetes/Firmicutes ratio"
+#      ) 
 ```
 
 
@@ -485,7 +487,7 @@ if (knitr::is_html_output()) {
         pageLength = 6,
         dom = 'Bfrtip'
       ),
-      caption = "Table of alpha diversity comparisons before Treatment",
+      caption = "Table of alpha diversity comparisons at the Baseline",
       rownames = FALSE
   ) %>%
     formatRound(columns = c("mean1", "mean2", "log2FC"), digits = 2) %>%
@@ -498,7 +500,7 @@ if (knitr::is_html_output()) {
       across(where(is.numeric), ~round(., 3))
       #p.adj = signif(p.adj, 3)
     ) %>%
-    kbl(caption = "Table of alpha diversity comparisons before Treatment",
+    kbl(caption = "Table of alpha diversity comparisons at the Baseline",
         booktabs = TRUE,
         longtable = TRUE,
         align = c('l', 'r', 'r', 'r', 'r')) %>%
@@ -522,7 +524,7 @@ if (knitr::is_html_output()) {
       pageLength = 6,
       dom = 'Bfrtip'
     ),
-    caption = "Table of alpha diversity comparisons after Treatment",
+    caption = "Table of alpha diversity comparisons at Week 6",
     rownames = FALSE
 ) %>%
   formatRound(columns = c("mean1", "mean2", "log2FC"), digits = 2) %>%
@@ -535,7 +537,7 @@ if (knitr::is_html_output()) {
       across(where(is.numeric), ~round(., 3))
       #p.adj = signif(p.adj, 3)
     ) %>%
-    kbl(caption = "Table of alpha diversity comparisons after Treatment",
+    kbl(caption = "Table of alpha diversity comparisons at Week 6",
         booktabs = TRUE,
         longtable = TRUE,
         align = c('l', 'r', 'r', 'r', 'r')) %>%
@@ -563,12 +565,12 @@ div_change
 
 if (knitr::is_html_output()) {
   datatable(
-    final_results_paired, 
+    final_results_paired %>% select(-y.position),  
     options = list(
       pageLength = 4,
       dom = 'Bfrtip'
     ),
-    caption = "Table of alpha diversity paired between timepoint(1 and 2)",
+    caption = "Table of alpha diversity paired between the Baseline and Week 6",
     rownames = FALSE
 ) %>%
   formatRound(columns = c("mean1", "mean2", "log2FC"), digits = 2) %>%
@@ -580,7 +582,7 @@ if (knitr::is_html_output()) {
       across(where(is.numeric), ~round(., 3))
       #p.adj = signif(p.adj, 3)
     ) %>%
-    kbl(caption = "Table of alpha diversity paired between timepoint(1 and 2)",
+    kbl(caption = "Table of alpha diversity paired between the Baseline and Week 6",
         booktabs = TRUE,
         longtable = TRUE,
         align = c('l', 'r', 'r', 'r', 'r')) %>%
@@ -598,6 +600,8 @@ test <- "paired Wilcoxon"
 
 ```{r lmer-stuff}
 formula_used <- "~ diet * timepoint + (1 | id)"
+
+tse$diet <- factor(tse$diet, levels=c("rice", "oat"))
 
 if (index == "observed") {
   tse$observed_log2 <- log2(tse$observed)

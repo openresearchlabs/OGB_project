@@ -1,10 +1,9 @@
 ---
-title: "Bacteroidetes/Firmicutes ratio"
+title: "Bacteroidota/Baccilota ratio"
 author:
   - name: Muluh
 ---
 
-## Bacteroidetes/Firmicutes ratio
 
 ```{r data}
 # Set Cairo to enable transparency in all devices
@@ -32,12 +31,13 @@ index         <- "bact_firm_ratio"
 -   **Multiple testing correction:** `r adjust.method`
 -   **Statistical test** `r test`
 
-In the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2
+In the report, a suffix of 1~ Baseline and 2~ Week 6
 
 ```{r bact-firm}
 # Calculate the Bacteroidetes/Firmicutes ratio and add to colData
 # using the chosen name
 tse <- altExp(tse, "phylum")
+tse$diet <- factor(tse$diet, levels=c("oat", "rice"))
 ratio <- "bact_firm_ratio"
 colData(tse)[[ratio]] <- assay(tse, "relabundance")["Bacteroidetes", ] /
                          assay(tse, "relabundance")["Firmicutes", ]
@@ -190,47 +190,47 @@ colnames(final_results_after)[colnames(final_results_after) == "logFC"] <- "log2
 ```
 
 ```{r}
-meal_groups <- unique(tse$meal)
-# Calculate statistical results
-results_paired_meal <- lapply(meal_groups, function(group) {
-  # Subset tse for the current meal group
-  tse_subset <- tse[, tse$meal == group]
-  
-  # Run the diversity tests
-  res <- run_diversity_tests(
-    tse = tse_subset, 
-    comparisons = comparisons_paired, 
-    variable = "timepoint", 
-    ratio = "bact_firm_ratio", 
-    adjust.method = adjust.method, 
-    paired = TRUE
-  )
-  
-  # Add the meal group as a new column
-  res$diet <- group
-  
-  return(res)
-}) %>% 
-  bind_rows()
-
-results_paired_meal <- results_paired_meal[, c("diet", setdiff(names(results_paired_meal), "diet"))]
-
-# results_paired$p.adj <- p.adjust(results_paired$p.value, method = "fdr")
-# Format results for display
-final_results_paired_meal <- results_paired_meal %>%
-  mutate(
-    mean1 = round(mean1, 2),
-    mean2 = round(mean2, 2),
-    logFC = round(logFC, 2),
-    p.value = round(p.value, 2)
-  ) %>%
-  select(diet, group1, group2, mean1, mean2, logFC, p.value) %>% 
-  arrange(diet)
-
-final_results_paired_meal$group1 <- NULL
-final_results_paired_meal$group2 <- NULL
-colnames(final_results_paired_meal)[colnames(final_results_paired_meal) == "logFC"] <- "log2FC"
-colnames(final_results_paired_meal)[colnames(final_results_paired_meal) == "diet"] <- "Meal"
+# meal_groups <- unique(tse$meal)
+# # Calculate statistical results
+# results_paired_meal <- lapply(meal_groups, function(group) {
+#   # Subset tse for the current meal group
+#   tse_subset <- tse[, tse$meal == group]
+#   
+#   # Run the diversity tests
+#   res <- run_diversity_tests(
+#     tse = tse_subset, 
+#     comparisons = comparisons_paired, 
+#     variable = "timepoint", 
+#     ratio = "bact_firm_ratio", 
+#     adjust.method = adjust.method, 
+#     paired = TRUE
+#   )
+#   
+#   # Add the meal group as a new column
+#   res$diet <- group
+#   
+#   return(res)
+# }) %>% 
+#   bind_rows()
+# 
+# results_paired_meal <- results_paired_meal[, c("diet", setdiff(names(results_paired_meal), "diet"))]
+# 
+# # results_paired$p.adj <- p.adjust(results_paired$p.value, method = "fdr")
+# # Format results for display
+# final_results_paired_meal <- results_paired_meal %>%
+#   mutate(
+#     mean1 = round(mean1, 2),
+#     mean2 = round(mean2, 2),
+#     logFC = round(logFC, 2),
+#     p.value = round(p.value, 2)
+#   ) %>%
+#   select(diet, group1, group2, mean1, mean2, logFC, p.value) %>% 
+#   arrange(diet)
+# 
+# final_results_paired_meal$group1 <- NULL
+# final_results_paired_meal$group2 <- NULL
+# colnames(final_results_paired_meal)[colnames(final_results_paired_meal) == "logFC"] <- "log2FC"
+# colnames(final_results_paired_meal)[colnames(final_results_paired_meal) == "diet"] <- "Meal"
 ```
 
 
@@ -245,7 +245,7 @@ results_paired <- lapply(diet_groups, function(group) {
   res <- run_diversity_tests(
     tse = tse_subset, 
     comparisons = comparisons_paired, 
-    variable = "timepoint", 
+    variable = "duration", 
     ratio = "bact_firm_ratio", 
     adjust.method = adjust.method, 
     paired = TRUE
@@ -306,36 +306,36 @@ p1 <- plotColData(
       label = "p.adj"
     )  +
     labs(
-      title = "Before treatment",
+      title = "Baseline",
       x = "",
-      y = "Bacteroidetes/Firmicutes ratio"
+      y = "Bacteroidota/Baccilota ratio"
      ) #+ scale_y_log10()
 ```
 
 ```{r}
-p <- plotColData(
-    tse, x = "intervention", y = "bact_firm_ratio", colour_by = "timepoint",
-    show_boxplot = TRUE, other_fields = c("timepoint", "diet", "intervention", "meal"),
-    show_violin = FALSE) + scale_color_manual(
-        values = c("before" = "black", "after" = "black"),
-        name = "Timepoint"
-    ) +
-    facet_wrap( diet ~ timepoint) +
-    theme(
-        text = element_text(size = 10),
-        legend.position = "none"
-    ) + 
-    # ggpubr::stat_pvalue_manual(
-    #   data = final_results_comb,
-    #   xmin = "group1",
-    #   xmax = "group2",
-    #   y.position = "y.position",
-    #   label = "p.adj"
-    # )  +
-    labs(
-      x = "Intervention",
-      y = "Bacteroidetes/Firmicutes ratio"
-     ) 
+# p <- plotColData(
+#     tse, x = "intervention", y = "bact_firm_ratio", colour_by = "timepoint",
+#     show_boxplot = TRUE, other_fields = c("timepoint", "diet", "intervention", "meal"),
+#     show_violin = FALSE) + scale_color_manual(
+#         values = c("before" = "black", "after" = "black"),
+#         name = "Timepoint"
+#     ) +
+#     facet_wrap( diet ~ timepoint) +
+#     theme(
+#         text = element_text(size = 10),
+#         legend.position = "none"
+#     ) + 
+#     # ggpubr::stat_pvalue_manual(
+#     #   data = final_results_comb,
+#     #   xmin = "group1",
+#     #   xmax = "group2",
+#     #   y.position = "y.position",
+#     #   label = "p.adj"
+#     # )  +
+#     labs(
+#       x = "Week 6",
+#       y = "Bacteroidetes/Firmicutes ratio"
+#      ) 
 ```
 
 
@@ -361,44 +361,44 @@ p2 <- plotColData(
       label = "p.adj"
     )  +
     labs(
-      title = "After treatment",
+      title = "Week 6",
       x = "",
-      y = "Bacteroidetes/Firmicutes ratio"
+      y = "Bacteroidota/Baccilota ratio"
     ) #+ scale_y_log10()
 ```
 
 ```{r all-groups-1v2}
-p3 <- plotColData(
-    tse, x = "timepoint", y = "bact_firm_ratio", colour_by = "timepoint",
-    show_boxplot = TRUE,
-    show_violin = FALSE, other_fields = c("timepoint", "diet")) +
-    scale_color_manual(
-        values = c("after" = "black", "before" = "black"),
-        name = "Timepoint"
-    ) +
-    theme(
-        text = element_text(size = 10),
-        # remove legend
-        legend.position = "none"
-    ) +
-    geom_text(
-        data = final_results_paired,
-        aes(
-            x = 1.5,                 
-            y = y.position,          
-            label = paste0("p = ", signif(p.value, 2)),
-            group = diet        
-        ),
-        inherit.aes = FALSE,     
-        size = 3,                 
-        color = "black"            
-    )  +
-    labs(
-      title = "Within group",
-      x = "",
-      y = "Bacteroidetes/Firmicutes ratio"
-    ) +
-    facet_wrap(~diet, ncol = 4, scales = "free")
+# p3 <- plotColData(
+#     tse, x = "timepoint", y = "bact_firm_ratio", colour_by = "timepoint",
+#     show_boxplot = TRUE,
+#     show_violin = FALSE, other_fields = c("timepoint", "diet")) +
+#     scale_color_manual(
+#         values = c("after" = "black", "before" = "black"),
+#         name = "Timepoint"
+#     ) +
+#     theme(
+#         text = element_text(size = 10),
+#         # remove legend
+#         legend.position = "none"
+#     ) +
+#     geom_text(
+#         data = final_results_paired,
+#         aes(
+#             x = 1.5,                 
+#             y = y.position,          
+#             label = paste0("p = ", signif(p.value, 2)),
+#             group = diet        
+#         ),
+#         inherit.aes = FALSE,     
+#         size = 3,                 
+#         color = "black"            
+#     )  +
+#     labs(
+#       title = "Within group",
+#       x = "",
+#       y = "Bacteroidota/Baccilota ratio"
+#     ) +
+#     facet_wrap(~diet, ncol = 4, scales = "free")
 
 ```
 
@@ -419,7 +419,7 @@ colData(tse_new) <- DataFrame(
 )
 
 div_change <- plotColData(
-    tse_new, x = "timepoint", y = "bact_firm_ratio",
+    tse_new, x = "duration", y = "bact_firm_ratio",
     show_boxplot = TRUE,
     show_violin = FALSE,
     other_fields = c("group", "id", "diet", "change")) + 
@@ -428,9 +428,9 @@ div_change <- plotColData(
         text = element_text(size = 10),
     ) +
     labs(
-        title = "Paired Bacteroidetes/Firmicutes ratio",
+        title = "Paired Bacteroidota/Baccilota ratio",
         x = "",
-        y = "Bacteroidetes/Firmicutes ratio"
+        y = "Bacteroidota/Baccilota ratio"
     ) + 
     geom_line(
         aes(group = id, color = change)
@@ -496,7 +496,7 @@ if (knitr::is_html_output()) {
         pageLength = 6,
         dom = 'Bfrtip'
       ),
-      caption = "Table of  Bacteroidetes/Firmicutes before Treatment",
+      caption = "Table of  Bacteroidota/Baccilota ratio at the Baseline",
       rownames = FALSE
   ) %>%
     formatRound(columns = c("mean1", "mean2", "log2FC"), digits = 2) %>%
@@ -509,7 +509,7 @@ if (knitr::is_html_output()) {
       across(where(is.numeric), ~round(., 3))
       #p.adj = signif(p.adj, 3)
     ) %>%
-    kbl(caption = "Table of Bacteroidetes/Firmicutes before Treatment",
+    kbl(caption = "Table of Bacteroidota/Baccilota ratio at the Baseline",
         booktabs = TRUE,
         longtable = TRUE,
         align = c('l', 'r', 'r', 'r', 'r')) %>%
@@ -532,7 +532,7 @@ if (knitr::is_html_output()) {
       pageLength = 6,
       dom = 'Bfrtip'
     ),
-    caption = "Table of Bacteroidetes/Firmicutes after Treatment",
+    caption = "Table of Bacteroidota/Baccilot at Week 6",
     rownames = FALSE
 ) %>%
   formatRound(columns = c("mean1", "mean2", "log2FC"), digits = 2) %>%
@@ -545,7 +545,7 @@ if (knitr::is_html_output()) {
       across(where(is.numeric), ~round(., 3))
       #p.adj = signif(p.adj, 3)
     ) %>%
-    kbl(caption = "Table of Bacteroidetes/Firmicutes after Treatment",
+    kbl(caption = "Table of Bacteroidota/Baccilot at Week 6",
         booktabs = TRUE,
         longtable = TRUE,
         align = c('l', 'r', 'r', 'r', 'r')) %>%
@@ -573,12 +573,12 @@ div_change
 #| label: table-of-findings-paired
 if (knitr::is_html_output()) {
   datatable(
-    final_results_paired, 
+    final_results_paired %>% select(-y.position),  
     options = list(
       pageLength = 4,
       dom = 'Bfrtip'
     ),
-    caption = "Table of Bacteroidetes/Firmicutes paired between timepoint (1 and 2)",
+    caption = "Table of Bacteroidota/Baccilot paired between Baseline and Week 6",
     rownames = FALSE
 ) %>%
   formatRound(columns = c("mean1", "mean2", "log2FC"), digits = 2) %>%
@@ -590,7 +590,7 @@ if (knitr::is_html_output()) {
       across(where(is.numeric), ~round(., 3))
       #p.adj = signif(p.adj, 3)
     ) %>%
-    kbl(caption = "Table of Bacteroidetes/Firmicutes paired between timepoint (1 and 2)",
+    kbl(caption = "Table of Bacteroidota/Baccilot paired between Baseline and Week 6",
         booktabs = TRUE,
         longtable = TRUE,
         align = c('l', 'r', 'r', 'r', 'r')) %>%
@@ -605,6 +605,7 @@ if (knitr::is_html_output()) {
 adjust.method <- "FDR"
 test <- "paired Wilcoxon"
 formula_used <- "~ diet * timepoint + (1 | id)"
+tse$diet <- factor(tse$diet, levels=c("rice", "oat"))
 
 tse$bfratio <- log2(tse$bact_firm_ratio)
 res <- run_lmer(tse, "bfratio")

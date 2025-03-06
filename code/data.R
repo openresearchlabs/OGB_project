@@ -35,11 +35,13 @@ samdf <- samdf %>%
   assign_paired() %>%
   assign_time() %>%
   assign_meal()  %>%
-  assign_diet()  # Encode as factors oat/rice instead of 1/2
+  assign_diet() %>%
+  assign_duration() 
 
 samdf$intervention <- factor(word(samdf$meal, 2, sep="-"), levels=c("rice", "oat"))
 
 samdf$timepoint <- factor(samdf$timepoint, levels = c("before", "after"))
+samdf$duration <- factor(samdf$duration, levels = c("Baseline", "Week 6"))
 # Check that the sample data and assay data match by sample names
 if (!all(rownames(samdf)==colnames(tse))) {stop("Check sample ID matching")}
 
