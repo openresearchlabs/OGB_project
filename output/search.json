@@ -4,63 +4,21 @@
     "href": "beta/beta.html#unsupervised-analysis",
     "title": "Beta diversity",
     "section": "2 Unsupervised analysis",
-    "text": "2 Unsupervised analysis\n\n2.1 Community dissimilarity\nThis document presents the results of a microbiota project, focusing on beta diversity analysis. Specifically, in this section, we employed Principal Coordinates Analysis (PCoA) to assess community dissimilarity among microbiota samples.\n\nTaxonomic level: species\nDissimilarity index: bray\nGroup variable: diet\nMultiple testing correction: fdr\nStatistical test Wilcoxon\n\n\n\n2.2 PCoA plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2.3 Table of the top findings\n\n2.3.0.1 Paired treatment between timepoint(1 and 2)\n\nMultiple testing correction: fdr\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n2.4 Significant variables\n\n\n\n\n\n\n[[1]]\n\n\n\n\n\n\n\n\n[[2]]\n\n\n\n\n\n\n\nMDS\n\n\n\n[[1]]\n\n\n\n\n\n\n\n\n\n\n[[2]]"
+    "text": "2 Unsupervised analysis\n\n2.1 Community dissimilarity\nThis document presents the results of a microbiota project, focusing on beta diversity analysis. Specifically, in this section, we employed Principal Coordinates Analysis (PCoA) to assess community dissimilarity among microbiota samples.\n\nTaxonomic level: species\nDissimilarity index: bray\nGroup variable: diet\n\n\n\n2.2 PCoA plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2.3 Table of the top findings\n\n2.3.0.1 Paired treatment between timepoint(1 and 2)\n\nMultiple testing correction: fdr\nStatistical test: paired Wilcoxon"
   },
   {
     "objectID": "beta/beta.html#supervised-analysis",
     "href": "beta/beta.html#supervised-analysis",
     "title": "Beta diversity",
     "section": "3 Supervised analysis",
-    "text": "3 Supervised analysis\n\n3.1 Significant taxa\n\nRDA\n\n\n\n[[1]]\n\n\n\n\n\n\n\n\n\n\n[[2]]\n\n\n\n\n\n\n\n\n\n\n\n3.2 Permanova analysis\n\nDissimilarity index: bray\nGroup variable: diet\n\nInterpretation\n\nHomogeneity &lt; 0.05: The assumption of homogeneity of variance is violated (i.e., the variances are significantly different across groups).\nHomogeneity ≥ 0.05: The assumption of homogeneity of variance is not violated (i.e., the variances are similar across groups).\n\n\n3.2.1 Across-group\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3.2.2 Within-group\n\n\n\n\n\n\n\n\n\n3.3 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 1700 140 \nmetadata(0):\nassays(2): relabundance clr\nrownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(140): AE1332 AE2332 ... VK1336 VK2336\ncolData names(19): sample id ... time_diff ref_samples\nreducedDimNames(1): PCoA_BC\nmainExpName: NULL\naltExpNames(20): kingdom phylum ... KO metacyc\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
-  },
-  {
-    "objectID": "daa/daa_interest.html",
-    "href": "daa/daa_interest.html",
-    "title": "Differential abundance analysis",
-    "section": "",
-    "text": "Analysis information:\n\nMethod: maaslin3\nTaxonomic level: species, genus\nGroup variable: Diet\nFormula used: ~ diet * intervention + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfeature\nmetadata\nvalue\ncoef\nqval_individual\nqval_joint\nmodel\n\n\n\n\nBifidobacterium_animalis\ndiet\noat\n1.6724398\n0.5922506\n0.5990227\nprevalence\n\n\nBifidobacterium_animalis\nintervention\noat\n1.3242713\n0.7816477\n0.8016409\nprevalence\n\n\nBifidobacterium_animalis\ndiet\noat:interventionoat\n-1.6724373\n0.8376377\n0.8504384\nprevalence\n\n\nBifidobacterium_adolescentis\ndiet\noat\n-0.0140225\n1.0000000\n0.9975694\nabundance\n\n\nBifidobacterium_adolescentis\ndiet\noat:interventionoat\n0.5459126\n1.0000000\n0.9975694\nabundance\n\n\nBifidobacterium_adolescentis\nintervention\noat\n-0.8367930\n1.0000000\n0.9975694\nabundance\n\n\nBifidobacterium_animalis\ndiet\noat\n0.8997651\n1.0000000\n0.5990227\nabundance\n\n\nBifidobacterium_animalis\ndiet\noat:interventionoat\n-0.2603632\n1.0000000\n0.8504384\nabundance\n\n\nBifidobacterium_animalis\nintervention\noat\n0.9830428\n1.0000000\n0.8016409\nabundance\n\n\nBifidobacterium_bifidum\ndiet\noat\n-1.1160628\n1.0000000\n0.9975694\nabundance\n\n\nBifidobacterium_bifidum\nintervention\noat\n0.8574439\n1.0000000\n0.9975694\nabundance\n\n\nRuminococcus_gnavus\ndiet\noat\n0.8651521\n1.0000000\n0.9975694\nabundance\n\n\nRuminococcus_gnavus\ndiet\noat:interventionoat\n1.2065904\n1.0000000\n0.9975694\nabundance\n\n\nRuminococcus_gnavus\nintervention\noat\n-0.6782211\n1.0000000\n0.9975694\nabundance\n\n\nBifidobacterium_adolescentis\ndiet\noat\n-0.3304582\n1.0000000\n0.9975694\nprevalence\n\n\nBifidobacterium_adolescentis\ndiet\noat:interventionoat\n-1.3545892\n1.0000000\n0.9975694\nprevalence\n\n\nBifidobacterium_adolescentis\nintervention\noat\n1.6858125\n1.0000000\n0.9975694\nprevalence\n\n\nBifidobacterium_bifidum\ndiet\noat\n-9.9916786\n1.0000000\n0.9975694\nprevalence\n\n\nBifidobacterium_bifidum\ndiet\noat:interventionoat\n9.9101692\n1.0000000\n0.9975694\nprevalence\n\n\nBifidobacterium_bifidum\nintervention\noat\n-0.7520547\n1.0000000\n0.9975694\nprevalence\n\n\nRuminococcus_gnavus\ndiet\noat\n0.1428974\n1.0000000\n0.9975694\nprevalence\n\n\nRuminococcus_gnavus\ndiet\noat:interventionoat\n1.5857227\n1.0000000\n0.9975694\nprevalence\n\n\nRuminococcus_gnavus\nintervention\noat\n-1.4617410\n1.0000000\n0.9975694\nprevalence\n\n\nBifidobacterium_bifidum\ndiet\noat:interventionoat\nNA\nNA\n0.9975694\nabundance"
-  },
-  {
-    "objectID": "daa/daa_pc.html",
-    "href": "daa/daa_pc.html",
-    "title": "DAA path coverage",
-    "section": "",
-    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nx\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nx"
-  },
-  {
-    "objectID": "daa/daa_mtc.html",
-    "href": "daa/daa_mtc.html",
-    "title": "DAA Metacyc",
-    "section": "",
-    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * intervention + (1 | id)\n\n\n\n\n\n\n\n\n\n\nfig17"
-  },
-  {
-    "objectID": "daa/daa_ko.html",
-    "href": "daa/daa_ko.html",
-    "title": "DAA KO",
-    "section": "",
-    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\nfig38"
-  },
-  {
-    "objectID": "daa/daa_maaslin.html",
-    "href": "daa/daa_maaslin.html",
-    "title": "Differential abundance analysis",
-    "section": "",
-    "text": "This section highlights significant taxa from maaslin3.\nAnalysis information:\n\nMethod: maaslin3\nTaxonomic level: species\nGroup variable: Diet\nFormula used: ~ diet * intervention + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNULL"
-  },
-  {
-    "objectID": "daa/daa_pa.html",
-    "href": "daa/daa_pa.html",
-    "title": "DAA path abundance",
-    "section": "",
-    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\nsummary_plot.png"
+    "text": "3 Supervised analysis\n\n3.1 Permanova analysis\n\nDissimilarity index: bray\nGroup variable: diet\n\nInterpretation\n\nHomogeneity &lt; 0.05: The assumption of homogeneity of variance is violated (i.e., the variances are significantly different across groups).\nHomogeneity ≥ 0.05: The assumption of homogeneity of variance is not violated (i.e., the variances are similar across groups).\n\n\n3.1.1 Across-group\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3.1.2 Within-group\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3.2 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 1700 140 \nmetadata(0):\nassays(1): relabundance\nrownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(140): AE1332 AE2332 ... VK1336 VK2336\ncolData names(16): sample id ... shannon group\nreducedDimNames(0):\nmainExpName: NULL\naltExpNames(20): kingdom phylum ... KO metacyc\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
   },
   {
     "objectID": "daa/daa_taxa.html",
     "href": "daa/daa_taxa.html",
     "title": "DAA Taxa",
     "section": "",
-    "text": "Analysis information:\n\nMethod: maaslin3\nTaxonomic level: species, genus, family, phylum\nGroup variable: diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%\n\nFor a complete table of maaslin3 results, see Species, genus, phylum, family\nThe following tables lists all associations that pass MaAsLin 3’s significance threshold for joint or individual q-values, ordered by increasing individual q-value.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis plots contain a combined coefficient plot and heatmap of the most significant association between microbial features (listed on the y-axis) and different dietary conditions over time.\nThe coef plot shows the estimated effect sizes (β coefficients) for different microbial features.\n\nCircles (○) represent associations based on abundance.\nTriangles (△) represent associations based on prevalence.\n\nThe purple color represents the significance level (FDR-adjusted p-value) for abundance. The teal color represents the significance level (FDR-adjusted p-value) for prevalence.Darker colors indicate more significant associations.Error bars show uncertainty in the estimates.\nThe heatmap summarizes how different microbes are affected. Blue/Red coloring represents the effect sizes:\n\nDark blue: Strong negative association.\nLight blue: Weak negative association.\nLight red: Weak positive association.\nDark red: Strong positive association.\nGray (NA): No data.\n\nAsterisks () indicate significant associations: - (p &lt; 0.1) - ** (p &lt; 0.01)\n\n\n\n\n\ntaxa_image18\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBox plots are used for categorical data abundance associations. Grids are used for categorical data prevalence associations. Data points plotted are after filtering, normalization, and transformation so that the scale in the plot is the scale that was used in fitting."
+    "text": "Analysis information:\n\nMethod: maaslin3\nTaxonomic level: species, genus, family, phylum\nGroup variable: diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%\n\nFor a complete table of maaslin3 results, see Species, genus, phylum, family\nThe following tables lists all associations that pass MaAsLin 3’s significance threshold for joint or individual q-values, ordered by increasing individual q-value.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis plots contain a combined coefficient plot and heatmap of the most significant association between microbial features (listed on the y-axis) and different dietary conditions over time.\nThe coef plot shows the estimated effect sizes (β coefficients) for different microbial features.\n\nCircles (○) represent associations based on abundance.\nTriangles (△) represent associations based on prevalence.\n\nThe purple color represents the significance level (FDR-adjusted p-value) for abundance. The teal color represents the significance level (FDR-adjusted p-value) for prevalence.Darker colors indicate more significant associations.Error bars show uncertainty in the estimates.\nThe heatmap summarizes how different microbes are affected. Blue/Red coloring represents the effect sizes:\n\nDark blue: Strong negative association.\nLight blue: Weak negative association.\nLight red: Weak positive association.\nDark red: Strong positive association.\nGray (NA): No data.\n\nAsterisks () indicate significant associations: - (p &lt; 0.1) - ** (p &lt; 0.01)\n\n\n\n\n\ntaxa_image18\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBox plots are used for categorical data abundance associations. Grids are used for categorical data prevalence associations. Data points plotted are after filtering, normalization, and transformation so that the scale in the plot is the scale that was used in fitting.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis section highlights significant taxa from maaslin3.\nAnalysis information:\n\nMethod: maaslin3\nTaxonomic level: species\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%"
   },
   {
     "objectID": "daa/daa_taxa.html#summary-plots",
@@ -77,18 +35,53 @@
     "text": "Box plots are used for categorical data abundance associations. Grids are used for categorical data prevalence associations. Data points plotted are after filtering, normalization, and transformation so that the scale in the plot is the scale that was used in fitting."
   },
   {
+    "objectID": "daa/daa_pa.html",
+    "href": "daa/daa_pa.html",
+    "title": "DAA path abundance",
+    "section": "",
+    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\nsummary_plot.png"
+  },
+  {
+    "objectID": "daa/daa_ko.html",
+    "href": "daa/daa_ko.html",
+    "title": "DAA KO",
+    "section": "",
+    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\nfig38"
+  },
+  {
+    "objectID": "daa/daa_interest.html",
+    "href": "daa/daa_interest.html",
+    "title": "Differential abundance analysis",
+    "section": "",
+    "text": "Analysis information:\n\nMethod: maaslin3\nTaxonomic level: species, genus\nGroup variable: Diet\nFormula used: ~ diet * intervention + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfeature\nmetadata\nvalue\ncoef\nqval_individual\nqval_joint\nmodel\n\n\n\n\nBifidobacterium_animalis\ndiet\noat\n1.6724398\n0.5922506\n0.5990227\nprevalence\n\n\nBifidobacterium_animalis\nintervention\noat\n1.3242713\n0.7816477\n0.8016409\nprevalence\n\n\nBifidobacterium_animalis\ndiet\noat:interventionoat\n-1.6724373\n0.8376377\n0.8504384\nprevalence\n\n\nBifidobacterium_adolescentis\ndiet\noat\n-0.0140225\n1.0000000\n0.9975694\nabundance\n\n\nBifidobacterium_adolescentis\ndiet\noat:interventionoat\n0.5459126\n1.0000000\n0.9975694\nabundance\n\n\nBifidobacterium_adolescentis\nintervention\noat\n-0.8367930\n1.0000000\n0.9975694\nabundance\n\n\nBifidobacterium_animalis\ndiet\noat\n0.8997651\n1.0000000\n0.5990227\nabundance\n\n\nBifidobacterium_animalis\ndiet\noat:interventionoat\n-0.2603632\n1.0000000\n0.8504384\nabundance\n\n\nBifidobacterium_animalis\nintervention\noat\n0.9830428\n1.0000000\n0.8016409\nabundance\n\n\nBifidobacterium_bifidum\ndiet\noat\n-1.1160628\n1.0000000\n0.9975694\nabundance\n\n\nBifidobacterium_bifidum\nintervention\noat\n0.8574439\n1.0000000\n0.9975694\nabundance\n\n\nRuminococcus_gnavus\ndiet\noat\n0.8651521\n1.0000000\n0.9975694\nabundance\n\n\nRuminococcus_gnavus\ndiet\noat:interventionoat\n1.2065904\n1.0000000\n0.9975694\nabundance\n\n\nRuminococcus_gnavus\nintervention\noat\n-0.6782211\n1.0000000\n0.9975694\nabundance\n\n\nBifidobacterium_adolescentis\ndiet\noat\n-0.3304582\n1.0000000\n0.9975694\nprevalence\n\n\nBifidobacterium_adolescentis\ndiet\noat:interventionoat\n-1.3545892\n1.0000000\n0.9975694\nprevalence\n\n\nBifidobacterium_adolescentis\nintervention\noat\n1.6858125\n1.0000000\n0.9975694\nprevalence\n\n\nBifidobacterium_bifidum\ndiet\noat\n-9.9916786\n1.0000000\n0.9975694\nprevalence\n\n\nBifidobacterium_bifidum\ndiet\noat:interventionoat\n9.9101692\n1.0000000\n0.9975694\nprevalence\n\n\nBifidobacterium_bifidum\nintervention\noat\n-0.7520547\n1.0000000\n0.9975694\nprevalence\n\n\nRuminococcus_gnavus\ndiet\noat\n0.1428974\n1.0000000\n0.9975694\nprevalence\n\n\nRuminococcus_gnavus\ndiet\noat:interventionoat\n1.5857227\n1.0000000\n0.9975694\nprevalence\n\n\nRuminococcus_gnavus\nintervention\noat\n-1.4617410\n1.0000000\n0.9975694\nprevalence\n\n\nBifidobacterium_bifidum\ndiet\noat:interventionoat\nNA\nNA\n0.9975694\nabundance"
+  },
+  {
+    "objectID": "daa/daa_mtc.html",
+    "href": "daa/daa_mtc.html",
+    "title": "DAA Metacyc",
+    "section": "",
+    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * intervention + (1 | id)\n\n\n\n\n\n\n\n\n\n\nfig17"
+  },
+  {
+    "objectID": "daa/daa_pc.html",
+    "href": "daa/daa_pc.html",
+    "title": "DAA path coverage",
+    "section": "",
+    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nx\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nx"
+  },
+  {
     "objectID": "ratio/ratio.html",
     "href": "ratio/ratio.html",
     "title": "Bacteroidetes/Firmicutes ratio",
     "section": "",
-    "text": "Taxonomic level: Phylum\nGroup variable: diet\nMultiple testing correction: fdr\nStatistical test Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n-2.24\n-2.61 – -1.87\n&lt;0.001\n\n\ndiet [oat]\n0.28\n-0.24 – 0.81\n0.285\n\n\ntimepoint [after]\n0.20\n-0.19 – 0.58\n0.311\n\n\ndiet [oat] × timepoint[after]\n-0.22\n-0.77 – 0.33\n0.427\n\n\nRandom Effects\n\n\n\nσ2\n0.67\n\n\n\nτ00 id\n0.58\n\n\nICC\n0.47\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.010 / 0.473"
+    "text": "Taxonomic level: Phylum\nGroup variable: diet\nMultiple testing correction: fdr\nStatistical test Wilcoxon\n\nIn the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n-2.24\n-2.61 – -1.87\n&lt;0.001\n\n\ndiet [oat]\n0.28\n-0.24 – 0.81\n0.285\n\n\ntimepoint [after]\n0.20\n-0.19 – 0.58\n0.311\n\n\ndiet [oat] × timepoint[after]\n-0.22\n-0.77 – 0.33\n0.427\n\n\nRandom Effects\n\n\n\nσ2\n0.67\n\n\n\nτ00 id\n0.58\n\n\nICC\n0.47\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.010 / 0.473"
   },
   {
     "objectID": "ratio/ratio.html#bacteroidetesfirmicutes-ratio",
     "href": "ratio/ratio.html#bacteroidetesfirmicutes-ratio",
     "title": "Bacteroidetes/Firmicutes ratio",
     "section": "",
-    "text": "Taxonomic level: Phylum\nGroup variable: diet\nMultiple testing correction: fdr\nStatistical test Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n-2.24\n-2.61 – -1.87\n&lt;0.001\n\n\ndiet [oat]\n0.28\n-0.24 – 0.81\n0.285\n\n\ntimepoint [after]\n0.20\n-0.19 – 0.58\n0.311\n\n\ndiet [oat] × timepoint[after]\n-0.22\n-0.77 – 0.33\n0.427\n\n\nRandom Effects\n\n\n\nσ2\n0.67\n\n\n\nτ00 id\n0.58\n\n\nICC\n0.47\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.010 / 0.473"
+    "text": "Taxonomic level: Phylum\nGroup variable: diet\nMultiple testing correction: fdr\nStatistical test Wilcoxon\n\nIn the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n-2.24\n-2.61 – -1.87\n&lt;0.001\n\n\ndiet [oat]\n0.28\n-0.24 – 0.81\n0.285\n\n\ntimepoint [after]\n0.20\n-0.19 – 0.58\n0.311\n\n\ndiet [oat] × timepoint[after]\n-0.22\n-0.77 – 0.33\n0.427\n\n\nRandom Effects\n\n\n\nσ2\n0.67\n\n\n\nτ00 id\n0.58\n\n\nICC\n0.47\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.010 / 0.473"
   },
   {
     "objectID": "ratio/ratio.html#data-summary",
@@ -102,14 +95,14 @@
     "href": "alpha/alpha_shannon.html",
     "title": "Alpha Diversity",
     "section": "",
-    "text": "Index: shannon\nGroup variable: diet\nMultiple testing correction: FDR\nStatistical test Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n4.02\n3.90 – 4.15\n&lt;0.001\n\n\ndiet [oat]\n-0.05\n-0.23 – 0.13\n0.582\n\n\ntimepoint [after]\n0.06\n-0.02 – 0.15\n0.128\n\n\ndiet [oat] × timepoint[after]\n-0.13\n-0.24 – -0.01\n0.036\n\n\nRandom Effects\n\n\n\nσ2\n0.03\n\n\n\nτ00 id\n0.12\n\n\nICC\n0.79\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.027 / 0.800"
+    "text": "Index: shannon\nGroup variable: diet\nMultiple testing correction: FDR\nStatistical test Wilcoxon\n\nIn the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n4.02\n3.90 – 4.15\n&lt;0.001\n\n\ndiet [oat]\n-0.05\n-0.23 – 0.13\n0.582\n\n\ntimepoint [after]\n0.06\n-0.02 – 0.15\n0.128\n\n\ndiet [oat] × timepoint[after]\n-0.13\n-0.24 – -0.01\n0.036\n\n\nRandom Effects\n\n\n\nσ2\n0.03\n\n\n\nτ00 id\n0.12\n\n\nICC\n0.79\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.027 / 0.800"
   },
   {
     "objectID": "alpha/alpha_shannon.html#group-wise-comparisons",
     "href": "alpha/alpha_shannon.html#group-wise-comparisons",
     "title": "Alpha Diversity",
     "section": "",
-    "text": "Index: shannon\nGroup variable: diet\nMultiple testing correction: FDR\nStatistical test Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n4.02\n3.90 – 4.15\n&lt;0.001\n\n\ndiet [oat]\n-0.05\n-0.23 – 0.13\n0.582\n\n\ntimepoint [after]\n0.06\n-0.02 – 0.15\n0.128\n\n\ndiet [oat] × timepoint[after]\n-0.13\n-0.24 – -0.01\n0.036\n\n\nRandom Effects\n\n\n\nσ2\n0.03\n\n\n\nτ00 id\n0.12\n\n\nICC\n0.79\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.027 / 0.800"
+    "text": "Index: shannon\nGroup variable: diet\nMultiple testing correction: FDR\nStatistical test Wilcoxon\n\nIn the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n4.02\n3.90 – 4.15\n&lt;0.001\n\n\ndiet [oat]\n-0.05\n-0.23 – 0.13\n0.582\n\n\ntimepoint [after]\n0.06\n-0.02 – 0.15\n0.128\n\n\ndiet [oat] × timepoint[after]\n-0.13\n-0.24 – -0.01\n0.036\n\n\nRandom Effects\n\n\n\nσ2\n0.03\n\n\n\nτ00 id\n0.12\n\n\nICC\n0.79\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.027 / 0.800"
   },
   {
     "objectID": "alpha/alpha_shannon.html#data-summary",
@@ -123,14 +116,14 @@
     "href": "alpha/alpha_observed.html",
     "title": "Alpha Diversity",
     "section": "",
-    "text": "Index: observed\nGroup variable: diet\nMultiple testing correction: FDR\nStatistical test Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n7.80\n7.64 – 7.95\n&lt;0.001\n\n\ndiet [oat]\n-0.15\n-0.37 – 0.07\n0.178\n\n\ntimepoint [after]\n0.01\n-0.03 – 0.05\n0.663\n\n\ndiet [oat] × timepoint[after]\n-0.04\n-0.09 – 0.02\n0.201\n\n\nRandom Effects\n\n\n\nσ2\n0.01\n\n\n\nτ00 id\n0.22\n\n\nICC\n0.97\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.032 / 0.971"
+    "text": "Index: observed\nGroup variable: diet\nMultiple testing correction: FDR\nStatistical test Wilcoxon\n\nIn the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n7.80\n7.64 – 7.95\n&lt;0.001\n\n\ndiet [oat]\n-0.15\n-0.37 – 0.07\n0.178\n\n\ntimepoint [after]\n0.01\n-0.03 – 0.05\n0.663\n\n\ndiet [oat] × timepoint[after]\n-0.04\n-0.09 – 0.02\n0.201\n\n\nRandom Effects\n\n\n\nσ2\n0.01\n\n\n\nτ00 id\n0.22\n\n\nICC\n0.97\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.032 / 0.971"
   },
   {
     "objectID": "alpha/alpha_observed.html#group-wise-comparisons",
     "href": "alpha/alpha_observed.html#group-wise-comparisons",
     "title": "Alpha Diversity",
     "section": "",
-    "text": "Index: observed\nGroup variable: diet\nMultiple testing correction: FDR\nStatistical test Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n7.80\n7.64 – 7.95\n&lt;0.001\n\n\ndiet [oat]\n-0.15\n-0.37 – 0.07\n0.178\n\n\ntimepoint [after]\n0.01\n-0.03 – 0.05\n0.663\n\n\ndiet [oat] × timepoint[after]\n-0.04\n-0.09 – 0.02\n0.201\n\n\nRandom Effects\n\n\n\nσ2\n0.01\n\n\n\nτ00 id\n0.22\n\n\nICC\n0.97\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.032 / 0.971"
+    "text": "Index: observed\nGroup variable: diet\nMultiple testing correction: FDR\nStatistical test Wilcoxon\n\nIn the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n7.80\n7.64 – 7.95\n&lt;0.001\n\n\ndiet [oat]\n-0.15\n-0.37 – 0.07\n0.178\n\n\ntimepoint [after]\n0.01\n-0.03 – 0.05\n0.663\n\n\ndiet [oat] × timepoint[after]\n-0.04\n-0.09 – 0.02\n0.201\n\n\nRandom Effects\n\n\n\nσ2\n0.01\n\n\n\nτ00 id\n0.22\n\n\nICC\n0.97\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.032 / 0.971"
   },
   {
     "objectID": "alpha/alpha_observed.html#data-summary",
@@ -144,13 +137,34 @@
     "href": "daa/daa_species_prevalent.html",
     "title": "Differential abundance analysis",
     "section": "",
-    "text": "Analysis information:\n\nTaxonomic level: genus_prevalent\n\nTaxa that are less prevalent than this (in relabundance) have been agglomerated:\n\nDetection threshold: 0.1%\nPrevalence threshold: 10%\nNumber of taxonomic groups: 139\n\nNumber of significant findings within time points (Kruskal test, Benjamini-Hochberg FDR adjustment).\n\n\nbefore  after \n     0      5 \n\n\nNumber of significant findings within treatments (Paired Wilcoxon test, Benjamini-Hochberg FDR adjustment).\n\nMultiple testing correction: BH\nStatistical test: Paired Wilcoxon\n\n\n\nrice-rice  oat-rice   oat-oat  rice-oat \n        2         0        34         1 \n\n\nLet us look more closely to the significant hits. The logFC corresponds to logFC in CLR (tp2-tp1).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNULL\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFor a complete table of results, see complete results"
+    "text": "Analysis information:\n\nTaxonomic level: species_prevalent\n\nTaxa that are less prevalent than this (in relabundance) have been agglomerated:\n\nDetection threshold: 0.1%\nPrevalence threshold: 10%\nNumber of taxonomic groups: 215\n\nNumber of significant findings within time points (Kruskal test, Benjamini-Hochberg FDR adjustment).\n\n\nbefore  after \n     0      5 \n\n\nNumber of significant findings within treatments (Paired Wilcoxon test, Benjamini-Hochberg FDR adjustment).\n\nMultiple testing correction: BH\nStatistical test: Paired Wilcoxon\n\n\n\nrice  oat \n  16    2 \n\n\nLet us look more closely to the significant hits. The logFC corresponds to logFC in CLR (tp2-tp1).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFor a complete table of results, see complete results"
   },
   {
     "objectID": "daa/daa_genus_prevalent.html",
     "href": "daa/daa_genus_prevalent.html",
     "title": "Differential abundance analysis",
     "section": "",
-    "text": "Analysis information:\n\nTaxonomic level: genus_prevalent\n\nTaxa that are less prevalent than this (in relabundance) have been agglomerated:\n\nDetection threshold: 0.1%\nPrevalence threshold: 10%\nNumber of taxonomic groups: 139\n\nNumber of significant findings within time points (Kruskal test, Benjamini-Hochberg FDR adjustment).\n\n\nbefore  after \n     0      5 \n\n\nNumber of significant findings within treatments (Paired Wilcoxon test, Benjamini-Hochberg FDR adjustment).\n\nMultiple testing correction: BH\nStatistical test: Paired Wilcoxon\n\n\n\nrice-rice  oat-rice   oat-oat  rice-oat \n        2         0        34         1 \n\n\nLet us look more closely to the significant hits. The logFC corresponds to logFC in CLR (tp2-tp1).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNULL\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFor a complete table of results, see complete results"
+    "text": "Analysis information:\n\nTaxonomic level: genus_prevalent\n\nTaxa that are less prevalent than this (in relabundance) have been agglomerated:\n\nDetection threshold: 0.1%\nPrevalence threshold: 10%\nNumber of taxonomic groups: 139\n\nNumber of significant findings within time points (Kruskal test, Benjamini-Hochberg FDR adjustment).\n\n\nbefore  after \n     0      5 \n\n\nNumber of significant findings within treatments (Paired Wilcoxon test, Benjamini-Hochberg FDR adjustment).\n\nMultiple testing correction: BH\nStatistical test: Paired Wilcoxon\n\n\n\nrice  oat \n   5    2 \n\n\nLet us look more closely to the significant hits. The logFC corresponds to logFC in CLR (tp2-tp1).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFor a complete table of results, see complete results"
+  },
+  {
+    "objectID": "beta/beta.html",
+    "href": "beta/beta.html",
+    "title": "Beta diversity",
+    "section": "",
+    "text": "In the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2"
+  },
+  {
+    "objectID": "beta/beta.html#community-composition",
+    "href": "beta/beta.html#community-composition",
+    "title": "Beta diversity",
+    "section": "",
+    "text": "In the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2"
+  },
+  {
+    "objectID": "daa/daa_taxa.html#maaslin3-significant-hits",
+    "href": "daa/daa_taxa.html#maaslin3-significant-hits",
+    "title": "DAA Taxa",
+    "section": "",
+    "text": "This section highlights significant taxa from maaslin3.\nAnalysis information:\n\nMethod: maaslin3\nTaxonomic level: species\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%"
   }
 ]

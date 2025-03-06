@@ -122,30 +122,33 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">B/F Ratio</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-daa" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">DAA</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-taxonomic-daa" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Taxonomic DAA</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-daa">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-taxonomic-daa">    
         <li>
     <a class="dropdown-item" href="../daa/daa_taxa.html">
  <span class="dropdown-text">Maaslin</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../daa/daa_interest.html">
- <span class="dropdown-text">Taxa of interest</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../daa/daa_maaslin.html">
- <span class="dropdown-text">Significant hits</span></a>
+ <span class="dropdown-text">Selected Taxa</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../daa/daa_genus_prevalent.html">
- <span class="dropdown-text">Genus</span></a>
+ <span class="dropdown-text">Wilcoxon Genus</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../daa/daa_species_prevalent.html">
- <span class="dropdown-text">Species</span></a>
+ <span class="dropdown-text">Wilcoxon Species</span></a>
   </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-functional-daa" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Functional DAA</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-functional-daa">    
         <li>
     <a class="dropdown-item" href="../daa/daa_pa.html">
  <span class="dropdown-text">Pathway Abundance</span></a>
@@ -208,7 +211,7 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#data-summary" id="toc-data-summary" class="nav-link" data-scroll-target="#data-summary"><span class="header-section-number">2</span> Data Summary</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="alpha_observed.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
@@ -246,6 +249,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Multiple testing correction:</strong> FDR</li>
 <li><strong>Statistical test</strong> Wilcoxon</li>
 </ul>
+<p>In the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -267,8 +271,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-7fc0531b1f60df851d4c" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-7fc0531b1f60df851d4c">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity comparisons before Treatment<\/caption>","data":[["rice"],["oat"],[231.5],[211],[-0.13],[0.128]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>group1<\/th>\n      <th>group2<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>log2FC<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[2,3,4,5]},{"name":"group1","targets":0},{"name":"group2","targets":1},{"name":"mean1","targets":2},{"name":"mean2","targets":3},{"name":"log2FC","targets":4},{"name":"p.adj","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-22c869ddf21530580b2a" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-22c869ddf21530580b2a">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity comparisons before Treatment<\/caption>","data":[["rice"],["oat"],[231.5],[211],[-0.13],[0.128]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>group1<\/th>\n      <th>group2<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>log2FC<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[2,3,4,5]},{"name":"group1","targets":0},{"name":"group2","targets":1},{"name":"mean1","targets":2},{"name":"mean2","targets":3},{"name":"log2FC","targets":4},{"name":"p.adj","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -280,8 +284,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-4e995f96a3c4bf89306a" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-4e995f96a3c4bf89306a">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity comparisons after Treatment<\/caption>","data":[["rice"],["oat"],[233.1],[207],[-0.17],[0.053]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>group1<\/th>\n      <th>group2<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>log2FC<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[2,3,4,5]},{"name":"group1","targets":0},{"name":"group2","targets":1},{"name":"mean1","targets":2},{"name":"mean2","targets":3},{"name":"log2FC","targets":4},{"name":"p.adj","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-d01b7bc7d01c40603cd6" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d01b7bc7d01c40603cd6">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity comparisons after Treatment<\/caption>","data":[["rice"],["oat"],[233.1],[207],[-0.17],[0.053]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>group1<\/th>\n      <th>group2<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>log2FC<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[2,3,4,5]},{"name":"group1","targets":0},{"name":"group2","targets":1},{"name":"mean1","targets":2},{"name":"mean2","targets":3},{"name":"log2FC","targets":4},{"name":"p.adj","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
@@ -305,8 +309,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-ad2b35eafcf215e51811" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-ad2b35eafcf215e51811">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity paired between timepoint(1 and 2)<\/caption>","data":[["rice","oat"],[231.5,211],[233.1,207],[0.13,0.04],[0.408,0.12],[339.5,339.7]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>diet<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>log2FC<\/th>\n      <th>p.value<\/th>\n      <th>y.position<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"dom":"Bfrtip","columnDefs":[{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[1,2,3,4,5]},{"name":"diet","targets":0},{"name":"mean1","targets":1},{"name":"mean2","targets":2},{"name":"log2FC","targets":3},{"name":"p.value","targets":4},{"name":"y.position","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-ded70bebb47d0793256e" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-ded70bebb47d0793256e">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity paired between timepoint(1 and 2)<\/caption>","data":[["rice","oat"],[231.5,211],[233.1,207],[0.13,0.04],[0.408,0.12],[339.5,339.7]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>diet<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>log2FC<\/th>\n      <th>p.value<\/th>\n      <th>y.position<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"dom":"Bfrtip","columnDefs":[{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[1,2,3,4,5]},{"name":"diet","targets":0},{"name":"mean1","targets":1},{"name":"mean2","targets":2},{"name":"log2FC","targets":3},{"name":"p.value","targets":4},{"name":"y.position","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
 </div>
 </div>
 </section>

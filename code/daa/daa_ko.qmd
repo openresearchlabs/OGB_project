@@ -84,7 +84,7 @@ run_maaslin3(ko_tse)
           caption = "Table of significant features",
           rownames = FALSE
       ) %>%
-        formatSignif(columns = c("qval_joint"), digits = 3)
+        formatSignif(columns = c("coef", "qval_individual", "qval_joint"), digits = 3)
     } else {
       library(kableExtra)
       daa_tab %>% 

@@ -17,7 +17,7 @@ variable <- "diet"
 prevalence.th <- 10/100
 detection.th <- 0.1/100
 tax.level <- params$tax.level
-tax.level <- "genus_prevalent"
+#tax.level <- "genus_prevalent"
 
 # Add CLR transformation
 tse <- transformAssay(
@@ -70,10 +70,10 @@ print(colSums(pvals.timepoints<0.25))
 # Calculate adjusted p-values within each time point
 # to test if any taxonomic group differs between treatments (Kruskal test)
 pvals <- NULL
-for (g in unique(tse$meal)) {
+for (g in unique(tse$diet)) {
   # Pick data for the given Treatment for time points 1 and 2
-  tse1  <- tse[, tse$meal==g & tse$timepoint=="before"]
-  tse2  <- tse[, tse$meal==g & tse$timepoint=="after"]
+  tse1  <- tse[, tse$diet==g & tse$timepoint=="before"]
+  tse2  <- tse[, tse$diet==g & tse$timepoint=="after"]
   # Ensure that subject match (pairing ok)
   if (!all(tse1$id==tse2$id)) {stop("Subjects do not match!")}
   pvs   <- sapply(rownames(tse), function (tax) {
@@ -83,7 +83,7 @@ for (g in unique(tse$meal)) {
   padj  <- p.adjust(pvs, "BH")
   pvals <- cbind(pvals, padj)
 }
-colnames(pvals) <- unique(tse$meal)
+colnames(pvals) <- unique(tse$diet)
 pvals.treatments <- pvals
 ```
 
@@ -103,7 +103,8 @@ file_path1 <- file.path("../../output/daa/daa_taxa/species/all_results.tsv")
 file_path2 <- file.path("../../output/daa/daa_taxa/genus/all_results.tsv")
 
 
-signif.features <- names(which(pvals.treatments[, 1] < 0.25 | pvals.treatments[, 2] < 0.25 | pvals.treatments[, 3] < 0.25 | pvals.treatments[, 4] < 0.25))
+signif.features <- names(which(pvals.treatments[, 1] < 0.25 | pvals.treatments[, 2] < 0.25 #| pvals.treatments[, 3] < 0.25 | pvals.treatments[, 4] < 0.25
+                               ))
 
 taxa_of_interest <- c(signif.features)
 
@@ -205,6 +206,7 @@ plots_list <- setNames(lapply(taxa_of_interest, plot_taxon),
 #| layout-ncol: 1
 #| fig-width: 12
 #| fig-height: 5
+
 ordered_plots <- plots_list[order(names(plots_list))]
 
 for (plot_name in names(ordered_plots)) {
@@ -216,10 +218,10 @@ for (plot_name in names(ordered_plots)) {
 ```{r hits}
 tabs <- NULL 
 
-for (g in unique(tse$meal)) {
+for (g in unique(tse$diet)) {
 
   if (length(signif.features)>0) {
-    tseg <- tse[, tse$meal==g] 
+    tseg <- tse[, tse$diet==g] 
     df <- as.data.frame(colData(tseg)) 
     for (tax in signif.features) {
       df$signal <- as.vector(assay(tseg, "relabundance")[tax,])
@@ -232,7 +234,7 @@ for (g in unique(tse$meal)) {
       tabs <-
         rbind(tabs,
         c(
-          Meal = g,
+          Diet = g,
           Taxon = tax,
           mean1 = mean(subset(df, timepoint=="before")$signal),
           mean2 = mean(subset(df, timepoint=="after")$signal),
@@ -272,12 +274,12 @@ if (knitr::is_html_output()) {
 
 ```{r volcano-tab}
 tabs_all <- NULL
-for (g in unique(tse$meal)) {
+for (g in unique(tse$diet)) {
   # P-values
   all_features <-  names(pvals.treatments[, g])
 
   if (length(all_features)>0) {
-    tseg <- tse[, tse$meal==g] 
+    tseg <- tse[, tse$diet==g] 
     df <- as.data.frame(colData(tseg)) 
     for (tax in all_features) {
       df$signal <- as.vector(assay(tseg, "relabundance")[tax,])
@@ -290,7 +292,7 @@ for (g in unique(tse$meal)) {
       tabs_all <-
         rbind(tabs_all,
         c(
-          Meal = g,
+          Diet = g,
           Taxon = tax,
           mean1 = mean(subset(df, timepoint=="before")$signal),
           mean2 = mean(subset(df, timepoint=="after")$signal),
@@ -338,7 +340,7 @@ volcano_plot <- ggplot(tabs_all, aes(x = logFC.clr, y = FDR, size = mean.rel2)) 
   ) +
   scale_color_manual(values = c("blue", "red")) +  
   theme_minimal(base_size = 14) +
-  facet_wrap(~ Meal) +
+  facet_wrap(~ Diet) +
   theme(
     legend.position = "none",
     plot.title = element_text(hjust = 0.5)
