@@ -4,7 +4,7 @@
     "href": "beta/beta.html#unsupervised-analysis",
     "title": "Beta diversity",
     "section": "2 Unsupervised analysis",
-    "text": "2 Unsupervised analysis\n\n2.1 Community dissimilarity\nThis document presents the results of a microbiota project, focusing on beta diversity analysis. Specifically, in this section, we employed Principal Coordinates Analysis (PCoA) to assess community dissimilarity among microbiota samples.\n\nTaxonomic level: species\nDissimilarity index: bray\nGroup variable: diet\n\n\n\n2.2 PCoA plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2.3 Table of the top findings\n\n2.3.0.1 Paired treatment between timepoint(1 and 2)\n\nMultiple testing correction: fdr\nStatistical test: paired Wilcoxon"
+    "text": "2 Unsupervised analysis\n\n2.1 Community dissimilarity\nThis document presents the results of a microbiota project, focusing on beta diversity analysis. Specifically, in this section, we employed Principal Coordinates Analysis (PCoA) to assess community dissimilarity among microbiota samples.\n\nTaxonomic level: species\nDissimilarity index: bray\nGroup variable: diet\n\n\n\n2.2 PCoA plots\n\n\n\n\n\n\n\n\n\n\n\n2.3 Table of the top findings\n\n2.3.0.1 Paired treatment between timepoint(1 and 2)\n\nMultiple testing correction: fdr\nStatistical test: paired Wilcoxon"
   },
   {
     "objectID": "beta/beta.html#supervised-analysis",
