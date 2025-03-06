@@ -204,8 +204,6 @@ image_paths <- c(
   "![](../../output/daa/daa_taxa/genus/figures/association_plots/timepoint/linear/timepoint_Candidatus_Cibionibacter_linear.png)",
   "![](../../output/daa/daa_taxa/genus/figures/association_plots/timepoint/linear/timepoint_Clostridiaceae_unclassified_linear.png)",
   "![](../../output/daa/daa_taxa/genus/figures/association_plots/timepoint/linear/timepoint_GGB34797_linear.png)",
-  "![](../../output/daa/daa_taxa/genus/figures/summary_plot.png)",
-  "![](../../output/daa/daa_taxa/phylum/figures/summary_plot.png)",
   "![](../../output/daa/daa_taxa/species/figures/association_plots/diet/linear/diet_Clostridiaceae_bacterium_linear.png)",
   "![](../../output/daa/daa_taxa/species/figures/association_plots/diet/linear/diet_Clostridiales_bacterium_KLE1615_linear.png)",
   "![](../../output/daa/daa_taxa/species/figures/association_plots/diet/logistic/diet_Evtepia_gabavorous_logistic.png)",
@@ -225,10 +223,6 @@ image_matrix <- matrix(image_paths, ncol = 4, byrow = TRUE)
 kable(image_matrix, format = "markdown", escape = FALSE)
 ```
 
----
-title: "Differential abundance analysis"
-author: ""
----
 
 ```{r setup_m}
 # Source group-assignment
@@ -247,6 +241,8 @@ formula_used <- "~ diet * timepoint + (1 | id)"
 correction <- "Benjamini-Hochberg FDR adjustment"
 
 ```
+
+## Maaslin3 significant hits
 
 This section highlights significant taxa from maaslin3.
 
