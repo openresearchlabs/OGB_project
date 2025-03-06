@@ -4,14 +4,14 @@
     "href": "beta/beta.html#unsupervised-analysis",
     "title": "Beta diversity",
     "section": "2 Unsupervised analysis",
-    "text": "2 Unsupervised analysis\n\n2.1 Community dissimilarity\nThis document presents the results of a microbiota project, focusing on beta diversity analysis. Specifically, in this section, we employed Principal Coordinates Analysis (PCoA) to assess community dissimilarity among microbiota samples.\n\nTaxonomic level: species\nDissimilarity index: bray\nGroup variable: diet\n\n\n\n2.2 PCoA plots\n\n\n\n\n\n\n\n\n\n\n\n2.3 Table of the top findings\n\n2.3.0.1 Paired treatment between timepoint(1 and 2)\n\nMultiple testing correction: fdr\nStatistical test: paired Wilcoxon"
+    "text": "2 Unsupervised analysis\n\n2.1 Community dissimilarity\nThis document presents the results of a microbiota project, focusing on beta diversity analysis. Specifically, in this section, we employed Principal Coordinates Analysis (PCoA) to assess community dissimilarity among microbiota samples.\n\nTaxonomic level: species\nDissimilarity index: bray\nGroup variable: diet\n\n\n\n2.2 PCoA plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2.3 Table of the top findings\n\n2.3.0.1 Paired treatment between timepoint(1 and 2)\n\nMultiple testing correction: fdr\nStatistical test: paired Wilcoxon"
   },
   {
     "objectID": "beta/beta.html#supervised-analysis",
     "href": "beta/beta.html#supervised-analysis",
     "title": "Beta diversity",
     "section": "3 Supervised analysis",
-    "text": "3 Supervised analysis\n\n3.1 Permanova analysis\n\nDissimilarity index: bray\nGroup variable: diet\n\nInterpretation\n\nHomogeneity &lt; 0.05: The assumption of homogeneity of variance is violated (i.e., the variances are significantly different across groups).\nHomogeneity ≥ 0.05: The assumption of homogeneity of variance is not violated (i.e., the variances are similar across groups).\n\n\n3.1.1 Across-group\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3.1.2 Within-group\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3.2 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 1700 140 \nmetadata(0):\nassays(1): relabundance\nrownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(140): AE1332 AE2332 ... VK1336 VK2336\ncolData names(16): sample id ... shannon group\nreducedDimNames(0):\nmainExpName: NULL\naltExpNames(20): kingdom phylum ... KO metacyc\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
+    "text": "3 Supervised analysis\n\n3.1 Permanova analysis\n\nDissimilarity index: bray\nGroup variable: diet\n\nInterpretation\n\nHomogeneity &lt; 0.05: The assumption of homogeneity of variance is violated (i.e., the variances are significantly different across groups).\nHomogeneity ≥ 0.05: The assumption of homogeneity of variance is not violated (i.e., the variances are similar across groups).\n\n\n3.1.1 Across-group\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3.1.2 Within-group\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3.2 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 1700 140 \nmetadata(0):\nassays(1): relabundance\nrownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(140): AE1332 AE2332 ... VK1336 VK2336\ncolData names(17): sample id ... shannon group\nreducedDimNames(0):\nmainExpName: NULL\naltExpNames(20): kingdom phylum ... KO metacyc\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
   },
   {
     "objectID": "daa/daa_taxa.html",
@@ -72,9 +72,9 @@
   {
     "objectID": "ratio/ratio.html",
     "href": "ratio/ratio.html",
-    "title": "Bacteroidetes/Firmicutes ratio",
+    "title": "Bacteroidota/Baccilota ratio",
     "section": "",
-    "text": "Taxonomic level: Phylum\nGroup variable: diet\nMultiple testing correction: fdr\nStatistical test Wilcoxon\n\nIn the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n-2.24\n-2.61 – -1.87\n&lt;0.001\n\n\ndiet [oat]\n0.28\n-0.24 – 0.81\n0.285\n\n\ntimepoint [after]\n0.20\n-0.19 – 0.58\n0.311\n\n\ndiet [oat] × timepoint[after]\n-0.22\n-0.77 – 0.33\n0.427\n\n\nRandom Effects\n\n\n\nσ2\n0.67\n\n\n\nτ00 id\n0.58\n\n\nICC\n0.47\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.010 / 0.473"
+    "text": "Taxonomic level: Phylum\nGroup variable: diet\nMultiple testing correction: fdr\nStatistical test Wilcoxon\n\nIn the report, a suffix of 1~ Baseline and 2~ Week 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: paired Wilcoxon"
   },
   {
     "objectID": "ratio/ratio.html#bacteroidetesfirmicutes-ratio",
@@ -86,23 +86,23 @@
   {
     "objectID": "ratio/ratio.html#data-summary",
     "href": "ratio/ratio.html#data-summary",
-    "title": "Bacteroidetes/Firmicutes ratio",
-    "section": "2 Data Summary",
-    "text": "2 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 18 140 \nmetadata(1): agglomerated_by_rank\nassays(1): relabundance\nrownames(18): Actinobacteria Ascomycota ... Thaumarchaeota\n  Verrucomicrobia\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(140): AE1332 AE2332 ... VK1336 VK2336\ncolData names(18): sample id ... bact_firm_ratio bfratio\nreducedDimNames(0):\nmainExpName: NULL\naltExpNames(0):\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
+    "title": "Bacteroidota/Baccilota ratio",
+    "section": "1 Data Summary",
+    "text": "1 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 18 140 \nmetadata(1): agglomerated_by_rank\nassays(1): relabundance\nrownames(18): Actinobacteria Ascomycota ... Thaumarchaeota\n  Verrucomicrobia\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(140): AE1332 AE2332 ... VK1336 VK2336\ncolData names(19): sample id ... bact_firm_ratio bfratio\nreducedDimNames(0):\nmainExpName: NULL\naltExpNames(0):\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
   },
   {
     "objectID": "alpha/alpha_shannon.html",
     "href": "alpha/alpha_shannon.html",
     "title": "Alpha Diversity",
     "section": "",
-    "text": "Index: shannon\nGroup variable: diet\nMultiple testing correction: FDR\nStatistical test Wilcoxon\n\nIn the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n4.02\n3.90 – 4.15\n&lt;0.001\n\n\ndiet [oat]\n-0.05\n-0.23 – 0.13\n0.582\n\n\ntimepoint [after]\n0.06\n-0.02 – 0.15\n0.128\n\n\ndiet [oat] × timepoint[after]\n-0.13\n-0.24 – -0.01\n0.036\n\n\nRandom Effects\n\n\n\nσ2\n0.03\n\n\n\nτ00 id\n0.12\n\n\nICC\n0.79\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.027 / 0.800"
+    "text": "Index: shannon\nGroup variable: diet\nMultiple testing correction: FDR\nStatistical test Wilcoxon\n\nIn the report, a suffix of 1~ Baseline and 2~ Week 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n4.02\n3.90 – 4.15\n&lt;0.001\n\n\ndiet [oat]\n-0.05\n-0.23 – 0.13\n0.582\n\n\ntimepoint [after]\n0.06\n-0.02 – 0.15\n0.128\n\n\ndiet [oat] × timepoint[after]\n-0.13\n-0.24 – -0.01\n0.036\n\n\nRandom Effects\n\n\n\nσ2\n0.03\n\n\n\nτ00 id\n0.12\n\n\nICC\n0.79\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.027 / 0.800"
   },
   {
     "objectID": "alpha/alpha_shannon.html#group-wise-comparisons",
     "href": "alpha/alpha_shannon.html#group-wise-comparisons",
     "title": "Alpha Diversity",
     "section": "",
-    "text": "Index: shannon\nGroup variable: diet\nMultiple testing correction: FDR\nStatistical test Wilcoxon\n\nIn the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n4.02\n3.90 – 4.15\n&lt;0.001\n\n\ndiet [oat]\n-0.05\n-0.23 – 0.13\n0.582\n\n\ntimepoint [after]\n0.06\n-0.02 – 0.15\n0.128\n\n\ndiet [oat] × timepoint[after]\n-0.13\n-0.24 – -0.01\n0.036\n\n\nRandom Effects\n\n\n\nσ2\n0.03\n\n\n\nτ00 id\n0.12\n\n\nICC\n0.79\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.027 / 0.800"
+    "text": "Index: shannon\nGroup variable: diet\nMultiple testing correction: FDR\nStatistical test Wilcoxon\n\nIn the report, a suffix of 1~ Baseline and 2~ Week 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n4.02\n3.90 – 4.15\n&lt;0.001\n\n\ndiet [oat]\n-0.05\n-0.23 – 0.13\n0.582\n\n\ntimepoint [after]\n0.06\n-0.02 – 0.15\n0.128\n\n\ndiet [oat] × timepoint[after]\n-0.13\n-0.24 – -0.01\n0.036\n\n\nRandom Effects\n\n\n\nσ2\n0.03\n\n\n\nτ00 id\n0.12\n\n\nICC\n0.79\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.027 / 0.800"
   },
   {
     "objectID": "alpha/alpha_shannon.html#data-summary",
@@ -116,14 +116,14 @@
     "href": "alpha/alpha_observed.html",
     "title": "Alpha Diversity",
     "section": "",
-    "text": "Index: observed\nGroup variable: diet\nMultiple testing correction: FDR\nStatistical test Wilcoxon\n\nIn the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n7.80\n7.64 – 7.95\n&lt;0.001\n\n\ndiet [oat]\n-0.15\n-0.37 – 0.07\n0.178\n\n\ntimepoint [after]\n0.01\n-0.03 – 0.05\n0.663\n\n\ndiet [oat] × timepoint[after]\n-0.04\n-0.09 – 0.02\n0.201\n\n\nRandom Effects\n\n\n\nσ2\n0.01\n\n\n\nτ00 id\n0.22\n\n\nICC\n0.97\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.032 / 0.971"
+    "text": "Index: observed\nGroup variable: diet\nMultiple testing correction: FDR\nStatistical test Wilcoxon\n\nIn the report, a suffix of 1~ Baseline and 2~ Week 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n7.80\n7.64 – 7.95\n&lt;0.001\n\n\ndiet [oat]\n-0.15\n-0.37 – 0.07\n0.178\n\n\ntimepoint [after]\n0.01\n-0.03 – 0.05\n0.663\n\n\ndiet [oat] × timepoint[after]\n-0.04\n-0.09 – 0.02\n0.201\n\n\nRandom Effects\n\n\n\nσ2\n0.01\n\n\n\nτ00 id\n0.22\n\n\nICC\n0.97\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.032 / 0.971"
   },
   {
     "objectID": "alpha/alpha_observed.html#group-wise-comparisons",
     "href": "alpha/alpha_observed.html#group-wise-comparisons",
     "title": "Alpha Diversity",
     "section": "",
-    "text": "Index: observed\nGroup variable: diet\nMultiple testing correction: FDR\nStatistical test Wilcoxon\n\nIn the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n7.80\n7.64 – 7.95\n&lt;0.001\n\n\ndiet [oat]\n-0.15\n-0.37 – 0.07\n0.178\n\n\ntimepoint [after]\n0.01\n-0.03 – 0.05\n0.663\n\n\ndiet [oat] × timepoint[after]\n-0.04\n-0.09 – 0.02\n0.201\n\n\nRandom Effects\n\n\n\nσ2\n0.01\n\n\n\nτ00 id\n0.22\n\n\nICC\n0.97\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.032 / 0.971"
+    "text": "Index: observed\nGroup variable: diet\nMultiple testing correction: FDR\nStatistical test Wilcoxon\n\nIn the report, a suffix of 1~ Baseline and 2~ Week 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: FDR\nStatistical test: paired Wilcoxon\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\n\n\n \ny\n\n\nPredictors\nEstimates\nCI\np\n\n\n(Intercept)\n7.80\n7.64 – 7.95\n&lt;0.001\n\n\ndiet [oat]\n-0.15\n-0.37 – 0.07\n0.178\n\n\ntimepoint [after]\n0.01\n-0.03 – 0.05\n0.663\n\n\ndiet [oat] × timepoint[after]\n-0.04\n-0.09 – 0.02\n0.201\n\n\nRandom Effects\n\n\n\nσ2\n0.01\n\n\n\nτ00 id\n0.22\n\n\nICC\n0.97\n\n\nN id\n71\n\nObservations\n140\n\n\nMarginal R2 / Conditional R2\n0.032 / 0.971"
   },
   {
     "objectID": "alpha/alpha_observed.html#data-summary",
@@ -151,14 +151,14 @@
     "href": "beta/beta.html",
     "title": "Beta diversity",
     "section": "",
-    "text": "In the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2"
+    "text": "In the report, a suffix of 1~ Baseline and 2~ Week 6"
   },
   {
     "objectID": "beta/beta.html#community-composition",
     "href": "beta/beta.html#community-composition",
     "title": "Beta diversity",
     "section": "",
-    "text": "In the report, a suffix of 1~ timepoint 1 and 2~ timepoint 2"
+    "text": "In the report, a suffix of 1~ Baseline and 2~ Week 6"
   },
   {
     "objectID": "daa/daa_taxa.html#maaslin3-significant-hits",

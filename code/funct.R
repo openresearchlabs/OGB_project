@@ -41,17 +41,17 @@ comparisons <- list(
 # # Define the list of comparisons
 comparisons_before <- list(
   # Between-Group Comparisons at Baseline (before treatment)
-  c("rice", "oat")
+  c("oat", "rice")
 )
 
 comparisons_after <- list(
   # Between-Group Comparisons after treatment
-  c("rice", "oat")
+  c("oat", "rice")
 )
 
 comparisons_paired <- list(
   # Within-Group Comparisons after treatment
-  c("before", "after")
+  c("Baseline", "Week 6")
 )
 
 # Define function to extract diet and visit info
@@ -63,6 +63,12 @@ extract_diet_visit <- function(comparison) {
 assign_timepoint <- function(df) {
   df$timepoint <- ifelse(df$visit == 1, "before", 
                     ifelse(df$visit == 2, "after", NA))
+  return(df)
+}
+
+assign_duration <- function(df) {
+  df$duration <- ifelse(df$visit == 1, "Baseline", 
+                         ifelse(df$visit == 2, "Week 6", NA))
   return(df)
 }
 
@@ -157,11 +163,11 @@ run_lmer <- function(tse, target){
   
   df <- colData(tse) %>% as.data.frame
   df$y <- df[[target]]
-  df <- df[, c("y", "diet", "timepoint", "id")]
+  df <- df[, c("y", "diet", "duration", "id")]
   
   # Filter out missing data cases
   df_no_miss <- df[df %>% complete.cases,]
   
-  m <- lmerTest::lmer(y ~ diet * timepoint + (1 | id), data = df_no_miss)
+  m <- lmerTest::lmer(y ~ diet * duration + (1 | id), data = df_no_miss)
   return(m)
 }
