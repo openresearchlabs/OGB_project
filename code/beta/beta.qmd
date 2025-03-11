@@ -105,7 +105,7 @@ plots <- lapply(sort(unique(tse_p$diet)), function(diet_id) {
             assay.type = "relabundance",
             color.by = "phylum_sub",
             group = "phylum_sub",
-            order.row.by = "abund",
+            order.row.by = "name",
             order.col.by = "Firmicutes"
         ) +
             theme(
@@ -215,7 +215,7 @@ plots <- lapply(sort(unique(tse_g$diet)), function(diet_id) {
             assay.type = "relabundance",
             color.by = "genus_sub",
             group = "genus_sub",
-            order.row.by = "abund"
+            order.row.by = "name"
         ) +
             theme(
               axis.text.y = element_text(face = "bold", size = 12),
@@ -884,9 +884,16 @@ if (knitr::is_html_output()) {
         align = c('l', rep('r', ncol(final_results_permanova_paired)-1))) %>%
     row_spec(0, bold = TRUE)
 }
- 
+
+prevalence.th <- 10/100
+detection.th <- 0.1/100
    
 ```
+
+### Average abundance and 95 percentile of prevalent species and genus
+
+-   Detection threshold: `r 100 * detection.th`%
+-   Prevalence threshold: `r 100 * prevalence.th`%
 
 ```{r}
 tse <- readRDS("../../data/tse.Rds")
