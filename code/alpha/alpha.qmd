@@ -236,7 +236,7 @@ results_paired <- lapply(diet_groups, function(group) {
   res <- run_diversity_tests(
     tse = tse_subset, 
     comparisons = comparisons_paired, 
-    variable = "timepoint", 
+    variable = "duration", 
     index, 
     adjust.method = adjust.method, 
     paired = TRUE
@@ -410,7 +410,7 @@ colData(tse_new) <- DataFrame(
 )
 
 div_change <- plotColData(
-    tse_new, x = "timepoint", y = index,
+    tse_new, x = "duration", y = index,
     show_boxplot = TRUE,
     show_violin = FALSE,
     other_fields = c("group", "id", "diet", "change")) + 

@@ -49,14 +49,14 @@ tse2 <- tse[, tse$timepoint=="after"]
 # Calculate adjusted p-values within each time point
 # to test if any taxonomic group differs between treatments (Kruskal test)
 pvals <- NULL
-for (tp in unique(tse$timepoint)) {
+for (tp in unique(tse$duration)) {
   # Pick data for the given time point
-  tse2 <- tse[, tse$timepoint==tp]
+  tse2 <- tse[, tse$duration==tp]
   pvs <- apply(assay(tse2, "clr"), 1, function (x) {kruskal.test(x ~ tse2$diet)$p.value})
   padj <- p.adjust(pvs, "BH")
   pvals <- cbind(pvals, padj)
 }
-colnames(pvals) <- unique(tse$timepoint)
+colnames(pvals) <- unique(tse$duration)
 pvals.timepoints <- pvals
 ```
 
@@ -175,8 +175,8 @@ plot_taxon <- function(taxon) {
       geom_boxplot(outlier.shape = NA) +
       geom_point() + 
       scale_y_log10(labels = scales::percent) + 
-      theme(text = element_text(size = 25), legend.position = "none") +
-      labs(title = taxon, y = "Abundance (%)") +
+      theme(text = element_text(size = 15), legend.position = "none") +
+      labs(title = taxon, x = "Diet", y = "Abundance (%)") +
       facet_wrap(~ timepoint, nrow = 1)
     
     p3 <- ggplot(df, aes(x = timepoint, y = signal)) +
@@ -186,7 +186,7 @@ plot_taxon <- function(taxon) {
       scale_color_gradient2(midpoint = median_change, low = "blue", mid = "white", high = "red", space = "Lab", limits = c(min_change, max_change)) +
       facet_wrap(~ diet) +
       scale_y_log10(labels = scales::percent) + 
-      theme(text = element_text(size = 25), legend.position = "right") +
+      theme(text = element_text(size = 15), legend.position = "right") +
       labs(x = "Time", y = "Abundance (%)")
     
     # Combine the before and after plots
@@ -204,8 +204,8 @@ plots_list <- setNames(lapply(taxa_of_interest, plot_taxon),
 
 ```{r significant-hit-taxa}
 #| layout-ncol: 1
-#| fig-width: 12
-#| fig-height: 5
+#| fig-width: 10
+#| fig-height: 3
 
 ordered_plots <- plots_list[order(names(plots_list))]
 
@@ -266,7 +266,7 @@ For a complete table of results, see [complete results](https://seafile.utu.fi/f
 if (knitr::is_html_output()) {
   datatable(tabs,
             options = list(pageLength = 10),
-            caption = "Table of significant hits")
+            caption = "Table of significant hits within groups")
 } else {
   kable(tabs)
 }
@@ -327,9 +327,73 @@ tabs_all$FDR <- round(as.numeric(tabs_all$FDR), 3)
 tabs_all$logFC.clr <- round(as.numeric(tabs_all$logFC.clr), 4)
 ```
 
+```{r}
+tabs_all_tp <- NULL
+for ( bigG in unique(tse$diet)){
+    for (g in unique(tse$duration)) {
+      # P-values
+      all_features <-  names(pvals.timepoints[, g])
+    
+      if (length(all_features)>0) {
+        tseg <- tse[, tse$duration==g] 
+        df <- as.data.frame(colData(tseg)) 
+        for (tax in all_features) {
+          df$signal <- as.vector(assay(tseg, "relabundance")[tax,])
+          df$clr <- as.vector(assay(tseg, "clr")[tax,])      
+          vars <- c("id", "duration", "signal")
+          dfm <- melt(df[, vars], verbose = FALSE)
+          colnames(dfm) <- vars
+          pv <- pvals.timepoints[tax, g]
+    
+          tabs_all_tp <-
+            rbind(tabs_all_tp,
+            c(
+              Diet = bigG,
+              Timepoint = g,
+              Taxon = tax,
+              mean = mean(subset(df, duration==g)$signal),
+    
+            # sd = sd(subset(df, duration == g)$signal),
+            # # Medians
+            # median = median(subset(df, duration == g)$signal),
+            # # IQR (25th and 75th percentiles)
+            # iqr25 = quantile(subset(df, duration == g)$signal, 0.25),
+            # iqr75 = quantile(subset(df, duration == g)$signal, 0.75),
+            logFC.clr = mean(subset(df, duration==g)$clr),
+              FDR   = pv 
+            ))
+        }
+      }
+    }
+}
+```
+
+```{r}
+tabs_all_tp <- as.data.frame(tabs_all_tp)
+tabs_all_tp$mean.rel <- round(100 * as.numeric(tabs_all_tp$mean), 1); tabs_all_tp$mean <- NULL
+
+tabs_all_tp$FDR <- round(as.numeric(tabs_all_tp$FDR), 3)
+tabs_all_tp$logFC.clr <- round(as.numeric(tabs_all_tp$logFC.clr), 4)
+
+# For a complete table of results, see [complete timepoint results]()
+```
+
+
+
+```{r table_tp}
+#| label: table_tp
+if (knitr::is_html_output()) {
+  datatable(tabs_all_tp,
+            options = list(pageLength = 10),
+            caption = "Table of features within timepoints between diet groups")
+} else {
+  kable(tabs_all_tp)
+}
+```
+
 ```{r volcano-plot}
 #| fig.width: 12
-#| fig.height: 8
+#| fig.height: 6
 
 volcano_plot <- ggplot(tabs_all, aes(x = logFC.clr, y = FDR, size = mean.rel2)) +
   geom_point(aes(color = FDR < 0.25), alpha = 0.7) +  
