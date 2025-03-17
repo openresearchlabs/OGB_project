@@ -215,7 +215,8 @@ plots <- lapply(sort(unique(tse_g$diet)), function(diet_id) {
             assay.type = "relabundance",
             color.by = "genus_sub",
             group = "genus_sub",
-            order.row.by = "name"
+            order.row.by = "name",
+            order.col.by = "Other"
         ) +
             theme(
               axis.text.y = element_text(face = "bold", size = 12),
@@ -671,26 +672,28 @@ if (knitr::is_html_output()) {
 
 ```{r run_rdba_tests}
 # Function to perform dbRDA and permanova analysis
-perform_dbrda_permanova <- function(tse, variable, comparison, var) {
+perform_dbrda_permanova <- function(tse, variable, comparison, var, times) {
     tse_subset <- tse[, colData(tse)[, variable] %in% comparison]
     valid_indices <- complete.cases(colData(tse_subset)[, variable])
     tse_rda <- tse_subset[, valid_indices]
+    tse_rda <- tse_rda[, tse_rda$timepoint == times]
     
-    formula <- as.formula(paste("X ~", var))
+    formula <- as.formula(paste("X ~",variable))
     
     perm_res <- getPERMANOVA(tse_rda, assay.type = "relabundance", 
                           formula = formula, 
                           permutations = 999)
     
     # Extract only the 'group' row and relevant columns
-    perm_df <- as.data.frame(perm_res)
-    group_row <- perm_df[rownames(perm_df) == var, ]
+    perm_df <- as.data.frame(perm_res$permanova)
+    hom_df <- as.data.frame(perm_res$homogeneity)
+    # group_row <- perm_df[rownames(perm_df) == var, ]
     
     result <- data.frame(
-        Group1 = comparison[1],
-        Group2 = comparison[2],
-        P_value = group_row$"permanova.Pr..F.",
-        Homogeneity = signif(tail(perm_df$homogeneity.Pr..F., 1), 3)
+        Term = "Diet",
+        P_value = perm_df$`Pr(>F)`[1],
+        Homogeneity = hom_df$`Pr(>F)`[1]
+        # Homogeneity = signif(tail(perm_df$homogeneity.Pr..F., 1), 3)
         #P_value_adjusted = p.adjust(group_row$"permanova.Pr..F.", method = "fdr")
     )
     
@@ -698,11 +701,11 @@ perform_dbrda_permanova <- function(tse, variable, comparison, var) {
 }
 
 # Function to apply the test over all comparisons and combine results
-run_rdba_tests <- function(tse, comparisons, variable, var) {
+run_rdba_tests <- function(tse, comparisons, variable, var, times) {
     all_results <- list()
     
     for (comp in comparisons) {
-        result <- perform_dbrda_permanova(tse, variable, comp, var)
+        result <- perform_dbrda_permanova(tse, variable, comp, var, times)
         all_results[[length(all_results) + 1]] <- result
     }
     
@@ -714,16 +717,16 @@ run_rdba_tests <- function(tse, comparisons, variable, var) {
 
 ```{r permanova_before-after}
 # For the before treatment comparisons
-final_results_permanova <- run_rdba_tests(tse, comparisons_before, variable, var = variable)
-final_results_permanova$p.adj <- p.adjust(final_results_permanova$P_value, method = "fdr")
-# For the after treatment comparisons
-final_results_permanova_after <- run_rdba_tests(tse, comparisons_after, variable, var = variable)
-final_results_permanova_after$p.adj <- p.adjust(final_results_permanova_after$P_value, method = "fdr")
+# final_results_permanova <- run_rdba_tests(tse, comparisons_before, variable, var = variable)
+# final_results_permanova$p.adj <- p.adjust(final_results_permanova$P_value, method = "fdr")
+# # For the after treatment comparisons
+# final_results_permanova_after <- run_rdba_tests(tse, comparisons_after, variable, var = variable)
+# final_results_permanova_after$p.adj <- p.adjust(final_results_permanova_after$P_value, method = "fdr")
 
-final_results_permanova_tp <- run_rdba_tests(tse, comparisons_before, variable, var = "time")
+final_results_permanova_tp <- run_rdba_tests(tse, comparisons_before, variable, var = "time", times = "before")
 final_results_permanova_tp$p.adj <- p.adjust(final_results_permanova_tp$P_value, method = "fdr")
 # For the after treatment comparisons
-final_results_permanova_after_tp <- run_rdba_tests(tse, comparisons_after, variable, var = "time")
+final_results_permanova_after_tp <- run_rdba_tests(tse, comparisons_after, variable, var = "time", times = "after")
 final_results_permanova_after_tp$p.adj <- p.adjust(final_results_permanova_after_tp$P_value, method = "fdr")
 
 #final_results_permanova[] <- lapply(final_results_permanova, function(x) gsub(".before|.after", "", x))
@@ -798,19 +801,19 @@ final_results_permanova_paired$p.adj <- p.adjust(final_results_permanova_paired$
 ```{r permanova_res_before}
 #| label: permanova_res_before
 
-if (knitr::is_html_output()) {
-  datatable(final_results_permanova,
-            options = list(pageLength = 1),
-            caption = "PERMANOVA Results - before treatment - X ~ diet")
-} else {
-  library(kableExtra)
-  final_results_permanova %>%
-    mutate(across(where(is.numeric), ~round(., 3))) %>%
-    kbl(caption = "PERMANOVA Results - before treatment - X ~ diet",
-        booktabs = TRUE,
-        align = c('l', rep('r', ncol(final_results_permanova)-1))) %>%
-    row_spec(0, bold = TRUE)
-}
+# if (knitr::is_html_output()) {
+#   datatable(final_results_permanova,
+#             options = list(pageLength = 1),
+#             caption = "PERMANOVA Results - before treatment - ")
+# } else {
+#   library(kableExtra)
+#   final_results_permanova %>%
+#     mutate(across(where(is.numeric), ~round(., 3))) %>%
+#     kbl(caption = "PERMANOVA Results - before treatment - X ~ diet",
+#         booktabs = TRUE,
+#         align = c('l', rep('r', ncol(final_results_permanova)-1))) %>%
+#     row_spec(0, bold = TRUE)
+# }
 ```
 
 ```{r permanova_res_beforetp}
@@ -819,7 +822,7 @@ if (knitr::is_html_output()) {
 if (knitr::is_html_output()) {
   datatable(final_results_permanova_tp,
             options = list(pageLength = 1),
-            caption = "PERMANOVA Results - before treatment - X ~ time")
+            caption = "PERMANOVA Results - estimates across diets oat and rice at Baseline")
 } else {
   library(kableExtra)
   final_results_permanova_tp %>%
@@ -834,19 +837,19 @@ if (knitr::is_html_output()) {
 ```{r permanova_res_after}
 #| label: permanova_res_after
 
-if (knitr::is_html_output()) {
-  datatable(final_results_permanova_after,
-            options = list(pageLength = 1),
-            caption = "PERMANOVA Results - after treatment - X ~ diet")
-} else {
-  library(kableExtra)
-  final_results_permanova_after %>%
-    mutate(across(where(is.numeric), ~round(., 3))) %>%
-    kbl(caption = "PERMANOVA Results - after treatment - X ~ diet",
-        booktabs = TRUE,
-        align = c('l', rep('r', ncol(final_results_permanova_after)-1))) %>%
-    row_spec(0, bold = TRUE)
-}
+# if (knitr::is_html_output()) {
+#   datatable(final_results_permanova_after,
+#             options = list(pageLength = 1),
+#             caption = "PERMANOVA Results - after treatment - X ~ diet")
+# } else {
+#   library(kableExtra)
+#   final_results_permanova_after %>%
+#     mutate(across(where(is.numeric), ~round(., 3))) %>%
+#     kbl(caption = "PERMANOVA Results - after treatment - X ~ diet",
+#         booktabs = TRUE,
+#         align = c('l', rep('r', ncol(final_results_permanova_after)-1))) %>%
+#     row_spec(0, bold = TRUE)
+# }
 ```
 
 ```{r permanova_res_aftertp}
@@ -855,7 +858,7 @@ if (knitr::is_html_output()) {
 if (knitr::is_html_output()) {
   datatable(final_results_permanova_after_tp,
             options = list(pageLength = 6),
-            caption = "PERMANOVA Results - after treatment - X ~ time")
+            caption = "PERMANOVA Results - estimates across diets oat and rice at Week 6 ")
 } else {
   library(kableExtra)
   final_results_permanova_after_tp %>%
@@ -874,7 +877,7 @@ if (knitr::is_html_output()) {
 if (knitr::is_html_output()) {
   datatable(final_results_permanova_paired,
             options = list(pageLength = 4),
-            caption = "PERMANOVA Results - Paired after intervention - X ~ time")
+            caption = "PERMANOVA Results - Paired estimate within diets rice and oat between Baseline and Week 6")
 } else {
   library(kableExtra)
   final_results_permanova_paired %>%

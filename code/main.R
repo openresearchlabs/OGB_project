@@ -27,7 +27,7 @@ taxa.levels <- c("species_prevalent", "genus_prevalent")
 # Loop through each level
 lapply(taxa.levels, function(tax.level) {
     orig_dir <- dirname("daa/daa_level.qmd")
-    temp_qmd <- file.path(orig_dir, paste0("daa_", tax.level, ".qmd"))
+    temp_qmd <- file.path(orig_dir, paste0("wilcoxon_", tax.level, ".qmd"))
     file.copy("daa/daa_level.qmd", temp_qmd)
     
     quarto::quarto_render(

@@ -27,13 +27,13 @@ website:
       - text: "Taxonomic DAA"
         menu:
           - text: "Maaslin"
-            href: daa/daa_taxa.html
+            href: daa/daa_taxa_maaslin3.html
           - text: "Selected Taxa"
             href: daa/daa_interest.html
           - text: "Wilcoxon Genus"
-            href: daa/daa_genus_prevalent.html
+            href: daa/wilcoxon_genus_prevalent.html
           - text: "Wilcoxon Species"
-            href: daa/daa_species_prevalent.html
+            href: daa/wilcoxon_species_prevalent.html
           
       - text: "Functional DAA"
         menu:
