@@ -275,8 +275,8 @@ final_results_paired <- results_paired %>%
 # Calculate y-positions for p-value annotations
 final_results_paired <- final_results_paired %>%
   mutate(y.position = sapply(1:nrow(final_results_paired), function(i) {
-    vals1 <- colData(tse)[[ratio]][colData(tse)[["timepoint"]] == group1[i]]
-    vals2 <- colData(tse)[[ratio]][colData(tse)[["timepoint"]] == group2[i]]
+    vals1 <- colData(tse)[[ratio]][colData(tse)[["duration"]] == group1[i]]
+    vals2 <- colData(tse)[[ratio]][colData(tse)[["duration"]] == group2[i]]
     max(c(vals1, vals2)) + i * 0.2
   }))
 final_results_paired$group1 <- NULL
@@ -446,7 +446,7 @@ div_change <- plotColData(
             group = diet        
         ),
         inherit.aes = FALSE,     
-        size = 3,                 
+        size = 4,                 
         color = "black"            
     )
 ```
@@ -601,6 +601,30 @@ if (knitr::is_html_output()) {
 
 ### LMM
 
+Research Question 1: Did the diet change the microbiota?
+
+-   The interaction term (Treatment:Timepoint) tests whether the effect of time on B/F ratio depends on the diet group.
+
+-   Post-hoc analysis within each diet group identifies specific changes in B/F ratio over time.
+
+Research Question 2: Was the microbiota equal between the diet groups before and after diet?
+
+-   The main effect of diet tests for differences in B/F ratio between diet groups at baseline.
+
+-   Post-hoc analysis across diet groups at each timepoint identifies specific differences between diets
+
+Interpret the Results
+
+-   Main Effects:
+    -   diet: Tests for differences in microbiota between Diet A and Diet B at Baseline.
+
+    -   duration: Tests for changes in microbiota over time across both diets.
+
+    -   diet:duration: Tests whether the effect of Timepoint depends on the diet group.
+
+-   Random Effects:
+    -   (1|id): Accounts for within-subject variability.
+
 ```{r lmer-stuff}
 adjust.method <- "FDR"
 test <- "paired Wilcoxon"
@@ -618,6 +642,52 @@ res <- run_lmer(tse, "bfratio")
 ```{r table-fixed-fx}
 sjPlot::plot_model(res)
 sjPlot::tab_model(res)
+```
+
+#### Post-Hoc Analysis
+
+*Within-Group Comparisons*
+```{r}
+ref_grid <- emmeans(res, ~ diet * duration)
+within_group_comps <- contrast(ref_grid, method = "pairwise", by = "diet")
+kable(as.data.frame(within_group_comps))
+# Add confidence intervals
+within_group_comps_ci <- confint(within_group_comps)
+```
+
+
+```{r}
+# Convert to a data frame
+within_group_df <- as.data.frame(within_group_comps_ci)
+
+ggplot(within_group_df, aes(x = diet, y = estimate, color = diet)) +
+  geom_pointrange(aes(ymin = lower.CL, ymax = upper.CL)) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  labs(x = "Diet", y = paste("Differences B/F ratio (Baseline - Post-Intervention)"), 
+       title = "Within-Group Comparisons of B/F ratio") +
+  theme_minimal()
+```
+
+*Across-Group Comparisons*
+```{r}
+posthoc <- emmeans(res, pairwise ~ diet | duration)
+# sjPlot::tab_model(as.data.frame(posthoc$contrasts)) 
+kable(as.data.frame(posthoc$emmeans))
+kable(as.data.frame(posthoc$contrasts))
+```
+
+```{r}
+posthoc_ci <- confint(posthoc$contrasts)
+
+# Convert to a data frame
+posthoc_df <- as.data.frame(posthoc_ci)
+#posthoc_df <- as.data.frame(posthoc$contrasts)
+ggplot(posthoc_df, aes(x = contrast, y = estimate, color = duration)) +
+ geom_pointrange(aes(ymin = lower.CL, ymax = upper.CL)) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  labs(x = "Comparison", y =  paste("Differences B/F"), 
+       title = "Comparisons of B/F ratios") +
+  theme_minimal()
 ```
 
 ## Data Summary

@@ -33,201 +33,300 @@ ko_tse <- ko_tse[, ko_tse$id %in% paired.cases]
 
 ```{r maaslin all}
 # Run Maaslin3
-run_maaslin3 <- function(ko_tse) {
-  # Keep only paired cases (individuals with both time points)
-  paired.cases <- names(which(table(colData(ko_tse)$id) == 2))
-  ko_tse <- ko_tse[, ko_tse$id %in% paired.cases]
-
-  # Create output directory for this taxonomic level
-  output_dir <- file.path(output_base_dir)
-  dir.create(output_dir, showWarnings = FALSE)
+run_maaslin3 <- function(taxa_tse, formula_used, dir) {
+  # Keep only paired cases (individuals with both timepoint points)
+  # paired.cases <- names(which(table(taxa_tse$subject) == 2))
+  # taxa_tse <- taxa_tse[, taxa_tse$subject %in% paired.cases]
+  # taxa_tse$treat <- taxa_tse$group
 
   # Run MaAsLin3
-  maaslin3(
-    ko_tse,
-    output = output_dir,
-    formula = '~ diet * timepoint + (1 | id)',
+  fit <- maaslin3(
+    taxa_tse, 
+    output = dir,
+    formula = formula_used,
     normalization = 'TSS',
     transform = 'LOG',
     augment = TRUE,
-    standardize = FALSE,
-    median_comparison_abundance = FALSE,
+    standardize = TRUE,
+    max_significance = 0.25,
+    plot_associations = FALSE,
+    median_comparison_abundance = TRUE,
     median_comparison_prevalence = FALSE,
-    max_pngs = 100,
     verbosity = "WARN"
   )
+  
+  return(fit)
+}
+```
+
+```{r}
+file_path <- file.path("../../output/daa/daa_ko/interaction/significant_results.tsv")
+ if (!file.exists(file_path)) {
+    formula_used_int <- '~ diet * duration + (1 | id)'
+    # Create output directory for this fxnomic level
+    output_dir <- file.path(output_base_dir, "interaction")
+    dir.create(output_dir, showWarnings = FALSE)
+    fit <- run_maaslin3(ko_tse, formula_used_int, output_dir)
 }
 ```
 
 ```{r print_table}
 #| label: table-of-significant-results
-file_path <- file.path("../../output/daa/daa_ko/significant_results.tsv")
+file_path <- file.path("../../output/daa/daa_ko/interaction/significant_results.tsv")
 total_features <- nrow(ko_tse)
 
-# Run Maaslin3 only if the file doesn't exist
-if (!file.exists(file_path)) {
-run_maaslin3(ko_tse)
-}
+daa_tab <- read_tsv(file_path, col_names = TRUE, show_col_types = FALSE) %>%
+    filter(!is.na(feature)) %>%
+    select(feature, metadata, value, coef, qval_individual, qval_joint, model)
 
- if (file.exists(file_path)) {
-    daa_tab <- read_tsv(file_path, col_names = TRUE)
-    daa_tab <- daa_tab %>%
-        filter(!is.na(feature)) %>%
-        select(feature, metadata, value, coef, qval_individual, qval_joint, model)
-    if (knitr::is_html_output()) {
+table_caption <- paste("Table of significant features for KEGGS ", 
+                         "- Total features analyzed:", total_features)
+  
+# Split the results by model
+daa_tab_split <- split(daa_tab, daa_tab$model)
+
+# Format output for HTML or LaTeX
+datatable(
+  daa_tab_split$abundance,
+  options = list(pageLength = 6, dom = 'Bfrtip'),
+  caption = table_caption,
+  rownames = FALSE
+) %>%
+ formatSignif(columns = c("qval_joint", "qval_individual", "coef"), digits = 3)
+
+```
+
+### Post-Hoc Analysis
+
+## Within-Group Comparisons
+```{r run_maaslin_o}
+tse_O <- ko_tse[, ko_tse$diet == "oat"]
+tse_R <- ko_tse[, ko_tse$diet == "rice"]
+
+formula_used_int <- '~ duration + (1 | id)'
+file_path <- file.path("../../output/daa/daa_ko/oat/significant_results.tsv")
+tse_list = list(tse_O, tse_R)
+if (!file.exists(file_path)) {
+  lapply(tse_list, function(tse){
+    diet_dir <- file.path(output_base_dir, unique(tse$diet))
+    dir.create(diet_dir, showWarnings = FALSE, recursive = TRUE)
+    run_maaslin3(tse, formula_used_int, diet_dir)
+  }
+    )
+}
+```
+
+```{r}
+tabs <- lapply(tse_list, function(tse){
+file_path <- file.path("../../output/daa/daa_ko", unique(tse$diet), "all_results.tsv")
+  total_features <- nrow(tse)
+  daa_tab <- read_tsv(file_path, col_names = TRUE, show_col_types = FALSE) %>%
+      filter(!is.na(feature)) %>%
+      select(feature, metadata, value, coef, qval_individual, qval_joint, model)
+  
+  table_caption <- paste("Table of features for path coverage within group", unique(tse$diet),
+                           "- Total features analyzed:", total_features)
+    
+    # Split the results by model
+    daa_tab_split <- split(daa_tab, daa_tab$model)
+    
+  
+    
       datatable(
-          daa_tab,
-          options = list(
-            pageLength = 6,
-            dom = 'Bfrtip'
-          ),
-          caption = "Table of significant features",
-          rownames = FALSE
+        daa_tab_split$abundance,
+        options = list(pageLength = 6, dom = 'Bfrtip'),
+        caption = table_caption,
+        rownames = FALSE
       ) %>%
-        formatSignif(columns = c("coef", "qval_individual", "qval_joint"), digits = 3)
-    } else {
-      library(kableExtra)
-      daa_tab %>% 
-        mutate(
-          across(where(is.numeric), ~round(., 3)),
-          feature = ifelse(nchar(feature) > 8, 
-                         paste0(substr(feature, 1, 8), "..."), 
-                         feature)
-          #p.adj = signif(p.adj, 3)
-        ) %>%
-        kbl(caption = "Table of significant features",
-            booktabs = TRUE,
-            longtable = TRUE,
-            align = c('l', 'r', 'r', 'r', 'r', 'r', 'r')) %>%
-        kable_styling(latex_options = "repeat_header") %>%
-        row_spec(0, bold = TRUE)
-    }
-} else {
-    return(NULL)
+      formatSignif(columns = c("qval_joint", "qval_individual", "coef"), digits = 3)
+}
+  )
+```
+
+### Diet Oat
+```{r}
+tabs[[1]]
+```
+
+### Diet Rice
+```{r}
+tabs[[2]]
+```
+
+## Across-Group Comparisons
+```{r}
+tse_after <- ko_tse[, ko_tse$timepoint == "after"]
+tse_before <- ko_tse[, ko_tse$timepoint == "before"]
+
+formula_used_int <- '~ diet'
+file_path <- file.path("../../output/daa/daa_ko", unique(tse_before$timepoint), "all_results.tsv")
+tse_list = list(tse_after, tse_before)
+if (!file.exists(file_path)) {
+lapply(tse_list, function(tse){
+  timepoint_dir <- file.path(output_base_dir, unique(tse$timepoint))
+  dir.create(timepoint_dir, showWarnings = FALSE, recursive = TRUE)
+  
+  run_maaslin3(tse, formula_used_int, timepoint_dir)
+}
+  )
+}
+```
+
+```{r}
+tabs <- lapply(tse_list, function(tse){
+file_path <- file.path("../../output/daa/daa_ko", unique(tse$timepoint), "all_results.tsv")
+  total_features <- nrow(tse)
+  daa_tab <- read_tsv(file_path, col_names = TRUE, show_col_types = FALSE) %>%
+      filter(!is.na(feature)) %>%
+      select(feature, metadata, value, coef, qval_individual, qval_joint, model)
+  
+  table_caption <- paste("Table of features for", taxa_name, "at", unique(tse$duration),
+                           "- Total features analyzed:", total_features)
+    
+    # Split the results by model
+    daa_tab_split <- split(daa_tab, daa_tab$model)
+  
+      datatable(
+        daa_tab_split$abundance,
+        options = list(pageLength = 6, dom = 'Bfrtip'),
+        caption = table_caption,
+        rownames = FALSE
+      ) %>%
+      formatSignif(columns = c("qval_joint", "qval_individual", "coef"), digits = 3)
+}
+  )
+```
+
+### Before Intervention - Week 0
+```{r}
+tabs[[1]]
+```
+
+### Post Intervention - Week 6
+```{r}
+tabs[[2]]
+```
+
+
+```{r setup_m}
+
+prevalence.th <- 10/100
+detection.th <- 0.1/100
+
+variable <- "Diet" 
+formula_used <- "~ diet * timepoint + (1 | id)"
+correction <- "Benjamini-Hochberg FDR adjustment"
+
+```
+
+## Maaslin3 significant hits
+
+This section highlights significant taxa from maaslin3.
+
+Analysis information:
+
+-   Method: maaslin3
+-   Group variable: `r variable`
+-   Formula used: **`r formula_used`**
+-   Correction: **`r correction`**
+-   Detection threshold: `r 100 * detection.th`%
+-   Prevalence threshold: `r 100 * prevalence.th`%
+
+```{r tsesub_m}
+file_path1 <- file.path("../../output/daa/daa_ko/interaction/significant_results.tsv")
+file_path2 <- file.path("../../output/daa/daa_ko/interaction/all_results.tsv")
+daa_tab1 <- read_tsv(file_path1, col_names = TRUE, show_col_types = FALSE)
+daa_tab1 <- na.omit(daa_tab1)
+significant_fxns <- unique(daa_tab1$feature)
+
+daa_tab <- read_tsv(file_path2, col_names = TRUE, show_col_types = FALSE) %>%
+      filter(!is.na(feature)) %>%
+      filter(model == "abundance") %>%
+      filter(feature %in% significant_fxns) %>%
+      select(feature,metadata, value, qval_joint) %>%
+      mutate(qval_joint = signif(qval_joint, digits = 3)) 
+```
+
+```{r before-after_m}
+ko_tse$diet <- factor(ko_tse$diet, levels=c("oat", "rice"))
+ko_tse <- transformAssay(ko_tse, method = "relabundance")
+df <- as.data.frame(colData(ko_tse))
+
+plot_fxn <- function(fxn) {
+  #rownames(ko_tse) <- rowData(ko_tse)$Feature
+  df$signal <- as.vector(assay(ko_tse, "relabundance")[fxn,])
+    df$signal <- unlist(df$signal)
+    # daa_tab_tax <- daa_tab %>%
+    #   filter(feature == fxn)
+    # 
+    # anot_tax <- daa_tab_tax %>% 
+    #     filter(metadata == "intervention")
+    # 
+    # anot_tax$pval_color <- ifelse(anot_tax$qval_joint <= 0.25, "red", "blue")
+    # Subset for before and after
+    df_before <- df %>% filter(timepoint == "before")
+    df_after <- df %>% filter(timepoint == "after")
+    
+    # Prepare data for plotting
+        vars <- c("id", "timepoint", "signal")
+        dfm <- melt(df[, vars])
+        colnames(dfm) <- vars
+        
+        # Filter and mutate for paired design
+        df <- df %>%
+          filter(paired == "yes") %>%
+          group_by(id) %>%
+          mutate(
+            change = if_else(timepoint == "after", signal - signal[timepoint == "before"], 0),
+            change = if_else(timepoint == "before", change[timepoint == "after"], change)
+          ) %>%
+          ungroup() %>%
+          as.data.frame(check.names = FALSE)
+        
+          min_change <- min(df$change, na.rm = TRUE)
+          max_change <- max(df$change, na.rm = TRUE)
+          median_change <- median(df$change, na.rm = TRUE)
+    
+    p12 <- ggplot(df, aes(x = diet, y = signal)) +
+      geom_boxplot(outlier.shape = NA) +
+      geom_point() + 
+      scale_y_log10(labels = scales::percent) + 
+      theme(text = element_text(size = 15), legend.position = "none") +
+      labs(title = fxn, y = "Abundance (%)", x = "Diet") +
+      facet_wrap(~ duration, nrow = 1)
+    
+    p3 <- ggplot(df, aes(x = duration, y = signal)) +
+      geom_boxplot(outlier.shape = NA) +
+      geom_point() + 
+      geom_line(aes(group = id, color = change)) +
+      scale_color_gradient2(midpoint = median_change, low = "blue", mid = "white", high = "red", space = "Lab", limits = c(min_change, max_change)) +
+      facet_wrap(~ diet) +
+      scale_y_log10(labels = scales::percent) + 
+      theme(text = element_text(size = 15), legend.position = "right") +
+      labs(x = "Time", y = "Abundance (%)")
+    
+    # Combine the before and after plots
+    return(wrap_plots(p12, p3, axes = "collect")
+  )
   }
 
-
 ```
 
-```{r print results}
-png_files <- list.files(output_base_dir, pattern = "\\.png$", full.names = TRUE, recursive = TRUE)
-```
-
-![fig38](../../output/daa/daa_ko/figures/summary_plot.png)
 ```{r}
-# Define all 100 file paths
-image_paths <- c(
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K02422_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K03563_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K06133_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K06206_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K07084_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/linear/diet_K07315_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K00170_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K00342_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K00425_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K00782_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K00812_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K01034_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K01156_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K01169_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K01183_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K01246_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K01304_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K01470_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K01840_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K02001_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K02046_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K02279_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K02387_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K02401_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K02846_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K03286_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K03482_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K03800_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K03896_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K05526_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K06182_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K06192_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K06864_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K06956_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K06975_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K07115_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K07149_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K07783_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K08223_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K08314_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K08325_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K08369_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K08723_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K09015_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K09767_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K10006_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K12340_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K14348_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K16213_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K18691_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K18889_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K19159_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K19226_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/diet/logistic/diet_K22477_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K00390_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K00688_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K00690_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K01200_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K01356_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K01626_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K01880_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K01902_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K01940_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K02851_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K02871_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K03727_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K07442_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K08296_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K09013_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K15921_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K16235_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K17331_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K18205_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/linear/timepoint_K18955_linear.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K00351_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K00425_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K01246_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K02387_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K02392_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K02401_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K02506_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K02527_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K02846_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K03486_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K03896_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K05526_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K06182_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K07009_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K07273_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K08223_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K09767_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K10007_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K14348_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K18691_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K19159_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K19226_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K21557_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K22293_logistic.png)",
-  "![](../../output/daa/daa_ko/figures/association_plots/timepoint/logistic/timepoint_K22477_logistic.png)"
-)
+plots_list <- list()
+plots_list <- setNames(lapply(significant_fxns[1:10], plot_fxn),
+                      significant_fxns[1:10])
+```
 
-if (length(image_paths) %% 4 != 0) {
-  extra <- 4 - (length(image_paths) %% 4)
-  image_paths <- c(image_paths, rep("", extra))  # Fill empty spaces to complete rows
+```{r hits_m}
+#| layout-ncol: 1
+#| fig-width: 10 
+#| fig-height: 3 
+
+ordered_plots <- plots_list[order(names(plots_list))]
+
+for (plot_name in names(ordered_plots)) {
+  print(ordered_plots[[plot_name]])
 }
 
-# Convert to a matrix with 4 columns (fills row-wise)
-image_matrix <- matrix(image_paths, ncol = 4, byrow = TRUE)
-
-# Print as a kable table
-kable(image_matrix, format = "markdown", escape = FALSE)
-
 ```
-

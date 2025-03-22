@@ -14,9 +14,10 @@ taxa_levels <- c("species","genus", "family", "phylum")
 
 prevalence.th <- 10/100
 detection.th <- 0.1/100
-
+formula_used_accross_gp <- '~ diet'
+formula_used_within_gp <- '~ duration + (1 | id)'
+formula_used_int <- "~ diet * duration + (1 | id)"
 variable <- "diet" 
-formula_used <- "~ diet * timepoint + (1 | id)"
 correction <- "Benjamini-Hochberg FDR adjustment"
 ```
 
@@ -25,7 +26,9 @@ Analysis information:
 -   Method: maaslin3
 -   Taxonomic level: `r taxa_levels`
 -   Group variable: `r variable`
--   Formula used: **`r formula_used`**
+-   Formula used for interaction: **`r formula_used_int`**
+-   Formula used across groups: **`r formula_used_accross_gp`**
+-   Formula used within groups: **`r formula_used_within_gp`**
 -   Correction: **`r correction`**
 -   Detection threshold: `r 100 * detection.th`%
 -   Prevalence threshold: `r 100 * prevalence.th`%
@@ -38,195 +41,196 @@ dir.create(output_base_dir, showWarnings = FALSE)
 
 ```{r maaslin all}
 # Run Maaslin3
-run_maaslin3 <- function(taxa_tse, taxa_name) {
-  # Keep only paired cases (individuals with both time points)
-  paired.cases <- names(which(table(colData(taxa_tse)$id) == 2))
-  taxa_tse <- taxa_tse[, taxa_tse$id %in% paired.cases]
-
-  # Create output directory for this taxonomic level
-  output_dir <- file.path(output_base_dir, taxa_name)
-  dir.create(output_dir, showWarnings = FALSE)
+run_maaslin3 <- function(taxa_tse, taxa_name, formula_used, dir) {
+  # Keep only paired cases (individuals with both timepoint points)
+  # paired.cases <- names(which(table(taxa_tse$subject) == 2))
+  # taxa_tse <- taxa_tse[, taxa_tse$subject %in% paired.cases]
+  # taxa_tse$treat <- taxa_tse$group
 
   # Run MaAsLin3
-  maaslin3(
-    taxa_tse,
-    output = output_dir,
-    formula = '~ diet * timepoint + (1 | id)',
+  fit <- maaslin3(
+    taxa_tse, 
+    output = dir,
+    formula = formula_used,
     normalization = 'TSS',
     transform = 'LOG',
     augment = TRUE,
-    standardize = FALSE,
-    median_comparison_abundance = FALSE,
+    standardize = TRUE,
+    max_significance = 0.25,
+    plot_associations = FALSE,
+    median_comparison_abundance = TRUE,
     median_comparison_prevalence = FALSE,
-    max_pngs = 100,
     verbosity = "WARN"
   )
+  
+  return(fit)
 }
 ```
 
-For a complete table of maaslin3 results, see [Species](https://github.com/openresearchlabs/OGB_project/blob/main/output/daa/daa_taxa/species/all_results.tsv), [genus](https://github.com/openresearchlabs/OGB_project/blob/main/output/daa/daa_taxa/genus/all_results.tsv), [phylum](https://github.com/openresearchlabs/OGB_project/blob/main/output/daa/daa_taxa/phylum/all_results.tsv), [family](https://github.com/openresearchlabs/OGB_project/blob/main/output/daa/daa_taxa/family/all_results.tsv)
+```{r}
+file_path <- file.path("../../output/daa/daa_taxa/species/significant_results.tsv")
+ if (!file.exists(file_path)) {
+  lapply(taxa_levels, function(taxa_name) {
+    taxa_tse <- altExp(tse, paste0(taxa_name, "_prevalent"))
+    formula_used_int <- '~ diet * duration + (1 | id)'
+    # Create output directory for this taxonomic level
+    output_dir <- file.path(output_base_dir, taxa_name)
+    dir.create(output_dir, showWarnings = FALSE)
+    fit <- run_maaslin3(taxa_tse, taxa_name, formula_used_int, output_dir)
+  
+  })
+}
+```
 
-The following tables lists all associations that pass MaAsLin 3's significance threshold for joint or individual q-values, ordered by increasing individual q-value.
-
-The predictors are interpreted as:
-
-1. metadata = `timepoint`; value = `after` implies estimate for a given feature between the Baseline and Week 6
-2. metadata = `diet`; value = `oat` implies estimate for a given feature between the rice and oat diets
-3. metadata = `diet`; value = `oat:timepointafter` implies estimate of the interaction effect across the rice and oat diets between the Baseline and Week 6
 
 ```{r print_table}
 #| label: table-of-significant-results
 #| results: 'asis'
-tab_res <- lapply(taxa_levels, function(taxa_name) {
+tabs <- NULL
+tabs <- lapply(taxa_levels, function(taxa_name) {
   taxa_tse <- altExp(tse, paste0(taxa_name, "_prevalent"))
-  file_path <- file.path("../../output/daa/daa_taxa", taxa_name, "significant_results.tsv")
   total_features <- nrow(taxa_tse)
-  
-  # Run Maaslin3 only if the file doesn't exist
-  if (!file.exists(file_path)) {
-    run_maaslin3(taxa_tse, taxa_name)
-  }
-  
-  # Process significant results if the file exists
-  if (file.exists(file_path)) {
-    daa_tab <- read_tsv(file_path, col_names = TRUE, show_col_types = FALSE) %>%
+  file_path <- file.path("../../output/daa/daa_taxa", taxa_name, "all_results.tsv")
+  daa_tab <- read_tsv(file_path, col_names = TRUE, show_col_types = FALSE) %>%
       filter(!is.na(feature)) %>%
       select(feature, metadata, value, coef, qval_individual, qval_joint, model)
+  
+  table_caption <- paste("Table of significant features for", taxa_name, 
+                           "- Total features analyzed:", total_features)
     
-    table_caption <- paste("Table of significant features for", taxa_name, 
+  # Split the results by model
+  daa_tab_split <- split(daa_tab, daa_tab$model)
+  
+  # Format output for HTML or LaTeX
+  datatable(
+    daa_tab_split$abundance,
+    options = list(pageLength = 6, dom = 'Bfrtip'),
+    caption = table_caption,
+    rownames = FALSE
+  ) %>%
+   formatSignif(columns = c("qval_joint", "qval_individual", "coef"), digits = 3)
+})
+```
+
+```{r}
+tabs[[1]]
+tabs[[2]]
+tabs[[3]]
+tabs[[4]]
+```
+
+
+### Post-Hoc Analysis
+
+## Within-Group Comparisons
+```{r run_maaslin_o}
+taxa_tse <- altExp(tse, "species_prevalent")
+tse_O <- taxa_tse[, taxa_tse$diet == "oat"]
+tse_R <- taxa_tse[, taxa_tse$diet == "rice"]
+taxa_name <- "species"
+
+formula_used_int <- '~ duration + (1 | id)'
+file_path <- file.path("../../output/daa/daa_taxa/oat/species/significant_results.tsv")
+tse_list = list(tse_O, tse_R)
+if (!file.exists(file_path)) {
+  lapply(tse_list, function(tse){
+    diet_dir <- file.path(output_base_dir, unique(tse$diet), taxa_name)
+    dir.create(diet_dir, showWarnings = FALSE, recursive = TRUE)
+    run_maaslin3(tse, taxa_name, formula_used_int, diet_dir)
+  }
+    )
+}
+```
+
+```{r}
+tabs <- lapply(tse_list, function(tse){
+file_path <- file.path("../../output/daa/daa_taxa", unique(tse$diet), taxa_name, "all_results.tsv")
+  total_features <- nrow(tse)
+  daa_tab <- read_tsv(file_path, col_names = TRUE, show_col_types = FALSE) %>%
+      filter(!is.na(feature)) %>%
+      select(feature, metadata, value, coef, qval_individual, qval_joint, model)
+  
+  table_caption <- paste("Table of features for", taxa_name, "within group", unique(tse$diet),
                            "- Total features analyzed:", total_features)
     
     # Split the results by model
     daa_tab_split <- split(daa_tab, daa_tab$model)
     
-    # Format output for HTML or LaTeX
-    if (knitr::is_html_output()) {
-      lapply(daa_tab_split, function(df) {
-        datatable(
-          df,
-          options = list(pageLength = 6, dom = 'Bfrtip'),
-          caption = table_caption,
-          rownames = FALSE
-        ) %>%
-        formatSignif(columns = c("qval_joint", "qval_individual", "coef"), digits = 3)
-      })
-    } else {
-      lapply(daa_tab_split, function(df) {
-        df %>%
-          mutate(across(where(is.numeric), ~round(., 3))) %>%
-          kbl(
-            caption = paste(table_caption, "- Model:", unique(df$model)),
-            booktabs = TRUE,
-            longtable = TRUE,
-            align = c('l', 'r', 'r', 'r', 'r', 'r', 'r')
-          ) %>%
-          kable_styling(latex_options = "repeat_header") %>%
-          row_spec(0, bold = TRUE)
-      })
-    }
-  } else {
-    return(NULL)
-  }
-})
-species_tab <- tab_res[[1]]
-genus_tab <- tab_res[[2]]
-phylum_tab <- tab_res[[3]]
-family_tab <- tab_res[[4]]
-
-species_tab[["abundance"]]
-#species_tab[["prevalence"]]
-
-genus_tab[["abundance"]]
-#genus_tab[["prevalence"]]
-
-phylum_tab[["abundance"]]
-#phylum_tab[["prevalence"]]
-# 
-# family_tab[["abundance"]]
-# family_tab[["prevalence"]]
+  
+    
+      datatable(
+        daa_tab_split$abundance,
+        options = list(pageLength = 6, dom = 'Bfrtip'),
+        caption = table_caption,
+        rownames = FALSE
+      ) %>%
+      formatSignif(columns = c("qval_joint", "qval_individual", "coef"), digits = 3)
+}
+  )
 ```
 
-```{r print results}
-png_files <- list.files(output_base_dir, pattern = "\\.png$", full.names = TRUE, recursive = TRUE)
+### Diet Oat
+```{r}
+tabs[[1]]
 ```
 
-## Summary plots
+### Diet Rice
+```{r}
+tabs[[2]]
+```
 
-This plots contain a combined coefficient plot and heatmap of the most significant association between microbial features (listed on the y-axis) and different dietary conditions over time.
+## Across-Group Comparisons
+```{r}
+tse_after <- taxa_tse[, taxa_tse$timepoint == "after"]
+tse_before <- taxa_tse[, taxa_tse$timepoint == "before"]
 
-The coef plot shows the estimated effect sizes (β coefficients) for different microbial features.
+formula_used_int <- '~ diet'
 
--   Circles (○) represent associations based on abundance.
--   Triangles (△) represent associations based on prevalence.
+tse_list = list(tse_after, tse_before)
+if (!file.exists(file_path)) {
+lapply(tse_list, function(tse){
+  timepoint_dir <- file.path(output_base_dir, unique(tse$timepoint), taxa_name)
+  dir.create(timepoint_dir, showWarnings = FALSE, recursive = TRUE)
+  
+  run_maaslin3(tse, taxa_name, formula_used_int, timepoint_dir)
+}
+  )
+}
+```
 
-The purple color represents the significance level (FDR-adjusted p-value) for abundance. The teal color represents the significance level (FDR-adjusted p-value) for prevalence.Darker colors indicate more significant associations.Error bars show uncertainty in the estimates.
+```{r}
+tabs <- lapply(tse_list, function(tse){
+file_path <- file.path("../../output/daa/daa_taxa", unique(tse$timepoint), taxa_name, "all_results.tsv")
+  total_features <- nrow(tse)
+  daa_tab <- read_tsv(file_path, col_names = TRUE, show_col_types = FALSE) %>%
+      filter(!is.na(feature)) %>%
+      select(feature, metadata, value, coef, qval_individual, qval_joint, model)
+  
+  table_caption <- paste("Table of features for", taxa_name, "at", unique(tse$duration),
+                           "- Total features analyzed:", total_features)
+    
+    # Split the results by model
+    daa_tab_split <- split(daa_tab, daa_tab$model)
+  
+      datatable(
+        daa_tab_split$abundance,
+        options = list(pageLength = 6, dom = 'Bfrtip'),
+        caption = table_caption,
+        rownames = FALSE
+      ) %>%
+      formatSignif(columns = c("qval_joint", "qval_individual", "coef"), digits = 3)
+}
+  )
+```
 
-The heatmap summarizes how different microbes are affected. Blue/Red coloring represents the effect sizes:
+### Before Intervention - Week 0
+```{r}
+tabs[[1]]
+```
 
--   Dark blue: Strong negative association.
--   Light blue: Weak negative association.
--   Light red: Weak positive association.
--   Dark red: Strong positive association.
--   Gray (NA): No data.
-
-Asterisks (*) indicate significant associations: -* (p \< 0.1) - \*\* (p \< 0.01)
-
-### species
-
-![taxa_image18](../../output/daa/daa_taxa/species/figures/summary_plot.png)
-
-### family
-
-![taxa_image5](../../output/daa/daa_taxa/family/figures/summary_plot.png)\
-
-### genus
-
-![taxa_image13](../../output/daa/daa_taxa/genus/figures/summary_plot.png)\
-
-### phylum
-
-![taxa_image14](../../output/daa/daa_taxa/phylum/figures/summary_plot.png)\
-
-## Associations plots
-
-Box plots are used for categorical data abundance associations. Grids are used for categorical data prevalence associations. Data points plotted are after filtering, normalization, and transformation so that the scale in the plot is the scale that was used in fitting.
-
-```{r, echo=FALSE, results='asis'}
-library(knitr)
-
-# Define the image paths
-image_paths <- c(
-  "![](../../output/daa/daa_taxa/family/figures/association_plots/diet/linear/diet_FGB12107_linear.png)",
-  "![](../../output/daa/daa_taxa/family/figures/association_plots/diet/logistic/diet_FGB12107_logistic.png)",
-  "![](../../output/daa/daa_taxa/family/figures/association_plots/timepoint/linear/timepoint_Bifidobacteriaceae_linear.png)",
-  "![](../../output/daa/daa_taxa/family/figures/association_plots/timepoint/linear/timepoint_FGB12107_linear.png)",
-  "![](../../output/daa/daa_taxa/family/figures/association_plots/timepoint/linear/timepoint_Ruminococcaceae_linear.png)",
-  "![](../../output/daa/daa_taxa/genus/figures/association_plots/diet/linear/diet_Clostridiaceae_unclassified_linear.png)",
-  "![](../../output/daa/daa_taxa/genus/figures/association_plots/diet/linear/diet_Eubacteriales_unclassified_linear.png)",
-  "![](../../output/daa/daa_taxa/genus/figures/association_plots/diet/linear/diet_GGB34797_linear.png)",
-  "![](../../output/daa/daa_taxa/genus/figures/association_plots/diet/logistic/diet_Evtepia_logistic.png)",
-  "![](../../output/daa/daa_taxa/genus/figures/association_plots/diet/logistic/diet_GGB34797_logistic.png)",
-  "![](../../output/daa/daa_taxa/genus/figures/association_plots/timepoint/linear/timepoint_Bifidobacterium_linear.png)",
-  "![](../../output/daa/daa_taxa/genus/figures/association_plots/timepoint/linear/timepoint_Candidatus_Cibionibacter_linear.png)",
-  "![](../../output/daa/daa_taxa/genus/figures/association_plots/timepoint/linear/timepoint_Clostridiaceae_unclassified_linear.png)",
-  "![](../../output/daa/daa_taxa/genus/figures/association_plots/timepoint/linear/timepoint_GGB34797_linear.png)",
-  "![](../../output/daa/daa_taxa/species/figures/association_plots/diet/linear/diet_Clostridiaceae_bacterium_linear.png)",
-  "![](../../output/daa/daa_taxa/species/figures/association_plots/diet/linear/diet_Clostridiales_bacterium_KLE1615_linear.png)",
-  "![](../../output/daa/daa_taxa/species/figures/association_plots/diet/logistic/diet_Evtepia_gabavorous_logistic.png)",
-  "![](../../output/daa/daa_taxa/species/figures/association_plots/diet/logistic/diet_GGB33469_SGB15236_logistic.png)",
-  "![](../../output/daa/daa_taxa/species/figures/association_plots/diet/logistic/diet_GGB34797_SGB14322_logistic.png)",
-  "![](../../output/daa/daa_taxa/species/figures/association_plots/diet/logistic/diet_Phascolarctobacterium_faecium_logistic.png)",
-  "![](../../output/daa/daa_taxa/species/figures/association_plots/timepoint/linear/timepoint_Bifidobacterium_longum_linear.png)",
-  "![](../../output/daa/daa_taxa/species/figures/association_plots/timepoint/linear/timepoint_Candidatus_Cibionibacter_quicibialis_linear.png)",
-  "![](../../output/daa/daa_taxa/species/figures/association_plots/timepoint/linear/timepoint_Clostridiaceae_bacterium_linear.png)",
-  "![](../../output/daa/daa_taxa/species/figures/association_plots/timepoint/linear/timepoint_GGB34797_SGB14322_linear.png)"
-)
-
-# Convert to a matrix with 4 columns (fills row-wise)
-image_matrix <- matrix(image_paths, ncol = 4, byrow = TRUE)
-
-# Print as a kable table
-kable(image_matrix, format = "markdown", escape = FALSE)
+### Post Intervention - Week 6
+```{r}
+tabs[[2]]
 ```
 
 
@@ -277,6 +281,7 @@ daa_tab <- read_tsv(file_path2, col_names = TRUE, show_col_types = FALSE) %>%
 ```
 
 ```{r before-after_m}
+tse$diet <- factor(tse$diet, levels=c("oat", "rice"))
 df <- as.data.frame(colData(tse))
 
 plot_taxon <- function(taxon) {
@@ -329,10 +334,10 @@ plot_taxon <- function(taxon) {
       geom_point() + 
       scale_y_log10(labels = scales::percent) + 
       theme(text = element_text(size = 15), legend.position = "none") +
-      labs(title = taxon, y = "Abundance (%)") +
-      facet_wrap(~ timepoint, nrow = 1)
+      labs(title = taxon, y = "Abundance (%)", x = "Diet") +
+      facet_wrap(~ duration, nrow = 1)
     
-    p3 <- ggplot(df, aes(x = timepoint, y = signal)) +
+    p3 <- ggplot(df, aes(x = duration, y = signal)) +
       geom_boxplot(outlier.shape = NA) +
       geom_point() + 
       geom_line(aes(group = id, color = change)) +
@@ -361,85 +366,6 @@ plots_list <- setNames(lapply(significant_specise, plot_taxon),
 #| fig-width: 10 
 #| fig-height: 3 
 
-# theme_set(theme_bw(40))
-# 
-# 
-# for (g in unique(tse$meal)) {
-# 
-#   if (length(rowData(tse))>0) {
-#     tseg <- tse[, tse$meal==g] 
-#     df <- as.data.frame(colData(tseg)) 
-#     
-#     for (tax in significant_specise) {
-#       # Check if the genus or species exists in the dataset
-#       if (tax %in% rowData(tseg)$genus | tax %in% rowData(tseg)$species) {
-#         
-#         if (tax %in% rowData(tseg)$genus) {
-#           rownames(tseg) <- rowData(tseg)$genus
-#           df$signal <- as.vector(assay(tseg, "relabundance")[tax,])
-#         } else {
-#           rownames(tseg) <- rowData(tseg)$species
-#           df$signal <- as.vector(assay(tseg, "relabundance")[tax,])
-#         }
-# 
-#         # Prepare data for plotting
-#         vars <- c("id", "timepoint", "signal")
-#         dfm <- melt(df[, vars])
-#         colnames(dfm) <- vars
-#         
-#         # Filter and mutate for paired design
-#         df <- df %>%
-#           filter(paired == "yes") %>%
-#           group_by(id) %>%
-#           mutate(
-#             change = if_else(timepoint == "after", signal - signal[timepoint == "before"], 0),
-#             change = if_else(timepoint == "before", change[timepoint == "after"], change)
-#           ) %>%
-#           ungroup() %>%
-#           as.data.frame(check.names = FALSE)
-#         
-#           min_change <- min(df$change, na.rm = TRUE)
-#           max_change <- max(df$change, na.rm = TRUE)
-#           median_change <- median(df$change, na.rm = TRUE)
-#           
-#           daa_tab_tax <- daa_tab %>%
-#             filter(feature == tax)
-#           
-#           anot_tax <- daa_tab_tax %>% 
-#               filter(value == "s")
-#           
-#           anot_tax$pval_color <- ifelse(anot_tax$qval_joint <= 0.25, "red", "blue")
-# 
-#         # Create the plot
-#         p <- ggplot(df, aes(x = timepoint, y = signal)) +
-#           geom_boxplot(outlier.shape = NA) +
-#           geom_point() + 
-#           geom_line(aes(group = id, color = change)) +
-#           scale_color_gradient2(midpoint = median_change, 
-#                                 low = "blue", 
-#                                 mid = "white", 
-#                                 high = "red", 
-#                                 space = "Lab",
-#                                 limits = c(min_change, max_change)) +
-#           scale_y_log10(labels = scales::percent) + 
-#           labs(title = paste(tax, "/", g), y = "Abundance (%)") +
-#           # labs(
-#           #   title = paste0(g, "/", " p = ", 
-#           #                  ifelse(tax %in% anot_tax$feature, 
-#           #                         paste0("<span style='color:", anot_tax$pval_color[anot_tax$feature == tax], "'>", 
-#           #                                anot_tax$qval_joint[anot_tax$feature == tax], "</span>"), 
-#           #                         "<span style='color:gray;'>NA</span>")),
-#           #   y = "Abundance (%)"
-#           # ) +
-#           theme(
-#             plot.title = ggtext::element_markdown() 
-#           ) 
-#         
-#         plots_list[[paste(tax, "0", g, sep = "_")]] <- p
-#       }
-#     }
-#   }
-#}
 ordered_plots <- plots_list[order(names(plots_list))]
 
 for (plot_name in names(ordered_plots)) {

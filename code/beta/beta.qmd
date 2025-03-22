@@ -114,7 +114,8 @@ plots <- lapply(sort(unique(tse_p$diet)), function(diet_id) {
               axis.title.y = element_text(face = "bold", size = 14),
               legend.text = element_text(face = "bold", size = 14),
               legend.title = element_text(face = "bold", size = 14),
-              plot.title = element_text(face = "bold", size = 14)
+              plot.title = element_text(face = "bold", size = 14),
+              strip.text = element_text(size = 14, face = "bold")
             ) + scale_y_continuous(label=scales::percent) +
           labs(ylab = "Abundance(%)") + facet_wrap( diet ~ duration, nrow = 1, drop = TRUE )  })
      return(time_plots)
@@ -224,7 +225,8 @@ plots <- lapply(sort(unique(tse_g$diet)), function(diet_id) {
               axis.title.y = element_text(face = "bold", size = 14),
               legend.text = element_text(face = "bold", size = 14),
               legend.title = element_text(face = "bold", size = 14),
-              plot.title = element_text(face = "bold", size = 14)
+              plot.title = element_text(face = "bold", size = 14),
+              strip.text = element_text(size = 14, face = "bold")
             ) + scale_y_continuous(label=scales::percent) +
           labs(ylab = "Abundance(%)") + facet_wrap( diet ~ duration, nrow = 1, drop = TRUE )  })
      return(time_plots)
@@ -245,63 +247,86 @@ bar_plot
 #| out.width: "100%"
 #| fig.align: "center"
 
+# tse_heat <-  altExp(tse, "genus")
+# tse_heat <- transformAssay(tse_heat, assay.type = "relabundance", method = "clr", pseudocount = TRUE)
+# tse_heat <- transformAssay(
+#     tse_heat, assay.type = "clr", MARGIN = "rows", method = "standardize",
+#     name = "clr_z")
+# # Plot heatMap with sechm
+# plots <- lapply(sort(unique(tse_heat$diet)), function(diet_id) {
+#     # Filter tse_heat for the current meal group
+#     tse_heat_filtered <- tse_heat[, tse_heat$diet == diet_id]
+#     
+#     # Now iterate over unique times within the current meal group
+#     lapply(unique(tse_heat_filtered$duration), function(time_point) {
+#         # Filter data for the current time
+#         tse_time_filtered <- tse_heat_filtered[, tse_heat_filtered$duration == time_point]
+#         
+#         # Create the label based on both meal group and time
+#         lab <- paste0(unique(tse_time_filtered$diet), 
+#                       " at", time_point)
+#         
+#         # Title grob
+#         title_grob <- textGrob(
+#             lab, x = 0.05, y = 0.2, just = c("left", "top"), 
+#             gp = gpar(fontsize = 14, fontface = "bold")
+#         )
+#         
+#         # Create heatmap for the filtered data
+#         heatmap <- sechm(
+#             tse_time_filtered, assayName = "clr_z", features = rownames(tse_time_filtered),
+#             show_rownames = TRUE, show_colnames = FALSE, do.scale = TRUE, name = "clr_z",
+#             top_annotation = character(), column_labels = tse_time_filtered$id,
+#             row_names_gp = gpar(fontsize = 12), column_names_gp = gpar(fontsize = 12),
+#             breaks = 1, column_title = "Samples", row_title = "Genus",
+#             # width = unit(3, "inches"),
+#             # height = unit(6, "inches"), 
+#             hmcols = c("blue", "white", "red"), sort.method = "MDS_angle", cluster_cols = T, cluster_rows = T, na_col = "black"
+#         )
+#         
+#         # Grab heatmap as a grob
+#         heatmap_grob <- grid.grabExpr(draw(heatmap))
+#         
+#         # Combine title and heatmap
+#         combined_grob <- arrangeGrob(
+#             grobs = list(title_grob, heatmap_grob),
+#             ncol = 4,
+#             heights = unit.c(unit(1, "lines"), unit(1, "null"))
+#         )
+#         
+#         return(combined_grob)
+#     })
+# })
+# 
+# 
+# plots_flat <- unlist(plots, recursive = FALSE)
+# 
+# # Arrange all heatmaps in a grid
+# grid.newpage()
+# do.call(grid.arrange, c(plots_flat, ncol = 4))
+```
+
+```{r}
+#| fig-width: 18
+#| fig-height: 6
+#| out.width: "100%"
+#| fig.align: "center"
 tse_heat <-  altExp(tse, "genus")
 tse_heat <- transformAssay(tse_heat, assay.type = "relabundance", method = "clr", pseudocount = TRUE)
+
 tse_heat <- transformAssay(
     tse_heat, assay.type = "clr", MARGIN = "rows", method = "standardize",
     name = "clr_z")
-# Plot heatMap with sechm
-plots <- lapply(sort(unique(tse_heat$diet)), function(diet_id) {
-    # Filter tse_heat for the current meal group
-    tse_heat_filtered <- tse_heat[, tse_heat$diet == diet_id]
-    
-    # Now iterate over unique times within the current meal group
-    lapply(unique(tse_heat_filtered$time), function(time_point) {
-        # Filter data for the current time
-        tse_time_filtered <- tse_heat_filtered[, tse_heat_filtered$time == time_point]
-        
-        # Create the label based on both meal group and time
-        lab <- paste0("Diet: ", unique(tse_time_filtered$diet), 
-                      " at time: ", time_point)
-        
-        # Title grob
-        title_grob <- textGrob(
-            lab, x = 0.05, y = 0.2, just = c("left", "top"), 
-            gp = gpar(fontsize = 14, fontface = "bold")
-        )
-        
-        # Create heatmap for the filtered data
-        heatmap <- sechm(
-            tse_time_filtered, assayName = "clr_z", features = rownames(tse_time_filtered),
-            show_rownames = TRUE, show_colnames = FALSE, do.scale = TRUE, name = "clr_z",
-            top_annotation = character(), column_labels = tse_time_filtered$id,
-            row_names_gp = gpar(fontsize = 12), column_names_gp = gpar(fontsize = 12),
-            breaks = 1, column_title = "Samples", row_title = "Genus",
-            width = unit(9, "inches"),
-            height = unit(3, "inches"), hmcols = c("blue", "white", "red"), sort.method = "MDS_angle", cluster_cols = T, cluster_rows = T, na_col = "black"
-        )
-        
-        # Grab heatmap as a grob
-        heatmap_grob <- grid.grabExpr(draw(heatmap))
-        
-        # Combine title and heatmap
-        combined_grob <- arrangeGrob(
-            grobs = list(title_grob, heatmap_grob),
-            ncol = 1,
-            heights = unit.c(unit(1, "lines"), unit(1, "null"))
-        )
-        
-        return(combined_grob)
-    })
-})
 
+order_indices <- order(tse_heat$diet_in, tse_heat$time)
+tse_heat <- tse_heat[, order_indices]
 
-plots_flat <- unlist(plots, recursive = FALSE)
-
-# Arrange all heatmaps in a grid
-grid.newpage()
-do.call(grid.arrange, c(plots_flat, ncol = 2))
+sechm(
+            tse_heat, assayName = "clr_z", features = rownames(tse_heat),
+            show_rownames = TRUE, show_colnames = FALSE, do.scale = TRUE, name = "clr_z", top_annotation="duration", gaps_at=c("diet", "duration"), show_annotation_legend = F, hmcols = c("blue", "white", "red"), cluster_rows = T, cluster_cols = F, na_col = "black", column_gap = unit(4, "mm")
+        )
 ```
+
 
 ## Unsupervised analysis
 

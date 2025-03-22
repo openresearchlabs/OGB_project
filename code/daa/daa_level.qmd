@@ -25,6 +25,8 @@ tse <- transformAssay(
   method = "clr",
   pseudocount=TRUE
 )
+
+tse$diet <- factor(tse$diet, levels=c("oat", "rice"))
 ```
 
 Analysis information:
@@ -177,9 +179,9 @@ plot_taxon <- function(taxon) {
       scale_y_log10(labels = scales::percent) + 
       theme(text = element_text(size = 15), legend.position = "none") +
       labs(title = taxon, x = "Diet", y = "Abundance (%)") +
-      facet_wrap(~ timepoint, nrow = 1)
+      facet_wrap(~ duration, nrow = 1)
     
-    p3 <- ggplot(df, aes(x = timepoint, y = signal)) +
+    p3 <- ggplot(df, aes(x = duration, y = signal)) +
       geom_boxplot(outlier.shape = NA) +
       geom_point() + 
       geom_line(aes(group = id, color = change)) +
