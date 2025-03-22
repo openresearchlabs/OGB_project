@@ -1,0 +1,4 @@
+2025-03-21 12:05:21.050161 WARNING::Deleting existing residuals file: ../../output/daa/daa_taxa/before/species/fits/residuals_linear.rds
+2025-03-21 12:05:21.056317 WARNING::Deleting existing fitted file: ../../output/daa/daa_taxa/before/species/fits/fitted_linear.rds
+2025-03-21 12:05:21.059873 WARNING::Deleting existing residuals file: ../../output/daa/daa_taxa/before/species/fits/residuals_logistic.rds
+2025-03-21 12:05:21.06556 WARNING::Deleting existing fitted file: ../../output/daa/daa_taxa/before/species/fits/fitted_logistic.rds

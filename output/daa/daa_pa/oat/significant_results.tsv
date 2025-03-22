@@ -1,0 +1,9 @@
+"feature"	"metadata"	"value"	"name"	"coef"	"stderr"	"pval_individual"	"qval_individual"	"pval_joint"	"qval_joint"	"model"	"N"	"N_not_zero"
+"PWY.6531..mannitol.cycle"	"duration"	"Week 6"	"durationWeek 6"	9.01050793215009	1.46069110770885	6.88708030383403e-10	4.49726343840362e-07	1.37741606029248e-09	6.23969475312495e-07	"prevalence"	68	60
+"PWY.5690..TCA.cycle.II..plants.and.fungi."	"duration"	"Week 6"	"durationWeek 6"	7.9843443469629	1.50580213486157	1.14298764721412e-07	3.73185466815412e-05	2.28597516378617e-07	5.17773374597568e-05	"prevalence"	68	60
+"PWY.5690..TCA.cycle.II..plants.and.fungi."	"duration"	"Week 6"	"durationWeek 6"	0.156987672607669	0.185024321281979	0.470846121774417	1	2.28597516378617e-07	5.17773374597568e-05	"abundance"	68	60
+"PWY.6531..mannitol.cycle"	"duration"	"Week 6"	"durationWeek 6"	-0.141964942778958	0.261608510246712	0.541663401954176	1	1.37741606029248e-09	6.23969475312495e-07	"abundance"	68	60
+NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
+NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
+NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
+NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA

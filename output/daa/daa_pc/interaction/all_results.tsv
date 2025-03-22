@@ -1,0 +1,849 @@
+"feature"	"metadata"	"value"	"name"	"coef"	"stderr"	"pval_individual"	"qval_individual"	"pval_joint"	"qval_joint"	"error"	"model"	"N"	"N_not_zero"
+"ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-12.1174199748974	0.339538496916668	6.08803255182832e-279	3.31188970819461e-276	1.21760651036566e-278	4.34685524200541e-276	NA	"prevalence"	138	130
+"ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose."	"diet"	"oat"	"dietoat"	12.080139328539	0.341265512593099	1.82853013428955e-274	4.97360196526759e-272	3.65706026857884e-274	6.52785257941323e-272	NA	"prevalence"	138	130
+"PYRIDNUCSYN.PWY..NAD.de.novo.biosynthesis.I..from.aspartate."	"diet"	"oat"	"dietoat"	7.68744212185371	1.85779708298267	3.50446804528008e-05	0.00635476872210788	7.00881327759736e-05	0.00834048780034086	NA	"prevalence"	138	130
+"PYRIDNUCSYN.PWY..NAD.de.novo.biosynthesis.I..from.aspartate."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-7.79349851501199	2.30543709833555	0.000723576835045072	0.0984064495661299	0.00144663010665393	0.129111737018863	NA	"prevalence"	138	130
+"ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose."	"diet"	"oat"	"dietoat"	0.869421518159428	0.388094677580424	0.15565020323738	1	3.65706026857884e-274	6.52785257941323e-272	NA	"abundance"	138	130
+"ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.807499282063552	0.552991070050617	0.292343156988145	1	1.21760651036566e-278	4.34685524200541e-276	NA	"abundance"	138	130
+"ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose."	"duration"	"Week 6"	"durationWeek 6"	0.804342929988092	0.393931015267233	0.153135566694992	1	0.282820631602987	1	NA	"abundance"	138	130
+"ARGSYN.PWY..L.arginine.biosynthesis.I..via.L.ornithine."	"diet"	"oat"	"dietoat"	-0.0234700536636891	0.0305877785874353	0.986729182150716	1	0.722738992516399	1	NA	"abundance"	138	136
+"ARGSYN.PWY..L.arginine.biosynthesis.I..via.L.ornithine."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00606443882092606	0.0369464282844473	0.998715590215683	1	0.999998350291506	1	NA	"abundance"	138	136
+"ARGSYN.PWY..L.arginine.biosynthesis.I..via.L.ornithine."	"duration"	"Week 6"	"durationWeek 6"	-0.00505215407264846	0.025682635348876	0.995266754651581	1	0.999977596388472	1	NA	"abundance"	138	136
+"ARGSYNBSUB.PWY..L.arginine.biosynthesis.II..acetyl.cycle."	"diet"	"oat"	"dietoat"	-0.591738705048676	0.39748025985114	0.358403500105705	1	0.58835393132339	1	NA	"abundance"	138	137
+"ARGSYNBSUB.PWY..L.arginine.biosynthesis.II..acetyl.cycle."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.575385454123942	0.564277948320386	0.466383203358773	1	0.715253114342355	1	NA	"abundance"	138	137
+"ARGSYNBSUB.PWY..L.arginine.biosynthesis.II..acetyl.cycle."	"duration"	"Week 6"	"durationWeek 6"	-0.00807075572211531	0.394589455959423	0.992338612660228	1	0.99994130314403	1	NA	"abundance"	138	137
+"ARO.PWY..chorismate.biosynthesis.I"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"ARO.PWY..chorismate.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"ARO.PWY..chorismate.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"ASPASN.PWY..superpathway.of.L.aspartate.and.L.asparagine.biosynthesis"	"diet"	"oat"	"dietoat"	-0.389545165514452	2.93565085950956	0.900352860592889	1	0.99007044760798	1	NA	"abundance"	138	60
+"ASPASN.PWY..superpathway.of.L.aspartate.and.L.asparagine.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-3.60903695972476	4.28250308756734	0.410827566950141	1	0.65287584413411	1	NA	"abundance"	138	60
+"ASPASN.PWY..superpathway.of.L.aspartate.and.L.asparagine.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	5.36139530860771	3.08931204961628	0.0992989782967346	1	0.188737669502694	1	NA	"abundance"	138	60
+"BRANCHED.CHAIN.AA.SYN.PWY..superpathway.of.branched.chain.amino.acid.biosynthesis"	"diet"	"oat"	"dietoat"	-0.624554535895592	0.675207863010689	0.464105850541519	1	0.712817460576172	1	NA	"abundance"	138	137
+"BRANCHED.CHAIN.AA.SYN.PWY..superpathway.of.branched.chain.amino.acid.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.119627274179418	0.951471690891335	0.907870069993201	1	0.991512075996942	1	NA	"abundance"	138	137
+"BRANCHED.CHAIN.AA.SYN.PWY..superpathway.of.branched.chain.amino.acid.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	-0.00506957327281417	0.670367600869966	0.997546120770121	1	0.996953732221362	1	NA	"abundance"	138	137
+"CALVIN.PWY..Calvin.Benson.Bassham.cycle"	"diet"	"oat"	"dietoat"	0.279116062299748	1.0391918168751	0.797853596992657	1	0.959136831751193	1	NA	"abundance"	138	134
+"CALVIN.PWY..Calvin.Benson.Bassham.cycle"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.190235550282368	0.336575380138562	0.756460305193646	1	0.940688417053628	1	NA	"abundance"	138	134
+"CALVIN.PWY..Calvin.Benson.Bassham.cycle"	"duration"	"Week 6"	"durationWeek 6"	-0.114063567757284	0.236159721909546	0.81127063710415	1	0.964381227580927	1	NA	"abundance"	138	134
+"COA.PWY..coenzyme.A.biosynthesis.I..prokaryotic."	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"COA.PWY..coenzyme.A.biosynthesis.I..prokaryotic."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"COA.PWY..coenzyme.A.biosynthesis.I..prokaryotic."	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"COA.PWY.1..superpathway.of.coenzyme.A.biosynthesis.III..mammals."	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"COA.PWY.1..superpathway.of.coenzyme.A.biosynthesis.III..mammals."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"COA.PWY.1..superpathway.of.coenzyme.A.biosynthesis.III..mammals."	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"COBALSYN.PWY..superpathway.of.adenosylcobalamin.salvage.from.cobinamide.I"	"diet"	"oat"	"dietoat"	0.270788283850192	2.12821684887258	0.895900236231149	1	0.133442720800508	1	NA	"abundance"	138	102
+"COBALSYN.PWY..superpathway.of.adenosylcobalamin.salvage.from.cobinamide.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	3.40251210524226	3.03430552326121	0.273093381835595	1	0.471606768468788	1	NA	"abundance"	138	102
+"COBALSYN.PWY..superpathway.of.adenosylcobalamin.salvage.from.cobinamide.I"	"duration"	"Week 6"	"durationWeek 6"	-2.07869441054617	2.24764750280863	0.365316005622997	1	0.597176227281653	1	NA	"abundance"	138	102
+"COMPLETE.ARO.PWY..superpathway.of.aromatic.amino.acid.biosynthesis"	"diet"	"oat"	"dietoat"	-0.0154052600913995	0.032563061485856	0.999999999999971	1	0.999999999999971	1	NA	"abundance"	138	138
+"COMPLETE.ARO.PWY..superpathway.of.aromatic.amino.acid.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693136022140355	0.0362621203686663	0.999997087525936	1	0.999997087525936	1	NA	"abundance"	138	138
+"COMPLETE.ARO.PWY..superpathway.of.aromatic.amino.acid.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228046	0.0254547073473126	0.999999999999997	1	0.999999999999997	1	NA	"abundance"	138	138
+"DTDPRHAMSYN.PWY..dTDP..beta..L.rhamnose.biosynthesis"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"DTDPRHAMSYN.PWY..dTDP..beta..L.rhamnose.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"DTDPRHAMSYN.PWY..dTDP..beta..L.rhamnose.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"GLCMANNANAUT.PWY..superpathway.of.N.acetylglucosamine..N.acetylmannosamine.and.N.acetylneuraminate.degradation"	"diet"	"oat"	"dietoat"	-10.7567935483836	7.93839992428913	0.225526869780408	1	0.400191370567867	1	NA	"abundance"	138	10
+"GLCMANNANAUT.PWY..superpathway.of.N.acetylglucosamine..N.acetylmannosamine.and.N.acetylneuraminate.degradation"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	11.49940503118	12.5517123690309	0.395571726824015	1	0.0828693876529303	1	NA	"abundance"	138	10
+"GLCMANNANAUT.PWY..superpathway.of.N.acetylglucosamine..N.acetylmannosamine.and.N.acetylneuraminate.degradation"	"duration"	"Week 6"	"durationWeek 6"	1.01078813207836	10.0413698952247	0.922952453933487	1	0.163225132082003	1	NA	"abundance"	138	10
+"GLUCOSE1PMETAB.PWY..glucose.and.glucose.1.phosphate.degradation"	"diet"	"oat"	"dietoat"	1.62556912150283	0.964523047683304	0.13250076686229	1	0.247445080505485	1	NA	"abundance"	138	76
+"GLUCOSE1PMETAB.PWY..glucose.and.glucose.1.phosphate.degradation"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-1.64612284337517	1.34236416611169	0.256464357270234	1	0.447154747990434	1	NA	"abundance"	138	76
+"GLUCOSE1PMETAB.PWY..glucose.and.glucose.1.phosphate.degradation"	"duration"	"Week 6"	"durationWeek 6"	1.6308730507706	0.998675972267906	0.133227035458358	1	0.248704627939693	1	NA	"abundance"	138	76
+"GLUTORN.PWY..L.ornithine.biosynthesis.I"	"diet"	"oat"	"dietoat"	-0.0240811181167351	0.0298216047548631	0.985720551920425	1	0.722738992516399	1	NA	"abundance"	138	136
+"GLUTORN.PWY..L.ornithine.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.0140530072956283	0.0385578406673323	0.989478102835144	1	0.999889289680052	1	NA	"abundance"	138	136
+"GLUTORN.PWY..L.ornithine.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	-0.0132482080383511	0.0268255481896823	0.97902900829948	1	0.999560217507097	1	NA	"abundance"	138	136
+"GLYCOGENSYNTH.PWY..glycogen.biosynthesis.I..from.ADP.D.Glucose."	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"GLYCOGENSYNTH.PWY..glycogen.biosynthesis.I..from.ADP.D.Glucose."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"GLYCOGENSYNTH.PWY..glycogen.biosynthesis.I..from.ADP.D.Glucose."	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"HISDEG.PWY..L.histidine.degradation.I"	"diet"	"oat"	"dietoat"	-1.33408699022335	8.2941710255179	0.876142697909198	1	0.913192109594991	1	NA	"abundance"	138	18
+"HISDEG.PWY..L.histidine.degradation.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	3.79175312673399	10.5846473198966	0.726309018412879	1	0.813973190990881	1	NA	"abundance"	138	18
+"HISDEG.PWY..L.histidine.degradation.I"	"duration"	"Week 6"	"durationWeek 6"	-6.63580183363165	7.67891024637558	0.40284153301774	1	0.439293528403769	1	NA	"abundance"	138	18
+"HISTSYN.PWY..L.histidine.biosynthesis"	"diet"	"oat"	"dietoat"	-0.00871984745233602	0.0327849838198456	0.989003093537087	1	0.999879068048246	1	NA	"abundance"	138	137
+"HISTSYN.PWY..L.histidine.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00434515852301268	0.0369493068278669	0.996173714140175	1	0.9099534877499	1	NA	"abundance"	138	137
+"HISTSYN.PWY..L.histidine.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	-8.0269765852164e-05	0.0260680964655282	0.994878728665781	1	0.840344656624811	1	NA	"abundance"	138	137
+"HSERMETANA.PWY..L.methionine.biosynthesis.III"	"diet"	"oat"	"dietoat"	-1.60823497572647	1.26774943368201	0.242689018046943	1	0.426480076613296	1	NA	"abundance"	138	119
+"HSERMETANA.PWY..L.methionine.biosynthesis.III"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	3.23109558833292	1.83191073510198	0.0938942414417487	1	0.178972354307576	1	NA	"abundance"	138	119
+"HSERMETANA.PWY..L.methionine.biosynthesis.III"	"duration"	"Week 6"	"durationWeek 6"	-1.55613238528511	1.28942193407358	0.252169791861582	1	0.440749979795651	1	NA	"abundance"	138	119
+"ILEUSYN.PWY..L.isoleucine.biosynthesis.I..from.threonine."	"diet"	"oat"	"dietoat"	-0.624554535895592	0.675207863010689	0.464190235779826	1	0.712907896566322	1	NA	"abundance"	138	137
+"ILEUSYN.PWY..L.isoleucine.biosynthesis.I..from.threonine."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.119627274179418	0.951471690891335	0.907868520230098	1	0.991511790435408	1	NA	"abundance"	138	137
+"ILEUSYN.PWY..L.isoleucine.biosynthesis.I..from.threonine."	"duration"	"Week 6"	"durationWeek 6"	-0.00506957327281417	0.670367600869966	0.997546392160525	1	0.996953732221362	1	NA	"abundance"	138	137
+"NONMEVIPP.PWY..methylerythritol.phosphate.pathway.I"	"diet"	"oat"	"dietoat"	-0.0154052600914113	0.0324306469354885	0.999999999999991	1	0.999999999999991	1	NA	"abundance"	138	138
+"NONMEVIPP.PWY..methylerythritol.phosphate.pathway.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00586502978553692	0.0359648116035751	0.998420362414374	1	0.998420362414374	1	NA	"abundance"	138	138
+"NONMEVIPP.PWY..methylerythritol.phosphate.pathway.I"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228209	0.0252460072622032	1	1	1	1	NA	"abundance"	138	138
+"NONOXIPENT.PWY..pentose.phosphate.pathway..non.oxidative.branch..I"	"diet"	"oat"	"dietoat"	0.282169786453607	1.09543179949377	0.804357527749052	1	0.961724023051537	1	NA	"abundance"	138	134
+"NONOXIPENT.PWY..pentose.phosphate.pathway..non.oxidative.branch..I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.165894095114371	0.394769423455651	0.796013958997942	1	0.958389695076307	1	NA	"abundance"	138	134
+"NONOXIPENT.PWY..pentose.phosphate.pathway..non.oxidative.branch..I"	"duration"	"Week 6"	"durationWeek 6"	-0.176403873688877	0.276992638317234	0.722213114220525	1	0.922834446088941	1	NA	"abundance"	138	134
+"OANTIGEN.PWY..O.antigen.building.blocks.biosynthesis..E..coli."	"diet"	"oat"	"dietoat"	1.11615339792194	2.80448967706082	0.692402768874474	1	0.0888198871378317	1	NA	"abundance"	138	58
+"OANTIGEN.PWY..O.antigen.building.blocks.biosynthesis..E..coli."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.637900072735253	4.02960972383585	0.874532886485499	1	0.288064388041844	1	NA	"abundance"	138	58
+"OANTIGEN.PWY..O.antigen.building.blocks.biosynthesis..E..coli."	"duration"	"Week 6"	"durationWeek 6"	0.696970597427622	2.55186522728076	0.787487894717271	1	0.188842878559484	1	NA	"abundance"	138	58
+"P41.PWY..pyruvate.fermentation.to.acetate.and..S..lactate.I"	"diet"	"oat"	"dietoat"	-0.321589033556152	0.350916152429694	0.608800894338131	1	0.846963259729354	1	NA	"abundance"	138	120
+"P41.PWY..pyruvate.fermentation.to.acetate.and..S..lactate.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.257226279203727	0.496408369062484	0.732473617910556	1	0.629954296664635	1	NA	"abundance"	138	120
+"P41.PWY..pyruvate.fermentation.to.acetate.and..S..lactate.I"	"duration"	"Week 6"	"durationWeek 6"	-0.285846153783837	0.348074679329476	0.594234053482886	1	0.803749787461155	1	NA	"abundance"	138	120
+"PANTO.PWY..phosphopantothenate.biosynthesis.I"	"diet"	"oat"	"dietoat"	0.351132412391894	0.262622719059003	0.505985899341264	1	0.505985899341264	1	NA	"abundance"	138	136
+"PANTO.PWY..phosphopantothenate.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.333627480734562	0.374167229938039	0.603306206316584	1	0.842634034053059	1	NA	"abundance"	138	136
+"PANTO.PWY..phosphopantothenate.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	0.337913566733767	0.264633422188095	0.478933615047717	1	0.478933615047717	1	NA	"abundance"	138	136
+"PANTOSYN.PWY..superpathway.of.coenzyme.A.biosynthesis.I..bacteria."	"diet"	"oat"	"dietoat"	0.297422171251538	0.238718175956047	0.562353800008621	1	0.562353800008621	1	NA	"abundance"	138	136
+"PANTOSYN.PWY..superpathway.of.coenzyme.A.biosynthesis.I..bacteria."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.288795131828665	0.340109640755292	0.642140466265579	1	0.871936554115383	1	NA	"abundance"	138	136
+"PANTOSYN.PWY..superpathway.of.coenzyme.A.biosynthesis.I..bacteria."	"duration"	"Week 6"	"durationWeek 6"	0.310203495834664	0.24054586011485	0.503884088307922	1	0.503884088307922	1	NA	"abundance"	138	136
+"PENTOSE.P.PWY..pentose.phosphate.pathway"	"diet"	"oat"	"dietoat"	15.9075699033109	13.1301898886671	0.294490846668717	1	0.502256834565777	1	NA	"abundance"	138	11
+"PENTOSE.P.PWY..pentose.phosphate.pathway"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-10.7153637635434	17.4110331501337	0.59133066289122	1	0.659246497647777	1	NA	"abundance"	138	11
+"PENTOSE.P.PWY..pentose.phosphate.pathway"	"duration"	"Week 6"	"durationWeek 6"	-3.35774764117871	13.6746003113494	0.813617026586709	1	0.904909324834475	1	NA	"abundance"	138	11
+"PEPTIDOGLYCANSYN.PWY..peptidoglycan.biosynthesis.I..meso.diaminopimelate.containing."	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PEPTIDOGLYCANSYN.PWY..peptidoglycan.biosynthesis.I..meso.diaminopimelate.containing."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PEPTIDOGLYCANSYN.PWY..peptidoglycan.biosynthesis.I..meso.diaminopimelate.containing."	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.1042..glycolysis.IV"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.1042..glycolysis.IV"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.1042..glycolysis.IV"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.2942..L.lysine.biosynthesis.III"	"diet"	"oat"	"dietoat"	2.70581778445394	1.03872976543364	0.0189783609503953	1	0.0189783609503953	0.905212972703858	NA	"abundance"	138	134
+"PWY.2942..L.lysine.biosynthesis.III"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-2.55991384012204	1.44165711975881	0.100212031526644	1	0.100212031526644	1	NA	"abundance"	138	134
+"PWY.2942..L.lysine.biosynthesis.III"	"duration"	"Week 6"	"durationWeek 6"	2.64861900364944	1.01174726465734	0.017710927838124	1	0.017710927838124	0.905212972703858	NA	"abundance"	138	134
+"PWY.3001..superpathway.of.L.isoleucine.biosynthesis.I"	"diet"	"oat"	"dietoat"	1.31269243872271	2.62435427281086	0.619781023103474	1	0.430113323323104	1	NA	"abundance"	138	97
+"PWY.3001..superpathway.of.L.isoleucine.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.532932394005762	3.81845236790007	0.891765745652348	1	0.988285346185808	1	NA	"abundance"	138	97
+"PWY.3001..superpathway.of.L.isoleucine.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	-1.59585023918731	2.53987005518664	0.536942939301511	1	0.785578158537276	1	NA	"abundance"	138	97
+"PWY.3841..folate.transformations.II..plants."	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.3841..folate.transformations.II..plants."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.3841..folate.transformations.II..plants."	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.5097..L.lysine.biosynthesis.VI"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.5097..L.lysine.biosynthesis.VI"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.5097..L.lysine.biosynthesis.VI"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.5100..pyruvate.fermentation.to.acetate.and.lactate.II"	"diet"	"oat"	"dietoat"	-0.32158903355615	0.348475552993388	0.607944901983816	1	0.84629280011952	1	NA	"abundance"	138	122
+"PWY.5100..pyruvate.fermentation.to.acetate.and.lactate.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.265916775297735	0.488953547612941	0.721710528663455	1	0.59167284994684	1	NA	"abundance"	138	122
+"PWY.5100..pyruvate.fermentation.to.acetate.and.lactate.II"	"duration"	"Week 6"	"durationWeek 6"	-0.271396334818158	0.342987406021319	0.610887714229479	1	0.382609018188038	1	NA	"abundance"	138	122
+"PWY.5103..L.isoleucine.biosynthesis.III"	"diet"	"oat"	"dietoat"	-0.644494574963361	0.694894093685939	0.458306577368524	1	0.706568235877797	1	NA	"abundance"	138	137
+"PWY.5103..L.isoleucine.biosynthesis.III"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.112660592474015	0.979212616632836	0.914801609827664	1	0.992741234312043	1	NA	"abundance"	138	137
+"PWY.5103..L.isoleucine.biosynthesis.III"	"duration"	"Week 6"	"durationWeek 6"	-0.0117977276253779	0.689912709792567	0.990879701398699	1	0.996953732221362	1	NA	"abundance"	138	137
+"PWY.5154..L.arginine.biosynthesis.III..via.N.acetyl.L.citrulline."	"diet"	"oat"	"dietoat"	8.39704418209855	7.16357158217171	0.275027688370054	1	0.474415147369932	1	NA	"abundance"	138	12
+"PWY.5154..L.arginine.biosynthesis.III..via.N.acetyl.L.citrulline."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-8.0952192690366	13.1894107845065	0.648472402763252	1	0.586632397235888	1	NA	"abundance"	138	12
+"PWY.5154..L.arginine.biosynthesis.III..via.N.acetyl.L.citrulline."	"duration"	"Week 6"	"durationWeek 6"	9.46935444226374	7.09826477266751	0.290839179487919	1	0.460115640422787	1	NA	"abundance"	138	12
+"PWY.5188..tetrapyrrole.biosynthesis.I..from.glutamate."	"diet"	"oat"	"dietoat"	0.863540300669705	3.19483323150962	0.786393108063567	1	0.631540568331528	1	NA	"abundance"	138	71
+"PWY.5188..tetrapyrrole.biosynthesis.I..from.glutamate."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-3.65931327413941	4.34067637045542	0.407975857440761	1	0.649507414626998	1	NA	"abundance"	138	71
+"PWY.5188..tetrapyrrole.biosynthesis.I..from.glutamate."	"duration"	"Week 6"	"durationWeek 6"	2.37659016380676	2.94956634161818	0.430285464625877	1	0.675425348183447	1	NA	"abundance"	138	71
+"PWY.5667..CDP.diacylglycerol.biosynthesis.I"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.5667..CDP.diacylglycerol.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.5667..CDP.diacylglycerol.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.5686..UMP.biosynthesis.I"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.5686..UMP.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.5686..UMP.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.5695..inosine.5..phosphate.degradation"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.5695..inosine.5..phosphate.degradation"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.5695..inosine.5..phosphate.degradation"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.5941..glycogen.degradation.II"	"diet"	"oat"	"dietoat"	-0.0136360142290119	0.680819888554938	0.998312353428632	1	0.918477014673057	1	NA	"abundance"	138	132
+"PWY.5941..glycogen.degradation.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.0768012582237749	0.946347090520867	0.940336430940416	1	0.923002893326737	1	NA	"abundance"	138	132
+"PWY.5941..glycogen.degradation.II"	"duration"	"Week 6"	"durationWeek 6"	0.673764727783119	0.663813262486961	0.406680183301443	1	0.573799750802082	1	NA	"abundance"	138	132
+"PWY.5973..cis.vaccenate.biosynthesis"	"diet"	"oat"	"dietoat"	3.94246006659003	4.71917367228101	0.410052088677345	1	0.539586561103746	1	NA	"abundance"	138	37
+"PWY.5973..cis.vaccenate.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-9.02400018732961	6.89279432824748	0.200473518650571	1	0.360757405621001	1	NA	"abundance"	138	37
+"PWY.5973..cis.vaccenate.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	7.18483558021401	4.71917367228102	0.138628233298758	1	0.25803867952998	1	NA	"abundance"	138	37
+"PWY.6121..5.aminoimidazole.ribonucleotide.biosynthesis.I"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.6121..5.aminoimidazole.ribonucleotide.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.6121..5.aminoimidazole.ribonucleotide.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.6122..5.aminoimidazole.ribonucleotide.biosynthesis.II"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.6122..5.aminoimidazole.ribonucleotide.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.6122..5.aminoimidazole.ribonucleotide.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.6123..inosine.5..phosphate.biosynthesis.I"	"diet"	"oat"	"dietoat"	-0.0154052604732812	0.0320796458412209	0.99999999937181	1	1	1	NA	"abundance"	138	137
+"PWY.6123..inosine.5..phosphate.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.00275795235100357	0.035026789575335	0.985669721569337	1	0.881146822760368	1	NA	"abundance"	138	137
+"PWY.6123..inosine.5..phosphate.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343227965	0.0244553713968201	0.999999999999995	1	1	1	NA	"abundance"	138	137
+"PWY.6124..inosine.5..phosphate.biosynthesis.II"	"diet"	"oat"	"dietoat"	-0.0154052605496631	0.0320796458379561	0.99999999924615	1	1	1	NA	"abundance"	138	137
+"PWY.6124..inosine.5..phosphate.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.00275795227418327	0.0350267895645043	0.985669248484664	1	0.881146822760368	1	NA	"abundance"	138	137
+"PWY.6124..inosine.5..phosphate.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343227965	0.0244553713892354	0.999999999999995	1	1	1	NA	"abundance"	138	137
+"PWY.6147..6.hydroxymethyl.dihydropterin.diphosphate.biosynthesis.I"	"diet"	"oat"	"dietoat"	9.24997152529859	10.0145110706645	0.384944882998499	1	0.62170720305027	1	NA	"abundance"	138	12
+"PWY.6147..6.hydroxymethyl.dihydropterin.diphosphate.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-5.9926182797674	5.99733569232885	0.417131103809406	1	0.660263849853558	1	NA	"abundance"	138	12
+"PWY.6147..6.hydroxymethyl.dihydropterin.diphosphate.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	5.88183988235771	4.17959411113817	0.281086615448501	1	0.483163545512709	1	NA	"abundance"	138	12
+"PWY.6151..S.adenosyl.L.methionine.salvage.I"	"diet"	"oat"	"dietoat"	-0.0154218486321335	0.0325467673014577	0.99997271087982	1	0.99997271087982	1	NA	"abundance"	138	138
+"PWY.6151..S.adenosyl.L.methionine.salvage.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00707359930863502	0.0362359989281909	0.999792598823612	1	0.999792598823612	1	NA	"abundance"	138	138
+"PWY.6151..S.adenosyl.L.methionine.salvage.I"	"duration"	"Week 6"	"durationWeek 6"	-0.0027877361267526	0.0254363710333842	0.999754796663123	1	0.999754796663123	1	NA	"abundance"	138	138
+"PWY.6163..chorismate.biosynthesis.from.3.dehydroquinate"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.6163..chorismate.biosynthesis.from.3.dehydroquinate"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.6163..chorismate.biosynthesis.from.3.dehydroquinate"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.6270..isoprene.biosynthesis.I"	"diet"	"oat"	"dietoat"	3.54295088555968	5.60330341375218	0.530578988832413	1	0.311792627972797	1	NA	"abundance"	138	43
+"PWY.6270..isoprene.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-4.3761560784187	6.80793403926824	0.524691451863557	1	0.413728011451681	1	NA	"abundance"	138	43
+"PWY.6270..isoprene.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	-5.5672638375691	4.23569924377929	0.198531333285735	1	0.357647976275258	1	NA	"abundance"	138	43
+"PWY.6277..superpathway.of.5.aminoimidazole.ribonucleotide.biosynthesis"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.6277..superpathway.of.5.aminoimidazole.ribonucleotide.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.6277..superpathway.of.5.aminoimidazole.ribonucleotide.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.6317..D.galactose.degradation.I..Leloir.pathway."	"diet"	"oat"	"dietoat"	0.233238854491196	0.905771901917263	0.808989246963498	1	0.918477014673057	1	NA	"abundance"	138	132
+"PWY.6317..D.galactose.degradation.I..Leloir.pathway."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.117115238552782	0.956562283423286	0.920345043826072	1	0.923002893326737	1	NA	"abundance"	138	132
+"PWY.6317..D.galactose.degradation.I..Leloir.pathway."	"duration"	"Week 6"	"durationWeek 6"	0.228317323936992	0.668758050913003	0.768103561658991	1	0.573799750802082	1	NA	"abundance"	138	132
+"PWY.6385..peptidoglycan.biosynthesis.III..mycobacteria."	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.6385..peptidoglycan.biosynthesis.III..mycobacteria."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.6385..peptidoglycan.biosynthesis.III..mycobacteria."	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.6386..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.II..lysine.containing."	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.6386..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.II..lysine.containing."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.6386..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.II..lysine.containing."	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.6387..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.I..meso.diaminopimelate.containing."	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.6387..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.I..meso.diaminopimelate.containing."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.6387..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.I..meso.diaminopimelate.containing."	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.6527..stachyose.degradation"	"diet"	"oat"	"dietoat"	2.13288423082698	1.52232185392737	0.18157627868953	1	0.330182612396323	1	NA	"abundance"	138	105
+"PWY.6527..stachyose.degradation"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.987941760577147	1.9648552009847	0.627086189530131	1	0.860935289960842	1	NA	"abundance"	138	105
+"PWY.6527..stachyose.degradation"	"duration"	"Week 6"	"durationWeek 6"	-0.210842888025143	1.41127829276644	0.887621645448196	1	0.93931778164986	1	NA	"abundance"	138	105
+"PWY.6608..guanosine.nucleotides.degradation.III"	"diet"	"oat"	"dietoat"	1.09251126723136	16.1750930781979	0.948699074565235	1	0.907584527389556	1	NA	"abundance"	138	8
+"PWY.6608..guanosine.nucleotides.degradation.III"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-5.67720183807114	24.7078628012661	0.829370608082764	1	0.410853949674278	1	NA	"abundance"	138	8
+"PWY.6608..guanosine.nucleotides.degradation.III"	"duration"	"Week 6"	"durationWeek 6"	16.0583752190176	19.8103622918045	0.463070875852131	1	0.544525614988708	1	NA	"abundance"	138	8
+"PWY.6609..adenine.and.adenosine.salvage.III"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.6609..adenine.and.adenosine.salvage.III"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.6609..adenine.and.adenosine.salvage.III"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.6628..superpathway.of.L.phenylalanine.biosynthesis"	"diet"	"oat"	"dietoat"	-13.1367201341042	10.1574843170833	0.233302067450695	1	0.412174280224621	1	NA	"abundance"	138	11
+"PWY.6628..superpathway.of.L.phenylalanine.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	1.58612683346338	5.25504657433508	0.808024089086291	1	0.387436955955417	1	NA	"abundance"	138	11
+"PWY.6629..superpathway.of.L.tryptophan.biosynthesis"	"diet"	"oat"	"dietoat"	-0.00687669241341233	0.0478452048713594	0.986005131134017	1	0.999804143645424	1	NA	"abundance"	138	133
+"PWY.6629..superpathway.of.L.tryptophan.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.00194356627912214	0.063500723256623	0.987009842680364	1	0.926924128578598	1	NA	"abundance"	138	133
+"PWY.6629..superpathway.of.L.tryptophan.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	-0.0542595839336075	0.04436483866476	0.898990621141332	1	0.989797105382586	1	NA	"abundance"	138	133
+"PWY.6700..queuosine.biosynthesis.I..de.novo."	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.6700..queuosine.biosynthesis.I..de.novo."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.6700..queuosine.biosynthesis.I..de.novo."	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.6703..preQ0.biosynthesis"	"diet"	"oat"	"dietoat"	-0.291711981093687	1.80589624757405	0.88271615185306	1	0.664058505998976	1	NA	"abundance"	138	115
+"PWY.6703..preQ0.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	2.36690056980024	2.34650803841238	0.331427766491324	1	0.55301116858122	1	NA	"abundance"	138	115
+"PWY.6703..preQ0.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	0.149425798795791	1.68388806440125	0.930295657524337	1	0.188970123173944	1	NA	"abundance"	138	115
+"PWY.6731..starch.degradation.III"	"diet"	"oat"	"dietoat"	-0.548968173430539	9.00228755112086	0.953705733442144	1	0.405737171407363	1	NA	"abundance"	138	17
+"PWY.6731..starch.degradation.III"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	5.83817357703853	11.6509217846222	0.625431705473933	1	0.594683094477619	1	NA	"abundance"	138	17
+"PWY.6731..starch.degradation.III"	"duration"	"Week 6"	"durationWeek 6"	5.73959060562007	6.67627513170226	0.406111402656135	1	0.647296333944937	1	NA	"abundance"	138	17
+"PWY.6823..molybdopterin.biosynthesis"	"diet"	"oat"	"dietoat"	0.774261980608639	0.953020395361692	0.46107384048122	1	0.709558594586339	1	NA	"abundance"	138	125
+"PWY.6823..molybdopterin.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-2.17590365578114	1.34249930164594	0.133600922384248	1	0.249352638306575	1	NA	"abundance"	138	125
+"PWY.6823..molybdopterin.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	1.11177385794359	0.945545610187309	0.279768311763502	1	0.481266315260004	1	NA	"abundance"	138	125
+"PWY.6892..thiazole.component.of.thiamine.diphosphate.biosynthesis.I"	"diet"	"oat"	"dietoat"	5.67784166055033	3.11015489243875	0.074745988986122	1	0.143905015102731	1	NA	"abundance"	138	74
+"PWY.6892..thiazole.component.of.thiamine.diphosphate.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.959434438462294	4.31038696490331	0.827830811951801	1	0.970357770686824	1	NA	"abundance"	138	74
+"PWY.6892..thiazole.component.of.thiamine.diphosphate.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	4.42136336798981	3.04951640060041	0.159470552677231	1	0.29351024818328	1	NA	"abundance"	138	74
+"PWY.6897..thiamine.diphosphate.salvage.II"	"diet"	"oat"	"dietoat"	0.991572567901336	2.36849921251581	0.677996394174098	1	0.225136539343144	1	NA	"abundance"	138	85
+"PWY.6897..thiamine.diphosphate.salvage.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	1.25788026851125	3.17884159279177	0.699565024663256	1	0.177636642843414	1	NA	"abundance"	138	85
+"PWY.6897..thiamine.diphosphate.salvage.II"	"duration"	"Week 6"	"durationWeek 6"	0.920336146512197	2.18107900059786	0.678946539785673	1	0.328579546009547	1	NA	"abundance"	138	85
+"PWY.6936..seleno.amino.acid.biosynthesis..plants."	"diet"	"oat"	"dietoat"	0.658164826332681	1.72928701903846	0.708407213936217	1	0.143632201906728	1	NA	"abundance"	138	88
+"PWY.6936..seleno.amino.acid.biosynthesis..plants."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.0972505221744923	2.39247345112835	0.966313271439528	1	0.892646605432869	1	NA	"abundance"	138	88
+"PWY.6936..seleno.amino.acid.biosynthesis..plants."	"duration"	"Week 6"	"durationWeek 6"	-0.153792011728348	1.55059915907607	0.925258286306458	1	0.941479681463597	1	NA	"abundance"	138	88
+"PWY.702..L.methionine.biosynthesis.II"	"diet"	"oat"	"dietoat"	5.74606530240821	7.73076486160376	0.470626218248649	1	0.105789365955821	1	NA	"abundance"	138	18
+"PWY.702..L.methionine.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-5.36614600512637	10.1449931025829	0.605281897470057	1	0.309355962854724	1	NA	"abundance"	138	18
+"PWY.702..L.methionine.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	1.71231412544927	4.58178001911398	0.73703603831958	1	0.220963602966349	1	NA	"abundance"	138	18
+"PWY.7111..pyruvate.fermentation.to.isobutanol..engineered."	"diet"	"oat"	"dietoat"	0.636717189914936	0.937023814183286	0.537046478497096	1	0.537046478497096	1	NA	"abundance"	138	133
+"PWY.7111..pyruvate.fermentation.to.isobutanol..engineered."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-1.25228879587628	1.33008719177101	0.381357661667252	1	0.381357661667252	1	NA	"abundance"	138	133
+"PWY.7111..pyruvate.fermentation.to.isobutanol..engineered."	"duration"	"Week 6"	"durationWeek 6"	1.18856400734377	0.943990629914668	0.24732882856361	1	0.24732882856361	1	NA	"abundance"	138	133
+"PWY.7117..C4.photosynthetic.carbon.assimilation.cycle..PEPCK.type"	"diet"	"oat"	"dietoat"	-9.13580926194496	11.1673972957032	0.471554450083035	1	0.720745300772957	1	NA	"abundance"	138	8
+"PWY.7117..C4.photosynthetic.carbon.assimilation.cycle..PEPCK.type"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	14.4388736085263	14.7377365862867	0.387972786021455	1	0.625422689349661	1	NA	"abundance"	138	8
+"PWY.7117..C4.photosynthetic.carbon.assimilation.cycle..PEPCK.type"	"duration"	"Week 6"	"durationWeek 6"	-6.60382273838973	5.48951146703001	0.353195177964869	1	0.581643522192102	1	NA	"abundance"	138	8
+"PWY.7199..pyrimidine.deoxyribonucleosides.salvage"	"diet"	"oat"	"dietoat"	-0.651587858683895	0.698711587997907	0.455099699104212	1	0.665434815720191	1	NA	"abundance"	138	128
+"PWY.7199..pyrimidine.deoxyribonucleosides.salvage"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	1.04114902713743	0.980493277763753	0.356465162439547	1	0.585862912846042	1	NA	"abundance"	138	128
+"PWY.7199..pyrimidine.deoxyribonucleosides.salvage"	"duration"	"Week 6"	"durationWeek 6"	-0.859634764895637	0.693482773604794	0.286420522481274	1	0.490804329264102	1	NA	"abundance"	138	128
+"PWY.7221..guanosine.ribonucleotides.de.novo.biosynthesis"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.7221..guanosine.ribonucleotides.de.novo.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.7221..guanosine.ribonucleotides.de.novo.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.7237..myo...chiro..and.scyllo.inositol.degradation"	"diet"	"oat"	"dietoat"	0.551140171572161	0.577115269669689	0.452713390962244	1	0.452713390962244	1	NA	"abundance"	138	134
+"PWY.7237..myo...chiro..and.scyllo.inositol.degradation"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.0935358958873434	0.804432657028595	0.928844850708837	1	0.928844850708837	1	NA	"abundance"	138	134
+"PWY.7237..myo...chiro..and.scyllo.inositol.degradation"	"duration"	"Week 6"	"durationWeek 6"	0.130289041139348	0.568819786792832	0.84887982524769	1	0.84887982524769	1	NA	"abundance"	138	134
+"PWY.7238..sucrose.biosynthesis.II"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.7238..sucrose.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.7238..sucrose.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.724..superpathway.of.L.lysine..L.threonine.and.L.methionine.biosynthesis.II"	"diet"	"oat"	"dietoat"	0.474533010496243	0.350272806126583	0.412877318919888	1	0.655286957361302	1	NA	"abundance"	138	137
+"PWY.724..superpathway.of.L.lysine..L.threonine.and.L.methionine.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.451045241004892	0.462092009109328	0.51977933813972	1	0.769388115922474	1	NA	"abundance"	138	137
+"PWY.724..superpathway.of.L.lysine..L.threonine.and.L.methionine.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	0.4485676228067	0.32296354191943	0.383274950553527	1	0.619650213385246	1	NA	"abundance"	138	137
+"PWY.7328..superpathway.of.UDP.glucose.derived.O.antigen.building.blocks.biosynthesis"	"diet"	"oat"	"dietoat"	12.2541043255545	4.48043498418385	0.0115311651551756	1	0.0229293625405153	0.909531380773775	NA	"abundance"	138	31
+"PWY.7328..superpathway.of.UDP.glucose.derived.O.antigen.building.blocks.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-10.6676192746537	3.89577004386123	0.0563251155765591	1	0.109477712508406	1	NA	"abundance"	138	31
+"PWY.7328..superpathway.of.UDP.glucose.derived.O.antigen.building.blocks.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	-5.39211762556486	2.3203480431967	0.0969275894860167	1	0.184460221368464	1	NA	"abundance"	138	31
+"PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast."	"diet"	"oat"	"dietoat"	0.99320683755014	0.871956004840431	0.313394291316028	1	0.52857260080258	1	NA	"abundance"	138	129
+"PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.751967496082724	1.2071229220144	0.575740617160028	1	0.621595537111372	1	NA	"abundance"	138	129
+"PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast."	"duration"	"Week 6"	"durationWeek 6"	-1.05476502103595	0.836360551209281	0.263582375270603	1	0.457689081987913	1	NA	"abundance"	138	129
+"PWY.7560..methylerythritol.phosphate.pathway.II"	"diet"	"oat"	"dietoat"	3.57173354873129	5.23623177137022	0.498932208093708	1	0.485732151463559	1	NA	"abundance"	138	45
+"PWY.7560..methylerythritol.phosphate.pathway.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-3.70796153291708	6.45110797363258	0.569148203460807	1	0.459253651977511	1	NA	"abundance"	138	45
+"PWY.7560..methylerythritol.phosphate.pathway.II"	"duration"	"Week 6"	"durationWeek 6"	-5.63082489442044	4.1983254184731	0.18937445056219	1	0.34288621859865	1	NA	"abundance"	138	45
+"PWY.7663..gondoate.biosynthesis..anaerobic."	"diet"	"oat"	"dietoat"	4.43663641810562	4.48149871674976	0.330028443677344	1	0.551138113718598	1	NA	"abundance"	138	39
+"PWY.7663..gondoate.biosynthesis..anaerobic."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-8.95386760593068	6.5298017798949	0.206966688095017	1	0.371098166209014	1	NA	"abundance"	138	39
+"PWY.7663..gondoate.biosynthesis..anaerobic."	"duration"	"Week 6"	"durationWeek 6"	7.15489532686447	4.60287446482424	0.156897369350068	1	0.289177954191165	1	NA	"abundance"	138	39
+"PWY.7790..UMP.biosynthesis.II"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.7790..UMP.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.7790..UMP.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.7791..UMP.biosynthesis.III"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.7791..UMP.biosynthesis.III"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.7791..UMP.biosynthesis.III"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.7851..coenzyme.A.biosynthesis.II..eukaryotic."	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.7851..coenzyme.A.biosynthesis.II..eukaryotic."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.7851..coenzyme.A.biosynthesis.II..eukaryotic."	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.7953..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.III..meso.diaminopimelate.containing."	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY.7953..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.III..meso.diaminopimelate.containing."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY.7953..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.III..meso.diaminopimelate.containing."	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY.7977..L.methionine.biosynthesis.IV"	"diet"	"oat"	"dietoat"	-0.0154052600956359	0.0325626724326719	0.99999999999306	1	0.99999999999306	1	NA	"abundance"	138	138
+"PWY.7977..L.methionine.biosynthesis.IV"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00692362422350767	0.0362618182271465	0.999985649358592	1	0.999985649358592	1	NA	"abundance"	138	138
+"PWY.7977..L.methionine.biosynthesis.IV"	"duration"	"Week 6"	"durationWeek 6"	-0.00266647994775115	0.0254544952548071	0.999995189348711	1	0.999995189348711	1	NA	"abundance"	138	138
+"PWY.8178..pentose.phosphate.pathway..non.oxidative.branch..II"	"diet"	"oat"	"dietoat"	0.283952862951476	1.09053418042607	0.802481983105789	1	0.960986633002178	1	NA	"abundance"	138	134
+"PWY.8178..pentose.phosphate.pathway..non.oxidative.branch..II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.180308652180524	0.380904069415116	0.776781359234347	1	0.950173438414734	1	NA	"abundance"	138	134
+"PWY.8178..pentose.phosphate.pathway..non.oxidative.branch..II"	"duration"	"Week 6"	"durationWeek 6"	-0.155340413523971	0.267263678899208	0.751993181894869	1	0.938492618173368	1	NA	"abundance"	138	134
+"PWY.8187..L.arginine.degradation.XIII..reductive.Stickland.reaction."	"diet"	"oat"	"dietoat"	-0.0710401767050872	5.10735793659904	0.991649843608122	1	0.991649843608122	1	NA	"abundance"	138	11
+"PWY.8187..L.arginine.degradation.XIII..reductive.Stickland.reaction."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	2.56929106269209	8.39535774475879	0.772353227354307	1	0.772353227354307	1	NA	"abundance"	138	11
+"PWY.8187..L.arginine.degradation.XIII..reductive.Stickland.reaction."	"duration"	"Week 6"	"durationWeek 6"	-10.055536513986	5.79132578014434	0.126926787828905	1	0.126926787828905	1	NA	"abundance"	138	11
+"PWY.I9..L.cysteine.biosynthesis.VI..from.L.methionine."	"diet"	"oat"	"dietoat"	-9.67074043954317	6.26938690074921	0.141124606620576	1	0.118320023529745	1	NA	"abundance"	138	23
+"PWY.I9..L.cysteine.biosynthesis.VI..from.L.methionine."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	8.94904242818372	8.7805857034263	0.322138468737031	1	0.422454478774274	1	NA	"abundance"	138	23
+"PWY.I9..L.cysteine.biosynthesis.VI..from.L.methionine."	"duration"	"Week 6"	"durationWeek 6"	-7.98954061332489	4.91811171464357	0.12199731884668	1	0.229111291887581	1	NA	"abundance"	138	23
+"PWY0.1296..purine.ribonucleosides.degradation"	"diet"	"oat"	"dietoat"	2.1160227601599	0.96314141250417	0.050169561654227	1	0.0978221383918767	1	NA	"abundance"	138	134
+"PWY0.1296..purine.ribonucleosides.degradation"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-1.27410616440998	1.2188310680848	0.34101747544408	1	0.565742032329906	1	NA	"abundance"	138	134
+"PWY0.1296..purine.ribonucleosides.degradation"	"duration"	"Week 6"	"durationWeek 6"	1.26253547260628	0.847363998157663	0.183742553156206	1	0.33372378047205	1	NA	"abundance"	138	134
+"PWY0.1319..CDP.diacylglycerol.biosynthesis.II"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"PWY0.1319..CDP.diacylglycerol.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"PWY0.1319..CDP.diacylglycerol.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"PWY0.1586..peptidoglycan.maturation..meso.diaminopimelate.containing."	"diet"	"oat"	"dietoat"	-1.82859969531637	0.981389764094601	0.0998550261949153	1	0.189739026133443	1	NA	"abundance"	138	129
+"PWY0.1586..peptidoglycan.maturation..meso.diaminopimelate.containing."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	2.52592066170387	1.40408062259706	0.0962373355219202	1	0.183213046295482	1	NA	"abundance"	138	129
+"PWY0.1586..peptidoglycan.maturation..meso.diaminopimelate.containing."	"duration"	"Week 6"	"durationWeek 6"	-0.546300706295433	1.0041496530313	0.615777937787134	1	0.852373406908893	1	NA	"abundance"	138	129
+"PWY66.429..fatty.acid.biosynthesis.initiation..mitochondria."	"diet"	"oat"	"dietoat"	-0.0154052600913948	0.498456085116878	0.999999999999974	1	1	1	NA	"abundance"	138	137
+"PWY66.429..fatty.acid.biosynthesis.initiation..mitochondria."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.696030276346935	0.707226231531678	0.440084910398447	1	0.686495092436485	1	NA	"abundance"	138	137
+"PWY66.429..fatty.acid.biosynthesis.initiation..mitochondria."	"duration"	"Week 6"	"durationWeek 6"	-0.700610283727089	0.494548476217894	0.276444345803033	1	0.476467215279599	1	NA	"abundance"	138	137
+"PYRIDNUCSYN.PWY..NAD.de.novo.biosynthesis.I..from.aspartate."	"diet"	"oat"	"dietoat"	1.22578906927974	0.713474831252451	0.152173560722568	1	7.00881327759736e-05	0.00834048780034086	NA	"abundance"	138	130
+"PYRIDNUCSYN.PWY..NAD.de.novo.biosynthesis.I..from.aspartate."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.283248824599307	1.02490432534645	0.80222337810344	1	0.00144663010665393	0.129111737018863	NA	"abundance"	138	130
+"PYRIDNUCSYN.PWY..NAD.de.novo.biosynthesis.I..from.aspartate."	"duration"	"Week 6"	"durationWeek 6"	0.416220624655193	0.724373249413837	0.613430968871784	1	0.607106237348085	1	NA	"abundance"	138	130
+"RHAMCAT.PWY..L.rhamnose.degradation.I"	"diet"	"oat"	"dietoat"	-5.57453547717336	5.29415442714872	0.304297434710352	1	0.414098582995134	1	NA	"abundance"	138	33
+"RHAMCAT.PWY..L.rhamnose.degradation.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	6.78914454175882	7.26942861465928	0.359773830917315	1	0.469630258369574	1	NA	"abundance"	138	33
+"RHAMCAT.PWY..L.rhamnose.degradation.I"	"duration"	"Week 6"	"durationWeek 6"	-2.27399674071809	5.40332373583789	0.678123496150619	1	0.570023030755626	1	NA	"abundance"	138	33
+"RIBOSYN2.PWY..flavin.biosynthesis.I..bacteria.and.plants."	"diet"	"oat"	"dietoat"	1.2347973718878	1.35715288307611	0.387149108655385	1	0.568884264189295	1	NA	"abundance"	138	118
+"RIBOSYN2.PWY..flavin.biosynthesis.I..bacteria.and.plants."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-3.68821127081056	1.97215493466198	0.0732234308651946	1	0.141085190902719	1	NA	"abundance"	138	118
+"RIBOSYN2.PWY..flavin.biosynthesis.I..bacteria.and.plants."	"duration"	"Week 6"	"durationWeek 6"	1.27535691720146	1.43091968267608	0.391384252518279	1	0.351606903927744	1	NA	"abundance"	138	118
+"SER.GLYSYN.PWY..superpathway.of.L.serine.and.glycine.biosynthesis.I"	"diet"	"oat"	"dietoat"	-0.00267724608842117	0.0311372160775096	0.979060137360724	1	0.979060137360724	1	NA	"abundance"	138	135
+"SER.GLYSYN.PWY..superpathway.of.L.serine.and.glycine.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.0122640620523821	0.0356210724262729	0.971621069006475	1	0.971621069006475	1	NA	"abundance"	138	135
+"SER.GLYSYN.PWY..superpathway.of.L.serine.and.glycine.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	0.00279495613869622	0.0250598669764074	0.989178013615778	1	0.989178013615778	1	NA	"abundance"	138	135
+"THISYN.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.I"	"diet"	"oat"	"dietoat"	-16.7202222529513	6.69248622932748	0.0327425233933655	1	0.0644129739485659	1	NA	"abundance"	138	14
+"THISYN.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	25.7516273139556	11.5906957730866	0.0510764981743631	1	0.0995441876829705	1	NA	"abundance"	138	14
+"THISYN.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	-6.31308949382862	3.48538846251285	0.243834349628673	1	0.428213509198508	1	NA	"abundance"	138	14
+"THISYNARA.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.III..eukaryotes."	"diet"	"oat"	"dietoat"	-0.276314909230181	3.53172185524164	0.941885073771376	1	0.783478508216423	1	NA	"abundance"	138	63
+"THISYNARA.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.III..eukaryotes."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	3.8763839448595	4.78194407880517	0.42711070505948	1	0.57452445068604	1	NA	"abundance"	138	63
+"THISYNARA.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.III..eukaryotes."	"duration"	"Week 6"	"durationWeek 6"	1.04382309054448	3.38189551265564	0.760430319102633	1	0.495517925629681	1	NA	"abundance"	138	63
+"THRESYN.PWY..superpathway.of.L.threonine.biosynthesis"	"diet"	"oat"	"dietoat"	0.704409413335915	0.607021943552361	0.354930432235076	1	0.583885252743575	1	NA	"abundance"	138	136
+"THRESYN.PWY..superpathway.of.L.threonine.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-1.46633369711486	0.836128871950756	0.142660324556175	1	0.264968680909877	1	NA	"abundance"	138	136
+"THRESYN.PWY..superpathway.of.L.threonine.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	0.531525733059933	0.586862841440664	0.454449002643562	1	0.702374109283395	1	NA	"abundance"	138	136
+"TRNA.CHARGING.PWY..tRNA.charging"	"diet"	"oat"	"dietoat"	-0.0154052600914061	0.0325633209433316	0.999999999999982	1	0.999999999999982	1	NA	"abundance"	138	138
+"TRNA.CHARGING.PWY..tRNA.charging"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332554023228	0.0362626959460958	0.999999993449952	1	0.999999993449952	1	NA	"abundance"	138	138
+"TRNA.CHARGING.PWY..tRNA.charging"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343227884	0.0254551113820154	0.999999999999994	1	0.999999999999994	1	NA	"abundance"	138	138
+"TRPSYN.PWY..L.tryptophan.biosynthesis"	"diet"	"oat"	"dietoat"	-0.0102365357657035	0.0738614682044356	0.991573193173847	1	0.999928988926715	1	NA	"abundance"	138	133
+"TRPSYN.PWY..L.tryptophan.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.0113878246795206	0.102954532343821	0.99362904429479	1	0.926924128578598	1	NA	"abundance"	138	133
+"TRPSYN.PWY..L.tryptophan.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	-0.0965960419547852	0.071958165155702	0.821334386253112	1	0.968078598464448	1	NA	"abundance"	138	133
+"UDPNAGSYN.PWY..UDP.N.acetyl.D.glucosamine.biosynthesis.I"	"diet"	"oat"	"dietoat"	0.858120790852638	2.91012281648345	0.768219318570804	1	0.0888198871378317	1	NA	"abundance"	138	58
+"UDPNAGSYN.PWY..UDP.N.acetyl.D.glucosamine.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.550410255601225	4.18138789911616	0.895290354495733	1	0.288064388041844	1	NA	"abundance"	138	58
+"UDPNAGSYN.PWY..UDP.N.acetyl.D.glucosamine.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	0.432199451732128	2.6479830834262	0.871586287071815	1	0.188842878559484	1	NA	"abundance"	138	58
+"UNINTEGRATED"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"UNINTEGRATED"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"UNINTEGRATED"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"UNMAPPED"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"UNMAPPED"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"UNMAPPED"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"VALSYN.PWY..L.valine.biosynthesis"	"diet"	"oat"	"dietoat"	-0.0154052600914169	0.0325633212963245	1	1	1	1	NA	"abundance"	138	138
+"VALSYN.PWY..L.valine.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00693332997015851	0.0362626954392135	1	1	1	1	NA	"abundance"	138	138
+"VALSYN.PWY..L.valine.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	-0.00266405343228208	0.0254551110262022	1	1	1	1	NA	"abundance"	138	138
+"X1CMET2.PWY..folate.transformations.III..E..coli."	"diet"	"oat"	"dietoat"	-0.0153957550463106	0.0320794955693433	0.999984363751011	1	0.999999999755508	1	NA	"abundance"	138	137
+"X1CMET2.PWY..folate.transformations.III..E..coli."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.00276748818558027	0.0350261886937674	0.985655092198414	1	0.881146822760368	1	NA	"abundance"	138	137
+"X1CMET2.PWY..folate.transformations.III..E..coli."	"duration"	"Week 6"	"durationWeek 6"	-0.00265454838718873	0.0244549504935296	0.999981153851959	1	0.999999999644823	1	NA	"abundance"	138	137
+"ANAGLYCOLYSIS.PWY..glycolysis.III..from.glucose."	"duration"	"Week 6"	"durationWeek 6"	-0.00157290501499722	0.331372840987945	0.996212749630509	1	0.282820631602987	1	NA	"prevalence"	138	130
+"ARGININE.SYN4.PWY..L.ornithine.biosynthesis.II"	"diet"	"oat"	"dietoat"	2.06539243950745e-09	2.34714961459456	0.999999999297895	1	0.999999999297895	1	NA	"prevalence"	138	2
+"ARGININE.SYN4.PWY..L.ornithine.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0	2.65923512301105	1	1	1	1	NA	"prevalence"	138	2
+"ARGININE.SYN4.PWY..L.ornithine.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	1.31751034518025	1.86668027098141	0.480310053140685	1	0.480310053140685	1	NA	"prevalence"	138	2
+"ARGSYN.PWY..L.arginine.biosynthesis.I..via.L.ornithine."	"diet"	"oat"	"dietoat"	-1.33944864722917	1.86842528099369	0.473444202877225	1	0.722738992516399	1	NA	"prevalence"	138	136
+"ARGSYN.PWY..L.arginine.biosynthesis.I..via.L.ornithine."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0	2.64235105737366	1	1	0.999998350291506	1	NA	"prevalence"	138	136
+"ARGSYN.PWY..L.arginine.biosynthesis.I..via.L.ornithine."	"duration"	"Week 6"	"durationWeek 6"	-1.60471523043976e-15	2.32998227994233	0.999999999999999	1	0.999977596388472	1	NA	"prevalence"	138	136
+"ARGSYNBSUB.PWY..L.arginine.biosynthesis.II..acetyl.cycle."	"diet"	"oat"	"dietoat"	0	2.34715797094778	1	1	0.58835393132339	1	NA	"prevalence"	138	137
+"ARGSYNBSUB.PWY..L.arginine.biosynthesis.II..acetyl.cycle."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-1.33944854704736	3.00009582062976	0.655258797554004	1	0.715253114342355	1	NA	"prevalence"	138	137
+"ARGSYNBSUB.PWY..L.arginine.biosynthesis.II..acetyl.cycle."	"duration"	"Week 6"	"durationWeek 6"	1.51524351498303e-13	2.3300950960258	0.999999999999948	1	0.99994130314403	1	NA	"prevalence"	138	137
+"ASPASN.PWY..superpathway.of.L.aspartate.and.L.asparagine.biosynthesis"	"diet"	"oat"	"dietoat"	0.0729262934037897	0.617216634869157	0.905946049160681	1	0.99007044760798	1	NA	"prevalence"	138	60
+"ASPASN.PWY..superpathway.of.L.aspartate.and.L.asparagine.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.310195950351794	0.795163135345732	0.696459988635202	1	0.65287584413411	1	NA	"prevalence"	138	60
+"ASPASN.PWY..superpathway.of.L.aspartate.and.L.asparagine.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	-0.777946590394068	0.576954142678881	0.177540002482799	1	0.188737669502694	1	NA	"prevalence"	138	60
+"BRANCHED.CHAIN.AA.SYN.PWY..superpathway.of.branched.chain.amino.acid.biosynthesis"	"diet"	"oat"	"dietoat"	9.60791463328556	120.64835249825	0.936527009921139	1	0.712817460576172	1	NA	"prevalence"	138	137
+"BRANCHED.CHAIN.AA.SYN.PWY..superpathway.of.branched.chain.amino.acid.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	3.19147592908265	714.12890135937	0.996434227926094	1	0.991512075996942	1	NA	"prevalence"	138	137
+"BRANCHED.CHAIN.AA.SYN.PWY..superpathway.of.branched.chain.amino.acid.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	10.0865532692561	145.697470572521	0.944806995201949	1	0.996953732221362	1	NA	"prevalence"	138	137
+"CALVIN.PWY..Calvin.Benson.Bassham.cycle"	"diet"	"oat"	"dietoat"	0	1.24995811685997	1	1	0.959136831751193	1	NA	"prevalence"	138	134
+"CALVIN.PWY..Calvin.Benson.Bassham.cycle"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-1.13601698014757e-13	1.76769847695842	0.999999999999949	1	0.940688417053628	1	NA	"prevalence"	138	134
+"CALVIN.PWY..Calvin.Benson.Bassham.cycle"	"duration"	"Week 6"	"durationWeek 6"	5.29226260054939e-14	1.24086139101509	0.999999999999966	1	0.964381227580927	1	NA	"prevalence"	138	134
+"CITRULBIO.PWY..L.citrulline.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-11.2720855497794	11454226.1354547	0.999999214803085	1	0.999999214803085	1	NA	"prevalence"	138	2
+"COBALSYN.PWY..superpathway.of.adenosylcobalamin.salvage.from.cobinamide.I"	"diet"	"oat"	"dietoat"	1.73139280938085	0.952516469388801	0.06910941609688	1	0.133442720800508	1	NA	"prevalence"	138	102
+"COBALSYN.PWY..superpathway.of.adenosylcobalamin.salvage.from.cobinamide.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.582328025186169	0.99976335340497	0.560252928438734	1	0.471606768468788	1	NA	"prevalence"	138	102
+"COBALSYN.PWY..superpathway.of.adenosylcobalamin.salvage.from.cobinamide.I"	"duration"	"Week 6"	"durationWeek 6"	1.60111946087117e-07	0.62919933388436	0.999999796962834	1	0.597176227281653	1	NA	"prevalence"	138	102
+"COLANSYN.PWY..colanic.acid.building.blocks.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-5.34244961798119	489075.245933732	0.999991284248994	1	0.999991284248994	1	NA	"prevalence"	138	3
+"COLANSYN.PWY..colanic.acid.building.blocks.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	-0.723000144512967	1.23552797410912	0.558430019138362	1	0.558430019138362	1	NA	"prevalence"	138	3
+"GLCMANNANAUT.PWY..superpathway.of.N.acetylglucosamine..N.acetylmannosamine.and.N.acetylneuraminate.degradation"	"diet"	"oat"	"dietoat"	-2.18477048503232	2.48906725730265	0.380081213921405	1	0.400191370567867	1	NA	"prevalence"	138	10
+"GLCMANNANAUT.PWY..superpathway.of.N.acetylglucosamine..N.acetylmannosamine.and.N.acetylneuraminate.degradation"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	7.65327743821829	3.76961405611614	0.0423306351631218	1	0.0828693876529303	1	NA	"prevalence"	138	10
+"GLCMANNANAUT.PWY..superpathway.of.N.acetylglucosamine..N.acetylmannosamine.and.N.acetylneuraminate.degradation"	"duration"	"Week 6"	"durationWeek 6"	-5.0996413646228	2.9631392821041	0.085246006886006	1	0.163225132082003	1	NA	"prevalence"	138	10
+"GLUCOSE1PMETAB.PWY..glucose.and.glucose.1.phosphate.degradation"	"diet"	"oat"	"dietoat"	0.687536308311663	0.520465785327036	0.186500719799065	1	0.247445080505485	1	NA	"prevalence"	138	76
+"GLUCOSE1PMETAB.PWY..glucose.and.glucose.1.phosphate.degradation"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.242264822494735	0.71074904343482	0.733210140170303	1	0.447154747990434	1	NA	"prevalence"	138	76
+"GLUCOSE1PMETAB.PWY..glucose.and.glucose.1.phosphate.degradation"	"duration"	"Week 6"	"durationWeek 6"	0.242241184461839	0.49293954452133	0.623128225875918	1	0.248704627939693	1	NA	"prevalence"	138	76
+"GLUTORN.PWY..L.ornithine.biosynthesis.I"	"diet"	"oat"	"dietoat"	-1.33944864722917	1.86842528099369	0.473444202877225	1	0.722738992516399	1	NA	"prevalence"	138	136
+"GLUTORN.PWY..L.ornithine.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0	2.64235105737366	1	1	0.999889289680052	1	NA	"prevalence"	138	136
+"GLUTORN.PWY..L.ornithine.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	-1.60471523043976e-15	2.32998227994233	0.999999999999999	1	0.999560217507097	1	NA	"prevalence"	138	136
+"HISDEG.PWY..L.histidine.degradation.I"	"diet"	"oat"	"dietoat"	0.414785160382747	1.09707151704806	0.705368212161333	1	0.913192109594991	1	NA	"prevalence"	138	18
+"HISDEG.PWY..L.histidine.degradation.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.705136120185756	1.2371258692174	0.568691747112208	1	0.813973190990881	1	NA	"prevalence"	138	18
+"HISDEG.PWY..L.histidine.degradation.I"	"duration"	"Week 6"	"durationWeek 6"	1.06563182540407	0.928697520098709	0.251196640234413	1	0.439293528403769	1	NA	"prevalence"	138	18
+"HISTSYN.PWY..L.histidine.biosynthesis"	"diet"	"oat"	"dietoat"	2.02770447339341e-08	4.63470697754461	0.99999999650922	1	0.999879068048246	1	NA	"prevalence"	138	137
+"HISTSYN.PWY..L.histidine.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	2.68629509577548	6.96969424007375	0.699922489596271	1	0.9099534877499	1	NA	"prevalence"	138	137
+"HISTSYN.PWY..L.histidine.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	-1.83825477673645	3.50958835947763	0.600431053039417	1	0.840344656624811	1	NA	"prevalence"	138	137
+"HSERMETANA.PWY..L.methionine.biosynthesis.III"	"diet"	"oat"	"dietoat"	2.2335847106846	2.68046997263872	0.404686266945953	1	0.426480076613296	1	NA	"prevalence"	138	119
+"HSERMETANA.PWY..L.methionine.biosynthesis.III"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-2.29706701899041	2.55283463087379	0.368221186215143	1	0.178972354307576	1	NA	"prevalence"	138	119
+"HSERMETANA.PWY..L.methionine.biosynthesis.III"	"duration"	"Week 6"	"durationWeek 6"	-1.4594370063117	1.31656759947818	0.267638784807564	1	0.440749979795651	1	NA	"prevalence"	138	119
+"ILEUSYN.PWY..L.isoleucine.biosynthesis.I..from.threonine."	"diet"	"oat"	"dietoat"	9.60791463328556	120.64835249825	0.936527009921139	1	0.712907896566322	1	NA	"prevalence"	138	137
+"ILEUSYN.PWY..L.isoleucine.biosynthesis.I..from.threonine."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	3.19147592908265	714.12890135937	0.996434227926094	1	0.991511790435408	1	NA	"prevalence"	138	137
+"ILEUSYN.PWY..L.isoleucine.biosynthesis.I..from.threonine."	"duration"	"Week 6"	"durationWeek 6"	10.0865532692561	145.697470572521	0.944806995201949	1	0.996953732221362	1	NA	"prevalence"	138	137
+"LACTOSECAT.PWY..lactose.and.galactose.degradation.I"	"diet"	"oat"	"dietoat"	-2.47253439391575	2.22390527848783	0.266224827681137	1	0.266224827681137	1	NA	"prevalence"	138	9
+"LACTOSECAT.PWY..lactose.and.galactose.degradation.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	2.01329266741515	2.94816846983716	0.494672516250823	1	0.494672516250823	1	NA	"prevalence"	138	9
+"LACTOSECAT.PWY..lactose.and.galactose.degradation.I"	"duration"	"Week 6"	"durationWeek 6"	-2.01367660568406	1.39169039664053	0.147916928349359	1	0.147916928349359	1	NA	"prevalence"	138	9
+"METH.ACETATE.PWY..methanogenesis.from.acetate"	"diet"	"oat"	"dietoat"	-8.30388206429646	4.78224678347502	0.08249354795626	1	0.08249354795626	1	NA	"prevalence"	138	3
+"METH.ACETATE.PWY..methanogenesis.from.acetate"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	8.93912642017831	5.06979857680162	0.0778648492978539	1	0.0778648492978539	1	NA	"prevalence"	138	3
+"METH.ACETATE.PWY..methanogenesis.from.acetate"	"duration"	"Week 6"	"durationWeek 6"	2.89288649764915e-07	3.44527482694413	0.999999933004199	1	0.999999933004199	1	NA	"prevalence"	138	3
+"NONOXIPENT.PWY..pentose.phosphate.pathway..non.oxidative.branch..I"	"diet"	"oat"	"dietoat"	0	1.24995811685997	1	1	0.961724023051537	1	NA	"prevalence"	138	134
+"NONOXIPENT.PWY..pentose.phosphate.pathway..non.oxidative.branch..I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-1.13601698014757e-13	1.76769847695842	0.999999999999949	1	0.958389695076307	1	NA	"prevalence"	138	134
+"NONOXIPENT.PWY..pentose.phosphate.pathway..non.oxidative.branch..I"	"duration"	"Week 6"	"durationWeek 6"	5.29226260054939e-14	1.24086139101509	0.999999999999966	1	0.922834446088941	1	NA	"prevalence"	138	134
+"OANTIGEN.PWY..O.antigen.building.blocks.biosynthesis..E..coli."	"diet"	"oat"	"dietoat"	-2.19596757290334	1.09768978462336	0.045442451780843	1	0.0888198871378317	1	NA	"prevalence"	138	58
+"OANTIGEN.PWY..O.antigen.building.blocks.biosynthesis..E..coli."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	1.47083448899239	1.03737628398847	0.156237230047357	1	0.288064388041844	1	NA	"prevalence"	138	58
+"OANTIGEN.PWY..O.antigen.building.blocks.biosynthesis..E..coli."	"duration"	"Week 6"	"durationWeek 6"	-1.21247228188189	0.735733725296502	0.0993573841747684	1	0.188842878559484	1	NA	"prevalence"	138	58
+"P164.PWY..purine.nucleobases.degradation.I..anaerobic."	"diet"	"oat"	"dietoat"	0	2.34711814312501	1	1	1	1	NA	"prevalence"	138	2
+"P164.PWY..purine.nucleobases.degradation.I..anaerobic."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	1.91808719075286	2.94724523771741	0.515171221315289	1	0.515171221315289	1	NA	"prevalence"	138	2
+"P164.PWY..purine.nucleobases.degradation.I..anaerobic."	"duration"	"Week 6"	"durationWeek 6"	1.71258934234142e-13	2.33004561281668	0.999999999999941	1	0.999999999999941	1	NA	"prevalence"	138	2
+"P41.PWY..pyruvate.fermentation.to.acetate.and..S..lactate.I"	"diet"	"oat"	"dietoat"	0.880571276017581	1.72107603819806	0.608903013032564	1	0.846963259729354	1	NA	"prevalence"	138	120
+"P41.PWY..pyruvate.fermentation.to.acetate.and..S..lactate.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-1.58434135353608	1.84964851356298	0.391686180219975	1	0.629954296664635	1	NA	"prevalence"	138	120
+"P41.PWY..pyruvate.fermentation.to.acetate.and..S..lactate.I"	"duration"	"Week 6"	"durationWeek 6"	0.72271908072613	1.23056779441391	0.556998631448113	1	0.803749787461155	1	NA	"prevalence"	138	120
+"PANTO.PWY..phosphopantothenate.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	11.4534002153915	11501017.1028959	0.999999205418867	1	0.842634034053059	1	NA	"prevalence"	138	136
+"PANTOSYN.PWY..superpathway.of.coenzyme.A.biosynthesis.I..bacteria."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	11.4534002153915	11501017.1028959	0.999999205418867	1	0.871936554115383	1	NA	"prevalence"	138	136
+"PENTOSE.P.PWY..pentose.phosphate.pathway"	"diet"	"oat"	"dietoat"	-0.344123502617381	0.929282860149732	0.711150909043095	1	0.502256834565777	1	NA	"prevalence"	138	11
+"PENTOSE.P.PWY..pentose.phosphate.pathway"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	1.04320369760264	1.28326621547069	0.416259045164533	1	0.659246497647777	1	NA	"prevalence"	138	11
+"PENTOSE.P.PWY..pentose.phosphate.pathway"	"duration"	"Week 6"	"durationWeek 6"	-0.367703570048032	0.927043859719605	0.691632240392214	1	0.904909324834475	1	NA	"prevalence"	138	11
+"PWY.241..C4.photosynthetic.carbon.assimilation.cycle..NADP.ME.type"	"diet"	"oat"	"dietoat"	-2.63502087737552	3.32314836001045	0.427819160086007	1	0.427819160086007	1	NA	"prevalence"	138	2
+"PWY.241..C4.photosynthetic.carbon.assimilation.cycle..NADP.ME.type"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-1.24642829518833e-14	4.69964614050725	0.999999999999998	1	0.999999999999998	1	NA	"prevalence"	138	2
+"PWY.241..C4.photosynthetic.carbon.assimilation.cycle..NADP.ME.type"	"duration"	"Week 6"	"durationWeek 6"	3.96226384768234e-15	1.24087374736341	0.999999999999997	1	0.999999999999997	1	NA	"prevalence"	138	2
+"PWY.3001..superpathway.of.L.isoleucine.biosynthesis.I"	"diet"	"oat"	"dietoat"	-0.743911315687079	0.640003969605579	0.245091610407663	1	0.430113323323104	1	NA	"prevalence"	138	97
+"PWY.3001..superpathway.of.L.isoleucine.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.0776224201582128	0.816831833512291	0.924292076565392	1	0.988285346185808	1	NA	"prevalence"	138	97
+"PWY.3001..superpathway.of.L.isoleucine.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	-0.366211973694909	0.608967520248174	0.54759666350623	1	0.785578158537276	1	NA	"prevalence"	138	97
+"PWY.4984..urea.cycle"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-11.2720855497794	11454226.1354547	0.999999214803085	1	0.999999214803085	1	NA	"prevalence"	138	2
+"PWY.5030..L.histidine.degradation.III"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-11.2720855497794	11454226.1354547	0.999999214803085	1	0.999999214803085	1	NA	"prevalence"	138	2
+"PWY.5100..pyruvate.fermentation.to.acetate.and.lactate.II"	"diet"	"oat"	"dietoat"	0.695429002273959	1.74210606171473	0.689754190705507	1	0.84629280011952	1	NA	"prevalence"	138	122
+"PWY.5100..pyruvate.fermentation.to.acetate.and.lactate.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-2.0456495644689	2.23942618855148	0.360995187769951	1	0.59167284994684	1	NA	"prevalence"	138	122
+"PWY.5100..pyruvate.fermentation.to.acetate.and.lactate.II"	"duration"	"Week 6"	"durationWeek 6"	2.04565048880755	1.64713751637875	0.214257687398749	1	0.382609018188038	1	NA	"prevalence"	138	122
+"PWY.5103..L.isoleucine.biosynthesis.III"	"diet"	"oat"	"dietoat"	9.60791463328556	120.64835249825	0.936527009921139	1	0.706568235877797	1	NA	"prevalence"	138	137
+"PWY.5103..L.isoleucine.biosynthesis.III"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	3.19147592908265	714.12890135937	0.996434227926094	1	0.992741234312043	1	NA	"prevalence"	138	137
+"PWY.5103..L.isoleucine.biosynthesis.III"	"duration"	"Week 6"	"durationWeek 6"	10.0865532692561	145.697470572521	0.944806995201949	1	0.996953732221362	1	NA	"prevalence"	138	137
+"PWY.5154..L.arginine.biosynthesis.III..via.N.acetyl.L.citrulline."	"diet"	"oat"	"dietoat"	-0.617080070448792	1.60514351732886	0.700652960052252	1	0.474415147369932	1	NA	"prevalence"	138	12
+"PWY.5154..L.arginine.biosynthesis.III..via.N.acetyl.L.citrulline."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-2.75866723659725	2.99537576541839	0.357063298011295	1	0.586632397235888	1	NA	"prevalence"	138	12
+"PWY.5154..L.arginine.biosynthesis.III..via.N.acetyl.L.citrulline."	"duration"	"Week 6"	"durationWeek 6"	-1.50612888338797	1.35186664213056	0.265231764719505	1	0.460115640422787	1	NA	"prevalence"	138	12
+"PWY.5188..tetrapyrrole.biosynthesis.I..from.glutamate."	"diet"	"oat"	"dietoat"	-0.505493448011354	0.591770642371278	0.392991407253182	1	0.631540568331528	1	NA	"prevalence"	138	71
+"PWY.5188..tetrapyrrole.biosynthesis.I..from.glutamate."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.440413015428076	0.763116007062076	0.5638552916919	1	0.649507414626998	1	NA	"prevalence"	138	71
+"PWY.5188..tetrapyrrole.biosynthesis.I..from.glutamate."	"duration"	"Week 6"	"durationWeek 6"	-1.85669065598407e-06	0.5335101971698	0.999997223249309	1	0.675425348183447	1	NA	"prevalence"	138	71
+"PWY.5384..sucrose.degradation.IV..sucrose.phosphorylase."	"diet"	"oat"	"dietoat"	1.19261114835855	1.18158142924971	0.31281413938563	1	0.31281413938563	1	NA	"prevalence"	138	9
+"PWY.5384..sucrose.degradation.IV..sucrose.phosphorylase."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.724708547867239	1.51385090313504	0.632138849250861	1	0.632138849250861	1	NA	"prevalence"	138	9
+"PWY.5384..sucrose.degradation.IV..sucrose.phosphorylase."	"duration"	"Week 6"	"durationWeek 6"	0.724663111873522	1.24930487598788	0.561878839141831	1	0.561878839141831	1	NA	"prevalence"	138	9
+"PWY.5659..GDP.mannose.biosynthesis"	"diet"	"oat"	"dietoat"	-1.89191238405838	1.80396797009707	0.294292946344889	1	0.294292946344889	1	NA	"prevalence"	138	7
+"PWY.5659..GDP.mannose.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	2.30154454423897	2.01244465513828	0.252766298853032	1	0.252766298853032	1	NA	"prevalence"	138	7
+"PWY.5659..GDP.mannose.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	-2.66967218344035e-13	0.958991555103248	0.999999999999778	1	0.999999999999778	1	NA	"prevalence"	138	7
+"PWY.5941..glycogen.degradation.II"	"diet"	"oat"	"dietoat"	-1.39003384039542	3.79947342140212	0.714477697321307	1	0.918477014673057	1	NA	"prevalence"	138	132
+"PWY.5941..glycogen.degradation.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	1.30235071905723	3.66758525244034	0.722516474951642	1	0.923002893326737	1	NA	"prevalence"	138	132
+"PWY.5941..glycogen.degradation.II"	"duration"	"Week 6"	"durationWeek 6"	-3.02301835582229	3.21559214080021	0.347159859385226	1	0.573799750802082	1	NA	"prevalence"	138	132
+"PWY.5973..cis.vaccenate.biosynthesis"	"diet"	"oat"	"dietoat"	-0.906605843450281	0.914417335640784	0.321462278943717	1	0.539586561103746	1	NA	"prevalence"	138	37
+"PWY.5973..cis.vaccenate.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	1.21148893600307	1.02408620514585	0.236811099702469	1	0.360757405621001	1	NA	"prevalence"	138	37
+"PWY.5973..cis.vaccenate.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	-0.955064668434981	0.720950412320005	0.185260705993153	1	0.25803867952998	1	NA	"prevalence"	138	37
+"PWY.6123..inosine.5..phosphate.biosynthesis.I"	"diet"	"oat"	"dietoat"	0	2.34710145593754	1	1	1	1	NA	"prevalence"	138	137
+"PWY.6123..inosine.5..phosphate.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-1.33944854704737	3.00000567142974	0.655249108428083	1	0.881146822760368	1	NA	"prevalence"	138	137
+"PWY.6123..inosine.5..phosphate.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	1.73769415867203e-13	2.33003119275707	0.99999999999994	1	1	1	NA	"prevalence"	138	137
+"PWY.6124..inosine.5..phosphate.biosynthesis.II"	"diet"	"oat"	"dietoat"	0	2.34710145593754	1	1	1	1	NA	"prevalence"	138	137
+"PWY.6124..inosine.5..phosphate.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-1.33944854704737	3.00000567142974	0.655249108428083	1	0.881146822760368	1	NA	"prevalence"	138	137
+"PWY.6124..inosine.5..phosphate.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	1.73769415867203e-13	2.33003119275707	0.99999999999994	1	1	1	NA	"prevalence"	138	137
+"PWY.6147..6.hydroxymethyl.dihydropterin.diphosphate.biosynthesis.I"	"diet"	"oat"	"dietoat"	-1.37712184985929	3.11200872131052	0.658113948841178	1	0.62170720305027	1	NA	"prevalence"	138	12
+"PWY.6147..6.hydroxymethyl.dihydropterin.diphosphate.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	1.11936740389453	3.0179902035535	0.710713289300027	1	0.660263849853558	1	NA	"prevalence"	138	12
+"PWY.6147..6.hydroxymethyl.dihydropterin.diphosphate.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	1.20843671533831	1.64192565360787	0.461738320415431	1	0.483163545512709	1	NA	"prevalence"	138	12
+"PWY.621..sucrose.degradation.III..sucrose.invertase."	"diet"	"oat"	"dietoat"	9.32279562424423	5.36432126359403	0.0822237805137858	1	0.0822237805137858	1	NA	"prevalence"	138	7
+"PWY.621..sucrose.degradation.III..sucrose.invertase."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-9.6980763367232	5.61685561709452	0.0842390962921615	1	0.0842390962921615	1	NA	"prevalence"	138	7
+"PWY.621..sucrose.degradation.III..sucrose.invertase."	"duration"	"Week 6"	"durationWeek 6"	8.82022341615538	5.29170330701012	0.0955537162565299	1	0.0955537162565299	1	NA	"prevalence"	138	7
+"PWY.6270..isoprene.biosynthesis.I"	"diet"	"oat"	"dietoat"	-0.961703702666597	0.70153107223185	0.170417350695422	1	0.311792627972797	1	NA	"prevalence"	138	43
+"PWY.6270..isoprene.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	1.01861510423024	0.856472574982568	0.234315999547909	1	0.413728011451681	1	NA	"prevalence"	138	43
+"PWY.6270..isoprene.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	0.606885569979179	0.562405697368333	0.28054823797887	1	0.357647976275258	1	NA	"prevalence"	138	43
+"PWY.6317..D.galactose.degradation.I..Leloir.pathway."	"diet"	"oat"	"dietoat"	-1.39003384039542	3.79947342140212	0.714477697321307	1	0.918477014673057	1	NA	"prevalence"	138	132
+"PWY.6317..D.galactose.degradation.I..Leloir.pathway."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	1.30235071905723	3.66758525244034	0.722516474951642	1	0.923002893326737	1	NA	"prevalence"	138	132
+"PWY.6317..D.galactose.degradation.I..Leloir.pathway."	"duration"	"Week 6"	"durationWeek 6"	-3.02301835582229	3.21559214080021	0.347159859385226	1	0.573799750802082	1	NA	"prevalence"	138	132
+"PWY.6527..stachyose.degradation"	"diet"	"oat"	"dietoat"	0.388232127922993	0.761915113201077	0.610368340732883	1	0.330182612396323	1	NA	"prevalence"	138	105
+"PWY.6527..stachyose.degradation"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.19778093040047	0.929199401841637	0.831443259635257	1	0.860935289960842	1	NA	"prevalence"	138	105
+"PWY.6527..stachyose.degradation"	"duration"	"Week 6"	"durationWeek 6"	-0.197780799006865	0.630248696368738	0.753662389493322	1	0.93931778164986	1	NA	"prevalence"	138	105
+"PWY.6608..guanosine.nucleotides.degradation.III"	"diet"	"oat"	"dietoat"	-0.954124722817269	2.44193711256334	0.696000867418271	1	0.907584527389556	1	NA	"prevalence"	138	8
+"PWY.6608..guanosine.nucleotides.degradation.III"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	4.76213453510855	3.98807597891091	0.232441500388588	1	0.410853949674278	1	NA	"prevalence"	138	8
+"PWY.6608..guanosine.nucleotides.degradation.III"	"duration"	"Week 6"	"durationWeek 6"	-3.37711164097198	3.43199609767179	0.325111575879914	1	0.544525614988708	1	NA	"prevalence"	138	8
+"PWY.6628..superpathway.of.L.phenylalanine.biosynthesis"	"diet"	"oat"	"dietoat"	-17.5949372371001	189.342544513056	0.925961964313818	1	0.412174280224621	1	NA	"prevalence"	138	11
+"PWY.6628..superpathway.of.L.phenylalanine.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	19.1006727819076	189.346694292307	0.919648326426332	1	0.919648326426332	1	NA	"prevalence"	138	11
+"PWY.6628..superpathway.of.L.phenylalanine.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	-2.08151856554405	1.68729399484224	0.217335931548801	1	0.387436955955417	1	NA	"prevalence"	138	11
+"PWY.6629..superpathway.of.L.tryptophan.biosynthesis"	"diet"	"oat"	"dietoat"	0	1.24997161619159	1	1	0.999804143645424	1	NA	"prevalence"	138	133
+"PWY.6629..superpathway.of.L.tryptophan.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.578638644912898	1.67450251418449	0.729674508376657	1	0.926924128578598	1	NA	"prevalence"	138	133
+"PWY.6629..superpathway.of.L.tryptophan.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	8.27574647829186e-14	1.24087488617506	0.999999999999947	1	0.989797105382586	1	NA	"prevalence"	138	133
+"PWY.6703..preQ0.biosynthesis"	"diet"	"oat"	"dietoat"	1.12278969538271	1.39349668821914	0.420395398568106	1	0.664058505998976	1	NA	"prevalence"	138	115
+"PWY.6703..preQ0.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-1.52896147816751	1.72802880621818	0.376264012991991	1	0.55301116858122	1	NA	"prevalence"	138	115
+"PWY.6703..preQ0.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	2.20242521559436	1.33672084080203	0.0994280279588666	1	0.188970123173944	1	NA	"prevalence"	138	115
+"PWY.6731..starch.degradation.III"	"diet"	"oat"	"dietoat"	-1.91911348367164	1.59575021732567	0.229115554319172	1	0.405737171407363	1	NA	"prevalence"	138	17
+"PWY.6731..starch.degradation.III"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	1.62463736407618	1.7872978395909	0.36335496112639	1	0.594683094477619	1	NA	"prevalence"	138	17
+"PWY.6731..starch.degradation.III"	"duration"	"Week 6"	"durationWeek 6"	-0.371878921039461	0.88565836899256	0.674565954820873	1	0.647296333944937	1	NA	"prevalence"	138	17
+"PWY.6823..molybdopterin.biosynthesis"	"diet"	"oat"	"dietoat"	0.623520909998954	1.89226803969073	0.741770369199048	1	0.709558594586339	1	NA	"prevalence"	138	125
+"PWY.6823..molybdopterin.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-1.1243482663277	2.28344848634242	0.622443337220785	1	0.249352638306575	1	NA	"prevalence"	138	125
+"PWY.6823..molybdopterin.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	1.1243854038548	1.57685265852306	0.475810652052568	1	0.481266315260004	1	NA	"prevalence"	138	125
+"PWY.6892..thiazole.component.of.thiamine.diphosphate.biosynthesis.I"	"diet"	"oat"	"dietoat"	0.0846706359875071	0.643943338473557	0.895389506885394	1	0.143905015102731	1	NA	"prevalence"	138	74
+"PWY.6892..thiazole.component.of.thiamine.diphosphate.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.00706093091345836	0.795906558914364	0.992921613979078	1	0.970357770686824	1	NA	"prevalence"	138	74
+"PWY.6892..thiazole.component.of.thiamine.diphosphate.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	0.158610780134234	0.557697648633142	0.776101703427254	1	0.29351024818328	1	NA	"prevalence"	138	74
+"PWY.6897..thiamine.diphosphate.salvage.II"	"diet"	"oat"	"dietoat"	-0.969345475352941	0.623020852101383	0.119736709468778	1	0.225136539343144	1	NA	"prevalence"	138	85
+"PWY.6897..thiamine.diphosphate.salvage.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	1.36120358669757	0.810736270461455	0.0931574794063825	1	0.177636642843414	1	NA	"prevalence"	138	85
+"PWY.6897..thiamine.diphosphate.salvage.II"	"duration"	"Week 6"	"durationWeek 6"	-0.761230427468192	0.568541657669375	0.180597501840242	1	0.328579546009547	1	NA	"prevalence"	138	85
+"PWY.6936..seleno.amino.acid.biosynthesis..plants."	"diet"	"oat"	"dietoat"	-1.28834931754112	0.722604479470701	0.0745985746211152	1	0.143632201906728	1	NA	"prevalence"	138	88
+"PWY.6936..seleno.amino.acid.biosynthesis..plants."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.359729286548081	0.850579450302376	0.672351721251078	1	0.892646605432869	1	NA	"prevalence"	138	88
+"PWY.6936..seleno.amino.acid.biosynthesis..plants."	"duration"	"Week 6"	"durationWeek 6"	-0.190329979367151	0.617975402766392	0.758090267793122	1	0.941479681463597	1	NA	"prevalence"	138	88
+"PWY.702..L.methionine.biosynthesis.II"	"diet"	"oat"	"dietoat"	-2.21983848185917	1.15384977233246	0.0543728884786674	1	0.105789365955821	1	NA	"prevalence"	138	18
+"PWY.702..L.methionine.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	1.95178165728225	1.41887352310874	0.168950039320574	1	0.309355962854724	1	NA	"prevalence"	138	18
+"PWY.702..L.methionine.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	-1.43521467142754	0.916536954778218	0.117369614711996	1	0.220963602966349	1	NA	"prevalence"	138	18
+"PWY.7117..C4.photosynthetic.carbon.assimilation.cycle..PEPCK.type"	"diet"	"oat"	"dietoat"	-0.805658703722214	2.71257577526467	0.766459839171059	1	0.720745300772957	1	NA	"prevalence"	138	8
+"PWY.7117..C4.photosynthetic.carbon.assimilation.cycle..PEPCK.type"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	7.98150403412921e-07	3.05874974672074	0.999999791799939	1	0.625422689349661	1	NA	"prevalence"	138	8
+"PWY.7117..C4.photosynthetic.carbon.assimilation.cycle..PEPCK.type"	"duration"	"Week 6"	"durationWeek 6"	-3.056670454336e-06	2.08099940617939	0.999998828029381	1	0.581643522192102	1	NA	"prevalence"	138	8
+"PWY.7197..pyrimidine.deoxyribonucleotide.phosphorylation"	"diet"	"oat"	"dietoat"	-4.65895247564401	3.7388135342441	0.212726022579401	1	0.212726022579401	1	NA	"prevalence"	138	7
+"PWY.7197..pyrimidine.deoxyribonucleotide.phosphorylation"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	3.86918231579248	3.36958282995673	0.250858168115263	1	0.250858168115263	1	NA	"prevalence"	138	7
+"PWY.7197..pyrimidine.deoxyribonucleotide.phosphorylation"	"duration"	"Week 6"	"durationWeek 6"	6.54122843542727	2.8182361570005	0.0202848845423834	1	0.0202848845423834	0.905212972703858	NA	"prevalence"	138	7
+"PWY.7199..pyrimidine.deoxyribonucleosides.salvage"	"diet"	"oat"	"dietoat"	0.724867242052899	0.901939216663275	0.42158390039712	1	0.665434815720191	1	NA	"prevalence"	138	128
+"PWY.7199..pyrimidine.deoxyribonucleosides.salvage"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.755664290937991	1.36931609638933	0.581047523005849	1	0.585862912846042	1	NA	"prevalence"	138	128
+"PWY.7199..pyrimidine.deoxyribonucleosides.salvage"	"duration"	"Week 6"	"durationWeek 6"	0.755661369311962	0.901419016594817	0.401861109900894	1	0.490804329264102	1	NA	"prevalence"	138	128
+"PWY.7208..superpathway.of.pyrimidine.nucleobases.salvage"	"diet"	"oat"	"dietoat"	-4.34571475791545	4.7657391218003	0.361839340294447	1	0.361839340294447	1	NA	"prevalence"	138	8
+"PWY.7208..superpathway.of.pyrimidine.nucleobases.salvage"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	4.00993978663388	4.59696368665301	0.383043745468151	1	0.383043745468151	1	NA	"prevalence"	138	8
+"PWY.7208..superpathway.of.pyrimidine.nucleobases.salvage"	"duration"	"Week 6"	"durationWeek 6"	6.6189294180425	2.81638454771769	0.0187657883401094	1	0.0187657883401094	0.905212972703858	NA	"prevalence"	138	8
+"PWY.7234..inosine.5..phosphate.biosynthesis.III"	"diet"	"oat"	"dietoat"	-0.914265452341103	2.48860150567531	0.713334679446363	1	0.713334679446363	1	NA	"prevalence"	138	5
+"PWY.7234..inosine.5..phosphate.biosynthesis.III"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	3.08396863626813	3.78622319598765	0.415344984180723	1	0.415344984180723	1	NA	"prevalence"	138	5
+"PWY.7234..inosine.5..phosphate.biosynthesis.III"	"duration"	"Week 6"	"durationWeek 6"	-3.08397520351276	3.08140355962609	0.31690679386574	1	0.31690679386574	1	NA	"prevalence"	138	5
+"PWY.724..superpathway.of.L.lysine..L.threonine.and.L.methionine.biosynthesis.II"	"diet"	"oat"	"dietoat"	0	2.34710145593754	1	1	0.655286957361302	1	NA	"prevalence"	138	137
+"PWY.724..superpathway.of.L.lysine..L.threonine.and.L.methionine.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-1.33944854704737	3.00000567142974	0.655249108428083	1	0.769388115922474	1	NA	"prevalence"	138	137
+"PWY.724..superpathway.of.L.lysine..L.threonine.and.L.methionine.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	1.73769415867203e-13	2.33003119275707	0.99999999999994	1	0.619650213385246	1	NA	"prevalence"	138	137
+"PWY.7328..superpathway.of.UDP.glucose.derived.O.antigen.building.blocks.biosynthesis"	"diet"	"oat"	"dietoat"	-0.62385692632644	0.731417088158959	0.393691035032425	1	0.0229293625405153	0.909531380773775	NA	"prevalence"	138	31
+"PWY.7328..superpathway.of.UDP.glucose.derived.O.antigen.building.blocks.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.306223096924579	0.905591920719278	0.735252491982676	1	0.109477712508406	1	NA	"prevalence"	138	31
+"PWY.7328..superpathway.of.UDP.glucose.derived.O.antigen.building.blocks.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	0.360506022642236	0.604754485828816	0.551095308762672	1	0.184460221368464	1	NA	"prevalence"	138	31
+"PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast."	"diet"	"oat"	"dietoat"	-3.21723883505448	3.44467515360493	0.350317034829548	1	0.52857260080258	1	NA	"prevalence"	138	129
+"PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	2.99259967660063	3.44377863590664	0.384854112515878	1	0.621595537111372	1	NA	"prevalence"	138	129
+"PWY.7357..thiamine.phosphate.formation.from.pyrithiamine.and.oxythiamine..yeast."	"duration"	"Week 6"	"durationWeek 6"	-2.99221493742029	3.14479832659766	0.341360407404416	1	0.457689081987913	1	NA	"prevalence"	138	129
+"PWY.7456...beta...1.4..mannan.degradation"	"diet"	"oat"	"dietoat"	-2.63502087737553	3.32319550456162	0.427825714344264	1	0.427825714344264	1	NA	"prevalence"	138	2
+"PWY.7456...beta...1.4..mannan.degradation"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	1.60496725108464e-14	4.69971890738611	0.999999999999997	1	0.999999999999997	1	NA	"prevalence"	138	2
+"PWY.7456...beta...1.4..mannan.degradation"	"duration"	"Week 6"	"durationWeek 6"	-1.57460289714106e-14	1.24087420309623	0.99999999999999	1	0.99999999999999	1	NA	"prevalence"	138	2
+"PWY.7560..methylerythritol.phosphate.pathway.II"	"diet"	"oat"	"dietoat"	-0.736460311328559	0.685792183365677	0.282875290806096	1	0.485732151463559	1	NA	"prevalence"	138	45
+"PWY.7560..methylerythritol.phosphate.pathway.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.944251389491706	0.846498959897049	0.264645427006475	1	0.459253651977511	1	NA	"prevalence"	138	45
+"PWY.7560..methylerythritol.phosphate.pathway.II"	"duration"	"Week 6"	"durationWeek 6"	0.619317260764115	0.568318882943139	0.275829674522917	1	0.34288621859865	1	NA	"prevalence"	138	45
+"PWY.7663..gondoate.biosynthesis..anaerobic."	"diet"	"oat"	"dietoat"	-0.649748825327192	0.908455356348285	0.474470810304753	1	0.551138113718598	1	NA	"prevalence"	138	39
+"PWY.7663..gondoate.biosynthesis..anaerobic."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	1.21415235161421	1.01853429132883	0.233238349412767	1	0.371098166209014	1	NA	"prevalence"	138	39
+"PWY.7663..gondoate.biosynthesis..anaerobic."	"duration"	"Week 6"	"durationWeek 6"	-0.965696130027	0.724361330330075	0.182476322992237	1	0.289177954191165	1	NA	"prevalence"	138	39
+"PWY.8178..pentose.phosphate.pathway..non.oxidative.branch..II"	"diet"	"oat"	"dietoat"	0	1.24995811685997	1	1	0.960986633002178	1	NA	"prevalence"	138	134
+"PWY.8178..pentose.phosphate.pathway..non.oxidative.branch..II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-1.13601698014757e-13	1.76769847695842	0.999999999999949	1	0.950173438414734	1	NA	"prevalence"	138	134
+"PWY.8178..pentose.phosphate.pathway..non.oxidative.branch..II"	"duration"	"Week 6"	"durationWeek 6"	5.29226260054939e-14	1.24086139101509	0.999999999999966	1	0.938492618173368	1	NA	"prevalence"	138	134
+"PWY.I9..L.cysteine.biosynthesis.VI..from.L.methionine."	"diet"	"oat"	"dietoat"	-2.04400568075801	1.09110401898211	0.0610218445191308	1	0.118320023529745	1	NA	"prevalence"	138	23
+"PWY.I9..L.cysteine.biosynthesis.VI..from.L.methionine."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	1.43726597734659	1.22331210395091	0.240035842144035	1	0.422454478774274	1	NA	"prevalence"	138	23
+"PWY.I9..L.cysteine.biosynthesis.VI..from.L.methionine."	"duration"	"Week 6"	"durationWeek 6"	-1.01832767277253	0.771102191837757	0.186630395341999	1	0.229111291887581	1	NA	"prevalence"	138	23
+"PWY0.1296..purine.ribonucleosides.degradation"	"diet"	"oat"	"dietoat"	-8.74869051435406	77.2210875505982	0.909797426476572	1	0.0978221383918767	1	NA	"prevalence"	138	134
+"PWY0.1296..purine.ribonucleosides.degradation"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	7.99484497148171	77.2311193376125	0.917551515336013	1	0.565742032329906	1	NA	"prevalence"	138	134
+"PWY0.1296..purine.ribonucleosides.degradation"	"duration"	"Week 6"	"durationWeek 6"	-8.71891605237015	77.2209200930319	0.910102914692701	1	0.33372378047205	1	NA	"prevalence"	138	134
+"PWY0.1586..peptidoglycan.maturation..meso.diaminopimelate.containing."	"diet"	"oat"	"dietoat"	13.0804719009192	682.669959744623	0.984712864757869	1	0.189739026133443	1	NA	"prevalence"	138	129
+"PWY0.1586..peptidoglycan.maturation..meso.diaminopimelate.containing."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-12.3555787762504	682.67221068361	0.985559999066616	1	0.183213046295482	1	NA	"prevalence"	138	129
+"PWY0.1586..peptidoglycan.maturation..meso.diaminopimelate.containing."	"duration"	"Week 6"	"durationWeek 6"	-0.319413376770232	0.804267454357712	0.691258173437751	1	0.852373406908893	1	NA	"prevalence"	138	129
+"PWY66.429..fatty.acid.biosynthesis.initiation..mitochondria."	"diet"	"oat"	"dietoat"	0	2.34710145593754	1	1	1	1	NA	"prevalence"	138	137
+"PWY66.429..fatty.acid.biosynthesis.initiation..mitochondria."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-1.33944854704737	3.00000567142974	0.655249108428083	1	0.686495092436485	1	NA	"prevalence"	138	137
+"PWY66.429..fatty.acid.biosynthesis.initiation..mitochondria."	"duration"	"Week 6"	"durationWeek 6"	1.73769415867203e-13	2.33003119275707	0.99999999999994	1	0.476467215279599	1	NA	"prevalence"	138	137
+"PYRIDNUCSYN.PWY..NAD.de.novo.biosynthesis.I..from.aspartate."	"duration"	"Week 6"	"durationWeek 6"	-1.38693478406637	1.55744660173616	0.373187617662259	1	0.607106237348085	1	NA	"prevalence"	138	130
+"RHAMCAT.PWY..L.rhamnose.degradation.I"	"diet"	"oat"	"dietoat"	0.856283203680403	0.720353095122151	0.234558025056853	1	0.414098582995134	1	NA	"prevalence"	138	33
+"RHAMCAT.PWY..L.rhamnose.degradation.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.996314492340537	0.906502284424275	0.271735115750851	1	0.469630258369574	1	NA	"prevalence"	138	33
+"RHAMCAT.PWY..L.rhamnose.degradation.I"	"duration"	"Week 6"	"durationWeek 6"	0.619475227612584	0.655006227877898	0.344273708591478	1	0.570023030755626	1	NA	"prevalence"	138	33
+"RIBOSYN2.PWY..flavin.biosynthesis.I..bacteria.and.plants."	"diet"	"oat"	"dietoat"	1.15367530037677	1.21765452313923	0.343405958136456	1	0.568884264189295	1	NA	"prevalence"	138	118
+"RIBOSYN2.PWY..flavin.biosynthesis.I..bacteria.and.plants."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.2243370509851	1.3112698932209	0.864157864905029	1	0.141085190902719	1	NA	"prevalence"	138	118
+"RIBOSYN2.PWY..flavin.biosynthesis.I..bacteria.and.plants."	"duration"	"Week 6"	"durationWeek 6"	-1.20198432890617	0.92703315804369	0.194771401357195	1	0.351606903927744	1	NA	"prevalence"	138	118
+"SALVADEHYPOX.PWY..adenosine.nucleotides.degradation.II"	"diet"	"oat"	"dietoat"	0.0298499453593652	1.4198208159758	0.983226717135353	1	0.983226717135353	1	NA	"prevalence"	138	3
+"THISYN.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.I"	"diet"	"oat"	"dietoat"	-0.558214253931011	1.33810174173389	0.676554968486481	1	0.0644129739485659	1	NA	"prevalence"	138	14
+"THISYN.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-1.87079166752175	2.14208966765774	0.382472931377202	1	0.0995441876829705	1	NA	"prevalence"	138	14
+"THISYN.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	3.8072599386778e-07	0.940508119697295	0.999999677009282	1	0.428213509198508	1	NA	"prevalence"	138	14
+"THISYNARA.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.III..eukaryotes."	"diet"	"oat"	"dietoat"	-0.367300302918474	0.591584119251966	0.534681300844704	1	0.783478508216423	1	NA	"prevalence"	138	63
+"THISYNARA.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.III..eukaryotes."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.724358014478522	0.77138930481439	0.347715131776031	1	0.57452445068604	1	NA	"prevalence"	138	63
+"THISYNARA.PWY..superpathway.of.thiamine.diphosphate.biosynthesis.III..eukaryotes."	"duration"	"Week 6"	"durationWeek 6"	-0.575938861642398	0.543999585880333	0.28973098450635	1	0.495517925629681	1	NA	"prevalence"	138	63
+"THRESYN.PWY..superpathway.of.L.threonine.biosynthesis"	"diet"	"oat"	"dietoat"	-2.06545588233207e-09	2.34717930579891	0.999999999297883	1	0.583885252743575	1	NA	"prevalence"	138	136
+"THRESYN.PWY..superpathway.of.L.threonine.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0	2.65927130597555	1	1	0.264968680909877	1	NA	"prevalence"	138	136
+"THRESYN.PWY..superpathway.of.L.threonine.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	-1.31751034518029	1.86670903741532	0.480316818039665	1	0.702374109283395	1	NA	"prevalence"	138	136
+"TRPSYN.PWY..L.tryptophan.biosynthesis"	"diet"	"oat"	"dietoat"	0	1.24997161619159	1	1	0.999928988926715	1	NA	"prevalence"	138	133
+"TRPSYN.PWY..L.tryptophan.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.578638644912898	1.67450251418449	0.729674508376657	1	0.926924128578598	1	NA	"prevalence"	138	133
+"TRPSYN.PWY..L.tryptophan.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	8.27574647829186e-14	1.24087488617506	0.999999999999947	1	0.968078598464448	1	NA	"prevalence"	138	133
+"UDPNAGSYN.PWY..UDP.N.acetyl.D.glucosamine.biosynthesis.I"	"diet"	"oat"	"dietoat"	-2.19596757290334	1.09768978462336	0.045442451780843	1	0.0888198871378317	1	NA	"prevalence"	138	58
+"UDPNAGSYN.PWY..UDP.N.acetyl.D.glucosamine.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	1.47083448899239	1.03737628398847	0.156237230047357	1	0.288064388041844	1	NA	"prevalence"	138	58
+"UDPNAGSYN.PWY..UDP.N.acetyl.D.glucosamine.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	-1.21247228188189	0.735733725296502	0.0993573841747684	1	0.188842878559484	1	NA	"prevalence"	138	58
+"X1CMET2.PWY..folate.transformations.III..E..coli."	"diet"	"oat"	"dietoat"	0	2.34710145593754	1	1	0.999999999755508	1	NA	"prevalence"	138	137
+"X1CMET2.PWY..folate.transformations.III..E..coli."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-1.33944854704737	3.00000567142974	0.655249108428083	1	0.881146822760368	1	NA	"prevalence"	138	137
+"X1CMET2.PWY..folate.transformations.III..E..coli."	"duration"	"Week 6"	"durationWeek 6"	1.73769415867203e-13	2.33003119275707	0.99999999999994	1	0.999999999644823	1	NA	"prevalence"	138	137
+"ARGININE.SYN4.PWY..L.ornithine.biosynthesis.II"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	0.999999999297895	1	"No data points have the baseline factor level"	"abundance"	138	2
+"ARGININE.SYN4.PWY..L.ornithine.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"No data points have the baseline factor level"	"abundance"	138	2
+"ARGININE.SYN4.PWY..L.ornithine.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	0.480310053140685	1	"No data points have the baseline factor level"	"abundance"	138	2
+"CITRULBIO.PWY..L.citrulline.biosynthesis"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	NA	NA	"No data points have the baseline factor level"	"abundance"	138	2
+"CITRULBIO.PWY..L.citrulline.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.999999214803085	1	"No data points have the baseline factor level"	"abundance"	138	2
+"CITRULBIO.PWY..L.citrulline.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	NA	NA	"No data points have the baseline factor level"	"abundance"	138	2
+"COLANSYN.PWY..colanic.acid.building.blocks.biosynthesis"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	3
+"COLANSYN.PWY..colanic.acid.building.blocks.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.999991284248994	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	3
+"COLANSYN.PWY..colanic.acid.building.blocks.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	0.558430019138362	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	3
+"LACTOSECAT.PWY..lactose.and.galactose.degradation.I"	"diet"	"oat"	"dietoat"	-2.95324167166732	7.13757923325024	0.6961992850118	NA	0.266224827681137	1	"Model may not have converged with 1 eigenvalue close to zero: 1.2e-10"	"abundance"	138	9
+"LACTOSECAT.PWY..lactose.and.galactose.degradation.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	12.0103204779919	5.61709744647822	0.0853932157926381	NA	0.494672516250823	1	"Model may not have converged with 1 eigenvalue close to zero: 1.2e-10"	"abundance"	138	9
+"LACTOSECAT.PWY..lactose.and.galactose.degradation.I"	"duration"	"Week 6"	"durationWeek 6"	-8.27315828252349	5.45141618585232	0.189564291630977	NA	0.147916928349359	1	"Model may not have converged with 1 eigenvalue close to zero: 1.2e-10"	"abundance"	138	9
+"METH.ACETATE.PWY..methanogenesis.from.acetate"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	0.08249354795626	1	"not a positive definite matrix (and positive semidefiniteness is not checked)"	"abundance"	138	3
+"METH.ACETATE.PWY..methanogenesis.from.acetate"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.0778648492978539	1	"not a positive definite matrix (and positive semidefiniteness is not checked)"	"abundance"	138	3
+"METH.ACETATE.PWY..methanogenesis.from.acetate"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	0.999999933004199	1	"not a positive definite matrix (and positive semidefiniteness is not checked)"	"abundance"	138	3
+"P164.PWY..purine.nucleobases.degradation.I..anaerobic."	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"No data points have the baseline factor level"	"abundance"	138	2
+"P164.PWY..purine.nucleobases.degradation.I..anaerobic."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.515171221315289	1	"No data points have the baseline factor level"	"abundance"	138	2
+"P164.PWY..purine.nucleobases.degradation.I..anaerobic."	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	0.999999999999941	1	"No data points have the baseline factor level"	"abundance"	138	2
+"PWY.241..C4.photosynthetic.carbon.assimilation.cycle..NADP.ME.type"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	0.427819160086007	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.241..C4.photosynthetic.carbon.assimilation.cycle..NADP.ME.type"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.999999999999998	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.241..C4.photosynthetic.carbon.assimilation.cycle..NADP.ME.type"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	0.999999999999997	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.4984..urea.cycle"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	NA	NA	"No data points have the baseline factor level"	"abundance"	138	2
+"PWY.4984..urea.cycle"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.999999214803085	1	"No data points have the baseline factor level"	"abundance"	138	2
+"PWY.4984..urea.cycle"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	NA	NA	"No data points have the baseline factor level"	"abundance"	138	2
+"PWY.5030..L.histidine.degradation.III"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	NA	NA	"No data points have the baseline factor level"	"abundance"	138	2
+"PWY.5030..L.histidine.degradation.III"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.999999214803085	1	"No data points have the baseline factor level"	"abundance"	138	2
+"PWY.5030..L.histidine.degradation.III"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	NA	NA	"No data points have the baseline factor level"	"abundance"	138	2
+"PWY.5384..sucrose.degradation.IV..sucrose.phosphorylase."	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	0.31281413938563	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	9
+"PWY.5384..sucrose.degradation.IV..sucrose.phosphorylase."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.632138849250861	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	9
+"PWY.5384..sucrose.degradation.IV..sucrose.phosphorylase."	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	0.561878839141831	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	9
+"PWY.5659..GDP.mannose.biosynthesis"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	0.294292946344889	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	7
+"PWY.5659..GDP.mannose.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.252766298853032	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	7
+"PWY.5659..GDP.mannose.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	0.999999999999778	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	7
+"PWY.5676..acetyl.CoA.fermentation.to.butanoate.II"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	NA	NA	"No data points have the baseline factor level"	"abundance"	138	3
+"PWY.5676..acetyl.CoA.fermentation.to.butanoate.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	NA	NA	"No data points have the baseline factor level"	"abundance"	138	3
+"PWY.5676..acetyl.CoA.fermentation.to.butanoate.II"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	NA	NA	"No data points have the baseline factor level"	"abundance"	138	3
+"PWY.6125..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.II"	"diet"	"oat"	"dietoat"	23.1690638578116	10.2191451795156	0.041945994833443	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: 3.1e-11"	"abundance"	138	9
+"PWY.6125..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-20.7799603267544	9.04122983222775	0.0245888940193624	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: 3.1e-11"	"abundance"	138	9
+"PWY.6125..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	12.562965475543	6.37331062270332	0.0529011784980398	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: 3.1e-11"	"abundance"	138	9
+"PWY.6126..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.II"	"diet"	"oat"	"dietoat"	22.4361046688204	9.84501019595378	0.041961837792579	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: 2.4e-11"	"abundance"	138	9
+"PWY.6126..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-19.933592884639	8.59486280356531	0.0237132427875768	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: 2.4e-11"	"abundance"	138	9
+"PWY.6126..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	12.1575153373684	6.05984412635639	0.0493858405504355	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: 2.4e-11"	"abundance"	138	9
+"PWY.621..sucrose.degradation.III..sucrose.invertase."	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	0.0822237805137858	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	7
+"PWY.621..sucrose.degradation.III..sucrose.invertase."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.0842390962921615	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	7
+"PWY.621..sucrose.degradation.III..sucrose.invertase."	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	0.0955537162565299	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	7
+"PWY.6353..purine.nucleotides.degradation.II..aerobic."	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.6353..purine.nucleotides.degradation.II..aerobic."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.6353..purine.nucleotides.degradation.II..aerobic."	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.6606..guanosine.nucleotides.degradation.II"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.6606..guanosine.nucleotides.degradation.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.6606..guanosine.nucleotides.degradation.II"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.6628..superpathway.of.L.phenylalanine.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.919648326426332	1	"Fitting error (NA p-value returned from fitting procedure)"	"abundance"	138	11
+"PWY.7197..pyrimidine.deoxyribonucleotide.phosphorylation"	"diet"	"oat"	"dietoat"	4.71402216138735	8.54364412461097	0.610488509462212	NA	0.212726022579401	1	"Model may not have converged with 1 eigenvalue close to zero: 3.9e-11"	"abundance"	138	7
+"PWY.7197..pyrimidine.deoxyribonucleotide.phosphorylation"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.250858168115263	1	"Model may not have converged with 1 eigenvalue close to zero: 3.9e-11"	"abundance"	138	7
+"PWY.7197..pyrimidine.deoxyribonucleotide.phosphorylation"	"duration"	"Week 6"	"durationWeek 6"	13.4832860654921	6.16545488601975	0.0337583297525682	NA	0.0202848845423834	0.905212972703858	"Model may not have converged with 1 eigenvalue close to zero: 3.9e-11"	"abundance"	138	7
+"PWY.7208..superpathway.of.pyrimidine.nucleobases.salvage"	"diet"	"oat"	"dietoat"	2.34373808909405	7.06429811816722	0.753516481132075	NA	0.361839340294447	1	"Model may not have converged with 1 eigenvalue close to zero: 6.0e-11"	"abundance"	138	8
+"PWY.7208..superpathway.of.pyrimidine.nucleobases.salvage"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.383043745468151	1	"Model may not have converged with 1 eigenvalue close to zero: 6.0e-11"	"abundance"	138	8
+"PWY.7208..superpathway.of.pyrimidine.nucleobases.salvage"	"duration"	"Week 6"	"durationWeek 6"	13.1916431504849	5.54266192389732	0.0216627497590811	NA	0.0187657883401094	0.905212972703858	"Model may not have converged with 1 eigenvalue close to zero: 6.0e-11"	"abundance"	138	8
+"PWY.7220..adenosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"diet"	"oat"	"dietoat"	23.9910730522154	10.572208369967	0.0411535207561656	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: -2.5e-12"	"abundance"	138	9
+"PWY.7220..adenosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-21.7360084870917	9.44164519141001	0.024115330552162	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: -2.5e-12"	"abundance"	138	9
+"PWY.7220..adenosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	13.008347725836	6.65457521232592	0.054526599588886	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: -2.5e-12"	"abundance"	138	9
+"PWY.7222..guanosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"diet"	"oat"	"dietoat"	23.9910730522154	10.572208369967	0.0411535207561656	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: -2.5e-12"	"abundance"	138	9
+"PWY.7222..guanosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-21.7360084870917	9.44164519141001	0.024115330552162	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: -2.5e-12"	"abundance"	138	9
+"PWY.7222..guanosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	13.008347725836	6.65457521232592	0.054526599588886	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: -2.5e-12"	"abundance"	138	9
+"PWY.7228..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.I"	"diet"	"oat"	"dietoat"	22.7379091026745	9.97313222579177	0.0416063134109597	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: 4.9e-11"	"abundance"	138	9
+"PWY.7228..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-20.2774376887157	8.73851808704987	0.0235197408977125	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: 4.9e-11"	"abundance"	138	9
+"PWY.7228..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	12.3243843691973	6.16081097138661	0.0498658357997337	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: 4.9e-11"	"abundance"	138	9
+"PWY.7229..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.I"	"diet"	"oat"	"dietoat"	21.3218173137898	9.41234315388713	0.0439504842416652	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: 2.8e-11"	"abundance"	138	9
+"PWY.7229..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-18.6834835133412	8.13102593835216	0.0254584558895536	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: 2.8e-11"	"abundance"	138	9
+"PWY.7229..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	11.5388106478155	5.73362669295123	0.0493037860043174	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: 2.8e-11"	"abundance"	138	9
+"PWY.7234..inosine.5..phosphate.biosynthesis.III"	"diet"	"oat"	"dietoat"	11.1585531491235	13.739958391998	0.565767912551029	NA	0.713334679446363	1	"Model may not have converged with 1 eigenvalue close to zero: 1.8e-11"	"abundance"	138	5
+"PWY.7234..inosine.5..phosphate.biosynthesis.III"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-17.7867601024098	16.0316400308081	0.466681725915989	NA	0.415344984180723	1	"Model may not have converged with 1 eigenvalue close to zero: 1.8e-11"	"abundance"	138	5
+"PWY.7234..inosine.5..phosphate.biosynthesis.III"	"duration"	"Week 6"	"durationWeek 6"	3.79728253519225	2.30178335042498	0.32794739023936	NA	0.31690679386574	1	"Model may not have converged with 1 eigenvalue close to zero: 1.8e-11"	"abundance"	138	5
+"PWY.7400..L.arginine.biosynthesis.IV..archaebacteria."	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.7400..L.arginine.biosynthesis.IV..archaebacteria."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.7400..L.arginine.biosynthesis.IV..archaebacteria."	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.7456...beta...1.4..mannan.degradation"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	0.427825714344264	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.7456...beta...1.4..mannan.degradation"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.999999999999997	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.7456...beta...1.4..mannan.degradation"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	0.99999999999999	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	2
+"PWY.841..superpathway.of.purine.nucleotides.de.novo.biosynthesis.I"	"diet"	"oat"	"dietoat"	9.5026662504261	8.95741717215765	0.315163023299995	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: 8.0e-11"	"abundance"	138	9
+"PWY.841..superpathway.of.purine.nucleotides.de.novo.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-6.89648102175516	7.22115814052349	0.34586558327878	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: 8.0e-11"	"abundance"	138	9
+"PWY.841..superpathway.of.purine.nucleotides.de.novo.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	12.0312187197094	5.09568973589708	0.0237914097079579	NA	NA	NA	"Model may not have converged with 1 eigenvalue close to zero: 8.0e-11"	"abundance"	138	9
+"SALVADEHYPOX.PWY..adenosine.nucleotides.degradation.II"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	0.983226717135353	1	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	3
+"SALVADEHYPOX.PWY..adenosine.nucleotides.degradation.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	3
+"SALVADEHYPOX.PWY..adenosine.nucleotides.degradation.II"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	NA	NA	"number of levels of each grouping factor must be < number of observations (problems: id)"	"abundance"	138	3
+"ARO.PWY..chorismate.biosynthesis.I"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"ARO.PWY..chorismate.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"ARO.PWY..chorismate.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"CITRULBIO.PWY..L.citrulline.biosynthesis"	"diet"	"oat"	"dietoat"	-17.5464286067257	11386041.6630793	0.999998770422163	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"CITRULBIO.PWY..L.citrulline.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	21.8366483222896	37480.5486564032	0.999535142248581	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"COA.PWY..coenzyme.A.biosynthesis.I..prokaryotic."	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"COA.PWY..coenzyme.A.biosynthesis.I..prokaryotic."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"COA.PWY..coenzyme.A.biosynthesis.I..prokaryotic."	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"COA.PWY.1..superpathway.of.coenzyme.A.biosynthesis.III..mammals."	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"COA.PWY.1..superpathway.of.coenzyme.A.biosynthesis.III..mammals."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"COA.PWY.1..superpathway.of.coenzyme.A.biosynthesis.III..mammals."	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"COLANSYN.PWY..colanic.acid.building.blocks.biosynthesis"	"diet"	"oat"	"dietoat"	-20.8772808313055	23538.372523403	0.999292319048555	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	3
+"COMPLETE.ARO.PWY..superpathway.of.aromatic.amino.acid.biosynthesis"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	0.999999999999971	1	"All logistic values are the same"	"prevalence"	138	138
+"COMPLETE.ARO.PWY..superpathway.of.aromatic.amino.acid.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.999997087525936	1	"All logistic values are the same"	"prevalence"	138	138
+"COMPLETE.ARO.PWY..superpathway.of.aromatic.amino.acid.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	0.999999999999997	1	"All logistic values are the same"	"prevalence"	138	138
+"DTDPRHAMSYN.PWY..dTDP..beta..L.rhamnose.biosynthesis"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"DTDPRHAMSYN.PWY..dTDP..beta..L.rhamnose.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"DTDPRHAMSYN.PWY..dTDP..beta..L.rhamnose.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"GLYCOGENSYNTH.PWY..glycogen.biosynthesis.I..from.ADP.D.Glucose."	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"GLYCOGENSYNTH.PWY..glycogen.biosynthesis.I..from.ADP.D.Glucose."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"GLYCOGENSYNTH.PWY..glycogen.biosynthesis.I..from.ADP.D.Glucose."	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"NONMEVIPP.PWY..methylerythritol.phosphate.pathway.I"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	0.999999999999991	1	"All logistic values are the same"	"prevalence"	138	138
+"NONMEVIPP.PWY..methylerythritol.phosphate.pathway.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.998420362414374	1	"All logistic values are the same"	"prevalence"	138	138
+"NONMEVIPP.PWY..methylerythritol.phosphate.pathway.I"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PANTO.PWY..phosphopantothenate.biosynthesis.I"	"diet"	"oat"	"dietoat"	17.8821355886256	11386071.7920188	0.999998746900585	NA	0.505985899341264	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	136
+"PANTO.PWY..phosphopantothenate.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	-22.2343521789519	45726.2632801891	0.999612029403863	NA	0.478933615047717	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	136
+"PANTOSYN.PWY..superpathway.of.coenzyme.A.biosynthesis.I..bacteria."	"diet"	"oat"	"dietoat"	17.8821355886256	11386071.7920188	0.999998746900585	NA	0.562353800008621	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	136
+"PANTOSYN.PWY..superpathway.of.coenzyme.A.biosynthesis.I..bacteria."	"duration"	"Week 6"	"durationWeek 6"	-22.2343521789519	45726.2632801891	0.999612029403863	NA	0.503884088307922	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	136
+"PEPTIDOGLYCANSYN.PWY..peptidoglycan.biosynthesis.I..meso.diaminopimelate.containing."	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PEPTIDOGLYCANSYN.PWY..peptidoglycan.biosynthesis.I..meso.diaminopimelate.containing."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PEPTIDOGLYCANSYN.PWY..peptidoglycan.biosynthesis.I..meso.diaminopimelate.containing."	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.1042..glycolysis.IV"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.1042..glycolysis.IV"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.1042..glycolysis.IV"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.2942..L.lysine.biosynthesis.III"	"diet"	"oat"	"dietoat"	-20.9694680457359	23923.1001446687	0.999300625230079	NA	0.0189783609503953	0.905212972703858	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	134
+"PWY.2942..L.lysine.biosynthesis.III"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	54.6382641991136	11386005.1061193	0.999996171174435	NA	0.100212031526644	1	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	134
+"PWY.2942..L.lysine.biosynthesis.III"	"duration"	"Week 6"	"durationWeek 6"	-20.9386963876803	23923.1001446494	0.999301651527729	NA	0.017710927838124	0.905212972703858	"A large coefficient (>15 in absolute value) or small p-value 
+                (< 10^-10) was obtained from a feature present in >95% of 
+                samples. Check this is intended."	"prevalence"	138	134
+"PWY.3841..folate.transformations.II..plants."	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.3841..folate.transformations.II..plants."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.3841..folate.transformations.II..plants."	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.4984..urea.cycle"	"diet"	"oat"	"dietoat"	-17.5464286067257	11386041.6630793	0.999998770422163	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.4984..urea.cycle"	"duration"	"Week 6"	"durationWeek 6"	21.8366483222896	37480.5486564032	0.999535142248581	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.5030..L.histidine.degradation.III"	"diet"	"oat"	"dietoat"	-17.5464286067257	11386041.6630793	0.999998770422163	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.5030..L.histidine.degradation.III"	"duration"	"Week 6"	"durationWeek 6"	21.8366483222896	37480.5486564032	0.999535142248581	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.5097..L.lysine.biosynthesis.VI"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5097..L.lysine.biosynthesis.VI"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5097..L.lysine.biosynthesis.VI"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5667..CDP.diacylglycerol.biosynthesis.I"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5667..CDP.diacylglycerol.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5667..CDP.diacylglycerol.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5676..acetyl.CoA.fermentation.to.butanoate.II"	"diet"	"oat"	"dietoat"	339.121200864669	1365.33580478946	0.803840920070342	NA	NA	NA	" Hessian is numerically singular: parameters are not uniquely determined"	"prevalence"	138	3
+"PWY.5676..acetyl.CoA.fermentation.to.butanoate.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-61.4291415905787	547.353825930408	0.910641590848699	NA	NA	NA	" Hessian is numerically singular: parameters are not uniquely determined"	"prevalence"	138	3
+"PWY.5676..acetyl.CoA.fermentation.to.butanoate.II"	"duration"	"Week 6"	"durationWeek 6"	64.6751627009211	547.353825930408	0.905941122630218	NA	NA	NA	" Hessian is numerically singular: parameters are not uniquely determined"	"prevalence"	138	3
+"PWY.5686..UMP.biosynthesis.I"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5686..UMP.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5686..UMP.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5695..inosine.5..phosphate.degradation"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5695..inosine.5..phosphate.degradation"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.5695..inosine.5..phosphate.degradation"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6121..5.aminoimidazole.ribonucleotide.biosynthesis.I"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6121..5.aminoimidazole.ribonucleotide.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6121..5.aminoimidazole.ribonucleotide.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6122..5.aminoimidazole.ribonucleotide.biosynthesis.II"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6122..5.aminoimidazole.ribonucleotide.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6122..5.aminoimidazole.ribonucleotide.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6125..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.II"	"diet"	"oat"	"dietoat"	0.284076136718995	0.00200843938296867	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.6125..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.588255014389991	0.00200856473297198	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.6125..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	6.84217674369031	0.00200998112084408	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.6126..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.II"	"diet"	"oat"	"dietoat"	0.284076136718995	0.00200843938296867	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.6126..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.588255014389991	0.00200856473297198	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.6126..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	6.84217674369031	0.00200998112084408	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.6151..S.adenosyl.L.methionine.salvage.I"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	0.99997271087982	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6151..S.adenosyl.L.methionine.salvage.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.999792598823612	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6151..S.adenosyl.L.methionine.salvage.I"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	0.999754796663123	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6163..chorismate.biosynthesis.from.3.dehydroquinate"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6163..chorismate.biosynthesis.from.3.dehydroquinate"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6163..chorismate.biosynthesis.from.3.dehydroquinate"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6277..superpathway.of.5.aminoimidazole.ribonucleotide.biosynthesis"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6277..superpathway.of.5.aminoimidazole.ribonucleotide.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6277..superpathway.of.5.aminoimidazole.ribonucleotide.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6353..purine.nucleotides.degradation.II..aerobic."	"diet"	"oat"	"dietoat"	-21.9618772572107	58115.3909789572	0.999698478456782	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.6353..purine.nucleotides.degradation.II..aerobic."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	44.3591028286531	91098.5323521185	0.999611481755353	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.6353..purine.nucleotides.degradation.II..aerobic."	"duration"	"Week 6"	"durationWeek 6"	-22.3673717861296	70153.7523540024	0.999745607615948	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.6385..peptidoglycan.biosynthesis.III..mycobacteria."	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6385..peptidoglycan.biosynthesis.III..mycobacteria."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6385..peptidoglycan.biosynthesis.III..mycobacteria."	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6386..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.II..lysine.containing."	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6386..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.II..lysine.containing."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6386..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.II..lysine.containing."	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6387..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.I..meso.diaminopimelate.containing."	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6387..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.I..meso.diaminopimelate.containing."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6387..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.I..meso.diaminopimelate.containing."	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6606..guanosine.nucleotides.degradation.II"	"diet"	"oat"	"dietoat"	-21.9618772572107	58115.3909789572	0.999698478456782	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.6606..guanosine.nucleotides.degradation.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	44.3591028286531	91098.5323521185	0.999611481755353	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.6606..guanosine.nucleotides.degradation.II"	"duration"	"Week 6"	"durationWeek 6"	-22.3673717861296	70153.7523540024	0.999745607615948	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.6609..adenine.and.adenosine.salvage.III"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6609..adenine.and.adenosine.salvage.III"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6609..adenine.and.adenosine.salvage.III"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6700..queuosine.biosynthesis.I..de.novo."	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6700..queuosine.biosynthesis.I..de.novo."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.6700..queuosine.biosynthesis.I..de.novo."	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7111..pyruvate.fermentation.to.isobutanol..engineered."	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	0.537046478497096	1	"(maxstephalfit) PIRLS step-halvings failed to reduce deviance in pwrssUpdate"	"prevalence"	138	133
+"PWY.7111..pyruvate.fermentation.to.isobutanol..engineered."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.381357661667252	1	"(maxstephalfit) PIRLS step-halvings failed to reduce deviance in pwrssUpdate"	"prevalence"	138	133
+"PWY.7111..pyruvate.fermentation.to.isobutanol..engineered."	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	0.24732882856361	1	"(maxstephalfit) PIRLS step-halvings failed to reduce deviance in pwrssUpdate"	"prevalence"	138	133
+"PWY.7220..adenosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"diet"	"oat"	"dietoat"	0.284076136718995	0.00200843938296867	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.7220..adenosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.588255014389991	0.00200856473297198	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.7220..adenosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	6.84217674369031	0.00200998112084408	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.7221..guanosine.ribonucleotides.de.novo.biosynthesis"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7221..guanosine.ribonucleotides.de.novo.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7221..guanosine.ribonucleotides.de.novo.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7222..guanosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"diet"	"oat"	"dietoat"	0.284076136718995	0.00200843938296867	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.7222..guanosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.588255014389991	0.00200856473297198	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.7222..guanosine.deoxyribonucleotides.de.novo.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	6.84217674369031	0.00200998112084408	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.7228..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.I"	"diet"	"oat"	"dietoat"	0.284076136718995	0.00200843938296867	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.7228..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.588255014389991	0.00200856473297198	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.7228..superpathway.of.guanosine.nucleotides.de.novo.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	6.84217674369031	0.00200998112084408	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.7229..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.I"	"diet"	"oat"	"dietoat"	0.284076136718995	0.00200843938296867	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.7229..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.588255014389991	0.00200856473297198	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.7229..superpathway.of.adenosine.nucleotides.de.novo.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	6.84217674369031	0.00200998112084408	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.7237..myo...chiro..and.scyllo.inositol.degradation"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	0.452713390962244	1	"(maxstephalfit) PIRLS step-halvings failed to reduce deviance in pwrssUpdate"	"prevalence"	138	134
+"PWY.7237..myo...chiro..and.scyllo.inositol.degradation"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.928844850708837	1	"(maxstephalfit) PIRLS step-halvings failed to reduce deviance in pwrssUpdate"	"prevalence"	138	134
+"PWY.7237..myo...chiro..and.scyllo.inositol.degradation"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	0.84887982524769	1	"(maxstephalfit) PIRLS step-halvings failed to reduce deviance in pwrssUpdate"	"prevalence"	138	134
+"PWY.7238..sucrose.biosynthesis.II"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7238..sucrose.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7238..sucrose.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7400..L.arginine.biosynthesis.IV..archaebacteria."	"diet"	"oat"	"dietoat"	21.657142757576	1141.52816820407	0.984863392988489	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.7400..L.arginine.biosynthesis.IV..archaebacteria."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-45.8936860085337	2910.33522904429	0.987418512623298	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.7400..L.arginine.biosynthesis.IV..archaebacteria."	"duration"	"Week 6"	"durationWeek 6"	21.6272897944052	1141.53026984353	0.984884283144873	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	2
+"PWY.7790..UMP.biosynthesis.II"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7790..UMP.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7790..UMP.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7791..UMP.biosynthesis.III"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7791..UMP.biosynthesis.III"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7791..UMP.biosynthesis.III"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7851..coenzyme.A.biosynthesis.II..eukaryotic."	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7851..coenzyme.A.biosynthesis.II..eukaryotic."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7851..coenzyme.A.biosynthesis.II..eukaryotic."	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7953..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.III..meso.diaminopimelate.containing."	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7953..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.III..meso.diaminopimelate.containing."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7953..UDP.N.acetylmuramoyl.pentapeptide.biosynthesis.III..meso.diaminopimelate.containing."	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7977..L.methionine.biosynthesis.IV"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	0.99999999999306	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7977..L.methionine.biosynthesis.IV"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.999985649358592	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.7977..L.methionine.biosynthesis.IV"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	0.999995189348711	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY.8187..L.arginine.degradation.XIII..reductive.Stickland.reaction."	"diet"	"oat"	"dietoat"	-0.486309562838998	0.00180018247032191	0	NA	0.991649843608122	1	"Model failed to converge with max|grad| = 0.0418939 (tol = 0.002, component 1)"	"prevalence"	138	11
+"PWY.8187..L.arginine.degradation.XIII..reductive.Stickland.reaction."	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	0.442271378352107	0.00180049773526096	0	NA	0.772353227354307	1	"Model failed to converge with max|grad| = 0.0418939 (tol = 0.002, component 1)"	"prevalence"	138	11
+"PWY.8187..L.arginine.degradation.XIII..reductive.Stickland.reaction."	"duration"	"Week 6"	"durationWeek 6"	-1.37734614283531	0.00180048699648923	0	NA	0.126926787828905	1	"Model failed to converge with max|grad| = 0.0418939 (tol = 0.002, component 1)"	"prevalence"	138	11
+"PWY.841..superpathway.of.purine.nucleotides.de.novo.biosynthesis.I"	"diet"	"oat"	"dietoat"	0.284076136718995	0.00200843938296867	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.841..superpathway.of.purine.nucleotides.de.novo.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	-0.588255014389991	0.00200856473297198	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY.841..superpathway.of.purine.nucleotides.de.novo.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	6.84217674369031	0.00200998112084408	0	NA	NA	NA	"Model failed to converge with max|grad| = 0.0352115 (tol = 0.002, component 1)"	"prevalence"	138	9
+"PWY0.1319..CDP.diacylglycerol.biosynthesis.II"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY0.1319..CDP.diacylglycerol.biosynthesis.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"PWY0.1319..CDP.diacylglycerol.biosynthesis.II"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"SALVADEHYPOX.PWY..adenosine.nucleotides.degradation.II"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	20.6335742002611	29482.0919672055	0.999441586134292	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	3
+"SALVADEHYPOX.PWY..adenosine.nucleotides.degradation.II"	"duration"	"Week 6"	"durationWeek 6"	-20.6335732165055	29482.0919330023	0.999441586160267	NA	NA	NA	"A large coefficient (>15 in absolute value) or small 
+                p-value (< 10^-10) was obtained from a feature present 
+                in <5% of samples. Check this is intended."	"prevalence"	138	3
+"SER.GLYSYN.PWY..superpathway.of.L.serine.and.glycine.biosynthesis.I"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	0.979060137360724	1	"(maxstephalfit) PIRLS step-halvings failed to reduce deviance in pwrssUpdate"	"prevalence"	138	135
+"SER.GLYSYN.PWY..superpathway.of.L.serine.and.glycine.biosynthesis.I"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.971621069006475	1	"(maxstephalfit) PIRLS step-halvings failed to reduce deviance in pwrssUpdate"	"prevalence"	138	135
+"SER.GLYSYN.PWY..superpathway.of.L.serine.and.glycine.biosynthesis.I"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	0.989178013615778	1	"(maxstephalfit) PIRLS step-halvings failed to reduce deviance in pwrssUpdate"	"prevalence"	138	135
+"TRNA.CHARGING.PWY..tRNA.charging"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	0.999999999999982	1	"All logistic values are the same"	"prevalence"	138	138
+"TRNA.CHARGING.PWY..tRNA.charging"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	0.999999993449952	1	"All logistic values are the same"	"prevalence"	138	138
+"TRNA.CHARGING.PWY..tRNA.charging"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	0.999999999999994	1	"All logistic values are the same"	"prevalence"	138	138
+"UNINTEGRATED"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"UNINTEGRATED"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"UNINTEGRATED"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"UNMAPPED"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"UNMAPPED"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"UNMAPPED"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"VALSYN.PWY..L.valine.biosynthesis"	"diet"	"oat"	"dietoat"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"VALSYN.PWY..L.valine.biosynthesis"	"diet"	"oat:durationWeek 6"	"dietoat:durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
+"VALSYN.PWY..L.valine.biosynthesis"	"duration"	"Week 6"	"durationWeek 6"	NA	NA	NA	NA	1	1	"All logistic values are the same"	"prevalence"	138	138
