@@ -17,7 +17,7 @@ variable <- "diet"
 prevalence.th <- 10/100
 detection.th <- 0.1/100
 tax.level <- params$tax.level
-#tax.level <- "genus_prevalent"
+# tax.level <- "species_prevalent"
 
 # Add CLR transformation
 tse <- transformAssay(
@@ -198,38 +198,21 @@ plot_taxon <- function(taxon) {
 }
 ```
 
-```{r}
-plots_list <- list()
-plots_list <- setNames(lapply(taxa_of_interest, plot_taxon),
-                       taxa_of_interest)
-```
-
-```{r significant-hit-taxa}
-#| layout-ncol: 1
-#| fig-width: 10
-#| fig-height: 3
-
-ordered_plots <- plots_list[order(names(plots_list))]
-
-for (plot_name in names(ordered_plots)) {
-  print(ordered_plots[[plot_name]])
-}
-```
-
 
 ```{r hits}
 tabs <- NULL 
 
 for (g in unique(tse$diet)) {
-
+    
   if (length(signif.features)>0) {
     tseg <- tse[, tse$diet==g] 
-    df <- as.data.frame(colData(tseg)) 
+    dfd <- as.data.frame(colData(tseg)) 
+    # for (tax in unique(rownames(tse))) {
     for (tax in signif.features) {
-      df$signal <- as.vector(assay(tseg, "relabundance")[tax,])
-      df$clr <- as.vector(assay(tseg, "clr")[tax,])      
+      dfd$signal <- as.vector(assay(tseg, "relabundance")[tax,])
+      dfd$clr <- as.vector(assay(tseg, "clr")[tax,])      
       vars <- c("id", "timepoint", "signal")
-      dfm <- melt(df[, vars])
+      dfm <- melt(dfd[, vars])
       colnames(dfm) <- vars
       pv <- pvals.treatments[tax, g]
 
@@ -238,9 +221,9 @@ for (g in unique(tse$diet)) {
         c(
           Diet = g,
           Taxon = tax,
-          mean1 = mean(subset(df, timepoint=="before")$signal),
-          mean2 = mean(subset(df, timepoint=="after")$signal),
-	  logFC.clr = mean(subset(df, timepoint=="after")$clr - subset(df, timepoint=="before")$clr),
+          mean1 = mean(subset(dfd, timepoint=="before")$signal),
+          mean2 = mean(subset(dfd, timepoint=="after")$signal),
+	  logFC.clr = mean(subset(dfd, timepoint=="after")$clr - subset(dfd, timepoint=="before")$clr),
           FDR   = pv 
         ))
     }
@@ -271,6 +254,24 @@ if (knitr::is_html_output()) {
             caption = "Table of significant hits within groups")
 } else {
   kable(tabs)
+}
+```
+
+```{r}
+plots_list <- list()
+plots_list <- setNames(lapply(taxa_of_interest, plot_taxon),
+                       taxa_of_interest)
+```
+
+```{r significant-hit-taxa}
+#| layout-ncol: 1
+#| fig-width: 10
+#| fig-height: 3
+
+ordered_plots <- plots_list[order(names(plots_list))]
+
+for (plot_name in names(ordered_plots)) {
+  print(ordered_plots[[plot_name]])
 }
 ```
 
