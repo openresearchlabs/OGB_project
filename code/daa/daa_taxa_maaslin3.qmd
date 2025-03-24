@@ -82,7 +82,7 @@ file_path <- file.path("../../output/daa/daa_taxa/species/significant_results.ts
 }
 ```
 
-
+## Initial Analysis - Interaction Model
 ```{r print_table}
 #| label: table-of-significant-results
 #| results: 'asis'
@@ -93,7 +93,7 @@ tabs <- lapply(taxa_levels, function(taxa_name) {
   file_path <- file.path("../../output/daa/daa_taxa", taxa_name, "all_results.tsv")
   daa_tab <- read_tsv(file_path, col_names = TRUE, show_col_types = FALSE) %>%
       filter(!is.na(feature)) %>%
-      select(feature, metadata, value, coef, qval_individual, qval_joint, model)
+      select(feature, value, coef, qval_individual, qval_joint, model)
   
   table_caption <- paste("Table of significant features for", taxa_name, 
                            "- Total features analyzed:", total_features)
@@ -120,9 +120,9 @@ tabs[[4]]
 ```
 
 
-### Post-Hoc Analysis
+## Post-Hoc Analysis
 
-## Within-Group Comparisons
+### Within-Group Comparisons
 ```{r run_maaslin_o}
 taxa_tse <- altExp(tse, "species_prevalent")
 tse_O <- taxa_tse[, taxa_tse$diet == "oat"]
@@ -143,18 +143,29 @@ if (!file.exists(file_path)) {
 ```
 
 ```{r}
+file_path_w <- file.path("../../data/wilcox_species.csv")
+daa_tab_w <- read_csv(file_path_w, col_names = TRUE, show_col_types = FALSE)
+daa_tab_w <- daa_tab_w %>% rename(Taxon = "feature")
+```
+
+
+```{r}
 tabs <- lapply(tse_list, function(tse){
 file_path <- file.path("../../output/daa/daa_taxa", unique(tse$diet), taxa_name, "all_results.tsv")
   total_features <- nrow(tse)
   daa_tab <- read_tsv(file_path, col_names = TRUE, show_col_types = FALSE) %>%
       filter(!is.na(feature)) %>%
-      select(feature, metadata, value, coef, qval_individual, qval_joint, model)
+      select(feature, coef, qval_individual, qval_joint, model)
   
   table_caption <- paste("Table of features for", taxa_name, "within group", unique(tse$diet),
                            "- Total features analyzed:", total_features)
     
     # Split the results by model
     daa_tab_split <- split(daa_tab, daa_tab$model)
+    daa_tab_w <- daa_tab_w[daa_tab_w$Diet == unique(tse$diet), ]  %>%
+      select(-Diet)
+    daa_tab_split$abundance <- merge(daa_tab_split$abundance, daa_tab_w, by = "feature") %>%
+      select(-model)
     
   
     
@@ -169,17 +180,17 @@ file_path <- file.path("../../output/daa/daa_taxa", unique(tse$diet), taxa_name,
   )
 ```
 
-### Diet Oat
+#### Diet Oat - Estimates the change in relative abundance between week 0 and week 6
 ```{r}
 tabs[[1]]
 ```
 
-### Diet Rice
+#### Diet Rice - Estimates the change in relative abundance between week 0 and week 6
 ```{r}
 tabs[[2]]
 ```
 
-## Across-Group Comparisons
+### Across-Group Comparisons
 ```{r}
 tse_after <- taxa_tse[, taxa_tse$timepoint == "after"]
 tse_before <- taxa_tse[, taxa_tse$timepoint == "before"]
@@ -204,7 +215,7 @@ file_path <- file.path("../../output/daa/daa_taxa", unique(tse$timepoint), taxa_
   total_features <- nrow(tse)
   daa_tab <- read_tsv(file_path, col_names = TRUE, show_col_types = FALSE) %>%
       filter(!is.na(feature)) %>%
-      select(feature, metadata, value, coef, qval_individual, qval_joint, model)
+      select(feature, coef, qval_individual, qval_joint, model)
   
   table_caption <- paste("Table of features for", taxa_name, "at", unique(tse$duration),
                            "- Total features analyzed:", total_features)
@@ -223,12 +234,12 @@ file_path <- file.path("../../output/daa/daa_taxa", unique(tse$timepoint), taxa_
   )
 ```
 
-### Before Intervention - Week 0
+#### Before Intervention - Estimates the difference in relative abundance between treatments at week 0
 ```{r}
 tabs[[1]]
 ```
 
-### Post Intervention - Week 6
+#### Post Intervention  Estimates the difference in relative abundance between treatments at week 6
 ```{r}
 tabs[[2]]
 ```
@@ -252,7 +263,7 @@ correction <- "Benjamini-Hochberg FDR adjustment"
 
 ```
 
-## Maaslin3 significant hits
+## The following box plots highlight significant species from the interaction model.
 
 This section highlights significant taxa from maaslin3.
 
@@ -360,6 +371,8 @@ plots_list <- list()
 plots_list <- setNames(lapply(significant_specise, plot_taxon),
                       significant_specise)
 ```
+
+
 
 ```{r hits_m}
 #| layout-ncol: 1
