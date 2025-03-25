@@ -2,7 +2,7 @@
 title: "DAA path abundance"
 ---
 
-### Differential abundance analysis
+# Interaction Model
 
 ```{r setup}
 library(maaslin3)
@@ -96,7 +96,7 @@ datatable(
 
 ```
 
-### Post-Hoc Analysis
+# Post-Hoc Analysis
 
 ## Within-Group Comparisons
 ```{r run_maaslin_o}

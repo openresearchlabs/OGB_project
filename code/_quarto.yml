@@ -59,6 +59,10 @@ format:
     code-fold: true
     code-summary: "Show Code"
     page-layout: full
+    number-depth: 3
+    crossref:
+      fig-title: "Figure "
+      tbl-title: "Table "
   # pdf:
   #   documentclass: article
   #   keep-tex: true

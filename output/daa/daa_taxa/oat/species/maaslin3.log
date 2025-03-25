@@ -1,10 +1,4 @@
-2025-03-21 12:12:02.703885 WARNING::Fitting problem for feature 197 returning NA
-2025-03-21 12:12:03.066406 WARNING::Fitting problem for feature 202 returning NA
-2025-03-21 12:12:43.143904 WARNING::Fitting problem for feature 197 returning NA
-2025-03-21 12:12:43.548957 WARNING::Fitting problem for feature 202 returning NA
-2025-03-21 12:12:44.481416 WARNING::Deleting existing residuals file: ../../output/daa/daa_taxa/oat/species/fits/residuals_linear.rds
-2025-03-21 12:12:44.488791 WARNING::Deleting existing fitted file: ../../output/daa/daa_taxa/oat/species/fits/fitted_linear.rds
-2025-03-21 12:12:44.49554 WARNING::Deleting existing ranef file: ../../output/daa/daa_taxa/oat/species/fits/ranef_linear.rds
-2025-03-21 12:12:44.500018 WARNING::Deleting existing residuals file: ../../output/daa/daa_taxa/oat/species/fits/residuals_logistic.rds
-2025-03-21 12:12:44.508541 WARNING::Deleting existing fitted file: ../../output/daa/daa_taxa/oat/species/fits/fitted_logistic.rds
-2025-03-21 12:12:44.516925 WARNING::Deleting existing ranef file: ../../output/daa/daa_taxa/oat/species/fits/ranef_logistic.rds
+2025-03-25 10:49:48.941856 WARNING::Fitting problem for feature 197 returning NA
+2025-03-25 10:49:49.17833 WARNING::Fitting problem for feature 202 returning NA
+2025-03-25 10:50:23.184063 WARNING::Fitting problem for feature 197 returning NA
+2025-03-25 10:50:23.456335 WARNING::Fitting problem for feature 202 returning NA
