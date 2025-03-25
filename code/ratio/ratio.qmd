@@ -452,6 +452,7 @@ div_change <- plotColData(
 ```
 
 ```{r visualize-plot}
+#| label: fig-figure-of-findings-before-after
 #| fig-width: 5
 #| fig-height: 3
 #| fig.align: "center"
@@ -487,7 +488,7 @@ wrap_plots(p1, p2, axes = "collect")
 -   Statistical test: **`r test`**
 
 ```{r table-of-findings-before}
-#| label: table-of-findings-before
+#| label: tbl-table-of-findings-before
 
 if (knitr::is_html_output()) {
   datatable(
@@ -524,7 +525,7 @@ if (knitr::is_html_output()) {
 -   Statistical test: **`r test`**
 
 ```{r table-of-findings-after}
-#| label: table-of-findings-after
+#| label: tbl-table-of-findings-after
 if (knitr::is_html_output()) {
   datatable(
     final_results_after %>% select(-y.position), 
@@ -556,6 +557,7 @@ if (knitr::is_html_output()) {
 ```
 
 ```{r viz-div_change}
+#| label: fig-figure-of-findings-within
 #| fig-width: 5
 #| fig-height: 3
 #| fig.align: "center"
@@ -570,7 +572,7 @@ div_change
 -   Statistical test: **paired `r test`**
 
 ```{r table-of-findings-paired}
-#| label: table-of-findings-paired
+#| label: tbl-table-of-findings-paired
 if (knitr::is_html_output()) {
   datatable(
     final_results_paired %>% select(-y.position),  
@@ -640,23 +642,30 @@ res <- run_lmer(tse, "bfratio")
 -   Formula used: **`r formula_used`**
 
 ```{r table-fixed-fx}
-sjPlot::plot_model(res)
+#| label: tbl-table-of-interaction
 sjPlot::tab_model(res)
+```
+
+```{r table-fixed-fx}
+#| label: fig-figure-of-interaction
+sjPlot::plot_model(res)
 ```
 
 #### Post-Hoc Analysis
 
 *Within-Group Comparisons*
 ```{r}
+#| label: tbl-table-of-interaction-within
 ref_grid <- emmeans(res, ~ diet * duration)
 within_group_comps <- contrast(ref_grid, method = "pairwise", by = "diet")
-kable(as.data.frame(within_group_comps))
+kable(as.data.frame(within_group_comps), caption = "Estimates for Diets")
 # Add confidence intervals
 within_group_comps_ci <- confint(within_group_comps)
 ```
 
 
 ```{r}
+#| label: fig-figure-of-interaction-within
 # Convert to a data frame
 within_group_df <- as.data.frame(within_group_comps_ci)
 
@@ -669,14 +678,47 @@ ggplot(within_group_df, aes(x = diet, y = estimate, color = diet)) +
 ```
 
 *Across-Group Comparisons*
+How to read the results;
+
+-   For Marginal Means (emmeans):
+    -   Negative emmean:"The mean log2(B/F ratio) for Diet rice at baseline was `-2.238227` (95% CI: -2.607414		, -1.869040), indicating Firmicutes dominance (B/F ≈ 0.213)."
+
+    -   Positive emmean:"if the mean log2(B/F ratio) for Diet oat was `0.4` (95% CI: 0.2, 0.6), then Bacteroidetes dominance (B/F ≈ 1.32)."
+
+-   For Contrasts:
+    -   Negative estimate:"Diet oat had a significantly lower log2(B/F ratio) than diet rice at timepoint 1 (estimate = `-1.0272585`, borderline p < 0.05), reflecting greater Firmicutes dominance."
+
+    -   Positive estimate:"Diet oat had a  higher log2(B/F ratio) than diet rice at timepoint 2 (estimate = `0.5024736	`, p = 0.51), reflecting a non significant Bacteroidetes dominance."
 ```{r}
+#| label: tbl-table-of-interaction-across-emmeans
 posthoc <- emmeans(res, pairwise ~ diet | duration)
 # sjPlot::tab_model(as.data.frame(posthoc$contrasts)) 
-kable(as.data.frame(posthoc$emmeans))
-kable(as.data.frame(posthoc$contrasts))
+data_emmean <- as.data.frame(posthoc$emmeans)
+data_emmean <- data_emmean %>%
+  # rename(emmeans = "coef") %>% 
+  mutate(
+    `2 ^ coef` = 2 ^ emmean, 
+    lower.CL_actual = 2 ^ lower.CL,     
+    upper.CL_actual = 2 ^ upper.CL
+  )
+some_order <- c("diet", "duration", 
+             "emmean", "2 ^ coef",
+             "SE", "df", "lower.CL", "lower.CL_actual", 
+             "upper.CL", "upper.CL_actual")
+data_emmean <- data_emmean %>%
+  select(all_of(some_order))  %>%
+  rename(emmean = "coef", duration = "timepoint")
+kable(data_emmean, caption = "Estimated Marginal Means for Diets")
+```
+
+
+```{r}
+#| label: tbl-table-of-interaction-across-contrasts
+kable(as.data.frame(posthoc$contrasts), caption = "Estimated contrasts for Diets")
 ```
 
 ```{r}
+#| label: fig-figure-of-interaction-across
 posthoc_ci <- confint(posthoc$contrasts)
 
 # Convert to a data frame
@@ -684,6 +726,7 @@ posthoc_df <- as.data.frame(posthoc_ci)
 #posthoc_df <- as.data.frame(posthoc$contrasts)
 ggplot(posthoc_df, aes(x = contrast, y = estimate, color = duration)) +
  geom_pointrange(aes(ymin = lower.CL, ymax = upper.CL)) +
+  facet_wrap(~ duration) +
   geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
   labs(x = "Comparison", y =  paste("Differences B/F"), 
        title = "Comparisons of B/F ratios") +

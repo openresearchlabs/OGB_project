@@ -82,9 +82,9 @@ file_path <- file.path("../../output/daa/daa_taxa/species/significant_results.ts
 }
 ```
 
-## Initial Analysis - Interaction Model
+## Interaction Model
 ```{r print_table}
-#| label: table-of-significant-results
+#| label: tbl-table-of-significant-results
 #| results: 'asis'
 tabs <- NULL
 tabs <- lapply(taxa_levels, function(taxa_name) {
@@ -100,6 +100,9 @@ tabs <- lapply(taxa_levels, function(taxa_name) {
     
   # Split the results by model
   daa_tab_split <- split(daa_tab, daa_tab$model)
+  daa_tab_split$abundance <-  daa_tab_split$abundance %>% 
+    rename( value = "term") %>%
+      select(-model)
   
   # Format output for HTML or LaTeX
   datatable(
@@ -118,7 +121,6 @@ tabs[[2]]
 tabs[[3]]
 tabs[[4]]
 ```
-
 
 ## Post-Hoc Analysis
 
@@ -157,8 +159,7 @@ file_path <- file.path("../../output/daa/daa_taxa", unique(tse$diet), taxa_name,
       filter(!is.na(feature)) %>%
       select(feature, coef, qval_individual, qval_joint, model)
   
-  table_caption <- paste("Table of features for", taxa_name, "within group", unique(tse$diet),
-                           "- Total features analyzed:", total_features)
+  table_caption <- paste("Comparison between timepoints within group", unique(tse$diet),"." , taxa_name, "level, relative abundance."," Method: Maaslin3, FDR: Wilcoxon", "- Total features analyzed:", total_features)
     
     # Split the results by model
     daa_tab_split <- split(daa_tab, daa_tab$model)
@@ -167,27 +168,74 @@ file_path <- file.path("../../output/daa/daa_taxa", unique(tse$diet), taxa_name,
     daa_tab_split$abundance <- merge(daa_tab_split$abundance, daa_tab_w, by = "feature") %>%
       select(-model)
     
+    some_order <- c("feature", "mean.rel1",	"mean.rel2", "logFC.clr",	"coef",	"qval_individual",	"qval_joint",	"FDR")
+      daa_tab_split$abundance <-  daa_tab_split$abundance  %>% 
+        select(all_of(some_order))
+      
+      plot1 <- ggplot(daa_tab_split$abundance, aes(x = coef, y = logFC.clr)) +
+        geom_point() +
+        labs(title = "a) Internal validation") +
+        geom_smooth(method = "lm", se = FALSE, color = "red")
+      
+      volcano_plot <- ggplot(daa_tab_split$abundance, aes(x = coef, y = qval_joint, size = mean.rel2)) +
+        geom_point(aes(color = qval_joint < 0.25), alpha = 0.7) +  
+        labs(
+          title = "b) Volcano Plot: significance vs effect size",
+          x = "Estimates (coef)",
+          y = "qval_joint(<0.25)"
+        ) +
+        scale_color_manual(values = c("red", "blue")) +  
+        theme_minimal() +
+        theme(
+          legend.position = "none",
+          plot.title = element_text(hjust = 0.5)
+        )
+      volcano_plot <- volcano_plot + 
+        geom_text_repel(data = subset(daa_tab_split$abundance, qval_joint < 0.25),
+                        aes(label = feature), size = 3, box.padding = 0.3)
+      
+      plot <- wrap_plots(plot1, volcano_plot)
   
     
-      datatable(
+      table <- datatable(
         daa_tab_split$abundance,
         options = list(pageLength = 6, dom = 'Bfrtip'),
         caption = table_caption,
         rownames = FALSE
       ) %>%
       formatSignif(columns = c("qval_joint", "qval_individual", "coef"), digits = 3)
+      
+      list(plot = plot, table = table)
 }
   )
 ```
 
-#### Diet Oat - Estimates the change in relative abundance between week 0 and week 6
+#### Diet Oat - Estimates the change in relative abundance between timepoint 1 and timepoint 2
 ```{r}
-tabs[[1]]
+#| label: tbl-table-within-speciesO
+tabs[[1]]$table
 ```
 
-#### Diet Rice - Estimates the change in relative abundance between week 0 and week 6
 ```{r}
-tabs[[2]]
+#| label: fig-figure-within-speciesO
+#| fig-cap: "Diet Oat: (a)  Internal validation: checking that alternative tests give correlated results, (b) volcano plot showing the relation between effect size and significance"
+#| fig-width: 10
+#| fig-height: 5
+tabs[[1]]$plot
+```
+
+#### Diet Rice - Estimates the change in relative abundance between timepoint 1 and timepoint 2
+```{r}
+#| label: tbl-table-within-speciesB
+tabs[[2]]$table
+```
+
+```{r}
+#| label: fig-figure-within-speciesB
+#| fig-cap: "Diet Rice (a)  Internal validation: checking that alternative tests give correlated results, (b) volcano plot showing the relation between effect size and significance"
+#| fig-width: 10
+#| fig-height: 5
+tabs[[2]]$plot
 ```
 
 ### Across-Group Comparisons
@@ -217,11 +265,14 @@ file_path <- file.path("../../output/daa/daa_taxa", unique(tse$timepoint), taxa_
       filter(!is.na(feature)) %>%
       select(feature, coef, qval_individual, qval_joint, model)
   
-  table_caption <- paste("Table of features for", taxa_name, "at", unique(tse$duration),
+  table_caption <- paste("Comparison between between treatments(reference = 4) at timepoint", unique(tse$duration), "." , taxa_name, "level, relative abundance."," Method: Maaslin3",
                            "- Total features analyzed:", total_features)
     
     # Split the results by model
     daa_tab_split <- split(daa_tab, daa_tab$model)
+    daa_tab_split$abundance <-  daa_tab_split$abundance %>% 
+    # rename( value = "term") %>%
+      select(-model)
   
       datatable(
         daa_tab_split$abundance,
@@ -236,11 +287,13 @@ file_path <- file.path("../../output/daa/daa_taxa", unique(tse$timepoint), taxa_
 
 #### Before Intervention - Estimates the difference in relative abundance between treatments at week 0
 ```{r}
+#| label: tbl-table-before-species
 tabs[[1]]
 ```
 
 #### Post Intervention  Estimates the difference in relative abundance between treatments at week 6
 ```{r}
+#| label: tbl-table-after-species
 tabs[[2]]
 ```
 
@@ -375,6 +428,7 @@ plots_list <- setNames(lapply(significant_specise, plot_taxon),
 
 
 ```{r hits_m}
+#| label: fig-figure-of-highlights
 #| layout-ncol: 1
 #| fig-width: 10 
 #| fig-height: 3 

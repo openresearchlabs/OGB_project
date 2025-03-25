@@ -4,7 +4,7 @@
     "href": "ratio/ratio.html",
     "title": "Bacteroidota/Baccilota ratio",
     "section": "",
-    "text": "Taxonomic level: Phylum\nGroup variable: diet\nMultiple testing correction: fdr\nStatistical test Wilcoxon\n\nIn the report, a suffix of 1~ Baseline and 2~ Week 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: paired Wilcoxon"
+    "text": "Taxonomic level: Phylum\nGroup variable: diet\nMultiple testing correction: fdr\nStatistical test Wilcoxon\n\nIn the report, a suffix of 1~ Baseline and 2~ Week 6\n\n\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\nTable 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: Wilcoxon\n\n\n\n\n\nTable 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2\n\n\n\n\n\n\n\n\n\n\n\n\nMultiple testing correction: fdr\nStatistical test: paired Wilcoxon\n\n\n\n\n\nTable 3"
   },
   {
     "objectID": "ratio/ratio.html#data-summary",
@@ -24,22 +24,22 @@
     "objectID": "daa/daa_pc.html#within-group-comparisons",
     "href": "daa/daa_pc.html#within-group-comparisons",
     "title": "DAA path coverage",
-    "section": "1 Within-Group Comparisons",
-    "text": "1 Within-Group Comparisons\n\n1.1 Diet Oat\n\n\n\n\n\n\n\n\n1.2 Diet Rice"
+    "section": "2.1 Within-Group Comparisons",
+    "text": "2.1 Within-Group Comparisons\n\n2.1.1 Diet Oat\n\n\n\n\n\n\n\n\n2.1.2 Diet Rice"
   },
   {
     "objectID": "daa/daa_pc.html#across-group-comparisons",
     "href": "daa/daa_pc.html#across-group-comparisons",
     "title": "DAA path coverage",
-    "section": "2 Across-Group Comparisons",
-    "text": "2 Across-Group Comparisons\n\n2.1 Before Intervention - Week 0\n\n\n\n\n\n\n\n\n2.2 Post Intervention - Week 6"
+    "section": "2.2 Across-Group Comparisons",
+    "text": "2.2 Across-Group Comparisons\n\n2.2.1 Before Intervention - Week 0\n\n\n\n\n\n\n\n\n2.2.2 Post Intervention - Week 6"
   },
   {
     "objectID": "daa/daa_pc.html#maaslin3-significant-hits",
     "href": "daa/daa_pc.html#maaslin3-significant-hits",
     "title": "DAA path coverage",
-    "section": "3 Maaslin3 significant hits",
-    "text": "3 Maaslin3 significant hits\nThis section highlights significant taxa from maaslin3.\nAnalysis information:\n\nMethod: maaslin3\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%"
+    "section": "2.3 Maaslin3 significant hits",
+    "text": "2.3 Maaslin3 significant hits\nThis section highlights significant taxa from maaslin3.\nAnalysis information:\n\nMethod: maaslin3\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%"
   },
   {
     "objectID": "daa/daa_mtc.html",
@@ -52,22 +52,22 @@
     "objectID": "daa/daa_mtc.html#within-group-comparisons",
     "href": "daa/daa_mtc.html#within-group-comparisons",
     "title": "DAA Metacyc",
-    "section": "1 Within-Group Comparisons",
-    "text": "1 Within-Group Comparisons\n\n1.1 Diet Oat\n\n\n\n\n\n\n\n\n1.2 Diet Rice"
+    "section": "2.1 Within-Group Comparisons",
+    "text": "2.1 Within-Group Comparisons\n\n2.1.1 Diet Oat\n\n\n\n\n\n\n\n\n2.1.2 Diet Rice"
   },
   {
     "objectID": "daa/daa_mtc.html#across-group-comparisons",
     "href": "daa/daa_mtc.html#across-group-comparisons",
     "title": "DAA Metacyc",
-    "section": "2 Across-Group Comparisons",
-    "text": "2 Across-Group Comparisons\n\n2.1 Before Intervention - Week 0\n\n\n\n\n\n\n\n\n2.2 Post Intervention - Week 6"
+    "section": "2.2 Across-Group Comparisons",
+    "text": "2.2 Across-Group Comparisons\n\n2.2.1 Before Intervention - Week 0\n\n\n\n\n\n\n\n\n2.2.2 Post Intervention - Week 6"
   },
   {
     "objectID": "daa/daa_mtc.html#maaslin3-significant-hits",
     "href": "daa/daa_mtc.html#maaslin3-significant-hits",
     "title": "DAA Metacyc",
-    "section": "3 Maaslin3 significant hits",
-    "text": "3 Maaslin3 significant hits\nThis section highlights significant taxa from maaslin3.\nAnalysis information:\n\nMethod: maaslin3\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%"
+    "section": "2.3 Maaslin3 significant hits",
+    "text": "2.3 Maaslin3 significant hits\nThis section highlights significant taxa from maaslin3.\nAnalysis information:\n\nMethod: maaslin3\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%"
   },
   {
     "objectID": "daa/daa_interest.html",
@@ -81,35 +81,56 @@
     "href": "beta/beta.html",
     "title": "Beta diversity",
     "section": "",
-    "text": "In the report, a suffix of 1~ Baseline and 2~ Week 6"
+    "text": "In the report, a suffix of 1~ Baseline and 2~ Week 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2"
   },
   {
     "objectID": "beta/beta.html#community-composition",
     "href": "beta/beta.html#community-composition",
     "title": "Beta diversity",
     "section": "",
-    "text": "In the report, a suffix of 1~ Baseline and 2~ Week 6"
+    "text": "In the report, a suffix of 1~ Baseline and 2~ Week 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2"
   },
   {
     "objectID": "beta/beta.html#unsupervised-analysis",
     "href": "beta/beta.html#unsupervised-analysis",
     "title": "Beta diversity",
     "section": "2 Unsupervised analysis",
-    "text": "2 Unsupervised analysis\n\n2.1 Community dissimilarity\nThis document presents the results of a microbiota project, focusing on beta diversity analysis. Specifically, in this section, we employed Principal Coordinates Analysis (PCoA) to assess community dissimilarity among microbiota samples.\n\nTaxonomic level: species\nDissimilarity index: bray\nGroup variable: diet\n\n\n\n2.2 PCoA plots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2.3 Table of the top findings\n\n2.3.0.1 Paired treatment between timepoint(1 and 2)\n\nMultiple testing correction: fdr\nStatistical test: paired Wilcoxon"
+    "text": "2 Unsupervised analysis\n\n2.1 Community dissimilarity\nThis document presents the results of a microbiota project, focusing on beta diversity analysis. Specifically, in this section, we employed Principal Coordinates Analysis (PCoA) to assess community dissimilarity among microbiota samples.\n\nTaxonomic level: species\nDissimilarity index: bray\nGroup variable: diet\n\n\n\n2.2 PCoA plots\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3\n\n\n\n\n\n\n\n\n\n\n\nFigure 4\n\n\n\n\n\n\n\n\n\n\n\nFigure 5\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6\n\n\n\n\n\n\n\n\n\n\n\nFigure 7\n\n\n\n\n\n\n\n\n2.3 Table of the top findings\n\nPaired treatment between timepoint(1 and 2)\n\nMultiple testing correction: fdr\nStatistical test: paired Wilcoxon\n\n\n\n\n\nTable 1"
   },
   {
     "objectID": "beta/beta.html#supervised-analysis",
     "href": "beta/beta.html#supervised-analysis",
     "title": "Beta diversity",
     "section": "3 Supervised analysis",
-    "text": "3 Supervised analysis\n\n3.1 Permanova analysis\n\nDissimilarity index: bray\nGroup variable: diet\n\nInterpretation\n\nHomogeneity &lt; 0.05: The assumption of homogeneity of variance is violated (i.e., the variances are significantly different across groups).\nHomogeneity ≥ 0.05: The assumption of homogeneity of variance is not violated (i.e., the variances are similar across groups).\n\n\n3.1.1 Across-group\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3.1.2 Within-group\n\n\n\n\n\n\n\n\n\n3.2 Average abundance and 95 percentile of prevalent species and genus\n\nDetection threshold: 0.1%\nPrevalence threshold: 10%\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3.3 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 1700 140 \nmetadata(0):\nassays(1): relabundance\nrownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(140): AE1332 AE2332 ... VK1336 VK2336\ncolData names(17): sample id ... shannon group\nreducedDimNames(0):\nmainExpName: NULL\naltExpNames(20): kingdom phylum ... KO metacyc\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
+    "text": "3 Supervised analysis\n\n3.1 Permanova analysis\n\nDissimilarity index: bray\nGroup variable: diet\n\nInterpretation\n\nHomogeneity &lt; 0.05: The assumption of homogeneity of variance is violated (i.e., the variances are significantly different across groups).\nHomogeneity ≥ 0.05: The assumption of homogeneity of variance is not violated (i.e., the variances are similar across groups).\n\n\nAcross-group\n\n\n\n\nTable 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3\n\n\n\n\n\n\n\n\n\n\n\n\nWithin-group\n\n\n\n\nTable 4\n\n\n\n\n\n\n\n\n\n\n\n\n\n3.2 Average abundance and 95 percentile of prevalent species and genus\n\nDetection threshold: 0.1%\nPrevalence threshold: 10%\n\n\n\n\n\nTable 5\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 6\n\n\n\n\n\n\n\n\n\n\n\n\n3.3 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 1700 140 \nmetadata(0):\nassays(1): relabundance\nrownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(140): AE1332 AE2332 ... VK1336 VK2336\ncolData names(17): sample id ... shannon group\nreducedDimNames(0):\nmainExpName: NULL\naltExpNames(20): kingdom phylum ... KO metacyc\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
   },
   {
     "objectID": "daa/daa_ko.html",
     "href": "daa/daa_ko.html",
     "title": "DAA KO",
     "section": "",
-    "text": "0.1 Differential abundance analysis\n\nGroup variable: diet\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\n\n\n\n\n\nfig38"
+    "text": "Group variable: diet\nFormula used: ~ diet * timepoint + (1 | id)\n\n\n\n\n\nTable 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 5\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis section highlights significant taxa from maaslin3.\nAnalysis information:\n\nMethod: maaslin3\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 7\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 8\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 9\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 10"
+  },
+  {
+    "objectID": "daa/daa_ko.html#within-group-comparisons",
+    "href": "daa/daa_ko.html#within-group-comparisons",
+    "title": "DAA KO",
+    "section": "",
+    "text": "Table 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3"
+  },
+  {
+    "objectID": "daa/daa_ko.html#across-group-comparisons",
+    "href": "daa/daa_ko.html#across-group-comparisons",
+    "title": "DAA KO",
+    "section": "",
+    "text": "Table 4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 5"
+  },
+  {
+    "objectID": "daa/daa_ko.html#maaslin3-significant-hits",
+    "href": "daa/daa_ko.html#maaslin3-significant-hits",
+    "title": "DAA KO",
+    "section": "",
+    "text": "This section highlights significant taxa from maaslin3.\nAnalysis information:\n\nMethod: maaslin3\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 7\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 8\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 9\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 10"
   },
   {
     "objectID": "daa/daa_pa.html",
@@ -122,42 +143,49 @@
     "objectID": "daa/daa_pa.html#within-group-comparisons",
     "href": "daa/daa_pa.html#within-group-comparisons",
     "title": "DAA path abundance",
-    "section": "1 Within-Group Comparisons",
-    "text": "1 Within-Group Comparisons\n\n1.1 Diet Oat\n\n\n\n\n\n\n\n\n1.2 Diet Rice"
+    "section": "2.1 Within-Group Comparisons",
+    "text": "2.1 Within-Group Comparisons\n\n2.1.1 Diet Oat\n\n\n\n\n\n\n\n\n2.1.2 Diet Rice"
   },
   {
     "objectID": "daa/daa_pa.html#across-group-comparisons",
     "href": "daa/daa_pa.html#across-group-comparisons",
     "title": "DAA path abundance",
-    "section": "2 Across-Group Comparisons",
-    "text": "2 Across-Group Comparisons\n\n2.1 Before Intervention - Week 0\n\n\n\n\n\n\n\n\n2.2 Post Intervention - Week 6"
+    "section": "2.2 Across-Group Comparisons",
+    "text": "2.2 Across-Group Comparisons\n\n2.2.1 Before Intervention - Week 0\n\n\n\n\n\n\n\n\n2.2.2 Post Intervention - Week 6"
   },
   {
     "objectID": "daa/daa_pa.html#maaslin3-significant-hits",
     "href": "daa/daa_pa.html#maaslin3-significant-hits",
     "title": "DAA path abundance",
-    "section": "3 Maaslin3 significant hits",
-    "text": "3 Maaslin3 significant hits\nThis section highlights significant taxa from maaslin3.\nAnalysis information:\n\nMethod: maaslin3\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%"
+    "section": "2.3 Maaslin3 significant hits",
+    "text": "2.3 Maaslin3 significant hits\nThis section highlights significant taxa from maaslin3.\nAnalysis information:\n\nMethod: maaslin3\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%"
   },
   {
     "objectID": "daa/daa_taxa_maaslin3.html",
     "href": "daa/daa_taxa_maaslin3.html",
     "title": "DAA Taxa",
     "section": "",
-    "text": "Analysis information:\n\nMethod: maaslin3\nTaxonomic level: species, genus, family, phylum\nGroup variable: diet\nFormula used for interaction: ~ diet * duration + (1 | id)\nFormula used across groups: ~ diet\nFormula used within groups: ~ duration + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis section highlights significant taxa from maaslin3.\nAnalysis information:\n\nMethod: maaslin3\nTaxonomic level: species\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%"
+    "text": "Analysis information:\n\nMethod: maaslin3\nTaxonomic level: species, genus, family, phylum\nGroup variable: diet\nFormula used for interaction: ~ diet * duration + (1 | id)\nFormula used across groups: ~ diet\nFormula used within groups: ~ duration + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%\n\n\n\n\n\n\nTable 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Diet Oat: (a) Internal validation: checking that alternative tests give correlated results, (b) volcano plot showing the relation between effect size and significance\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Diet Rice (a) Internal validation: checking that alternative tests give correlated results, (b) volcano plot showing the relation between effect size and significance\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 5\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis section highlights significant taxa from maaslin3.\nAnalysis information:\n\nMethod: maaslin3\nTaxonomic level: species\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 7\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 8\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 9"
   },
   {
-    "objectID": "daa/daa_taxa_maaslin3.html#maaslin3-significant-hits",
-    "href": "daa/daa_taxa_maaslin3.html#maaslin3-significant-hits",
+    "objectID": "daa/daa_taxa_maaslin3.html#interaction-model",
+    "href": "daa/daa_taxa_maaslin3.html#interaction-model",
     "title": "DAA Taxa",
     "section": "",
-    "text": "This section highlights significant taxa from maaslin3.\nAnalysis information:\n\nMethod: maaslin3\nTaxonomic level: species\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%"
+    "text": "Table 1"
+  },
+  {
+    "objectID": "daa/daa_taxa_maaslin3.html#post-hoc-analysis",
+    "href": "daa/daa_taxa_maaslin3.html#post-hoc-analysis",
+    "title": "DAA Taxa",
+    "section": "",
+    "text": "Table 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Diet Oat: (a) Internal validation: checking that alternative tests give correlated results, (b) volcano plot showing the relation between effect size and significance\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2: Diet Rice (a) Internal validation: checking that alternative tests give correlated results, (b) volcano plot showing the relation between effect size and significance\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 4\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 5"
   },
   {
     "objectID": "daa/daa_taxa_maaslin3.html#the-following-box-plots-highlight-significant-species-from-the-interaction-model.",
     "href": "daa/daa_taxa_maaslin3.html#the-following-box-plots-highlight-significant-species-from-the-interaction-model.",
     "title": "DAA Taxa",
     "section": "",
-    "text": "This section highlights significant taxa from maaslin3.\nAnalysis information:\n\nMethod: maaslin3\nTaxonomic level: species\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%"
+    "text": "This section highlights significant taxa from maaslin3.\nAnalysis information:\n\nMethod: maaslin3\nTaxonomic level: species\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 7\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 8\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 9"
   }
 ]

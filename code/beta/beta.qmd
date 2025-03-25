@@ -21,6 +21,7 @@ tse$diet <- factor(tse$diet, levels=c("oat", "rice"))
 ### Phylum
 
 ```{r community-composition-phyla}
+#| label: fig-figure-of-composition-phyla
 #| fig-width: 18
 #| fig-height: 6
 #| out.width: "100%"
@@ -132,6 +133,7 @@ bar_plot
 ### Genus
 
 ```{r community-composition-genus}
+#| label: fig-figure-of-composition-genus
 #| fig-width: 18
 #| fig-height: 6
 #| out.width: "100%"
@@ -242,6 +244,7 @@ bar_plot
 ### Heatmap
 
 ```{r heatmap}
+#| label: fig-figure-of-composition-heat
 #| fig.width: 24
 #| fig.height: 12
 #| out.width: "100%"
@@ -352,6 +355,7 @@ index <- "divergence"
 ### PCoA plots
 
 ```{r pcoa-plot, fig.show="hold"}
+#| label: fig-figure-of-pcoa-plot-b
 #| layout-ncol: 3
 #| fig.width: 5
 #| fig.height: 3
@@ -552,7 +556,7 @@ results_unpaired$p.adj <- p.adjust(results_unpaired$p.value, method = "fdr")
 -   Statistical test: **paired `r test`**
 
 ```{r table-of-findings-paired}
-#| label: table-of-findings-paired
+#| label: tbl-table-of-findings-paired
 if (knitr::is_html_output()) {
   datatable(
     results_unpaired, 
@@ -842,7 +846,7 @@ final_results_permanova_paired$p.adj <- p.adjust(final_results_permanova_paired$
 ```
 
 ```{r permanova_res_beforetp}
-#| label: permanova_res_beforetp
+#| label: tbl-permanova_res_beforetp
 
 if (knitr::is_html_output()) {
   datatable(final_results_permanova_tp,
@@ -878,7 +882,7 @@ if (knitr::is_html_output()) {
 ```
 
 ```{r permanova_res_aftertp}
-#| label: permanova_res_aftertp
+#| label: tbl-permanova_res_aftertp
 
 if (knitr::is_html_output()) {
   datatable(final_results_permanova_after_tp,
@@ -898,7 +902,7 @@ if (knitr::is_html_output()) {
 #### Within-group
 
 ```{r permanova_paired_tab}
-#| label: permanova_paired_tab
+#| label: tbl-permanova_paired_tab
 if (knitr::is_html_output()) {
   datatable(final_results_permanova_paired,
             options = list(pageLength = 4),
@@ -992,7 +996,7 @@ tabs_genus$logFC.rel <- round(100 * as.numeric(tabs_genus$logFC.rel), 3);
 ```
 
 ```{r}
-#| label: tablespecies
+#| label: tbl-tablespecies
 if (knitr::is_html_output()) {
   datatable(tabs_species,
             options = list(pageLength = 10),
@@ -1003,7 +1007,7 @@ if (knitr::is_html_output()) {
 ```
 
 ```{r}
-#| label: tablegenus
+#| label: tbl-tablegenus
 if (knitr::is_html_output()) {
   datatable(tabs_genus,
             options = list(pageLength = 10),

@@ -2,7 +2,7 @@
 title: "DAA KO"
 ---
 
-### Differential abundance analysis
+# Interaction Model
 
 ```{r setup}
 library(maaslin3)
@@ -71,7 +71,7 @@ file_path <- file.path("../../output/daa/daa_ko/interaction/significant_results.
 ```
 
 ```{r print_table}
-#| label: table-of-significant-results
+#| label: tbl-table-of-significant-results
 file_path <- file.path("../../output/daa/daa_ko/interaction/significant_results.tsv")
 total_features <- nrow(ko_tse)
 
@@ -145,11 +145,13 @@ file_path <- file.path("../../output/daa/daa_ko", unique(tse$diet), "all_results
 
 ### Diet Oat
 ```{r}
+#| label: tbl-table-within-keggO
 tabs[[1]]
 ```
 
 ### Diet Rice
 ```{r}
+#| label: tbl-table-within-keggR
 tabs[[2]]
 ```
 
@@ -180,7 +182,7 @@ file_path <- file.path("../../output/daa/daa_ko", unique(tse$timepoint), "all_re
       filter(!is.na(feature)) %>%
       select(feature, metadata, value, coef, qval_individual, qval_joint, model)
   
-  table_caption <- paste("Table of features for", taxa_name, "at", unique(tse$duration),
+  table_caption <- paste("Table of features for Keggs at", unique(tse$duration),
                            "- Total features analyzed:", total_features)
     
     # Split the results by model
@@ -199,11 +201,13 @@ file_path <- file.path("../../output/daa/daa_ko", unique(tse$timepoint), "all_re
 
 ### Before Intervention - Week 0
 ```{r}
+#| label: tbl-table-bet-keggO
 tabs[[1]]
 ```
 
 ### Post Intervention - Week 6
 ```{r}
+#| label: tbl-table-bet-keggR
 tabs[[2]]
 ```
 
@@ -319,6 +323,7 @@ plots_list <- setNames(lapply(significant_fxns[1:10], plot_fxn),
 ```
 
 ```{r hits_m}
+#| label: fig-figure-of-highlights
 #| layout-ncol: 1
 #| fig-width: 10 
 #| fig-height: 3 
