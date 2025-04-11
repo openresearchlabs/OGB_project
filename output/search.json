@@ -81,21 +81,21 @@
     "href": "beta/beta.html",
     "title": "Beta diversity",
     "section": "",
-    "text": "In the report, a suffix of 1~ Baseline and 2~ Week 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2"
+    "text": "In the report, a suffix of 1~ Baseline and 2~ Week 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n\n\n\n\n\n\nPhylum\nMean_Percentage\n\n\n\n\nFirmicutes\n68.116\n\n\nBacteroidetes\n19.249\n\n\nActinobacteria\n9.431\n\n\nProteobacteria\n1.260\n\n\nVerrucomicrobia\n0.977\n\n\nEuryarchaeota\n0.449\n\n\nBacteria_unclassified\n0.261\n\n\nCandidatus_Melainabacteria\n0.074\n\n\nSynergistetes\n0.066\n\n\nOther\n0.058\n\n\nTenericutes\n0.058\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3"
   },
   {
     "objectID": "beta/beta.html#community-composition",
     "href": "beta/beta.html#community-composition",
     "title": "Beta diversity",
     "section": "",
-    "text": "In the report, a suffix of 1~ Baseline and 2~ Week 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2"
+    "text": "In the report, a suffix of 1~ Baseline and 2~ Week 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n\n\n\n\n\n\nPhylum\nMean_Percentage\n\n\n\n\nFirmicutes\n68.116\n\n\nBacteroidetes\n19.249\n\n\nActinobacteria\n9.431\n\n\nProteobacteria\n1.260\n\n\nVerrucomicrobia\n0.977\n\n\nEuryarchaeota\n0.449\n\n\nBacteria_unclassified\n0.261\n\n\nCandidatus_Melainabacteria\n0.074\n\n\nSynergistetes\n0.066\n\n\nOther\n0.058\n\n\nTenericutes\n0.058\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3"
   },
   {
     "objectID": "beta/beta.html#unsupervised-analysis",
     "href": "beta/beta.html#unsupervised-analysis",
     "title": "Beta diversity",
     "section": "2 Unsupervised analysis",
-    "text": "2 Unsupervised analysis\n\n2.1 Community dissimilarity\nThis document presents the results of a microbiota project, focusing on beta diversity analysis. Specifically, in this section, we employed Principal Coordinates Analysis (PCoA) to assess community dissimilarity among microbiota samples.\n\nTaxonomic level: species\nDissimilarity index: bray\nGroup variable: diet\n\n\n\n2.2 PCoA plots\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3\n\n\n\n\n\n\n\n\n\n\n\nFigure 4\n\n\n\n\n\n\n\n\n\n\n\nFigure 5\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6\n\n\n\n\n\n\n\n\n\n\n\nFigure 7\n\n\n\n\n\n\n\n\n2.3 Table of the top findings\n\nPaired treatment between timepoint(1 and 2)\n\nMultiple testing correction: fdr\nStatistical test: paired Wilcoxon\n\n\n\n\n\nTable 1"
+    "text": "2 Unsupervised analysis\n\n2.1 Community dissimilarity\nThis document presents the results of a microbiota project, focusing on beta diversity analysis. Specifically, in this section, we employed Principal Coordinates Analysis (PCoA) to assess community dissimilarity among microbiota samples.\n\nTaxonomic level: species\nDissimilarity index: bray\nGroup variable: diet\n\n\n\n2.2 PCoA plots\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4\n\n\n\n\n\n\n\n\n\n\n\nFigure 5\n\n\n\n\n\n\n\n\n\n\n\nFigure 6\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 7\n\n\n\n\n\n\n\n\n\n\n\nFigure 8\n\n\n\n\n\n\n\n\n2.3 Table of the top findings\n\nPaired treatment between timepoint(1 and 2)\n\nMultiple testing correction: fdr\nStatistical test: paired Wilcoxon\n\n\n\n\n\nTable 1"
   },
   {
     "objectID": "beta/beta.html#supervised-analysis",

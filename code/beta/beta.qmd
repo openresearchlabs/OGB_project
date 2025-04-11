@@ -130,6 +130,36 @@ bar_plot
 
 ```
 
+```{r phyla-percentages-tbl}
+#| label: tbl-table-of-percentages-phylum
+avg <- assay(tse_p, "relabundance")
+phylum_names <- rowData(tse_p)$phylum_sub
+sample_totals <- colSums(avg)
+phylum_percent <- sweep(avg, 2, sample_totals, "/") * 100
+results <- as.data.frame(phylum_percent) %>%
+  mutate(Phylum = phylum_names) %>%
+  pivot_longer(cols = -Phylum, names_to = "Sample", values_to = "Percentage")
+
+summary_results <- results %>%
+  group_by(Phylum) %>%
+  summarize(Mean_Percentage = mean(Percentage)) %>%
+  arrange(desc(Mean_Percentage)) %>% 
+  mutate(Mean_Percentage = round(Mean_Percentage, 3)) 
+
+kable(summary_results)
+```
+
+```{r phyla-percentages-fig}
+#| label: fig-figure-of-percentages-phylum
+ggplot(summary_results, aes(x = reorder(Phylum, Mean_Percentage), y = Mean_Percentage)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +  # Horizontal bars
+  labs(x = "Phylum", y = "Mean Relative Abundance (%)", 
+       title = "Phylum-Level Composition") +
+  theme_minimal()
+```
+
+
 ### Genus
 
 ```{r community-composition-genus}
