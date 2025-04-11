@@ -88,7 +88,7 @@ daa_tab_split <- split(daa_tab, daa_tab$model)
 # Format output for HTML or LaTeX
 datatable(
   daa_tab_split$abundance,
-  options = list(pageLength = 6, dom = 'Bfrtip'),
+  options = list(pageLength = 50, dom = 'Bfrtip'),
   caption = table_caption,
   rownames = FALSE
 ) %>%
@@ -134,7 +134,7 @@ file_path <- file.path("../../output/daa/daa_ko", unique(tse$diet), "all_results
     
       datatable(
         daa_tab_split$abundance,
-        options = list(pageLength = 6, dom = 'Bfrtip'),
+        options = list(pageLength = 50, dom = 'Bfrtip'),
         caption = table_caption,
         rownames = FALSE
       ) %>%
@@ -190,7 +190,7 @@ file_path <- file.path("../../output/daa/daa_ko", unique(tse$timepoint), "all_re
   
       datatable(
         daa_tab_split$abundance,
-        options = list(pageLength = 6, dom = 'Bfrtip'),
+        options = list(pageLength = 50, dom = 'Bfrtip'),
         caption = table_caption,
         rownames = FALSE
       ) %>%

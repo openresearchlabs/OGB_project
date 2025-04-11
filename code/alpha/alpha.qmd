@@ -674,7 +674,7 @@ ggplot(within_group_df, aes(x = diet, y = estimate, color = diet)) +
   geom_pointrange(aes(ymin = lower.CL, ymax = upper.CL)) +
   geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
   labs(x = "Diet", y = paste("Differences Alpha Diversity -", index, "(Baseline - Post-Intervention)"), 
-       title = "Within-Group Comparisons of B/F ratio") +
+       title = "Within-Group Comparisons of Alpha Diversity") +
   theme_minimal()
 ```
 
@@ -719,7 +719,7 @@ if (index == "observed") {
     select(all_of(some_order))  %>%
     rename(emmean = "coef", duration = "timepoint")
 }
-kable(data_emmean,  caption = "Estimated Marginal Means for Treatments")
+kable(data_emmean,  caption = "Estimated Marginal Means for Diets")
 ```
 
 
@@ -740,7 +740,7 @@ ggplot(posthoc_df, aes(x = contrast, y = estimate, color = duration)) +
   facet_wrap(~ duration) +
   geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
   labs(x = "Comparison", y =  paste("Differences Alpha Diversity -", index), 
-       title = "Comparisons of B/F ratios") +
+       title = "Comparisons of Alpha Diversity") +
   theme_minimal()
 ```
 
