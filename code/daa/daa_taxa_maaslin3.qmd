@@ -107,7 +107,7 @@ tabs <- lapply(taxa_levels, function(taxa_name) {
   # Format output for HTML or LaTeX
   datatable(
     daa_tab_split$abundance,
-    options = list(pageLength = 6, dom = 'Bfrtip'),
+    options = list(pageLength = 50, dom = 'Bfrtip'),
     caption = table_caption,
     rownames = FALSE
   ) %>%
@@ -145,7 +145,7 @@ if (!file.exists(file_path)) {
 ```
 
 ```{r}
-file_path_w <- file.path("../../data/wilcox_species.csv")
+file_path_w <- file.path("../../data/wilcoxon_tables/wilcox_species.csv")
 daa_tab_w <- read_csv(file_path_w, col_names = TRUE, show_col_types = FALSE)
 daa_tab_w <- daa_tab_w %>% rename(Taxon = "feature")
 ```
@@ -199,7 +199,7 @@ file_path <- file.path("../../output/daa/daa_taxa", unique(tse$diet), taxa_name,
     
       table <- datatable(
         daa_tab_split$abundance,
-        options = list(pageLength = 6, dom = 'Bfrtip'),
+        options = list(pageLength = 50, dom = 'Bfrtip'),
         caption = table_caption,
         rownames = FALSE
       ) %>%
@@ -276,7 +276,7 @@ file_path <- file.path("../../output/daa/daa_taxa", unique(tse$timepoint), taxa_
   
       datatable(
         daa_tab_split$abundance,
-        options = list(pageLength = 6, dom = 'Bfrtip'),
+        options = list(pageLength = 50, dom = 'Bfrtip'),
         caption = table_caption,
         rownames = FALSE
       ) %>%
