@@ -627,6 +627,12 @@ Interpret the Results
 -   Random Effects:
     -   (1|id): Accounts for within-subject variability.
 
+- **SE (Standard Error)**: Measures the uncertainty in the estimate. Smaller SE means more confidence in the effect.
+- **DF (Degrees of Freedom)**: Used to assess statistical significance; depends on the number of observations and model complexity.
+- **T00**: The variance of the random intercept (or slope) for a grouping factor (subject ID). Reflects variability between groups.
+- **Nid**: The number of levels in the grouping factor (number of subjects).
+- **ICC (Intra-Class Correlation)** or `iccand`: The proportion of total variance attributable to the grouping structure. Higher ICC means more similarity within groups.
+
 ```{r lmer-stuff}
 adjust.method <- "FDR"
 test <- "paired Wilcoxon"

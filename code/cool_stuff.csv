@@ -1,0 +1,181 @@
+OriginalEC,CurrentEC,EnzymeName,Status
+1.14.13.49,1.14.14.52,(S)-limonene 7-monooxygenase,Transferred in 1992
+1.14.99.3,1.14.14.18,heme oxygenase (biliverdin-producing),Transferred in 1972
+1.14.99.36,1.13.11.63,"beta-carotene 15,15'-dioxygenase.",Transferred in 1972
+1.16.1.3,NA,aquacobalamin reductase. This entry has been deleted since no specific enzyme catalysing this activity has been identified and it has been shown that aquacobalamin is efficiently reduced by free dihydroflavins and by non-specific reduced flavoproteins.,Deleted in 1972
+1.16.8.1,NA,"cob(II)yrinic acid a,c-diamide reductase. This activity is now known to be catalyzed by EC 2.5.1.17, corrinoid adenosyltransferase",Deleted in 2004
+1.17.1.2,1.17.1.2,Transferred to 1.17.7.4,Current
+1.17.98.1,NA,bile-acid 7alpha-dehydroxylase. Now known to be catalyzed by multiple enzymes.,Deleted in 2005
+1.17.99.5,1.17.98.1,bile-acid 7alpha-dehydroxylase.,Transferred in 2005
+1.17.99.7,1.17.98.4,formate dehydrogenase (hydrogenase).,Transferred in 2010
+1.2.1.2,1.17.1.9,formate dehydrogenase,Transferred in 1961
+1.2.2.1,1.2.2.1,formate dehydrogenase (cytochrome),Current
+1.2.2.2,1.2.5.1,pyruvate dehydrogenase (cytochrome),Deleted in 1961
+1.2.99.2,1.2.7.4,carbon-monoxide dehydrogenase (ferredoxin),Transferred in 1982
+1.2.99.3,1.2.5.2,aldehyde dehydrogenase (quinone),Transferred in 1983
+1.2.99.5,1.2.7.12,formylmethanofuran dehydrogenase,Transferred in 1992
+1.2.99.6,1.2.99.6,carboxylate reductase,Current
+1.3.1.26,1.17.1.8,4-hydroxy-tetrahydrodipicolinate reductase.,Transferred in 1976
+1.3.3.1,NA,NA,Transferred in 1961
+1.3.5.4,1.3.5.4,Transferred to 1.3.5.1,Current
+1.3.7.9,1.1.7.1,4-hydroxybenzoyl-CoA reductase.,Transferred in 2000
+1.3.99.1,NA,"succinate dehydrogenase. The activity is included in EC 1.3.5.1, succinate dehydrogenase (quinone).",Deleted in 1961
+1.3.99.2,1.3.8.1,butyryl-CoA dehydrogenase.,Transferred in 1961
+1.3.99.22,1.3.98.3,coproporphyrinogen dehydrogenase,Transferred in 2004
+1.3.99.24,1.3.8.16,2-amino-4-deoxychorismate dehydrogenase,Transferred in 2008
+1.3.99.3,1.3.99.3,Transferred to 1.3.8.7 and 1.3.8.8 and 1.3.8.9,Current
+1.4.99.1,1.4.99.1,Transferred to 1.4.99.6,Current
+1.5.1.12,1.2.1.88,L-glutamate gamma-semialdehyde dehydrogenase.,Transferred in 1972
+1.5.3.2,1.5.3.2,N-methyl-L-amino-acid oxidase,Current
+1.5.99.8,1.5.5.2,proline dehydrogenase.,Transferred in 1980
+1.6.1.2,7.1.1.1,proton-translocating NAD(P)+ transhydrogenase,Transferred in 1986
+1.6.5.11,NA,"NADH dehydrogenase (quinone). Identical to EC 1.6.5.9, NADH:quinone reductase (non-electrogenic)",Deleted in 1972
+1.6.5.3,7.1.1.2,NADH:ubiquinone reductase (H+-translocating),Transferred in 1961
+1.6.5.8,7.2.1.1,NADH:ubiquinone reductase (Na+-transporting),Transferred in 2011
+1.6.6.9,NA,"The activity is now known to be catalysed by EC 1.7.2.3, trimethylamine-N-oxide reductase.",Deleted in 1972
+1.6.99.3,NA,"NADH dehydrogenase. The activity is covered by EC 7.1.1.2, NADH:ubiquinone reductase (H+-translocating)",Deleted in 1961
+1.6.99.5,1.6.99.5,Transferred to 1.6.5.11,Current
+1.7.99.4,1.7.1.1,"nitrate reductase (NADH), EC 1.7.1.2, nitrate reductase [NAD(P)H], EC 1.7.1.3, nitrate reductase (NADPH), EC 1.7.5.1, nitrate reductase (quinone), EC 1.7.7.2, nitrate reductase (ferredoxin) and EC 1.9.6.1, nitrate reductase (cytochrome)",Transferred in 1972
+1.8.4.13,1.8.4.13,L-methionine (S)-S-oxide reductase,Current
+1.8.99.1,1.8.1.2,sulfite reductase,Deleted in 1972
+1.8.99.3,NA,"hydrogensulfite reductase, now known to be an in vitro artifact of EC 1.8.99.5, dissimilatory sulfite reductase",Deleted in 1986
+1.8.99.5,1.8.1.22,dissimilatory sulfite reductase system.,Transferred in 2015
+1.9.3.1,7.1.1.9,cytochrome-c oxidase,Transferred in 1961
+1.97.1.2,1.97.1.2,pyrogallol hydroxytransferase,Current
+2.1.1.43,2.1.1.43,Transferred to 2.1.1.354 and 2.1.1.355 and 2.1.1.356 and 2.1.1.357 and 2.1.1.358 and 2.1.1.359 and 2.1.1.360 and 2.1.1.361 and 2.1.1.362,Current
+2.1.1.51,NA,NA,Deleted in 1976
+2.1.1.52,NA,NA,Deleted in 1976
+2.1.1.66,2.1.1.230,rRNA (adenosine-2'-O-)-methyltransferase,Deleted in 1984
+2.1.1.86,7.2.1.4,tetrahydromethanopterin S-methyltransferase,Transferred in 1989
+2.3.1.128,2.3.1.128,Transferred to 2.3.1.266 and 2.3.1.267,Current
+2.3.1.182,2.3.3.21,(R)-citramalate synthase.,Transferred in 2007
+2.3.1.190,2.3.1.190,acetoin dehydrogenase system,Current
+2.3.1.38,2.3.1.38,[acyl-carrier-protein] S-acetyltransferase,Current
+2.3.1.88,NA,NA,Deleted in 1986
+2.3.3.16,2.3.3.16,citrate synthase (unknown stereospecificity),Current
+2.4.1.129,2.4.99.28,peptidoglycan glycosyltransferase,Transferred in 1984
+2.4.1.157,2.4.1.336,"monoglucosyldiacylglycerol synthase, and EC 2.4.1.337, 1,2-diacylglycerol 3-alpha-glucosyltransferase",Transferred in 1986
+2.4.1.166,2.4.1.166,raffinose---raffinose alpha-galactosyltransferase,Current
+2.4.1.49,2.4.1.49,cellodextrin phosphorylase,Current
+2.4.1.54,2.4.1.54,undecaprenyl-phosphate mannosyltransferase,Current
+2.4.1.57,NA,"phosphatidylinositol alpha-mannosyltransferase. Newer studies have shown that this is catalysed by two independent activities now covered by EC 2.4.1.345, phosphatidyl-myo-inositol alpha-mannosyl transferase and EC 2.4.1.346, phosphatidyl-myo-inositol dimannoside synthase",Deleted in 1972
+2.4.1.73,2.4.1.73,lipopolysaccharide glucosyltransferase II,Current
+2.5.1.52,2.5.1.52,L-mimosine synthase,Current
+2.5.1.64,2.5.1.64,Transferred to 2.2.1.9 and 4.2.99.20,Current
+2.5.1.77,2.5.1.147,"5-amino-6-(D-ribitylamino)uracil-L-tyrosine 4-methylphenol transferase and EC 4.3.1.32, 7,8-didemethyl-8-hydroxy-5-deazariboflavin synthase.",Transferred in 2010
+2.6.1.107,2.6.1.107,beta-methylphenylalanine transaminase,Current
+2.6.1.29,2.6.1.29,diamine transaminase,Current
+2.6.1.53,1.4.1.13,glutamate synthase (NADPH),Transferred in 1972
+2.7.1.136,2.7.1.136,macrolide 2'-kinase,Current
+2.7.1.27,2.7.1.27,erythritol kinase (D-erythritol 4-phosphate-forming),Current
+2.7.1.41,2.7.1.41,glucose-1-phosphate phosphodismutase,Current
+2.7.1.69,2.7.1.69,Transferred to 2.7.1.191 and 2.7.1.192 and 2.7.1.193 and 2.7.1.194 and 2.7.1.195 and 2.7.1.196 and 2.7.1.197 and 2.7.1.198 and 2.7.1.199 and 2.7.1.200 and 2.7.1.201 and 2.7.1.202 and 2.7.1.203 and 2.7.1.204 and 2.7.1.205 and 2.7.1.206 and 2.7.1.207 and 2.7.1.208,Current
+2.7.7.10,2.7.7.10,UTP---hexose-1-phosphate uridylyltransferase,Current
+2.7.7.21,2.7.7.72,CCA tRNA nucleotidyltransferase,Transferred in 1965
+2.7.7.22,2.7.7.22,mannose-1-phosphate guanylyltransferase (GDP),Current
+2.7.7.25,2.7.7.72,CCA tRNA nucleotidyltransferase,Transferred in 1965
+2.7.7.28,2.7.7.28,nucleoside-triphosphate-aldose-1-phosphate nucleotidyltransferase,Current
+2.7.7.58,2.7.7.58,Transferred to 6.2.1.71,Current
+2.7.7.63,6.3.1.20,lipoate-protein ligase.,Transferred in 2006
+2.7.8.25,2.4.2.52,triphosphoribosyl-dephospho-CoA synthase,Transferred in 2002
+2.8.3.11,2.8.3.11,citramalate CoA-transferase,Current
+3.1.1.10,3.1.1.10,tropinesterase,Current
+3.1.1.6,3.1.1.6,acetylesterase,Current
+3.1.2.26,2.8.3.25,bile acid CoA transferase,Transferred in 2005
+3.1.22.4,3.1.21.10,crossover junction endodeoxyribonuclease,Transferred in 1989
+3.1.27.6,4.6.1.21,"Enterobacter ribonuclease, since the primary reaction is that of a lyase",Transferred in 1978
+3.1.3.13,NA,"bisphosphoglycerate phosphatase. Recent studies have shown that this is a partial activity of EC 5.4.2.11, phosphoglycerate mutase (2,3-diphosphoglycerate-dependent)",Deleted in 1961
+3.1.3.31,NA,nucleotidase. The activity may be that of an acid phosphatase.,Deleted in 1972
+3.1.3.81,3.6.1.75,diacylglycerol diphosphate phosphatase,Transferred in 2010
+3.2.1.103,3.2.1.103,"keratan-sulfate endo-1,4-beta-galactosidase",Current
+3.2.1.129,3.2.1.129,endo-alpha-sialidase,Current
+3.2.1.131,3.2.1.131,"xylan alpha-1,2-glucuronosidase",Current
+3.2.1.145,3.2.1.145,"galactan 1,3-beta-galactosidase",Current
+3.2.1.72,3.2.1.72,"xylan 1,3-beta-xylosidase",Current
+3.2.1.74,3.2.1.74,"glucan 1,4-beta-glucosidase",Current
+3.2.1.98,3.2.1.98,"glucan 1,4-alpha-maltohexaosidase",Current
+3.2.2.15,3.2.2.15,DNA-deoxyinosine glycosylase,Current
+3.3.1.1,3.3.1.1,Transferred to 3.13.2.1,Current
+3.4.13.3,NA,"Xaa-His dipeptidase. The activity is covered by EC 3.4.13.18, cytosol nonspecific dipeptidase and EC 3.4.13.20, beta-Ala-His dipeptidase.",Deleted in 1961
+3.4.24.57,3.4.24.57,O-sialoglycoprotein endopeptidase,Current
+3.5.3.19,3.5.1.116,ureidoglycolate amidohydrolase,Transferred in 1992
+3.5.4.11,3.5.4.11,pterin deaminase,Current
+3.5.4.23,3.5.4.23,blasticidin-S deaminase,Current
+3.5.4.41,3.5.4.41,5'-deoxyadenosine deaminase,Current
+3.5.99.3,3.5.4.43,hydroxydechloroatrazine ethylaminohydrolase,Transferred in 2000
+3.5.99.4,3.5.4.42,N-isopropylammelide isopropylaminohydrolase,Transferred in 2000
+3.6.1.19,3.6.1.9,nucleotide diphosphatase,Transferred in 1972
+3.6.1.3,NA,adenosinetriphosphatase. Enzymes previously listed under this number are now listed separately under EC 5.6 and EC 7.,Deleted in 1961
+3.6.1.34,3.6.3.14,H+-transporting two-sector ATPase,Transferred in 1984
+3.6.1.8,3.6.1.8,ATP diphosphatase,Current
+3.6.3.1,7.6.2.1,P-type phospholipid transporter,Transferred in 2000
+3.6.3.10,7.2.2.19,H+/K+-exchanging ATPase,Transferred in 1984
+3.6.3.12,7.2.2.6,K+-transporting ATPase,Transferred in 2000
+3.6.3.14,7.1.2.2,H+-transporting two-sector ATPase,Transferred in 1984
+3.6.3.15,7.2.2.1,Na+-transporting two-sector ATPase,Transferred in 2000
+3.6.3.16,7.3.2.7,arsenite-transporting ATPase,Transferred in 2000
+3.6.3.17,3.6.3.17,Transferred to,Current
+3.6.3.18,7.5.2.2,ABC-type oligosaccharide transporter,Transferred in 2000
+3.6.3.19,7.5.2.1,ABC-type maltose transporter,Transferred in 2000
+3.6.3.2,7.2.2.14,P-type Mg2+ transporter,Transferred in 2000
+3.6.3.20,7.6.2.10,glycerol-3-phosphate-transporting ATPase,Transferred in 2000
+3.6.3.21,7.4.2.1,ABC-type polar-amino-acid transporter,Transferred in 2000
+3.6.3.23,7.4.2.6,oligopeptide-transporting ATPase,Transferred in 2000
+3.6.3.24,7.2.2.11,nickel-transporting ATPase,Transferred in 2000
+3.6.3.25,7.3.2.3,sulfate-transporting ATPase,Transferred in 2000
+3.6.3.27,7.3.2.1,ABC-type phosphate transporter,Transferred in 2000
+3.6.3.28,7.3.2.2,ABC-type phosphonate transporter,Transferred in 2000
+3.6.3.29,7.3.2.5,molybdate-transporting ATPase,Transferred in 2000
+3.6.3.3,7.2.2.21,Cd2+-exporting ATPase,Transferred in 2000
+3.6.3.30,7.2.2.7,Fe3+-transporting ATPase,Transferred in 2000
+3.6.3.31,7.6.2.11,polyamine-transporting ATPase,Transferred in 2000
+3.6.3.32,7.6.2.9,quaternary-amine-transporting ATPase,Transferred in 2000
+3.6.3.33,7.6.2.8,vitamin B12-transporting ATPase,Transferred in 2000
+3.6.3.34,3.6.3.34,Transferred to 7.2.2.16 and 7.2.2.17 and 7.2.2.18,Current
+3.6.3.36,7.6.2.7,taurine-transporting ATPase,Transferred in 2000
+3.6.3.4,7.2.2.9,Cu2+-exporting ATPase,Transferred in 2000
+3.6.3.40,7.5.2.4,teichoic-acid-transporting ATPase,Transferred in 2000
+3.6.3.41,7.6.2.5,heme-transporting ATPase,Transferred in 2000
+3.6.3.42,7.5.2.3,beta-glucan-transporting ATPase,Transferred in 2000
+3.6.3.43,7.4.2.5,peptide-transporting ATPase,Transferred in 2000
+3.6.3.44,7.6.2.2,ABC-type xenobiotic transporter,Transferred in 2000
+3.6.3.5,7.2.2.12,Zn2+-exporting ATPase,Transferred in 2000
+3.6.3.53,7.2.2.15,Ag+-exporting ATPase,Transferred in 2000
+3.6.3.54,7.2.2.8,Cu+-exporting ATPase,Transferred in 2013
+3.6.3.6,7.1.2.1,P-type H+-exporting transporter,Transferred in 1984
+3.6.3.8,7.2.2.10,Ca2+-transporting ATPase,Transferred in 1984
+3.6.4.12,5.6.2.3,"DNA 5'-3' helicase and EC 5.6.2.4, DNA 3'-5' helicase",Transferred in 2009
+3.6.4.13,NA,NA,Deleted in 2009
+3.6.5.3,3.6.5.3,protein-synthesizing GTPase,Current
+4.1.1.3,4.1.1.3,Transferred to 7.2.4.2 and 4.1.1.112,Current
+4.1.1.41,7.2.4.3,(S)-methylmalonyl-CoA decarboxylase,Transferred in 1972
+4.1.1.63,4.1.1.63,protocatechuate decarboxylase,Current
+4.1.1.70,7.2.4.5,glutaconyl-CoA decarboxylase,Transferred in 1986
+4.1.2.2,4.1.2.2,ketotetrose-phosphate aldolase,Current
+4.1.2.5,4.1.2.5,L-threonine aldolase,Current
+4.1.3.18,2.2.1.6,acetolactate synthase,Transferred in 1972
+4.1.3.6,4.1.3.6,citrate (pro-3S)-lyase,Current
+4.1.99.18,4.1.99.18,Transferred to 4.1.99.22 and 4.6.1.17,Current
+4.2.1.163,4.2.1.163,"2-oxo-hept-4-ene-1,7-dioate hydratase",Current
+4.2.1.39,4.2.1.39,gluconate dehydratase,Current
+4.2.1.52,4.3.3.7,"4-hydroxy-2,3,4,5-tetrahydrodipicolinate synthase.",Transferred in 1972
+4.2.2.12,4.2.2.12,xanthan lyase,Current
+4.2.2.22,4.2.2.22,pectate trisaccharide-lyase,Current
+4.3.1.6,4.3.1.6,beta-alanyl-CoA ammonia-lyase,Current
+4.3.99.2,7.2.4.1,carboxybiotin decarboxylase,Transferred in 2008
+4.4.1.8,4.4.1.8,Transferred to 4.4.1.13,Current
+4.99.1.1,4.99.1.1,Transferred to 4.98.1.1,Current
+5.1.1.11,5.1.1.11,phenylalanine racemase (ATP-hydrolysing),Current
+5.1.3.12,NA,UDP-glucuronate 5-epimerase. The enzyme has never been purified and the activity was later shown not to exist.,Deleted in 1972
+5.1.3.21,5.1.3.21,maltose epimerase,Current
+5.1.99.5,5.1.99.5,hydantoin racemase,Current
+5.2.1.5,5.2.1.5,linoleate isomerase,Current
+5.3.1.7,5.3.1.7,mannose isomerase,Current
+5.3.2.2,5.3.2.2,oxaloacetate tautomerase,Current
+5.4.1.2,5.4.99.61,precorrin-8X methylmutase,Transferred in 1999
+5.4.2.1,5.4.2.1,Transferred to 5.4.2.11 and 5.4.2.12,Current
+5.99.1.2,5.6.2.1,DNA topoisomerase,Transferred in 1984
+5.99.1.3,5.6.2.2,DNA topoisomerase (ATP-hydrolysing),Transferred in 1984
+6.3.2.37,6.3.2.37,UDP-N-acetylmuramoyl-L-alanyl-D-glutamate---D-lysine ligase,Current
+6.3.5.8,2.6.1.85,"aminodeoxychorismate synthase. As ATP is not hydrolysed during the reaction, the classification of the enzyme as a ligase was incorrect",Transferred in 2003
+7.5.2.1,7.5.2.1,ABC-type maltose transporter,Current

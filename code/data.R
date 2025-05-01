@@ -5,7 +5,7 @@ library(readxl)
 source("funct.R")
 
 # Import metaphlan abundance table as TreeSE object
-metaphlan.file <- "../data/metaphlan/modified_metaphlan_db_meta4_combined_reports.txt" 
+metaphlan.file <- "../data/metaphlan/latest_metaphlan_db_meta4_combined_reports.txt" 
 # Specify file path
 # Import the file as TreeSE
 tse <- importMetaPhlAn(metaphlan.file,
@@ -15,7 +15,7 @@ tse <- importMetaPhlAn(metaphlan.file,
 colnames(tse) <- gsub("(_.*|\\..*)", "", colnames(tse))
 
 # Import sample metadata
-samdf <-  read_excel("../data/metaphlan/metadata.xlsx", sheet = 1, col_names = TRUE)
+samdf <-  read_excel("../data/metaphlan/latest_metadata.xlsx", sheet = 1, col_names = TRUE)
 
 # Convert to a data frame if necessary
 samdf <- as.data.frame(samdf)
@@ -50,18 +50,18 @@ colData(tse) <- DataFrame(samdf[colnames(tse),])
 
 #the metaphlan results is essentially relative abundance, so "counts"="relabundance"
 #check with colSums(assay(tse, "counts"))
-colSums(assay(tse, "counts"))
+colSums(assay(tse, "metaphlan"))
 # removing plasmids
 tse <- tse[grep("plasmid", rowData(tse)[,"kingdom"],
                 ignore.case = TRUE, invert = TRUE),]
 
-tse <- transformAssay(tse, method = "relabundance")
+tse <- transformAssay(tse, assay.type= "metaphlan", method = "relabundance")
 # Add alpha diversity
-tse <- addAlpha(x = tse, assay.type = 'counts',
-                index = c('observed', 'shannon'), 
-                niter = 100)
+# Check addAlpha--not working for different assay
+tse <- addAlpha(tse, assay.type = 'metaphlan',
+                index = c('observed', 'shannon'))
 
-assays(tse) <- assays(tse)[-which(names(assays(tse)) == "counts")]
+assays(tse) <- assays(tse)[-which(names(assays(tse)) == "metaphlan")]
 
 # make primary comparison into tse
 # Create a new column for group in colData of the TreeSummarizedExperiment object
@@ -108,13 +108,13 @@ tse$group <- factor(tse$group)
 # Read functional prediction data
 file_paths <- list(
   pathabundance = "../data/HUMAnN3/processed/pathabundance_unstratified.txt",
-  pathcoverage = "../data/HUMAnN3/processed/pathcoverage_unstratified.txt",
-  KO = "../data/HUMAnN3/final/Renorm_genefamilies_Uniref90_KO_unstratified.txt",
+  # pathcoverage = "../data/HUMAnN3/processed/pathcoverage_unstratified.txt",
+  # KO = "../data/HUMAnN3/final/Renorm_genefamilies_Uniref90_KO_unstratified.txt",
   metacyc = "../data/HUMAnN3/final/Renorm_genefamilies_Uniref90_MetaCyc_unstratified.txt"
 )
 
 
-columns_to_remove <- c("AK1304", "PP2368", "HK2340")
+columns_to_remove <- c("AK1304", "PP2368", "HK2340", "PP1368", "HK1340")
 
 # Function to process each file
 process_file <- function(file_path, tse_colnames, feature_name) {

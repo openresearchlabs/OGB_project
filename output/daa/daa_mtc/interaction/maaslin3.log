@@ -1,497 +1,226 @@
-2025-03-21 17:13:55.985141 WARNING::Fitting problem for feature 7 a warning was issued
-2025-03-21 17:13:56.951149 WARNING::Fitting problem for feature 19 returning NA
-2025-03-21 17:13:57.338817 WARNING::Fitting problem for feature 24 returning NA
-2025-03-21 17:13:59.095924 WARNING::Fitting problem for feature 39 a warning was issued
-2025-03-21 17:13:59.737805 WARNING::Fitting problem for feature 44 a warning was issued
-2025-03-21 17:14:02.339715 WARNING::Fitting problem for feature 74 returning NA
-2025-03-21 17:14:13.346815 WARNING::Fitting problem for feature 85 a warning was issued
-2025-03-21 17:14:13.354103 WARNING::Fitting problem for feature 85 a warning was issued
-2025-03-21 17:14:13.397946 WARNING::Fitting problem for feature 85 a warning was issued
-2025-03-21 17:14:14.180785 WARNING::Fitting problem for feature 93 returning NA
-2025-03-21 17:14:14.342574 WARNING::Fitting problem for feature 95 returning NA
-2025-03-21 17:14:24.501758 WARNING::Fitting problem for feature 114 a warning was issued
-2025-03-21 17:14:24.506855 WARNING::Fitting problem for feature 114 a warning was issued
-2025-03-21 17:14:24.566513 WARNING::Fitting problem for feature 114 a warning was issued
-2025-03-21 17:14:24.6767 WARNING::Fitting problem for feature 115 returning NA
-2025-03-21 17:14:24.997342 WARNING::Fitting problem for feature 119 returning NA
-2025-03-21 17:14:25.509719 WARNING::Fitting problem for feature 127 returning NA
-2025-03-21 17:14:25.971969 WARNING::Fitting problem for feature 133 returning NA
-2025-03-21 17:14:35.954917 WARNING::Fitting problem for feature 151 a warning was issued
-2025-03-21 17:14:35.957516 WARNING::Fitting problem for feature 151 a warning was issued
-2025-03-21 17:14:35.994741 WARNING::Fitting problem for feature 151 a warning was issued
-2025-03-21 17:14:37.270201 WARNING::Fitting problem for feature 169 returning NA
-2025-03-21 17:14:46.904428 WARNING::Fitting problem for feature 170 a warning was issued
-2025-03-21 17:14:46.907665 WARNING::Fitting problem for feature 170 a warning was issued
-2025-03-21 17:14:46.972424 WARNING::Fitting problem for feature 170 a warning was issued
-2025-03-21 17:14:47.318865 WARNING::Fitting problem for feature 173 returning NA
-2025-03-21 17:14:47.599614 WARNING::Fitting problem for feature 176 returning NA
-2025-03-21 17:14:49.278504 WARNING::Fitting problem for feature 193 returning NA
-2025-03-21 17:14:49.537853 WARNING::Fitting problem for feature 195 returning NA
-2025-03-21 17:14:49.941319 WARNING::Fitting problem for feature 199 returning NA
-2025-03-21 17:14:50.482121 WARNING::Fitting problem for feature 204 a warning was issued
-2025-03-21 17:14:50.488302 WARNING::Fitting problem for feature 204 returning NA
-2025-03-21 17:14:50.597091 WARNING::Fitting problem for feature 207 returning NA
-2025-03-21 17:14:51.873285 WARNING::Fitting problem for feature 215 a warning was issued
-2025-03-21 17:14:52.414898 WARNING::Fitting problem for feature 220 a warning was issued
-2025-03-21 17:14:52.510106 WARNING::Fitting problem for feature 221 returning NA
-2025-03-21 17:14:53.002144 WARNING::Fitting problem for feature 228 returning NA
-2025-03-21 17:14:53.592795 WARNING::Fitting problem for feature 235 returning NA
-2025-03-21 17:14:54.323064 WARNING::Fitting problem for feature 244 returning NA
-2025-03-21 17:14:55.274242 WARNING::Fitting problem for feature 253 a warning was issued
-2025-03-21 17:14:58.025959 WARNING::Fitting problem for feature 287 returning NA
-2025-03-21 17:14:58.091146 WARNING::Fitting problem for feature 288 returning NA
-2025-03-21 17:14:58.839208 WARNING::Fitting problem for feature 295 returning NA
-2025-03-21 17:14:59.079243 WARNING::Fitting problem for feature 298 returning NA
-2025-03-21 17:14:59.623274 WARNING::Fitting problem for feature 305 returning NA
-2025-03-21 17:15:00.075052 WARNING::Fitting problem for feature 310 returning NA
-2025-03-21 17:15:01.357557 WARNING::Fitting problem for feature 325 returning NA
-2025-03-21 17:15:01.752842 WARNING::Fitting problem for feature 329 returning NA
-2025-03-21 17:15:02.601676 WARNING::Fitting problem for feature 341 returning NA
-2025-03-21 17:15:02.675305 WARNING::Fitting problem for feature 342 returning NA
-2025-03-21 17:15:03.38236 WARNING::Fitting problem for feature 353 returning NA
-2025-03-21 17:15:04.490984 WARNING::Fitting problem for feature 367 returning NA
-2025-03-21 17:15:05.173288 WARNING::Fitting problem for feature 377 returning NA
-2025-03-21 17:15:06.306528 WARNING::Fitting problem for feature 392 returning NA
-2025-03-21 17:15:06.444358 WARNING::Fitting problem for feature 394 returning NA
-2025-03-21 17:15:06.493526 WARNING::Fitting problem for feature 395 returning NA
-2025-03-21 17:15:06.562399 WARNING::Fitting problem for feature 396 returning NA
-2025-03-21 17:15:08.124241 WARNING::Fitting problem for feature 413 returning NA
-2025-03-21 17:15:08.188318 WARNING::Fitting problem for feature 414 returning NA
-2025-03-21 17:15:17.806535 WARNING::Fitting problem for feature 417 a warning was issued
-2025-03-21 17:15:17.808878 WARNING::Fitting problem for feature 417 a warning was issued
-2025-03-21 17:15:17.814293 WARNING::Fitting problem for feature 417 a warning was issued
-2025-03-21 17:15:17.855042 WARNING::Fitting problem for feature 417 a warning was issued
-2025-03-21 17:15:18.270587 WARNING::Fitting problem for feature 421 returning NA
-2025-03-21 17:15:19.189806 WARNING::Fitting problem for feature 430 a warning was issued
-2025-03-21 17:15:20.044268 WARNING::Fitting problem for feature 439 returning NA
-2025-03-21 17:15:20.101778 WARNING::Fitting problem for feature 440 returning NA
-2025-03-21 17:15:23.547167 WARNING::Fitting problem for feature 480 a warning was issued
-2025-03-21 17:15:35.019467 WARNING::Fitting problem for feature 485 a warning was issued
-2025-03-21 17:15:35.0222 WARNING::Fitting problem for feature 485 a warning was issued
-2025-03-21 17:15:35.06662 WARNING::Fitting problem for feature 485 a warning was issued
-2025-03-21 17:15:35.70971 WARNING::Fitting problem for feature 491 returning NA
-2025-03-21 17:15:36.553526 WARNING::Fitting problem for feature 498 a warning was issued
-2025-03-21 17:15:37.235256 WARNING::Fitting problem for feature 504 a warning was issued
-2025-03-21 17:15:37.278528 WARNING::Fitting problem for feature 504 a warning was issued
-2025-03-21 17:15:39.845603 WARNING::Fitting problem for feature 529 a warning was issued
-2025-03-21 17:15:39.900364 WARNING::Fitting problem for feature 529 a warning was issued
-2025-03-21 17:15:41.910713 WARNING::Fitting problem for feature 549 a warning was issued
-2025-03-21 17:15:43.29577 WARNING::Fitting problem for feature 564 returning NA
-2025-03-21 17:15:43.444132 WARNING::Fitting problem for feature 566 returning NA
-2025-03-21 17:15:45.358514 WARNING::Fitting problem for feature 593 returning NA
-2025-03-21 17:15:45.731972 WARNING::Fitting problem for feature 595 a warning was issued
-2025-03-21 17:15:49.303609 WARNING::Fitting problem for feature 623 a warning was issued
-2025-03-21 17:15:49.704191 WARNING::Fitting problem for feature 627 returning NA
-2025-03-21 17:15:50.054001 WARNING::Fitting problem for feature 630 returning NA
-2025-03-21 17:15:50.427506 WARNING::Fitting problem for feature 634 returning NA
-2025-03-21 17:15:51.954799 WARNING::Fitting problem for feature 649 returning NA
-2025-03-21 17:16:06.45382 WARNING::Fitting problem for feature 699 a warning was issued
-2025-03-21 17:16:06.457125 WARNING::Fitting problem for feature 699 a warning was issued
-2025-03-21 17:16:06.503266 WARNING::Fitting problem for feature 699 a warning was issued
-2025-03-21 17:16:09.921119 WARNING::Fitting problem for feature 733 returning NA
-2025-03-21 17:16:10.613379 WARNING::Fitting problem for feature 741 returning NA
-2025-03-21 17:16:12.581197 WARNING::Fitting problem for feature 761 a warning was issued
-2025-03-21 17:16:12.589971 WARNING::Fitting problem for feature 761 returning NA
-2025-03-21 17:16:12.914549 WARNING::Fitting problem for feature 764 returning NA
-2025-03-21 17:16:13.329436 WARNING::Fitting problem for feature 767 a warning was issued
-2025-03-21 17:16:14.558506 WARNING::Fitting problem for feature 781 returning NA
-2025-03-21 17:16:18.524729 WARNING::Fitting problem for feature 830 a warning was issued
-2025-03-21 17:16:19.12034 WARNING::Fitting problem for feature 837 returning NA
-2025-03-21 17:16:20.279114 WARNING::Fitting problem for feature 849 a warning was issued
-2025-03-21 17:16:21.814557 WARNING::Fitting problem for feature 866 a warning was issued
-2025-03-21 17:16:21.816903 WARNING::Fitting problem for feature 866 returning NA
-2025-03-21 17:16:22.754666 WARNING::Fitting problem for feature 879 returning NA
-2025-03-21 17:16:27.211725 WARNING::Fitting problem for feature 931 returning NA
-2025-03-21 17:16:28.268564 WARNING::Fitting problem for feature 941 returning NA
-2025-03-21 17:16:28.925406 WARNING::Fitting problem for feature 944 a warning was issued
-2025-03-21 17:16:30.09142 WARNING::Fitting problem for feature 957 returning NA
-2025-03-21 17:16:31.166358 WARNING::Fitting problem for feature 967 a warning was issued
-2025-03-21 17:16:32.119342 WARNING::Fitting problem for feature 976 returning NA
-2025-03-21 17:16:43.779513 WARNING::Fitting problem for feature 1106 returning NA
-2025-03-21 17:16:43.834149 WARNING::Fitting problem for feature 1107 returning NA
-2025-03-21 17:16:46.434418 WARNING::Fitting problem for feature 1137 a warning was issued
-2025-03-21 17:16:46.439269 WARNING::Fitting problem for feature 1137 returning NA
-2025-03-21 17:16:47.021014 WARNING::Fitting problem for feature 1144 returning NA
-2025-03-21 17:16:47.575777 WARNING::Fitting problem for feature 1148 a warning was issued
-2025-03-21 17:16:48.246191 WARNING::Fitting problem for feature 1152 a warning was issued
-2025-03-21 17:16:48.768597 WARNING::Fitting problem for feature 1156 a warning was issued
-2025-03-21 17:16:48.808878 WARNING::Fitting problem for feature 1156 a warning was issued
-2025-03-21 17:16:50.830821 WARNING::Fitting problem for feature 1174 a warning was issued
-2025-03-21 17:16:51.908312 WARNING::Fitting problem for feature 1183 a warning was issued
-2025-03-21 17:16:57.765992 WARNING::Fitting problem for feature 1252 returning NA
-2025-03-21 17:16:59.556186 WARNING::Fitting problem for feature 1275 returning NA
-2025-03-21 17:16:59.890552 WARNING::Fitting problem for feature 1277 a warning was issued
-2025-03-21 17:17:00.396797 WARNING::Fitting problem for feature 1283 returning NA
-2025-03-21 17:17:00.846062 WARNING::Fitting problem for feature 1288 a warning was issued
-2025-03-21 17:17:00.852856 WARNING::Fitting problem for feature 1288 returning NA
-2025-03-21 17:17:01.278473 WARNING::Fitting problem for feature 1294 returning NA
-2025-03-21 17:17:02.380915 WARNING::Fitting problem for feature 1309 returning NA
-2025-03-21 17:17:02.436377 WARNING::Fitting problem for feature 1310 returning NA
-2025-03-21 17:17:03.538157 WARNING::Fitting problem for feature 1322 a warning was issued
-2025-03-21 17:17:04.198102 WARNING::Fitting problem for feature 1330 returning NA
-2025-03-21 17:17:08.212566 WARNING::Fitting problem for feature 1384 returning NA
-2025-03-21 17:17:08.525849 WARNING::Fitting problem for feature 1387 returning NA
-2025-03-21 17:17:11.380816 WARNING::Fitting problem for feature 1421 a warning was issued
-2025-03-21 17:17:12.670448 WARNING::Fitting problem for feature 1437 a warning was issued
-2025-03-21 17:17:13.30679 WARNING::Fitting problem for feature 1444 a warning was issued
-2025-03-21 17:17:14.088458 WARNING::Fitting problem for feature 1455 returning NA
-2025-03-21 17:17:15.021228 WARNING::Fitting problem for feature 1466 a warning was issued
-2025-03-21 17:17:15.921854 WARNING::Fitting problem for feature 1477 returning NA
-2025-03-21 17:17:16.288728 WARNING::Fitting problem for feature 1480 a warning was issued
-2025-03-21 17:17:16.361769 WARNING::Fitting problem for feature 1481 returning NA
-2025-03-21 17:17:17.994261 WARNING::Fitting problem for feature 1498 a warning was issued
-2025-03-21 17:17:18.927501 WARNING::Fitting problem for feature 1510 returning NA
-2025-03-21 17:17:20.290788 WARNING::Fitting problem for feature 1527 a warning was issued
-2025-03-21 17:17:23.994921 WARNING::Fitting problem for feature 1578 returning NA
-2025-03-21 17:17:35.45969 WARNING::Fitting problem for feature 1605 a warning was issued
-2025-03-21 17:17:35.462224 WARNING::Fitting problem for feature 1605 a warning was issued
-2025-03-21 17:17:35.467549 WARNING::Fitting problem for feature 1605 a warning was issued
-2025-03-21 17:17:35.472216 WARNING::Fitting problem for feature 1605 a warning was issued
-2025-03-21 17:17:35.518221 WARNING::Fitting problem for feature 1605 a warning was issued
-2025-03-21 17:17:35.907398 WARNING::Fitting problem for feature 1607 a warning was issued
-2025-03-21 17:17:36.843912 WARNING::Fitting problem for feature 1616 a warning was issued
-2025-03-21 17:17:39.445131 WARNING::Fitting problem for feature 1650 returning NA
-2025-03-21 17:17:39.495517 WARNING::Fitting problem for feature 1651 returning NA
-2025-03-21 17:17:40.155394 WARNING::Fitting problem for feature 1659 a warning was issued
-2025-03-21 17:17:42.429126 WARNING::Fitting problem for feature 1687 a warning was issued
-2025-03-21 17:17:43.709025 WARNING::Fitting problem for feature 1700 returning NA
-2025-03-21 17:17:52.66804 WARNING::Fitting problem for feature 1706 a warning was issued
-2025-03-21 17:17:52.671142 WARNING::Fitting problem for feature 1706 a warning was issued
-2025-03-21 17:17:52.715462 WARNING::Fitting problem for feature 1706 a warning was issued
-2025-03-21 17:17:52.820204 WARNING::Fitting problem for feature 1707 returning NA
-2025-03-21 17:17:53.499286 WARNING::Fitting problem for feature 1713 a warning was issued
-2025-03-21 17:18:02.434875 WARNING::Fitting problem for feature 1714 a warning was issued
-2025-03-21 17:18:02.438452 WARNING::Fitting problem for feature 1714 a warning was issued
-2025-03-21 17:18:02.477925 WARNING::Fitting problem for feature 1714 a warning was issued
-2025-03-21 17:18:04.202645 WARNING::Fitting problem for feature 1737 returning NA
-2025-03-21 17:18:04.720427 WARNING::Fitting problem for feature 1741 a warning was issued
-2025-03-21 17:18:05.067561 WARNING::Fitting problem for feature 1746 returning NA
-2025-03-21 17:18:09.695019 WARNING::Fitting problem for feature 1808 a warning was issued
-2025-03-21 17:18:09.949445 WARNING::Fitting problem for feature 1811 returning NA
-2025-03-21 17:18:13.167611 WARNING::Fitting problem for feature 1851 a warning was issued
-2025-03-21 17:18:14.000207 WARNING::Fitting problem for feature 1861 a warning was issued
-2025-03-21 17:18:14.005122 WARNING::Fitting problem for feature 1861 returning NA
-2025-03-21 17:18:15.161986 WARNING::Fitting problem for feature 1875 a warning was issued
-2025-03-21 17:18:15.166213 WARNING::Fitting problem for feature 1875 returning NA
-2025-03-21 17:18:15.228241 WARNING::Fitting problem for feature 1876 returning NA
-2025-03-21 17:18:17.109103 WARNING::Fitting problem for feature 1898 returning NA
-2025-03-21 17:18:17.461517 WARNING::Fitting problem for feature 1902 returning NA
-2025-03-21 17:18:17.883578 WARNING::Fitting problem for feature 1908 returning NA
-2025-03-21 17:18:19.138822 WARNING::Fitting problem for feature 1923 returning NA
-2025-03-21 17:18:20.406198 WARNING::Fitting problem for feature 1939 returning NA
-2025-03-21 17:18:20.662683 WARNING::Fitting problem for feature 1942 a warning was issued
-2025-03-21 17:18:20.694693 WARNING::Fitting problem for feature 1942 a warning was issued
-2025-03-21 17:18:23.094949 WARNING::Fitting problem for feature 1973 a warning was issued
-2025-03-21 17:18:23.155367 WARNING::Fitting problem for feature 1974 returning NA
-2025-03-21 17:18:23.912701 WARNING::Fitting problem for feature 1982 a warning was issued
-2025-03-21 17:18:24.06896 WARNING::Fitting problem for feature 1984 returning NA
-2025-03-21 17:18:24.501471 WARNING::Fitting problem for feature 1991 returning NA
-2025-03-21 17:18:24.713201 WARNING::Fitting problem for feature 1994 returning NA
-2025-03-21 17:18:24.756048 WARNING::Fitting problem for feature 1995 returning NA
-2025-03-21 17:18:24.842384 WARNING::Fitting problem for feature 1996 returning NA
-2025-03-21 17:18:26.296602 WARNING::Fitting problem for feature 2015 returning NA
-2025-03-21 17:18:28.308689 WARNING::Fitting problem for feature 2040 a warning was issued
-2025-03-21 17:18:31.935795 WARNING::Fitting problem for feature 2086 a warning was issued
-2025-03-21 17:18:42.021035 WARNING::Fitting problem for feature 2103 a warning was issued
-2025-03-21 17:18:42.023875 WARNING::Fitting problem for feature 2103 a warning was issued
-2025-03-21 17:18:42.060489 WARNING::Fitting problem for feature 2103 a warning was issued
-2025-03-21 17:18:42.352342 WARNING::Fitting problem for feature 2104 a warning was issued
-2025-03-21 17:18:44.505651 WARNING::Fitting problem for feature 2131 returning NA
-2025-03-21 17:18:46.619362 WARNING::Fitting problem for feature 2161 returning NA
-2025-03-21 17:18:46.664276 WARNING::Fitting problem for feature 2162 returning NA
-2025-03-21 17:19:18.786978 WARNING::Fitting problem for feature 10 returning NA
-2025-03-21 17:19:22.530102 WARNING::Fitting problem for feature 26 returning NA
-2025-03-21 17:19:25.677508 WARNING::Fitting problem for feature 38 returning NA
-2025-03-21 17:19:43.147087 WARNING::Fitting problem for feature 74 a warning was issued
-2025-03-21 17:19:43.1538 WARNING::Fitting problem for feature 74 a warning was issued
-2025-03-21 17:19:57.759458 WARNING::Fitting problem for feature 123 returning NA
-2025-03-21 17:20:16.780744 WARNING::Fitting problem for feature 164 a warning was issued
-2025-03-21 17:20:16.786765 WARNING::Fitting problem for feature 164 a warning was issued
-2025-03-21 17:20:32.487974 WARNING::Fitting problem for feature 193 a warning was issued
-2025-03-21 17:20:32.490332 WARNING::Fitting problem for feature 193 a warning was issued
-2025-03-21 17:20:40.072817 WARNING::Fitting problem for feature 195 a warning was issued
-2025-03-21 17:20:40.076771 WARNING::Fitting problem for feature 195 a warning was issued
-2025-03-21 17:20:56.097715 WARNING::Fitting problem for feature 235 a warning was issued
-2025-03-21 17:20:56.104143 WARNING::Fitting problem for feature 235 a warning was issued
-2025-03-21 17:21:05.422219 WARNING::Fitting problem for feature 237 a warning was issued
-2025-03-21 17:21:05.424423 WARNING::Fitting problem for feature 237 a warning was issued
-2025-03-21 17:21:13.884192 WARNING::Fitting problem for feature 276 returning NA
-2025-03-21 17:21:32.034961 WARNING::Fitting problem for feature 307 a warning was issued
-2025-03-21 17:21:32.037858 WARNING::Fitting problem for feature 307 a warning was issued
-2025-03-21 17:21:46.126479 WARNING::Fitting problem for feature 331 a warning was issued
-2025-03-21 17:21:52.658625 WARNING::Fitting problem for feature 341 a warning was issued
-2025-03-21 17:21:52.661251 WARNING::Fitting problem for feature 341 a warning was issued
-2025-03-21 17:22:00.791187 WARNING::Fitting problem for feature 342 a warning was issued
-2025-03-21 17:22:00.793709 WARNING::Fitting problem for feature 342 a warning was issued
-2025-03-21 17:22:02.346523 WARNING::Fitting problem for feature 349 returning NA
-2025-03-21 17:22:16.226362 WARNING::Fitting problem for feature 392 a warning was issued
-2025-03-21 17:22:16.228658 WARNING::Fitting problem for feature 392 a warning was issued
-2025-03-21 17:22:22.38507 WARNING::Fitting problem for feature 410 returning NA
-2025-03-21 17:22:28.090111 WARNING::Fitting problem for feature 424 returning NA
-2025-03-21 17:22:57.935958 WARNING::Fitting problem for feature 491 a warning was issued
-2025-03-21 17:22:57.938722 WARNING::Fitting problem for feature 491 a warning was issued
-2025-03-21 17:23:01.187973 WARNING::Fitting problem for feature 497 a warning was issued
-2025-03-21 17:23:04.946967 WARNING::Fitting problem for feature 516 a warning was issued
-2025-03-21 17:23:04.953855 WARNING::Fitting problem for feature 516 a warning was issued
-2025-03-21 17:23:10.304841 WARNING::Fitting problem for feature 528 a warning was issued
-2025-03-21 17:23:10.30736 WARNING::Fitting problem for feature 528 a warning was issued
-2025-03-21 17:23:19.286127 WARNING::Fitting problem for feature 556 returning NA
-2025-03-21 17:23:28.219156 WARNING::Fitting problem for feature 566 a warning was issued
-2025-03-21 17:23:28.222616 WARNING::Fitting problem for feature 566 a warning was issued
-2025-03-21 17:23:41.131745 WARNING::Fitting problem for feature 593 a warning was issued
-2025-03-21 17:23:41.139358 WARNING::Fitting problem for feature 593 a warning was issued
-2025-03-21 17:24:13.736632 WARNING::Fitting problem for feature 725 a warning was issued
-2025-03-21 17:24:13.738886 WARNING::Fitting problem for feature 725 a warning was issued
-2025-03-21 17:24:22.002291 WARNING::Fitting problem for feature 741 a warning was issued
-2025-03-21 17:24:22.005075 WARNING::Fitting problem for feature 741 a warning was issued
-2025-03-21 17:24:23.915293 WARNING::Fitting problem for feature 744 returning NA
-2025-03-21 17:24:51.631172 WARNING::Fitting problem for feature 837 a warning was issued
-2025-03-21 17:24:51.636489 WARNING::Fitting problem for feature 837 a warning was issued
-2025-03-21 17:25:28.229451 WARNING::Fitting problem for feature 951 a warning was issued
-2025-03-21 17:25:28.231796 WARNING::Fitting problem for feature 951 a warning was issued
-2025-03-21 17:25:43.10422 WARNING::Fitting problem for feature 998 returning NA
-2025-03-21 17:25:49.420921 WARNING::Fitting problem for feature 1050 returning NA
-2025-03-21 17:25:50.655497 WARNING::Fitting problem for feature 1054 returning NA
-2025-03-21 17:26:03.907495 WARNING::Fitting problem for feature 1133 returning NA
-2025-03-21 17:26:05.516015 WARNING::Fitting problem for feature 1137 returning NA
-2025-03-21 17:26:10.12121 WARNING::Fitting problem for feature 1148 returning NA
-2025-03-21 17:26:16.516722 WARNING::Fitting problem for feature 1173 returning NA
-2025-03-21 17:26:23.695117 WARNING::Fitting problem for feature 1217 returning NA
-2025-03-21 17:26:28.582338 WARNING::Fitting problem for feature 1240 returning NA
-2025-03-21 17:26:47.832792 WARNING::Fitting problem for feature 1310 a warning was issued
-2025-03-21 17:26:47.837151 WARNING::Fitting problem for feature 1310 a warning was issued
-2025-03-21 17:26:59.444478 WARNING::Fitting problem for feature 1344 returning NA
-2025-03-21 17:27:04.515165 WARNING::Fitting problem for feature 1361 returning NA
-2025-03-21 17:27:05.144323 WARNING::Fitting problem for feature 1362 returning NA
-2025-03-21 17:27:14.212552 WARNING::Fitting problem for feature 1366 a warning was issued
-2025-03-21 17:27:20.158204 WARNING::Fitting problem for feature 1367 a warning was issued
-2025-03-21 17:27:20.160563 WARNING::Fitting problem for feature 1367 a warning was issued
-2025-03-21 17:27:21.053363 WARNING::Fitting problem for feature 1371 returning NA
-2025-03-21 17:27:23.894058 WARNING::Fitting problem for feature 1378 returning NA
-2025-03-21 17:27:44.304621 WARNING::Fitting problem for feature 1466 returning NA
-2025-03-21 17:27:46.719888 WARNING::Fitting problem for feature 1475 returning NA
-2025-03-21 17:28:40.831445 WARNING::Fitting problem for feature 1684 returning NA
-2025-03-21 17:28:51.51376 WARNING::Fitting problem for feature 1707 a warning was issued
-2025-03-21 17:28:51.516063 WARNING::Fitting problem for feature 1707 a warning was issued
-2025-03-21 17:29:08.478091 WARNING::Fitting problem for feature 1736 a warning was issued
-2025-03-21 17:29:08.481196 WARNING::Fitting problem for feature 1736 a warning was issued
-2025-03-21 17:29:33.043753 WARNING::Fitting problem for feature 1794 a warning was issued
-2025-03-21 17:29:33.04835 WARNING::Fitting problem for feature 1794 a warning was issued
-2025-03-21 17:29:52.693953 WARNING::Fitting problem for feature 1875 returning NA
-2025-03-21 17:30:05.739944 WARNING::Fitting problem for feature 1898 a warning was issued
-2025-03-21 17:30:05.743727 WARNING::Fitting problem for feature 1898 a warning was issued
-2025-03-21 17:30:15.597992 WARNING::Fitting problem for feature 1908 a warning was issued
-2025-03-21 17:30:15.604056 WARNING::Fitting problem for feature 1908 a warning was issued
-2025-03-21 17:30:35.845686 WARNING::Fitting problem for feature 1975 a warning was issued
-2025-03-21 17:30:35.848035 WARNING::Fitting problem for feature 1975 a warning was issued
-2025-03-21 17:30:45.792992 WARNING::Fitting problem for feature 1996 a warning was issued
-2025-03-21 17:30:45.795085 WARNING::Fitting problem for feature 1996 a warning was issued
-2025-03-21 17:30:54.574847 WARNING::Fitting problem for feature 2015 a warning was issued
-2025-03-21 17:30:54.577014 WARNING::Fitting problem for feature 2015 a warning was issued
-2025-03-21 17:30:58.829268 WARNING::Fitting problem for feature 2026 returning NA
-2025-03-21 17:31:10.424024 WARNING::Fitting problem for feature 2038 returning NA
-2025-03-21 17:31:14.878569 WARNING::Fitting problem for feature 2070 returning NA
-2025-03-21 17:31:20.127079 WARNING::Fitting problem for feature 2086 returning NA
-2025-03-21 17:31:25.990696 WARNING::Fitting problem for feature 2107 returning NA
-2025-03-21 17:31:33.850518 WARNING::Fitting problem for feature 2153 returning NA
-2025-03-21 17:31:41.446631 WARNING::Fitting problem for feature 7 a warning was issued
-2025-03-21 17:31:42.294428 WARNING::Fitting problem for feature 19 returning NA
-2025-03-21 17:31:42.790336 WARNING::Fitting problem for feature 24 returning NA
-2025-03-21 17:31:44.210145 WARNING::Fitting problem for feature 39 a warning was issued
-2025-03-21 17:31:44.778536 WARNING::Fitting problem for feature 44 a warning was issued
-2025-03-21 17:31:47.064266 WARNING::Fitting problem for feature 74 returning NA
-2025-03-21 17:31:56.90272 WARNING::Fitting problem for feature 85 a warning was issued
-2025-03-21 17:31:56.906564 WARNING::Fitting problem for feature 85 a warning was issued
-2025-03-21 17:31:56.95157 WARNING::Fitting problem for feature 85 a warning was issued
-2025-03-21 17:31:57.545853 WARNING::Fitting problem for feature 93 returning NA
-2025-03-21 17:31:57.6884 WARNING::Fitting problem for feature 95 returning NA
-2025-03-21 17:32:08.693728 WARNING::Fitting problem for feature 114 a warning was issued
-2025-03-21 17:32:08.697176 WARNING::Fitting problem for feature 114 a warning was issued
-2025-03-21 17:32:08.735464 WARNING::Fitting problem for feature 114 a warning was issued
-2025-03-21 17:32:08.801632 WARNING::Fitting problem for feature 115 returning NA
-2025-03-21 17:32:09.11752 WARNING::Fitting problem for feature 119 returning NA
-2025-03-21 17:32:09.675025 WARNING::Fitting problem for feature 127 returning NA
-2025-03-21 17:32:10.134193 WARNING::Fitting problem for feature 133 returning NA
-2025-03-21 17:32:20.543875 WARNING::Fitting problem for feature 151 a warning was issued
-2025-03-21 17:32:20.546834 WARNING::Fitting problem for feature 151 a warning was issued
-2025-03-21 17:32:20.592313 WARNING::Fitting problem for feature 151 a warning was issued
-2025-03-21 17:32:21.988121 WARNING::Fitting problem for feature 169 returning NA
-2025-03-21 17:32:31.843992 WARNING::Fitting problem for feature 170 a warning was issued
-2025-03-21 17:32:31.847693 WARNING::Fitting problem for feature 170 a warning was issued
-2025-03-21 17:32:31.897122 WARNING::Fitting problem for feature 170 a warning was issued
-2025-03-21 17:32:32.22242 WARNING::Fitting problem for feature 173 returning NA
-2025-03-21 17:32:32.538166 WARNING::Fitting problem for feature 176 returning NA
-2025-03-21 17:32:33.886628 WARNING::Fitting problem for feature 193 returning NA
-2025-03-21 17:32:34.030827 WARNING::Fitting problem for feature 195 returning NA
-2025-03-21 17:32:34.323425 WARNING::Fitting problem for feature 199 returning NA
-2025-03-21 17:32:34.810856 WARNING::Fitting problem for feature 204 a warning was issued
-2025-03-21 17:32:34.813881 WARNING::Fitting problem for feature 204 returning NA
-2025-03-21 17:32:34.891534 WARNING::Fitting problem for feature 207 returning NA
-2025-03-21 17:32:36.024062 WARNING::Fitting problem for feature 215 a warning was issued
-2025-03-21 17:32:36.512027 WARNING::Fitting problem for feature 220 a warning was issued
-2025-03-21 17:32:36.580925 WARNING::Fitting problem for feature 221 returning NA
-2025-03-21 17:32:36.973308 WARNING::Fitting problem for feature 228 returning NA
-2025-03-21 17:32:37.444231 WARNING::Fitting problem for feature 235 returning NA
-2025-03-21 17:32:37.96984 WARNING::Fitting problem for feature 244 returning NA
-2025-03-21 17:32:38.824754 WARNING::Fitting problem for feature 253 a warning was issued
-2025-03-21 17:32:41.533064 WARNING::Fitting problem for feature 287 returning NA
-2025-03-21 17:32:41.641694 WARNING::Fitting problem for feature 288 returning NA
-2025-03-21 17:32:42.177692 WARNING::Fitting problem for feature 295 returning NA
-2025-03-21 17:32:42.413399 WARNING::Fitting problem for feature 298 returning NA
-2025-03-21 17:32:42.924168 WARNING::Fitting problem for feature 305 returning NA
-2025-03-21 17:32:43.31322 WARNING::Fitting problem for feature 310 returning NA
-2025-03-21 17:32:44.497324 WARNING::Fitting problem for feature 325 returning NA
-2025-03-21 17:32:44.82308 WARNING::Fitting problem for feature 329 returning NA
-2025-03-21 17:32:45.649047 WARNING::Fitting problem for feature 341 returning NA
-2025-03-21 17:32:45.744097 WARNING::Fitting problem for feature 342 returning NA
-2025-03-21 17:32:46.57816 WARNING::Fitting problem for feature 353 returning NA
-2025-03-21 17:32:47.635053 WARNING::Fitting problem for feature 367 returning NA
-2025-03-21 17:32:48.332064 WARNING::Fitting problem for feature 377 returning NA
-2025-03-21 17:32:49.318003 WARNING::Fitting problem for feature 392 returning NA
-2025-03-21 17:32:49.444616 WARNING::Fitting problem for feature 394 returning NA
-2025-03-21 17:32:49.495286 WARNING::Fitting problem for feature 395 returning NA
-2025-03-21 17:32:49.600096 WARNING::Fitting problem for feature 396 returning NA
-2025-03-21 17:32:50.898219 WARNING::Fitting problem for feature 413 returning NA
-2025-03-21 17:32:50.946291 WARNING::Fitting problem for feature 414 returning NA
-2025-03-21 17:33:00.109442 WARNING::Fitting problem for feature 417 a warning was issued
-2025-03-21 17:33:00.112002 WARNING::Fitting problem for feature 417 a warning was issued
-2025-03-21 17:33:00.114661 WARNING::Fitting problem for feature 417 a warning was issued
-2025-03-21 17:33:00.153371 WARNING::Fitting problem for feature 417 a warning was issued
-2025-03-21 17:33:00.569443 WARNING::Fitting problem for feature 421 returning NA
-2025-03-21 17:33:01.44777 WARNING::Fitting problem for feature 430 a warning was issued
-2025-03-21 17:33:02.391559 WARNING::Fitting problem for feature 439 returning NA
-2025-03-21 17:33:02.450217 WARNING::Fitting problem for feature 440 returning NA
-2025-03-21 17:33:05.783374 WARNING::Fitting problem for feature 480 a warning was issued
-2025-03-21 17:33:15.328591 WARNING::Fitting problem for feature 485 a warning was issued
-2025-03-21 17:33:15.33362 WARNING::Fitting problem for feature 485 a warning was issued
-2025-03-21 17:33:15.374657 WARNING::Fitting problem for feature 485 a warning was issued
-2025-03-21 17:33:15.977675 WARNING::Fitting problem for feature 491 returning NA
-2025-03-21 17:33:16.658906 WARNING::Fitting problem for feature 498 a warning was issued
-2025-03-21 17:33:17.224717 WARNING::Fitting problem for feature 504 a warning was issued
-2025-03-21 17:33:17.27177 WARNING::Fitting problem for feature 504 a warning was issued
-2025-03-21 17:33:19.397092 WARNING::Fitting problem for feature 529 a warning was issued
-2025-03-21 17:33:19.43117 WARNING::Fitting problem for feature 529 a warning was issued
-2025-03-21 17:33:21.28846 WARNING::Fitting problem for feature 549 a warning was issued
-2025-03-21 17:33:22.694065 WARNING::Fitting problem for feature 564 returning NA
-2025-03-21 17:33:22.899044 WARNING::Fitting problem for feature 566 returning NA
-2025-03-21 17:33:25.260137 WARNING::Fitting problem for feature 593 returning NA
-2025-03-21 17:33:25.626436 WARNING::Fitting problem for feature 595 a warning was issued
-2025-03-21 17:33:27.946899 WARNING::Fitting problem for feature 623 a warning was issued
-2025-03-21 17:33:28.272105 WARNING::Fitting problem for feature 627 returning NA
-2025-03-21 17:33:28.477982 WARNING::Fitting problem for feature 630 returning NA
-2025-03-21 17:33:28.802657 WARNING::Fitting problem for feature 634 returning NA
-2025-03-21 17:33:30.162721 WARNING::Fitting problem for feature 649 returning NA
-2025-03-21 17:33:43.027691 WARNING::Fitting problem for feature 699 a warning was issued
-2025-03-21 17:33:43.030455 WARNING::Fitting problem for feature 699 a warning was issued
-2025-03-21 17:33:43.080461 WARNING::Fitting problem for feature 699 a warning was issued
-2025-03-21 17:33:45.706708 WARNING::Fitting problem for feature 733 returning NA
-2025-03-21 17:33:46.37446 WARNING::Fitting problem for feature 741 returning NA
-2025-03-21 17:33:48.246637 WARNING::Fitting problem for feature 761 a warning was issued
-2025-03-21 17:33:48.250926 WARNING::Fitting problem for feature 761 returning NA
-2025-03-21 17:33:48.490654 WARNING::Fitting problem for feature 764 returning NA
-2025-03-21 17:33:48.865793 WARNING::Fitting problem for feature 767 a warning was issued
-2025-03-21 17:33:49.917685 WARNING::Fitting problem for feature 781 returning NA
-2025-03-21 17:33:54.700979 WARNING::Fitting problem for feature 830 a warning was issued
-2025-03-21 17:33:55.508927 WARNING::Fitting problem for feature 837 returning NA
-2025-03-21 17:33:56.935578 WARNING::Fitting problem for feature 849 a warning was issued
-2025-03-21 17:33:58.80119 WARNING::Fitting problem for feature 866 a warning was issued
-2025-03-21 17:33:58.807628 WARNING::Fitting problem for feature 866 returning NA
-2025-03-21 17:33:59.811788 WARNING::Fitting problem for feature 879 returning NA
-2025-03-21 17:34:04.331147 WARNING::Fitting problem for feature 931 returning NA
-2025-03-21 17:34:05.13184 WARNING::Fitting problem for feature 941 returning NA
-2025-03-21 17:34:05.576521 WARNING::Fitting problem for feature 944 a warning was issued
-2025-03-21 17:34:06.715712 WARNING::Fitting problem for feature 957 returning NA
-2025-03-21 17:34:07.778156 WARNING::Fitting problem for feature 967 a warning was issued
-2025-03-21 17:34:08.596242 WARNING::Fitting problem for feature 976 returning NA
-2025-03-21 17:34:19.696142 WARNING::Fitting problem for feature 1106 returning NA
-2025-03-21 17:34:19.754241 WARNING::Fitting problem for feature 1107 returning NA
-2025-03-21 17:34:22.397357 WARNING::Fitting problem for feature 1137 a warning was issued
-2025-03-21 17:34:22.401145 WARNING::Fitting problem for feature 1137 returning NA
-2025-03-21 17:34:23.02588 WARNING::Fitting problem for feature 1144 returning NA
-2025-03-21 17:34:23.74334 WARNING::Fitting problem for feature 1148 a warning was issued
-2025-03-21 17:34:24.374129 WARNING::Fitting problem for feature 1152 a warning was issued
-2025-03-21 17:34:24.837867 WARNING::Fitting problem for feature 1156 a warning was issued
-2025-03-21 17:34:24.900431 WARNING::Fitting problem for feature 1156 a warning was issued
-2025-03-21 17:34:27.102137 WARNING::Fitting problem for feature 1174 a warning was issued
-2025-03-21 17:34:28.117732 WARNING::Fitting problem for feature 1183 a warning was issued
-2025-03-21 17:34:34.221232 WARNING::Fitting problem for feature 1252 returning NA
-2025-03-21 17:34:36.635094 WARNING::Fitting problem for feature 1275 returning NA
-2025-03-21 17:34:37.049658 WARNING::Fitting problem for feature 1277 a warning was issued
-2025-03-21 17:34:37.641473 WARNING::Fitting problem for feature 1283 returning NA
-2025-03-21 17:34:38.195808 WARNING::Fitting problem for feature 1288 a warning was issued
-2025-03-21 17:34:38.203046 WARNING::Fitting problem for feature 1288 returning NA
-2025-03-21 17:34:38.963906 WARNING::Fitting problem for feature 1294 returning NA
-2025-03-21 17:34:40.362846 WARNING::Fitting problem for feature 1309 returning NA
-2025-03-21 17:34:40.42491 WARNING::Fitting problem for feature 1310 returning NA
-2025-03-21 17:34:41.896074 WARNING::Fitting problem for feature 1322 a warning was issued
-2025-03-21 17:34:42.558082 WARNING::Fitting problem for feature 1330 returning NA
-2025-03-21 17:34:47.489713 WARNING::Fitting problem for feature 1384 returning NA
-2025-03-21 17:34:47.791711 WARNING::Fitting problem for feature 1387 returning NA
-2025-03-21 17:34:51.362823 WARNING::Fitting problem for feature 1421 a warning was issued
-2025-03-21 17:34:53.007806 WARNING::Fitting problem for feature 1437 a warning was issued
-2025-03-21 17:34:53.839514 WARNING::Fitting problem for feature 1444 a warning was issued
-2025-03-21 17:34:54.798663 WARNING::Fitting problem for feature 1455 returning NA
-2025-03-21 17:34:56.310866 WARNING::Fitting problem for feature 1466 a warning was issued
-2025-03-21 17:34:57.703347 WARNING::Fitting problem for feature 1477 returning NA
-2025-03-21 17:34:58.265539 WARNING::Fitting problem for feature 1480 a warning was issued
-2025-03-21 17:34:58.406503 WARNING::Fitting problem for feature 1481 returning NA
-2025-03-21 17:35:00.409068 WARNING::Fitting problem for feature 1498 a warning was issued
-2025-03-21 17:35:01.509413 WARNING::Fitting problem for feature 1510 returning NA
-2025-03-21 17:35:03.173916 WARNING::Fitting problem for feature 1527 a warning was issued
-2025-03-21 17:35:07.940483 WARNING::Fitting problem for feature 1578 returning NA
-2025-03-21 17:35:22.160999 WARNING::Fitting problem for feature 1605 a warning was issued
-2025-03-21 17:35:22.163853 WARNING::Fitting problem for feature 1605 a warning was issued
-2025-03-21 17:35:22.166604 WARNING::Fitting problem for feature 1605 a warning was issued
-2025-03-21 17:35:22.169384 WARNING::Fitting problem for feature 1605 a warning was issued
-2025-03-21 17:35:22.212266 WARNING::Fitting problem for feature 1605 a warning was issued
-2025-03-21 17:35:22.583744 WARNING::Fitting problem for feature 1607 a warning was issued
-2025-03-21 17:35:23.58032 WARNING::Fitting problem for feature 1616 a warning was issued
-2025-03-21 17:35:26.083515 WARNING::Fitting problem for feature 1650 returning NA
-2025-03-21 17:35:26.128894 WARNING::Fitting problem for feature 1651 returning NA
-2025-03-21 17:35:26.815698 WARNING::Fitting problem for feature 1659 a warning was issued
-2025-03-21 17:35:29.144586 WARNING::Fitting problem for feature 1687 a warning was issued
-2025-03-21 17:35:30.128781 WARNING::Fitting problem for feature 1700 returning NA
-2025-03-21 17:35:39.842569 WARNING::Fitting problem for feature 1706 a warning was issued
-2025-03-21 17:35:39.844982 WARNING::Fitting problem for feature 1706 a warning was issued
-2025-03-21 17:35:39.881531 WARNING::Fitting problem for feature 1706 a warning was issued
-2025-03-21 17:35:39.974147 WARNING::Fitting problem for feature 1707 returning NA
-2025-03-21 17:35:40.609907 WARNING::Fitting problem for feature 1713 a warning was issued
-2025-03-21 17:35:50.080978 WARNING::Fitting problem for feature 1714 a warning was issued
-2025-03-21 17:35:50.083912 WARNING::Fitting problem for feature 1714 a warning was issued
-2025-03-21 17:35:50.131502 WARNING::Fitting problem for feature 1714 a warning was issued
-2025-03-21 17:35:52.098916 WARNING::Fitting problem for feature 1737 returning NA
-2025-03-21 17:35:52.670763 WARNING::Fitting problem for feature 1741 a warning was issued
-2025-03-21 17:35:53.051081 WARNING::Fitting problem for feature 1746 returning NA
-2025-03-21 17:35:58.375168 WARNING::Fitting problem for feature 1808 a warning was issued
-2025-03-21 17:35:58.618235 WARNING::Fitting problem for feature 1811 returning NA
-2025-03-21 17:36:03.706833 WARNING::Fitting problem for feature 1851 a warning was issued
-2025-03-21 17:36:04.790636 WARNING::Fitting problem for feature 1861 a warning was issued
-2025-03-21 17:36:04.793782 WARNING::Fitting problem for feature 1861 returning NA
-2025-03-21 17:36:06.772167 WARNING::Fitting problem for feature 1875 a warning was issued
-2025-03-21 17:36:06.781492 WARNING::Fitting problem for feature 1875 returning NA
-2025-03-21 17:36:06.853442 WARNING::Fitting problem for feature 1876 returning NA
-2025-03-21 17:36:08.885709 WARNING::Fitting problem for feature 1898 returning NA
-2025-03-21 17:36:09.198169 WARNING::Fitting problem for feature 1902 returning NA
-2025-03-21 17:36:09.608391 WARNING::Fitting problem for feature 1908 returning NA
-2025-03-21 17:36:10.722769 WARNING::Fitting problem for feature 1923 returning NA
-2025-03-21 17:36:11.999552 WARNING::Fitting problem for feature 1939 returning NA
-2025-03-21 17:36:12.292492 WARNING::Fitting problem for feature 1942 a warning was issued
-2025-03-21 17:36:12.322783 WARNING::Fitting problem for feature 1942 a warning was issued
-2025-03-21 17:36:15.09884 WARNING::Fitting problem for feature 1973 a warning was issued
-2025-03-21 17:36:15.163837 WARNING::Fitting problem for feature 1974 returning NA
-2025-03-21 17:36:16.012183 WARNING::Fitting problem for feature 1982 a warning was issued
-2025-03-21 17:36:16.188437 WARNING::Fitting problem for feature 1984 returning NA
-2025-03-21 17:36:16.72584 WARNING::Fitting problem for feature 1991 returning NA
-2025-03-21 17:36:17.003603 WARNING::Fitting problem for feature 1994 returning NA
-2025-03-21 17:36:17.061322 WARNING::Fitting problem for feature 1995 returning NA
-2025-03-21 17:36:17.109235 WARNING::Fitting problem for feature 1996 returning NA
-2025-03-21 17:36:18.542563 WARNING::Fitting problem for feature 2015 returning NA
-2025-03-21 17:36:20.5339 WARNING::Fitting problem for feature 2040 a warning was issued
-2025-03-21 17:36:24.409174 WARNING::Fitting problem for feature 2086 a warning was issued
-2025-03-21 17:36:36.173455 WARNING::Fitting problem for feature 2103 a warning was issued
-2025-03-21 17:36:36.176484 WARNING::Fitting problem for feature 2103 a warning was issued
-2025-03-21 17:36:36.231688 WARNING::Fitting problem for feature 2103 a warning was issued
-2025-03-21 17:36:36.609447 WARNING::Fitting problem for feature 2104 a warning was issued
-2025-03-21 17:36:39.158838 WARNING::Fitting problem for feature 2131 returning NA
-2025-03-21 17:36:42.228891 WARNING::Fitting problem for feature 2161 returning NA
-2025-03-21 17:36:42.304949 WARNING::Fitting problem for feature 2162 returning NA
+2025-04-25 14:06:35.901402 WARNING::Fitting problem for feature 7 a warning was issued
+2025-04-25 14:06:36.458739 WARNING::Fitting problem for feature 19 returning NA
+2025-04-25 14:06:36.676821 WARNING::Fitting problem for feature 24 returning NA
+2025-04-25 14:06:37.538482 WARNING::Fitting problem for feature 39 a warning was issued
+2025-04-25 14:06:37.868597 WARNING::Fitting problem for feature 44 a warning was issued
+2025-04-25 14:06:39.334276 WARNING::Fitting problem for feature 74 returning NA
+2025-04-25 14:06:46.254275 WARNING::Fitting problem for feature 85 a warning was issued
+2025-04-25 14:06:46.256434 WARNING::Fitting problem for feature 85 a warning was issued
+2025-04-25 14:06:46.27788 WARNING::Fitting problem for feature 85 a warning was issued
+2025-04-25 14:06:46.643299 WARNING::Fitting problem for feature 93 returning NA
+2025-04-25 14:06:46.718663 WARNING::Fitting problem for feature 95 returning NA
+2025-04-25 14:06:54.198988 WARNING::Fitting problem for feature 114 a warning was issued
+2025-04-25 14:06:54.201181 WARNING::Fitting problem for feature 114 a warning was issued
+2025-04-25 14:06:54.222669 WARNING::Fitting problem for feature 114 a warning was issued
+2025-04-25 14:06:54.257729 WARNING::Fitting problem for feature 115 returning NA
+2025-04-25 14:06:54.392511 WARNING::Fitting problem for feature 119 returning NA
+2025-04-25 14:06:54.733061 WARNING::Fitting problem for feature 127 returning NA
+2025-04-25 14:06:55.009634 WARNING::Fitting problem for feature 133 returning NA
+2025-04-25 14:07:02.506554 WARNING::Fitting problem for feature 151 a warning was issued
+2025-04-25 14:07:02.508836 WARNING::Fitting problem for feature 151 a warning was issued
+2025-04-25 14:07:02.530622 WARNING::Fitting problem for feature 151 a warning was issued
+2025-04-25 14:07:03.993028 WARNING::Fitting problem for feature 169 returning NA
+2025-04-25 14:07:10.688859 WARNING::Fitting problem for feature 170 a warning was issued
+2025-04-25 14:07:10.690984 WARNING::Fitting problem for feature 170 a warning was issued
+2025-04-25 14:07:10.712032 WARNING::Fitting problem for feature 170 a warning was issued
+2025-04-25 14:07:10.846085 WARNING::Fitting problem for feature 173 returning NA
+2025-04-25 14:07:10.978472 WARNING::Fitting problem for feature 176 returning NA
+2025-04-25 14:07:11.760453 WARNING::Fitting problem for feature 193 returning NA
+2025-04-25 14:07:11.838506 WARNING::Fitting problem for feature 195 returning NA
+2025-04-25 14:07:12.023087 WARNING::Fitting problem for feature 199 returning NA
+2025-04-25 14:07:12.258422 WARNING::Fitting problem for feature 204 a warning was issued
+2025-04-25 14:07:12.260314 WARNING::Fitting problem for feature 204 returning NA
+2025-04-25 14:07:12.295232 WARNING::Fitting problem for feature 207 returning NA
+2025-04-25 14:07:12.858407 WARNING::Fitting problem for feature 215 a warning was issued
+2025-04-25 14:07:13.136294 WARNING::Fitting problem for feature 220 a warning was issued
+2025-04-25 14:07:13.176092 WARNING::Fitting problem for feature 221 returning NA
+2025-04-25 14:07:13.368615 WARNING::Fitting problem for feature 228 returning NA
+2025-04-25 14:07:13.647612 WARNING::Fitting problem for feature 235 returning NA
+2025-04-25 14:07:13.976544 WARNING::Fitting problem for feature 244 returning NA
+2025-04-25 14:07:14.513876 WARNING::Fitting problem for feature 253 a warning was issued
+2025-04-25 14:07:16.155997 WARNING::Fitting problem for feature 287 returning NA
+2025-04-25 14:07:16.189076 WARNING::Fitting problem for feature 288 returning NA
+2025-04-25 14:07:16.59795 WARNING::Fitting problem for feature 295 returning NA
+2025-04-25 14:07:16.714608 WARNING::Fitting problem for feature 298 returning NA
+2025-04-25 14:07:17.026504 WARNING::Fitting problem for feature 305 returning NA
+2025-04-25 14:07:17.245873 WARNING::Fitting problem for feature 310 returning NA
+2025-04-25 14:07:17.954625 WARNING::Fitting problem for feature 325 returning NA
+2025-04-25 14:07:18.119565 WARNING::Fitting problem for feature 329 returning NA
+2025-04-25 14:07:18.585376 WARNING::Fitting problem for feature 341 returning NA
+2025-04-25 14:07:18.62042 WARNING::Fitting problem for feature 342 returning NA
+2025-04-25 14:07:19.065261 WARNING::Fitting problem for feature 353 returning NA
+2025-04-25 14:07:19.714128 WARNING::Fitting problem for feature 367 returning NA
+2025-04-25 14:07:20.132996 WARNING::Fitting problem for feature 377 returning NA
+2025-04-25 14:07:20.814757 WARNING::Fitting problem for feature 392 returning NA
+2025-04-25 14:07:20.888371 WARNING::Fitting problem for feature 394 returning NA
+2025-04-25 14:07:20.91447 WARNING::Fitting problem for feature 395 returning NA
+2025-04-25 14:07:20.942247 WARNING::Fitting problem for feature 396 returning NA
+2025-04-25 14:07:21.777931 WARNING::Fitting problem for feature 413 returning NA
+2025-04-25 14:07:21.802156 WARNING::Fitting problem for feature 414 returning NA
+2025-04-25 14:07:28.332836 WARNING::Fitting problem for feature 417 a warning was issued
+2025-04-25 14:07:28.334955 WARNING::Fitting problem for feature 417 a warning was issued
+2025-04-25 14:07:28.336939 WARNING::Fitting problem for feature 417 a warning was issued
+2025-04-25 14:07:28.358094 WARNING::Fitting problem for feature 417 a warning was issued
+2025-04-25 14:07:28.551043 WARNING::Fitting problem for feature 421 returning NA
+2025-04-25 14:07:29.085062 WARNING::Fitting problem for feature 430 a warning was issued
+2025-04-25 14:07:29.52483 WARNING::Fitting problem for feature 439 returning NA
+2025-04-25 14:07:29.549659 WARNING::Fitting problem for feature 440 returning NA
+2025-04-25 14:07:31.649601 WARNING::Fitting problem for feature 480 a warning was issued
+2025-04-25 14:07:38.210902 WARNING::Fitting problem for feature 485 a warning was issued
+2025-04-25 14:07:38.213021 WARNING::Fitting problem for feature 485 a warning was issued
+2025-04-25 14:07:38.233887 WARNING::Fitting problem for feature 485 a warning was issued
+2025-04-25 14:07:38.522997 WARNING::Fitting problem for feature 491 returning NA
+2025-04-25 14:07:38.957744 WARNING::Fitting problem for feature 498 a warning was issued
+2025-04-25 14:07:39.333587 WARNING::Fitting problem for feature 504 a warning was issued
+2025-04-25 14:07:39.357533 WARNING::Fitting problem for feature 504 a warning was issued
+2025-04-25 14:07:40.7139 WARNING::Fitting problem for feature 529 a warning was issued
+2025-04-25 14:07:40.733282 WARNING::Fitting problem for feature 529 a warning was issued
+2025-04-25 14:07:41.776763 WARNING::Fitting problem for feature 549 a warning was issued
+2025-04-25 14:07:42.471752 WARNING::Fitting problem for feature 564 returning NA
+2025-04-25 14:07:42.550472 WARNING::Fitting problem for feature 566 returning NA
+2025-04-25 14:07:43.769636 WARNING::Fitting problem for feature 593 returning NA
+2025-04-25 14:07:43.991895 WARNING::Fitting problem for feature 595 a warning was issued
+2025-04-25 14:07:45.497342 WARNING::Fitting problem for feature 623 a warning was issued
+2025-04-25 14:07:45.685172 WARNING::Fitting problem for feature 627 returning NA
+2025-04-25 14:07:45.812149 WARNING::Fitting problem for feature 630 returning NA
+2025-04-25 14:07:45.98975 WARNING::Fitting problem for feature 634 returning NA
+2025-04-25 14:07:46.707091 WARNING::Fitting problem for feature 649 returning NA
+2025-04-25 14:07:55.542331 WARNING::Fitting problem for feature 699 a warning was issued
+2025-04-25 14:07:55.54449 WARNING::Fitting problem for feature 699 a warning was issued
+2025-04-25 14:07:55.566293 WARNING::Fitting problem for feature 699 a warning was issued
+2025-04-25 14:07:57.098346 WARNING::Fitting problem for feature 733 returning NA
+2025-04-25 14:07:57.480339 WARNING::Fitting problem for feature 741 returning NA
+2025-04-25 14:07:58.519315 WARNING::Fitting problem for feature 761 a warning was issued
+2025-04-25 14:07:58.521087 WARNING::Fitting problem for feature 761 returning NA
+2025-04-25 14:07:58.648103 WARNING::Fitting problem for feature 764 returning NA
+2025-04-25 14:07:58.887178 WARNING::Fitting problem for feature 767 a warning was issued
+2025-04-25 14:07:59.533311 WARNING::Fitting problem for feature 781 returning NA
+2025-04-25 14:08:01.9515 WARNING::Fitting problem for feature 830 a warning was issued
+2025-04-25 14:08:02.28283 WARNING::Fitting problem for feature 837 returning NA
+2025-04-25 14:08:02.96718 WARNING::Fitting problem for feature 849 a warning was issued
+2025-04-25 14:08:03.861457 WARNING::Fitting problem for feature 866 a warning was issued
+2025-04-25 14:08:03.863763 WARNING::Fitting problem for feature 866 returning NA
+2025-04-25 14:08:04.525495 WARNING::Fitting problem for feature 879 returning NA
+2025-04-25 14:08:06.94314 WARNING::Fitting problem for feature 931 returning NA
+2025-04-25 14:08:07.410363 WARNING::Fitting problem for feature 941 returning NA
+2025-04-25 14:08:07.677281 WARNING::Fitting problem for feature 944 a warning was issued
+2025-04-25 14:08:08.252237 WARNING::Fitting problem for feature 957 returning NA
+2025-04-25 14:08:08.881293 WARNING::Fitting problem for feature 967 a warning was issued
+2025-04-25 14:08:09.317356 WARNING::Fitting problem for feature 976 returning NA
+2025-04-25 14:08:15.673862 WARNING::Fitting problem for feature 1106 returning NA
+2025-04-25 14:08:15.698625 WARNING::Fitting problem for feature 1107 returning NA
+2025-04-25 14:08:17.247399 WARNING::Fitting problem for feature 1137 a warning was issued
+2025-04-25 14:08:17.24943 WARNING::Fitting problem for feature 1137 returning NA
+2025-04-25 14:08:17.571501 WARNING::Fitting problem for feature 1144 returning NA
+2025-04-25 14:08:17.891599 WARNING::Fitting problem for feature 1148 a warning was issued
+2025-04-25 14:08:18.186676 WARNING::Fitting problem for feature 1152 a warning was issued
+2025-04-25 14:08:18.436868 WARNING::Fitting problem for feature 1156 a warning was issued
+2025-04-25 14:08:18.458863 WARNING::Fitting problem for feature 1156 a warning was issued
+2025-04-25 14:08:19.412538 WARNING::Fitting problem for feature 1174 a warning was issued
+2025-04-25 14:08:19.9242 WARNING::Fitting problem for feature 1183 a warning was issued
+2025-04-25 14:08:23.243151 WARNING::Fitting problem for feature 1252 returning NA
+2025-04-25 14:08:24.361109 WARNING::Fitting problem for feature 1275 returning NA
+2025-04-25 14:08:24.548477 WARNING::Fitting problem for feature 1277 a warning was issued
+2025-04-25 14:08:24.827449 WARNING::Fitting problem for feature 1283 returning NA
+2025-04-25 14:08:25.112985 WARNING::Fitting problem for feature 1288 a warning was issued
+2025-04-25 14:08:25.114776 WARNING::Fitting problem for feature 1288 returning NA
+2025-04-25 14:08:25.390435 WARNING::Fitting problem for feature 1294 returning NA
+2025-04-25 14:08:26.122985 WARNING::Fitting problem for feature 1309 returning NA
+2025-04-25 14:08:26.158253 WARNING::Fitting problem for feature 1310 returning NA
+2025-04-25 14:08:26.859394 WARNING::Fitting problem for feature 1322 a warning was issued
+2025-04-25 14:08:27.255915 WARNING::Fitting problem for feature 1330 returning NA
+2025-04-25 14:08:29.893281 WARNING::Fitting problem for feature 1384 returning NA
+2025-04-25 14:08:30.026949 WARNING::Fitting problem for feature 1387 returning NA
+2025-04-25 14:08:31.791638 WARNING::Fitting problem for feature 1421 a warning was issued
+2025-04-25 14:08:32.681088 WARNING::Fitting problem for feature 1437 a warning was issued
+2025-04-25 14:08:33.111872 WARNING::Fitting problem for feature 1444 a warning was issued
+2025-04-25 14:08:33.66296 WARNING::Fitting problem for feature 1455 returning NA
+2025-04-25 14:08:34.255982 WARNING::Fitting problem for feature 1466 a warning was issued
+2025-04-25 14:08:34.805871 WARNING::Fitting problem for feature 1477 returning NA
+2025-04-25 14:08:35.052124 WARNING::Fitting problem for feature 1480 a warning was issued
+2025-04-25 14:08:35.100019 WARNING::Fitting problem for feature 1481 returning NA
+2025-04-25 14:08:36.072237 WARNING::Fitting problem for feature 1498 a warning was issued
+2025-04-25 14:08:36.66048 WARNING::Fitting problem for feature 1510 returning NA
+2025-04-25 14:08:37.554707 WARNING::Fitting problem for feature 1527 a warning was issued
+2025-04-25 14:08:40.195588 WARNING::Fitting problem for feature 1578 returning NA
+2025-04-25 14:08:48.918144 WARNING::Fitting problem for feature 1605 a warning was issued
+2025-04-25 14:08:48.920422 WARNING::Fitting problem for feature 1605 a warning was issued
+2025-04-25 14:08:48.923052 WARNING::Fitting problem for feature 1605 a warning was issued
+2025-04-25 14:08:48.925336 WARNING::Fitting problem for feature 1605 a warning was issued
+2025-04-25 14:08:48.954294 WARNING::Fitting problem for feature 1605 a warning was issued
+2025-04-25 14:08:49.221112 WARNING::Fitting problem for feature 1607 a warning was issued
+2025-04-25 14:08:49.78939 WARNING::Fitting problem for feature 1616 a warning was issued
+2025-04-25 14:08:51.485152 WARNING::Fitting problem for feature 1650 returning NA
+2025-04-25 14:08:51.509183 WARNING::Fitting problem for feature 1651 returning NA
+2025-04-25 14:08:51.936842 WARNING::Fitting problem for feature 1659 a warning was issued
+2025-04-25 14:08:53.488442 WARNING::Fitting problem for feature 1687 a warning was issued
+2025-04-25 14:08:54.065025 WARNING::Fitting problem for feature 1700 returning NA
+2025-04-25 14:09:00.663493 WARNING::Fitting problem for feature 1706 a warning was issued
+2025-04-25 14:09:00.667055 WARNING::Fitting problem for feature 1706 a warning was issued
+2025-04-25 14:09:00.692051 WARNING::Fitting problem for feature 1706 a warning was issued
+2025-04-25 14:09:00.736128 WARNING::Fitting problem for feature 1707 returning NA
+2025-04-25 14:09:01.121702 WARNING::Fitting problem for feature 1713 a warning was issued
+2025-04-25 14:09:07.643669 WARNING::Fitting problem for feature 1714 a warning was issued
+2025-04-25 14:09:07.645735 WARNING::Fitting problem for feature 1714 a warning was issued
+2025-04-25 14:09:07.665901 WARNING::Fitting problem for feature 1714 a warning was issued
+2025-04-25 14:09:08.751106 WARNING::Fitting problem for feature 1737 returning NA
+2025-04-25 14:09:09.030074 WARNING::Fitting problem for feature 1741 a warning was issued
+2025-04-25 14:09:09.262501 WARNING::Fitting problem for feature 1746 returning NA
+2025-04-25 14:09:12.39125 WARNING::Fitting problem for feature 1808 a warning was issued
+2025-04-25 14:09:12.53158 WARNING::Fitting problem for feature 1811 returning NA
+2025-04-25 14:09:14.625405 WARNING::Fitting problem for feature 1851 a warning was issued
+2025-04-25 14:09:15.178747 WARNING::Fitting problem for feature 1861 a warning was issued
+2025-04-25 14:09:15.180502 WARNING::Fitting problem for feature 1861 returning NA
+2025-04-25 14:09:15.923916 WARNING::Fitting problem for feature 1875 a warning was issued
+2025-04-25 14:09:15.925967 WARNING::Fitting problem for feature 1875 returning NA
+2025-04-25 14:09:15.966435 WARNING::Fitting problem for feature 1876 returning NA
+2025-04-25 14:09:17.115315 WARNING::Fitting problem for feature 1898 returning NA
+2025-04-25 14:09:17.302745 WARNING::Fitting problem for feature 1902 returning NA
+2025-04-25 14:09:17.563295 WARNING::Fitting problem for feature 1908 returning NA
+2025-04-25 14:09:18.300982 WARNING::Fitting problem for feature 1923 returning NA
+2025-04-25 14:09:19.02741 WARNING::Fitting problem for feature 1939 returning NA
+2025-04-25 14:09:19.20068 WARNING::Fitting problem for feature 1942 a warning was issued
+2025-04-25 14:09:19.220922 WARNING::Fitting problem for feature 1942 a warning was issued
+2025-04-25 14:09:20.816067 WARNING::Fitting problem for feature 1973 a warning was issued
+2025-04-25 14:09:20.85149 WARNING::Fitting problem for feature 1974 returning NA
+2025-04-25 14:09:21.357747 WARNING::Fitting problem for feature 1982 a warning was issued
+2025-04-25 14:09:21.451658 WARNING::Fitting problem for feature 1984 returning NA
+2025-04-25 14:09:21.724813 WARNING::Fitting problem for feature 1991 returning NA
+2025-04-25 14:09:21.848536 WARNING::Fitting problem for feature 1994 returning NA
+2025-04-25 14:09:21.874961 WARNING::Fitting problem for feature 1995 returning NA
+2025-04-25 14:09:21.905542 WARNING::Fitting problem for feature 1996 returning NA
+2025-04-25 14:09:23.59115 WARNING::Fitting problem for feature 2015 returning NA
+2025-04-25 14:09:24.788558 WARNING::Fitting problem for feature 2040 a warning was issued
+2025-04-25 14:09:27.10044 WARNING::Fitting problem for feature 2086 a warning was issued
+2025-04-25 14:09:34.332575 WARNING::Fitting problem for feature 2103 a warning was issued
+2025-04-25 14:09:34.334934 WARNING::Fitting problem for feature 2103 a warning was issued
+2025-04-25 14:09:34.357309 WARNING::Fitting problem for feature 2103 a warning was issued
+2025-04-25 14:09:34.526911 WARNING::Fitting problem for feature 2104 a warning was issued
+2025-04-25 14:09:35.858646 WARNING::Fitting problem for feature 2131 returning NA
+2025-04-25 14:09:37.321267 WARNING::Fitting problem for feature 2161 returning NA
+2025-04-25 14:09:37.349113 WARNING::Fitting problem for feature 2162 returning NA
+2025-04-25 14:09:58.576585 WARNING::Fitting problem for feature 10 returning NA
+2025-04-25 14:10:01.148575 WARNING::Fitting problem for feature 26 returning NA
+2025-04-25 14:10:03.17907 WARNING::Fitting problem for feature 38 returning NA
+2025-04-25 14:10:14.820168 WARNING::Fitting problem for feature 74 a warning was issued
+2025-04-25 14:10:14.821841 WARNING::Fitting problem for feature 74 a warning was issued
+2025-04-25 14:10:23.698052 WARNING::Fitting problem for feature 123 returning NA
+2025-04-25 14:10:35.35681 WARNING::Fitting problem for feature 164 a warning was issued
+2025-04-25 14:10:35.358889 WARNING::Fitting problem for feature 164 a warning was issued
+2025-04-25 14:10:44.354246 WARNING::Fitting problem for feature 193 a warning was issued
+2025-04-25 14:10:44.356181 WARNING::Fitting problem for feature 193 a warning was issued
+2025-04-25 14:10:48.610682 WARNING::Fitting problem for feature 195 a warning was issued
+2025-04-25 14:10:48.61236 WARNING::Fitting problem for feature 195 a warning was issued
+2025-04-25 14:10:59.618231 WARNING::Fitting problem for feature 235 a warning was issued
+2025-04-25 14:10:59.620019 WARNING::Fitting problem for feature 235 a warning was issued
+2025-04-25 14:11:06.196438 WARNING::Fitting problem for feature 237 a warning was issued
+2025-04-25 14:11:06.198176 WARNING::Fitting problem for feature 237 a warning was issued
+2025-04-25 14:11:11.77307 WARNING::Fitting problem for feature 276 returning NA
+2025-04-25 14:11:25.45919 WARNING::Fitting problem for feature 307 a warning was issued
+2025-04-25 14:11:25.461023 WARNING::Fitting problem for feature 307 a warning was issued
+2025-04-25 14:11:36.788089 WARNING::Fitting problem for feature 331 a warning was issued
+2025-04-25 14:11:41.610098 WARNING::Fitting problem for feature 341 a warning was issued
+2025-04-25 14:11:41.611955 WARNING::Fitting problem for feature 341 a warning was issued
+2025-04-25 14:11:47.749027 WARNING::Fitting problem for feature 342 a warning was issued
+2025-04-25 14:11:47.750631 WARNING::Fitting problem for feature 342 a warning was issued
+2025-04-25 14:11:48.799179 WARNING::Fitting problem for feature 349 returning NA
