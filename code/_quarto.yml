@@ -37,12 +37,6 @@ website:
           
       - text: "Functional DAA"
         menu:
-          - text: "Pathway Abundance"
-            href: daa/daa_pa.html
-          - text: "Pathway Coverage"
-            href: daa/daa_pc.html
-          - text: "KO"
-            href: daa/daa_ko.html
           - text: "Metacyc"
             href: daa/daa_mtc.html
 

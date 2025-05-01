@@ -1,6 +1,0 @@
-2025-03-21 12:13:41.952793 WARNING::Deleting existing residuals file: ../../output/daa/daa_taxa/rice/species/fits/residuals_linear.rds
-2025-03-21 12:13:41.96082 WARNING::Deleting existing fitted file: ../../output/daa/daa_taxa/rice/species/fits/fitted_linear.rds
-2025-03-21 12:13:41.968823 WARNING::Deleting existing ranef file: ../../output/daa/daa_taxa/rice/species/fits/ranef_linear.rds
-2025-03-21 12:13:41.973814 WARNING::Deleting existing residuals file: ../../output/daa/daa_taxa/rice/species/fits/residuals_logistic.rds
-2025-03-21 12:13:41.982008 WARNING::Deleting existing fitted file: ../../output/daa/daa_taxa/rice/species/fits/fitted_logistic.rds
-2025-03-21 12:13:41.991919 WARNING::Deleting existing ranef file: ../../output/daa/daa_taxa/rice/species/fits/ranef_logistic.rds

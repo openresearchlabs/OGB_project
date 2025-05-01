@@ -70,17 +70,20 @@ file_path <- file.path("../../output/daa/daa_mtc/interaction/significant_results
 
 ```{r print_table}
 #| label: table-of-significant-results
-file_path <- file.path("../../output/daa/daa_mtc/interaction/significant_results.tsv")
+file_path <- file.path("../../output/daa/daa_mtc/interaction/all_results.tsv2")
 total_features <- nrow(metacyc_tse)
 
 daa_tab <- read_tsv(file_path, col_names = TRUE, show_col_types = FALSE) %>%
     filter(!is.na(feature)) %>%
-    select(feature, metadata, value, coef, qval_individual, qval_joint, model)
+    select(EnzymeName, metadata, value, coef, qval_individual, qval_joint, model)
 
-table_caption <- paste("Table of significant features for metacyc- Total features analyzed:", total_features)
+table_caption <- paste("Table of features for metacyc- Total features analyzed:", total_features)
   
 # Split the results by model
 daa_tab_split <- split(daa_tab, daa_tab$model)
+daa_tab_split$abundance <-  daa_tab_split$abundance %>% 
+    rename(metadata = "variable", value = "term") %>%
+      select(-model)
 
 # Format output for HTML or LaTeX
 datatable(
@@ -115,17 +118,19 @@ if (!file.exists(file_path)) {
 
 ```{r}
 tabs <- lapply(tse_list, function(tse){
-file_path <- file.path("../../output/daa/daa_mtc", unique(tse$diet), "all_results.tsv")
+file_path <- file.path("../../output/daa/daa_mtc", unique(tse$diet), "all_results.tsv2")
   total_features <- nrow(tse)
   daa_tab <- read_tsv(file_path, col_names = TRUE, show_col_types = FALSE) %>%
       filter(!is.na(feature)) %>%
-      select(feature, metadata, value, coef, qval_individual, qval_joint, model)
+      select(EnzymeName, metadata, value, coef, qval_individual, qval_joint, model)
   
   table_caption <- paste("Table of features for path coverage within group", unique(tse$diet),
                            "- Total features analyzed:", total_features)
     
     # Split the results by model
     daa_tab_split <- split(daa_tab, daa_tab$model)
+    daa_tab_split$abundance <-  daa_tab_split$abundance %>% 
+      select(c(-model, -metadata, -value))
     
   
     
@@ -156,7 +161,7 @@ tse_after <- metacyc_tse[, metacyc_tse$timepoint == "after"]
 tse_before <- metacyc_tse[, metacyc_tse$timepoint == "before"]
 
 formula_used_int <- '~ diet'
-file_path <- file.path("../../output/daa/daa_mtc", unique(tse_before$timepoint), "all_results.tsv")
+file_path <- file.path("../../output/daa/daa_mtc", unique(tse_before$timepoint), "all_results.tsv2")
 tse_list = list(tse_after, tse_before)
 if (!file.exists(file_path)) {
 lapply(tse_list, function(tse){
@@ -171,17 +176,19 @@ lapply(tse_list, function(tse){
 
 ```{r}
 tabs <- lapply(tse_list, function(tse){
-file_path <- file.path("../../output/daa/daa_mtc", unique(tse$timepoint), "all_results.tsv")
+file_path <- file.path("../../output/daa/daa_mtc", unique(tse$timepoint), "all_results.tsv2")
   total_features <- nrow(tse)
   daa_tab <- read_tsv(file_path, col_names = TRUE, show_col_types = FALSE) %>%
       filter(!is.na(feature)) %>%
-      select(feature, metadata, value, coef, qval_individual, qval_joint, model)
+      select(EnzymeName, metadata, value, coef, qval_individual, qval_joint, model)
   
   table_caption <- paste("Table of features for metacyc at", unique(tse$duration),
                            "- Total features analyzed:", total_features)
     
     # Split the results by model
     daa_tab_split <- split(daa_tab, daa_tab$model)
+    daa_tab_split$abundance <-  daa_tab_split$abundance %>% 
+      select(c(-model, -metadata, -value))
   
       datatable(
         daa_tab_split$abundance,
@@ -231,16 +238,18 @@ Analysis information:
 
 ```{r tsesub_m}
 file_path1 <- file.path("../../output/daa/daa_mtc/interaction/significant_results.tsv")
-file_path2 <- file.path("../../output/daa/daa_mtc/interaction/all_results.tsv")
+file_path2 <- file.path("../../output/daa/daa_mtc/interaction/all_results.tsv2")
 daa_tab1 <- read_tsv(file_path1, col_names = TRUE, show_col_types = FALSE)
 daa_tab1 <- na.omit(daa_tab1)
-significant_fxns <- unique(daa_tab1$feature)
+significant_fxns1 <- unique(daa_tab1$feature)
+significant_fxns <- sub("^X", "", significant_fxns1)
+enzymenames <- read_csv("../../output/daa/daa_mtc/enzymenames.csv", show_col_types = FALSE)
 
 daa_tab <- read_tsv(file_path2, col_names = TRUE, show_col_types = FALSE) %>%
       filter(!is.na(feature)) %>%
       filter(model == "abundance") %>%
-      filter(feature %in% significant_fxns) %>%
-      select(feature,metadata, value, qval_joint) %>%
+      filter(feature %in% significant_fxns1) %>%
+      select(EnzymeName,metadata, value, qval_joint) %>%
       mutate(qval_joint = signif(qval_joint, digits = 3)) 
 ```
 
@@ -252,6 +261,8 @@ plot_fxn <- function(fxn) {
   rownames(metacyc_tse) <- rowData(metacyc_tse)$Feature
   df$signal <- as.vector(assay(metacyc_tse, "relabundance")[fxn,])
   df$signal <- unlist(df$signal)
+  
+  enzyme_name <- enzymenames$EnzymeName[enzymenames$EC == fxn]
     
     # daa_tab_tax <- daa_tab %>%
     #   filter(feature == fxn)
@@ -289,7 +300,7 @@ plot_fxn <- function(fxn) {
       geom_point() + 
       scale_y_log10(labels = scales::percent) + 
       theme(text = element_text(size = 15), legend.position = "none") +
-      labs(title = fxn, y = "Abundance (%)", x = "Diet") +
+      labs(title = enzyme_name, y = "Abundance (%)", x = "Diet") +
       facet_wrap(~ duration, nrow = 1)
     
     p3 <- ggplot(df, aes(x = duration, y = signal)) +
@@ -310,9 +321,10 @@ plot_fxn <- function(fxn) {
 ```
 
 ```{r}
-# plots_list <- list()
-# plots_list <- setNames(lapply(significant_fxns, plot_fxn),
-#                       significant_fxns)
+plots_list <- list()
+name_vec <- enzymenames$EnzymeName[match(significant_fxns, enzymenames$EC)]
+plots_list <- setNames(lapply(significant_fxns, plot_fxn),
+                      name_vec)
 ```
 
 ```{r hits_m}
@@ -320,10 +332,10 @@ plot_fxn <- function(fxn) {
 #| fig-width: 10 
 #| fig-height: 3 
 
-# ordered_plots <- plots_list[order(names(plots_list))]
-# 
-# for (plot_name in names(ordered_plots)) {
-#   print(ordered_plots[[plot_name]])
-# }
+ordered_plots <- plots_list[order(names(plots_list))]
+
+for (plot_name in names(ordered_plots)) {
+  print(ordered_plots[[plot_name]])
+}
 
 ```

@@ -150,18 +150,6 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-functional-daa">    
         <li>
-    <a class="dropdown-item" href="../daa/daa_pa.html">
- <span class="dropdown-text">Pathway Abundance</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../daa/daa_pc.html">
- <span class="dropdown-text">Pathway Coverage</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../daa/daa_ko.html">
- <span class="dropdown-text">KO</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../daa/daa_mtc.html">
  <span class="dropdown-text">Metacyc</span></a>
   </li>  
@@ -252,7 +240,7 @@ ul.task-list li input[type="checkbox"] {
 <p>In the report, a suffix of 1~ Baseline and 2~ Week 6</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-figure-of-findings-before-after" class="quarto-float quarto-figure quarto-figure-center anchored" width="480" data-fig-align="center">
+<div id="fig-figure-of-findings-before-after" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="480">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure-of-findings-before-after-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="alpha_shannon_files/figure-html/fig-figure-of-findings-before-after-1.png" id="fig-figure-of-findings-before-after" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" width="480">
@@ -282,8 +270,8 @@ Table&nbsp;1
 </figcaption>
 <div aria-describedby="tbl-table-of-findings-before-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-7b23273c64e3f62b1325" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-7b23273c64e3f62b1325">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity comparisons at the Baseline<\/caption>","data":[["oat"],["rice"],[4],[4],[0.02],[0.373]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>group1<\/th>\n      <th>group2<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>log2FC<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[2,3,4,5]},{"name":"group1","targets":0},{"name":"group2","targets":1},{"name":"mean1","targets":2},{"name":"mean2","targets":3},{"name":"log2FC","targets":4},{"name":"p.adj","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-760d9355abba6516f559" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-760d9355abba6516f559">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity comparisons at the Baseline<\/caption>","data":[["oat"],["rice"],[4],[4.1],[0.01],[0.552]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>group1<\/th>\n      <th>group2<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>log2FC<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[2,3,4,5]},{"name":"group1","targets":0},{"name":"group2","targets":1},{"name":"mean1","targets":2},{"name":"mean2","targets":3},{"name":"log2FC","targets":4},{"name":"p.adj","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
 </div>
 </div>
 </figure>
@@ -304,8 +292,8 @@ Table&nbsp;2
 </figcaption>
 <div aria-describedby="tbl-table-of-findings-after-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-08ef1c6e31be3a45facb" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-08ef1c6e31be3a45facb">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity comparisons at Week 6<\/caption>","data":[["oat"],["rice"],[3.9],[4.1],[0.06],[0.05]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>group1<\/th>\n      <th>group2<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>log2FC<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[2,3,4,5]},{"name":"group1","targets":0},{"name":"group2","targets":1},{"name":"mean1","targets":2},{"name":"mean2","targets":3},{"name":"log2FC","targets":4},{"name":"p.adj","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-5477868d565d20907809" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-5477868d565d20907809">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity comparisons at Week 6<\/caption>","data":[["oat"],["rice"],[4],[4.1],[0.06],[0.044]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>group1<\/th>\n      <th>group2<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>log2FC<\/th>\n      <th>p.adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"dom":"Bfrtip","columnDefs":[{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[2,3,4,5]},{"name":"group1","targets":0},{"name":"group2","targets":1},{"name":"mean1","targets":2},{"name":"mean2","targets":3},{"name":"log2FC","targets":4},{"name":"p.adj","targets":5}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
 </div>
 </div>
 </figure>
@@ -313,7 +301,7 @@ Table&nbsp;2
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-figure-of-findings-within" class="quarto-float quarto-figure quarto-figure-center anchored" width="480" data-fig-align="center">
+<div id="fig-figure-of-findings-within" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="480">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-figure-of-findings-within-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="alpha_shannon_files/figure-html/fig-figure-of-findings-within-1.png" id="fig-figure-of-findings-within" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" width="480">
@@ -343,8 +331,8 @@ Table&nbsp;3
 </figcaption>
 <div aria-describedby="tbl-table-of-findings-paired-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-61578413fed076336a5f" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-61578413fed076336a5f">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity paired between the Baseline and Week 6<\/caption>","data":[["oat","rice"],[4,4],[3.9,4.1],[-0.02,0.03],[0.132,0.076]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>diet<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>log2FC<\/th>\n      <th>p.value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"dom":"Bfrtip","columnDefs":[{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[1,2,3,4]},{"name":"diet","targets":0},{"name":"mean1","targets":1},{"name":"mean2","targets":2},{"name":"log2FC","targets":3},{"name":"p.value","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-8b1031ea5ba4b94661b1" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-8b1031ea5ba4b94661b1">{"x":{"filter":"none","vertical":false,"caption":"<caption>Table of alpha diversity paired between the Baseline and Week 6<\/caption>","data":[["oat","rice"],[4,4.1],[4,4.1],[-0.02,0.03],[0.128,0.054]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>diet<\/th>\n      <th>mean1<\/th>\n      <th>mean2<\/th>\n      <th>log2FC<\/th>\n      <th>p.value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"dom":"Bfrtip","columnDefs":[{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[1,2,3,4]},{"name":"diet","targets":0},{"name":"mean1","targets":1},{"name":"mean2","targets":2},{"name":"log2FC","targets":3},{"name":"p.value","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render"],"jsHooks":[]}</script>
 </div>
 </div>
 </figure>
@@ -404,27 +392,27 @@ Table&nbsp;4
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">(Intercept)</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">4.02</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">3.90&nbsp;–&nbsp;4.15</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">4.07</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">3.94&nbsp;–&nbsp;4.21</td>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>&lt;0.001</strong></td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">diet [oat]</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.05</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.23&nbsp;–&nbsp;0.13</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.585</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.03</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.23&nbsp;–&nbsp;0.16</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.720</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">duration [Week 6]</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.06</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.02&nbsp;–&nbsp;0.15</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.127</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.07</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.01&nbsp;–&nbsp;0.16</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">0.097</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">diet [oat] × duration<br>[Week 6]</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.13</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.25&nbsp;–&nbsp;-0.01</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>0.035</strong></td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.14</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">-0.26&nbsp;–&nbsp;-0.02</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  "><strong>0.025</strong></td>
 </tr>
 <tr>
 <td colspan="4" style="font-weight:bold; text-align:left; padding-top:.8em;">Random Effects</td>
@@ -437,7 +425,7 @@ Table&nbsp;4
 
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">τ<sub>00</sub> <sub>id</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.12</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.13</td>
 
 </tr><tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">ICC</td>
@@ -445,14 +433,14 @@ Table&nbsp;4
 
 </tr><tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">N <sub>id</sub></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">71</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">69</td>
 </tr><tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">Observations</td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">140</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="3">138</td>
 </tr>
 <tr>
 <td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">Marginal R<sup>2</sup> / Conditional R<sup>2</sup></td>
-<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.027 / 0.801</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="3">0.024 / 0.806</td>
 </tr>
 
 </tbody></table>
@@ -489,13 +477,13 @@ Table&nbsp;5: Estimates for diets
 <div class="cell-output-display">
 <table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 24%">
-<col style="width: 6%">
-<col style="width: 15%">
-<col style="width: 13%">
-<col style="width: 12%">
-<col style="width: 13%">
-<col style="width: 13%">
+<col style="width: 26%">
+<col style="width: 7%">
+<col style="width: 16%">
+<col style="width: 14%">
+<col style="width: 4%">
+<col style="width: 14%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -512,20 +500,20 @@ Table&nbsp;5: Estimates for diets
 <tr class="odd">
 <td style="text-align: left;">Baseline - Week 6</td>
 <td style="text-align: left;">rice</td>
-<td style="text-align: right;">-0.0644195</td>
-<td style="text-align: right;">0.0419236</td>
-<td style="text-align: right;">67.36550</td>
-<td style="text-align: right;">-1.536591</td>
-<td style="text-align: right;">0.1290773</td>
+<td style="text-align: right;">-0.0716062</td>
+<td style="text-align: right;">0.0428860</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: right;">-1.669686</td>
+<td style="text-align: right;">0.0996477</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Baseline - Week 6</td>
 <td style="text-align: left;">oat</td>
-<td style="text-align: right;">0.0627278</td>
-<td style="text-align: right;">0.0425341</td>
-<td style="text-align: right;">67.37541</td>
-<td style="text-align: right;">1.474763</td>
-<td style="text-align: right;">0.1449340</td>
+<td style="text-align: right;">0.0666762</td>
+<td style="text-align: right;">0.0435121</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: right;">1.532359</td>
+<td style="text-align: right;">0.1301423</td>
 </tr>
 </tbody>
 </table>
@@ -585,38 +573,38 @@ Table&nbsp;6: Estimated Marginal Means for Diets
 <tr class="odd">
 <td style="text-align: left;">rice</td>
 <td style="text-align: left;">Baseline</td>
-<td style="text-align: right;">4.023754</td>
-<td style="text-align: right;">0.0646730</td>
-<td style="text-align: right;">84.09045</td>
-<td style="text-align: right;">3.895147</td>
-<td style="text-align: right;">4.152361</td>
+<td style="text-align: right;">4.071365</td>
+<td style="text-align: right;">0.0679572</td>
+<td style="text-align: right;">81.63777</td>
+<td style="text-align: right;">3.936168</td>
+<td style="text-align: right;">4.206563</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">oat</td>
 <td style="text-align: left;">Baseline</td>
-<td style="text-align: right;">3.973278</td>
-<td style="text-align: right;">0.0655904</td>
-<td style="text-align: right;">84.09045</td>
-<td style="text-align: right;">3.842846</td>
-<td style="text-align: right;">4.103709</td>
+<td style="text-align: right;">4.036545</td>
+<td style="text-align: right;">0.0689493</td>
+<td style="text-align: right;">81.63777</td>
+<td style="text-align: right;">3.899374</td>
+<td style="text-align: right;">4.173716</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">rice</td>
 <td style="text-align: left;">Week 6</td>
-<td style="text-align: right;">4.088173</td>
-<td style="text-align: right;">0.0650155</td>
-<td style="text-align: right;">85.45237</td>
-<td style="text-align: right;">3.958915</td>
-<td style="text-align: right;">4.217432</td>
+<td style="text-align: right;">4.142971</td>
+<td style="text-align: right;">0.0679572</td>
+<td style="text-align: right;">81.63777</td>
+<td style="text-align: right;">4.007774</td>
+<td style="text-align: right;">4.278169</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">oat</td>
 <td style="text-align: left;">Week 6</td>
-<td style="text-align: right;">3.910550</td>
-<td style="text-align: right;">0.0659479</td>
-<td style="text-align: right;">85.49222</td>
-<td style="text-align: right;">3.779439</td>
-<td style="text-align: right;">4.041661</td>
+<td style="text-align: right;">3.969869</td>
+<td style="text-align: right;">0.0689493</td>
+<td style="text-align: right;">81.63777</td>
+<td style="text-align: right;">3.832697</td>
+<td style="text-align: right;">4.107040</td>
 </tr>
 </tbody>
 </table>
@@ -635,10 +623,10 @@ Table&nbsp;7: Estimated contrasts for Diets
 <div class="cell-output-display">
 <table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 15%">
+<col style="width: 16%">
 <col style="width: 13%">
 <col style="width: 14%">
-<col style="width: 14%">
+<col style="width: 11%">
 <col style="width: 13%">
 <col style="width: 14%">
 <col style="width: 14%">
@@ -658,20 +646,20 @@ Table&nbsp;7: Estimated contrasts for Diets
 <tr class="odd">
 <td style="text-align: left;">rice - oat</td>
 <td style="text-align: left;">Baseline</td>
-<td style="text-align: right;">0.0504763</td>
-<td style="text-align: right;">0.0921124</td>
-<td style="text-align: right;">84.09045</td>
-<td style="text-align: right;">0.5479863</td>
-<td style="text-align: right;">0.5851531</td>
+<td style="text-align: right;">0.0348203</td>
+<td style="text-align: right;">0.09681</td>
+<td style="text-align: right;">81.63777</td>
+<td style="text-align: right;">0.3596765</td>
+<td style="text-align: right;">0.7200178</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">rice - oat</td>
 <td style="text-align: left;">Week 6</td>
-<td style="text-align: right;">0.1776236</td>
-<td style="text-align: right;">0.0926074</td>
-<td style="text-align: right;">85.47258</td>
-<td style="text-align: right;">1.9180272</td>
-<td style="text-align: right;">0.0584466</td>
+<td style="text-align: right;">0.1731026</td>
+<td style="text-align: right;">0.09681</td>
+<td style="text-align: right;">81.63777</td>
+<td style="text-align: right;">1.7880653</td>
+<td style="text-align: right;">0.0774758</td>
 </tr>
 </tbody>
 </table>
@@ -702,16 +690,16 @@ Figure&nbsp;5
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>class: TreeSummarizedExperiment 
-dim: 1700 140 
+dim: 1700 138 
 metadata(0):
 assays(1): relabundance
 rownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921
 rowData names(9): kingdom phylum ... strain clade_name
-colnames(140): AE1332 AE2332 ... VK1336 VK2336
+colnames(138): AE1332 AE2332 ... VK1336 VK2336
 colData names(17): sample id ... shannon group
 reducedDimNames(0):
 mainExpName: NULL
-altExpNames(20): kingdom phylum ... KO metacyc
+altExpNames(18): kingdom phylum ... pathabundance metacyc
 rowLinks: NULL
 rowTree: NULL
 colLinks: NULL

@@ -529,7 +529,7 @@ run_divergence_tests <- function(tse, index = "divergence") {
     results <- rbind(results, data.frame(
       Diet = g_id,
       mean = mean_after,
-      p.value = test_result$p.value,
+      p.adj = p.adjust(test_result$p.value, method = "fdr"),
       stringsAsFactors = FALSE
     )) %>%
       arrange(Diet)
@@ -544,7 +544,7 @@ run_divergence_tests <- function(tse, index = "divergence") {
 # Calculate statistical results
 results_unpaired <- run_divergence_tests(tse_sub, index)
 
-results_unpaired$p.adj <- p.adjust(results_unpaired$p.value, method = "fdr")
+# results_unpaired$p.adj <- p.adjust(results_unpaired$p.value, method = "fdr")
 #results_unpaired <- results_unpaired %>% arrange(desc(Diet))
 ```
 
@@ -598,7 +598,7 @@ if (knitr::is_html_output()) {
     rownames = FALSE
 ) %>% 
     formatRound(columns = c("mean"), digits = 2) %>%
-  formatSignif(columns = c("p.adj", "p.value"), digits = 3)
+  formatSignif(columns = c("p.adj"), digits = 3)
 } else {
   library(kableExtra)
   results_unpaired %>% 
@@ -729,6 +729,8 @@ if (knitr::is_html_output()) {
 
 -   Homogeneity ≥ 0.05: The assumption of homogeneity of variance is not violated (i.e., the variances are similar across groups).
 
+-   R2 is the proportion of variance in the distance matrix explained by diet or time.
+
 ```{r run_rdba_tests}
 # Function to perform dbRDA and permanova analysis
 perform_dbrda_permanova <- function(tse, variable, comparison, var, times) {
@@ -751,6 +753,7 @@ perform_dbrda_permanova <- function(tse, variable, comparison, var, times) {
     result <- data.frame(
         Term = "Diet",
         P_value = perm_df$`Pr(>F)`[1],
+        R2 = signif(tail(perm_df$`R2`[1], ,), 3),
         Homogeneity = hom_df$`Pr(>F)`[1]
         # Homogeneity = signif(tail(perm_df$homogeneity.Pr..F., 1), 3)
         #P_value_adjusted = p.adjust(group_row$"permanova.Pr..F.", method = "fdr")
@@ -788,6 +791,12 @@ final_results_permanova_tp$p.adj <- p.adjust(final_results_permanova_tp$P_value,
 final_results_permanova_after_tp <- run_rdba_tests(tse, comparisons_after, variable, var = "time", times = "after")
 final_results_permanova_after_tp$p.adj <- p.adjust(final_results_permanova_after_tp$P_value, method = "fdr")
 
+final_results_permanova_tp <- final_results_permanova_tp %>%
+                                    select(-P_value)
+
+final_results_permanova_after_tp <- final_results_permanova_after_tp %>%
+                                    select(-P_value)
+
 #final_results_permanova[] <- lapply(final_results_permanova, function(x) gsub(".before|.after", "", x))
 #final_results_permanova_after[] <- lapply(final_results_permanova_after, function(x) gsub(".before|.after", "", x))
 ```
@@ -812,6 +821,7 @@ perform_dbrda_permanova_pair <- function(tse, variable, comparison, var) {
     result <- data.frame(
         Diet = comparison,
         P_value = group_row$"permanova.Pr..F.",
+        R2 = signif(tail(group_row$"permanova.R2", 1), 3),
         Homogeneity = signif(tail(perm_df$homogeneity.Pr..F., 1), 3)
         #P_value_adjusted = p.adjust(group_row$"permanova.Pr..F.", method = "fdr")
     )
@@ -851,6 +861,8 @@ final_results_permanova_paired<- lapply(diet_groups, function(diet_id) {
   bind_rows() %>%
   arrange(Diet)
 final_results_permanova_paired$p.adj <- p.adjust(final_results_permanova_paired$P_value, method = "fdr")
+final_results_permanova_paired <- final_results_permanova_paired %>%
+                                    select(-P_value)
 
 #final_results_permanova_paired <- final_results_permanova_paired %>% arrange(desc(Diet))
 ```
@@ -881,7 +893,11 @@ final_results_permanova_paired$p.adj <- p.adjust(final_results_permanova_paired$
 if (knitr::is_html_output()) {
   datatable(final_results_permanova_tp,
             options = list(pageLength = 1),
-            caption = "PERMANOVA Results - estimates across diets oat and rice at Baseline")
+            caption = "PERMANOVA Results - variance across diets oat and rice at 
+Baseline: diet explained 1.89% of the variance in microbial community composition 
+(R² = 0.0189), with no evidence of dispersion differences between groups 
+(homogeneity = 0.914). The effect was not statistically significant after 
+correction (adjusted p = 0.099).")
 } else {
   library(kableExtra)
   final_results_permanova_tp %>%
@@ -917,7 +933,11 @@ if (knitr::is_html_output()) {
 if (knitr::is_html_output()) {
   datatable(final_results_permanova_after_tp,
             options = list(pageLength = 6),
-            caption = "PERMANOVA Results - estimates across diets oat and rice at Week 6 ")
+            caption = "PERMANOVA Results - variance across diets oat and rice at 
+Week 6: diet accounted for 2.03% of the variation in microbial community 
+composition (R² = 0.0203), with no significant differences in dispersion 
+between groups (homogeneity = 0.927). The effect was statistically significant 
+after correction (adjusted p = 0.048).")
 } else {
   library(kableExtra)
   final_results_permanova_after_tp %>%
@@ -936,7 +956,12 @@ if (knitr::is_html_output()) {
 if (knitr::is_html_output()) {
   datatable(final_results_permanova_paired,
             options = list(pageLength = 4),
-            caption = "PERMANOVA Results - Paired estimate within diets rice and oat between Baseline and Week 6")
+            caption = "PERMANOVA Results - Variance of diets oat and rice between 
+  Baseline and Week 6: Within-group comparisons over time showed that temporal 
+  changes in microbial composition from baseline to Week 6 were minimal and not 
+  statistically significant for either diet. For oat, time explained 0.63% of 
+  the variance (R² = 0.0063, homogeneity = 0.669, p.adj = 1); for rice, 
+  it explained 1.09% (R² = 0.0109, homogeneity = 0.835, p.adj = 1).")
 } else {
   library(kableExtra)
   final_results_permanova_paired %>%
