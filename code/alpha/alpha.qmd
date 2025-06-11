@@ -276,60 +276,60 @@ colnames(final_results_paired)[colnames(final_results_paired) == "logFC"] <- "lo
 
 ```{r boxplot-before}
 # Create a boxplot
-p1 <- plotColData(
-    tse_before, x = variable, y = index, colour_by = "timepoint",
-    show_boxplot = TRUE, other_fields = c("timepoint"),
-    show_violin = FALSE) +
-    scale_color_manual(
-        values = c("before" = "black"),
-        name = "Timepoint"
-    ) +
-    theme(
-        text = element_text(size = 10),
-        # Remove legend
-        legend.position = "none"
-    ) + coord_fixed(ratio = 0.5) +
-    ggpubr::stat_pvalue_manual(
-      data = final_results_before,
-      xmin = "group1",
-      xmax = "group2",
-      y.position = "y.position",
-      label = "p.adj"
-    )  +
-    labs(
-      title = "Baseline",
-      x = "",
-      y = paste("Alpha Diversity -", index)
-     ) #+ scale_y_log10()
+# p1 <- plotColData(
+#     tse_before, x = variable, y = index, colour_by = "timepoint",
+#     show_boxplot = TRUE, other_fields = c("timepoint"),
+#     show_violin = FALSE) +
+#     scale_color_manual(
+#         values = c("before" = "black"),
+#         name = "Timepoint"
+#     ) +
+#     theme(
+#         text = element_text(size = 10),
+#         # Remove legend
+#         legend.position = "none"
+#     ) + coord_fixed(ratio = 0.5) +
+#     ggpubr::stat_pvalue_manual(
+#       data = final_results_before,
+#       xmin = "group1",
+#       xmax = "group2",
+#       y.position = "y.position",
+#       label = "p.adj"
+#     )  +
+#     labs(
+#       title = "Baseline",
+#       x = "",
+#       y = paste("Alpha Diversity -", index)
+#      ) #+ scale_y_log10()
 ```
 
 ```{r boxplot-after}
-# Create a boxplot
-p2 <- plotColData(
-    tse_after, x = variable, y = index, colour_by = "timepoint",
-    show_boxplot = TRUE,
-    show_violin = FALSE, other_fields = c("timepoint")) + 
-    scale_color_manual(
-        values = c("after" = "black"),
-        name = "Timepoint"
-    ) +
-    theme(
-        text = element_text(size = 10),
-        # remove legend
-        legend.position = "none"
-    ) + coord_fixed(ratio = 0.5) +
-    ggpubr::stat_pvalue_manual(
-      data = final_results_after,
-      xmin = "group1",
-      xmax = "group2",
-      y.position = "y.position",
-      label = "p.adj"
-    )  +
-    labs(
-      title = "Week 6",
-      x = "",
-      y = paste("Alpha Diversity -", index)
-    ) #+ scale_y_log10()
+# # Create a boxplot
+# p2 <- plotColData(
+#     tse_after, x = variable, y = index, colour_by = "timepoint",
+#     show_boxplot = TRUE,
+#     show_violin = FALSE, other_fields = c("timepoint")) + 
+#     scale_color_manual(
+#         values = c("after" = "black"),
+#         name = "Timepoint"
+#     ) +
+#     theme(
+#         text = element_text(size = 10),
+#         # remove legend
+#         legend.position = "none"
+#     ) + coord_fixed(ratio = 0.5) +
+#     ggpubr::stat_pvalue_manual(
+#       data = final_results_after,
+#       xmin = "group1",
+#       xmax = "group2",
+#       y.position = "y.position",
+#       label = "p.adj"
+#     )  +
+#     labs(
+#       title = "Week 6",
+#       x = "",
+#       y = paste("Alpha Diversity -", index)
+#     ) #+ scale_y_log10()
 ```
 
 ```{r}
@@ -394,52 +394,52 @@ p2 <- plotColData(
 ```
 
 ```{r changes1}
-tse_new <- tse[,tse$paired == "yes"]
-colData(tse_new) <- DataFrame(
-    colData(tse_new) %>%
-        as_tibble() %>%
-        tidyr::drop_na({{ variable }}) %>%
-        filter(paired == "yes") %>%
-        group_by(id) %>%
-        mutate(
-            change = if_else(time == 2, .data[[index]] - .data[[index]][time == 1], 0),
-            change = if_else(time == 1, change[time == 2], change)
-        ) %>%
-        ungroup() %>%
-        as.data.frame(check.names = FALSE)
-)
-
-div_change <- plotColData(
-    tse_new, x = "duration", y = index,
-    show_boxplot = TRUE,
-    show_violin = FALSE,
-    other_fields = c("group", "id", "diet", "change")) + 
-    facet_wrap(~diet, ncol = 4, scales="fixed", axis.labels = "margins") +
-    theme(
-        text = element_text(size = 10),
-    ) +
-    labs(
-        title = "Paired alpha diversity",
-        x = "",
-        y = paste("Alpha Diversity -", index)
-    ) + 
-    geom_line(
-        aes(group = id, color = change)
-    ) +
-    scale_color_gradient2(midpoint=0, low="blue", mid="white", high="red", space ="Lab") +
-    #scale_y_log10() +
-    geom_text(
-        data = final_results_paired,
-        aes(
-            x = 1.5,                 
-            y = y.position,          
-            label = paste0("p = ", signif(p.value, 3)),
-            group = diet        
-        ),
-        inherit.aes = FALSE,     
-        size = 4,                 
-        color = "black"            
-    )
+# tse_new <- tse[,tse$paired == "yes"]
+# colData(tse_new) <- DataFrame(
+#     colData(tse_new) %>%
+#         as_tibble() %>%
+#         tidyr::drop_na({{ variable }}) %>%
+#         filter(paired == "yes") %>%
+#         group_by(id) %>%
+#         mutate(
+#             change = if_else(time == 2, .data[[index]] - .data[[index]][time == 1], 0),
+#             change = if_else(time == 1, change[time == 2], change)
+#         ) %>%
+#         ungroup() %>%
+#         as.data.frame(check.names = FALSE)
+# )
+# 
+# div_change <- plotColData(
+#     tse_new, x = "duration", y = index,
+#     show_boxplot = TRUE,
+#     show_violin = FALSE,
+#     other_fields = c("group", "id", "diet", "change")) + 
+#     facet_wrap(~diet, ncol = 4, scales="fixed", axis.labels = "margins") +
+#     theme(
+#         text = element_text(size = 10),
+#     ) +
+#     labs(
+#         title = "Paired alpha diversity",
+#         x = "",
+#         y = paste("Alpha Diversity -", index)
+#     ) + 
+#     geom_line(
+#         aes(group = id, color = change)
+#     ) +
+#     scale_color_gradient2(midpoint=0, low="blue", mid="white", high="red", space ="Lab") +
+#     #scale_y_log10() +
+#     geom_text(
+#         data = final_results_paired,
+#         aes(
+#             x = 1.5,                 
+#             y = y.position,          
+#             label = paste0("p = ", signif(p.value, 3)),
+#             group = diet        
+#         ),
+#         inherit.aes = FALSE,     
+#         size = 4,                 
+#         color = "black"            
+#     )
 
 ```
 
@@ -448,26 +448,29 @@ div_change <- plotColData(
 #| fig-width: 5
 #| fig-height: 4
 #| fig.align: "center"
-y_min <- min(c(tse_before[[index]], tse_after[[index]]), na.rm = TRUE)
-y_max <- max(c(tse_before[[index]], tse_after[[index]]), na.rm = TRUE)
 
-# Get the maximum y-position from your annotations
-max_annotation_y <- max(c(
-    final_results_before$y.position, 
-    final_results_after$y.position
-), na.rm = TRUE)
-
-# Use the larger of data max and annotation position for the upper limit
-y_max <- max(y_max, max_annotation_y)
-
-y_range <- y_max - y_min
-y_max <- y_max + (y_range * 0.2)  
-
-# Apply to both plots
-p1 <- p1 + coord_cartesian(ylim = c(y_min, y_max))
-p2 <- p2 + coord_cartesian(ylim = c(y_min, y_max))
-wrap_plots(p1, p2, axes = "collect")
+# y_min <- min(c(tse_before[[index]], tse_after[[index]]), na.rm = TRUE)
+# y_max <- max(c(tse_before[[index]], tse_after[[index]]), na.rm = TRUE)
+# 
+# # Get the maximum y-position from your annotations
+# max_annotation_y <- max(c(
+#     final_results_before$y.position, 
+#     final_results_after$y.position
+# ), na.rm = TRUE)
+# 
+# # Use the larger of data max and annotation position for the upper limit
+# y_max <- max(y_max, max_annotation_y)
+# 
+# y_range <- y_max - y_min
+# y_max <- y_max + (y_range * 0.2)  
+# 
+# # Apply to both plots
+# p1 <- p1 + coord_cartesian(ylim = c(y_min, y_max))
+# p2 <- p2 + coord_cartesian(ylim = c(y_min, y_max))
+# wrap_plots(p1, p2, axes = "collect")
 # p
+plotBoxplot(tse, col.var = index, x = "duration", fill.by = "diet", add.significance = T) + 
+  scale_fill_viridis_d(option = "D")
 ```
 
 ### Table of the top findings
@@ -550,9 +553,11 @@ if (knitr::is_html_output()) {
 ```{r viz-div_change}
 #| label: fig-figure-of-findings-within
 #| fig-width: 5
-#| fig-height: 3
+#| fig-height: 4
 #| fig.align: "center"
-div_change
+
+#div_change
+plotBoxplot(tse, col.var = index, x = "diet", fill.by = "duration", pair.by = "id", add.change = T, add.significance = T)
 ```
 
 #### Within-group

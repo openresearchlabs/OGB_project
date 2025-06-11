@@ -172,3 +172,16 @@ run_lmer <- function(tse, target){
   m <- lmerTest::lmer(y ~ diet * duration + (1 | id), data = df_no_miss)
   return(m)
 }
+
+generate_prevalence_label <- function(df_prevalence, feature_id) {
+  df_prevalence %>%
+    filter(FeatureID == feature_id) %>%
+    transmute(
+      before_rice = paste0("rice_Baseline: N=", rice_Baseline_nonzero_n, " (", rice_Baseline_pct_nonzero, "%)"),
+      after_rice  = paste0("rice_Week 6: N=", `rice_Week 6_nonzero_n`,  " (", `rice_Week 6_pct_nonzero`, "%)"),
+      before_oat  = paste0("oat_Baseline: N=", oat_Baseline_nonzero_n,  " (", oat_Baseline_pct_nonzero, "%)"),
+      after_oat   = paste0("oat_Week 6: N=", `oat_Week 6_nonzero_n`,   " (", `oat_Week 6_pct_nonzero`, "%)")
+    ) %>%
+    unite("label", everything(), sep = " | ") %>%
+    pull(label)
+}
