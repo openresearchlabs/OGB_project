@@ -40,7 +40,7 @@ file_path1 <- file.path("../../output/daa/daa_taxa/species/all_results.tsv")
 file_path2 <- file.path("../../output/daa/daa_taxa/genus/all_results.tsv")
 
 genus_of_interest <- c("Lactobacillus", "Bifidobacterium")
-species_of_interest <- c("Bifidobacterium_adolescentis", "Lactobacillus_acidophilus", "Bifidobacterium_animalis", "Lactobacillus_gasseri", "Bifidobacterium_angulatum", "Bifidobacterium_bifidum", "Bifidobacterium_catenulatum", "Lactobacillus_iners", "Bifidobacterium_pullorum", "Tyzzerella_nexilis", "Ruminococcus_gnavus")
+species_of_interest <- c("Bifidobacterium_adolescentis", "Bifidobacterium_animalis", "Bifidobacterium_bifidum", "Ruminococcus_gnavus")
 
 taxa_of_interest <- c(genus_of_interest, species_of_interest)
 
@@ -60,165 +60,63 @@ daa_tab <- rbind(daa_tab1, daa_tab2) %>%
 
 ```
 
-```{r before-after}
-df <- as.data.frame(colData(tse))
-
-plot_taxon <- function(taxon) {
-  
-  # Check if the taxon exists in genus or species
-  if (taxon %in% rowData(tse)$genus | taxon %in% rowData(tse)$species) {
-    
-    # Calculate signal (relative abundance)
-        if (taxon %in% rowData(tse)$genus) {
-          rownames(tse) <- rowData(tse)$genus
-          df$signal <- as.vector(assay(tse, "relabundance")[taxon,])
-        } else {
-          rownames(tse) <- rowData(tse)$species
-          df$signal <- as.vector(assay(tse, "relabundance")[taxon,])
-        }
-    
-    daa_tab_tax <- daa_tab %>%
-      filter(feature == taxon)
-    
-    anot_tax <- daa_tab_tax %>% 
-        filter(metadata == "intervention")
-    
-    anot_tax$pval_color <- ifelse(anot_tax$qval_joint <= 0.25, "red", "blue")
-    # Subset for before and after
-    df_before <- df %>% filter(timepoint == "before")
-    df_after <- df %>% filter(timepoint == "after")
-    
-    # Prepare data for plotting
-        vars <- c("id", "timepoint", "signal")
-        dfm <- melt(df[, vars])
-        colnames(dfm) <- vars
-        
-        # Filter and mutate for paired design
-        df <- df %>%
-          filter(paired == "yes") %>%
-          group_by(id) %>%
-          mutate(
-            change = if_else(timepoint == "after", signal - signal[timepoint == "before"], 0),
-            change = if_else(timepoint == "before", change[timepoint == "after"], change)
-          ) %>%
-          ungroup() %>%
-          as.data.frame(check.names = FALSE)
-        
-          min_change <- min(df$change, na.rm = TRUE)
-          max_change <- max(df$change, na.rm = TRUE)
-          median_change <- median(df$change, na.rm = TRUE)
-    
-    p12 <- ggplot(df, aes(x = diet, y = signal)) +
-      geom_boxplot(outlier.shape = NA) +
-      geom_point() + 
-      scale_y_log10(labels = scales::percent) + 
-      theme(text = element_text(size = 15), legend.position = "none") +
-      labs(title = taxon, y = "Abundance (%)", x = "Diet") +
-      facet_wrap(~ duration, nrow = 1)
-    
-    p3 <- ggplot(df, aes(x = duration, y = signal)) +
-      geom_boxplot(outlier.shape = NA) +
-      geom_point() + 
-      geom_line(aes(group = id, color = change)) +
-      scale_color_gradient2(midpoint = median_change, low = "blue", mid = "white", high = "red", space = "Lab", limits = c(min_change, max_change)) +
-      facet_wrap(~ diet) +
-      scale_y_log10(labels = scales::percent) + 
-      theme(text = element_text(size = 15), legend.position = "right") +
-      labs(x = "Time", y = "Abundance (%)")
-    
-    # Combine the before and after plots
-    return(wrap_plots(p12, p3, axes = "collect")
-  )
-  }
-  
-  return(NULL)
-}
-```
-
 ```{r}
+df <- mia::meltSE(altExp(tse, "species_prevalent"), add.col = T, assay.type = "relabundance")
+
+df_not_zer0 <- df %>%
+    group_by(FeatureID, duration, diet) %>%
+    summarise(
+        nonzero_n = sum(relabundance > 0, na.rm = TRUE),
+        total_n = sum(!is.na(relabundance)),
+        pct_nonzero = round(100 * nonzero_n / total_n, 1),
+        .groups = "drop"
+    ) %>%
+    filter(nonzero_n > 0) %>%
+    pivot_wider(
+        names_from = c(duration, diet),
+        values_from = c(nonzero_n, total_n, pct_nonzero),
+        names_glue = "{diet}_{duration}_{.value}"
+    )
+
 plots_list <- list()
-plots_list <- setNames(lapply(taxa_of_interest, plot_taxon), taxa_of_interest)
+plots_list <- setNames(lapply(species_of_interest, function(taxon_name) {
+    
+    p1 <- plotBoxplot( altExp(tse, "species_prevalent"), assay.type = "relabundance", x = "diet",  fill.by = "duration", pair.by = "id", features = c(taxon_name), facet.by = "rownames", add.change = T, add.significance = T, ncol = 1, label.size = 5) +
+      theme_minimal(base_size = 15) +
+  theme(text = element_text(family = "Roboto", size = 15), 
+        axis.text = element_text(face = "bold"),
+  )
+
+    p2 <- plotBoxplot( altExp(tse, "species_prevalent"), assay.type = "relabundance", x = "duration",  fill.by = "diet", features = c(taxon_name), facet.by = "rownames", add.significance = T, ncol = 1, label.size = 5) +
+      scale_fill_viridis_d(option = "D") +
+      theme_minimal(base_size = 15) +
+  theme(text = element_text(family = "Roboto", size = 15), 
+        axis.text = element_text(face = "bold"),
+  )
+    label_text <- generate_prevalence_label(df_not_zer0, taxon_name)
+    
+    p12 <- wrap_plots(p1, p2, axes = "collect") + 
+      labs(caption = label_text) +
+      theme(
+    plot.caption = element_text(size = 10, 
+                                face = "bold.italic", 
+                                hjust = 1, color = "darkblue")
+      )
+    
+    return(p12)
+    
+}
+    ),
+ species_of_interest)
 ```
 
 
 ```{r hits}
+#| label: fig-figure-of-highlights
 #| layout-ncol: 1
 #| fig-width: 10 
-#| fig-height: 3 
+#| fig-height: 6 
 
-# theme_set(theme_bw(40))
-# 
-# 
-# for (g in unique(tse$meal)) {
-# 
-#   if (length(rowData(tse))>0) {
-#     tseg <- tse[, tse$meal==g] 
-#     df <- as.data.frame(colData(tseg)) 
-#     
-#     for (tax in taxa_of_interest) {
-#       # Check if the genus or species exists in the dataset
-#       if (tax %in% rowData(tseg)$genus | tax %in% rowData(tseg)$species) {
-#         
-#         if (tax %in% rowData(tseg)$genus) {
-#           rownames(tseg) <- rowData(tseg)$genus
-#           df$signal <- as.vector(assay(tseg, "relabundance")[tax,])
-#         } else {
-#           rownames(tseg) <- rowData(tseg)$species
-#           df$signal <- as.vector(assay(tseg, "relabundance")[tax,])
-#         }
-# 
-#         # Prepare data for plotting
-#         vars <- c("id", "timepoint", "signal")
-#         dfm <- melt(df[, vars])
-#         colnames(dfm) <- vars
-#         
-#         # Filter and mutate for paired design
-#         df <- df %>%
-#           filter(paired == "yes") %>%
-#           group_by(id) %>%
-#           mutate(
-#             change = if_else(timepoint == "after", signal - signal[timepoint == "before"], 0),
-#             change = if_else(timepoint == "before", change[timepoint == "after"], change)
-#           ) %>%
-#           ungroup() %>%
-#           as.data.frame(check.names = FALSE)
-#         
-#           min_change <- min(df$change, na.rm = TRUE)
-#           max_change <- max(df$change, na.rm = TRUE)
-#           median_change <- median(df$change, na.rm = TRUE)
-#           
-#           daa_tab_tax <- daa_tab %>%
-#             filter(feature == tax)
-#           
-#           
-#           anot_tax <- daa_tab_tax %>% 
-#               filter(value == "x")
-#           
-#           anot_tax$pval_color <- ifelse(anot_tax$qval_joint <= 0.25, "red", "blue")
-# 
-#         # Create the plot
-#         p <- ggplot(df, aes(x = timepoint, y = signal)) +
-#           geom_boxplot(outlier.shape = NA) +
-#           geom_point() + 
-#           geom_line(aes(group = id, color = change)) +
-#           scale_color_gradient2(midpoint = median_change, 
-#                                 low = "blue", 
-#                                 mid = "white", 
-#                                 high = "red", 
-#                                 space = "Lab",
-#                                 limits = c(min_change, max_change)) +
-#           scale_y_log10(labels = scales::percent) + 
-#           labs(title = paste(tax, "/", g), y = "Abundance (%)") +
-# 
-#           theme(
-#             plot.title = ggtext::element_markdown() 
-#           ) 
-#         
-#         plots_list[[paste(tax, "0", g, sep = "_")]] <- p
-#       }
-#     }
-#   }
-# }
 ordered_plots <- plots_list[order(names(plots_list))]
 for (plot_name in names(ordered_plots)) {
   print(ordered_plots[[plot_name]])
