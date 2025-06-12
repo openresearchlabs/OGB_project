@@ -159,5 +159,33 @@
     "title": "Alpha Diversity",
     "section": "2 Data Summary",
     "text": "2 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 1700 138 \nmetadata(0):\nassays(1): relabundance\nrownames(1700): SGB4933 SGB4285 ... SGB15018 SGB4921\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(138): AE1332 AE2332 ... VK1336 VK2336\ncolData names(18): sample id ... group observed_log2\nreducedDimNames(0):\nmainExpName: NULL\naltExpNames(18): kingdom phylum ... pathabundance metacyc\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
+  },
+  {
+    "objectID": "daa/daa_pa.html",
+    "href": "daa/daa_pa.html",
+    "title": "DAA Metabolic Pathways",
+    "section": "",
+    "text": "Group variable: diet\nFormula used: ~ diet * timepoint + (1 | id)"
+  },
+  {
+    "objectID": "daa/daa_pa.html#within-group-comparisons",
+    "href": "daa/daa_pa.html#within-group-comparisons",
+    "title": "DAA Metabolic Pathways",
+    "section": "2.1 Within-Group Comparisons",
+    "text": "2.1 Within-Group Comparisons\n\n2.1.1 Diet Oat\n\n\n\n\n\n\n\n\n2.1.2 Diet Rice"
+  },
+  {
+    "objectID": "daa/daa_pa.html#across-group-comparisons",
+    "href": "daa/daa_pa.html#across-group-comparisons",
+    "title": "DAA Metabolic Pathways",
+    "section": "2.2 Across-Group Comparisons",
+    "text": "2.2 Across-Group Comparisons\n\n2.2.1 Before Intervention - Week 0\n\n\n\n\n\n\n\n\n2.2.2 Post Intervention - Week 6"
+  },
+  {
+    "objectID": "daa/daa_pa.html#maaslin3-significant-hits",
+    "href": "daa/daa_pa.html#maaslin3-significant-hits",
+    "title": "DAA Metabolic Pathways",
+    "section": "2.3 Maaslin3 significant hits",
+    "text": "2.3 Maaslin3 significant hits\nThis section highlights significant taxa from maaslin3.\nAnalysis information:\n\nMethod: maaslin3\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%"
   }
 ]
