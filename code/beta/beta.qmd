@@ -1,7 +1,5 @@
 ---
 title: "Beta diversity"
-author:
-  - name: Muluh
 ---
 
 ## Community composition
@@ -38,61 +36,6 @@ tse$diet <- factor(tse$diet, levels=c("oat", "rice"))
 
 altExp(tse, "phylum")$diet <- factor(altExp(tse, "phylum")$diet, levels=c("oat", "rice"))
 tse_p <- altExp(tse, "phylum")
-# Visualization - composition bar plot
-# plotAbundance(
-#   altExp(tse, "phylum"),
-#   assay.type = "relabundance",
-#   # color.by = "phylum_sub",
-#   color_by = "phylum_sub",  
-#   group = "phylum_sub",
-#   order.row.by = "abund", 
-#   order.col.by = "Firmicutes") +
-#   #order.row.by = "abund") +  
-# theme(
-#           axis.text.y = element_text(face = "bold", size = 12),
-#           axis.title.x = element_text(face = "bold", size = 14),
-#           axis.title.y = element_text(face = "bold", size = 14),
-#           legend.text = element_text(face = "bold", size = 14),
-#           legend.title = element_text(face = "bold", size = 14)
-#         ) + scale_y_continuous(labels=scales::percent) +
-#   labs(y = "Abundance(%)") + facet_wrap(diet ~ duration, nrow = 1, drop = TRUE ) 
-
-# plots <- lapply(sort(unique(tse$diet)), function(diet_id) {
-#     tse_diet <- tse[, tse$diet == diet_id]
-# 
-#     # Inner lapply for time points
-#     time_plots <- lapply(unique(tse_diet$time), function(time_point) {
-#         tse_filtered <- tse_diet[, tse_diet$time == time_point]
-#         lab <- paste0(unique(tse_filtered$diet), " at time ", time_point)
-# 
-#         # Plot abundance for the filtered tse
-#         plotAbundance(
-#             altExp(tse_filtered, "phylum"),
-#             assay.type = "relabundance",
-#             color.by = "phylum_sub",
-#             group = "phylum",
-#             order.row.by = "abund",
-#             order.col.by = "Firmicutes"
-#         ) +
-#             theme(
-#               axis.text.y = element_text(face = "bold", size = 12),
-#               axis.title.x = element_text(face = "bold", size = 14),
-#               axis.title.y = element_text(face = "bold", size = 14),
-#               legend.text = element_text(face = "bold", size = 14),
-#               legend.title = element_text(face = "bold", size = 14),
-#               plot.title = element_text(face = "bold", size = 14)
-#             ) + scale_y_continuous(label=scales::percent) +
-#           labs(title = lab, ylab = "Abundance(%)")
-#     })
-#     return(time_plots)
-# })
-# 
-# # Flatten the list of plots
-# plots_flat <- unlist(plots, recursive = FALSE)
-# 
-# # Create the combined plot
-# bar_plot <- wrap_plots(plots_flat, ncol = 2)
-# bar_plot
 
 plots <- lapply(sort(unique(tse_p$diet)), function(diet_id) {
     tse_diet <- tse_p[, tse_p$diet == diet_id]
@@ -180,61 +123,6 @@ ggplot(summary_results, aes(x = reorder(Phylum, Mean_Percentage), y = Mean_Perce
 altExp(tse, "genus")$diet <- factor(altExp(tse, "genus")$diet, levels=c("oat", "rice"))
 
 tse_g <- altExp(tse, "genus")
-# plotAbundance(
-#   tse_g,
-#   assay.type = "relabundance",
-#   color_by = "genus_sub",  
-#   group = "genus_sub",
-#   order.row.by = "abund",
-#   order.col.by = "Other"
-#   ) +
-# theme(
-#           axis.text.y = element_text(face = "bold", size = 12),
-#           axis.title.x = element_text(face = "bold", size = 14),
-#           axis.title.y = element_text(face = "bold", size = 14),
-#           legend.text = element_text(face = "bold", size = 14),
-#           legend.title = element_text(face = "bold", size = 14)
-#         ) + scale_y_continuous(label=scales::percent) +
-#   labs(ylab = "Abundance(%)") + facet_wrap(diet ~ duration, nrow = 1) 
-          
-
-# plots <- lapply(sort(unique(tse_g$diet)), function(diet_id) {
-#     tse_diet <- tse_g[, tse_g$diet == diet_id]
-#     
-#     # Inner lapply for time points
-#     time_plots <- lapply(unique(tse_diet$time), function(time_point) {
-#         tse_filtered <- tse_diet[, tse_diet$time == time_point]
-#         lab <- paste0(unique(tse_filtered$diet), " at time ", time_point)
-#         
-#         # Plot abundance for the filtered tse
-#         plotAbundance(
-#             tse_filtered,
-#             assay.type = "relabundance",
-#             color.by = "genus_sub",
-#             group = "genus",
-#             order.row.by = "abund",
-#             order.col.by = "Collinsella"
-#           
-#         ) +  labs(title = lab, ylab = "Abundance(%)") +
-#             theme(
-#               axis.text.y = element_text(face = "bold", size = 12),
-#               axis.title.x = element_text(face = "bold", size = 14),
-#               axis.title.y = element_text(face = "bold", size = 14),
-#               legend.text = element_text(face = "bold", size = 14),
-#               legend.title = element_text(face = "bold", size = 14),
-#               plot.title = element_text(face = "bold", size = 14)
-#             ) + scale_y_continuous(label=scales::percent)
-#          
-#     })
-#     return(time_plots)
-# })
-# 
-# # Flatten the list of plots
-# plots_flat <- unlist(plots, recursive = FALSE)
-# 
-# # Create the combined plot
-# bar_plot <- wrap_plots(plots_flat, ncol = 2)
-# bar_plot
 
 plots <- lapply(sort(unique(tse_g$diet)), function(diet_id) {
     tse_diet <- tse_g[, tse_g$diet == diet_id]
@@ -272,72 +160,6 @@ bar_plot
 ```
 
 ### Heatmap
-
-```{r heatmap}
-#| label: fig-figure-of-composition-heat
-#| fig.width: 24
-#| fig.height: 12
-#| out.width: "100%"
-#| fig.align: "center"
-
-# tse_heat <-  altExp(tse, "genus")
-# tse_heat <- transformAssay(tse_heat, assay.type = "relabundance", method = "clr", pseudocount = TRUE)
-# tse_heat <- transformAssay(
-#     tse_heat, assay.type = "clr", MARGIN = "rows", method = "standardize",
-#     name = "clr_z")
-# # Plot heatMap with sechm
-# plots <- lapply(sort(unique(tse_heat$diet)), function(diet_id) {
-#     # Filter tse_heat for the current meal group
-#     tse_heat_filtered <- tse_heat[, tse_heat$diet == diet_id]
-#     
-#     # Now iterate over unique times within the current meal group
-#     lapply(unique(tse_heat_filtered$duration), function(time_point) {
-#         # Filter data for the current time
-#         tse_time_filtered <- tse_heat_filtered[, tse_heat_filtered$duration == time_point]
-#         
-#         # Create the label based on both meal group and time
-#         lab <- paste0(unique(tse_time_filtered$diet), 
-#                       " at", time_point)
-#         
-#         # Title grob
-#         title_grob <- textGrob(
-#             lab, x = 0.05, y = 0.2, just = c("left", "top"), 
-#             gp = gpar(fontsize = 14, fontface = "bold")
-#         )
-#         
-#         # Create heatmap for the filtered data
-#         heatmap <- sechm(
-#             tse_time_filtered, assayName = "clr_z", features = rownames(tse_time_filtered),
-#             show_rownames = TRUE, show_colnames = FALSE, do.scale = TRUE, name = "clr_z",
-#             top_annotation = character(), column_labels = tse_time_filtered$id,
-#             row_names_gp = gpar(fontsize = 12), column_names_gp = gpar(fontsize = 12),
-#             breaks = 1, column_title = "Samples", row_title = "Genus",
-#             # width = unit(3, "inches"),
-#             # height = unit(6, "inches"), 
-#             hmcols = c("blue", "white", "red"), sort.method = "MDS_angle", cluster_cols = T, cluster_rows = T, na_col = "black"
-#         )
-#         
-#         # Grab heatmap as a grob
-#         heatmap_grob <- grid.grabExpr(draw(heatmap))
-#         
-#         # Combine title and heatmap
-#         combined_grob <- arrangeGrob(
-#             grobs = list(title_grob, heatmap_grob),
-#             ncol = 4,
-#             heights = unit.c(unit(1, "lines"), unit(1, "null"))
-#         )
-#         
-#         return(combined_grob)
-#     })
-# })
-# 
-# 
-# plots_flat <- unlist(plots, recursive = FALSE)
-# 
-# # Arrange all heatmaps in a grid
-# grid.newpage()
-# do.call(grid.arrange, c(plots_flat, ncol = 4))
-```
 
 ```{r}
 #| fig-width: 18
@@ -465,29 +287,7 @@ tse <- addStepwiseDivergence(tse, group = "id",
                             assay.type = "relabundance")
 tse_sub <- tse[, !is.na(colData(tse)$divergence)]
 
-# p2_traj <- plotReducedDim(
-#     tse[, !is.na(colData(tse)[["meal_group"]])],
-#     "PCoA_BC", colour_by = "timepoint",
-#     other_fields = c("group", "id", "diet", "timepoint")
-# ) +
-#     aes(color = timepoint) +
-#     labs(
-#         title = "Trajectories between Treatments",
-#         x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
-#         y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
-#     ) +
-#     theme(plot.title = element_text(hjust = 0.5)) +
-#     scale_color_manual(
-#         values = c("before" = "blue", "after" = "orange"),
-#         name = "Timepoint"
-#     ) +
-#     facet_wrap(~diet, nrow = 1) +
-#     geom_line(
-#         aes(group = id),
-#         color = "grey50",
-#         alpha = 0.5,
-#         linetype = "dashed"
-#     )
+
 ```
 
 ```{r run_diversity_tests}
@@ -543,39 +343,6 @@ run_divergence_tests <- function(tse, index = "divergence") {
 ```{r pvalues-paired}
 # Calculate statistical results
 results_unpaired <- run_divergence_tests(tse_sub, index)
-
-# results_unpaired$p.adj <- p.adjust(results_unpaired$p.value, method = "fdr")
-#results_unpaired <- results_unpaired %>% arrange(desc(Diet))
-```
-
-```{r changes1}
-# div_change <- plotColData(
-#     tse_sub, x = "timepoint", y = index, colour_by = "timepoint",
-#     show_boxplot = TRUE,
-#     show_violin = FALSE, other_fields = c("group", "diet", "timepoint")) + 
-#     facet_wrap(~diet, ncol = 4, scales="fixed", axis.labels = "margins") +
-#     scale_color_manual(
-#         values = c("after" = "black"),
-#         name = "Timepoint"
-#     ) +
-#     theme(
-#         text = element_text(size = 10),
-#         legend.position = "none",
-#         axis.text.x = element_blank(),
-#         axis.ticks.x = element_blank(),
-#     ) +
-#     labs(
-#         title = "Change",
-#         x = "",
-#         y = "Divergence over time"
-#     )
-```
-
-```{r viz-div_change}
-#| fig-width: 5
-#| fig-height: 3
-#| fig.align: "center"
-# div_change
 ```
 
 ### Table of the top findings
@@ -611,111 +378,7 @@ if (knitr::is_html_output()) {
 }
 ```
 
-```{r viz-fig2_traj}
-#| fig-width: 5
-#| fig-height: 3
-#| fig.align: "center"
-# p2_traj
-```
-
-
-
-```{r significant variables}
-### Significant variables
-# tse1 <- tse[, tse$diet == "rice"]
-# tse2 <- tse[, tse$diet == "oat"]
-# 
-# # Perform RDA
-# tse1 <- addRDA(
-#     tse1,
-#     assay.type = "relabundance",
-#     formula = assay ~ timepoint ,
-#     distance = dissimilarity.index,
-#     na.action = na.exclude)
-# 
-# tse2 <- addRDA(
-#     tse2,
-#     assay.type = "relabundance",
-#     formula = assay ~ timepoint,
-#     distance = dissimilarity.index,
-#     na.action = na.exclude)
-```
-
-```{r}
-#| layout-ncol: 2
-#| fig-width: 6
-#| fig-height: 5
-# tse_list <- list(tse1, tse2)
-# Calculate explained variance
-# lapply(tse_list, function(tse) {
-# 
-# e_rda1 <- attr(reducedDim(tse, "RDA"), "eig")
-# rel_eig_rda1 <- e_rda1 / sum(e_rda1[e_rda1 > 0])
-# # Generate RDA plot coloured by Treatment
-# plotRDA(tse, "RDA") + 
-#   labs(
-#     x = paste("RDA 1 (", round(100 * rel_eig_rda1[[1]], 1), "%)", sep = ""),
-#     y = paste("RDA 2 (", round(100 * rel_eig_rda1[[2]], 1), "%)", sep = "")
-#   ) +
-#   labs(color = "Diet") +
-#   theme(legend.position = "right", legend.title = element_text(size = 12), legend.text = element_text(size = 10))
-# 
-# })
-
-```
-
-
-
-```{r mds}
-#| fig-width: 10
-#| fig-height: 3
-#| width: 100%
-#| fig.align: "center"
-# -   MDS
-# lapply(tse_list, function(tse) {
-# pcoa_axes <- reducedDim(tse, "PCoA_BC") 
-# taxa_abundances <- t(assay(tse, "clr")) 
-# 
-# # Calculate Kendall correlations
-# cor_matrix <- t(cor(pcoa_axes, taxa_abundances, method = "kendall"))
-# top_n <- 5
-# top_taxa <- apply(cor_matrix, 2, function(x) {
-#   abs_corr <- abs(x)
-#   names(sort(abs_corr, decreasing = TRUE)[1:top_n])
-# })
-# 
-# # Get unique taxa across all axes
-# unique_taxa <- unique(unlist(top_taxa))
-# filtered_cor_matrix <- cor_matrix[unique_taxa,]
-# rownames(filtered_cor_matrix) <- rowData(tse[unique_taxa,])$genus
-# plotLoadings(filtered_cor_matrix, ncomponents = 2) + 
-# labs(
-#     title = unique(tse$diet)
-#   )
-# })
-```
-
 ## Supervised analysis
-
-
-```{r significant-taxa-oat}
-#| fig-width: 10
-#| fig-height: 3
-#| width: 100%
-#| fig.align: "center"
-
-### Significant taxa
-
-# -   RDA
-# lapply(tse_list, function(tse) {
-# loadings_matrix <- attr(reducedDim(tse, "RDA"), "species")
-# rownames(loadings_matrix) <- rowData(tse)$genus
-# plotLoadings(loadings_matrix, ncomponents = 2, n = 10) +
-#   labs(
-#     title = unique(tse$diet)
-#   )
-# })
-```
 
 ### Permanova analysis
 
@@ -869,24 +532,6 @@ final_results_permanova_paired <- final_results_permanova_paired %>%
 
 #### Across-group
 
-```{r permanova_res_before}
-#| label: permanova_res_before
-
-# if (knitr::is_html_output()) {
-#   datatable(final_results_permanova,
-#             options = list(pageLength = 1),
-#             caption = "PERMANOVA Results - before treatment - ")
-# } else {
-#   library(kableExtra)
-#   final_results_permanova %>%
-#     mutate(across(where(is.numeric), ~round(., 3))) %>%
-#     kbl(caption = "PERMANOVA Results - before treatment - X ~ diet",
-#         booktabs = TRUE,
-#         align = c('l', rep('r', ncol(final_results_permanova)-1))) %>%
-#     row_spec(0, bold = TRUE)
-# }
-```
-
 ```{r permanova_res_beforetp}
 #| label: tbl-permanova_res_beforetp
 
@@ -907,24 +552,6 @@ correction (adjusted p = 0.099).")
         align = c('l', rep('r', ncol(final_results_permanova_tp)-1))) %>%
     row_spec(0, bold = TRUE)
 }
-```
-
-```{r permanova_res_after}
-#| label: permanova_res_after
-
-# if (knitr::is_html_output()) {
-#   datatable(final_results_permanova_after,
-#             options = list(pageLength = 1),
-#             caption = "PERMANOVA Results - after treatment - X ~ diet")
-# } else {
-#   library(kableExtra)
-#   final_results_permanova_after %>%
-#     mutate(across(where(is.numeric), ~round(., 3))) %>%
-#     kbl(caption = "PERMANOVA Results - after treatment - X ~ diet",
-#         booktabs = TRUE,
-#         align = c('l', rep('r', ncol(final_results_permanova_after)-1))) %>%
-#     row_spec(0, bold = TRUE)
-# }
 ```
 
 ```{r permanova_res_aftertp}
