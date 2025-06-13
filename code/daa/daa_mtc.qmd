@@ -264,13 +264,6 @@ plot_fxn <- function(fxn) {
   
   enzyme_name <- enzymenames$EnzymeName[enzymenames$EC == fxn]
     
-    # daa_tab_tax <- daa_tab %>%
-    #   filter(feature == fxn)
-    # 
-    # anot_tax <- daa_tab_tax %>% 
-    #     filter(metadata == "intervention")
-    # 
-    # anot_tax$pval_color <- ifelse(anot_tax$qval_joint <= 0.25, "red", "blue")
     # Subset for before and after
     df_before <- df %>% filter(timepoint == "before")
     df_after <- df %>% filter(timepoint == "after")
