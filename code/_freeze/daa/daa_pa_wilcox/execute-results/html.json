@@ -1,0 +1,17 @@
+{
+  "hash": "012583a69fea226d6fa8c83292612234",
+  "result": {
+    "engine": "knitr",
+    "markdown": "::: {.cell}\n\n:::\n\n\n\n## Significant pathways from maaslin model\n\nThis section highlights significant taxa from maaslin3.\n\nAnalysis information:\n\n-   Method: maaslin3\n-   Group variable: Diet\n-   Formula used: **~ diet * timepoint + (1 | id)**\n-   Correction: **Benjamini-Hochberg FDR adjustment**\n-   Detection threshold: 0.1%\n-   Prevalence threshold: 10%\n\n### N.B pvalues used in plot are from Wilcoxon tests\n\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell layout-ncol=\"1\"}\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-1.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-2.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-3.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-4.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-5.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-6.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-7.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-8.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-9.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-10.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-11.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-12.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-13.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-14.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-15.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-16.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-17.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-18.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-19.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-20.png){width=960}\n:::\n\n::: {.cell-output-display}\n![](daa_pa_wilcox_files/figure-html/hits_m-21.png){width=960}\n:::\n:::\n",
+    "supporting": [
+      "daa_pa_wilcox_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
