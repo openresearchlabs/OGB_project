@@ -37,6 +37,8 @@ website:
           
       - text: "Functional DAA"
         menu:
+          - text: "Metabolite Pathways"
+            href: daa/daa_pa.html
           - text: "Metacyc"
             href: daa/daa_mtc.html
 
