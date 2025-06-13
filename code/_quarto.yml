@@ -9,6 +9,7 @@ project:
     - "ratio/*.qmd"
     - "daa/*.qmd"
     - "!alpha/alpha.qmd"
+    - "!daa/daa_mtc.qmd"
     - "!daa/daa_level.qmd"
 website:
   title: "OGB Analysis"
@@ -37,10 +38,10 @@ website:
           
       - text: "Functional DAA"
         menu:
-          - text: "Metabolite Pathways"
+          - text: "Maaslin Pathways"
             href: daa/daa_pa.html
-          - text: "Metacyc"
-            href: daa/daa_mtc.html
+          - text: "Wilcoxon Pathways"
+            href: daa/daa_pa_wilcox.html
 
   sidebar:
     style: "docked"
