@@ -37,5 +37,20 @@ lapply(taxa.levels, function(tax.level) {
     file.remove(temp_qmd)
 })
 
+delta.levels <- c("phylum_prevalent", "family_prevalent", 
+                  "genus_prevalent", "species_prevalent")
+
+lapply(delta.levels, function(tax.level) {
+    orig_dir <- dirname("corr/corr.qmd")
+    temp_qmd <- file.path(orig_dir, paste0("corr_", tax.level, ".qmd"))
+    file.copy("corr/corr.qmd", temp_qmd)
+    
+    quarto::quarto_render(
+        input = temp_qmd,
+        execute_params = list(tax.level = tax.level)
+    )
+    file.remove(temp_qmd)
+})
+
 # Finally, render the entire website for qmds that do not directly take params from mainR
 quarto::quarto_render()

@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="">
+
+<title>Correlation analysis – OGB Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ac7338a84619a9b1ec94dedb837d3f19.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="../site_libs/datatables-binding-0.33/datatables.js"></script>
+<script src="../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="../site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">OGB Analysis</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-alpha-diversity" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Alpha Diversity</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-alpha-diversity">    
+        <li>
+    <a class="dropdown-item" href="../alpha/alpha_shannon.html">
+ <span class="dropdown-text">Shannon</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../alpha/alpha_observed.html">
+ <span class="dropdown-text">Observed</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../beta/beta.html"> 
+<span class="menu-text">Beta Diversity</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../ratio/ratio.html"> 
+<span class="menu-text">B/F Ratio</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-taxonomic-daa" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Taxonomic DAA</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-taxonomic-daa">    
+        <li>
+    <a class="dropdown-item" href="../daa/daa_taxa_maaslin3.html">
+ <span class="dropdown-text">Maaslin</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../daa/daa_interest.html">
+ <span class="dropdown-text">Selected Taxa</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../daa/wilcoxon_genus_prevalent.html">
+ <span class="dropdown-text">Wilcoxon Genus</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../daa/wilcoxon_species_prevalent.html">
+ <span class="dropdown-text">Wilcoxon Species</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-functional-daa" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Functional DAA</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-functional-daa">    
+        <li>
+    <a class="dropdown-item" href="../daa/daa_pa.html">
+ <span class="dropdown-text">Maaslin Pathways</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../daa/daa_pa_wilcox.html">
+ <span class="dropdown-text">Wilcoxon Pathways</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-correlations" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Correlations</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-correlations">    
+        <li>
+    <a class="dropdown-item" href="../corr/corr_phylum_prevalent.html">
+ <span class="dropdown-text">Phylum</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../corr/corr_family_prevalent.html">
+ <span class="dropdown-text">Family</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../corr/corr_genus_prevalent.html">
+ <span class="dropdown-text">Genus</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../corr/corr_species_prevalent.html">
+ <span class="dropdown-text">Species</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Correlation analysis</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#taxonomic-level-species_prevalent" id="toc-taxonomic-level-species_prevalent" class="nav-link active" data-scroll-target="#taxonomic-level-species_prevalent"><span class="header-section-number">1</span> Taxonomic level: species_prevalent</a>
+  <ul class="collapse">
+  <li><a href="#microbiota-vs.-short-chain-fatty-acids-12-scfas-in-total" id="toc-microbiota-vs.-short-chain-fatty-acids-12-scfas-in-total" class="nav-link" data-scroll-target="#microbiota-vs.-short-chain-fatty-acids-12-scfas-in-total"><span class="header-section-number">1.1</span> microbiota vs.&nbsp;Short-chain fatty acids (12 SCFAs in total)</a></li>
+  <li><a href="#microbiota-vs.-significant-inflammation-markers-il-1b-mmp12-tnsf-12-egf" id="toc-microbiota-vs.-significant-inflammation-markers-il-1b-mmp12-tnsf-12-egf" class="nav-link" data-scroll-target="#microbiota-vs.-significant-inflammation-markers-il-1b-mmp12-tnsf-12-egf"><span class="header-section-number">1.2</span> microbiota vs.&nbsp;significant inflammation markers (IL-1B, MMP12, TNSF-12, EGF)</a></li>
+  <li><a href="#microbiota-vs.-dietary-intake-total-fat-carbohydrates-protein-fiber-sfa-mufa-pufa" id="toc-microbiota-vs.-dietary-intake-total-fat-carbohydrates-protein-fiber-sfa-mufa-pufa" class="nav-link" data-scroll-target="#microbiota-vs.-dietary-intake-total-fat-carbohydrates-protein-fiber-sfa-mufa-pufa"><span class="header-section-number">1.3</span> microbiota vs.&nbsp;dietary intake (total fat, carbohydrates, protein, fiber, SFA, MUFA, PUFA)</a></li>
+  <li><a href="#microbiota-vs.-biochemantrop.-waist-circumference-total-cholesterol-ldl-hdl-triglycerides" id="toc-microbiota-vs.-biochemantrop.-waist-circumference-total-cholesterol-ldl-hdl-triglycerides" class="nav-link" data-scroll-target="#microbiota-vs.-biochemantrop.-waist-circumference-total-cholesterol-ldl-hdl-triglycerides"><span class="header-section-number">1.4</span> microbiota vs.&nbsp;biochem/antrop. (waist circumference, total cholesterol, LDL, HDL, Triglycerides)</a></li>
+  <li><a href="#heatmap" id="toc-heatmap" class="nav-link" data-scroll-target="#heatmap"><span class="header-section-number">1.5</span> Heatmap</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Correlation analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="taxonomic-level-species_prevalent" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Taxonomic level: species_prevalent</h1>
+<p>Taxa that are less prevalent than this (in relabundance) have been agglomerated:</p>
+<ul>
+<li>Detection threshold: 0.1%</li>
+<li>Prevalence threshold: 10%</li>
+<li>Number of taxonomic groups: 227</li>
+</ul>
+<section id="microbiota-vs.-short-chain-fatty-acids-12-scfas-in-total" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="microbiota-vs.-short-chain-fatty-acids-12-scfas-in-total"><span class="header-section-number">1.1</span> microbiota vs.&nbsp;Short-chain fatty acids (12 SCFAs in total)</h2>
+<div class="cell">
+<div id="tbl-table-of-scfa_sum" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-table-of-scfa_sum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1
+</figcaption>
+<div aria-describedby="tbl-table-of-scfa_sum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-137a59593427d114f2d7" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-137a59593427d114f2d7">{"x":{"filter":"none","vertical":false,"caption":"<caption>Correlation table of Short-chain fatty acids<\/caption>","data":[["Adlercreutzia_equolifaciens","Agathobaculum_butyriciproducens","Akkermansia_muciniphila","Alistipes_communis","Alistipes_finegoldii","Alistipes_ihumii","Alistipes_indistinctus","Alistipes_onderdonkii","Alistipes_putredinis","Alistipes_senegalensis","Alistipes_SGB2313","Alistipes_shahii","Alistipes_sp_AF17_16","Anaerobutyricum_hallii","Anaerobutyricum_soehngenii","Anaerostipes_hadrus","Anaerotignum_faecicola","Bacteroides_caccae","Bacteroides_cellulosilyticus","Bacteroides_eggerthii","Bacteroides_faecis","Bacteroides_finegoldii","Bacteroides_fragilis","Bacteroides_intestinalis","Bacteroides_ovatus","Bacteroides_salyersiae","Bacteroides_stercoris","Bacteroides_thetaiotaomicron","Bacteroides_uniformis","Bacteroides_xylanisolvens","Barnesiella_intestinihominis","Bifidobacterium_adolescentis","Bifidobacterium_animalis","Bifidobacterium_bifidum","Bifidobacterium_longum","Bifidobacterium_pseudocatenulatum","Bilophila_wadsworthia","Blautia_faecis","Blautia_glucerasea","Blautia_luti","Blautia_massiliensis","Blautia_obeum","Blautia_SGB4815","Blautia_sp_Marseille_P3087","Blautia_sp_MSK_20_85","Blautia_wexlerae","Butyricicoccus_sp_AM29_23AC","Candidatus_Cibionibacter_quicibialis","Candidatus_Woodwardibium_SGB14954","Catenibacterium_SGB4425","Clostridiaceae_bacterium","Clostridiaceae_bacterium_AF18_31LB","Clostridiaceae_bacterium_Marseille_Q4149","Clostridiales_bacterium","Clostridiales_bacterium_KLE1615","Clostridiales_Family_XIII_bacterium_BX16","Clostridium_fessum","Clostridium_leptum","Clostridium_saudiense","Clostridium_SGB4750","Clostridium_SGB6179","Clostridium_sp_1001270H_150608_G6","Clostridium_sp_1001270J_160509_D11","Clostridium_sp_AF34_10BH","Clostridium_sp_AF34_13","Clostridium_sp_AF36_4","Clostridium_sp_AM22_11AC","Clostridium_sp_AM49_4BH","Clostridium_spiroforme","Collinsella_aerofaciens","Collinsella_SGB14861","Collinsella_SGB4121","Coprococcus_catus","Coprococcus_comes","Coprococcus_eutactus","Coprococcus_SGB4669","Dialister_invisus","Dorea_formicigenerans","Dorea_longicatena","Dorea_sp_AF24_7LB","Dorea_sp_AF36_15AT","Dysosmobacter_sp_BX15","Dysosmobacter_welbionis","Eggerthella_lenta","Ellagibacter_isourolithinifaciens","Enterocloster_SGB14313","Enterococcus_SGB6173","Eubacteriaceae_bacterium","Eubacterium_ramulus","Eubacterium_rectale","Eubacterium_SGB6276","Eubacterium_siraeum","Eubacterium_sp_AF34_35BH","Eubacterium_ventriosum","Evtepia_gabavorous","Faecalibacillus_faecis","Faecalibacillus_intestinalis","Faecalibacterium_prausnitzii","Faecalibacterium_SGB15315","Faecalibacterium_SGB15346","Faecalicatena_fissicatena","Faecalitalea_cylindroides","Firmicutes_bacterium_AF16_15","Flavonifractor_plautii","Fusicatenibacter_saccharivorans","Gemmiger_formicilis","Gemmiger_SGB15299","GGB1266_SGB1699","GGB14025_SGB14906","GGB1550_SGB2134","GGB27106_SGB6188","GGB2982_SGB3964","GGB3005_SGB3996","GGB3033_SGB4029","GGB3109_SGB4643","GGB3175_SGB4191","GGB3256_SGB4303","GGB3277_SGB4327","GGB3278_SGB4328","GGB3304_SGB4367","GGB33469_SGB15236","GGB33512_SGB15203","GGB3363_SGB4447","GGB34797_SGB14322","GGB3570_SGB4777","GGB3612_SGB4882","GGB3619_SGB4894","GGB3653_SGB4964","GGB3730_SGB5060","GGB3746_SGB5089","GGB4456_SGB6141","GGB45432_SGB63101","GGB4566_SGB6305","GGB4567_SGB6307","GGB4569_SGB6310","GGB4571_SGB6317","GGB4684_SGB6478","GGB47687_SGB2286","GGB51647_SGB4348","GGB6601_SGB9333","GGB6612_SGB9346","GGB79734_SGB15291","GGB79890_SGB14770","GGB79973_SGB14341","GGB80011_SGB15265","GGB80140_SGB15224","GGB9342_SGB14306","GGB9345_SGB14311","GGB9453_SGB14844","GGB9524_SGB14924","GGB9602_SGB15031","GGB9608_SGB15041","GGB9634_SGB15093","GGB9635_SGB15106","GGB9642_SGB15119","GGB9677_SGB15180","GGB9699_SGB15216","GGB9708_SGB15233","GGB9708_SGB15234","GGB9713_SGB15249","GGB9719_SGB15272","GGB9747_SGB15356","GGB9758_SGB15368","GGB9760_SGB15373","GGB9760_SGB15374","GGB9765_SGB15382","GGB9770_SGB15390","GGB9782_SGB15403","Gordonibacter_pamelaeae","Gordonibacter_urolithinfaciens","Holdemanella_porci","Intestinibacter_bartlettii","Intestinimonas_massiliensis","Lachnospira_eligens","Lachnospira_pectinoschiza","Lachnospira_sp_NSJ_43","Lachnospiraceae_bacterium","Lachnospiraceae_bacterium_BX3","Lachnospiraceae_bacterium_Marseille_Q4251","Lacrimispora_amygdalina","Lacrimispora_celerecrescens","Lactococcus_lactis","Lawsonibacter_asaccharolyticus","Mediterraneibacter_glycyrrhizinilyticus","Methanobrevibacter_smithii","Monoglobus_pectinilyticus","Odoribacter_splanchnicus","Oscillibacter_sp_ER4","Oscillospiraceae_bacterium","Other","Parabacteroides_distasonis","Parabacteroides_merdae","Paraprevotella_clara","Parasutterella_excrementihominis","Phascolarctobacterium_faecium","Phocaeicola_dorei","Phocaeicola_massiliensis","Phocaeicola_SGB6473","Phocaeicola_vulgatus","Prevotella_copri_clade_A","Pseudoruminococcus_massiliensis","Romboutsia_timonensis","Roseburia_faecis","Roseburia_hominis","Roseburia_intestinalis","Roseburia_inulinivorans","Roseburia_sp_AF02_12","Ruminococcus_bicirculans","Ruminococcus_bromii","Ruminococcus_callidus","Ruminococcus_gnavus","Ruminococcus_lactaris","Ruminococcus_SGB4421","Ruminococcus_sp_AF41_9","Ruminococcus_sp_BSD2780120874_150323_B10","Ruminococcus_torques","Ruthenibacterium_lactatiformans","Sanguibacter_SGB15121","Senegalimassilia_anaerobia","Slackia_isoflavoniconvertens","Staphylococcus_SGB6340","Streptococcus_salivarius","Streptococcus_thermophilus","Sutterella_wadsworthensis","Turicibacter_bilis","Vescimonas_coprocola","Waltera_intestinalis"],[-0.09560400495882317,0.07597103965477912,-0.09872138247637371,0.08672349710557088,-0.06236317299064744,0.1234172335989521,-0.004160131469627599,0.007279028819691066,0.01546437978763118,-0.02216327992749451,-0.06180449440447106,0.006126345023967323,-0.09820202424069993,0.04667142007919566,0.001825757833801492,0.06564364876385337,-0.07283381004725474,0.03749946900541905,0.01824037356667601,0.1153485537554932,-0.01457738081532193,-0.01618312007111958,0.00878249976921382,-0.07176556709081568,-0.08075842777985175,-0.001454448911190501,-0.09652341781316803,0.0871500597522802,0.03207200587089729,0.1256571522741922,0.05246789311616869,-0.03735002560812008,0.08274039256259336,0.02901824231092263,-0.03952008167950192,0.1508978576227147,0.1020423791059653,-0.1483375959079284,-0.124779896118699,-0.1153755896493778,0.004734459130621629,-0.04917707566870917,-0.01405367278662478,-0.002114066871370035,0.1204376074637611,0.07587382779198636,0.02256198127739619,-0.04123834610034983,0.1042125191777788,0.09176038784805264,0.01619778346121057,0.04459771620579973,0.006035914304908588,-0.1227288757993003,0.03516358393149595,-0.09425948578432386,0.2332366240525627,-0.04092071611253197,0.05271295700503778,0.1600285098232956,0.01477118074326865,0.119445783233274,-0.01594877505386932,-0.07084939653198502,0.09185219416200925,-0.01391689991879654,0.119063245016744,0.02109981600591734,-0.06678549553807779,-0.0534770983365853,-0.04701646245482269,0.01004166808590821,0.03721042889056686,0.06185751915052474,-0.1869073419518767,0.134459556744569,-0.09138154415119158,-0.06820119352088662,0.009389679058455848,-0.07349565596342092,-0.09218957621029376,-0.01617828904855178,-0.1082693947144075,-0.08520745500697188,-0.0766939168587841,0.08895295367095878,0.1421582760585616,-0.003557145296011437,0.02747613346540247,-0.06065797688577938,0.1437813910579574,0.03663103791875507,0.05915196018810416,-0.01761340504410736,-0.04193839914925791,0.1247299454108321,-0.006918127397014595,0.1091219096334186,0.1584012113271256,0.07260711725373777,-0.0355922359068139,-0.0997890167976862,-0.03859417748578823,-0.006873057683391638,0.1381074168797954,-0.006053361472387771,-0.06035914304908588,-0.1514040254861446,0.05881012546330151,-0.01451005627256774,-0.1357397626222359,-0.007807316053990532,-0.04556543741113436,0.06804190907187053,-0.002654350738517199,-0.1162736779253519,0.007739753077491973,-0.1262691268921079,-0.02117547411878138,0.02334226443847854,0.03760699995904002,-0.009644331596105952,0.1101120185353779,-0.04642377911424171,0.04278129923592438,0.07574406066007859,-0.03268154687704018,-0.08061894852586875,0.06195786871791588,-0.009996797457466336,0.05305524207132561,-0.1530635686589479,-0.1722280592352606,-0.06509497599477239,0.08946601505999452,0.09021469769466033,-0.1160962961623796,0.05843299407833574,0.01490125956506838,-0.03686101050306388,0.0876531808098016,0.03004539394731044,-0.09270225500061545,-0.01339407658895089,-0.1029792349271542,0.1451650521321229,-0.03718262738822798,0.063668882514089,-0.01489242157776395,0.01096478284953516,-0.1077072069215523,0.08921029934178296,-0.01567308531036187,-0.05101920327863005,0.02274402775720963,0.02462648706474719,-0.05538839603343037,0.1553839150456976,-0.117109740809858,0.06116288743235,-0.1238862194766018,0.1400332118738792,0.008092645560806081,0.07169814347206785,0.004063392487871597,0.009644331596105952,-0.1088431708703386,-0.02538223203505225,-0.07351328634477843,-0.09636960619296787,0.0363555849438065,-0.0423735303067144,-0.03281203537974167,0,0.151178675080486,-0.03189434126714493,0.1638108422174567,0.04137289244836311,0.02687857005810202,0.1360839982061073,-0.1051071137327301,-0.03905710622371933,0.06352590210425083,-0.01355804553018794,-0.1255897424089274,-0.02957892296406624,-0.003468202588142196,0.02195886372910121,-0.1473909293472936,-0.04092071611253197,0.03718493475895345,0.01210031836714444,0.207566105260012,0.1354798962310122,-0.009391016905446815,0.04471237502293159,0.1329830301496348,-0.03617439851503632,0.07523463544253373,0.07947323063881014,-0.04573490454881621,0.06286113150695868,0.1926629107162812,-0.001279590792922654,0.2414161511291313,0.1382843643154406,0.1251524769181896,0.0778289332164142,0.06782401098378256,-0.007373804904631868,0.08258524693123645,-0.06186954871651684,0.154171584586193,0.08045467046226018,0.05161663433242308,-0.02431222506553042,-0.04603580562659847,-0.04745373815248898,0.1008653280636536,0.1327175369258599,0.1336967317975794,-0.1931357963303733,-0.04732466532598551,0.03744118322664839,0.01551894158731268,-0.07215957553205792,0.07388537009646011],[0.9508837305839328,0.9508837305839328,0.9508837305839328,0.9508837305839328,0.9620221841371427,0.9274270381753013,0.9922233968881414,0.9922233968881414,0.9922233968881414,0.9922233968881414,0.9823517777422796,0.9922233968881414,0.9508837305839328,0.9823517777422796,0.9922233968881414,0.9620221841371427,0.9508837305839328,0.9823517777422796,0.9922233968881414,0.9508837305839328,0.9922233968881414,0.9922233968881414,0.9922233968881414,0.9620221841371427,0.9508837305839328,0.9922233968881414,0.9508837305839328,0.9508837305839328,0.991782014730481,0.9274270381753013,0.9823517777422796,0.9823517777422796,0.9508837305839328,0.9922233968881414,0.9823517777422796,0.9274270381753013,0.9508837305839328,0.9274270381753013,0.9274270381753013,0.9274270381753013,0.9922233968881414,0.9823517777422796,0.9922233968881414,0.9922233968881414,0.9274270381753013,0.9508837305839328,0.9922233968881414,0.9823517777422796,0.9508837305839328,0.9508837305839328,0.9922233968881414,0.9823517777422796,0.9922233968881414,0.9274270381753013,0.9823517777422796,0.9508837305839328,0.5860134536798012,0.9823517777422796,0.9823517777422796,0.9274270381753013,0.9922233968881414,0.950774412482764,0.9922233968881414,0.9508837305839328,0.9508837305839328,0.9922233968881414,0.9274270381753013,0.9922233968881414,0.9620221841371427,0.9823517777422796,0.9823517777422796,0.9922233968881414,0.9823517777422796,0.9620221841371427,0.9274270381753013,0.9274270381753013,0.9508837305839328,0.9508837305839328,0.9922233968881414,0.9508837305839328,0.9508837305839328,0.9922233968881414,0.9292652884363894,0.9508837305839328,0.9620221841371427,0.9508837305839328,0.9274270381753013,0.9922233968881414,0.9922233968881414,0.9620221841371427,0.9274270381753013,0.9823517777422796,0.9823517777422796,0.9922233968881414,0.9823517777422796,0.9274270381753013,0.9922233968881414,0.9292652884363894,0.9274270381753013,0.9508837305839328,0.9839581152081428,0.9508837305839328,0.9823517777422796,0.9922233968881414,0.9274270381753013,0.9922233968881414,0.9823517777422796,0.9274270381753013,0.9823517777422796,0.9922233968881414,0.9274270381753013,0.9922233968881414,0.9823517777422796,0.9620221841371427,0.9922233968881414,0.950774412482764,0.9922233968881414,0.9292652884363894,0.9922233968881414,0.9922233968881414,0.9823517777422796,0.9922233968881414,0.9508837305839328,0.9823517777422796,0.9823517777422796,0.9508837305839328,0.9922233968881414,0.9508837305839328,0.9823517777422796,0.9922233968881414,0.9823517777422796,0.9274270381753013,0.9274270381753013,0.9823517777422796,0.9508837305839328,0.9508837305839328,0.9508837305839328,0.9823517777422796,0.9922233968881414,0.991782014730481,0.9508837305839328,0.9922233968881414,0.9508837305839328,0.9922233968881414,0.9508837305839328,0.9274270381753013,0.9839581152081428,0.969392246691502,0.9922233968881414,0.9922233968881414,0.9508837305839328,0.9508837305839328,0.9922233968881414,0.9823517777422796,0.9922233968881414,0.9922233968881414,0.9823517777422796,0.9274270381753013,0.9274270381753013,0.969392246691502,0.9274270381753013,0.9274270381753013,0.9922233968881414,0.9508837305839328,0.9922233968881414,0.9922233968881414,0.950774412482764,0.9922233968881414,0.9508837305839328,0.9508837305839328,0.991782014730481,0.9823517777422796,0.991782014730481,1,0.9274270381753013,0.991782014730481,0.9274270381753013,0.9823517777422796,0.9922233968881414,0.9274270381753013,0.950774412482764,0.9823517777422796,0.9620221841371427,0.9922233968881414,0.9274270381753013,0.9922233968881414,0.9922233968881414,0.9922233968881414,0.9274270381753013,0.9823517777422796,0.9823517777422796,0.9922233968881414,0.9274270381753013,0.9274270381753013,0.9922233968881414,0.9823517777422796,0.9274270381753013,0.991782014730481,0.9508837305839328,0.9508837305839328,0.9823517777422796,0.9620221841371427,0.9274270381753013,0.9922233968881414,0.5860134536798012,0.9274270381753013,0.9274270381753013,0.9508837305839328,0.9620221841371427,0.9922233968881414,0.9508837305839328,0.969392246691502,0.9274270381753013,0.9508837305839328,0.9823517777422796,0.9922233968881414,0.9823517777422796,0.9823517777422796,0.9508837305839328,0.9274270381753013,0.9274270381753013,0.9274270381753013,0.9823517777422796,0.9823517777422796,0.9922233968881414,0.9508837305839328,0.9508837305839328]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>microbes<\/th>\n      <th>cor<\/th>\n      <th>p_adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"dom":"Bfrtip","columnDefs":[{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[1,2]},{"name":"microbes","targets":0},{"name":"cor","targets":1},{"name":"p_adj","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render"],"jsHooks":[]}</script>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="microbiota-vs.-significant-inflammation-markers-il-1b-mmp12-tnsf-12-egf" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="microbiota-vs.-significant-inflammation-markers-il-1b-mmp12-tnsf-12-egf"><span class="header-section-number">1.2</span> microbiota vs.&nbsp;significant inflammation markers (IL-1B, MMP12, TNSF-12, EGF)</h2>
+<div class="cell">
+<div id="tbl-table-of-inflamm_sum" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-table-of-inflamm_sum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2
+</figcaption>
+<div aria-describedby="tbl-table-of-inflamm_sum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-512d093df969f31a46e7" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-512d093df969f31a46e7">{"x":{"filter":"none","vertical":false,"caption":"<caption>Correlation table of significant inflammation markers<\/caption>","data":[["Adlercreutzia_equolifaciens","Agathobaculum_butyriciproducens","Akkermansia_muciniphila","Alistipes_communis","Alistipes_finegoldii","Alistipes_ihumii","Alistipes_indistinctus","Alistipes_onderdonkii","Alistipes_putredinis","Alistipes_senegalensis","Alistipes_SGB2313","Alistipes_shahii","Alistipes_sp_AF17_16","Anaerobutyricum_hallii","Anaerobutyricum_soehngenii","Anaerostipes_hadrus","Anaerotignum_faecicola","Bacteroides_caccae","Bacteroides_cellulosilyticus","Bacteroides_eggerthii","Bacteroides_faecis","Bacteroides_finegoldii","Bacteroides_fragilis","Bacteroides_intestinalis","Bacteroides_ovatus","Bacteroides_salyersiae","Bacteroides_stercoris","Bacteroides_thetaiotaomicron","Bacteroides_uniformis","Bacteroides_xylanisolvens","Barnesiella_intestinihominis","Bifidobacterium_adolescentis","Bifidobacterium_animalis","Bifidobacterium_bifidum","Bifidobacterium_longum","Bifidobacterium_pseudocatenulatum","Bilophila_wadsworthia","Blautia_faecis","Blautia_glucerasea","Blautia_luti","Blautia_massiliensis","Blautia_obeum","Blautia_SGB4815","Blautia_sp_Marseille_P3087","Blautia_sp_MSK_20_85","Blautia_wexlerae","Butyricicoccus_sp_AM29_23AC","Candidatus_Cibionibacter_quicibialis","Candidatus_Woodwardibium_SGB14954","Catenibacterium_SGB4425","Clostridiaceae_bacterium","Clostridiaceae_bacterium_AF18_31LB","Clostridiaceae_bacterium_Marseille_Q4149","Clostridiales_bacterium","Clostridiales_bacterium_KLE1615","Clostridiales_Family_XIII_bacterium_BX16","Clostridium_fessum","Clostridium_leptum","Clostridium_saudiense","Clostridium_SGB4750","Clostridium_SGB6179","Clostridium_sp_1001270H_150608_G6","Clostridium_sp_1001270J_160509_D11","Clostridium_sp_AF34_10BH","Clostridium_sp_AF34_13","Clostridium_sp_AF36_4","Clostridium_sp_AM22_11AC","Clostridium_sp_AM49_4BH","Clostridium_spiroforme","Collinsella_aerofaciens","Collinsella_SGB14861","Collinsella_SGB4121","Coprococcus_catus","Coprococcus_comes","Coprococcus_eutactus","Coprococcus_SGB4669","Dialister_invisus","Dorea_formicigenerans","Dorea_longicatena","Dorea_sp_AF24_7LB","Dorea_sp_AF36_15AT","Dysosmobacter_sp_BX15","Dysosmobacter_welbionis","Eggerthella_lenta","Ellagibacter_isourolithinifaciens","Enterocloster_SGB14313","Enterococcus_SGB6173","Eubacteriaceae_bacterium","Eubacterium_ramulus","Eubacterium_rectale","Eubacterium_SGB6276","Eubacterium_siraeum","Eubacterium_sp_AF34_35BH","Eubacterium_ventriosum","Evtepia_gabavorous","Faecalibacillus_faecis","Faecalibacillus_intestinalis","Faecalibacterium_prausnitzii","Faecalibacterium_SGB15315","Faecalibacterium_SGB15346","Faecalicatena_fissicatena","Faecalitalea_cylindroides","Firmicutes_bacterium_AF16_15","Flavonifractor_plautii","Fusicatenibacter_saccharivorans","Gemmiger_formicilis","Gemmiger_SGB15299","GGB1266_SGB1699","GGB14025_SGB14906","GGB1550_SGB2134","GGB27106_SGB6188","GGB2982_SGB3964","GGB3005_SGB3996","GGB3033_SGB4029","GGB3109_SGB4643","GGB3175_SGB4191","GGB3256_SGB4303","GGB3277_SGB4327","GGB3278_SGB4328","GGB3304_SGB4367","GGB33469_SGB15236","GGB33512_SGB15203","GGB3363_SGB4447","GGB34797_SGB14322","GGB3570_SGB4777","GGB3612_SGB4882","GGB3619_SGB4894","GGB3653_SGB4964","GGB3730_SGB5060","GGB3746_SGB5089","GGB4456_SGB6141","GGB45432_SGB63101","GGB4566_SGB6305","GGB4567_SGB6307","GGB4569_SGB6310","GGB4571_SGB6317","GGB4684_SGB6478","GGB47687_SGB2286","GGB51647_SGB4348","GGB6601_SGB9333","GGB6612_SGB9346","GGB79734_SGB15291","GGB79890_SGB14770","GGB79973_SGB14341","GGB80011_SGB15265","GGB80140_SGB15224","GGB9342_SGB14306","GGB9345_SGB14311","GGB9453_SGB14844","GGB9524_SGB14924","GGB9602_SGB15031","GGB9608_SGB15041","GGB9634_SGB15093","GGB9635_SGB15106","GGB9642_SGB15119","GGB9677_SGB15180","GGB9699_SGB15216","GGB9708_SGB15233","GGB9708_SGB15234","GGB9713_SGB15249","GGB9719_SGB15272","GGB9747_SGB15356","GGB9758_SGB15368","GGB9760_SGB15373","GGB9760_SGB15374","GGB9765_SGB15382","GGB9770_SGB15390","GGB9782_SGB15403","Gordonibacter_pamelaeae","Gordonibacter_urolithinfaciens","Holdemanella_porci","Intestinibacter_bartlettii","Intestinimonas_massiliensis","Lachnospira_eligens","Lachnospira_pectinoschiza","Lachnospira_sp_NSJ_43","Lachnospiraceae_bacterium","Lachnospiraceae_bacterium_BX3","Lachnospiraceae_bacterium_Marseille_Q4251","Lacrimispora_amygdalina","Lacrimispora_celerecrescens","Lactococcus_lactis","Lawsonibacter_asaccharolyticus","Mediterraneibacter_glycyrrhizinilyticus","Methanobrevibacter_smithii","Monoglobus_pectinilyticus","Odoribacter_splanchnicus","Oscillibacter_sp_ER4","Oscillospiraceae_bacterium","Other","Parabacteroides_distasonis","Parabacteroides_merdae","Paraprevotella_clara","Parasutterella_excrementihominis","Phascolarctobacterium_faecium","Phocaeicola_dorei","Phocaeicola_massiliensis","Phocaeicola_SGB6473","Phocaeicola_vulgatus","Prevotella_copri_clade_A","Pseudoruminococcus_massiliensis","Romboutsia_timonensis","Roseburia_faecis","Roseburia_hominis","Roseburia_intestinalis","Roseburia_inulinivorans","Roseburia_sp_AF02_12","Ruminococcus_bicirculans","Ruminococcus_bromii","Ruminococcus_callidus","Ruminococcus_gnavus","Ruminococcus_lactaris","Ruminococcus_SGB4421","Ruminococcus_sp_AF41_9","Ruminococcus_sp_BSD2780120874_150323_B10","Ruminococcus_torques","Ruthenibacterium_lactatiformans","Sanguibacter_SGB15121","Senegalimassilia_anaerobia","Slackia_isoflavoniconvertens","Staphylococcus_SGB6340","Streptococcus_salivarius","Streptococcus_thermophilus","Sutterella_wadsworthensis","Turicibacter_bilis","Vescimonas_coprocola","Waltera_intestinalis"],[0.09389679058455846,-0.02304739405257344,0.1456472414113316,0.1141098646125933,0.1783059734803018,0.04298802518615186,0.01710276270846902,0.009848097814876148,0.1426159469303765,0.09469765059929472,-0.00363555849438065,0.056887489508268,-0.009465255348501197,-0.01412987947351795,-0.04107955126053358,-0.09292412617220801,0.07664211384057525,0.08718626543759929,0.08544174986495603,-0.1098882671871858,-0.1166190465225755,0.0851372838524117,0.1335864438580418,0.1805352547128332,0.03264702399611027,-0.07854024120428703,0.03469796065179243,0.09337506402030021,0.04917707566870917,-0.1554425513317785,0.02845716236809149,-0.2267680126207291,0.07072223498366918,-0.03686101050306388,-0.1649533844013993,-0.1014033603224643,0.05188595547760946,0.1244671781756181,-0.2108649812458851,-0.06329944801775202,0.004734459130621629,-0.01069066862363243,-0.07114671848228793,0.03065396963486551,-0.05379229108065219,-0.03665814151747655,0.001327175369258599,-0.008591322104239546,0.07461369716278839,0.07136919054848538,0.06564364876385337,0.1380813905602646,-0.02655802294159779,-0.02779573842144431,-0.06518127753155346,-0.02767250958805838,-0.1829476865245009,-0.005115089514066497,-0.002680319847713785,-0.06772095968263452,0.06876239311521613,0.01990763053887899,-0.07575668150587929,0.09475039777169082,-0.1222884241801898,0.001346796766335149,-0.221117455031096,-0.06419731252864211,0.09868304564581645,-0.01608660681669639,-0.06254483537568156,0.1634053261252336,-0.05536185761767265,0.01116871873551141,0.008715886412263679,0.02934904030465211,0.2497110644987107,0.1312872975277067,-0.08279989715183791,-0.01432934172871729,0.001707214374264699,0.09383407648160029,0.06393861892583121,-0.026118868117715,-0.02040480356793338,-0.1305905064531097,-0.004250579682814134,0.1680751152365404,-0.05538839603343037,-0.2024780355201368,0.04071229352537145,-0.001786879898475857,-0.11951110323719,0.02332586073408812,0.1080530519257351,0.08561970829048642,0.12798535684477,0.02557544757033248,0.02843098664845845,-0.1578226560665078,0.1187948652993659,0.09118651534960981,0.05145890331438431,-0.03952008167950192,0.0443307757885763,-0.01988961626641696,0.003621548582945153,-0.06365851071576534,0.2249150599779699,0.008201336154060029,-0.2063685821980335,-0.05005867352264518,0.2028108684770098,-0.06482733069052232,-0.01858045516962039,0.06976420675521115,-0.05136381587790128,-0.1044279806188784,-0.1168572460629046,-0.02838924053328472,0.003332265819155445,-0.01607388599350992,-0.0498945083988431,0.08454014512382965,-0.05530265510985347,0.05424252085979821,0.05518359554647768,0.07804600336014954,0.05882076144105938,-0.02332586073408812,0.08563302229056063,0.03286110513581933,0.1835837554485745,0.02901824231092263,-0.01204350202730695,0.04731540088880786,0.03025539839383226,0.09808395434577785,-0.1027402633170504,-0.1356798897240436,0.05978991803582493,0.09198512916176581,0.01594877505386932,0.01232255046183482,-0.06844727590966537,0.07691201007701952,0.02597690406574832,0.1095104779242331,0.06543639784169009,-0.0608047048928768,0.04483505742667489,0.05300901844946523,-0.01915599315710896,0.07163302278514724,-0.1152886924244764,0.04151322105200241,0.06934452731744432,0.02642583589212544,0.01791090153562534,0.09037501277317388,0.06569055765841166,-0.03017957152454294,-0.1337666707403829,0.02904228596336926,0.08184833439855646,0.05189568906476059,0.1409909428573584,0.1379469132339796,0,0.02009847401885426,0.0145422339775226,-0.04064399845746074,0.1124984070162572,-0.04545536459437281,-0.06847504694822015,-0.005084605129544843,-0.09777191629733019,-0.01680773755714752,-0.1257223438201546,0.03173844047618477,-0.1077238883484827,-0.06060585448508172,0.006395225044052096,0.06972709129810943,-0.1065270136504295,-0.07808835662513489,0.08410391276244826,0.01581038188495287,-0.093089008008817,0.2028985507246377,0.02248391404029743,0.04840127346857775,0.01196143657430578,-0.05648822792004914,0.04904197717288893,0.1775214097445106,0.1329830301496348,-0.06211075971449632,-0.01816008441716331,-0.08602772388737179,-0.05980718287152888,-0.001282880234835892,-0.01014015319559375,0.02943058823722103,-0.1297289637740172,-0.1075545055786761,-0.07176575599504578,0.04323829623134122,-0.07617158156640194,-0.1122456968816184,-0.02572327363431955,0.03069863104254652,0.08290358793785853,-0.1053009657520758,-0.1728747594308138,-0.002132651321537756,0.07843137254901961,-0.0419358616231298,0.02256198127739619,0.06901311920144718,0.04377680598681804,-0.01833297845961601,0.03453421523788132,0.2001485473720834,-0.07485607118586118,-0.01018202599532106,0.06529404799222055],[0.9513729890868122,0.9925679991147311,0.840089960607327,0.9513729890868122,0.6236824482770567,0.9825858084365722,0.9925679991147311,0.9925679991147311,0.840089960607327,0.9513729890868122,0.9931699414034417,0.9552393267266004,0.9931699414034417,0.9925679991147311,0.983942706378009,0.9513729890868122,0.9513729890868122,0.9513729890868122,0.9513729890868122,0.9513729890868122,0.9513729890868122,0.9513729890868122,0.9058120485916407,0.6727180156084569,0.9925679991147311,0.9513729890868122,0.9925679991147311,0.9513729890868122,0.9552393267266004,0.7936276408449457,0.9925679991147311,0.4560559334569073,0.9513729890868122,0.9925679991147311,0.6727180156084569,0.9513729890868122,0.9552393267266004,0.9058120485916407,0.4560559334569073,0.9513729890868122,0.9931699414034417,0.9925679991147311,0.9513729890868122,0.9925679991147311,0.9552393267266004,0.9925679991147311,0.9931699414034417,0.9931699414034417,0.9513729890868122,0.9513729890868122,0.9513729890868122,0.899149864775478,0.9925679991147311,0.9925679991147311,0.9513729890868122,0.9925679991147311,0.5831571513756155,0.9931699414034417,0.9931699414034417,0.9513729890868122,0.9513729890868122,0.9925679991147311,0.9513729890868122,0.9513729890868122,0.9513729890868122,0.9931699414034417,0.4560559334569073,0.9513729890868122,0.9513729890868122,0.9925679991147311,0.9513729890868122,0.7041844713991501,0.9552393267266004,0.9925679991147311,0.9931699414034417,0.9925679991147311,0.4560559334569073,0.9058120485916407,0.9513729890868122,0.9925679991147311,0.9931699414034417,0.9513729890868122,0.9513729890868122,0.9925679991147311,0.9925679991147311,0.9513729890868122,0.9931699414034417,0.6727180156084569,0.9552393267266004,0.4560559334569073,0.9913393627003454,0.9931699414034417,0.9513729890868122,0.9925679991147311,0.9513729890868122,0.9513729890868122,0.9058120485916407,0.9925679991147311,0.9925679991147311,0.7041844713991501,0.9513729890868122,0.9513729890868122,0.9552393267266004,0.983942706378009,0.9706960246991232,0.9925679991147311,0.9931699414034417,0.9552393267266004,0.4560559334569073,0.9931699414034417,0.5473923388865651,0.965358566971329,0.4821563279409562,0.9552393267266004,0.9925679991147311,0.9513729890868122,0.9706960246991232,0.9513729890868122,0.9513729890868122,0.9925679991147311,0.9931699414034417,0.9925679991147311,0.9825858084365722,0.9513729890868122,0.9552393267266004,0.9552393267266004,0.9552393267266004,0.9513729890868122,0.9552393267266004,0.9925679991147311,0.9513729890868122,0.9925679991147311,0.6727180156084569,0.9925679991147311,0.9925679991147311,0.9825858084365722,0.9925679991147311,0.9513729890868122,0.9513729890868122,0.9513729890868122,0.9552393267266004,0.9513729890868122,0.9925679991147311,0.9925679991147311,0.9513729890868122,0.9513729890868122,0.9925679991147311,0.9513729890868122,0.9513729890868122,0.9552393267266004,0.9825858084365722,0.9706960246991232,0.9925679991147311,0.9513729890868122,0.9513729890868122,0.9925679991147311,0.9513729890868122,0.9925679991147311,0.9925679991147311,0.9513729890868122,0.9513729890868122,0.9925679991147311,0.9058120485916407,0.9925679991147311,0.9513729890868122,0.9552393267266004,0.9058120485916407,0.9058120485916407,1,0.9925679991147311,0.9925679991147311,0.983942706378009,0.9513729890868122,0.9706960246991232,0.9513729890868122,0.9931699414034417,0.9513729890868122,0.9925679991147311,0.9058120485916407,0.9925679991147311,0.9513729890868122,0.9552393267266004,0.9931699414034417,0.9513729890868122,0.9513729890868122,0.9513729890868122,0.9513729890868122,0.9925679991147311,0.9513729890868122,0.4560559334569073,0.9925679991147311,0.9706960246991232,0.9925679991147311,0.9552393267266004,0.9706960246991232,0.6236824482770567,0.9513729890868122,0.9552393267266004,0.9925679991147311,0.9513729890868122,0.9552393267266004,0.9931699414034417,0.9925679991147311,0.9925679991147311,0.9058120485916407,0.9513729890868122,0.9513729890868122,0.9825858084365722,0.9513729890868122,0.9513729890868122,0.9925679991147311,0.9925679991147311,0.9513729890868122,0.9513729890868122,0.7936276408449457,0.9931699414034417,0.9513729890868122,0.9913393627003454,0.9925679991147311,0.9513729890868122,0.983942706378009,0.9925679991147311,0.9925679991147311,0.5194465974595718,0.9513729890868122,0.9925679991147311,0.9513729890868122]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>microbes<\/th>\n      <th>cor<\/th>\n      <th>p_adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"dom":"Bfrtip","columnDefs":[{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[1,2]},{"name":"microbes","targets":0},{"name":"cor","targets":1},{"name":"p_adj","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render"],"jsHooks":[]}</script>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="microbiota-vs.-dietary-intake-total-fat-carbohydrates-protein-fiber-sfa-mufa-pufa" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="microbiota-vs.-dietary-intake-total-fat-carbohydrates-protein-fiber-sfa-mufa-pufa"><span class="header-section-number">1.3</span> microbiota vs.&nbsp;dietary intake (total fat, carbohydrates, protein, fiber, SFA, MUFA, PUFA)</h2>
+<div class="cell">
+<div id="tbl-table-of-diet_sum" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-table-of-diet_sum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3
+</figcaption>
+<div aria-describedby="tbl-table-of-diet_sum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-e0a166f3ebf8d0c45971" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-e0a166f3ebf8d0c45971">{"x":{"filter":"none","vertical":false,"caption":"<caption>Correlation table of dietary intake<\/caption>","data":[["Adlercreutzia_equolifaciens","Agathobaculum_butyriciproducens","Akkermansia_muciniphila","Alistipes_communis","Alistipes_finegoldii","Alistipes_ihumii","Alistipes_indistinctus","Alistipes_onderdonkii","Alistipes_putredinis","Alistipes_senegalensis","Alistipes_SGB2313","Alistipes_shahii","Alistipes_sp_AF17_16","Anaerobutyricum_hallii","Anaerobutyricum_soehngenii","Anaerostipes_hadrus","Anaerotignum_faecicola","Bacteroides_caccae","Bacteroides_cellulosilyticus","Bacteroides_eggerthii","Bacteroides_faecis","Bacteroides_finegoldii","Bacteroides_fragilis","Bacteroides_intestinalis","Bacteroides_ovatus","Bacteroides_salyersiae","Bacteroides_stercoris","Bacteroides_thetaiotaomicron","Bacteroides_uniformis","Bacteroides_xylanisolvens","Barnesiella_intestinihominis","Bifidobacterium_adolescentis","Bifidobacterium_animalis","Bifidobacterium_bifidum","Bifidobacterium_longum","Bifidobacterium_pseudocatenulatum","Bilophila_wadsworthia","Blautia_faecis","Blautia_glucerasea","Blautia_luti","Blautia_massiliensis","Blautia_obeum","Blautia_SGB4815","Blautia_sp_Marseille_P3087","Blautia_sp_MSK_20_85","Blautia_wexlerae","Butyricicoccus_sp_AM29_23AC","Candidatus_Cibionibacter_quicibialis","Candidatus_Woodwardibium_SGB14954","Catenibacterium_SGB4425","Clostridiaceae_bacterium","Clostridiaceae_bacterium_AF18_31LB","Clostridiaceae_bacterium_Marseille_Q4149","Clostridiales_bacterium","Clostridiales_bacterium_KLE1615","Clostridiales_Family_XIII_bacterium_BX16","Clostridium_fessum","Clostridium_leptum","Clostridium_saudiense","Clostridium_SGB4750","Clostridium_SGB6179","Clostridium_sp_1001270H_150608_G6","Clostridium_sp_1001270J_160509_D11","Clostridium_sp_AF34_10BH","Clostridium_sp_AF34_13","Clostridium_sp_AF36_4","Clostridium_sp_AM22_11AC","Clostridium_sp_AM49_4BH","Clostridium_spiroforme","Collinsella_aerofaciens","Collinsella_SGB14861","Collinsella_SGB4121","Coprococcus_catus","Coprococcus_comes","Coprococcus_eutactus","Coprococcus_SGB4669","Dialister_invisus","Dorea_formicigenerans","Dorea_longicatena","Dorea_sp_AF24_7LB","Dorea_sp_AF36_15AT","Dysosmobacter_sp_BX15","Dysosmobacter_welbionis","Eggerthella_lenta","Ellagibacter_isourolithinifaciens","Enterocloster_SGB14313","Enterococcus_SGB6173","Eubacteriaceae_bacterium","Eubacterium_ramulus","Eubacterium_rectale","Eubacterium_SGB6276","Eubacterium_siraeum","Eubacterium_sp_AF34_35BH","Eubacterium_ventriosum","Evtepia_gabavorous","Faecalibacillus_faecis","Faecalibacillus_intestinalis","Faecalibacterium_prausnitzii","Faecalibacterium_SGB15315","Faecalibacterium_SGB15346","Faecalicatena_fissicatena","Faecalitalea_cylindroides","Firmicutes_bacterium_AF16_15","Flavonifractor_plautii","Fusicatenibacter_saccharivorans","Gemmiger_formicilis","Gemmiger_SGB15299","GGB1266_SGB1699","GGB14025_SGB14906","GGB1550_SGB2134","GGB27106_SGB6188","GGB2982_SGB3964","GGB3005_SGB3996","GGB3033_SGB4029","GGB3109_SGB4643","GGB3175_SGB4191","GGB3256_SGB4303","GGB3277_SGB4327","GGB3278_SGB4328","GGB3304_SGB4367","GGB33469_SGB15236","GGB33512_SGB15203","GGB3363_SGB4447","GGB34797_SGB14322","GGB3570_SGB4777","GGB3612_SGB4882","GGB3619_SGB4894","GGB3653_SGB4964","GGB3730_SGB5060","GGB3746_SGB5089","GGB4456_SGB6141","GGB45432_SGB63101","GGB4566_SGB6305","GGB4567_SGB6307","GGB4569_SGB6310","GGB4571_SGB6317","GGB4684_SGB6478","GGB47687_SGB2286","GGB51647_SGB4348","GGB6601_SGB9333","GGB6612_SGB9346","GGB79734_SGB15291","GGB79890_SGB14770","GGB79973_SGB14341","GGB80011_SGB15265","GGB80140_SGB15224","GGB9342_SGB14306","GGB9345_SGB14311","GGB9453_SGB14844","GGB9524_SGB14924","GGB9602_SGB15031","GGB9608_SGB15041","GGB9634_SGB15093","GGB9635_SGB15106","GGB9642_SGB15119","GGB9677_SGB15180","GGB9699_SGB15216","GGB9708_SGB15233","GGB9708_SGB15234","GGB9713_SGB15249","GGB9719_SGB15272","GGB9747_SGB15356","GGB9758_SGB15368","GGB9760_SGB15373","GGB9760_SGB15374","GGB9765_SGB15382","GGB9770_SGB15390","GGB9782_SGB15403","Gordonibacter_pamelaeae","Gordonibacter_urolithinfaciens","Holdemanella_porci","Intestinibacter_bartlettii","Intestinimonas_massiliensis","Lachnospira_eligens","Lachnospira_pectinoschiza","Lachnospira_sp_NSJ_43","Lachnospiraceae_bacterium","Lachnospiraceae_bacterium_BX3","Lachnospiraceae_bacterium_Marseille_Q4251","Lacrimispora_amygdalina","Lacrimispora_celerecrescens","Lactococcus_lactis","Lawsonibacter_asaccharolyticus","Mediterraneibacter_glycyrrhizinilyticus","Methanobrevibacter_smithii","Monoglobus_pectinilyticus","Odoribacter_splanchnicus","Oscillibacter_sp_ER4","Oscillospiraceae_bacterium","Other","Parabacteroides_distasonis","Parabacteroides_merdae","Paraprevotella_clara","Parasutterella_excrementihominis","Phascolarctobacterium_faecium","Phocaeicola_dorei","Phocaeicola_massiliensis","Phocaeicola_SGB6473","Phocaeicola_vulgatus","Prevotella_copri_clade_A","Pseudoruminococcus_massiliensis","Romboutsia_timonensis","Roseburia_faecis","Roseburia_hominis","Roseburia_intestinalis","Roseburia_inulinivorans","Roseburia_sp_AF02_12","Ruminococcus_bicirculans","Ruminococcus_bromii","Ruminococcus_callidus","Ruminococcus_gnavus","Ruminococcus_lactaris","Ruminococcus_SGB4421","Ruminococcus_sp_AF41_9","Ruminococcus_sp_BSD2780120874_150323_B10","Ruminococcus_torques","Ruthenibacterium_lactatiformans","Sanguibacter_SGB15121","Senegalimassilia_anaerobia","Slackia_isoflavoniconvertens","Staphylococcus_SGB6340","Streptococcus_salivarius","Streptococcus_thermophilus","Sutterella_wadsworthensis","Turicibacter_bilis","Vescimonas_coprocola","Waltera_intestinalis"],[0.1143833630757349,0.03755871623382339,-0.01549438738418422,0.172534115294241,0.08080861852309246,0.007858026109296576,-0.08366486622251061,0.02354979912252992,0.07388537009646011,-0.0574230434485085,0.05453337741570975,0.01750384292562092,0.1502609286574565,-0.026118868117715,-0.09402652844077686,-0.04262574595055414,-0.05569644297731245,0.04031192918082548,-0.03072062916492801,0.05392032986203527,-0.1233470684373394,-0.0372915375551886,0.03096986760722768,0.06728021914763969,0.07732189893815593,-0.05526905862523902,0.1129260901212881,0.1067143588803431,0.005559147684288863,-0.05119365463022647,-0.01422858118404575,-0.0871500597522802,0.05593065642499328,-0.1466597651930414,0.1228559060906255,0.07967406882479336,-0.06053361472387771,-0.03154305200341006,-0.07956348776906592,-0.05970798997419162,0.03830607842048409,-0.1244393827790815,-0.07905190942476437,-0.06870717331952614,-0.03855907590737016,-0.1227621483375959,0.2043850068658243,-0.04897053599416542,-0.06844727590966537,0.06038931507948763,-0.1261722080136402,0.1372237421716915,-0.0615663259100676,0.05687435707772452,-0.01114942905144993,-0.02334867996492426,-0.002601151941106647,-0.03324808184143223,0.01340159923856893,0.009920904921659833,0.1125665842849094,0.01592610443110319,0.0637951002154773,0.05804528872499978,0.186421908861356,0.0875417898117847,0.009158711155134155,0.01661049345146684,-0.006977589086067829,0.0986935066862184,0.02199852830455007,-0.05568561393094552,0.02268928590888223,-0.1125463195655381,-0.105559068770749,-0.05255525821995843,0.06401594804174383,-0.03324808184143223,-0.02304739405257344,0.01895171002830351,-0.08194628996470557,0.08366486622251061,-0.02216538789428815,-0.05266591440129418,0.0724722333619703,-0.1331139945005128,-0.08831760007624923,-0.03557145296011437,-0.02049806782339549,0.04100820972559732,-0.02112916499418012,0.1438438318273065,-0.0893315317126471,0.1756580124669085,-0.005427322242845142,-0.02219770214938537,0.001729531849253649,-0.02131287297527707,0.04738497774743075,0.1482576466079316,0.04761039348573808,0.02064600347538335,-0.01886826454860758,-0.0549844614671331,0.1474850809889173,-0.06658697619626548,-0.01569337719276233,0.08086351361191813,0.03456778366926883,-0.02081877639107546,-0.0331072591761551,-0.1088431708703386,-0.05896703664970328,0.02196628560587946,0.0119445783233274,-0.04756650460582579,-0.06121441070380015,-0.07712654777734158,0.05411510052577463,-0.04605365686510632,-0.01285302530245672,-0.1979384246629364,0.0584970098469195,-0.04349175095965803,0.05530265510985347,-0.07183468978730034,0.05518359554647768,-0.06689657430869961,-0.03058679594935088,-0.134718746688713,0.02140825557264016,-0.1210672294477554,0.05236237698361403,-0.02117547411878138,0.1582860266446057,0.07381202538654026,-0.07528668902651284,-0.1638210726839056,-0.09019183420962439,0.1184257997013329,0.103906750761288,0.07072223498366918,0.01993596881733666,-0.09483006224977232,0.09804609792465581,0.07079979735566698,0.05246315919160934,-0.02393949982529747,0.2044323325674869,-0.02990395322600498,0.08503200546438341,-0.03749418378132907,-0.05282410234233077,-0.08503200546438341,0.07764340510219839,-0.07387946119424156,-0.1120851793747371,0.08773377516185646,-0.03260702587254869,-0.02556060967322089,0.05334602333334101,-0.008450280026872023,-0.02713416452740863,-0.06262242910851495,0.1364138906642608,-0.07302136779908792,-0.08863599990706898,-0.1059432293636963,-0.1669931442893732,-0.0623568040072145,-0.05453337741570975,0.04064399845746074,0.04499936280650287,-0.09262602596589176,0.02756787604408863,0.1576227590158902,-0.08147659691444183,-0.04913030978243119,-0.006936405176284393,0.07173757093932175,-0.03968774833891468,0.0731759576375431,-0.06352590210425083,0.05616904576792148,-0.03364010957381985,-0.118315691856265,-0.02341036746995983,0.03337747286823384,-0.08403868778573757,0.002557544757033248,0.05102118955298264,-0.0167542869698923,-0.002110841748406902,0.1226207874362042,-0.01565169484241136,0.1208562215966369,-0.04714213238108748,0.08531697762980264,-0.02075438219104379,-0.01228967484105311,0.228674522744081,-0.1748993386826265,-0.01366716300275679,0.0004265302643075512,0.1383202858782567,-0.1545029008709553,0.007001537170248369,0.07350510359328008,-0.2441664395416172,-0.1663202661822521,-0.1087598060679125,-0.0902067466019444,0.07854024120428703,0.04614311982394334,-0.1515726563729884,0.02431222506553042,-0.07416879795396419,0.04745373815248898,0.02919785812368919,-0.08759357437106757,-0.0165641968598771,0.03453421523788132,0.07887444220997585,0.1770367058741523,0.008215910252106716,0.01726517451380527,-0.05240706483586124],[0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9673372895567816,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9719869371619876,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.963055284910794,0.9545732965613177,0.9877746386543681,0.9545732965613177,0.9545732965613177,0.9644448508960138,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9673372895567816,0.9545732965613177,0.9673372895567816,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.972631872013814,0.9545732965613177,0.9877746386543681,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.963055284910794,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9593361575499352,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9673372895567816,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9673372895567816,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9877746386543681,0.9545732965613177,0.9545732965613177,0.9877746386543681,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.963055284910794,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9958671588527388,0.9545732965613177,0.9545732965613177,0.9673372895567816,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9545732965613177,0.9673372895567816,0.9545732965613177,0.9545732965613177]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>microbes<\/th>\n      <th>cor<\/th>\n      <th>p_adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"dom":"Bfrtip","columnDefs":[{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[1,2]},{"name":"microbes","targets":0},{"name":"cor","targets":1},{"name":"p_adj","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render"],"jsHooks":[]}</script>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="microbiota-vs.-biochemantrop.-waist-circumference-total-cholesterol-ldl-hdl-triglycerides" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="microbiota-vs.-biochemantrop.-waist-circumference-total-cholesterol-ldl-hdl-triglycerides"><span class="header-section-number">1.4</span> microbiota vs.&nbsp;biochem/antrop. (waist circumference, total cholesterol, LDL, HDL, Triglycerides)</h2>
+<div class="cell">
+<div id="tbl-table-of-bio_sum" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-table-of-bio_sum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4
+</figcaption>
+<div aria-describedby="tbl-table-of-bio_sum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-bf40a8a47c5062d7bfa6" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-bf40a8a47c5062d7bfa6">{"x":{"filter":"none","vertical":false,"caption":"<caption>Correlation table of biochem/antrop<\/caption>","data":[["Adlercreutzia_equolifaciens","Agathobaculum_butyriciproducens","Akkermansia_muciniphila","Alistipes_communis","Alistipes_finegoldii","Alistipes_ihumii","Alistipes_indistinctus","Alistipes_onderdonkii","Alistipes_putredinis","Alistipes_senegalensis","Alistipes_SGB2313","Alistipes_shahii","Alistipes_sp_AF17_16","Anaerobutyricum_hallii","Anaerobutyricum_soehngenii","Anaerostipes_hadrus","Anaerotignum_faecicola","Bacteroides_caccae","Bacteroides_cellulosilyticus","Bacteroides_eggerthii","Bacteroides_faecis","Bacteroides_finegoldii","Bacteroides_fragilis","Bacteroides_intestinalis","Bacteroides_ovatus","Bacteroides_salyersiae","Bacteroides_stercoris","Bacteroides_thetaiotaomicron","Bacteroides_uniformis","Bacteroides_xylanisolvens","Barnesiella_intestinihominis","Bifidobacterium_adolescentis","Bifidobacterium_animalis","Bifidobacterium_bifidum","Bifidobacterium_longum","Bifidobacterium_pseudocatenulatum","Bilophila_wadsworthia","Blautia_faecis","Blautia_glucerasea","Blautia_luti","Blautia_massiliensis","Blautia_obeum","Blautia_SGB4815","Blautia_sp_Marseille_P3087","Blautia_sp_MSK_20_85","Blautia_wexlerae","Butyricicoccus_sp_AM29_23AC","Candidatus_Cibionibacter_quicibialis","Candidatus_Woodwardibium_SGB14954","Catenibacterium_SGB4425","Clostridiaceae_bacterium","Clostridiaceae_bacterium_AF18_31LB","Clostridiaceae_bacterium_Marseille_Q4149","Clostridiales_bacterium","Clostridiales_bacterium_KLE1615","Clostridiales_Family_XIII_bacterium_BX16","Clostridium_fessum","Clostridium_leptum","Clostridium_saudiense","Clostridium_SGB4750","Clostridium_SGB6179","Clostridium_sp_1001270H_150608_G6","Clostridium_sp_1001270J_160509_D11","Clostridium_sp_AF34_10BH","Clostridium_sp_AF34_13","Clostridium_sp_AF36_4","Clostridium_sp_AM22_11AC","Clostridium_sp_AM49_4BH","Clostridium_spiroforme","Collinsella_aerofaciens","Collinsella_SGB14861","Collinsella_SGB4121","Coprococcus_catus","Coprococcus_comes","Coprococcus_eutactus","Coprococcus_SGB4669","Dialister_invisus","Dorea_formicigenerans","Dorea_longicatena","Dorea_sp_AF24_7LB","Dorea_sp_AF36_15AT","Dysosmobacter_sp_BX15","Dysosmobacter_welbionis","Eggerthella_lenta","Ellagibacter_isourolithinifaciens","Enterocloster_SGB14313","Enterococcus_SGB6173","Eubacteriaceae_bacterium","Eubacterium_ramulus","Eubacterium_rectale","Eubacterium_SGB6276","Eubacterium_siraeum","Eubacterium_sp_AF34_35BH","Eubacterium_ventriosum","Evtepia_gabavorous","Faecalibacillus_faecis","Faecalibacillus_intestinalis","Faecalibacterium_prausnitzii","Faecalibacterium_SGB15315","Faecalibacterium_SGB15346","Faecalicatena_fissicatena","Faecalitalea_cylindroides","Firmicutes_bacterium_AF16_15","Flavonifractor_plautii","Fusicatenibacter_saccharivorans","Gemmiger_formicilis","Gemmiger_SGB15299","GGB1266_SGB1699","GGB14025_SGB14906","GGB1550_SGB2134","GGB27106_SGB6188","GGB2982_SGB3964","GGB3005_SGB3996","GGB3033_SGB4029","GGB3109_SGB4643","GGB3175_SGB4191","GGB3256_SGB4303","GGB3277_SGB4327","GGB3278_SGB4328","GGB3304_SGB4367","GGB33469_SGB15236","GGB33512_SGB15203","GGB3363_SGB4447","GGB34797_SGB14322","GGB3570_SGB4777","GGB3612_SGB4882","GGB3619_SGB4894","GGB3653_SGB4964","GGB3730_SGB5060","GGB3746_SGB5089","GGB4456_SGB6141","GGB45432_SGB63101","GGB4566_SGB6305","GGB4567_SGB6307","GGB4569_SGB6310","GGB4571_SGB6317","GGB4684_SGB6478","GGB47687_SGB2286","GGB51647_SGB4348","GGB6601_SGB9333","GGB6612_SGB9346","GGB79734_SGB15291","GGB79890_SGB14770","GGB79973_SGB14341","GGB80011_SGB15265","GGB80140_SGB15224","GGB9342_SGB14306","GGB9345_SGB14311","GGB9453_SGB14844","GGB9524_SGB14924","GGB9602_SGB15031","GGB9608_SGB15041","GGB9634_SGB15093","GGB9635_SGB15106","GGB9642_SGB15119","GGB9677_SGB15180","GGB9699_SGB15216","GGB9708_SGB15233","GGB9708_SGB15234","GGB9713_SGB15249","GGB9719_SGB15272","GGB9747_SGB15356","GGB9758_SGB15368","GGB9760_SGB15373","GGB9760_SGB15374","GGB9765_SGB15382","GGB9770_SGB15390","GGB9782_SGB15403","Gordonibacter_pamelaeae","Gordonibacter_urolithinfaciens","Holdemanella_porci","Intestinibacter_bartlettii","Intestinimonas_massiliensis","Lachnospira_eligens","Lachnospira_pectinoschiza","Lachnospira_sp_NSJ_43","Lachnospiraceae_bacterium","Lachnospiraceae_bacterium_BX3","Lachnospiraceae_bacterium_Marseille_Q4251","Lacrimispora_amygdalina","Lacrimispora_celerecrescens","Lactococcus_lactis","Lawsonibacter_asaccharolyticus","Mediterraneibacter_glycyrrhizinilyticus","Methanobrevibacter_smithii","Monoglobus_pectinilyticus","Odoribacter_splanchnicus","Oscillibacter_sp_ER4","Oscillospiraceae_bacterium","Other","Parabacteroides_distasonis","Parabacteroides_merdae","Paraprevotella_clara","Parasutterella_excrementihominis","Phascolarctobacterium_faecium","Phocaeicola_dorei","Phocaeicola_massiliensis","Phocaeicola_SGB6473","Phocaeicola_vulgatus","Prevotella_copri_clade_A","Pseudoruminococcus_massiliensis","Romboutsia_timonensis","Roseburia_faecis","Roseburia_hominis","Roseburia_intestinalis","Roseburia_inulinivorans","Roseburia_sp_AF02_12","Ruminococcus_bicirculans","Ruminococcus_bromii","Ruminococcus_callidus","Ruminococcus_gnavus","Ruminococcus_lactaris","Ruminococcus_SGB4421","Ruminococcus_sp_AF41_9","Ruminococcus_sp_BSD2780120874_150323_B10","Ruminococcus_torques","Ruthenibacterium_lactatiformans","Sanguibacter_SGB15121","Senegalimassilia_anaerobia","Slackia_isoflavoniconvertens","Staphylococcus_SGB6340","Streptococcus_salivarius","Streptococcus_thermophilus","Sutterella_wadsworthensis","Turicibacter_bilis","Vescimonas_coprocola","Waltera_intestinalis"],[-0.1067008983915437,-0.1126761487014702,0.008411238865700003,0.06390152418305223,-0.08871380946556889,-0.020800657348138,-0.09568302380143479,0.03639514409845533,-0.05240706483586124,-0.08059374519088913,0.05453337741570975,0.0008751921462810461,-0.1088504365077638,-0.1836884331557334,-0.1953560882167597,-0.1423699914748508,-0.1042523163421489,0.02906208847919977,0.05472112070002803,0.134459556744569,0.09194963283510758,-0.0372915375551886,-0.1049277604006072,-0.03364010957381985,-0.2336839612353157,-0.1149014639840495,0.1179730662160943,0.02578930339608292,-0.01154592211352302,0.01396190580824358,-0.002667858972008578,-0.120053653740386,-0.03189434126714493,-0.1105830315091916,-0.04123834610034983,-0.02655802294159779,-0.1219319953723822,0.01705029838022165,-0.01869524575994445,-0.0695844995939827,-0.03055878166128506,-0.02694048493155372,-0.2784383920850034,-0.09936114295439165,-0.05284021513232206,-0.1423699914748508,0.09024792510958476,0.03780181725865401,-0.1264116356890216,0.05568365416420288,-0.007672634271099744,0.1174978292345108,0.002414365721963435,-0.05259808962827155,0.01458002260574222,0.05361548732686311,0.04508663364584856,-0.2250639386189258,-0.02144255878171028,0.07289708398958747,0.2022123708647467,0.1539523428339975,-0.0518335189250753,-0.01280410780698525,0.1646817445626556,0.03995497073460943,0.05189936321242689,-0.01212117089701634,0.04684952672074114,-0.07260711725373777,0.06858364706712668,0.0118674259197097,0.001815142872710579,-0.1348837570365609,0.03680040929622442,-0.08122176270357211,-0.0004886713590972812,-0.1346973572037511,0.001707214374264699,-0.05130828812540706,-0.04011953779522043,-0.01432934172871729,0.005967604433077579,-0.1194617082761063,-0.04010599321973114,-0.009463080177761572,-0.08359473376201131,-0.1280572306564117,-0.08591743321721089,0.03844519661774749,0.1551189917865419,0.0562867168019895,0.05794477732712244,-0.06331305056395346,-0.1593659167671801,-0.08033454111206133,-0.08907089023656291,-0.003410059676044331,0.03926183870501405,0.004782504729288116,0.07996697158284163,0.09290701563922509,-0.009434132274303789,0.02835136294399051,0.1244671781756181,-0.0743698695179069,-0.09174589743461053,0.05505600926768894,0.03456778366926883,0.04983888893621095,0.01324290367046204,-0.1014951087018769,-0.0008934399492379285,0.1151890586649777,-0.05308701477034398,-0.01691253497096028,0.03588430972291733,-0.04299975672542053,0.007058491372927126,0.06497981722062947,-0.05950474677063295,-0.07669539888331876,0.008602501448076397,-0.09724560046035896,-0.01460824851958393,0.1070190276423046,-0.01660865497029911,0.03087534198863058,-0.1639138552157521,0.06616927840894385,0.02885460533703674,0.006053361472387771,0.01703354431997083,0.04627233233363338,0.1135530191146084,0.04479191284140478,0.1090601570010233,-0.03860751394461469,-0.1058773705939069,0.03058679594935088,-0.01799502387485993,-0.004160131469627599,0.0009967984408668328,0.0005357630635580358,0.001849926375936902,0.1614642860557297,0.130903222448967,0.01069637226236695,0.04377469372857888,-0.1146318206996858,0.03349745669809043,-0.1254115802341007,0.0005804846411245139,-0.06441818595786622,0.02744968867249438,-0.03447708189064606,-0.1216800196324966,-0.03805320368466063,0.1134357097256272,-0.01734469942111418,0.02689344977961819,-0.05794477732712244,-0.08140249358222588,-0.0172438572907505,-0.04934119449558368,-0.1217022796651465,-0.08220644550966502,-0.1048396540578245,-0.007260571490842314,-0.1633645195891487,-0.1163378718201808,-0.01816008441716331,-0.001874973450270953,-0.006861187108584575,0.1440643844884632,-0.006933552449379332,0.1003448614630494,0.05042321267144254,-0.004335253235177745,-0.04999891307892122,-0.0109032275656359,0.02918059660392823,-0.01492219176945489,-0.09684318235848531,0.006728021914763969,-0.02366313837125299,0.03294792458735087,-0.1168211550388184,0.02068644622418156,-0.09207161125319693,0.02680774366343155,-0.09773334065770507,0.1146890683301083,-0.04822165798052976,-0.1909506770774186,-0.1447618478465211,0.03025539839383226,-0.1262691268921079,0.162575993829843,0.09422084044807387,0.04714213238108748,-0.1389786921072216,0.0692175674655747,-0.02943058823722103,0.05842099030882892,0.05719168153786743,0.05338672092314381,-0.03459063698507298,0.09495361537729557,0.005735181592491452,0.03474898368144921,-0.1062644920703534,0.02908897822381001,-0.003549470755687949,-0.06472562082954639,0.02004692242245491,-0.06138107416879796,-0.02207150611743674,-0.03583373496998218,-0.07034029457070577,0.07808835662513489,-0.1334470292525537,0.01065870840675349,0.1234172335989521,-0.03468939884222835,0.007525845300889476,0.009450454314663502],[0.9515421015124355,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.976850884012622,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9515421015124355,0.9515421015124355,0.9515421015124355,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.4723194578591021,0.9515421015124355,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.2117179497354077,0.9515421015124355,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.4723194578591021,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.976850884012622,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9515421015124355,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9515421015124355,0.9515421015124355,0.9955893964565821,0.9515421015124355,0.9515421015124355,0.9955893964565821,0.9515421015124355,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.976850884012622,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9515421015124355,0.9955893964565821,0.9955893964565821,0.9955893964565821]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>microbes<\/th>\n      <th>cor<\/th>\n      <th>p_adj<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"dom":"Bfrtip","columnDefs":[{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatSignif(data, 3, 3, \",\", \".\", null);\n  }"},{"className":"dt-right","targets":[1,2]},{"name":"microbes","targets":0},{"name":"cor","targets":1},{"name":"p_adj","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render"],"jsHooks":[]}</script>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="heatmap" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="heatmap"><span class="header-section-number">1.5</span> Heatmap</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="corr_species_prevalent_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

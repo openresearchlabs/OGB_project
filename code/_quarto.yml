@@ -11,6 +11,7 @@ project:
     - "!alpha/alpha.qmd"
     - "!daa/daa_mtc.qmd"
     - "!daa/daa_level.qmd"
+    - "!corr.qmd"
 website:
   title: "OGB Analysis"
   navbar:
@@ -42,7 +43,16 @@ website:
             href: daa/daa_pa.html
           - text: "Wilcoxon Pathways"
             href: daa/daa_pa_wilcox.html
-
+      - text: "Correlations"
+        menu:
+          - text: "Phylum"
+            href: corr/corr_phylum_prevalent.html
+          - text: "Family"
+            href: corr/corr_family_prevalent.html
+          - text: "Genus"
+            href: corr/corr_genus_prevalent.html
+          - text: "Species"
+            href: corr/corr_species_prevalent.html
   sidebar:
     style: "docked"
     search: true

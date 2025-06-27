@@ -1,6 +1,3 @@
-library(stringr)
-library(readxl)
-
 #load the functions needed
 source("funct.R")
 
@@ -45,8 +42,36 @@ samdf$duration <- factor(samdf$duration, levels = c("Baseline", "Week 6"))
 # Check that the sample data and assay data match by sample names
 if (!all(rownames(samdf)==colnames(tse))) {stop("Check sample ID matching")}
 
+ogb <- read_excel("../data/ext/ogb_correlation_data.xlsx", sheet = "Sheet1")
+
+# Pivot only time columns (T0_, T6_, etc.)
+ogb_long <- ogb %>%
+  pivot_longer(
+    cols = starts_with("T"),
+    names_to = "key",
+    values_to = "value"
+  ) %>%
+  mutate(
+    time = case_when(
+      str_starts(key, "T0_") ~ 1,
+      str_starts(key, "T6_") ~ 2,
+      TRUE ~ NA_real_
+    ),
+    variable = str_remove(key, "^T[0-9]+_")
+  ) %>%
+  select(id, diet, time, variable, value)
+
+ogb_wide <- ogb_long %>%
+  pivot_wider(names_from = variable, values_from = value)
+
+# Join with df2
+sam_ogb <- samdf %>%
+  dplyr::left_join(ogb_wide, by = c("id", "time", "diet"))
+
+rownames(sam_ogb) <- sam_ogb$sample
+
 # Add sample metadata to the TreeSE as colData 
-colData(tse) <- DataFrame(samdf[colnames(tse),])
+colData(tse) <- DataFrame(sam_ogb[colnames(tse),])
 
 #the metaphlan results is essentially relative abundance, so "counts"="relabundance"
 #check with colSums(assay(tse, "counts"))
