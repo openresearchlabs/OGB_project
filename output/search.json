@@ -11,7 +11,7 @@
     "href": "ratio/ratio.html#data-summary",
     "title": "Bacteroidota/Baccilota ratio",
     "section": "1 Data Summary",
-    "text": "1 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 18 138 \nmetadata(1): agglomerated_by_rank\nassays(1): relabundance\nrownames(18): Actinobacteria Ascomycota ... Thaumarchaeota\n  Verrucomicrobia\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(138): AE1332 AE2332 ... VK1336 VK2336\ncolData names(19): sample id ... bact_firm_ratio bfratio\nreducedDimNames(0):\nmainExpName: NULL\naltExpNames(0):\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
+    "text": "1 Data Summary\n\n\nclass: TreeSummarizedExperiment \ndim: 18 138 \nmetadata(1): agglomerated_by_rank\nassays(1): relabundance\nrownames(18): Actinobacteria Ascomycota ... Thaumarchaeota\n  Verrucomicrobia\nrowData names(9): kingdom phylum ... strain clade_name\ncolnames(138): AE1332 AE2332 ... VK1336 VK2336\ncolData names(57): sample id ... bact_firm_ratio bfratio\nreducedDimNames(0):\nmainExpName: NULL\naltExpNames(0):\nrowLinks: NULL\nrowTree: NULL\ncolLinks: NULL\ncolTree: NULL"
   },
   {
     "objectID": "daa/daa_pa_wilcox.html",
@@ -117,5 +117,145 @@
     "title": "DAA Taxa",
     "section": "",
     "text": "This section highlights significant taxa from maaslin3.\nAnalysis information:\n\nMethod: maaslin3\nTaxonomic level: species\nGroup variable: Diet\nFormula used: ~ diet * timepoint + (1 | id)\nCorrection: Benjamini-Hochberg FDR adjustment\nDetection threshold: 0.1%\nPrevalence threshold: 10%\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 5\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 6\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 7\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 8\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 9\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 10\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 11\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 12\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 13"
+  },
+  {
+    "objectID": "corr/corr_phylum_prevalent.html",
+    "href": "corr/corr_phylum_prevalent.html",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Taxa that are less prevalent than this (in relabundance) have been agglomerated:\n\nDetection threshold: 0.1%\nPrevalence threshold: 10%\nNumber of taxonomic groups: 10\n\n\n\n\n\n\n\nTable 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 4"
+  },
+  {
+    "objectID": "corr/corr_phylum_prevalent.html#microbiota-vs.-short-chain-fatty-acids-12-scfas-in-total",
+    "href": "corr/corr_phylum_prevalent.html#microbiota-vs.-short-chain-fatty-acids-12-scfas-in-total",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Table 1"
+  },
+  {
+    "objectID": "corr/corr_phylum_prevalent.html#microbiota-vs.-significant-inflammation-markers-il-1b-mmp12-tnsf-12-egf",
+    "href": "corr/corr_phylum_prevalent.html#microbiota-vs.-significant-inflammation-markers-il-1b-mmp12-tnsf-12-egf",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Table 2"
+  },
+  {
+    "objectID": "corr/corr_phylum_prevalent.html#microbiota-vs.-dietary-intake-total-fat-carbohydrates-protein-fiber-sfa-mufa-pufa",
+    "href": "corr/corr_phylum_prevalent.html#microbiota-vs.-dietary-intake-total-fat-carbohydrates-protein-fiber-sfa-mufa-pufa",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Table 3"
+  },
+  {
+    "objectID": "corr/corr_phylum_prevalent.html#microbiota-vs.-biochemantrop.-waist-circumference-total-cholesterol-ldl-hdl-triglycerides",
+    "href": "corr/corr_phylum_prevalent.html#microbiota-vs.-biochemantrop.-waist-circumference-total-cholesterol-ldl-hdl-triglycerides",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Table 4"
+  },
+  {
+    "objectID": "corr/corr_family_prevalent.html",
+    "href": "corr/corr_family_prevalent.html",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Taxa that are less prevalent than this (in relabundance) have been agglomerated:\n\nDetection threshold: 0.1%\nPrevalence threshold: 10%\nNumber of taxonomic groups: 71\n\n\n\n\n\n\n\nTable 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 4"
+  },
+  {
+    "objectID": "corr/corr_family_prevalent.html#microbiota-vs.-short-chain-fatty-acids-12-scfas-in-total",
+    "href": "corr/corr_family_prevalent.html#microbiota-vs.-short-chain-fatty-acids-12-scfas-in-total",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Table 1"
+  },
+  {
+    "objectID": "corr/corr_family_prevalent.html#microbiota-vs.-significant-inflammation-markers-il-1b-mmp12-tnsf-12-egf",
+    "href": "corr/corr_family_prevalent.html#microbiota-vs.-significant-inflammation-markers-il-1b-mmp12-tnsf-12-egf",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Table 2"
+  },
+  {
+    "objectID": "corr/corr_family_prevalent.html#microbiota-vs.-dietary-intake-total-fat-carbohydrates-protein-fiber-sfa-mufa-pufa",
+    "href": "corr/corr_family_prevalent.html#microbiota-vs.-dietary-intake-total-fat-carbohydrates-protein-fiber-sfa-mufa-pufa",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Table 3"
+  },
+  {
+    "objectID": "corr/corr_family_prevalent.html#microbiota-vs.-biochemantrop.-waist-circumference-total-cholesterol-ldl-hdl-triglycerides",
+    "href": "corr/corr_family_prevalent.html#microbiota-vs.-biochemantrop.-waist-circumference-total-cholesterol-ldl-hdl-triglycerides",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Table 4"
+  },
+  {
+    "objectID": "corr/corr_genus_prevalent.html",
+    "href": "corr/corr_genus_prevalent.html",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Taxa that are less prevalent than this (in relabundance) have been agglomerated:\n\nDetection threshold: 0.1%\nPrevalence threshold: 10%\nNumber of taxonomic groups: 145\n\n\n\n\n\n\n\nTable 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 4"
+  },
+  {
+    "objectID": "corr/corr_genus_prevalent.html#microbiota-vs.-short-chain-fatty-acids-12-scfas-in-total",
+    "href": "corr/corr_genus_prevalent.html#microbiota-vs.-short-chain-fatty-acids-12-scfas-in-total",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Table 1"
+  },
+  {
+    "objectID": "corr/corr_genus_prevalent.html#microbiota-vs.-significant-inflammation-markers-il-1b-mmp12-tnsf-12-egf",
+    "href": "corr/corr_genus_prevalent.html#microbiota-vs.-significant-inflammation-markers-il-1b-mmp12-tnsf-12-egf",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Table 2"
+  },
+  {
+    "objectID": "corr/corr_genus_prevalent.html#microbiota-vs.-dietary-intake-total-fat-carbohydrates-protein-fiber-sfa-mufa-pufa",
+    "href": "corr/corr_genus_prevalent.html#microbiota-vs.-dietary-intake-total-fat-carbohydrates-protein-fiber-sfa-mufa-pufa",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Table 3"
+  },
+  {
+    "objectID": "corr/corr_genus_prevalent.html#microbiota-vs.-biochemantrop.-waist-circumference-total-cholesterol-ldl-hdl-triglycerides",
+    "href": "corr/corr_genus_prevalent.html#microbiota-vs.-biochemantrop.-waist-circumference-total-cholesterol-ldl-hdl-triglycerides",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Table 4"
+  },
+  {
+    "objectID": "corr/corr_species_prevalent.html",
+    "href": "corr/corr_species_prevalent.html",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Taxa that are less prevalent than this (in relabundance) have been agglomerated:\n\nDetection threshold: 0.1%\nPrevalence threshold: 10%\nNumber of taxonomic groups: 227\n\n\n\n\n\n\n\nTable 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 4"
+  },
+  {
+    "objectID": "corr/corr_species_prevalent.html#microbiota-vs.-short-chain-fatty-acids-12-scfas-in-total",
+    "href": "corr/corr_species_prevalent.html#microbiota-vs.-short-chain-fatty-acids-12-scfas-in-total",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Table 1"
+  },
+  {
+    "objectID": "corr/corr_species_prevalent.html#microbiota-vs.-significant-inflammation-markers-il-1b-mmp12-tnsf-12-egf",
+    "href": "corr/corr_species_prevalent.html#microbiota-vs.-significant-inflammation-markers-il-1b-mmp12-tnsf-12-egf",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Table 2"
+  },
+  {
+    "objectID": "corr/corr_species_prevalent.html#microbiota-vs.-dietary-intake-total-fat-carbohydrates-protein-fiber-sfa-mufa-pufa",
+    "href": "corr/corr_species_prevalent.html#microbiota-vs.-dietary-intake-total-fat-carbohydrates-protein-fiber-sfa-mufa-pufa",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Table 3"
+  },
+  {
+    "objectID": "corr/corr_species_prevalent.html#microbiota-vs.-biochemantrop.-waist-circumference-total-cholesterol-ldl-hdl-triglycerides",
+    "href": "corr/corr_species_prevalent.html#microbiota-vs.-biochemantrop.-waist-circumference-total-cholesterol-ldl-hdl-triglycerides",
+    "title": "Correlation analysis",
+    "section": "",
+    "text": "Table 4"
   }
 ]

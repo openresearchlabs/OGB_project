@@ -1,0 +1,159 @@
+---
+title: "Correlation analysis"
+author: ""
+params: 
+  tax.level: default
+---
+
+```{r setup}
+# Source group-assignment
+source("../funct.R")
+
+# Load the TreeSummarizedExperiment object
+tse <- readRDS("../../data/tse_delta.Rds")
+
+# Define variables and formulas
+prevalence.th <- 10/100
+detection.th <- 0.1/100
+tax.level <- params$tax.level
+
+if (tax.level == "phylum_prevalent") {
+    tse <- tse
+} else {
+    tse <- altExp(tse, tax.level)
+}
+```
+
+
+# Taxonomic level: `r tax.level`
+
+Taxa that are less prevalent than this (in relabundance) have been agglomerated:
+
+-   Detection threshold: `r 100 * detection.th`%
+-   Prevalence threshold: `r 100 * prevalence.th`%
+-   Number of taxonomic groups: `r nrow(tse)`
+
+
+## microbiota vs. Short-chain fatty acids (12 SCFAs in total)
+
+```{r scfa_sum}
+#| label: tbl-table-of-scfa_sum
+result1 <- getCrossAssociation(
+    tse, assay.type1 = "relabundance_delta",
+    col.var2 = c("scfa_sum"),
+    test.signif = TRUE, show.warnings = FALSE, verbose = FALSE) 
+
+result1 <- result1 %>%
+    dplyr::rename(microbes = "Var1")
+
+result <- result1 %>%
+    select(-Var2, -pval)
+
+datatable(
+  result,
+  options = list(pageLength = 10, dom = 'Bfrtip'),
+  caption = "Correlation table of Short-chain fatty acids",
+  rownames = FALSE
+)  %>%
+      formatSignif(columns = c("cor", "p_adj"), digits = 3)
+```
+
+
+## microbiota vs. significant inflammation markers (IL-1B, MMP12, TNSF-12, EGF)
+
+```{r inflamm_sum}
+#| label: tbl-table-of-inflamm_sum
+result2 <- getCrossAssociation(
+    tse, assay.type1 = "relabundance_delta",
+    col.var2 = c("inflamm_sum"),
+    test.signif = TRUE, show.warnings = FALSE, verbose = FALSE)
+result2 <- result2 %>%
+    dplyr::rename(microbes = "Var1")
+result <- result2 %>%
+    select(-Var2, -pval)
+datatable(
+  result,
+  options = list(pageLength = 10, dom = 'Bfrtip'),
+  caption = "Correlation table of significant inflammation markers",
+  rownames = FALSE
+)  %>%
+      formatSignif(columns = c("cor", "p_adj"), digits = 3)
+```
+
+
+## microbiota vs. dietary intake (total fat, carbohydrates, protein, fiber, SFA, MUFA, PUFA)
+
+```{r diet_sum}
+#| label: tbl-table-of-diet_sum
+result3 <- getCrossAssociation(
+    tse, assay.type1 = "relabundance_delta",
+    col.var2 = c("diet_sum"),
+    test.signif = TRUE, show.warnings = FALSE, verbose = FALSE)
+result3 <- result3 %>%
+    dplyr::rename(microbes = "Var1")
+result <- result3 %>%
+    select(-Var2, -pval)
+datatable(
+  result,
+  options = list(pageLength = 10, dom = 'Bfrtip'),
+  caption = "Correlation table of dietary intake",
+  rownames = FALSE
+)  %>%
+      formatSignif(columns = c("cor", "p_adj"), digits = 3)
+```
+
+
+## microbiota vs. biochem/antrop. (waist circumference, total cholesterol, LDL, HDL, Triglycerides)
+
+```{r bio_sum}
+#| label: tbl-table-of-bio_sum
+result4 <- getCrossAssociation(
+    tse, assay.type1 = "relabundance_delta",
+    col.var2 = c("bio_sum"),
+    test.signif = TRUE, show.warnings = FALSE, verbose = FALSE)
+result4 <- result4 %>%
+    dplyr::rename(microbes = "Var1")
+result <- result4 %>%
+    select(-Var2, -pval)
+datatable(
+  result,
+  options = list(pageLength = 10, dom = 'Bfrtip'),
+  caption = "Correlation table of biochem/antrop",
+  rownames = FALSE
+)  %>%
+      formatSignif(columns = c("cor", "p_adj"), digits = 3)
+```
+
+## Heatmap
+
+```{r}
+result <- rbind(result1, result2, result3, result4)
+
+result <- result %>%
+  mutate(
+    signif_label = case_when(
+      p_adj < 0.05 ~ "*",
+      p_adj < 0.10 ~ "†",
+      TRUE ~ ""
+    ),
+    label = ifelse(!is.na(cor), paste0(round(cor, 4), signif_label), "")
+  )
+
+result <- result[result$p_adj < 0.25, ]
+
+# Plot
+ggplot(result, aes(x = Var2, y = microbes, fill = cor)) +
+  geom_tile(color = "white", size = 0.3) +
+  geom_text(aes(label = label), size = 5) +
+  scale_fill_gradient2(low = "blue", high = "red", mid = "white", midpoint = 0, na.value = "grey50") +
+  theme_minimal(base_size = 14) +
+  theme(text = element_text(family = "Roboto"), 
+        axis.text = element_text(face = "bold"),
+        axis.text.x = element_text(angle = 45, hjust = 1),
+        panel.grid = element_blank()
+  ) +
+  labs(
+    x = NULL, y = NULL, fill = "Correlation"
+  ) + labs(caption = "p < 0.05 = *   p <0.10 = †")
+```
+

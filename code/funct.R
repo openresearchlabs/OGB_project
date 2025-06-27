@@ -26,6 +26,8 @@ library(reshape2)
 library(vegan)
 library(lmerTest)
 library(kableExtra)
+library(stringr)
+library(readxl)
 
 # Define variables
 taxa     <- c("genus","species")
@@ -185,4 +187,109 @@ generate_prevalence_label <- function(df_prevalence, feature_id) {
     ) %>%
     unite("label", everything(), sep = " | ") %>%
     pull(label)
+}
+
+make_delta_tse <- function(tse, tse_name) {
+  
+  tse <- altExp(tse, tse_name)
+  
+  
+  df <- mia::meltSE(tse, assay.type = "relabundance", add.col = T)
+  
+  df <- df %>% select(-c(sample, visit, diet, meal_group, gender, age, diet_in, paired, meal, duration, intervention, timepoint))
+  
+  df_delta <- df %>%
+    arrange(FeatureID, id, time) %>%
+    group_by(FeatureID, id) %>%
+    mutate(
+      across(
+        .cols = where(is.numeric) & !c(time),  # all numeric except time column
+        .fns = ~ . - lag(.),
+        .names = "{.col}_delta"
+      )
+    ) %>%
+    ungroup()
+  
+  df_deltas_only <- df_delta %>% 
+    filter(time != "1") %>%
+    select(
+      FeatureID,
+      id,
+      ends_with("_delta")
+    )
+  
+  assay_df <- df_deltas_only %>%
+    select(FeatureID, id, relabundance_delta) %>%
+    pivot_wider(
+      id_cols = FeatureID,
+      names_from = id,
+      values_from = relabundance_delta
+    )
+  
+  assay_mat <- assay_df %>%
+    column_to_rownames("FeatureID") %>%
+    as.matrix()
+  
+  scfa_vars <- c("acetic_delta", "propionic_delta", "butyric_delta", 
+                 "isobutyr_delta", "succinic_delta",
+                 "valeric_delta", "isovaler_delta", "lactic_delta", 
+                 "indolelactic_delta", "indolebutyric_delta",
+                 "indolepropionic_delta", "heptanoic_delta")
+  
+  inflamm_markers <- c("IL1B_delta", "MMP12_delta", 
+                       "TNFSF12_delta", "EGF_delta")
+  
+  diet_vars <- c("fat_delta", "carb_delta", "prot_delta", "fiber_delta", 
+                 "SFA_delta", "MUFA_delta", "PUFA_delta")
+  
+  bio_vars <- c("waist_delta", "Kol_delta", "LDLkol_delta", 
+                "HDLkol_delta", "Trigly_delta")
+  
+  summary_df <- df_deltas_only %>%
+    ungroup() %>%
+    select(id, all_of(scfa_vars), all_of(inflamm_markers), 
+           all_of(diet_vars), all_of(bio_vars)) %>%
+    group_by(id) %>%
+    summarise(
+      scfa_sum = rowSums(across(all_of(scfa_vars)), na.rm = TRUE),
+      inflamm_sum = rowSums(across(all_of(inflamm_markers)), na.rm = TRUE),
+      diet_sum = rowSums(across(all_of(diet_vars)), na.rm = TRUE),
+      bio_sum = rowSums(across(all_of(bio_vars)), na.rm = TRUE),
+      .groups = "drop"
+    ) %>%
+    distinct(id, .keep_all = TRUE) %>%
+    as.data.frame()
+   
+  col_data <- df_deltas_only %>%
+    ungroup() %>%  # ⬅️ This removes any lingering groupings
+    select(-FeatureID, -relabundance_delta) %>%
+    distinct(id, .keep_all = TRUE) %>%
+    as.data.frame()
+  
+  col_data <- dplyr::left_join(col_data, summary_df, by = "id")
+  rownames(col_data) <- col_data$id
+  
+  tse2 <- TreeSummarizedExperiment(
+    assays = list(relabundance_delta = assay_mat),
+    colData = col_data
+  )
+  
+  rowData(tse2) <- rowData(tse)
+  
+  return(tse2)
+  
+}
+
+combine_delta_altExps <- function(tse, base_exp, other_exps) {
+  # Create the base delta TSE
+  base_delta <- make_delta_tse(tse, base_exp)
+  
+  # For each other altExp, create delta TSE and add as altExp inside base_delta
+  for (nm in other_exps) {
+    message("Processing delta for altExp: ", nm)
+    delta_tse <- make_delta_tse(tse, nm)
+    altExp(base_delta, nm) <- delta_tse
+  }
+  
+  return(base_delta)
 }
