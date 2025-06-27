@@ -193,10 +193,14 @@ make_delta_tse <- function(tse, tse_name) {
   
   tse <- altExp(tse, tse_name)
   
+  tse <- transformAssay(tse, assay.type = "relabundance", method = "clr", 
+                        pseudocount = T)
   
-  df <- mia::meltSE(tse, assay.type = "relabundance", add.col = T)
   
-  df <- df %>% select(-c(sample, visit, diet, meal_group, gender, age, diet_in, paired, meal, duration, intervention, timepoint))
+  df <- mia::meltSE(tse, assay.type = "clr", add.col = T)
+  
+  df <- df %>% select(-c(sample, visit, diet, meal_group, gender, age, diet_in, 
+                         paired, meal, duration, intervention, timepoint))
   
   df_delta <- df %>%
     arrange(FeatureID, id, time) %>%
@@ -219,58 +223,58 @@ make_delta_tse <- function(tse, tse_name) {
     )
   
   assay_df <- df_deltas_only %>%
-    select(FeatureID, id, relabundance_delta) %>%
+    select(FeatureID, id, clr_delta) %>%
     pivot_wider(
       id_cols = FeatureID,
       names_from = id,
-      values_from = relabundance_delta
+      values_from = clr_delta
     )
   
   assay_mat <- assay_df %>%
     column_to_rownames("FeatureID") %>%
     as.matrix()
   
-  scfa_vars <- c("acetic_delta", "propionic_delta", "butyric_delta", 
-                 "isobutyr_delta", "succinic_delta",
-                 "valeric_delta", "isovaler_delta", "lactic_delta", 
-                 "indolelactic_delta", "indolebutyric_delta",
-                 "indolepropionic_delta", "heptanoic_delta")
+  # scfa_vars <- c("acetic_delta", "propionic_delta", "butyric_delta", 
+  #                "isobutyr_delta", "succinic_delta",
+  #                "valeric_delta", "isovaler_delta", "lactic_delta", 
+  #                "indolelactic_delta", "indolebutyric_delta",
+  #                "indolepropionic_delta", "heptanoic_delta")
+  # 
+  # inflamm_markers <- c("IL1B_delta", "MMP12_delta", 
+  #                      "TNFSF12_delta", "EGF_delta")
+  # 
+  # diet_vars <- c("fat_delta", "carb_delta", "prot_delta", "fiber_delta", 
+  #                "SFA_delta", "MUFA_delta", "PUFA_delta")
+  # 
+  # bio_vars <- c("waist_delta", "Kol_delta", "LDLkol_delta", 
+  #               "HDLkol_delta", "Trigly_delta")
   
-  inflamm_markers <- c("IL1B_delta", "MMP12_delta", 
-                       "TNFSF12_delta", "EGF_delta")
-  
-  diet_vars <- c("fat_delta", "carb_delta", "prot_delta", "fiber_delta", 
-                 "SFA_delta", "MUFA_delta", "PUFA_delta")
-  
-  bio_vars <- c("waist_delta", "Kol_delta", "LDLkol_delta", 
-                "HDLkol_delta", "Trigly_delta")
-  
-  summary_df <- df_deltas_only %>%
-    ungroup() %>%
-    select(id, all_of(scfa_vars), all_of(inflamm_markers), 
-           all_of(diet_vars), all_of(bio_vars)) %>%
-    group_by(id) %>%
-    summarise(
-      scfa_sum = rowSums(across(all_of(scfa_vars)), na.rm = TRUE),
-      inflamm_sum = rowSums(across(all_of(inflamm_markers)), na.rm = TRUE),
-      diet_sum = rowSums(across(all_of(diet_vars)), na.rm = TRUE),
-      bio_sum = rowSums(across(all_of(bio_vars)), na.rm = TRUE),
-      .groups = "drop"
-    ) %>%
-    distinct(id, .keep_all = TRUE) %>%
-    as.data.frame()
+  # summary_df <- df_deltas_only %>%
+  #   ungroup() %>%
+  #   select(id, all_of(scfa_vars), all_of(inflamm_markers), 
+  #          all_of(diet_vars), all_of(bio_vars)) %>%
+  #   group_by(id) %>%
+  #   summarise(
+  #     scfa_sum = rowSums(across(all_of(scfa_vars)), na.rm = TRUE),
+  #     inflamm_sum = rowSums(across(all_of(inflamm_markers)), na.rm = TRUE),
+  #     diet_sum = rowSums(across(all_of(diet_vars)), na.rm = TRUE),
+  #     bio_sum = rowSums(across(all_of(bio_vars)), na.rm = TRUE),
+  #     .groups = "drop"
+  #   ) %>%
+  #   distinct(id, .keep_all = TRUE) %>%
+  #   as.data.frame()
    
   col_data <- df_deltas_only %>%
     ungroup() %>%  # ⬅️ This removes any lingering groupings
-    select(-FeatureID, -relabundance_delta) %>%
+    select(-FeatureID, -clr_delta) %>%
     distinct(id, .keep_all = TRUE) %>%
     as.data.frame()
   
-  col_data <- dplyr::left_join(col_data, summary_df, by = "id")
+  # col_data <- dplyr::left_join(col_data, summary_df, by = "id")
   rownames(col_data) <- col_data$id
   
   tse2 <- TreeSummarizedExperiment(
-    assays = list(relabundance_delta = assay_mat),
+    assays = list(clr_delta = assay_mat),
     colData = col_data
   )
   
