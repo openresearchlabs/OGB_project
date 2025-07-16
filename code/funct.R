@@ -199,7 +199,7 @@ make_delta_tse <- function(tse, tse_name) {
   
   df <- mia::meltSE(tse, assay.type = "clr", add.col = T)
   
-  df <- df %>% select(-c(sample, visit, diet, meal_group, gender, age, diet_in, 
+  df <- df %>% select(-c(sample, visit, meal_group, gender, age, diet_in, 
                          paired, meal, duration, intervention, timepoint))
   
   df_delta <- df %>%
@@ -218,6 +218,7 @@ make_delta_tse <- function(tse, tse_name) {
     filter(time != "1") %>%
     select(
       FeatureID,
+      diet,
       id,
       ends_with("_delta")
     )
