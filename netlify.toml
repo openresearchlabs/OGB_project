@@ -1,12 +1,12 @@
 [build]
-publish = "output"
+  publish = "output"
 
 [functions]
-node_bundler = "esbuild"
+  node_bundler = "esbuild"
 
 [edge_functions]
-directory = "netlify/edge-functions"
+  directory = "netlify/edge-functions"
 
 [[edge_functions]]
-path = "/*"
-function = "basic-auth"
+  path = "/*"
+  function = "basic-auth"
