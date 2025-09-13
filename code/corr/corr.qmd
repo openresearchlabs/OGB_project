@@ -542,7 +542,7 @@ ggplot(top_bottom_corr, aes(x = cor, y = reorder(paste(Var1, Var2, sep = " vs ")
 ```{r bio_sum_O}
 #| label: tbl-table-of-bio_sum_O
 result4O <- getCrossAssociation(
-    tse, assay.type1 = "clr_delta",
+    tse_O, assay.type1 = "clr_delta",
     col.var2 = bio_vars,
     test.signif = TRUE, show.warnings = FALSE, verbose = FALSE)
 result <- result4O %>%
