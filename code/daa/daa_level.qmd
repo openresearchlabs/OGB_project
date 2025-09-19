@@ -19,7 +19,7 @@ variable <- "diet"
 prevalence.th <- 10/100
 detection.th <- 0.1/100
 tax.level <- params$tax.level
-# tax.level <- "species_prevalent"
+tax.level <- "species_prevalent"
 
 # Add CLR transformation
 tse <- transformAssay(
