@@ -37,7 +37,8 @@ In the report, a suffix of 1~ Baseline and 2~ Week 6
 # Calculate the Bacteroidetes/Firmicutes ratio and add to colData
 # using the chosen name
 tse <- altExp(tse, "phylum")
-tse$diet <- factor(tse$diet, levels=c("oat", "rice"))
+tse$diet <- str_to_title(tse$diet)
+tse$diet <- factor(tse$diet, levels=c("Oat", "Rice"))
 ratio <- "bact_firm_ratio"
 colData(tse)[[ratio]] <- assay(tse, "relabundance")["Bacteroidetes", ] /
                          assay(tse, "relabundance")["Firmicutes", ]
@@ -410,7 +411,7 @@ Interpret the Results
 adjust.method <- "FDR"
 test <- "paired Wilcoxon"
 formula_used <- "~ diet * timepoint + (1 | id)"
-tse$diet <- factor(tse$diet, levels=c("rice", "oat"))
+tse$diet <- factor(tse$diet, levels=c("Rice", "Oat"))
 
 tse$bfratio <- log2(tse$bact_firm_ratio)
 res <- run_lmer(tse, "bfratio")

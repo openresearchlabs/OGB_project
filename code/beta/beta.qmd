@@ -14,6 +14,12 @@ knitr::opts_chunk$set(dev = "png",
 source("../funct.R")
 tse <- readRDS("../../data/tse.Rds")
 tse$diet <- factor(tse$diet, levels=c("oat", "rice"))
+colnames(colData(tse)) <- str_replace_all(colnames(colData(tse)), 
+                                          c("diet" = "Diet", "duration" = "Duration"))
+
+colData(tse)$Time <- colData(tse)$Duration
+colData(tse)$Diet <- str_to_title(colData(tse)$Diet)
+colnames(colData(tse)) <- str_replace_all(colnames(colData(tse)), "Duration", "Time")
 ```
 
 ### Phylum
@@ -33,14 +39,14 @@ tse$diet <- factor(tse$diet, levels=c("oat", "rice"))
  altExp(tse, "phylum") <- agglomerateByVariable(altExp(tse, "phylum"), 
                                     by = "rows", 
                                     f = "phylum_sub")
-
-altExp(tse, "phylum")$diet <- factor(altExp(tse, "phylum")$diet, levels=c("oat", "rice"))
+colData(altExp(tse, "phylum")) <- colData(tse)
+altExp(tse, "phylum")$Diet <- factor(altExp(tse, "phylum")$Diet, levels=c("Oat", "Rice"))
 tse_p <- altExp(tse, "phylum")
 
-plots <- lapply(sort(unique(tse_p$diet)), function(diet_id) {
-    tse_diet <- tse_p[, tse_p$diet == diet_id]
-    time_plots <- lapply(unique(tse_diet$duration), function(time_point) {
-        tse_filtered <- tse_diet[, tse_diet$duration == time_point]
+plots <- lapply(sort(unique(tse_p$Diet)), function(diet_id) {
+    tse_diet <- tse_p[, tse_p$Diet == diet_id]
+    time_plots <- lapply(unique(tse_diet$Time), function(time_point) {
+        tse_filtered <- tse_diet[, tse_diet$Time == time_point]
         #lab <- paste0(unique(tse_filtered$diet), " at time ", time_point)
 
         # Plot abundance for the filtered tse
@@ -50,8 +56,8 @@ plots <- lapply(sort(unique(tse_p$diet)), function(diet_id) {
             color.by = "phylum_sub",
             group = "phylum_sub",
             order.row.by = "name",
-            order.col.by = "Firmicutes"
-        ) +
+            order.col.by = "Other"
+        ) + scale_fill_discrete(name = "Phylum") +
             theme(
               axis.text.y = element_text(face = "bold", size = 12),
               axis.title.x = element_text(face = "bold", size = 14),
@@ -61,7 +67,7 @@ plots <- lapply(sort(unique(tse_p$diet)), function(diet_id) {
               plot.title = element_text(face = "bold", size = 14),
               strip.text = element_text(size = 14, face = "bold")
             ) + scale_y_continuous(label=scales::percent) +
-          labs(ylab = "Abundance(%)") + facet_wrap( diet ~ duration, nrow = 1, drop = TRUE )  })
+          labs(y = "Relative abundance (%)") + facet_wrap( Diet ~ Time, nrow = 1, drop = TRUE )  })
      return(time_plots)
 })
 
@@ -120,14 +126,15 @@ ggplot(summary_results, aes(x = reorder(Phylum, Mean_Percentage), y = Mean_Perce
  altExp(tse, "genus") <- agglomerateByVariable(altExp(tse, "genus"), 
                                     by = "rows", 
                                     f = "genus_sub")
-altExp(tse, "genus")$diet <- factor(altExp(tse, "genus")$diet, levels=c("oat", "rice"))
+colData(altExp(tse, "genus")) <- colData(tse)
+altExp(tse, "genus")$Diet <- factor(altExp(tse, "genus")$Diet, levels=c("Oat", "Rice"))
 
 tse_g <- altExp(tse, "genus")
 
-plots <- lapply(sort(unique(tse_g$diet)), function(diet_id) {
-    tse_diet <- tse_g[, tse_g$diet == diet_id]
-    time_plots <- lapply(unique(tse_diet$duration), function(time_point) {
-        tse_filtered <- tse_diet[, tse_diet$duration == time_point]
+plots <- lapply(sort(unique(tse_g$Diet)), function(diet_id) {
+    tse_diet <- tse_g[, tse_g$Diet == diet_id]
+    time_plots <- lapply(unique(tse_diet$Time), function(time_point) {
+        tse_filtered <- tse_diet[, tse_diet$Time == time_point]
         #lab <- paste0(unique(tse_filtered$diet), " at time ", time_point)
 
         # Plot abundance for the filtered tse
@@ -138,7 +145,7 @@ plots <- lapply(sort(unique(tse_g$diet)), function(diet_id) {
             group = "genus_sub",
             order.row.by = "name",
             order.col.by = "Other"
-        ) +
+        ) +  scale_fill_discrete(name = "Genus") +
             theme(
               axis.text.y = element_text(face = "bold", size = 12),
               axis.title.x = element_text(face = "bold", size = 14),
@@ -148,7 +155,7 @@ plots <- lapply(sort(unique(tse_g$diet)), function(diet_id) {
               plot.title = element_text(face = "bold", size = 14),
               strip.text = element_text(size = 14, face = "bold")
             ) + scale_y_continuous(label=scales::percent) +
-          labs(ylab = "Abundance(%)") + facet_wrap( diet ~ duration, nrow = 1, drop = TRUE )  })
+          labs(y = "Relative abundance (%)") + facet_wrap( Diet ~ Time, nrow = 1, drop = TRUE )  })
      return(time_plots)
 })
 
@@ -173,12 +180,12 @@ tse_heat <- transformAssay(
     tse_heat, assay.type = "clr", MARGIN = "rows", method = "standardize",
     name = "clr_z")
 
-order_indices <- order(tse_heat$diet_in, tse_heat$time)
+order_indices <- order(tse_heat$Diet_in, tse_heat$Time)
 tse_heat <- tse_heat[, order_indices]
 
 sechm(
             tse_heat, assayName = "clr_z", features = rownames(tse_heat),
-            show_rownames = TRUE, show_colnames = FALSE, do.scale = TRUE, name = "clr_z", top_annotation="duration", gaps_at=c("diet", "duration"), show_annotation_legend = F, hmcols = c("blue", "white", "red"), cluster_rows = T, cluster_cols = F, na_col = "black", column_gap = unit(4, "mm")
+            show_rownames = TRUE, show_colnames = FALSE, do.scale = TRUE, name = "clr_z", top_annotation="Time", gaps_at=c("Diet", "Time"), show_annotation_legend = F, hmcols = c("blue", "white", "red"), cluster_rows = T, cluster_cols = F, na_col = "black", column_gap = unit(4, "mm")
         )
 ```
 
@@ -194,7 +201,7 @@ This document presents the results of a microbiota project, focusing on beta div
 # Define variables
 tax.level <- "species"
 dissimilarity.index <- "bray"
-variable <- "diet"  
+variable <- "Diet"  
 adjust.method <- "fdr"
 test <- "Wilcoxon"
 index <- "divergence" 
@@ -224,60 +231,150 @@ tse <- transformAssay(tse, assay.type = "relabundance", method = "clr", pseudoco
 e <- attr(reducedDim(tse, "PCoA_BC"), "eig")
 rel_eig <- e / sum(e[e > 0])
 # Create the PCoA plot
-p <- plotReducedDim(tse, "PCoA_BC",  colour_by = "group",
-                    other_fields = c("diet", "group", "duration", "time"))
-# Add explained variance for axes
-p1 <- p + labs(
-   title = "Oat vs Rice : Baseline vs Week 6",
-  x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
-  y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
-) 
-# Add ellipses for groups
-p_ellipse <- p1 #stat_ellipse(aes(color = tse$group), level = 0.95) +
+p <- plotReducedDim(tse, "PCoA_BC",  colour_by = "group", shape_by = "Diet",
+                    other_fields = c("Diet", "group", "Time", "time")) +
+    scale_color_manual(
+        name = "Diet × Time",
+        values = c(
+            "diet_1_visit_1"  = "#EEB093",
+            "diet_1_visit_2"    = "#DB6022",
+            "diet_2_visit_1" = "#88EDFF",
+            "diet_2_visit_2"   = "#0098B2"
+        ),
+        labels = c(
+            "diet_1_visit_1"  = "Oat Baseline",
+            "diet_1_visit_2"    = "Oat Week 6",
+            "diet_2_visit_1" = "Rice Baseline",
+            "diet_2_visit_2"   = "Rice Week 6"
+        )
+    ) + theme(legend.position = "none") +
+    scale_shape_manual(
+        values = c(Oat = 16, Rice = 15)
+    ) +
+    guides(shape = "none") +
+    labs(
+        title = "(A) Oat vs Rice : Baseline vs Week 6",
+        x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
+        y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
+    )
 
-
-p_ellipse + guides(color = guide_legend(title = "Diet x Time")) +  
-  scale_color_discrete(labels = c("Oat Baseline", "Oat Week 6", "Rice Baseline", "Rice Week 6"))
+p_ellipse <- p
 
 tse_bb <- tse[, tse$timepoint == "before"]
 tse_w6 <- tse[, tse$timepoint == "after"]
-tse_obw <- tse[, tse$diet == "oat"]
-tse_rbw <- tse[, tse$diet == "rice"]
+tse_obw <- tse[, tse$Diet == "Oat"]
+tse_rbw <- tse[, tse$Diet == "Rice"]
 
-p1 <- plotReducedDim(tse_bb, "PCoA_BC",  colour_by = "diet",
-                    other_fields = c("diet", "group", "timepoint", "time"))
+p1 <- plotReducedDim(tse_bb, "PCoA_BC",  colour_by = "Diet", shape_by = "Diet",
+                    other_fields = c("Diet", "group", "timepoint", "time")) +
+  scale_color_manual(
+    values = c(Oat = "#EEB093", Rice = "#88EDFF")
+  ) +
+  scale_shape_manual(
+    values = c(Oat = 16, Rice = 15)
+  ) +
+  theme(legend.position = "none") +
+  labs(
+    title = "(B) Baseline: Oat vs Rice",
+    x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
+    y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
+  )
 
-p2 <- plotReducedDim(tse_w6, "PCoA_BC",  colour_by = "diet",
-                    other_fields = c("diet", "group", "timepoint", "time"))
+p2 <- plotReducedDim(tse_w6, "PCoA_BC",  colour_by = "Diet", shape_by = "Diet",
+                    other_fields = c("Diet", "group", "timepoint", "time")) +
+  scale_color_manual(
+    values = c(Oat = "#DB6022", Rice = "#0098B2")
+  ) +
+  scale_shape_manual(
+    values = c(Oat = 16, Rice = 15)
+  ) +
+  theme(legend.position = "none") +
+  labs(
+    title = "(C) Week 6: Oat vs Rice",
+    x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
+    y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
+  )
 
-p3 <- plotReducedDim(tse_obw, "PCoA_BC",  colour_by = "duration",
-                    other_fields = c("diet", "group", "timepoint", "time"))
+p3 <- plotReducedDim(tse_obw, "PCoA_BC",  colour_by = "Time", shape_by = "Diet",
+                    other_fields = c("Diet", "group", "timepoint", "time")) +
+  scale_color_manual(
+    values = c(Baseline = "#EEB093", "Week 6" = "#DB6022")
+  ) +
+  scale_shape_manual(
+    values = c(Oat = 16, Rice = 15)
+  ) +
+  theme(legend.position = "none") +
+  labs(
+    title = "(D) Oat: Baseline vs Week 6",
+    x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
+    y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
+  )
 
-p4 <- plotReducedDim(tse_rbw, "PCoA_BC",  colour_by = "duration",
-                    other_fields = c("diet", "group", "timepoint", "time"))
-p1 + labs(
-  title = "Baseline: Oat vs Rice",
-  x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
-  y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
+p4 <- plotReducedDim(tse_rbw, "PCoA_BC",  colour_by = "Time", shape_by = "Diet",
+                    other_fields = c("Diet", "group", "timepoint", "time")) +
+  scale_color_manual(
+    values = c(Baseline = "#88EDFF", "Week 6" = "#0098B2")
+  ) +
+  scale_shape_manual(
+    values = c(Oat = 16, Rice = 15)
+  ) +
+  theme(legend.position = "none") +
+  labs(
+    title = "(E) Rice: Baseline vs Week 6",
+    x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
+    y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
+  )
+
+# Define color mapping
+color_mapping <- c(
+  "Oat Baseline"  = "#EEB093",
+  "Oat Week 6"    = "#DB6022",
+  "Rice Baseline" = "#88EDFF",
+  "Rice Week 6"   = "#0098B2"
 )
 
-p2 + labs(
-  title = "Week 6 : Oat vs Rice",
-  x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
-  y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
-)
+# Create custom legend
+grp_levels <- names(color_mapping)
+legend_four <- ggplot(
+    data.frame(x = 1, y = 1, grp = factor(grp_levels, levels = grp_levels)),
+    aes(x, y, fill = grp)
+) +
+    geom_point(shape = 22, size = 8) +
+    scale_fill_manual(
+        name = "Diet × Time",
+        values = color_mapping,
+        breaks = grp_levels,
+        labels = c("Oat Baseline", "Oat Week 6", "Rice Baseline", "Rice Week 6")
+    ) +
+    theme_void() + 
+    theme(
+        legend.position = "right",
+        legend.title = element_text(face = "bold", size = 12),
+        legend.text = element_text(size = 10)
+    )
+legend_four_grob <- cowplot::get_legend(legend_four)
 
-p3 + labs(
-  title = "Oat: Baseline vs Week 6",
-  x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
-  y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
-)
+# Patch all 4 plots with legend
+p_patched <- wrap_plots(p1, p2, p3, p4, nrow = 2, ncol = 2) +
+    plot_layout(guides = "collect")
 
-p4 + labs(
-  title = "Rice: Baseline vs Week 6",
-  x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%)", sep = ""),
-  y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%)", sep = "")
-)
+# Combine with custom legend using cowplot
+final_plot <- cowplot::plot_grid(p_patched, legend_four_grob, rel_widths = c(4, 0.5))
+p_grid <- wrap_plots(p1, p2, p3, p4, nrow = 2, ncol = 2)
+final_plot <- wrap_plots(
+    p_ellipse,
+    p_grid,
+    legend_four_grob,
+    nrow = 3,
+    ncol = 3,
+    widths = c(2, 1),
+    heights = c(1, 2)
+) +
+    plot_layout(design = "
+    14
+    23
+  ")
+
 ```
 
 ```{r trajectories}
@@ -299,7 +396,7 @@ run_divergence_tests <- function(tse, index = "divergence") {
   
   # Subset data for "after" timepoint only
   after_values <- values[timepoint == "after"]
-  after_treatment <- tse$diet[timepoint == "after"]
+  after_treatment <- tse$Diet[timepoint == "after"]
   
   # Create an empty results dataframe
   results <- data.frame(
@@ -509,7 +606,7 @@ run_rdba_tests_pair <- function(tse, comparisons, variable, var) {
 
 ```{r permanova_paired_res}
 # For the paired treatment comparisons
-diet_groups <- sort(unique(tse$diet))
+diet_groups <- sort(unique(tse$Diet))
 # Calculate statistical results
   
 # Run the diversity tests
@@ -518,7 +615,7 @@ diet_groups <- sort(unique(tse$diet))
  # }
 
 final_results_permanova_paired<- lapply(diet_groups, function(diet_id) {
-    respair <- run_rdba_tests_pair(tse, comp = diet_id, variable = "diet", var = "time")
+    respair <- run_rdba_tests_pair(tse, comp = diet_id, variable = "Diet", var = "time")
     return(respair)
 }) %>% 
   bind_rows() %>%

@@ -206,18 +206,26 @@ df_not_zer0 <- df %>%
 plots_list <- list()
 plots_list <- setNames(lapply(taxa_of_interest, function(taxon_name) {
     
-    p1 <- plotBoxplot( tse, assay.type = "relabundance", x = "diet",  fill.by = "duration", pair.by = "id", features = c(taxon_name), facet.by = "rownames", add.change = T, add.significance = T, ncol = 1, label.size = 5) +
+    p1 <- plotBoxplot( tse, assay.type = "relabundance", x = "Diet",  fill.by = "Duration", pair.by = "id", features = c(taxon_name), facet.by = "rownames", add.change = T, add.significance = F, ncol = 1, label.size = 5) +
       theme_minimal(base_size = 15) +
   theme(text = element_text(family = "Roboto", size = 15), 
         axis.text = element_text(face = "bold"),
-  )
+  ) + scale_y_log10(labels = scales::percent_format(scale = 1)) + 
+        labs(
+      x = "Diet",
+      y = "Relative Abundance (%)\n(log10 scale)"
+    )
 
-    p2 <- plotBoxplot( tse, assay.type = "relabundance", x = "duration",  fill.by = "diet", features = c(taxon_name), facet.by = "rownames", add.significance = T, ncol = 1, label.size = 5) +
+    p2 <- plotBoxplot( tse, assay.type = "relabundance", x = "Duration",  fill.by = "Diet", features = c(taxon_name), facet.by = "rownames", add.significance = F, ncol = 1, label.size = 5) +
         scale_fill_viridis_d(option = "D") +
       theme_minimal(base_size = 15) +
   theme(text = element_text(family = "Roboto", size = 15), 
         axis.text = element_text(face = "bold"),
-  )
+  ) + scale_y_log10(labels = scales::percent_format(scale = 1)) + 
+        labs(
+      x = "Duration",
+      y = "Relative Abundance (%)\n(log10 scale)"
+    )
     
     label_text <- generate_prevalence_label(df_not_zer0, taxon_name)
     

@@ -18,7 +18,8 @@ test <- "Wilcoxon"
 # Source fxns
 source("../funct.R")
 tse <- readRDS("../../data/tse.Rds")
-tse$diet <- factor(tse$diet, levels=c("oat", "rice"))
+tse$diet <- str_to_title(tse$diet)
+tse$diet <- factor(tse$diet, levels=c("Oat", "Rice"))
 #tse$timepoint <- factor(tse$timepoint, levels=c("Baseline", "Week 6"))
 
 ```
@@ -393,7 +394,7 @@ test <- "paired Wilcoxon"
 ```{r lmer-stuff}
 formula_used <- "~ diet * timepoint + (1 | id)"
 
-tse$diet <- factor(tse$diet, levels=c("rice", "oat"))
+tse$diet <- factor(tse$diet, levels=c("Rice", "Oat"))
 
 if (index == "observed") {
   tse$observed_log2 <- log2(tse$observed)
