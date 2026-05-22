@@ -1,4 +1,5 @@
 data/
+.Rhistory
 *.DS_Store
 *.rds
 *.xlsx
