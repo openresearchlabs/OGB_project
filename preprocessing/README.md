@@ -30,4 +30,4 @@ MetaPhlAn abundance tables used in the Quarto pipeline are cleaned with:
 
 ## Note on PCR deduplication
 
-Read deduplication was **not** included in this workflow. If reviewers ask, state that explicitly in the manuscript or add a dedup step to taxprofiler later.
+Read deduplication was **not** included in this workflow.
