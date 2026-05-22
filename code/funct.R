@@ -45,12 +45,12 @@ comparisons <- list(
 # # Define the list of comparisons
 comparisons_before <- list(
   # Between-Group Comparisons at Baseline (before treatment)
-  c("oat", "rice")
+  c("Oat", "Rice")
 )
 
 comparisons_after <- list(
   # Between-Group Comparisons after treatment
-  c("oat", "rice")
+  c("Oat", "Rice")
 )
 
 comparisons_paired <- list(
@@ -180,10 +180,10 @@ generate_prevalence_label <- function(df_prevalence, feature_id) {
   df_prevalence %>%
     filter(FeatureID == feature_id) %>%
     transmute(
-      before_rice = paste0("rice Baseline: n=", rice_Baseline_nonzero_n, " (", rice_Baseline_pct_nonzero, "%)"),
-      after_rice  = paste0("rice Week 6: n=", `rice_Week 6_nonzero_n`,  " (", `rice_Week 6_pct_nonzero`, "%)"),
-      before_oat  = paste0("oat Baseline: n=", oat_Baseline_nonzero_n,  " (", oat_Baseline_pct_nonzero, "%)"),
-      after_oat   = paste0("oat Week 6: n=", `oat_Week 6_nonzero_n`,   " (", `oat_Week 6_pct_nonzero`, "%)")
+      before_oat  = paste0("Oat Baseline: n=", oat_Baseline_nonzero_n,  " (", oat_Baseline_pct_nonzero, "%)"),
+      after_oat   = paste0("Oat Week 6: n=", `oat_Week 6_nonzero_n`,   " (", `oat_Week 6_pct_nonzero`, "%)"),
+      before_rice = paste0("Rice Baseline: n=", rice_Baseline_nonzero_n, " (", rice_Baseline_pct_nonzero, "%)"),
+      after_rice  = paste0("Rice Week 6: n=", `rice_Week 6_nonzero_n`,  " (", `rice_Week 6_pct_nonzero`, "%)")
     ) %>%
     unite("label", everything(), sep = " | ") %>%
     pull(label)
